@@ -65,8 +65,6 @@
 
 .field private mProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
-.field private mProvisionApp:[Ljava/lang/String;
-
 .field private mSecurityType:[Ljava/lang/String;
 
 .field private mTargetPreferece:Landroid/preference/CheckBoxPreference;
@@ -989,19 +987,6 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1095
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mProvisionApp:[Ljava/lang/String;
-
-    aget-object v1, v1, v4
-
-    iget-object v2, p0, Lcom/android/settings/TetherSettings;->mProvisionApp:[Ljava/lang/String;
-
-    const/4 v3, 0x1
-
-    aget-object v2, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 1096
     const-string v1, "ATT"
@@ -2800,23 +2785,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    const/4 v1, 0x1
+
+    if-eqz v1, :cond_0
 
     .line 1087
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    iget-object v1, p0, Lcom/android/settings/TetherSettings;->mProvisionApp:[Ljava/lang/String;
-
-    array-length v1, v1
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_0
-
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v1, 0x1
 
     goto :goto_0
 .end method
@@ -3623,19 +3601,6 @@
 
     .line 327
     :goto_5
-    invoke-virtual {p0}, Lcom/android/settings/TetherSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v11
-
-    const v12, 0x1070022
-
-    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v11
-
-    iput-object v11, p0, Lcom/android/settings/TetherSettings;->mProvisionApp:[Ljava/lang/String;
-
-    .line 330
     new-instance v11, Landroid/webkit/WebView;
 
     invoke-direct {v11, v0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V

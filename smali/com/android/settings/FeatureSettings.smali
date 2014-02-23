@@ -571,6 +571,8 @@
 
     move-result v3
 
+    const/4 v3, 0x1
+
     .line 231
     .local v3, enableBlackListForCHN:Z
     if-nez v3, :cond_0

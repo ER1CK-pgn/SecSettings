@@ -98,7 +98,7 @@
 
     .line 314
     .local v10, limit:I
-    const v10, 0x927c0
+    const v10, 0x1b7740
 
     .line 318
     int-to-long v0, v10

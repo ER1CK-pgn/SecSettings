@@ -2597,6 +2597,8 @@
 
     move-result v1
 
+    const/4 v1, 0x1
+
     if-eqz v1, :cond_11
 
     .line 2994
@@ -3533,6 +3535,8 @@
     goto/16 :goto_2
 
     .line 2582
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

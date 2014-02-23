@@ -699,6 +699,8 @@
     if-lez v0, :cond_1
 
     .line 1147
+    goto :goto_1
+
     invoke-virtual {p0, v6}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -717,6 +719,8 @@
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_2
+
+    if-eq v0, v1, :cond_3
 
     .line 1150
     invoke-virtual {p0, v6}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
@@ -742,6 +746,7 @@
 
     .line 1154
     :cond_3
+    :goto_1
     const v0, 0x7f090170
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
@@ -1692,6 +1697,23 @@
 
     .prologue
     .line 1230
+    const-string v0, "ro.csc.sales_code"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "TMB"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     const-string v0, "Status"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1715,7 +1737,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1231
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 1232
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Status;->updateRegistrationStatus()V
@@ -1738,7 +1760,7 @@
     return-void
 
     .line 1237
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Status;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -2675,6 +2697,20 @@
 
     .prologue
     .line 1258
+    const-string v0, "ro.csc.sales_code"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "TMB"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Status;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1

@@ -485,7 +485,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_1d
+    if-eqz v33, :cond_1e
 
     const/4 v12, 0x1
 
@@ -675,7 +675,7 @@
 
     move-object/from16 v33, v0
 
-    if-eqz v33, :cond_1e
+    if-eqz v33, :cond_1f
 
     .line 602
     const-string v33, "jjh"
@@ -1018,7 +1018,7 @@
 
     move-result-object v33
 
-    if-nez v33, :cond_1f
+    if-nez v33, :cond_20
 
     const/16 v33, 0x1
 
@@ -1040,19 +1040,19 @@
 
     .line 702
     .local v5, cm:Landroid/net/ConnectivityManager;
-    if-nez v12, :cond_20
+    if-nez v12, :cond_21
 
     invoke-virtual {v5}, Landroid/net/ConnectivityManager;->isTetheringSupported()Z
 
     move-result v33
 
-    if-eqz v33, :cond_20
+    if-eqz v33, :cond_21
 
     invoke-static {v2}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
 
     move-result v33
 
-    if-nez v33, :cond_20
+    if-nez v33, :cond_21
 
     const/16 v33, 0x0
 
@@ -1074,7 +1074,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_20
+    if-nez v33, :cond_21
 
     .line 705
     :cond_b
@@ -1088,7 +1088,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_21
+    if-eqz v33, :cond_22
 
     .line 706
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -1198,8 +1198,31 @@
 
     move-result-object v30
 
+    const-string v0, "ro.csc.sales_code"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "TMB"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_d
+
+    const/16 v0, 0x0
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/settings/WirelessSettings;->mWfcSwitchPreference:Lcom/samsung/tmowfc/wfcutils/WfcSwitchPreference;
+
+    goto :goto_4
+
     .line 743
     .local v30, wfcHolder:Landroid/preference/Preference;
+    :cond_d
     const/16 v31, 0x0
 
     .line 745
@@ -1291,7 +1314,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_22
+    if-eqz v33, :cond_23
 
     .line 760
     const-string v33, "persist.sys.roaming_menu"
@@ -1308,7 +1331,7 @@
 
     move/from16 v1, v34
 
-    if-eq v0, v1, :cond_d
+    if-eq v0, v1, :cond_e
 
     .line 761
     const-string v33, "roaming_settings"
@@ -1320,13 +1343,13 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/WirelessSettings;->removePreference(Ljava/lang/String;)V
 
     .line 768
-    :cond_d
+    :cond_e
     :goto_5
     const/4 v11, 0x0
 
     .line 770
     .local v11, isCellBroadcastAppLinkEnabled:Z
-    if-eqz v11, :cond_e
+    if-eqz v11, :cond_f
 
     .line 771
     :try_start_1
@@ -1354,21 +1377,21 @@
 
     move/from16 v1, v34
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_f
 
     .line 774
     const/4 v11, 0x0
 
     .line 780
     .end local v22           #pm:Landroid/content/pm/PackageManager;
-    :cond_e
+    :cond_f
     :goto_6
-    if-nez v12, :cond_f
+    if-nez v12, :cond_10
 
-    if-nez v11, :cond_10
+    if-nez v11, :cond_11
 
     .line 781
-    :cond_f
+    :cond_10
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v25
@@ -1387,7 +1410,7 @@
 
     .line 783
     .local v23, ps:Landroid/preference/Preference;
-    if-eqz v23, :cond_10
+    if-eqz v23, :cond_11
 
     move-object/from16 v0, v25
 
@@ -1398,7 +1421,7 @@
     .line 787
     .end local v23           #ps:Landroid/preference/Preference;
     .end local v25           #root:Landroid/preference/PreferenceScreen;
-    :cond_10
+    :cond_11
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v33
@@ -1421,7 +1444,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_11
+    if-nez v33, :cond_12
 
     const-string v33, "VZW"
 
@@ -1433,10 +1456,10 @@
 
     move-result v33
 
-    if-eqz v33, :cond_23
+    if-eqz v33, :cond_24
 
-    :cond_11
-    if-eqz v9, :cond_23
+    :cond_12
+    if-eqz v9, :cond_24
 
     .line 790
     const-string v33, "vpn_settings"
@@ -1529,7 +1552,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_12
+    if-eqz v33, :cond_13
 
     .line 825
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -1549,12 +1572,12 @@
     invoke-virtual/range {v33 .. v34}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 829
-    :cond_12
+    :cond_13
     const/4 v4, 0x0
 
     .line 830
     .local v4, bToggleableNFC:Z
-    if-eqz v28, :cond_13
+    if-eqz v28, :cond_14
 
     const-string v33, "nfc"
 
@@ -1566,14 +1589,14 @@
 
     move-result v33
 
-    if-nez v33, :cond_14
+    if-nez v33, :cond_15
 
     .line 831
-    :cond_13
+    :cond_14
     const/4 v4, 0x1
 
     .line 834
-    :cond_14
+    :cond_15
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v33
@@ -1586,7 +1609,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_24
+    if-nez v33, :cond_25
 
     const/16 v33, 0x1
 
@@ -1669,7 +1692,7 @@
 
     move-object/from16 v33, v0
 
-    if-eqz v33, :cond_15
+    if-eqz v33, :cond_16
 
     .line 850
     const-string v33, "transfer_category"
@@ -1700,7 +1723,7 @@
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     .line 853
-    :cond_15
+    :cond_16
     const/16 v33, 0x0
 
     move-object/from16 v0, v33
@@ -1766,7 +1789,7 @@
     invoke-static/range {v33 .. v34}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 862
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_26
 
     .line 863
     const-string v33, "parent"
@@ -1799,7 +1822,7 @@
 
     .line 871
     .end local v21           #parent:Landroid/preference/PreferenceScreen;
-    :cond_16
+    :cond_17
     :goto_a
     const-string v33, "MTR"
 
@@ -1811,7 +1834,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_17
+    if-eqz v33, :cond_18
 
     .line 872
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -1831,7 +1854,7 @@
     invoke-virtual/range {v33 .. v34}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 876
-    :cond_17
+    :cond_18
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v33
@@ -1842,7 +1865,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_18
+    if-eqz v33, :cond_19
 
     .line 877
     const-string v33, "transfer_category"
@@ -1859,7 +1882,7 @@
 
     .line 878
     .local v17, nfcCat:Landroid/preference/PreferenceGroup;
-    if-eqz v17, :cond_18
+    if-eqz v17, :cond_19
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
@@ -1873,14 +1896,14 @@
 
     .line 883
     .end local v17           #nfcCat:Landroid/preference/PreferenceGroup;
-    :cond_18
+    :cond_19
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/WirelessSettings;->bTabStyle:Z
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_1b
+    if-eqz v33, :cond_1c
 
     .line 884
     const-string v33, "transfer_category"
@@ -1893,7 +1916,7 @@
 
     move-result-object v33
 
-    if-eqz v33, :cond_19
+    if-eqz v33, :cond_1a
 
     .line 885
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -1913,14 +1936,14 @@
     invoke-virtual/range {v33 .. v34}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 886
-    :cond_19
+    :cond_1a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/WirelessSettings;->mMediaShareCategory:Landroid/preference/PreferenceCategory;
 
     move-object/from16 v33, v0
 
-    if-eqz v33, :cond_1a
+    if-eqz v33, :cond_1b
 
     .line 887
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -1936,14 +1959,14 @@
     invoke-virtual/range {v33 .. v34}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 888
-    :cond_1a
+    :cond_1b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/WirelessSettings;->mKiesCategory:Landroid/preference/PreferenceCategory;
 
     move-object/from16 v33, v0
 
-    if-eqz v33, :cond_1b
+    if-eqz v33, :cond_1c
 
     .line 889
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -1959,12 +1982,12 @@
     invoke-virtual/range {v33 .. v34}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 894
-    :cond_1b
+    :cond_1c
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v33
 
-    if-eqz v33, :cond_1c
+    if-eqz v33, :cond_1d
 
     .line 895
     move-object/from16 v0, p0
@@ -1973,7 +1996,7 @@
 
     move/from16 v33, v0
 
-    if-eqz v33, :cond_1c
+    if-eqz v33, :cond_1d
 
     .line 896
     sget v33, Lcom/android/settings/WirelessSettings;->mSettingValue:I
@@ -1984,7 +2007,7 @@
 
     move/from16 v1, v34
 
-    if-eq v0, v1, :cond_1c
+    if-eq v0, v1, :cond_1d
 
     .line 897
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getArguments()Landroid/os/Bundle;
@@ -2011,7 +2034,7 @@
 
     move/from16 v1, v34
 
-    if-ne v0, v1, :cond_26
+    if-ne v0, v1, :cond_27
 
     const/16 v29, 0x1
 
@@ -2028,7 +2051,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_1c
+    if-eqz v33, :cond_1d
 
     .line 901
     move-object/from16 v0, p0
@@ -2037,7 +2060,7 @@
 
     move-object/from16 v34, v0
 
-    if-nez v29, :cond_27
+    if-nez v29, :cond_28
 
     const/16 v33, 0x1
 
@@ -2071,7 +2094,7 @@
     .end local v8           #extra_bundle:Landroid/os/Bundle;
     .end local v27           #targetKey:Ljava/lang/String;
     .end local v29           #value:Z
-    :cond_1c
+    :cond_1d
     return-void
 
     .line 559
@@ -2093,7 +2116,7 @@
     .end local v30           #wfcHolder:Landroid/preference/Preference;
     .end local v31           #wfcPreferenceScreen:Landroid/preference/PreferenceScreen;
     .end local v32           #wifiCallingHolder:Landroid/preference/Preference;
-    :cond_1d
+    :cond_1e
     const/4 v12, 0x0
 
     goto/16 :goto_0
@@ -2103,7 +2126,7 @@
     .restart local v12       #isSecondaryUser:Z
     .restart local v13       #isSupportedSmartNetwork:Z
     .restart local v19       #nsd:Landroid/preference/CheckBoxPreference;
-    :cond_1e
+    :cond_1f
     const-string v33, "jjh"
 
     const-string v34, "mButtonSmartNetworkEnabled == null"
@@ -2118,14 +2141,14 @@
     .restart local v24       #rcsSetting:Landroid/preference/PreferenceScreen;
     .restart local v26       #salesCode:Ljava/lang/String;
     .restart local v28       #toggleable:Ljava/lang/String;
-    :cond_1f
+    :cond_20
     const/16 v33, 0x0
 
     goto/16 :goto_2
 
     .line 704
     .restart local v5       #cm:Landroid/net/ConnectivityManager;
-    :cond_20
+    :cond_21
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v33
@@ -2145,7 +2168,7 @@
     goto/16 :goto_3
 
     .line 708
-    :cond_21
+    :cond_22
     const-string v33, "tether_settings"
 
     move-object/from16 v0, p0
@@ -2203,7 +2226,7 @@
 
     .line 763
     .end local v7           #exc:Ljava/lang/RuntimeException;
-    :cond_22
+    :cond_23
     const-string v33, "SPR"
 
     move-object/from16 v0, v33
@@ -2214,7 +2237,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_d
+    if-nez v33, :cond_e
 
     const-string v33, "VMU"
 
@@ -2226,7 +2249,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_d
+    if-nez v33, :cond_e
 
     const-string v33, "BST"
 
@@ -2238,7 +2261,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_d
+    if-nez v33, :cond_e
 
     const-string v33, "XAS"
 
@@ -2250,7 +2273,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_d
+    if-nez v33, :cond_e
 
     .line 764
     const-string v33, "roaming_settings"
@@ -2277,7 +2300,7 @@
     .line 792
     .end local v10           #ignored:Ljava/lang/IllegalArgumentException;
     .restart local v9       #hasAdvVpn:Z
-    :cond_23
+    :cond_24
     const-string v33, "vpn_settings_for_att"
 
     move-object/from16 v0, p0
@@ -2311,7 +2334,7 @@
     .line 834
     .end local v6           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     .restart local v4       #bToggleableNFC:Z
-    :cond_24
+    :cond_25
     const/16 v33, 0x0
 
     goto/16 :goto_9
@@ -2319,8 +2342,8 @@
     .line 866
     .restart local v3       #bEnableRcs:Z
     .restart local v18       #nfcCategory:Landroid/preference/PreferenceCategory;
-    :cond_25
-    if-eqz v24, :cond_16
+    :cond_26
+    if-eqz v24, :cond_17
 
     .line 867
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/WirelessSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
@@ -2338,14 +2361,14 @@
     .line 899
     .restart local v8       #extra_bundle:Landroid/os/Bundle;
     .restart local v27       #targetKey:Ljava/lang/String;
-    :cond_26
+    :cond_27
     const/16 v29, 0x0
 
     goto/16 :goto_b
 
     .line 901
     .restart local v29       #value:Z
-    :cond_27
+    :cond_28
     const/16 v33, 0x0
 
     goto/16 :goto_c

@@ -270,7 +270,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_43
 
     move v2, v3
 
@@ -282,7 +282,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_44
+    if-nez v0, :cond_45
 
     .line 292
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -291,7 +291,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_44
 
     .line 293
     const v0, 0x7f07008c
@@ -311,7 +311,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b2
+    if-eqz v0, :cond_b3
 
     .line 343
     if-eqz v1, :cond_2
@@ -590,7 +590,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_47
+    if-nez v1, :cond_48
 
     const-string v1, "ro.product.name"
 
@@ -604,7 +604,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_47
+    if-nez v1, :cond_48
 
     .line 423
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockScreenWidgetOptions:Landroid/preference/PreferenceScreen;
@@ -624,7 +624,7 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_48
+    if-ne v1, v3, :cond_49
 
     move v1, v3
 
@@ -762,7 +762,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4a
+    if-nez v1, :cond_4b
 
     .line 454
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -771,7 +771,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_49
+    if-nez v1, :cond_4a
 
     .line 455
     invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -868,7 +868,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4c
+    if-eqz v1, :cond_4d
 
     move v1, v3
 
@@ -896,7 +896,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4e
+    if-eqz v1, :cond_4f
 
     invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getActivity()Landroid/app/Activity;
 
@@ -906,7 +906,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4e
+    if-nez v1, :cond_4f
 
     .line 495
     iget-object v7, p0, Lcom/android/settings/LockscreenMenuSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
@@ -921,7 +921,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4d
+    if-eqz v1, :cond_4e
 
     move v1, v3
 
@@ -964,7 +964,7 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_4f
+    if-ne v1, v3, :cond_50
 
     move v1, v3
 
@@ -1080,7 +1080,7 @@
     .line 533
     iget-object v7, p0, Lcom/android/settings/LockscreenMenuSettings;->mFingerPrint:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_50
+    if-eqz v1, :cond_51
 
     move v1, v3
 
@@ -1358,25 +1358,34 @@
     invoke-static {v8, v9}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 597
-    if-eqz v1, :cond_51
+    if-eqz v1, :cond_52
 
     if-eq v7, v3, :cond_1a
 
     const/4 v1, 0x3
 
-    if-ne v7, v1, :cond_51
+    if-ne v7, v1, :cond_52
+
+    :cond_1a
+    invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v7, "sview_cover_available"
+
+    invoke-static {v1, v7, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 613
-    :cond_1a
+    :cond_1b
     :goto_b
     const v1, 0x7f070086
 
-    if-ne v6, v1, :cond_1f
+    if-ne v6, v1, :cond_20
 
     .line 614
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1c
 
     .line 616
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
@@ -1394,19 +1403,19 @@
     invoke-virtual {v1, v6}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 620
-    :cond_1b
-    iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
-
-    if-eqz v1, :cond_1c
-
-    .line 625
     :cond_1c
-    iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+    iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
     if-eqz v1, :cond_1d
 
-    .line 632
+    .line 625
     :cond_1d
+    iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
+
+    if-eqz v1, :cond_1e
+
+    .line 632
+    :cond_1e
     const-string v1, "set_wakeup_command"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/LockscreenMenuSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -1420,7 +1429,7 @@
     .line 633
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->setWakeupCommand:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_20
 
     .line 634
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->setWakeupCommand:Landroid/preference/PreferenceScreen;
@@ -1430,7 +1439,7 @@
     move-result-object v1
 
     .line 635
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_20
 
     .line 636
     invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getActivity()Landroid/app/Activity;
@@ -1451,12 +1460,12 @@
 
     move-result v1
 
-    if-ge v1, v3, :cond_1f
+    if-ge v1, v3, :cond_20
 
     .line 639
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_1f
 
     .line 640
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
@@ -1464,10 +1473,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 641
-    :cond_1e
+    :cond_1f
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->setWakeupCommand:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_20
 
     .line 642
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->setWakeupCommand:Landroid/preference/PreferenceScreen;
@@ -1475,24 +1484,24 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 650
-    :cond_1f
+    :cond_20
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     .line 651
     iget-boolean v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mStartFromSearch:Z
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     .line 652
     sget v1, Lcom/android/settings/LockscreenMenuSettings;->mSettingValue:I
 
     const/4 v6, -0x1
 
-    if-eq v1, v6, :cond_20
+    if-eq v1, v6, :cond_21
 
     .line 653
     invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getArguments()Landroid/os/Bundle;
@@ -1509,7 +1518,7 @@
     .line 655
     sget v6, Lcom/android/settings/LockscreenMenuSettings;->mSettingValue:I
 
-    if-ne v6, v3, :cond_52
+    if-ne v6, v3, :cond_53
 
     .line 656
     :goto_c
@@ -1519,7 +1528,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_53
+    if-eqz v4, :cond_54
 
     .line 657
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -1528,7 +1537,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     .line 658
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -1545,13 +1554,13 @@
     invoke-virtual {p0, v1, v3}, Lcom/android/settings/LockscreenMenuSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
     .line 677
-    :cond_20
+    :cond_21
     :goto_d
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
     move-result v1
 
-    if-eqz v1, :cond_41
+    if-eqz v1, :cond_42
 
     .line 681
     const-string v1, "multiple_lock_screenswitch"
@@ -1567,7 +1576,7 @@
     .line 684
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_22
 
     .line 685
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -1586,10 +1595,10 @@
     invoke-virtual {v1, v3}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 702
-    :cond_21
+    :cond_22
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockScreenWidgetOptions:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_23
 
     .line 703
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockScreenWidgetOptions:Landroid/preference/PreferenceScreen;
@@ -1597,12 +1606,12 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 705
-    :cond_22
+    :cond_23
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreen:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_24
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_24
 
     .line 706
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreen:Landroid/preference/CheckBoxPreference;
@@ -1610,7 +1619,7 @@
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
 
     .line 710
-    :cond_23
+    :cond_24
     const-string v1, "lock_screen_clock_settings"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/LockscreenMenuSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -1624,7 +1633,7 @@
     .line 711
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mClockMenu:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_25
 
     .line 713
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mClockMenu:Landroid/preference/PreferenceScreen;
@@ -1643,7 +1652,7 @@
     invoke-virtual {v1, v3}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 733
-    :cond_24
+    :cond_25
     const-string v1, "lock_screen_myprofile_settings"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/LockscreenMenuSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -1668,7 +1677,7 @@
     .line 737
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_26
 
     sget-object v1, Lcom/android/settings/LockscreenMenuSettings;->mContext:Landroid/content/Context;
 
@@ -1676,7 +1685,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_25
+    if-nez v1, :cond_26
 
     .line 738
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -1691,10 +1700,10 @@
     invoke-static {v1, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 741
-    :cond_25
+    :cond_26
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_27
 
     .line 742
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
@@ -1702,10 +1711,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 743
-    :cond_26
+    :cond_27
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->setWakeupCommand:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_27
+    if-eqz v1, :cond_28
 
     .line 744
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->setWakeupCommand:Landroid/preference/PreferenceScreen;
@@ -1713,7 +1722,7 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 746
-    :cond_27
+    :cond_28
     const-string v1, "biometric_weak_improve_matching"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/LockscreenMenuSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
@@ -1723,7 +1732,7 @@
     .line 748
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mOwnerInfoMenu:Landroid/preference/PreferenceScreen;
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_29
 
     .line 749
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mOwnerInfoMenu:Landroid/preference/PreferenceScreen;
@@ -1731,7 +1740,7 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
 
     .line 753
-    :cond_28
+    :cond_29
     const-string v3, "LockScreenMenu"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1765,7 +1774,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_55
+    if-ne v3, v4, :cond_56
 
     .line 757
     const-string v2, "unlock_set_or_change"
@@ -1792,7 +1801,7 @@
     .line 762
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockAfter:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_2a
 
     .line 763
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockAfter:Landroid/preference/ListPreference;
@@ -1800,10 +1809,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 764
-    :cond_29
+    :cond_2a
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_2b
 
     .line 765
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -1811,10 +1820,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 766
-    :cond_2a
+    :cond_2b
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mPowerButtonInstantlyLocks:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_2c
 
     .line 767
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mPowerButtonInstantlyLocks:Landroid/preference/CheckBoxPreference;
@@ -1822,17 +1831,17 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 768
-    :cond_2b
-    if-eqz v1, :cond_2c
+    :cond_2c
+    if-eqz v1, :cond_2d
 
     .line 769
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 770
-    :cond_2c
+    :cond_2d
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_2e
 
     .line 771
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -1840,10 +1849,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 772
-    :cond_2d
+    :cond_2e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_2f
 
     .line 773
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -1851,10 +1860,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 774
-    :cond_2e
+    :cond_2f
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 775
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -1862,7 +1871,7 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1019
-    :cond_2f
+    :cond_30
     :goto_e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -1870,7 +1879,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_42
 
     .line 1021
     const-string v2, "unlock_set_or_change"
@@ -1886,7 +1895,7 @@
     .line 1024
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockAfter:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_31
 
     .line 1025
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockAfter:Landroid/preference/ListPreference;
@@ -1894,10 +1903,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1026
-    :cond_30
+    :cond_31
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_32
 
     .line 1027
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -1905,10 +1914,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1028
-    :cond_31
+    :cond_32
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mPowerButtonInstantlyLocks:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_33
 
     .line 1029
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mPowerButtonInstantlyLocks:Landroid/preference/CheckBoxPreference;
@@ -1916,17 +1925,17 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1030
-    :cond_32
-    if-eqz v1, :cond_33
+    :cond_33
+    if-eqz v1, :cond_34
 
     .line 1031
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1032
-    :cond_33
+    :cond_34
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_35
 
     .line 1033
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -1934,10 +1943,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1034
-    :cond_34
+    :cond_35
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_36
 
     .line 1035
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -1945,10 +1954,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1036
-    :cond_35
+    :cond_36
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mOwnerInfoMenu:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_36
+    if-eqz v1, :cond_37
 
     .line 1037
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mOwnerInfoMenu:Landroid/preference/PreferenceScreen;
@@ -1956,10 +1965,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1038
-    :cond_36
+    :cond_37
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mQuicknote:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_38
 
     .line 1039
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mQuicknote:Landroid/preference/CheckBoxPreference;
@@ -1967,10 +1976,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1040
-    :cond_37
+    :cond_38
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_39
 
     .line 1041
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -1978,10 +1987,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1042
-    :cond_38
+    :cond_39
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMyProfileMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_39
+    if-eqz v1, :cond_3a
 
     .line 1043
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMyProfileMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -1989,10 +1998,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1044
-    :cond_39
+    :cond_3a
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mClockMenu:Landroid/preference/PreferenceScreen;
 
-    if-eqz v1, :cond_3a
+    if-eqz v1, :cond_3b
 
     .line 1045
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mClockMenu:Landroid/preference/PreferenceScreen;
@@ -2000,10 +2009,10 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1046
-    :cond_3a
+    :cond_3b
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_3b
+    if-eqz v1, :cond_3c
 
     .line 1047
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -2011,17 +2020,17 @@
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1048
-    :cond_3b
-    if-eqz v0, :cond_3c
+    :cond_3c
+    if-eqz v0, :cond_3d
 
     .line 1049
     invoke-virtual {v5, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1050
-    :cond_3c
+    :cond_3d
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_3e
 
     .line 1051
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -2029,10 +2038,10 @@
     invoke-virtual {v5, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1052
-    :cond_3d
+    :cond_3e
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_3f
 
     .line 1053
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -2040,10 +2049,10 @@
     invoke-virtual {v5, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1054
-    :cond_3e
+    :cond_3f
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_40
 
     .line 1055
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -2051,10 +2060,10 @@
     invoke-virtual {v5, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1056
-    :cond_3f
+    :cond_40
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_41
 
     .line 1057
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -2062,10 +2071,10 @@
     invoke-virtual {v5, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1058
-    :cond_40
+    :cond_41
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_42
 
     .line 1059
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -2073,17 +2082,19 @@
     invoke-virtual {v5, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1065
-    :cond_41
+    :cond_42
+    invoke-direct {p0}, Lcom/android/settings/LockscreenMenuSettings;->updateTSMFlags()V
+
     return-object v5
 
-    :cond_42
+    :cond_43
     move v2, v4
 
     .line 288
     goto/16 :goto_0
 
     .line 295
-    :cond_43
+    :cond_44
     const v0, 0x7f070086
 
     .line 296
@@ -2100,14 +2111,14 @@
     goto/16 :goto_1
 
     .line 298
-    :cond_44
+    :cond_45
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->usingBiometricWeak()Z
 
     move-result v0
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_46
 
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -2115,7 +2126,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_46
 
     .line 300
     const v0, 0x7f070083
@@ -2132,14 +2143,14 @@
     goto/16 :goto_1
 
     .line 302
-    :cond_45
+    :cond_46
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->usingSignatureUnlock()Z
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_47
 
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -2147,7 +2158,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_47
 
     .line 304
     const v0, 0x7f070093
@@ -2166,7 +2177,7 @@
     goto/16 :goto_1
 
     .line 307
-    :cond_46
+    :cond_47
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality()I
@@ -2284,7 +2295,7 @@
     goto :goto_f
 
     .line 419
-    :cond_47
+    :cond_48
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockScreenWidgetOptions:Landroid/preference/PreferenceScreen;
 
     if-eqz v1, :cond_a
@@ -2298,14 +2309,14 @@
 
     goto/16 :goto_4
 
-    :cond_48
+    :cond_49
     move v1, v4
 
     .line 424
     goto/16 :goto_3
 
     .line 461
-    :cond_49
+    :cond_4a
     invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -2328,7 +2339,7 @@
     goto/16 :goto_5
 
     .line 467
-    :cond_4a
+    :cond_4b
     invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -2377,7 +2388,7 @@
     move-result v7
 
     .line 474
-    if-ne v7, v3, :cond_4b
+    if-ne v7, v3, :cond_4c
 
     .line 475
     const-string v1, "unlock_set_or_change"
@@ -2399,7 +2410,7 @@
     iput-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     .line 479
-    :cond_4b
+    :cond_4c
     const-string v1, "LockScreenMenu"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2424,47 +2435,47 @@
 
     goto/16 :goto_5
 
-    :cond_4c
+    :cond_4d
     move v1, v4
 
     .line 488
     goto/16 :goto_6
 
-    :cond_4d
+    :cond_4e
     move v1, v4
 
     .line 495
     goto/16 :goto_7
 
     .line 498
-    :cond_4e
+    :cond_4f
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_8
 
-    :cond_4f
+    :cond_50
     move v1, v4
 
     .line 504
     goto/16 :goto_9
 
-    :cond_50
+    :cond_51
     move v1, v4
 
     .line 533
     goto/16 :goto_a
 
     .line 605
-    :cond_51
+    :cond_52
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1b
 
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutomaticUnlock:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1b
 
     .line 606
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
@@ -2486,23 +2497,31 @@
 
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
+    invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v7, "sview_cover_available"
+
+    invoke-static {v1, v7, v4}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
     goto/16 :goto_b
 
-    :cond_52
+    :cond_53
     move v3, v4
 
     .line 655
     goto/16 :goto_c
 
     .line 661
-    :cond_53
+    :cond_54
     const-string v4, "dualclock_settings"
 
     invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_54
+    if-eqz v4, :cond_55
 
     .line 662
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
@@ -2511,7 +2530,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     .line 663
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
@@ -2530,14 +2549,14 @@
     goto/16 :goto_d
 
     .line 666
-    :cond_54
+    :cond_55
     const-string v4, "safetyzone_settings"
 
     invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     .line 667
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZone:Landroid/preference/SwitchPreferenceScreen;
@@ -2546,7 +2565,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_21
 
     .line 668
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZone:Landroid/preference/SwitchPreferenceScreen;
@@ -2565,7 +2584,7 @@
     goto/16 :goto_d
 
     .line 776
-    :cond_55
+    :cond_56
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     const v4, 0x7f0901d9
@@ -2574,7 +2593,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_5e
+    if-ne v3, v4, :cond_5f
 
     .line 778
     const-string v2, "unlock_set_or_change"
@@ -2599,16 +2618,16 @@
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 783
-    if-eqz v1, :cond_56
+    if-eqz v1, :cond_57
 
     .line 784
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 785
-    :cond_56
+    :cond_57
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_58
 
     .line 786
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -2616,10 +2635,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 787
-    :cond_57
+    :cond_58
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_58
+    if-eqz v2, :cond_59
 
     .line 788
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -2627,10 +2646,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 789
-    :cond_58
+    :cond_59
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_59
+    if-eqz v2, :cond_5a
 
     .line 790
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -2638,10 +2657,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 791
-    :cond_59
+    :cond_5a
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_5a
+    if-eqz v2, :cond_5b
 
     .line 792
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -2649,10 +2668,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 793
-    :cond_5a
+    :cond_5b
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_5b
+    if-eqz v2, :cond_5c
 
     .line 794
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -2660,10 +2679,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 795
-    :cond_5b
+    :cond_5c
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_5c
+    if-eqz v2, :cond_5d
 
     .line 796
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -2671,10 +2690,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 797
-    :cond_5c
+    :cond_5d
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_5d
+    if-eqz v2, :cond_5e
 
     .line 798
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -2682,10 +2701,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 799
-    :cond_5d
+    :cond_5e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 800
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -2695,7 +2714,7 @@
     goto/16 :goto_e
 
     .line 801
-    :cond_5e
+    :cond_5f
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     const v4, 0x7f0914da
@@ -2704,7 +2723,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_6a
+    if-ne v3, v4, :cond_6b
 
     .line 803
     const-string v3, "unlock_set_or_change"
@@ -2729,16 +2748,16 @@
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 808
-    if-eqz v1, :cond_5f
+    if-eqz v1, :cond_60
 
     .line 809
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 810
-    :cond_5f
+    :cond_60
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v3, :cond_60
+    if-eqz v3, :cond_61
 
     .line 811
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -2746,10 +2765,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 812
-    :cond_60
+    :cond_61
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v3, :cond_61
+    if-eqz v3, :cond_62
 
     .line 813
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -2757,10 +2776,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 814
-    :cond_61
+    :cond_62
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_62
+    if-eqz v3, :cond_63
 
     .line 815
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -2768,10 +2787,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 816
-    :cond_62
+    :cond_63
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_63
+    if-eqz v3, :cond_64
 
     .line 817
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -2779,10 +2798,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 818
-    :cond_63
+    :cond_64
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_64
+    if-eqz v3, :cond_65
 
     .line 819
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -2790,10 +2809,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 820
-    :cond_64
+    :cond_65
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_65
+    if-eqz v3, :cond_66
 
     .line 821
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -2801,10 +2820,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 822
-    :cond_65
+    :cond_66
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_66
+    if-eqz v3, :cond_67
 
     .line 823
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -2812,10 +2831,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 824
-    :cond_66
+    :cond_67
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_67
+    if-eqz v3, :cond_68
 
     .line 825
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -2823,10 +2842,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 826
-    :cond_67
+    :cond_68
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v3, :cond_68
+    if-eqz v3, :cond_69
 
     .line 827
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -2834,10 +2853,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 828
-    :cond_68
+    :cond_69
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_30
 
     const-string v3, "VZW"
 
@@ -2849,12 +2868,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_69
+    if-eqz v3, :cond_6a
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 829
-    :cond_69
+    :cond_6a
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
@@ -2862,7 +2881,7 @@
     goto/16 :goto_e
 
     .line 830
-    :cond_6a
+    :cond_6b
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     const v4, 0x7f090205
@@ -2871,7 +2890,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_75
+    if-ne v3, v4, :cond_76
 
     .line 832
     const-string v2, "unlock_set_or_change"
@@ -2896,16 +2915,16 @@
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 837
-    if-eqz v1, :cond_6b
+    if-eqz v1, :cond_6c
 
     .line 838
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 839
-    :cond_6b
+    :cond_6c
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_6c
+    if-eqz v2, :cond_6d
 
     .line 840
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -2913,10 +2932,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 841
-    :cond_6c
+    :cond_6d
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_6d
+    if-eqz v2, :cond_6e
 
     .line 842
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -2924,10 +2943,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 843
-    :cond_6d
+    :cond_6e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_6e
+    if-eqz v2, :cond_6f
 
     .line 844
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -2935,10 +2954,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 845
-    :cond_6e
+    :cond_6f
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_6f
+    if-eqz v2, :cond_70
 
     .line 846
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -2946,10 +2965,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 847
-    :cond_6f
+    :cond_70
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_70
+    if-eqz v2, :cond_71
 
     .line 848
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -2957,10 +2976,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 849
-    :cond_70
+    :cond_71
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_71
+    if-eqz v2, :cond_72
 
     .line 850
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -2968,10 +2987,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 851
-    :cond_71
+    :cond_72
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_72
+    if-eqz v2, :cond_73
 
     .line 852
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -2979,10 +2998,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 853
-    :cond_72
+    :cond_73
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_73
+    if-eqz v2, :cond_74
 
     .line 854
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -2990,10 +3009,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 855
-    :cond_73
+    :cond_74
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_74
+    if-eqz v2, :cond_75
 
     .line 856
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -3001,10 +3020,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 857
-    :cond_74
+    :cond_75
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 858
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -3014,7 +3033,7 @@
     goto/16 :goto_e
 
     .line 859
-    :cond_75
+    :cond_76
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     const v4, 0x7f0901db
@@ -3023,7 +3042,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_80
+    if-ne v3, v4, :cond_81
 
     .line 861
     const-string v2, "unlock_set_or_change"
@@ -3048,16 +3067,16 @@
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 866
-    if-eqz v1, :cond_76
+    if-eqz v1, :cond_77
 
     .line 867
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 868
-    :cond_76
+    :cond_77
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_77
+    if-eqz v2, :cond_78
 
     .line 869
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -3065,10 +3084,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 870
-    :cond_77
+    :cond_78
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_78
+    if-eqz v2, :cond_79
 
     .line 871
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -3076,10 +3095,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 872
-    :cond_78
+    :cond_79
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_79
+    if-eqz v2, :cond_7a
 
     .line 873
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -3087,10 +3106,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 874
-    :cond_79
+    :cond_7a
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_7a
+    if-eqz v2, :cond_7b
 
     .line 875
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -3098,10 +3117,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 876
-    :cond_7a
+    :cond_7b
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_7b
+    if-eqz v2, :cond_7c
 
     .line 877
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -3109,10 +3128,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 878
-    :cond_7b
+    :cond_7c
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_7c
+    if-eqz v2, :cond_7d
 
     .line 879
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -3120,10 +3139,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 880
-    :cond_7c
+    :cond_7d
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_7d
+    if-eqz v2, :cond_7e
 
     .line 881
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -3131,10 +3150,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 882
-    :cond_7d
+    :cond_7e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_7e
+    if-eqz v2, :cond_7f
 
     .line 883
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -3142,10 +3161,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 884
-    :cond_7e
+    :cond_7f
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_7f
+    if-eqz v2, :cond_80
 
     .line 885
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -3153,10 +3172,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 886
-    :cond_7f
+    :cond_80
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 887
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -3166,7 +3185,7 @@
     goto/16 :goto_e
 
     .line 888
-    :cond_80
+    :cond_81
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     const v4, 0x7f090207
@@ -3175,7 +3194,7 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_8c
+    if-ne v3, v4, :cond_8d
 
     .line 890
     const-string v3, "unlock_set_or_change"
@@ -3200,16 +3219,16 @@
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 895
-    if-eqz v1, :cond_81
+    if-eqz v1, :cond_82
 
     .line 896
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 897
-    :cond_81
+    :cond_82
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v3, :cond_82
+    if-eqz v3, :cond_83
 
     .line 898
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -3217,10 +3236,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 899
-    :cond_82
+    :cond_83
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v3, :cond_83
+    if-eqz v3, :cond_84
 
     .line 900
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -3228,10 +3247,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 901
-    :cond_83
+    :cond_84
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_84
+    if-eqz v3, :cond_85
 
     .line 902
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -3239,10 +3258,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 903
-    :cond_84
+    :cond_85
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_85
+    if-eqz v3, :cond_86
 
     .line 904
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -3250,10 +3269,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 905
-    :cond_85
+    :cond_86
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_86
+    if-eqz v3, :cond_87
 
     .line 906
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -3261,10 +3280,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 907
-    :cond_86
+    :cond_87
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_87
+    if-eqz v3, :cond_88
 
     .line 908
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -3272,10 +3291,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 909
-    :cond_87
+    :cond_88
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_88
+    if-eqz v3, :cond_89
 
     .line 910
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -3283,10 +3302,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 911
-    :cond_88
+    :cond_89
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_89
+    if-eqz v3, :cond_8a
 
     .line 912
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -3294,10 +3313,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 913
-    :cond_89
+    :cond_8a
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v3, :cond_8a
+    if-eqz v3, :cond_8b
 
     .line 914
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -3305,10 +3324,10 @@
     invoke-virtual {v5, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 915
-    :cond_8a
+    :cond_8b
     iget-object v3, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_30
 
     const-string v3, "VZW"
 
@@ -3320,12 +3339,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8b
+    if-eqz v3, :cond_8c
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 916
-    :cond_8b
+    :cond_8c
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
@@ -3333,14 +3352,14 @@
     goto/16 :goto_e
 
     .line 917
-    :cond_8c
+    :cond_8d
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     invoke-virtual {p0, v12}, Lcom/android/settings/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_95
+    if-ne v2, v3, :cond_96
 
     .line 919
     const-string v2, "unlock_set_or_change"
@@ -3361,16 +3380,16 @@
     invoke-virtual {v2, v12}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 924
-    if-eqz v1, :cond_8d
+    if-eqz v1, :cond_8e
 
     .line 925
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 926
-    :cond_8d
+    :cond_8e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_8e
+    if-eqz v2, :cond_8f
 
     .line 927
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -3378,10 +3397,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 928
-    :cond_8e
+    :cond_8f
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_8f
+    if-eqz v2, :cond_90
 
     .line 929
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -3389,10 +3408,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 930
-    :cond_8f
+    :cond_90
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_90
+    if-eqz v2, :cond_91
 
     .line 931
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -3400,10 +3419,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 932
-    :cond_90
+    :cond_91
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_91
+    if-eqz v2, :cond_92
 
     .line 933
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -3411,10 +3430,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 934
-    :cond_91
+    :cond_92
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_92
+    if-eqz v2, :cond_93
 
     .line 935
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -3422,10 +3441,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 936
-    :cond_92
+    :cond_93
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_93
+    if-eqz v2, :cond_94
 
     .line 937
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -3433,10 +3452,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 938
-    :cond_93
+    :cond_94
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_94
+    if-eqz v2, :cond_95
 
     .line 939
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -3444,10 +3463,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 940
-    :cond_94
+    :cond_95
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 941
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -3457,14 +3476,14 @@
     goto/16 :goto_e
 
     .line 942
-    :cond_95
+    :cond_96
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     invoke-virtual {p0, v13}, Lcom/android/settings/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_9f
+    if-ne v2, v3, :cond_a0
 
     .line 944
     const-string v2, "unlock_set_or_change"
@@ -3489,7 +3508,7 @@
     .line 949
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_96
+    if-eqz v2, :cond_97
 
     .line 950
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -3497,10 +3516,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 951
-    :cond_96
+    :cond_97
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_97
+    if-eqz v2, :cond_98
 
     .line 952
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -3508,10 +3527,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 953
-    :cond_97
+    :cond_98
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_98
+    if-eqz v2, :cond_99
 
     .line 954
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -3519,10 +3538,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 955
-    :cond_98
+    :cond_99
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_99
+    if-eqz v2, :cond_9a
 
     .line 956
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -3530,10 +3549,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 957
-    :cond_99
+    :cond_9a
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_9a
+    if-eqz v2, :cond_9b
 
     .line 958
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -3541,10 +3560,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 959
-    :cond_9a
+    :cond_9b
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_9b
+    if-eqz v2, :cond_9c
 
     .line 960
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -3552,10 +3571,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 961
-    :cond_9b
+    :cond_9c
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_9c
+    if-eqz v2, :cond_9d
 
     .line 962
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -3563,10 +3582,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 963
-    :cond_9c
+    :cond_9d
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_9d
+    if-eqz v2, :cond_9e
 
     .line 964
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -3574,10 +3593,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 965
-    :cond_9d
+    :cond_9e
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_9e
+    if-eqz v2, :cond_9f
 
     .line 966
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -3585,10 +3604,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 967
-    :cond_9e
+    :cond_9f
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 968
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -3598,14 +3617,14 @@
     goto/16 :goto_e
 
     .line 969
-    :cond_9f
+    :cond_a0
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     invoke-virtual {p0, v11}, Lcom/android/settings/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_a9
+    if-ne v2, v3, :cond_aa
 
     .line 971
     const-string v2, "unlock_set_or_change"
@@ -3630,7 +3649,7 @@
     .line 974
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_a0
+    if-eqz v2, :cond_a1
 
     .line 975
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -3638,10 +3657,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 976
-    :cond_a0
+    :cond_a1
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_a1
+    if-eqz v2, :cond_a2
 
     .line 977
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -3649,10 +3668,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 978
-    :cond_a1
+    :cond_a2
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_a2
+    if-eqz v2, :cond_a3
 
     .line 979
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -3660,10 +3679,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 980
-    :cond_a2
+    :cond_a3
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_a3
+    if-eqz v2, :cond_a4
 
     .line 981
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -3671,10 +3690,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 982
-    :cond_a3
+    :cond_a4
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_a4
+    if-eqz v2, :cond_a5
 
     .line 983
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -3682,10 +3701,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 984
-    :cond_a4
+    :cond_a5
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_a5
+    if-eqz v2, :cond_a6
 
     .line 985
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -3693,10 +3712,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 986
-    :cond_a5
+    :cond_a6
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_a6
+    if-eqz v2, :cond_a7
 
     .line 987
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -3704,10 +3723,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 988
-    :cond_a6
+    :cond_a7
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_a7
+    if-eqz v2, :cond_a8
 
     .line 989
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisibleSignature:Landroid/preference/CheckBoxPreference;
@@ -3715,10 +3734,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 990
-    :cond_a7
+    :cond_a8
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_a8
+    if-eqz v2, :cond_a9
 
     .line 991
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSignatureVerificationLevel:Landroid/preference/ListPreference;
@@ -3726,10 +3745,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 992
-    :cond_a8
+    :cond_a9
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 993
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -3739,7 +3758,7 @@
     goto/16 :goto_e
 
     .line 994
-    :cond_a9
+    :cond_aa
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSafetyZoneLocktype:Ljava/lang/String;
 
     const v3, 0x7f09020d
@@ -3748,7 +3767,7 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_2f
+    if-ne v2, v3, :cond_30
 
     .line 995
     const-string v2, "unlock_set_or_change"
@@ -3775,7 +3794,7 @@
     .line 1000
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
 
-    if-eqz v2, :cond_aa
+    if-eqz v2, :cond_ab
 
     .line 1001
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mUnlockEffect:Landroid/preference/ListPreference;
@@ -3783,10 +3802,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1002
-    :cond_aa
+    :cond_ab
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
 
-    if-eqz v2, :cond_ab
+    if-eqz v2, :cond_ac
 
     .line 1003
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mInkEffect:Landroid/preference/PreferenceScreen;
@@ -3794,17 +3813,17 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1004
-    :cond_ab
-    if-eqz v1, :cond_ac
+    :cond_ac
+    if-eqz v1, :cond_ad
 
     .line 1005
     invoke-virtual {v5, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1006
-    :cond_ac
+    :cond_ad
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_ad
+    if-eqz v2, :cond_ae
 
     .line 1007
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mSayYourWakeUp:Landroid/preference/SwitchPreferenceScreen;
@@ -3812,10 +3831,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1008
-    :cond_ad
+    :cond_ae
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_ae
+    if-eqz v2, :cond_af
 
     .line 1009
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mMultipleLockScreenSwitch:Landroid/preference/SwitchPreferenceScreen;
@@ -3823,10 +3842,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1010
-    :cond_ae
+    :cond_af
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v2, :cond_af
+    if-eqz v2, :cond_b0
 
     .line 1011
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mShortcutMenu:Landroid/preference/SwitchPreferenceScreen;
@@ -3834,10 +3853,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1012
-    :cond_af
+    :cond_b0
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_b0
+    if-eqz v2, :cond_b1
 
     .line 1013
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mVisiblePattern:Landroid/preference/CheckBoxPreference;
@@ -3845,10 +3864,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1014
-    :cond_b0
+    :cond_b1
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_b1
+    if-eqz v2, :cond_b2
 
     .line 1015
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mAutoSwipe:Landroid/preference/CheckBoxPreference;
@@ -3856,10 +3875,10 @@
     invoke-virtual {v5, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 1016
-    :cond_b1
+    :cond_b2
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     .line 1017
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
@@ -3868,12 +3887,14 @@
 
     goto/16 :goto_e
 
-    :cond_b2
+    :cond_b3
     move-object v5, v1
 
     goto/16 :goto_2
 
     .line 307
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x10000 -> :sswitch_0
@@ -5827,6 +5848,61 @@
     return-void
 .end method
 
+.method private updateTSMFlags()V
+    .locals 5
+
+    .prologue
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    .line 288
+    iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "lockscreen_settings_disable"
+
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    invoke-virtual {p0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "lockscreen_swipe_on"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isSecure()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    move v3, v4
+
+    :cond_1
+    move v4, v2
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public onActivityCreated(Landroid/os/Bundle;)V
@@ -6385,6 +6461,8 @@
     .line 1827
     :cond_3
     :goto_3
+    invoke-direct {p0}, Lcom/android/settings/LockscreenMenuSettings;->updateTSMFlags()V
+
     return v1
 
     .line 1704
@@ -8640,6 +8718,8 @@
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->openSearchDetailMenu()V
 
     .line 1529
+    invoke-direct {p0}, Lcom/android/settings/LockscreenMenuSettings;->updateTSMFlags()V
+
     return-void
 
     :cond_1e

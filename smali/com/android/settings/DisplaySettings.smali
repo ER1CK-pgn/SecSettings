@@ -453,7 +453,7 @@
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     .line 827
-    const v2, 0x927c0
+    const v2, 0x1b7740
 
     .line 831
     int-to-long v3, v2

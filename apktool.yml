@@ -9,6 +9,6 @@ sdkInfo:
   minSdkVersion: '18'
   targetSdkVersion: '18'
 packageInfo:
-  cur_package: android
+  cur_package: com.android.settings
   orig_package: com.android.settings
 compressionType: false

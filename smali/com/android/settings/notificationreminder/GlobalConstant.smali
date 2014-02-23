@@ -344,7 +344,7 @@
     if-nez v0, :cond_2
 
     :cond_2
-    sput-boolean v1, Lcom/android/settings/notificationreminder/GlobalConstant;->sUseAutoBrightnessDetail:Z
+    sput-boolean v2, Lcom/android/settings/notificationreminder/GlobalConstant;->sUseAutoBrightnessDetail:Z
 
     return-void
 

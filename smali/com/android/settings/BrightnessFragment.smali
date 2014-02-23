@@ -78,6 +78,8 @@
 
     move-result v0
 
+    const/4 v0, 0x1
+
     sput-boolean v0, Lcom/android/settings/BrightnessFragment;->USE_SCREEN_AUTO_BRIGHTNESS_ADJUSTMENT:Z
 
     return-void
@@ -686,7 +688,7 @@
 
     .prologue
     .line 507
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     return v0
 .end method

@@ -5127,6 +5127,23 @@
     iput-boolean v4, p0, Lcom/android/settings/wifi/WifiSettings;->isOOBE:Z
 
     .line 2798
+    const-string v4, "ro.csc.sales_code"
+
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "TMB"
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    goto :goto_0
+
+    :cond_8
     invoke-virtual {p0}, Lcom/android/settings/wifi/WifiSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v4

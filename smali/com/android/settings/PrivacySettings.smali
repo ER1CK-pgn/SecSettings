@@ -565,37 +565,12 @@
 
     iput-object v4, p0, Lcom/android/settings/PrivacySettings;->mDiagnostics:Landroid/preference/PreferenceScreen;
 
-    .line 104
-    invoke-virtual {p0}, Lcom/android/settings/PrivacySettings;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    .line 105
-    .local v2, pm:Landroid/content/pm/PackageManager;
-    const/4 v1, 0x1
-
-    .line 107
-    .local v1, hasCIQ:Z
-    :try_start_0
-    const-string v4, "com.carrieriq.tmobile.IQToggle"
-
-    const/16 v5, 0x80
-
-    invoke-virtual {v2, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 113
-    :goto_0
-    if-nez v1, :cond_0
-
     .line 114
     iget-object v4, p0, Lcom/android/settings/PrivacySettings;->mDiagnostics:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 118
-    :cond_0
     invoke-virtual {p0}, Lcom/android/settings/PrivacySettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -612,7 +587,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_0
 
     .line 120
     const-string v4, "backup_category"
@@ -624,7 +599,7 @@
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 122
-    :cond_1
+    :cond_0
     const-string v4, "VZW"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
@@ -635,7 +610,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_1
 
     .line 123
     iget-object v4, p0, Lcom/android/settings/PrivacySettings;->mResetSettings:Landroid/preference/PreferenceScreen;
@@ -643,28 +618,11 @@
     invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 125
-    :cond_2
+    :cond_1
     invoke-direct {p0}, Lcom/android/settings/PrivacySettings;->updateToggles()V
 
     .line 126
     return-void
-
-    .line 108
-    :catch_0
-    move-exception v0
-
-    .line 109
-    .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    const/4 v1, 0x0
-
-    .line 110
-    const-string v4, "PrivacySettings"
-
-    const-string v5, "Package not found : IQToggle"
-
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public onPause()V
@@ -771,31 +729,6 @@
     if-ne p2, v4, :cond_0
 
     .line 187
-    new-instance v3, Landroid/content/Intent;
-
-    const-string v4, "android.intent.action.MAIN"
-
-    const/4 v5, 0x0
-
-    invoke-direct {v3, v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    .line 188
-    .local v3, intent:Landroid/content/Intent;
-    new-instance v0, Landroid/content/ComponentName;
-
-    const-string v4, "com.carrieriq.tmobile.IQToggle"
-
-    const-string v5, "com.carrieriq.tmobile.IQToggle.ui"
-
-    invoke-direct {v0, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 189
-    .local v0, cn:Landroid/content/ComponentName;
-    invoke-virtual {v3, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    .line 190
-    invoke-virtual {p0, v3}, Lcom/android/settings/PrivacySettings;->startActivity(Landroid/content/Intent;)V
-
     goto :goto_0
 .end method
 

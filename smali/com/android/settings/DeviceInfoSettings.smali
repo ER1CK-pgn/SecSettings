@@ -2558,6 +2558,32 @@
     invoke-virtual/range {v29 .. v30}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 222
+    const-string v28, "mod_version"
+
+    const-string v29, "ro.mod.version"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v28
+
+    move-object/from16 v2, v29
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/DeviceInfoSettings;->setValueSummary(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v28, "mod_version"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DeviceInfoSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v28
+
+    const/16 v29, 0x1
+
+    invoke-virtual/range {v28 .. v29}, Landroid/preference/Preference;->setEnabled(Z)V
+
     const-string v29, "VZW"
 
     move-object/from16 v0, v29

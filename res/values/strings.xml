@@ -5837,8 +5837,12 @@ The collected information is only used internally by Samsung pursuant to our pri
     <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
     <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
     <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
+    <string name="notification_panel_brightness">Brightness</string>
+    <string name="notification_panel_wificall">"Wi-Fi
+calling"</string>
+    <string name="notification_panel_flashlight">Torch</string>
+    <string name="notification_panel_tsm">Infamous Tools</string>
     <string name="rom_control_title">About Infamous</string>
     <string name="infamous_rom">An Infamous Production</string>
-    <string name="infamous_rom_version">NEMESIS PROJECT 2.0</string>
-    <string name="infamous_tool">Infamous Tools</string>
+    <string name="infamous_rom_version">NEMESIS PROJECT</string>
 </resources>

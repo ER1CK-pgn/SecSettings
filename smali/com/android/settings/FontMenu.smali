@@ -423,6 +423,8 @@
 
     .line 105
     :goto_0
+    goto :goto_1
+
     invoke-virtual {p0}, Lcom/android/settings/FontMenu;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
@@ -434,6 +436,7 @@
     invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 109
+    :goto_1
     const-string v3, "MONOTYPE"
 
     invoke-virtual {p0, v3}, Lcom/android/settings/FontMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;

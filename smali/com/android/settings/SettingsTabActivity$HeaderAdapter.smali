@@ -2209,6 +2209,8 @@
 
     move-result v17
 
+    const/16 v17, 0x1
+
     if-eqz v17, :cond_e
 
     .line 1657

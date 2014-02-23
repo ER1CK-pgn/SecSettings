@@ -39,8 +39,6 @@
 
 .field private mNaiMismatchDialog:Landroid/app/AlertDialog;
 
-.field private mProvisionApp:[Ljava/lang/String;
-
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
 
 .field mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
@@ -2109,6 +2107,16 @@
 
     .line 616
     :pswitch_8
+    const/16 v16, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v16
+
+    invoke-direct {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->startProvisioningIfNecessary(I)V
+
+    goto/16 :goto_1
+
     new-instance v16, Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v0, v16
@@ -2291,6 +2299,8 @@
     goto/16 :goto_0
 
     .line 445
+    nop
+
     :pswitch_data_0
     .packed-switch 0x15
         :pswitch_0
@@ -2442,6 +2452,8 @@
 
     move-result v0
 
+    const/4 v0, 0x0
+
     if-eqz v0, :cond_0
 
     .line 872
@@ -2455,17 +2467,6 @@
     const-string v1, "android.intent.action.MAIN"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 874
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mProvisionApp:[Ljava/lang/String;
-
-    aget-object v1, v1, v3
-
-    iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mProvisionApp:[Ljava/lang/String;
-
-    aget-object v2, v2, v4
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 875
     const-string v1, "type"
@@ -2511,23 +2512,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     .line 905
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mProvisionApp:[Ljava/lang/String;
-
-    array-length v1, v1
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_0
-
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -2700,21 +2692,6 @@
     move-result v6
 
     iput-boolean v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsLightTheme:Z
-
-    .line 143
-    iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    const v7, 0x1070022
-
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mProvisionApp:[Ljava/lang/String;
 
     .line 144
     new-instance v6, Landroid/content/IntentFilter;
@@ -3110,6 +3087,8 @@
     goto/16 :goto_0
 
     .line 156
+    nop
+
     nop
 
     :pswitch_data_0

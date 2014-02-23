@@ -1543,9 +1543,9 @@
 
     move-result-object v4
 
-    const-string v5, "notification_panel_active_number_of_apps"
+    const-string v5, "custom_toggle_number"
 
-    const/16 v6, 0xa
+    const/16 v6, 0x14
 
     invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -2040,6 +2040,39 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 473
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "Brightness"
+
+    const-string v2, "notification_panel_brightness"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "WifiCall"
+
+    const-string v2, "notification_panel_wificall"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "Flashlight"
+
+    const-string v2, "notification_panel_flashlight"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "TSM"
+
+    const-string v2, "notification_panel_tsm"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 474
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
 
@@ -2293,6 +2326,38 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 504
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "notification_panel_brightness"
+
+    const-string v2, "Brightness"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "notification_panel_wificall"
+
+    const-string v2, "WifiCall"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "notification_panel_flashlight"
+
+    const-string v2, "Flashlight"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu;->mConvertPanelItemstring:Ljava/util/HashMap;
+
+    const-string v1, "notification_panel_tsm"
+
+    const-string v2, "TSM"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     return-void
 .end method
 
@@ -2508,7 +2573,7 @@
     .local v0, activeApps:Ljava/lang/String;
     const-string v3, "notification_panel_active_number_of_apps_for_reset"
 
-    const/16 v4, 0xa
+    const/16 v4, 0x14
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -2745,20 +2810,6 @@
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 654
-    invoke-virtual {p0}, Lcom/android/settings/NotificationPanelMenu;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "notification_panel_active_number_of_apps"
-
-    iget-object v6, p0, Lcom/android/settings/NotificationPanelMenu;->mActiveNotificationList:Ljava/util/ArrayList;
-
-    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
-
-    move-result v6
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
     .line 655
     invoke-virtual {p0}, Lcom/android/settings/NotificationPanelMenu;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2775,11 +2826,13 @@
 
     const-string v5, "notification_panel_active_number_of_apps"
 
-    const/16 v6, 0xa
+    const/16 v6, 0x4e20
 
     invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v4
+    move-result v5
+
+    div-int/lit16 v4, v5, 0x3e8
 
     iput v4, p0, Lcom/android/settings/NotificationPanelMenu;->mActiveAppsNum:I
 
@@ -3339,11 +3392,11 @@
 
     move-result-object v0
 
-    const-string v1, "notification_panel_active_number_of_apps"
+    const-string v1, "custom_toggle_number"
 
-    const/16 v2, 0xa
+    const/16 v2, 0x14
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 

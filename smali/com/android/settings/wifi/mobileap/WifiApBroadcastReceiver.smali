@@ -182,7 +182,7 @@
     .line 504
     sget-boolean v2, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->DBG:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     const-string v2, "Provisioning.disable"
 
@@ -196,35 +196,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     .line 511
-    :cond_0
     :goto_0
     return v1
 
     .line 507
-    :cond_1
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x1070022
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 509
-    .local v0, mProvisionApp:[Ljava/lang/String;
-    array-length v2, v0
-
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_0
-
-    .line 510
-    const/4 v1, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method

@@ -727,6 +727,7 @@
         <activity android:label="@string/lock_screen_options" android:icon="@drawable/APKTOOL_DUMMY_03fc" android:name="Settings$LockScreenSettingsActivity" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.LOCKSCREENSETTINGSTSM" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.LockScreenSettings" />
@@ -1811,6 +1812,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.NOTIFICATION_PANEL_SETTINGS" />
+                <action android:name="android.settings.NOTIFICATION_PANEL_SETTINGSTSM" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.NotificationPanelMenu" />

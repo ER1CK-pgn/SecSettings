@@ -5914,6 +5914,8 @@
 
     move-result v0
 
+    const/4 v0, 0x0
+
     if-eqz v0, :cond_7
 
     .line 1845
@@ -10538,6 +10540,8 @@
     invoke-virtual {v2, v3}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
     move-result v2
+
+    const/4 v2, 0x1
 
     if-nez v2, :cond_2
 

@@ -1338,6 +1338,10 @@
 
     invoke-virtual {v7, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
+    const/4 v0, 0x0
+
+    if-eqz v0, :cond_2a
+
     .line 814
     :cond_14
     :goto_8
@@ -2092,6 +2096,20 @@
 
     .line 795
     :cond_29
+    const-string v0, "ro.csc.sales_code"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "TMB"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_38
+
     invoke-virtual {p0}, Lcom/android/settings/SecuritySettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -2374,6 +2392,8 @@
     goto/16 :goto_11
 
     .line 416
+    nop
+
     nop
 
     :pswitch_data_0
@@ -5576,6 +5596,10 @@
     if-eqz v0, :cond_14
 
     .line 1524
+    invoke-direct {p0, v2}, Lcom/android/settings/SecuritySettings;->setNonMarketAppsAllowed(Z)V
+
+    goto/16 :goto_0
+
     iget-object v0, p0, Lcom/android/settings/SecuritySettings;->mToggleAppInstallation:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V

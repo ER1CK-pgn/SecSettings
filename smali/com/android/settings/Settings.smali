@@ -3762,6 +3762,8 @@
 
     move-result v2
 
+    const/4 v2, 0x1
+
     if-nez v2, :cond_0
 
     .line 1622
@@ -8409,6 +8411,8 @@
 
     move-result v0
 
+    const/4 v0, 0x1
+
     if-eqz v0, :cond_0
 
     const/4 v0, 0x0
@@ -9084,6 +9088,8 @@
 
     move-result v1
 
+    const/4 v1, 0x1
+
     if-eqz v1, :cond_0
 
     const-string v1, "com.android.settings.Settings"
@@ -9154,6 +9160,8 @@
     goto :goto_1
 
     .line 3724
+    nop
+
     nop
 
     :pswitch_data_0

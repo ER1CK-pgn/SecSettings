@@ -2184,6 +2184,8 @@
 
     move-result v3
 
+    const/4 v3, 0x1
+
     if-nez v3, :cond_0
 
     .line 957

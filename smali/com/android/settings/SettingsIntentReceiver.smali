@@ -4962,7 +4962,7 @@
     .line 397
     const-string v0, "notification_panel_active_number_of_apps_for_reset"
 
-    const/16 v2, 0xa
+    const/16 v2, 0x14
 
     invoke-static {v9, v0, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -5003,7 +5003,7 @@
 
     .line 406
     :cond_25
-    const v2, 0x927c0
+    const v2, 0x1b7740
 
     if-gt v0, v2, :cond_26
 
@@ -5013,14 +5013,14 @@
     :cond_26
     const-string v0, "SettingsIntentReceiver"
 
-    const-string v2, "Reset screen timeout to 10mins"
+    const-string v2, "Reset screen timeout to 30mins"
 
     invoke-static {v0, v2}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 409
     const-string v0, "screen_off_timeout"
 
-    const v2, 0x927c0
+    const v2, 0x1b7740
 
     invoke-static {v9, v0, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -7964,7 +7964,7 @@
 
     if-eqz v0, :cond_71
 
-    const v0, 0x927c0
+    const v0, 0x1b7740
 
     :goto_22
     invoke-static {v9, v2, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I

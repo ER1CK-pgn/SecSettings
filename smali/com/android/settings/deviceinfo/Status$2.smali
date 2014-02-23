@@ -81,6 +81,8 @@
 
     move-result v2
 
+    const/4 v2, 0x1
+
     #setter for: Lcom/android/settings/deviceinfo/Status;->isSysScopeStatus:I
     invoke-static {v1, v2}, Lcom/android/settings/deviceinfo/Status;->access$402(Lcom/android/settings/deviceinfo/Status;I)I
 

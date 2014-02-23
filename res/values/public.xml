@@ -747,7 +747,8 @@
     <public type="drawable" name="wifi_signal_lock" id="0x7f020552" />
     <public type="drawable" name="wifi_signal_open" id="0x7f020553" />
     <public type="drawable" name="worldclock_icon_time" id="0x7f02055f" />
-    <public type="drawable" name="iokpbanner" id="0x7f020561" />
+    <public type="drawable" name="ic_settings_tsm_parts" id="0x7f020561" />
+    <public type="drawable" name="iokpbanner" id="0x7f020566" />
     <public type="drawable" name="accessibility_bar_nor" id="0x7f020000" />
     <public type="drawable" name="accessibility_bar_press" id="0x7f020001" />
     <public type="drawable" name="allshare_cast_connecting_device_camera" id="0x7f02001f" />
@@ -1396,8 +1397,11 @@
     <public type="drawable" name="white_button_selector_default" id="0x7f02052e" />
     <public type="drawable" name="white_button_selector_next" id="0x7f02052f" />
     <public type="drawable" name="white_recbutton_selector_default" id="0x7f020530" />
-    <public type="drawable" name="ic_settings_iokp" id="0x7f020562" />
-    <public type="drawable" name="ic_settings_rom_control" id="0x7f020563" />
+    <public type="drawable" name="notification_panel_brightness" id="0x7f020562" />
+    <public type="drawable" name="notification_panel_wificall" id="0x7f020563" />
+    <public type="drawable" name="notification_panel_flashlight" id="0x7f020564" />
+    <public type="drawable" name="notification_panel_tsm" id="0x7f020565" />
+    <public type="drawable" name="ic_settings_rom_control" id="0x7f020567" />
     <public type="drawable" name="help_popup_picker_i_t_r" id="0x7f02012f" />
     <public type="drawable" name="personal_mode_popup" id="0x7f020370" />
     <public type="mipmap" name="ic_launcher_settings" id="0x7f030000" />
@@ -7705,10 +7709,13 @@
     <public type="string" name="bluetooth_disconnect_hfdeviceprofile" id="0x7f0915e2" />
     <public type="string" name="bluetooth_hfdevice_profile_summary_connected" id="0x7f0915e3" />
     <public type="string" name="bluetooth_hfdevice_profile_summary_use_for" id="0x7f0915e4" />
-    <public type="string" name="rom_control_title" id="0x7f0915e5" />
-    <public type="string" name="infamous_rom" id="0x7f0915e6" />
-    <public type="string" name="infamous_rom_version" id="0x7f0915e7" />
-    <public type="string" name="infamous_tool" id="0x7f0915e8" />
+    <public type="string" name="notification_panel_brightness" id="0x7f0915e5" />
+    <public type="string" name="notification_panel_wificall" id="0x7f0915e6" />
+    <public type="string" name="notification_panel_flashlight" id="0x7f0915e7" />
+    <public type="string" name="notification_panel_tsm" id="0x7f0915e8" />
+    <public type="string" name="rom_control_title" id="0x7f0915e9" />
+    <public type="string" name="infamous_rom" id="0x7f0915ea" />
+    <public type="string" name="infamous_rom_version" id="0x7f0915eb" />
     <public type="string" name="voice_control_incomming_calls_summary_v2" id="0x7f0915d5" />
     <public type="string" name="voice_control_chaton_calls_summary_v2" id="0x7f0915d6" />
     <public type="string" name="voice_control_alarm_summary_v2" id="0x7f0915d7" />
@@ -9465,6 +9472,8 @@
     <public type="id" name="vpn_create" id="0x7f0b05fe" />
     <public type="id" name="vpn_lockdown" id="0x7f0b05ff" />
     <public type="id" name="wifi_wps" id="0x7f0b0600" />
+    <public type="id" name="tsmparts_settings" id="0x7f0b0601" />
+    <public type="id" name="appops_settings" id="0x7f0b0602" />
     <public type="bool" name="has_dock_settings" id="0x7f0c0000" />
     <public type="bool" name="has_silent_mode" id="0x7f0c0001" />
     <public type="bool" name="has_powercontrol_widget" id="0x7f0c0002" />
