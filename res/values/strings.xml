@@ -131,8 +131,8 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="allow">Allow</string>
     <string name="deny">Deny</string>
     <string name="device_info_default">Unknown</string>
-    <string name="show_dev_on">Developer mode has been enabled</string>
-    <string name="show_dev_already">No need, developer mode has already been enabled</string>
+    <string name="show_dev_on">You are now Infamous</string>
+    <string name="show_dev_already">No need, you are already Infamous</string>
     <string name="header_category_wireless_networks">Wireless and networks</string>
     <string name="header_category_device">Device</string>
     <string name="header_category_personal">Personal</string>
@@ -5837,4 +5837,8 @@ The collected information is only used internally by Samsung pursuant to our pri
     <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
     <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
     <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
+    <string name="rom_control_title">About Infamous</string>
+    <string name="infamous_rom">An Infamous Production</string>
+    <string name="infamous_rom_version">NEMESIS PROJECT 2.0</string>
+    <string name="infamous_tool">Infamous Tools</string>
 </resources>
