@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreferenceScreen android:title="@string/arc_motion_ripple_effect_title" android:key="arc_motion_ripple_effect" android:summary="@string/arc_motion_ripple_effect_summary" android:fragment="com.android.settings.motion2013.SMotionGuideHub">
+        <extra android:name="type" android:value="arc_motion_ripple_effect" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/arc_motion_quick_glance_title" android:key="arc_motion_quick_glance" android:summary="@string/arc_motion_quick_glance_summary" android:fragment="com.android.settings.motion2013.SMotionGuideHub">
+        <extra android:name="type" android:value="arc_motion_quick_glance" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/arc_motion_music_playback_title" android:key="arc_motion_music_playback" android:fragment="com.android.settings.motion2013.SMotionGuideHub">
+        <extra android:name="type" android:value="arc_motion_music_playback" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/arc_motion_messaging_title" android:key="arc_motion_messaging" android:fragment="com.android.settings.motion2013.SMotionGuideHub">
+        <extra android:name="type" android:value="arc_motion_messaging" />
+    </SwitchPreferenceScreen>
+</PreferenceScreen>
