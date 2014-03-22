@@ -25,7 +25,7 @@
     .locals 3
 
     .prologue
-    .line 646
+    .line 648
     invoke-static {}, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->values()[Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;
 
     move-result-object v0
@@ -41,7 +41,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->STATE_CHANGED:Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -57,7 +57,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->DISCOVERY_STARTED:Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -73,7 +73,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->DISCOVERY_FINISHED:Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -89,7 +89,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->BOND_STATE_CHANGED:Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -99,7 +99,7 @@
     :try_end_3
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_6
 
-    .line 276
+    .line 278
     :goto_3
     invoke-static {}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->values()[Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
@@ -116,7 +116,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->SCANNING:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -132,7 +132,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->FOUND:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -148,7 +148,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->CONNECTED:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -164,7 +164,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -180,7 +180,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -196,7 +196,7 @@
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -239,7 +239,7 @@
 
     goto :goto_4
 
-    .line 646
+    .line 648
     :catch_6
     move-exception v0
 

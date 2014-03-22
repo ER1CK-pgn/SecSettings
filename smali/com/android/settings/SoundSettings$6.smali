@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 722
+    .line 832
     iput-object p1, p0, Lcom/android/settings/SoundSettings$6;->this$0:Lcom/android/settings/SoundSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 724
+    .line 834
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 725
+    .line 835
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.media.RINGER_MODE_CHANGED"
 
@@ -55,13 +55,13 @@
 
     if-eqz v1, :cond_1
 
-    .line 726
+    .line 836
     iget-object v1, p0, Lcom/android/settings/SoundSettings$6;->this$0:Lcom/android/settings/SoundSettings;
 
     #calls: Lcom/android/settings/SoundSettings;->setSystemSound()V
     invoke-static {v1}, Lcom/android/settings/SoundSettings;->access$900(Lcom/android/settings/SoundSettings;)V
 
-    .line 727
+    .line 837
     iget-object v1, p0, Lcom/android/settings/SoundSettings$6;->this$0:Lcom/android/settings/SoundSettings;
 
     #calls: Lcom/android/settings/SoundSettings;->getPhoneSilentModeSettingValue()Ljava/lang/String;
@@ -84,7 +84,7 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 728
+    .line 838
     :cond_0
     iget-object v1, p0, Lcom/android/settings/SoundSettings$6;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -95,14 +95,14 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 732
+    .line 842
     :cond_1
     :goto_0
     return-void
 
-    .line 730
+    .line 840
     :cond_2
     iget-object v1, p0, Lcom/android/settings/SoundSettings$6;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -113,7 +113,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method

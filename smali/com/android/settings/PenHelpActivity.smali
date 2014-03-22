@@ -63,9 +63,9 @@
 
     .line 207
     :sswitch_0
-    const v0, 0x7f0b02a8
+    const v0, 0x7f0b02e4
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -82,9 +82,9 @@
 
     .line 211
     :sswitch_1
-    const v0, 0x7f0b02ab
+    const v0, 0x7f0b02e7
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -101,9 +101,9 @@
 
     .line 215
     :sswitch_2
-    const v0, 0x7f0b02a0
+    const v0, 0x7f0b02dc
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -120,9 +120,9 @@
 
     .line 219
     :sswitch_3
-    const v0, 0x7f0b02a3
+    const v0, 0x7f0b02df
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -139,9 +139,9 @@
 
     .line 223
     :sswitch_4
-    const v0, 0x7f0b02b1
+    const v0, 0x7f0b02ed
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -158,9 +158,9 @@
 
     .line 227
     :sswitch_5
-    const v0, 0x7f0b02b6
+    const v0, 0x7f0b02f2
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -177,9 +177,9 @@
 
     .line 231
     :sswitch_6
-    const v0, 0x7f0b02b9
+    const v0, 0x7f0b02f5
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -196,9 +196,9 @@
 
     .line 235
     :sswitch_7
-    const v0, 0x7f0b02bc
+    const v0, 0x7f0b02f8
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -215,9 +215,9 @@
 
     .line 239
     :sswitch_8
-    const v0, 0x7f0b02be
+    const v0, 0x7f0b02fa
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -235,15 +235,15 @@
     .line 204
     :sswitch_data_0
     .sparse-switch
-        0x7f0b029f -> :sswitch_2
-        0x7f0b02a2 -> :sswitch_3
-        0x7f0b02a7 -> :sswitch_0
-        0x7f0b02aa -> :sswitch_1
-        0x7f0b02b0 -> :sswitch_4
-        0x7f0b02b5 -> :sswitch_5
-        0x7f0b02b8 -> :sswitch_6
-        0x7f0b02bb -> :sswitch_7
-        0x7f0b02bd -> :sswitch_8
+        0x7f0b02db -> :sswitch_2
+        0x7f0b02de -> :sswitch_3
+        0x7f0b02e3 -> :sswitch_0
+        0x7f0b02e6 -> :sswitch_1
+        0x7f0b02ec -> :sswitch_4
+        0x7f0b02f1 -> :sswitch_5
+        0x7f0b02f4 -> :sswitch_6
+        0x7f0b02f7 -> :sswitch_7
+        0x7f0b02f9 -> :sswitch_8
     .end sparse-switch
 .end method
 
@@ -263,7 +263,7 @@
     invoke-virtual {v2}, Ljava/lang/Runtime;->gc()V
 
     .line 57
-    invoke-virtual {p0}, Lcom/android/settings/PenHelpActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -291,14 +291,14 @@
     if-eqz v2, :cond_1
 
     .line 61
-    const v2, 0x7f0400fc
+    const v2, 0x7f040121
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 63
-    const v2, 0x7f0b02a4
+    const v2, 0x7f0b02e0
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -308,12 +308,12 @@
     .local v0, hoveringButton:Landroid/widget/Button;
     const/4 v2, 0x2
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setHoverPopupType(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setHoverPopupType(I)V
 
     .line 66
-    const v2, 0x7f0b02a7
+    const v2, 0x7f0b02e3
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -324,12 +324,12 @@
     .line 67
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 68
-    const v2, 0x7f0b02aa
+    const v2, 0x7f0b02e6
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -340,7 +340,7 @@
     .line 69
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 115
     .end local v0           #hoveringButton:Landroid/widget/Button;
@@ -361,14 +361,14 @@
     if-eqz v2, :cond_2
 
     .line 71
-    const v2, 0x7f0400fb
+    const v2, 0x7f040120
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 73
-    const v2, 0x7f0b029f
+    const v2, 0x7f0b02db
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -379,12 +379,12 @@
     .line 74
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 75
-    const v2, 0x7f0b02a2
+    const v2, 0x7f0b02de
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -395,7 +395,7 @@
     .line 76
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     goto :goto_0
 
@@ -412,14 +412,14 @@
     if-eqz v2, :cond_0
 
     .line 87
-    const v2, 0x7f0400ff
+    const v2, 0x7f040124
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 89
-    const v2, 0x7f0b02b4
+    const v2, 0x7f0b02f0
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -435,9 +435,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d00
+    const v4, 0x7f090e27
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -452,9 +452,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 90
-    const v2, 0x7f0b02b7
+    const v2, 0x7f0b02f3
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -470,9 +470,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d01
+    const v4, 0x7f090e28
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -487,9 +487,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 92
-    const v2, 0x7f0b02c1
+    const v2, 0x7f0b02fd
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -505,9 +505,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d09
+    const v4, 0x7f090e30
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -522,9 +522,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 93
-    const v2, 0x7f0b02c2
+    const v2, 0x7f0b02fe
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -540,9 +540,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d0a
+    const v4, 0x7f090e31
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -557,9 +557,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 94
-    const v2, 0x7f0b02c3
+    const v2, 0x7f0b02ff
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -575,9 +575,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d0b
+    const v4, 0x7f090e32
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -592,9 +592,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 95
-    const v2, 0x7f0b02c4
+    const v2, 0x7f0b0300
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -610,9 +610,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d0c
+    const v4, 0x7f090e33
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -627,9 +627,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 97
-    const v2, 0x7f0b02c6
+    const v2, 0x7f0b0302
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -645,9 +645,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d0e
+    const v4, 0x7f090e35
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -662,9 +662,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 98
-    const v2, 0x7f0b02c7
+    const v2, 0x7f0b0303
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -680,9 +680,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d0f
+    const v4, 0x7f090e36
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -697,9 +697,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 99
-    const v2, 0x7f0b02c8
+    const v2, 0x7f0b0304
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -715,9 +715,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d10
+    const v4, 0x7f090e37
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -732,9 +732,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 100
-    const v2, 0x7f0b02c9
+    const v2, 0x7f0b0305
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -750,9 +750,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f090d11
+    const v4, 0x7f090e38
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PenHelpActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -767,9 +767,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 102
-    const v2, 0x7f0b02b0
+    const v2, 0x7f0b02ec
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -780,12 +780,12 @@
     .line 103
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 104
-    const v2, 0x7f0b02b5
+    const v2, 0x7f0b02f1
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -796,12 +796,12 @@
     .line 105
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 106
-    const v2, 0x7f0b02b8
+    const v2, 0x7f0b02f4
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -812,12 +812,12 @@
     .line 107
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img3:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 108
-    const v2, 0x7f0b02bb
+    const v2, 0x7f0b02f7
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -828,12 +828,12 @@
     .line 109
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img4:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 110
-    const v2, 0x7f0b02bd
+    const v2, 0x7f0b02f9
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -844,7 +844,7 @@
     .line 111
     iget-object v2, p0, Lcom/android/settings/PenHelpActivity;->img5:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     goto/16 :goto_0
 .end method
@@ -969,7 +969,7 @@
 
     .line 197
     :cond_9
-    invoke-virtual {p0}, Lcom/android/settings/PenHelpActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 198
     return-void
@@ -1000,14 +1000,14 @@
     .line 125
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    const v1, 0x7f02036c
+    const v1, 0x7f0203d6
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 126
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1018,14 +1018,14 @@
     .line 128
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    const v1, 0x7f02036d
+    const v1, 0x7f0203d7
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 129
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1053,14 +1053,14 @@
     .line 131
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    const v1, 0x7f02036a
+    const v1, 0x7f0203d4
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 132
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1071,14 +1071,14 @@
     .line 134
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    const v1, 0x7f02036b
+    const v1, 0x7f0203d5
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 135
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1103,14 +1103,14 @@
     .line 137
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    const v1, 0x7f020363
+    const v1, 0x7f0203cd
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 138
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img1:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1121,14 +1121,14 @@
     .line 140
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    const v1, 0x7f020365
+    const v1, 0x7f0203cf
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 141
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img2:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1139,14 +1139,14 @@
     .line 143
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img3:Landroid/widget/ImageView;
 
-    const v1, 0x7f020366
+    const v1, 0x7f0203d0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 144
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img3:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1157,14 +1157,14 @@
     .line 146
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img4:Landroid/widget/ImageView;
 
-    const v1, 0x7f020367
+    const v1, 0x7f0203d1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 147
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img4:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -1175,14 +1175,14 @@
     .line 149
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img5:Landroid/widget/ImageView;
 
-    const v1, 0x7f020368
+    const v1, 0x7f0203d2
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 150
     iget-object v0, p0, Lcom/android/settings/PenHelpActivity;->img5:Landroid/widget/ImageView;
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 

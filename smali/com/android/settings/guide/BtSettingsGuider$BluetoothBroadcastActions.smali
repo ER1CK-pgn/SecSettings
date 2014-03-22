@@ -255,7 +255,7 @@
     .line 73
     sget-object v0, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->$VALUES:[Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;
 
-    invoke-virtual {v0}, [Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

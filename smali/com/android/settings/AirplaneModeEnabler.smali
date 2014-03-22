@@ -27,17 +27,17 @@
     .parameter "airplaneModeCheckBoxPreference"
 
     .prologue
-    .line 78
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 82
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
+    .line 59
     new-instance v0, Lcom/android/settings/AirplaneModeEnabler$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/AirplaneModeEnabler$1;-><init>(Lcom/android/settings/AirplaneModeEnabler;)V
 
     iput-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mHandler:Landroid/os/Handler;
 
-    .line 71
+    .line 75
     new-instance v0, Lcom/android/settings/AirplaneModeEnabler$2;
 
     new-instance v1, Landroid/os/Handler;
@@ -48,18 +48,18 @@
 
     iput-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mAirplaneModeObserver:Landroid/database/ContentObserver;
 
-    .line 80
+    .line 84
     iput-object p1, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
-    .line 81
+    .line 85
     iput-object p2, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    .line 83
+    .line 87
     const/4 v0, 0x0
 
-    invoke-virtual {p2, v0}, Landroid/preference/CheckBoxPreference;->setPersistent(Z)V
+    invoke-virtual {p2, v0}, Landroid/preference/Preference;->setPersistent(Z)V
 
-    .line 85
+    .line 89
     new-instance v0, Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
@@ -70,14 +70,14 @@
 
     iput-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
-    .line 86
+    .line 90
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->notifyServiceState(I)V
 
-    .line 87
+    .line 91
     return-void
 .end method
 
@@ -86,7 +86,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 45
     invoke-direct {p0}, Lcom/android/settings/AirplaneModeEnabler;->onAirplaneModeChanged()V
 
     return-void
@@ -97,7 +97,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 45
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -108,7 +108,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 45
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
     return-object v0
@@ -120,7 +120,7 @@
     .parameter "x1"
 
     .prologue
-    .line 41
+    .line 45
     invoke-direct {p0, p1}, Lcom/android/settings/AirplaneModeEnabler;->setAirplaneModeOn(Z)V
 
     return-void
@@ -133,7 +133,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 119
+    .line 123
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -160,18 +160,18 @@
 
     const/4 v3, 0x1
 
-    .line 155
+    .line 159
     iget-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v5}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->getServiceState()Landroid/telephony/ServiceState;
 
     move-result-object v2
 
-    .line 156
+    .line 160
     .local v2, serviceState:Landroid/telephony/ServiceState;
     const/4 v0, 0x0
 
-    .line 158
+    .line 162
     .local v0, airplaneModeEnabled:Z
     iget-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
@@ -181,29 +181,29 @@
 
     if-eqz v5, :cond_1
 
-    .line 159
+    .line 163
     iget-object v4, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v4}, Lcom/android/settings/AirplaneModeEnabler;->isAirplaneModeOn(Landroid/content/Context;)Z
 
     move-result v0
 
-    .line 160
+    .line 164
     iget-object v4, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 161
+    .line 165
     iget-object v4, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 172
+    .line 176
     :cond_0
     :goto_0
     return-void
 
-    .line 163
+    .line 167
     :cond_1
     invoke-virtual {v2}, Landroid/telephony/ServiceState;->getState()I
 
@@ -215,7 +215,7 @@
 
     move v0, v3
 
-    .line 164
+    .line 168
     :goto_1
     const-string v5, "AirplaneModeEnabler"
 
@@ -243,7 +243,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 165
+    .line 169
     const-string v5, "AirplaneModeEnabler"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -266,7 +266,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 166
+    .line 170
     iget-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -283,20 +283,20 @@
 
     move v1, v3
 
-    .line 167
+    .line 171
     .local v1, expectAirplaneModeOn:Z
     :goto_2
     if-ne v0, v1, :cond_0
 
-    .line 168
+    .line 172
     iget-object v4, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 169
+    .line 173
     iget-object v4, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -304,13 +304,13 @@
     :cond_2
     move v0, v4
 
-    .line 163
+    .line 167
     goto :goto_1
 
     :cond_3
     move v1, v4
 
-    .line 166
+    .line 170
     goto :goto_2
 .end method
 
@@ -321,12 +321,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 125
+    .line 129
     iget-object v2, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 127
+    .line 131
     iget-object v2, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -342,12 +342,12 @@
     :cond_0
     invoke-static {v2, v3, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 130
+    .line 134
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, p1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, p1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 132
+    .line 136
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v1
@@ -362,14 +362,14 @@
 
     if-eqz p1, :cond_1
 
-    .line 134
+    .line 138
     const-string v1, "AirplaneModeEnabler"
 
     const-string v2, "Intent to IMSService for sending DE-REG packet"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 136
+    .line 140
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     new-instance v2, Landroid/content/Intent;
@@ -380,7 +380,7 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 137
+    .line 141
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x4
@@ -389,11 +389,11 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 144
+    .line 148
     :goto_0
     return-void
 
-    .line 140
+    .line 144
     :cond_1
     new-instance v0, Landroid/content/Intent;
 
@@ -401,13 +401,13 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 141
+    .line 145
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "state"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 142
+    .line 146
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
@@ -423,234 +423,283 @@
     .locals 1
 
     .prologue
-    .line 106
+    .line 110
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mAirplaneModeDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 107
+    .line 111
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mAirplaneModeDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 108
+    .line 112
     :cond_0
     return-void
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 7
+    .locals 10
     .parameter "preference"
     .parameter "newValue"
 
     .prologue
-    .line 178
-    const-string v5, "ril.cdma.inecmmode"
+    const/4 v7, 0x1
 
-    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const/4 v6, 0x0
 
-    move-result-object v5
+    .line 183
+    iget-object v8, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    const-string v9, "enterprise_policy"
 
-    move-result v5
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    if-eqz v5, :cond_0
+    move-result-object v0
 
-    .line 217
-    const/4 v5, 0x1
+    check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 185
+    .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
+    if-eqz v0, :cond_0
+
+    .line 186
+    invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Landroid/app/enterprise/RestrictionPolicy;->isAirplaneModeAllowed(Z)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    .line 233
     .end local p2
     :goto_0
-    return v5
+    return v6
 
-    .line 182
+    .line 191
     .restart local p2
     :cond_0
+    const-string v8, "ril.cdma.inecmmode"
+
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    move v6, v7
+
+    .line 233
+    goto :goto_0
+
+    .line 195
+    :cond_1
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v4
-
-    .line 183
-    .local v4, value:Z
-    const v1, 0x7f090b81
-
-    .line 184
-    .local v1, resEnableMsg:I
-    iget-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
-
-    invoke-static {v5}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
-
     move-result v5
 
-    if-nez v5, :cond_1
+    .line 196
+    .local v5, value:Z
+    const v2, 0x7f090c85
 
-    .line 185
-    const v1, 0x7f090b84
+    .line 197
+    .local v2, resEnableMsg:I
+    iget-object v7, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
-    .line 188
-    :cond_1
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+    invoke-static {v7}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
 
-    move-result-object v5
+    move-result v7
 
-    const-string v6, "CscFeature_BT_EnableSeparateSettingWithAirplainMode"
+    if-nez v7, :cond_2
 
-    invoke-virtual {v5, v6}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    .line 198
+    iget-object v7, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
-    move-result v5
+    const-string v8, "com.android.mms"
 
-    if-nez v5, :cond_2
+    invoke-static {v7, v8}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
 
-    .line 189
-    iget-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
+    move-result v7
 
-    invoke-static {v5}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+    if-eqz v7, :cond_4
 
-    move-result v5
-
-    if-nez v5, :cond_3
-
-    .line 190
-    const v1, 0x7f090b85
-
-    .line 200
-    :cond_2
-    :goto_1
-    if-eqz v4, :cond_6
-
-    move v2, v1
-
-    .line 201
-    .local v2, resMsg:I
-    :goto_2
-    if-eqz v4, :cond_7
-
-    const v3, 0x7f090b7f
-
-    .line 202
-    .local v3, resTitle:I
-    :goto_3
-    new-instance v0, Landroid/app/AlertDialog$Builder;
-
-    iget-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    .line 203
-    .local v0, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    .line 199
+    const v2, 0x7f090c88
 
     .line 204
-    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    :cond_2
+    :goto_1
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v7
+
+    const-string v8, "CscFeature_BT_EnableSeparateSettingWithAirplainMode"
+
+    invoke-virtual {v7, v8}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_3
 
     .line 205
-    const v5, 0x104000a
+    iget-object v7, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
-    new-instance v6, Lcom/android/settings/AirplaneModeEnabler$3;
+    invoke-static {v7}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
 
-    invoke-direct {v6, p0, v4}, Lcom/android/settings/AirplaneModeEnabler$3;-><init>(Lcom/android/settings/AirplaneModeEnabler;Z)V
+    move-result v7
 
-    invoke-virtual {v0, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    if-nez v7, :cond_5
 
-    .line 213
-    const/high16 v5, 0x104
+    .line 206
+    const v2, 0x7f090c89
 
-    const/4 v6, 0x0
+    .line 216
+    :cond_3
+    :goto_2
+    if-eqz v5, :cond_8
 
-    invoke-virtual {v0, v5, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    move v3, v2
 
-    .line 214
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+    .line 217
+    .local v3, resMsg:I
+    :goto_3
+    if-eqz v5, :cond_9
 
-    move-result-object v5
+    const v4, 0x7f090c83
 
-    iput-object v5, p0, Lcom/android/settings/AirplaneModeEnabler;->mAirplaneModeDialog:Landroid/app/AlertDialog;
+    .line 218
+    .local v4, resTitle:I
+    :goto_4
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    .line 215
-    const/4 v5, 0x0
+    iget-object v7, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 219
+    .local v1, mAlertDialog:Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    .line 220
+    invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    .line 221
+    const v7, 0x104000a
+
+    new-instance v8, Lcom/android/settings/AirplaneModeEnabler$3;
+
+    invoke-direct {v8, p0, v5}, Lcom/android/settings/AirplaneModeEnabler$3;-><init>(Lcom/android/settings/AirplaneModeEnabler;Z)V
+
+    invoke-virtual {v1, v7, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 229
+    const/high16 v7, 0x104
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v1, v7, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 230
+    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/settings/AirplaneModeEnabler;->mAirplaneModeDialog:Landroid/app/AlertDialog;
 
     goto :goto_0
 
-    .line 192
-    .end local v0           #mAlertDialog:Landroid/app/AlertDialog$Builder;
-    .end local v2           #resMsg:I
-    .end local v3           #resTitle:I
-    :cond_3
-    const-string v5, "CHM"
-
-    const-string v6, "ro.csc.sales_code"
-
-    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_4
-
-    const-string v5, "CHC"
-
-    const-string v6, "ro.csc.sales_code"
-
-    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    .line 194
+    .line 201
+    .end local v1           #mAlertDialog:Landroid/app/AlertDialog$Builder;
+    .end local v3           #resMsg:I
+    .end local v4           #resTitle:I
     :cond_4
-    const v1, 0x7f090b82
+    const v2, 0x7f090c89
 
     goto :goto_1
 
-    .line 196
+    .line 208
     :cond_5
-    const v1, 0x7f090b83
+    const-string v7, "CHM"
 
-    goto :goto_1
+    const-string v8, "ro.csc.sales_code"
 
-    .line 200
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_6
+
+    const-string v7, "CHC"
+
+    const-string v8, "ro.csc.sales_code"
+
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    .line 210
     :cond_6
-    const v2, 0x7f090b80
+    const v2, 0x7f090c86
 
     goto :goto_2
 
-    .line 201
-    .restart local v2       #resMsg:I
+    .line 212
     :cond_7
-    const v3, 0x7f090177
+    const v2, 0x7f090c87
+
+    goto :goto_2
+
+    .line 216
+    :cond_8
+    const v3, 0x7f090c84
 
     goto :goto_3
+
+    .line 217
+    .restart local v3       #resMsg:I
+    :cond_9
+    const v4, 0x7f09019a
+
+    goto :goto_4
 .end method
 
 .method public pause()V
     .locals 2
 
     .prologue
-    .line 111
+    .line 115
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->unregisterIntent()V
 
-    .line 112
+    .line 116
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 113
+    .line 117
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
@@ -659,7 +708,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 114
+    .line 118
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -670,7 +719,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 116
+    .line 120
     :cond_0
     return-void
 .end method
@@ -681,12 +730,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 91
+    .line 95
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 92
+    .line 96
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
@@ -695,19 +744,19 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 94
+    .line 98
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->registerIntent()V
 
-    .line 95
+    .line 99
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mCheckBoxPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 96
+    .line 100
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
@@ -716,7 +765,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 97
+    .line 101
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -733,7 +782,7 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 101
+    .line 105
     :cond_0
     return-void
 .end method
@@ -744,17 +793,17 @@
     .parameter "isAirplaneModeOn"
 
     .prologue
-    .line 221
+    .line 237
     if-eqz p1, :cond_0
 
-    .line 223
+    .line 239
     invoke-direct {p0, p2}, Lcom/android/settings/AirplaneModeEnabler;->setAirplaneModeOn(Z)V
 
-    .line 228
+    .line 244
     :goto_0
     return-void
 
-    .line 226
+    .line 242
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/AirplaneModeEnabler;->onAirplaneModeChanged()V
 

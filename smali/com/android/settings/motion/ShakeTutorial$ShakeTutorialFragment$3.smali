@@ -30,7 +30,7 @@
     .line 120
     iput-object p1, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$3;->this$0:Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

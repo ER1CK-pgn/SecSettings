@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1043
+    .line 1111
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$SwitchHandler;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,19 +39,19 @@
     .parameter "msg"
 
     .prologue
-    .line 1046
+    .line 1114
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1054
+    .line 1122
     :goto_0
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 1055
+    .line 1123
     return-void
 
-    .line 1048
+    .line 1116
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$SwitchHandler;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
@@ -61,7 +61,7 @@
 
     goto :goto_0
 
-    .line 1051
+    .line 1119
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$SwitchHandler;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
@@ -71,7 +71,7 @@
 
     goto :goto_0
 
-    .line 1046
+    .line 1114
     nop
 
     :pswitch_data_0

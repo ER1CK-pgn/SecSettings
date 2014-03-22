@@ -9,7 +9,7 @@
 
     .prologue
     .line 24
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -22,6 +22,19 @@
     .prologue
     .line 26
     invoke-virtual {p0, p1}, Landroid/view/MotionEvent;->findPointerIndex(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getPointerCount(Landroid/view/MotionEvent;)I
+    .locals 1
+    .parameter "event"
+
+    .prologue
+    .line 38
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v0
 

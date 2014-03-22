@@ -4,15 +4,11 @@
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
   xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
     <PreferenceScreen android:title="@string/phone_language" android:key="phone_language" android:fragment="com.android.settings.LocalePicker" />
-    <PreferenceScreen android:key="key_user_dictionary_settings" />
+    <PreferenceScreen android:title="@string/user_dict_settings_title" android:key="key_user_dictionary_settings" />
     <PreferenceCategory android:title="@string/keyboard_settings_category" android:key="keyboard_settings_category">
         <PreferenceScreen android:title="@string/current_input_method" android:key="current_input_method" android:widgetLayout="@layout/round_more_icon" />
     </PreferenceCategory>
-    <PreferenceCategory android:persistent="false" android:title="@string/builtin_keyboard_settings_title" android:key="hard_keyboard">
-        <CheckBoxPreference android:persistent="false" android:title="@string/auto_replace" android:key="auto_replace" android:order="1000" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:summaryOn="@string/auto_replace_summary" android:summaryOff="@string/auto_replace_summary" />
-        <CheckBoxPreference android:persistent="false" android:title="@string/auto_caps" android:key="auto_caps" android:order="1001" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:summaryOn="@string/auto_caps_summary" android:summaryOff="@string/auto_caps_summary" />
-        <CheckBoxPreference android:persistent="false" android:title="@string/auto_punctuate" android:key="auto_punctuate" android:order="1002" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:summaryOn="@string/auto_punctuate_summary" android:summaryOff="@string/auto_punctuate_summary" />
-    </PreferenceCategory>
+    <PreferenceCategory android:persistent="false" android:title="@string/builtin_keyboard_settings_title" android:key="hard_keyboard" />
     <PreferenceCategory android:title="@string/handwriting_recognition" android:key="handwriting_search_category">
         <PreferenceScreen android:title="@string/language_picker_title" android:key="handwriting_language" android:summary="" android:fragment="com.android.settings.handwritingsearch.HandwritingLanguagePreference" />
     </PreferenceCategory>

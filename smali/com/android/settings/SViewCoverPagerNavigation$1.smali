@@ -39,7 +39,7 @@
 
     sget-object v1, Lcom/android/settings/SViewCoverPagerNavigation$PageType;->current_normal:Lcom/android/settings/SViewCoverPagerNavigation$PageType;
 
-    invoke-virtual {v1}, Lcom/android/settings/SViewCoverPagerNavigation$PageType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Lcom/android/settings/SViewCoverPagerNavigation$PageType;->normal:Lcom/android/settings/SViewCoverPagerNavigation$PageType;
 
-    invoke-virtual {v1}, Lcom/android/settings/SViewCoverPagerNavigation$PageType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

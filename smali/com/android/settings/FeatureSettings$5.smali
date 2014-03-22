@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1003
+    .line 1011
     iput-object p1, p0, Lcom/android/settings/FeatureSettings$5;->this$0:Lcom/android/settings/FeatureSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 1006
+    .line 1014
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$5;->this$0:Lcom/android/settings/FeatureSettings;
 
     const/4 v1, 0x0
@@ -51,6 +51,6 @@
     #calls: Lcom/android/settings/FeatureSettings;->turnOnEasyMode(Z)V
     invoke-static {v0, v1}, Lcom/android/settings/FeatureSettings;->access$600(Lcom/android/settings/FeatureSettings;Z)V
 
-    .line 1007
+    .line 1015
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 489
+    .line 498
     iput-object p1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 494
+    .line 503
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
@@ -68,10 +68,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 495
+    .line 504
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
-    const v2, 0x7f0b021d
+    const v2, 0x7f0b0259
 
     invoke-virtual {v1, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -90,10 +90,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 496
+    .line 505
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
-    const v2, 0x7f0b021d
+    const v2, 0x7f0b0259
 
     invoke-virtual {v1, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -105,11 +105,11 @@
 
     move-result-object v0
 
-    .line 497
+    .line 506
     .local v0, s:Ljava/lang/CharSequence;
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
-    const v2, 0x7f0b021d
+    const v2, 0x7f0b0259
 
     invoke-virtual {v1, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     invoke-interface {v1, v0, v2, v3, v4}, Landroid/text/TextWatcher;->onTextChanged(Ljava/lang/CharSequence;III)V
 
-    .line 499
+    .line 508
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->isFirstInstance:Z
@@ -141,7 +141,7 @@
 
     if-nez v1, :cond_1
 
-    .line 501
+    .line 510
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
@@ -151,13 +151,13 @@
 
     invoke-virtual {v1}, Lcom/android/settings/myprofile/EllipsisEditText;->fontChange()V
 
-    .line 508
+    .line 517
     .end local v0           #s:Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     return-void
 
-    .line 503
+    .line 512
     .restart local v0       #s:Ljava/lang/CharSequence;
     :cond_1
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity$3;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
@@ -171,7 +171,7 @@
 
     goto :goto_0
 
-    .line 506
+    .line 515
     .end local v0           #s:Ljava/lang/CharSequence;
     :catch_0
     move-exception v1
@@ -191,7 +191,7 @@
     .end annotation
 
     .prologue
-    .line 511
+    .line 520
     .local p1, arg0:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     return-void
 .end method

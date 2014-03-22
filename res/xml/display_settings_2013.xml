@@ -8,10 +8,16 @@
     <ListPreference android:persistent="false" android:entries="@array/touch_key_light_entries" android:title="@string/touch_key_light" android:key="touch_key_light" android:summary="@string/touch_key_light_summary" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/touch_key_light_values" />
     <PreferenceScreen android:title="@string/screen_mode_setting" android:key="screen_mode" android:summary="@string/screen_mode_summary" />
     <SwitchPreferenceScreen android:title="@string/reading_mode" android:key="reading_mode" android:summary="@string/reading_mode_summary" android:fragment="com.android.settings.ReadingMode" />
+    <CheckBoxPreference android:title="@string/intelligent_sleep_title" android:key="smartscreen_stay" android:summary="@string/intelligent_sleep_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
+    <CheckBoxPreference android:title="@string/smart_pause_title" android:key="smartscreen_pause" android:summary="@string/smart_pause_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
+    <SwitchPreferenceScreen android:title="@string/smart_scroll_title" android:key="smartscreen_scroll" android:summary="@string/smart_scroll_summary" android:fragment="com.android.settings.smartscreen.SmartScrollAdvancedSettings" />
     <CheckBoxPreference android:persistent="false" android:title="@string/display_saving" android:key="power_saving_mode" android:summary="@string/display_saving_mode_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <SwitchPreferenceScreen android:title="@string/multi_window_title" android:key="header_display_multi_window" android:summary="@string/menu_summary_multi_window" android:fragment="com.android.settings.MultiWindowSettings" />
     <SwitchPreferenceScreen android:title="@string/screensaver_settings_title" android:key="screensaver" android:fragment="com.android.settings.DreamSettings" />
     <CheckBoxPreference android:title="@string/accelerometer_title" android:key="accelerometer" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
+    <SwitchPreferenceScreen android:title="@string/accelerometer_title" android:key="accelerometer_with_smart_rotation" android:fragment="com.android.settings.smartscreen.SmartScreenSettings">
+        <extra android:name="fromAccelerometer" android:value="true" />
+    </SwitchPreferenceScreen>
     <CheckBoxPreference android:persistent="false" android:title="@string/display_battery_percentage" android:key="display_battery_level" android:summary="@string/display_battery_percentage_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <CheckBoxPreference android:persistent="false" android:title="@string/edit_screen_capture_title" android:key="edit_screen_capture" android:summary="@string/edit_screen_capture_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <PreferenceCategory android:title="@string/tts_general_section_title" android:key="general" />
@@ -36,4 +42,5 @@
     <CheckBoxPreference android:persistent="false" android:title="@string/notification_pulse_title" android:key="notification_pulse" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <PreferenceScreen android:title="@string/wifi_display_settings_title" android:key="wifi_display" android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
     <CheckBoxPreference android:persistent="false" android:title="@string/auto_adjust_touch_title" android:key="auto_adjust_touch" android:summary="@string/auto_adjust_touch_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
+    <PreferenceScreen android:title="@string/font" android:key="font_menu" android:fragment="com.android.settings.FontMenu" />
 </PreferenceScreen>

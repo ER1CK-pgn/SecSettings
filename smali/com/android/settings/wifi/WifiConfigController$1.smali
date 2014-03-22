@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1586
+    .line 1651
     iput-object p1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "editable"
 
     .prologue
-    .line 1612
+    .line 1677
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/WifiConfigController;->enableSubmitIfAppropriate()V
 
-    .line 1613
+    .line 1678
     return-void
 .end method
 
@@ -59,7 +59,7 @@
     .parameter "after"
 
     .prologue
-    .line 1607
+    .line 1672
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -76,7 +76,7 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 1608
+    .line 1673
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -85,7 +85,7 @@
 
     iput-object v1, v0, Lcom/android/settings/wifi/WifiConfigController;->mTempSsid:Ljava/lang/String;
 
-    .line 1609
+    .line 1674
     :cond_0
     return-void
 .end method
@@ -102,7 +102,7 @@
 
     const/16 v4, 0x20
 
-    .line 1588
+    .line 1653
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -115,7 +115,7 @@
 
     if-le v1, v4, :cond_1
 
-    .line 1589
+    .line 1654
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     iget-object v1, v1, Lcom/android/settings/wifi/WifiConfigController;->mTempSsid:Ljava/lang/String;
@@ -134,7 +134,7 @@
 
     if-gt v1, v4, :cond_2
 
-    .line 1590
+    .line 1655
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
@@ -148,7 +148,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1595
+    .line 1660
     :goto_0
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
@@ -159,7 +159,7 @@
 
     if-nez v1, :cond_3
 
-    .line 1596
+    .line 1661
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->mConfigUi:Lcom/android/settings/wifi/WifiConfigUiBase;
@@ -171,11 +171,11 @@
 
     move-result-object v0
 
-    .line 1597
+    .line 1662
     .local v0, context:Landroid/content/Context;
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
-    const v2, 0x7f09036b
+    const v2, 0x7f0903a2
 
     const/4 v3, 0x1
 
@@ -198,7 +198,7 @@
     #setter for: Lcom/android/settings/wifi/WifiConfigController;->sToast:Landroid/widget/Toast;
     invoke-static {v1, v2}, Lcom/android/settings/wifi/WifiConfigController;->access$102(Lcom/android/settings/wifi/WifiConfigController;Landroid/widget/Toast;)Landroid/widget/Toast;
 
-    .line 1598
+    .line 1663
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->sToast:Landroid/widget/Toast;
@@ -208,7 +208,7 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 1602
+    .line 1667
     .end local v0           #context:Landroid/content/Context;
     :cond_0
     :goto_1
@@ -236,11 +236,11 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 1604
+    .line 1669
     :cond_1
     return-void
 
-    .line 1592
+    .line 1657
     :cond_2
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
@@ -255,7 +255,7 @@
 
     goto :goto_0
 
-    .line 1599
+    .line 1664
     :cond_3
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
@@ -283,7 +283,7 @@
 
     if-nez v1, :cond_0
 
-    .line 1600
+    .line 1665
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$1;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->sToast:Landroid/widget/Toast;

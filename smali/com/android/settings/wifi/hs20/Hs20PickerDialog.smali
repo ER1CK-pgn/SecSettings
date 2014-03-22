@@ -29,10 +29,10 @@
     .locals 0
 
     .prologue
-    .line 15
+    .line 29
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 65
+    .line 129
     return-void
 .end method
 
@@ -43,23 +43,23 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 26
+    .line 51
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 27
-    const v0, 0x7f0902d7
+    .line 53
+    const v0, 0x7f09030e
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->setTitle(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(I)V
 
-    .line 28
-    const v0, 0x7f0400b4
+    .line 55
+    const v0, 0x7f0400d3
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 29
-    const v0, 0x7f0b01d3
+    .line 57
+    const v0, 0x7f0b020a
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -67,10 +67,10 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->cancelBtn:Landroid/widget/Button;
 
-    .line 30
-    const v0, 0x7f0b01d4
+    .line 59
+    const v0, 0x7f0b020b
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -78,39 +78,39 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanBtn:Landroid/widget/Button;
 
-    .line 31
+    .line 61
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->cancelBtn:Landroid/widget/Button;
 
     new-instance v1, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$1;-><init>(Lcom/android/settings/wifi/hs20/Hs20PickerDialog;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 38
+    .line 75
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanBtn:Landroid/widget/Button;
 
     new-instance v1, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$2;
 
     invoke-direct {v1, p0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$2;-><init>(Lcom/android/settings/wifi/hs20/Hs20PickerDialog;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 46
+    .line 91
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanBtn:Landroid/widget/Button;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 48
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->getFragmentManager()Landroid/app/FragmentManager;
+    .line 95
+    invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->mFragmentManager:Landroid/app/FragmentManager;
 
-    .line 49
+    .line 97
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->mFragmentManager:Landroid/app/FragmentManager;
 
     new-instance v1, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$3;
@@ -119,7 +119,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->addOnBackStackChangedListener(Landroid/app/FragmentManager$OnBackStackChangedListener;)V
 
-    .line 58
+    .line 115
     return-void
 .end method
 
@@ -128,15 +128,15 @@
     .parameter "scanState"
 
     .prologue
-    .line 62
+    .line 123
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanBtn:Landroid/widget/Button;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 63
+    .line 125
     return-void
 .end method

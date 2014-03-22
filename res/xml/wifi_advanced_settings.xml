@@ -3,6 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
     <CheckBoxPreference android:persistent="false" android:title="@string/wifi_notify_open_networks" android:key="notify_open_networks" android:summary="@string/wifi_notify_open_networks_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/wifi_connect_seamlessly" android:key="connect_seamlessly" android:summary="@string/wifi_connect_seamlessly_summary" />
     <com.android.settings.SettingsSwitchPreference android:title="@string/wifi_hotspot20_enable" android:key="wifi_hotspot20_enable" android:summaryOn="@string/wifi_hotspot20_enable_summary_on" android:summaryOff="@string/wifi_hotspot20_enable_summary_off" />
     <ListPreference android:persistent="false" android:entries="@array/wifi_ap_list_priority_entries" android:title="@string/wifi_setting_ap_list_priority_title" android:key="ap_list_priority" android:entryValues="@array/wifi_ap_list_priority_values" />
     <ListPreference android:persistent="false" android:entries="@array/wifi_sleep_policy_entries" android:title="@string/wifi_setting_sleep_policy_title" android:key="sleep_policy" android:entryValues="@array/wifi_sleep_policy_values" />

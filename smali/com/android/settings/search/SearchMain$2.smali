@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 178
+    .line 206
     iput-object p1, p0, Lcom/android/settings/search/SearchMain$2;->this$0:Lcom/android/settings/search/SearchMain;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 181
+    .line 209
     const/16 v3, 0x42
 
     if-ne p2, v3, :cond_0
@@ -57,7 +57,7 @@
 
     if-nez v3, :cond_0
 
-    .line 182
+    .line 210
     iget-object v3, p0, Lcom/android/settings/search/SearchMain$2;->this$0:Lcom/android/settings/search/SearchMain;
 
     #getter for: Lcom/android/settings/search/SearchMain;->mSearchListView:Landroid/widget/ListView;
@@ -65,12 +65,25 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->getSelectedItemPosition()I
+    invoke-virtual {v3}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
 
     move-result v1
 
-    .line 183
+    .line 211
     .local v1, position:I
+    const/4 v3, -0x1
+
+    if-ne v1, v3, :cond_1
+
+    .line 224
+    .end local v1           #position:I
+    :cond_0
+    :goto_0
+    return v4
+
+    .line 213
+    .restart local v1       #position:I
+    :cond_1
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$800()Lcom/android/settings/search/SearchListAdapter;
 
     move-result-object v3
@@ -79,19 +92,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_0
 
-    .line 194
-    .end local v1           #position:I
-    :cond_0
-    :goto_0
-    return v4
-
-    .line 186
-    .restart local v1       #position:I
-    :cond_1
+    .line 216
+    :cond_2
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$800()Lcom/android/settings/search/SearchListAdapter;
 
     move-result-object v3
@@ -102,7 +108,7 @@
 
     iget v2, v3, Lcom/android/settings/search/SearchItem;->rowId:I
 
-    .line 188
+    .line 218
     .local v2, rowId:I
     new-instance v0, Landroid/content/Intent;
 
@@ -110,13 +116,13 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 190
+    .line 220
     .local v0, intent:Landroid/content/Intent;
     const-string v3, "rowId"
 
     invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 192
+    .line 222
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$200()Landroid/content/Context;
 
     move-result-object v3

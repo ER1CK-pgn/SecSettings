@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 346
+    .line 350
     iput-object p1, p0, Lcom/android/settings/wifi/WifiTimer$5;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "arg1"
 
     .prologue
-    .line 350
+    .line 354
     return-void
 .end method

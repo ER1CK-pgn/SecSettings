@@ -28,7 +28,7 @@
 
     .prologue
     .line 60
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 62
     iput-object p1, p0, Lcom/sec/android/app/samsungapps/preloadUpdate/aidl/IPreloadUpdate$Stub$Proxy;->mRemote:Landroid/os/IBinder;

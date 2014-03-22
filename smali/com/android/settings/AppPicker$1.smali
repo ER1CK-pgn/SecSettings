@@ -37,7 +37,7 @@
 
     .prologue
     .line 136
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 142
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;

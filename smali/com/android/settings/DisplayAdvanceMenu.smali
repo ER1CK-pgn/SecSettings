@@ -78,7 +78,7 @@
 
     new-instance v1, Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -88,12 +88,12 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 290
     iget-object v0, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -101,7 +101,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 293
     :cond_0
@@ -115,7 +115,7 @@
     .line 218
     iget-object v0, p0, Lcom/android/settings/DisplayAdvanceMenu;->mTouchKeyLight:Landroid/preference/ListPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -157,16 +157,16 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 75
-    const v5, 0x7f070008
+    const v5, 0x7f07000d
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 76
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -174,7 +174,7 @@
     .local v1, resolver:Landroid/content/ContentResolver;
     const-string v5, "touch_key_light"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -185,26 +185,26 @@
     .line 79
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mTouchKeyLight:Landroid/preference/ListPreference;
 
-    invoke-virtual {v5, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v8, 0x1110043
+    const v8, 0x1110048
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v5
 
-    if-eq v5, v6, :cond_5
+    if-eq v5, v6, :cond_6
 
     .line 84
     :goto_0
     const-string v5, "screen_mode"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -222,7 +222,7 @@
     .line 94
     const-string v5, "screen_mode"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -230,16 +230,16 @@
 
     .line 95
     .local v2, screenMode:Landroid/preference/PreferenceScreen;
-    const v5, 0x7f040151
+    const v5, 0x7f040187
 
-    invoke-virtual {v2, v5}, Landroid/preference/PreferenceScreen;->setWidgetLayoutResource(I)V
+    invoke-virtual {v2, v5}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 99
     .end local v2           #screenMode:Landroid/preference/PreferenceScreen;
     :cond_0
     const-string v5, "reading_mode"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -250,12 +250,12 @@
     .line 104
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mReadingMode:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 107
     const-string v5, "power_saving_mode"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -272,12 +272,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
     move v5, v6
 
     :goto_1
-    invoke-virtual {v8, v5}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v8, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 123
     invoke-static {v9}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -290,7 +290,7 @@
     :cond_1
     const-string v5, "screensaver"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/DisplayAdvanceMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -301,28 +301,28 @@
     .line 129
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v8, 0x1110047
+    const v8, 0x111004c
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_8
 
     .line 131
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v5
 
     iget-object v8, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v5, v8}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 136
     :cond_2
@@ -331,15 +331,22 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-nez v5, :cond_3
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
 
     .line 137
+    :cond_3
     iget-boolean v5, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     .line 138
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -357,12 +364,12 @@
 
     const/4 v8, -0x1
 
-    if-eq v5, v8, :cond_3
+    if-eq v5, v8, :cond_4
 
     .line 141
     sget v5, Lcom/android/settings/DisplayAdvanceMenu;->mSettingValue:I
 
-    if-ne v5, v6, :cond_8
+    if-ne v5, v6, :cond_9
 
     move v4, v6
 
@@ -375,26 +382,26 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     .line 143
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     .line 144
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5}, Landroid/preference/SwitchPreferenceScreen;->isEnabled()Z
+    invoke-virtual {v5}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     .line 145
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 146
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
@@ -407,7 +414,7 @@
 
     .line 157
     .end local v4           #value:Z
-    :cond_3
+    :cond_4
     :goto_4
     const-string v5, "touch_key_light"
 
@@ -415,7 +422,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     .line 158
     invoke-direct {p0}, Lcom/android/settings/DisplayAdvanceMenu;->updateState()V
@@ -423,29 +430,29 @@
     .line 163
     .end local v0           #extra_bundle:Landroid/os/Bundle;
     .end local v3           #targetKey:Ljava/lang/String;
-    :cond_4
+    :cond_5
     return-void
 
     .line 82
-    :cond_5
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    :cond_6
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v5
 
     iget-object v8, p0, Lcom/android/settings/DisplayAdvanceMenu;->mTouchKeyLight:Landroid/preference/ListPreference;
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v5, v8}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     move v5, v7
 
     .line 108
     goto/16 :goto_1
 
     .line 132
-    :cond_7
+    :cond_8
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
     if-eqz v5, :cond_2
@@ -453,13 +460,13 @@
     .line 133
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenSaverPreference:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     goto :goto_2
 
     .restart local v0       #extra_bundle:Landroid/os/Bundle;
     .restart local v3       #targetKey:Ljava/lang/String;
-    :cond_8
+    :cond_9
     move v4, v7
 
     .line 141
@@ -467,28 +474,28 @@
 
     .line 149
     .restart local v4       #value:Z
-    :cond_9
+    :cond_a
     const-string v5, "reading_mode"
 
     invoke-virtual {v5, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     .line 150
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mReadingMode:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5}, Landroid/preference/SwitchPreferenceScreen;->isEnabled()Z
+    invoke-virtual {v5}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     .line 151
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mReadingMode:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 152
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mReadingMode:Landroid/preference/SwitchPreferenceScreen;
@@ -507,10 +514,10 @@
 
     .prologue
     .line 180
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 181
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -558,7 +565,7 @@
     .line 232
     .local v3, value:I
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -629,7 +636,7 @@
     if-ne v3, v4, :cond_4
 
     .line 241
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -642,7 +649,7 @@
     .line 244
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -650,12 +657,12 @@
 
     .line 245
     .local v2, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f09057e
+    const v4, 0x7f0905ad
 
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 246
-    const v4, 0x7f090ba2
+    const v4, 0x7f090caa
 
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -696,7 +703,7 @@
     .line 267
     .restart local v3       #value:I
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -707,7 +714,7 @@
     .line 268
     new-instance v6, Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
@@ -724,7 +731,7 @@
     :cond_4
     new-instance v4, Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -764,7 +771,7 @@
     .line 277
     .restart local v3       #value:I
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -797,24 +804,31 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
 
     .line 188
+    :cond_0
     iget-boolean v5, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 189
     sget v5, Lcom/android/settings/DisplayAdvanceMenu;->mSettingValue:I
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_1
 
     .line 190
     sget v5, Lcom/android/settings/DisplayAdvanceMenu;->mSettingValue:I
 
-    if-ne v5, v3, :cond_2
+    if-ne v5, v3, :cond_3
 
     move v2, v3
 
@@ -827,26 +841,26 @@
 
     .line 192
     .local v0, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 193
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 199
     .end local v0           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v2           #value:Z
-    :cond_0
+    :cond_1
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mScreenMode:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     .line 200
     new-instance v1, Landroid/content/Intent;
@@ -855,7 +869,7 @@
 
     .line 201
     .local v1, intent:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -863,7 +877,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     .line 202
     new-instance v1, Landroid/content/Intent;
@@ -875,19 +889,19 @@
 
     .line 203
     .restart local v1       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v1}, Lcom/android/settings/DisplayAdvanceMenu;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     .line 214
     .end local v1           #intent:Landroid/content/Intent;
-    :cond_1
+    :cond_2
     :goto_1
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
 
     return v3
 
-    :cond_2
+    :cond_3
     move v2, v4
 
     .line 190
@@ -895,7 +909,7 @@
 
     .line 205
     .restart local v1       #intent:Landroid/content/Intent;
-    :cond_3
+    :cond_4
     new-instance v1, Landroid/content/Intent;
 
     .end local v1           #intent:Landroid/content/Intent;
@@ -905,23 +919,23 @@
 
     .line 206
     .restart local v1       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v1}, Lcom/android/settings/DisplayAdvanceMenu;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
     .line 208
     .end local v1           #intent:Landroid/content/Intent;
-    :cond_4
+    :cond_5
     iget-object v5, p0, Lcom/android/settings/DisplayAdvanceMenu;->mPowerSavingMode:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     .line 209
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -929,11 +943,11 @@
 
     iget-object v7, p0, Lcom/android/settings/DisplayAdvanceMenu;->mPowerSavingMode:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v7}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v7}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     :goto_2
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
@@ -941,7 +955,7 @@
     .line 211
     iget-object v3, p0, Lcom/android/settings/DisplayAdvanceMenu;->mPowerSavingMode:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v3}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v3
 
@@ -949,7 +963,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     move v3, v4
 
     .line 209
@@ -973,7 +987,7 @@
     .line 171
     iget-object v2, p0, Lcom/android/settings/DisplayAdvanceMenu;->mReadingMode:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -988,10 +1002,10 @@
     move v0, v1
 
     :cond_0
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 173
-    invoke-virtual {p0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 

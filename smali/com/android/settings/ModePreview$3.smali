@@ -30,7 +30,7 @@
     .line 135
     iput-object p1, p0, Lcom/android/settings/ModePreview$3;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -84,7 +84,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v0
 
@@ -119,7 +119,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCount()I
+    invoke-virtual {v0}, Landroid/widget/AdapterView;->getCount()I
 
     move-result v0
 
@@ -130,7 +130,7 @@
 
     iget-object v1, p0, Lcom/android/settings/ModePreview$3;->this$0:Lcom/android/settings/ModePreview;
 
-    const v2, 0x7f090b7e
+    const v2, 0x7f090c82
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -142,7 +142,7 @@
 
     aput-object v4, v3, v5
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/settings/ModePreview;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 

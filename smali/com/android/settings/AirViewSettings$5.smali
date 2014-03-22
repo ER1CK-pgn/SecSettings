@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 479
+    .line 480
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$5;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "which"
 
     .prologue
-    .line 482
+    .line 483
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$5;->this$0:Lcom/android/settings/AirViewSettings;
 
     #calls: Lcom/android/settings/AirViewSettings;->updateAirviewSwitch()V
     invoke-static {v0}, Lcom/android/settings/AirViewSettings;->access$600(Lcom/android/settings/AirViewSettings;)V
 
-    .line 483
+    .line 484
     return-void
 .end method

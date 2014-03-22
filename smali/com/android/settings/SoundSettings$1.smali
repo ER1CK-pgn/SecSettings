@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 250
+    .line 272
     iput-object p1, p0, Lcom/android/settings/SoundSettings$1;->this$0:Lcom/android/settings/SoundSettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 252
+    .line 274
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 271
+    .line 293
     :goto_0
     return-void
 
-    .line 254
+    .line 276
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/SoundSettings$1;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -65,7 +65,7 @@
 
     goto :goto_0
 
-    .line 257
+    .line 279
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/SoundSettings$1;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -82,7 +82,7 @@
 
     goto :goto_0
 
-    .line 261
+    .line 283
     :pswitch_2
     new-instance v0, Ljava/lang/Thread;
 
@@ -99,7 +99,7 @@
 
     goto :goto_0
 
-    .line 264
+    .line 286
     :pswitch_3
     new-instance v0, Ljava/lang/Thread;
 
@@ -116,7 +116,7 @@
 
     goto :goto_0
 
-    .line 267
+    .line 289
     :pswitch_4
     iget-object v0, p0, Lcom/android/settings/SoundSettings$1;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -133,7 +133,7 @@
 
     goto :goto_0
 
-    .line 252
+    .line 274
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

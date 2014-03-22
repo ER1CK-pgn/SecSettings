@@ -104,40 +104,40 @@
 
     const/4 v0, 0x0
 
-    .line 44
+    .line 46
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 85
+    .line 87
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 86
+    .line 88
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 87
+    .line 89
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 88
+    .line 90
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mUseRingDialog:Landroid/app/AlertDialog;
 
-    .line 89
+    .line 91
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
-    .line 90
+    .line 92
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 91
+    .line 93
     iput v2, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
-    .line 92
+    .line 94
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
-    .line 93
+    .line 95
     iput-boolean v2, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsTablet:Z
 
-    .line 94
+    .line 96
     iput-boolean v2, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 97
+    .line 99
     const/4 v0, 0x6
 
     new-array v0, v0, [I
@@ -146,28 +146,28 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGlanceViewTutorialAnimationImage:[I
 
-    .line 98
+    .line 100
     new-array v0, v1, [I
 
     fill-array-data v0, :array_1
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToZoomAnimationImage:[I
 
-    .line 99
+    .line 101
     new-array v0, v4, [I
 
     fill-array-data v0, :array_2
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToScrollListAnimationImage:[I
 
-    .line 100
+    .line 102
     new-array v0, v3, [I
 
     fill-array-data v0, :array_3
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToMoveIconAnimationImage:[I
 
-    .line 101
+    .line 103
     const/4 v0, 0x7
 
     new-array v0, v0, [I
@@ -176,42 +176,42 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToBrowseImageAnimationImage:[I
 
-    .line 102
+    .line 104
     new-array v0, v3, [I
 
     fill-array-data v0, :array_5
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mShakeToUpdateAnimationImage:[I
 
-    .line 103
+    .line 105
     new-array v0, v3, [I
 
     fill-array-data v0, :array_6
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mDoubleTapToGoTopAnimationImage:[I
 
-    .line 104
+    .line 106
     new-array v0, v1, [I
 
     fill-array-data v0, :array_7
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToBeNotifiedAnimationImage:[I
 
-    .line 105
+    .line 107
     new-array v0, v1, [I
 
     fill-array-data v0, :array_8
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTurnOverToMuteAnimationImage:[I
 
-    .line 106
+    .line 108
     new-array v0, v1, [I
 
     fill-array-data v0, :array_9
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToCallOutAnimationImage:[I
 
-    .line 107
+    .line 109
     const/4 v0, 0x2
 
     new-array v0, v0, [I
@@ -220,14 +220,14 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mUnlockCameraShortCut:[I
 
-    .line 108
+    .line 110
     new-array v0, v3, [I
 
     fill-array-data v0, :array_b
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTabletPanToMoveIconAnimationImage:[I
 
-    .line 109
+    .line 111
     const/16 v0, 0x8
 
     new-array v0, v0, [I
@@ -236,32 +236,32 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTabletPanToBrowseImageAnimationImage:[I
 
-    .line 112
+    .line 114
     new-array v0, v4, [I
 
     fill-array-data v0, :array_d
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSurfacePalmSwipeAnimationImage:[I
 
-    .line 113
+    .line 115
     new-array v0, v1, [I
 
     fill-array-data v0, :array_e
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSurfacePalmTouchAnimationImage:[I
 
-    .line 114
+    .line 116
     const/4 v0, 0x1
 
     new-array v0, v0, [I
 
-    const v1, 0x7f020560
+    const v1, 0x7f0205fc
 
     aput v1, v0, v2
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSurfaceTapAndTwistAnimationImage:[I
 
-    .line 121
+    .line 123
     new-instance v0, Lcom/android/settings/motion/MotionTutorialSettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/motion/MotionTutorialSettings$1;-><init>(Lcom/android/settings/motion/MotionTutorialSettings;)V
@@ -270,143 +270,143 @@
 
     return-void
 
-    .line 97
+    .line 99
     :array_0
     .array-data 0x4
-        0x45t 0x4t 0x2t 0x7ft
-        0x46t 0x4t 0x2t 0x7ft
-        0x47t 0x4t 0x2t 0x7ft
-        0x48t 0x4t 0x2t 0x7ft
-        0x49t 0x4t 0x2t 0x7ft
-        0x4at 0x4t 0x2t 0x7ft
-    .end array-data
-
-    .line 98
-    :array_1
-    .array-data 0x4
-        0xd9t 0x2t 0x2t 0x7ft
-        0xdat 0x2t 0x2t 0x7ft
-        0xdbt 0x2t 0x2t 0x7ft
-    .end array-data
-
-    .line 99
-    :array_2
-    .array-data 0x4
-        0xf6t 0x2t 0x2t 0x7ft
-        0xf7t 0x2t 0x2t 0x7ft
-        0xf8t 0x2t 0x2t 0x7ft
-        0xf9t 0x2t 0x2t 0x7ft
-        0xfat 0x2t 0x2t 0x7ft
+        0xc6t 0x4t 0x2t 0x7ft
+        0xc7t 0x4t 0x2t 0x7ft
+        0xc8t 0x4t 0x2t 0x7ft
+        0xc9t 0x4t 0x2t 0x7ft
+        0xcat 0x4t 0x2t 0x7ft
+        0xcbt 0x4t 0x2t 0x7ft
     .end array-data
 
     .line 100
-    :array_3
+    :array_1
     .array-data 0x4
-        0xd5t 0x2t 0x2t 0x7ft
-        0xd6t 0x2t 0x2t 0x7ft
-        0xd7t 0x2t 0x2t 0x7ft
-        0xd8t 0x2t 0x2t 0x7ft
+        0x37t 0x3t 0x2t 0x7ft
+        0x38t 0x3t 0x2t 0x7ft
+        0x39t 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 101
-    :array_4
+    :array_2
     .array-data 0x4
-        0xc5t 0x2t 0x2t 0x7ft
-        0xc6t 0x2t 0x2t 0x7ft
-        0xc7t 0x2t 0x2t 0x7ft
-        0xc8t 0x2t 0x2t 0x7ft
-        0xc9t 0x2t 0x2t 0x7ft
-        0xcat 0x2t 0x2t 0x7ft
-        0xcbt 0x2t 0x2t 0x7ft
+        0x57t 0x3t 0x2t 0x7ft
+        0x58t 0x3t 0x2t 0x7ft
+        0x59t 0x3t 0x2t 0x7ft
+        0x5at 0x3t 0x2t 0x7ft
+        0x5bt 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 102
-    :array_5
+    :array_3
     .array-data 0x4
-        0xe3t 0x2t 0x2t 0x7ft
-        0xe4t 0x2t 0x2t 0x7ft
-        0xe3t 0x2t 0x2t 0x7ft
-        0xe4t 0x2t 0x2t 0x7ft
+        0x33t 0x3t 0x2t 0x7ft
+        0x34t 0x3t 0x2t 0x7ft
+        0x35t 0x3t 0x2t 0x7ft
+        0x36t 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 103
-    :array_6
+    :array_4
     .array-data 0x4
-        0xcet 0x2t 0x2t 0x7ft
-        0xcft 0x2t 0x2t 0x7ft
-        0xcet 0x2t 0x2t 0x7ft
-        0xcft 0x2t 0x2t 0x7ft
+        0x23t 0x3t 0x2t 0x7ft
+        0x24t 0x3t 0x2t 0x7ft
+        0x25t 0x3t 0x2t 0x7ft
+        0x26t 0x3t 0x2t 0x7ft
+        0x27t 0x3t 0x2t 0x7ft
+        0x28t 0x3t 0x2t 0x7ft
+        0x29t 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 104
-    :array_7
+    :array_5
     .array-data 0x4
-        0xdet 0x2t 0x2t 0x7ft
-        0xdft 0x2t 0x2t 0x7ft
-        0xe0t 0x2t 0x2t 0x7ft
+        0x44t 0x3t 0x2t 0x7ft
+        0x45t 0x3t 0x2t 0x7ft
+        0x44t 0x3t 0x2t 0x7ft
+        0x45t 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 105
-    :array_8
+    :array_6
     .array-data 0x4
-        0xfft 0x2t 0x2t 0x7ft
-        0x0t 0x3t 0x2t 0x7ft
-        0x1t 0x3t 0x2t 0x7ft
+        0x2ct 0x3t 0x2t 0x7ft
+        0x2dt 0x3t 0x2t 0x7ft
+        0x2ct 0x3t 0x2t 0x7ft
+        0x2dt 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 106
-    :array_9
+    :array_7
     .array-data 0x4
-        0xd2t 0x2t 0x2t 0x7ft
-        0xd3t 0x2t 0x2t 0x7ft
-        0xd4t 0x2t 0x2t 0x7ft
+        0x3dt 0x3t 0x2t 0x7ft
+        0x3et 0x3t 0x2t 0x7ft
+        0x3ft 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 107
-    :array_a
+    :array_8
     .array-data 0x4
-        0xe1t 0x2t 0x2t 0x7ft
-        0xe2t 0x2t 0x2t 0x7ft
+        0x60t 0x3t 0x2t 0x7ft
+        0x61t 0x3t 0x2t 0x7ft
+        0x62t 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 108
-    :array_b
+    :array_9
     .array-data 0x4
-        0xf1t 0x2t 0x2t 0x7ft
-        0xf2t 0x2t 0x2t 0x7ft
-        0xf3t 0x2t 0x2t 0x7ft
-        0xf4t 0x2t 0x2t 0x7ft
+        0x30t 0x3t 0x2t 0x7ft
+        0x31t 0x3t 0x2t 0x7ft
+        0x32t 0x3t 0x2t 0x7ft
     .end array-data
 
     .line 109
+    :array_a
+    .array-data 0x4
+        0x42t 0x3t 0x2t 0x7ft
+        0x43t 0x3t 0x2t 0x7ft
+    .end array-data
+
+    .line 110
+    :array_b
+    .array-data 0x4
+        0x52t 0x3t 0x2t 0x7ft
+        0x53t 0x3t 0x2t 0x7ft
+        0x54t 0x3t 0x2t 0x7ft
+        0x55t 0x3t 0x2t 0x7ft
+    .end array-data
+
+    .line 111
     :array_c
     .array-data 0x4
-        0xe9t 0x2t 0x2t 0x7ft
-        0xeat 0x2t 0x2t 0x7ft
-        0xebt 0x2t 0x2t 0x7ft
-        0xect 0x2t 0x2t 0x7ft
-        0xedt 0x2t 0x2t 0x7ft
-        0xeet 0x2t 0x2t 0x7ft
-        0xeft 0x2t 0x2t 0x7ft
-        0xf0t 0x2t 0x2t 0x7ft
+        0x4at 0x3t 0x2t 0x7ft
+        0x4bt 0x3t 0x2t 0x7ft
+        0x4ct 0x3t 0x2t 0x7ft
+        0x4dt 0x3t 0x2t 0x7ft
+        0x4et 0x3t 0x2t 0x7ft
+        0x4ft 0x3t 0x2t 0x7ft
+        0x50t 0x3t 0x2t 0x7ft
+        0x51t 0x3t 0x2t 0x7ft
     .end array-data
 
-    .line 112
+    .line 114
     :array_d
     .array-data 0x4
-        0x3ct 0x3t 0x2t 0x7ft
-        0x3et 0x3t 0x2t 0x7ft
-        0x40t 0x3t 0x2t 0x7ft
-        0x42t 0x3t 0x2t 0x7ft
-        0x44t 0x3t 0x2t 0x7ft
+        0xa5t 0x3t 0x2t 0x7ft
+        0xa7t 0x3t 0x2t 0x7ft
+        0xa9t 0x3t 0x2t 0x7ft
+        0xabt 0x3t 0x2t 0x7ft
+        0xadt 0x3t 0x2t 0x7ft
     .end array-data
 
-    .line 113
+    .line 115
     :array_e
     .array-data 0x4
-        0x45t 0x3t 0x2t 0x7ft
-        0x46t 0x3t 0x2t 0x7ft
-        0x47t 0x3t 0x2t 0x7ft
+        0xaet 0x3t 0x2t 0x7ft
+        0xaft 0x3t 0x2t 0x7ft
+        0xb0t 0x3t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -415,7 +415,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 46
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->updateAnimation()V
 
     return-void
@@ -426,8 +426,8 @@
     .parameter "x0"
 
     .prologue
-    .line 44
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 46
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -440,7 +440,7 @@
     .parameter "x1"
 
     .prologue
-    .line 44
+    .line 46
     invoke-direct {p0, p1}, Lcom/android/settings/motion/MotionTutorialSettings;->startTryActually(Z)V
 
     return-void
@@ -451,7 +451,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 46
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
     return-object v0
@@ -462,8 +462,8 @@
     .parameter "x0"
 
     .prologue
-    .line 44
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 46
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -475,8 +475,8 @@
     .parameter "x0"
 
     .prologue
-    .line 44
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 46
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -488,7 +488,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 46
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->startTryActually()V
 
     return-void
@@ -499,8 +499,8 @@
     .parameter "x0"
 
     .prologue
-    .line 44
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 46
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -512,7 +512,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 46
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showMotionDialog()V
 
     return-void
@@ -523,8 +523,8 @@
     .parameter "x0"
 
     .prologue
-    .line 44
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 46
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -536,7 +536,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 46
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->stopAnimation()V
 
     return-void
@@ -546,25 +546,25 @@
     .locals 4
 
     .prologue
-    .line 364
+    .line 366
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->allDialogDismiss()V
 
-    .line 366
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 368
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090d5c
+    const v2, 0x7f090e85
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 367
+    .line 369
     .local v0, message:Ljava/lang/String;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -574,13 +574,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f090d5b
+    const v2, 0x7f090e84
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f090d5a
+    const v2, 0x7f090e83
 
     new-instance v3, Lcom/android/settings/motion/MotionTutorialSettings$2;
 
@@ -590,7 +590,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     const/4 v3, 0x0
 
@@ -604,16 +604,16 @@
 
     iput-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
-    .line 387
+    .line 389
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
     new-instance v2, Lcom/android/settings/motion/MotionTutorialSettings$3;
 
     invoke-direct {v2, p0}, Lcom/android/settings/motion/MotionTutorialSettings$3;-><init>(Lcom/android/settings/motion/MotionTutorialSettings;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 393
+    .line 395
     return-void
 .end method
 
@@ -621,23 +621,23 @@
     .locals 3
 
     .prologue
-    .line 434
+    .line 449
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->allDialogDismiss()V
 
-    .line 435
+    .line 450
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090d58
+    const v2, 0x7f090e81
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -647,7 +647,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090d57
+    const v1, 0x7f090e80
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -659,7 +659,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09074c
+    const v1, 0x7f09079f
 
     new-instance v2, Lcom/android/settings/motion/MotionTutorialSettings$7;
 
@@ -669,7 +669,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090d59
+    const v1, 0x7f090e82
 
     new-instance v2, Lcom/android/settings/motion/MotionTutorialSettings$6;
 
@@ -685,7 +685,7 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mUseRingDialog:Landroid/app/AlertDialog;
 
-    .line 450
+    .line 465
     return-void
 .end method
 
@@ -693,17 +693,17 @@
     .locals 2
 
     .prologue
-    .line 588
+    .line 603
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-nez v0, :cond_1
 
-    .line 594
+    .line 609
     :cond_0
     :goto_0
     return-void
 
-    .line 589
+    .line 604
     :cond_1
     const-string v0, "MotionTutorialSettings"
 
@@ -711,17 +711,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 590
+    .line 605
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 591
+    .line 606
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
-    .line 592
+    .line 607
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->updateAnimation()V
 
     goto :goto_0
@@ -735,7 +735,7 @@
 
     const/16 v3, 0xa
 
-    .line 454
+    .line 469
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
     const-string v1, "motion_zooming"
@@ -746,41 +746,41 @@
 
     if-eqz v0, :cond_1
 
-    .line 455
+    .line 470
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.VIEW"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 456
+    .line 471
     const-string v1, "image/jpeg"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 457
+    .line 472
     const-string v1, "com.sec.android.gallery3d"
 
     const-string v2, "com.sec.android.gallery3d.app.Gallery"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 458
+    .line 473
     const-string v1, "MotionTest"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 459
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 474
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 543
+    .line 558
     :cond_0
     :goto_0
     return-void
 
-    .line 460
+    .line 475
     :cond_1
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -792,12 +792,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 461
+    .line 476
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 462
+    .line 477
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v1
@@ -810,20 +810,20 @@
 
     if-eqz v1, :cond_2
 
-    .line 463
+    .line 478
     const-string v1, "com.android.jcontacts"
 
     const-string v2, "com.sec.android.app.contacts.activities.TiltToScrollListTutorialActivity"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 467
+    .line 482
     :goto_1
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 465
+    .line 480
     :cond_2
     const-string v1, "com.android.contacts"
 
@@ -833,7 +833,7 @@
 
     goto :goto_1
 
-    .line 468
+    .line 483
     :cond_3
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -845,24 +845,24 @@
 
     if-eqz v0, :cond_4
 
-    .line 469
+    .line 484
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 470
+    .line 485
     const-string v1, "com.sec.android.motions.settings.panningtutorial"
 
     const-string v2, "com.sec.android.motions.settings.panningtutorial.PanningTryActually"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 471
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 486
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 472
+    .line 487
     :cond_4
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -874,38 +874,38 @@
 
     if-eqz v0, :cond_5
 
-    .line 473
+    .line 488
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.VIEW"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 474
+    .line 489
     const-string v1, "image/jpeg"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 475
+    .line 490
     const-string v1, "com.sec.android.gallery3d"
 
     const-string v2, "com.sec.android.gallery3d.app.Gallery"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 476
+    .line 491
     const-string v1, "MotionTest"
 
     const/4 v2, 0x3
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 477
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 492
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 478
+    .line 493
     :cond_5
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -917,24 +917,24 @@
 
     if-eqz v0, :cond_6
 
-    .line 486
+    .line 501
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 487
+    .line 502
     const-string v1, "com.android.settings"
 
     const-string v2, "com.android.settings.motion.ShakeTutorial"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 488
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 503
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 489
+    .line 504
     :cond_6
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -946,24 +946,24 @@
 
     if-eqz v0, :cond_7
 
-    .line 497
+    .line 512
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 498
+    .line 513
     const-string v1, "com.android.settings"
 
     const-string v2, "com.android.settings.motion.ShakeTutorial"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 499
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 514
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 500
+    .line 515
     :cond_7
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -975,12 +975,12 @@
 
     if-eqz v0, :cond_9
 
-    .line 501
+    .line 516
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 502
+    .line 517
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v1
@@ -993,20 +993,20 @@
 
     if-eqz v1, :cond_8
 
-    .line 503
+    .line 518
     const-string v1, "com.android.jcontacts"
 
     const-string v2, "com.sec.android.app.contacts.activities.DoubleTapTutorialActivity"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 507
+    .line 522
     :goto_2
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 505
+    .line 520
     :cond_8
     const-string v1, "com.android.contacts"
 
@@ -1016,7 +1016,7 @@
 
     goto :goto_2
 
-    .line 508
+    .line 523
     :cond_9
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1028,22 +1028,22 @@
 
     if-eqz v0, :cond_a
 
-    .line 509
+    .line 524
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 510
+    .line 525
     const-string v1, "android.pickuptutorial.PICKUPTUTORIAL"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 511
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 526
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 512
+    .line 527
     :cond_a
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1055,22 +1055,22 @@
 
     if-eqz v0, :cond_b
 
-    .line 513
+    .line 528
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 514
+    .line 529
     const-string v1, "com.android.mms.ui.DirectCallTutorial"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 515
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 530
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 516
+    .line 531
     :cond_b
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1082,16 +1082,16 @@
 
     if-eqz v0, :cond_d
 
-    .line 517
+    .line 532
     const-string v0, "audio"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/motion/MotionTutorialSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 518
+    .line 533
     invoke-virtual {v0}, Landroid/media/AudioManager;->getRingerMode()I
 
     move-result v1
@@ -1104,12 +1104,12 @@
 
     if-eqz v0, :cond_c
 
-    .line 519
+    .line 534
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showUseRingDialog()V
 
     goto/16 :goto_0
 
-    .line 521
+    .line 536
     :cond_c
     const/4 v0, 0x0
 
@@ -1117,7 +1117,7 @@
 
     goto/16 :goto_0
 
-    .line 523
+    .line 538
     :cond_d
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1129,20 +1129,20 @@
 
     if-eqz v0, :cond_e
 
-    .line 524
+    .line 539
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 525
+    .line 540
     const-string v1, "samsung.pickuptutorial.GLANCEVIEW"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 526
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 541
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 527
+    .line 542
     const-string v0, "MotionTutorialSettings"
 
     const-string v1, "AIR_MOTION_GLANCE_VIEW"
@@ -1151,7 +1151,7 @@
 
     goto/16 :goto_0
 
-    .line 528
+    .line 543
     :cond_e
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1163,20 +1163,20 @@
 
     if-eqz v0, :cond_f
 
-    .line 530
+    .line 545
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 531
+    .line 546
     const-string v1, "com.samsung.pickuptutorial.PALMSWIPETUTORIAL"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 532
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 547
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 533
+    .line 548
     const-string v0, "MotionTutorialSettings"
 
     const-string v1, "MotionTutorialSettings Tutorial Palm swipe to capture"
@@ -1185,7 +1185,7 @@
 
     goto/16 :goto_0
 
-    .line 534
+    .line 549
     :cond_f
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1197,20 +1197,20 @@
 
     if-eqz v0, :cond_10
 
-    .line 536
+    .line 551
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 537
+    .line 552
     const-string v1, "android.intent.action.PALM_TOUCH_TUTORIAL"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 538
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 553
+    invoke-virtual {p0, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 539
+    .line 554
     const-string v0, "MotionTutorialSettings"
 
     const-string v1, "MotionTutorialSettings Tutorial Palm touch to mute/pause"
@@ -1219,7 +1219,7 @@
 
     goto/16 :goto_0
 
-    .line 540
+    .line 555
     :cond_10
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
@@ -1239,7 +1239,7 @@
     .parameter
 
     .prologue
-    .line 546
+    .line 561
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
     const-string v1, "motion_overturn"
@@ -1250,18 +1250,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 547
+    .line 562
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 548
+    .line 563
     const-string v1, "UseRing"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 549
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    .line 564
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1271,22 +1271,22 @@
 
     if-nez v1, :cond_1
 
-    .line 550
+    .line 565
     const-string v1, "com.android.phone"
 
     const-string v2, "com.android.phone.callsettings.OverturnTutorialIncallScreen"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 554
+    .line 569
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/settings/motion/MotionTutorialSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 556
+    .line 571
     :cond_0
     return-void
 
-    .line 552
+    .line 567
     :cond_1
     const-string v1, "com.sec.android.app.clockpackage"
 
@@ -1301,17 +1301,17 @@
     .locals 2
 
     .prologue
-    .line 598
+    .line 613
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-nez v0, :cond_1
 
-    .line 603
+    .line 618
     :cond_0
     :goto_0
     return-void
 
-    .line 599
+    .line 614
     :cond_1
     const-string v0, "MotionTutorialSettings"
 
@@ -1319,12 +1319,12 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 600
+    .line 615
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 601
+    .line 616
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
@@ -1342,17 +1342,17 @@
 
     const/16 v3, 0x66
 
-    .line 559
+    .line 574
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-nez v0, :cond_1
 
-    .line 584
+    .line 599
     :cond_0
     :goto_0
     return-void
 
-    .line 560
+    .line 575
     :cond_1
     const-string v0, "MotionTutorialSettings"
 
@@ -1378,12 +1378,12 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 561
+    .line 576
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_2
 
-    .line 562
+    .line 577
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
@@ -1394,14 +1394,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 563
+    .line 578
     iget v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
-    .line 566
+    .line 581
     :cond_2
     iget v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
@@ -1413,20 +1413,20 @@
 
     iput v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
-    .line 568
+    .line 583
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 569
+    .line 584
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->stopAnimation()V
 
-    .line 570
+    .line 585
     iget v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
     if-nez v0, :cond_3
 
-    .line 571
+    .line 586
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0x7d0
@@ -1435,20 +1435,20 @@
 
     goto :goto_0
 
-    .line 573
+    .line 588
     :cond_3
     iget-boolean v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
     if-eqz v0, :cond_5
 
-    .line 574
+    .line 589
     iget v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationIndex:I
 
     const/4 v1, 0x1
 
     if-le v0, v1, :cond_4
 
-    .line 575
+    .line 590
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0x7d
@@ -1457,7 +1457,7 @@
 
     goto :goto_0
 
-    .line 577
+    .line 592
     :cond_4
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
@@ -1465,7 +1465,7 @@
 
     goto :goto_0
 
-    .line 580
+    .line 595
     :cond_5
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationHandler:Landroid/os/Handler;
 
@@ -1482,48 +1482,48 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 606
+    .line 621
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 607
+    .line 622
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 608
+    .line 623
     iput-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 610
+    .line 625
     :cond_0
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
-    .line 611
+    .line 626
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 612
+    .line 627
     iput-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mMotionDialog:Landroid/app/AlertDialog;
 
-    .line 614
+    .line 629
     :cond_1
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mUseRingDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_2
 
-    .line 615
+    .line 630
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mUseRingDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 616
+    .line 631
     iput-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mUseRingDialog:Landroid/app/AlertDialog;
 
-    .line 618
+    .line 633
     :cond_2
     return-void
 .end method
@@ -1535,7 +1535,7 @@
     .parameter "data"
 
     .prologue
-    .line 219
+    .line 221
     const-string v0, "MotionTutorialSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1568,26 +1568,26 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 220
+    .line 222
     packed-switch p1, :pswitch_data_0
 
-    .line 227
+    .line 229
     :cond_0
     :goto_0
     return-void
 
-    .line 222
+    .line 224
     :pswitch_0
     const/16 v0, 0x64
 
     if-ne p2, v0, :cond_0
 
-    .line 223
+    .line 225
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto :goto_0
 
-    .line 220
+    .line 222
     :pswitch_data_0
     .packed-switch 0xa
         :pswitch_0
@@ -1603,11 +1603,11 @@
 
     const/4 v1, 0x0
 
-    .line 133
+    .line 135
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 135
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    .line 137
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1619,19 +1619,19 @@
 
     iput-boolean v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSupportBrowser:Z
 
-    .line 137
+    .line 139
     invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v4
 
     iput-boolean v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsTablet:Z
 
-    .line 138
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getArguments()Landroid/os/Bundle;
+    .line 140
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 139
+    .line 141
     .local v0, arguments:Landroid/os/Bundle;
     const-string v4, "type"
 
@@ -1643,197 +1643,197 @@
 
     const/4 v1, 0x1
 
-    .line 141
+    .line 143
     .local v1, isMotionTutorial:Z
     :cond_0
-    const v4, 0x7f070059
+    const v4, 0x7f070076
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 143
+    .line 145
     const-string v4, "glance_view"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGlanceView:Landroid/preference/Preference;
 
-    .line 144
+    .line 146
     const-string v4, "tilt"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTilt:Landroid/preference/Preference;
 
-    .line 145
+    .line 147
     const-string v4, "tilt_to_scroll_list"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToScrollList:Landroid/preference/Preference;
 
-    .line 146
+    .line 148
     const-string v4, "pan"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPan:Landroid/preference/Preference;
 
-    .line 147
+    .line 149
     const-string v4, "pan_to_browse_image"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToBrowseImage:Landroid/preference/Preference;
 
-    .line 148
+    .line 150
     const-string v4, "shake"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mShake:Landroid/preference/Preference;
 
-    .line 149
+    .line 151
     const-string v4, "double_tap"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mDoubleTap:Landroid/preference/Preference;
 
-    .line 150
+    .line 152
     const-string v4, "pick_up"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUp:Landroid/preference/Preference;
 
-    .line 151
+    .line 153
     const-string v4, "pick_up_to_call_out"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToCallOut:Landroid/preference/Preference;
 
-    .line 152
+    .line 154
     const-string v4, "turn_over"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTurnOver:Landroid/preference/Preference;
 
-    .line 153
+    .line 155
     const-string v4, "palm_swipe"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPalmSwipe:Landroid/preference/Preference;
 
-    .line 154
+    .line 156
     const-string v4, "palm_touch"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPalmTouch:Landroid/preference/Preference;
 
-    .line 155
+    .line 157
     const-string v4, "tap_and_twist"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/motion/MotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTapAndTwist:Landroid/preference/Preference;
 
-    .line 157
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 159
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
-    .line 159
+    .line 161
     .local v3, ps:Landroid/preference/PreferenceScreen;
     invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v2
 
-    .line 161
+    .line 163
     .local v2, isTablet:Z
     if-nez v1, :cond_1
 
-    .line 162
+    .line 164
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGlanceView:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 164
+    .line 166
     :cond_1
     if-nez v1, :cond_2
 
-    .line 165
+    .line 167
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTilt:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 168
+    .line 170
     :cond_2
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToScrollList:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 170
+    .line 172
     if-nez v1, :cond_3
 
-    .line 171
+    .line 173
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPan:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 173
+    .line 175
     :cond_3
     if-nez v1, :cond_4
 
-    .line 174
+    .line 176
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToBrowseImage:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 177
+    .line 179
     :cond_4
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mShake:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 180
-    iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mDoubleTap:Landroid/preference/Preference;
-
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 182
+    iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mDoubleTap:Landroid/preference/Preference;
+
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 184
     if-eqz v1, :cond_5
 
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1843,73 +1843,73 @@
 
     if-nez v4, :cond_6
 
-    .line 183
+    .line 185
     :cond_5
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUp:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 185
+    .line 187
     :cond_6
     if-eqz v1, :cond_7
 
     if-eqz v2, :cond_8
 
-    .line 186
+    .line 188
     :cond_7
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToCallOut:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 188
+    .line 190
     :cond_8
     if-eqz v1, :cond_9
 
     if-eqz v2, :cond_a
 
-    .line 189
+    .line 191
     :cond_9
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTurnOver:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 191
+    .line 193
     :cond_a
     if-eqz v1, :cond_b
 
-    .line 192
+    .line 194
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPalmSwipe:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 194
+    .line 196
     :cond_b
     if-eqz v1, :cond_c
 
-    .line 195
+    .line 197
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPalmTouch:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 198
+    .line 200
     :cond_c
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTapAndTwist:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 200
+    .line 202
     iget-boolean v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSupportBrowser:Z
 
     if-nez v4, :cond_d
 
-    .line 201
+    .line 203
     iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTilt:Landroid/preference/Preference;
 
-    const v5, 0x7f090d29
+    const v5, 0x7f090e52
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setSummary(I)V
 
-    .line 203
+    .line 205
     :cond_d
     return-void
 .end method
@@ -1918,13 +1918,13 @@
     .locals 0
 
     .prologue
-    .line 213
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 215
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 214
+    .line 216
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->stopAnimation()V
 
-    .line 215
+    .line 217
     return-void
 .end method
 
@@ -1934,37 +1934,37 @@
     .parameter "preference"
 
     .prologue
-    const v7, 0x7f090d48
+    const v7, 0x7f090e71
 
-    const v5, 0x7f090d3c
+    const v5, 0x7f090e65
 
-    const v4, 0x7f090d3b
+    const v4, 0x7f090e64
 
     const/4 v2, 0x1
 
     const/4 v6, 0x0
 
-    .line 231
+    .line 233
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGlanceView:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_0
 
-    .line 232
+    .line 234
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGlanceViewTutorialAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 233
+    .line 235
     const-string v3, "air_motion_glance_view"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 234
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 236
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090df9
+    const v4, 0x7f090f32
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1972,12 +1972,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 235
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 237
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090dfa
+    const v4, 0x7f090f33
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1985,34 +1985,34 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 236
+    .line 238
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 237
+    .line 239
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
-    .line 359
+    .line 361
     :goto_0
     return v2
 
-    .line 238
+    .line 240
     :cond_0
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTilt:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_1
 
-    .line 239
+    .line 241
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToZoomAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 240
+    .line 242
     const-string v3, "motion_zooming"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 241
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 243
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2022,12 +2022,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 242
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 244
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d42
+    const v4, 0x7f090e6b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2035,32 +2035,32 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 243
+    .line 245
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 244
+    .line 246
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto :goto_0
 
-    .line 245
+    .line 247
     :cond_1
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToScrollList:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_2
 
-    .line 246
+    .line 248
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTiltToScrollListAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 247
+    .line 249
     const-string v3, "motion_tilt_to_list_scrolling"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 248
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 250
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2070,12 +2070,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 249
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 251
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d43
+    const v4, 0x7f090e6c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2083,43 +2083,43 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 250
+    .line 252
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 251
+    .line 253
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto :goto_0
 
-    .line 252
+    .line 254
     :cond_2
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPan:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_4
 
-    .line 253
+    .line 255
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToMoveIconAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 254
+    .line 256
     iget-boolean v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsTablet:Z
 
     if-eqz v3, :cond_3
 
-    .line 255
+    .line 257
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTabletPanToMoveIconAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 257
+    .line 259
     :cond_3
     const-string v3, "motion_panning"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 258
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 260
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2129,12 +2129,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 259
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 261
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d44
+    const v4, 0x7f090e6d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2142,43 +2142,43 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 260
+    .line 262
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 261
+    .line 263
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 262
+    .line 264
     :cond_4
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToBrowseImage:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_6
 
-    .line 263
+    .line 265
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPanToBrowseImageAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 264
+    .line 266
     iget-boolean v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsTablet:Z
 
     if-eqz v3, :cond_5
 
-    .line 265
+    .line 267
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTabletPanToBrowseImageAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 267
+    .line 269
     :cond_5
     const-string v3, "motion_pan_to_browse_image"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 268
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 270
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2188,12 +2188,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 269
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 271
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d45
+    const v4, 0x7f090e6e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2201,36 +2201,36 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 270
+    .line 272
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 271
+    .line 273
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 272
+    .line 274
     :cond_6
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mShake:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_c
 
-    .line 273
+    .line 275
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mShakeToUpdateAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 274
+    .line 276
     const-string v3, "motion_shake"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 275
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 277
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d3d
+    const v4, 0x7f090e66
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2238,12 +2238,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 276
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 278
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d46
+    const v4, 0x7f090e6f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2251,17 +2251,17 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 277
+    .line 279
     const/4 v1, 0x1
 
-    .line 279
+    .line 281
     .local v1, isKiesAirInstalled:Z
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
@@ -2273,11 +2273,11 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 283
+    .line 285
     :goto_1
     if-nez v1, :cond_8
 
-    .line 284
+    .line 286
     const-string v3, "CMCC"
 
     const-string v4, ""
@@ -2302,13 +2302,13 @@
 
     if-eqz v3, :cond_9
 
-    .line 286
+    .line 288
     :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d49
+    const v4, 0x7f090e72
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2316,27 +2316,27 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 297
+    .line 299
     :cond_8
     :goto_2
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 298
+    .line 300
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 280
+    .line 282
     :catch_0
     move-exception v0
 
-    .line 281
+    .line 283
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const/4 v1, 0x0
 
     goto :goto_1
 
-    .line 288
+    .line 290
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_9
     const-string v3, "CHN"
@@ -2367,9 +2367,9 @@
 
     if-eqz v3, :cond_b
 
-    .line 290
+    .line 292
     :cond_a
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2381,9 +2381,9 @@
 
     goto :goto_2
 
-    .line 293
+    .line 295
     :cond_b
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2395,29 +2395,29 @@
 
     goto :goto_2
 
-    .line 299
+    .line 301
     .end local v1           #isKiesAirInstalled:Z
     :cond_c
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mDoubleTap:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_d
 
-    .line 300
+    .line 302
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mDoubleTapToGoTopAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 301
+    .line 303
     const-string v3, "motion_double_tap"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 302
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 304
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d3e
+    const v4, 0x7f090e67
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2425,12 +2425,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 303
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 305
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d4a
+    const v4, 0x7f090e73
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2438,36 +2438,36 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 304
+    .line 306
     iput-boolean v2, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 305
+    .line 307
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 306
+    .line 308
     :cond_d
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUp:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_e
 
-    .line 307
+    .line 309
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToBeNotifiedAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 308
+    .line 310
     const-string v3, "motion_pick_up"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 309
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 311
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d3f
+    const v4, 0x7f090e68
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2475,12 +2475,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 310
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 312
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d4b
+    const v4, 0x7f090e74
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2488,36 +2488,36 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 315
+    .line 317
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 316
+    .line 318
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 317
+    .line 319
     :cond_e
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToCallOut:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_f
 
-    .line 318
+    .line 320
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPickUpToCallOutAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 319
+    .line 321
     const-string v3, "motion_pick_up_to_call_out"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 320
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 322
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d40
+    const v4, 0x7f090e69
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2525,12 +2525,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 321
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 323
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d5f
+    const v4, 0x7f090e88
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2538,36 +2538,36 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 322
+    .line 324
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 323
+    .line 325
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 324
+    .line 326
     :cond_f
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTurnOver:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_10
 
-    .line 325
+    .line 327
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTurnOverToMuteAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 326
+    .line 328
     const-string v3, "motion_overturn"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 327
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 329
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d41
+    const v4, 0x7f090e6a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2575,12 +2575,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 328
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 330
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d4e
+    const v4, 0x7f090e77
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2588,36 +2588,36 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 329
+    .line 331
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 330
+    .line 332
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 331
+    .line 333
     :cond_10
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPalmSwipe:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_11
 
-    .line 332
+    .line 334
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSurfacePalmSwipeAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 333
+    .line 335
     const-string v3, "surface_palm_swipe"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 334
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 336
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d6b
+    const v4, 0x7f090e96
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2625,12 +2625,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 335
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 337
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d6c
+    const v4, 0x7f090e97
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2638,36 +2638,36 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 336
+    .line 338
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 337
+    .line 339
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 338
+    .line 340
     :cond_11
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mPalmTouch:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_13
 
-    .line 339
+    .line 341
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSurfacePalmTouchAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 340
+    .line 342
     const-string v3, "surface_palm_touch"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 341
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 343
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d6d
+    const v4, 0x7f090e98
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2675,8 +2675,8 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 342
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    .line 344
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -2686,12 +2686,12 @@
 
     if-eqz v3, :cond_12
 
-    .line 343
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 345
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d6f
+    const v4, 0x7f090e9a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2699,22 +2699,22 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 347
+    .line 349
     :goto_3
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 348
+    .line 350
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 345
+    .line 347
     :cond_12
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d6e
+    const v4, 0x7f090e99
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2724,28 +2724,28 @@
 
     goto :goto_3
 
-    .line 349
+    .line 351
     :cond_13
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTapAndTwist:Landroid/preference/Preference;
 
     if-ne p2, v3, :cond_14
 
-    .line 350
+    .line 352
     iget-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mSurfaceTapAndTwistAnimationImage:[I
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
 
-    .line 351
+    .line 353
     const-string v3, "surface_tap_and_twist"
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mCurrentDB:Ljava/lang/String;
 
-    .line 352
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 354
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d70
+    const v4, 0x7f090e9b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2753,12 +2753,12 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
 
-    .line 353
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getResources()Landroid/content/res/Resources;
+    .line 355
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090d71
+    const v4, 0x7f090e9c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2766,17 +2766,17 @@
 
     iput-object v3, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
 
-    .line 354
+    .line 356
     iput-boolean v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mIsQuickAnimation:Z
 
-    .line 355
+    .line 357
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->showGuideDialog()V
 
     goto/16 :goto_0
 
-    .line 357
+    .line 359
     :cond_14
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v2
 
@@ -2787,130 +2787,192 @@
     .locals 0
 
     .prologue
-    .line 207
+    .line 209
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 208
+    .line 210
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->updateAnimation()V
 
-    .line 209
+    .line 211
     return-void
 .end method
 
 .method public showGuideDialog()V
-    .locals 7
+    .locals 10
 
     .prologue
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
-    .line 397
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    .line 399
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    if-eqz v6, :cond_0
 
-    move-result-object v4
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    invoke-direct {v0, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v6}, Landroid/app/Dialog;->isShowing()Z
 
-    .line 398
-    .local v0, builder:Landroid/app/AlertDialog$Builder;
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 446
+    :goto_0
+    return-void
+
+    .line 403
+    :cond_0
+    new-instance v2, Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-direct {v2, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 404
+    .local v2, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->allDialogDismiss()V
 
-    .line 400
-    invoke-virtual {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->getActivity()Landroid/app/Activity;
+    .line 406
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v4
+    move-result-object v6
 
-    const-string v5, "layout_inflater"
+    const-string v7, "layout_inflater"
 
-    invoke-virtual {v4, v5}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/LayoutInflater;
-
-    .line 401
-    .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f04006e
-
-    invoke-virtual {v1, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 402
-    .local v2, layout:Landroid/view/View;
-    const v4, 0x7f0b0078
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v6, v7}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Landroid/widget/TextView;
-
-    .line 403
-    .local v3, message:Landroid/widget/TextView;
-    const v4, 0x7f0b0140
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/ImageView;
-
-    iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
-
-    .line 405
-    iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 406
-    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    check-cast v3, Landroid/view/LayoutInflater;
 
     .line 407
-    iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
+    .local v3, inflater:Landroid/view/LayoutInflater;
+    const v6, 0x7f040073
 
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v3, v6, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v4
+
+    .line 408
+    .local v4, layout:Landroid/view/View;
+    const v6, 0x7f0b007e
+
+    invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/TextView;
 
     .line 409
-    const v4, 0x7f090d51
+    .local v5, message:Landroid/widget/TextView;
+    const v6, 0x7f0b014f
 
-    new-instance v5, Lcom/android/settings/motion/MotionTutorialSettings$4;
+    invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {v5, p0}, Lcom/android/settings/motion/MotionTutorialSettings$4;-><init>(Lcom/android/settings/motion/MotionTutorialSettings;)V
+    move-result-object v6
 
-    invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    check-cast v6, Landroid/widget/ImageView;
 
-    move-result-object v4
+    iput-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
-    const v5, 0x7f090173
+    .line 411
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
 
-    invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    if-eqz v6, :cond_1
 
-    .line 423
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    .line 412
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v4
+    move-result-object v6
 
-    iput-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
+    invoke-virtual {v6}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationImage:[I
+
+    const/4 v8, 0x0
+
+    aget v7, v7, v8
+
+    invoke-static {v6, v7}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    .line 413
+    .local v0, bitmap:Landroid/graphics/Bitmap;
+    if-eqz v0, :cond_1
+
+    .line 414
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getByteCount()I
+
+    move-result v1
+
+    .line 415
+    .local v1, bitmapSize:I
+    const/16 v6, 0x3e8
+
+    if-ge v1, v6, :cond_1
+
+    .line 416
+    iput-object v9, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mAnimationView:Landroid/widget/ImageView;
+
+    .line 420
+    .end local v0           #bitmap:Landroid/graphics/Bitmap;
+    .end local v1           #bitmapSize:I
+    :cond_1
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialContent:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 421
+    invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+
+    .line 422
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mTutorialTitle:Ljava/lang/String;
+
+    invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 424
-    iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
+    const v6, 0x7f090e7a
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
+    new-instance v7, Lcom/android/settings/motion/MotionTutorialSettings$4;
 
-    .line 425
-    iget-object v4, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
+    invoke-direct {v7, p0}, Lcom/android/settings/motion/MotionTutorialSettings$4;-><init>(Lcom/android/settings/motion/MotionTutorialSettings;)V
 
-    new-instance v5, Lcom/android/settings/motion/MotionTutorialSettings$5;
+    invoke-virtual {v2, v6, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v5, p0}, Lcom/android/settings/motion/MotionTutorialSettings$5;-><init>(Lcom/android/settings/motion/MotionTutorialSettings;)V
+    move-result-object v6
 
-    invoke-virtual {v4, v5}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    const v7, 0x7f090195
 
-    .line 430
+    invoke-virtual {v6, v7, v9}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 438
+    invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
+
+    .line 439
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v6}, Landroid/app/Dialog;->show()V
+
+    .line 440
+    iget-object v6, p0, Lcom/android/settings/motion/MotionTutorialSettings;->mGuideDialog:Landroid/app/AlertDialog;
+
+    new-instance v7, Lcom/android/settings/motion/MotionTutorialSettings$5;
+
+    invoke-direct {v7, p0}, Lcom/android/settings/motion/MotionTutorialSettings$5;-><init>(Lcom/android/settings/motion/MotionTutorialSettings;)V
+
+    invoke-virtual {v6, v7}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    .line 445
     invoke-direct {p0}, Lcom/android/settings/motion/MotionTutorialSettings;->startAnimation()V
 
-    .line 431
-    return-void
+    goto/16 :goto_0
 .end method

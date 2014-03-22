@@ -96,7 +96,7 @@
 
     const/16 v5, 0xff
 
-    .line 43
+    .line 44
     const/16 v0, 0x10
 
     new-array v0, v0, [I
@@ -283,10 +283,10 @@
 
     const/4 v1, 0x0
 
-    .line 99
+    .line 100
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 51
+    .line 52
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -297,35 +297,35 @@
 
     iput-object v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->LOG_TAG:Ljava/lang/String;
 
-    .line 56
+    .line 57
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_ROW:I
 
-    .line 57
+    .line 58
     const/16 v0, 0x8
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
-    .line 65
+    .line 66
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MARGIN:I
 
-    .line 66
+    .line 67
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->GAP:I
 
-    .line 67
+    .line 68
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->POSITION_GAP:I
 
-    .line 75
+    .line 76
     const/16 v0, 0xe
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 76
+    .line 77
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mPreviousColorIndex:I
 
-    .line 78
+    .line 79
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
-    .line 79
+    .line 80
     sget-object v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     array-length v0, v0
@@ -334,29 +334,29 @@
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
-    .line 81
+    .line 82
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
-    .line 83
+    .line 84
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 84
+    .line 85
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bDrawFocusImage:Z
 
-    .line 86
+    .line 87
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->bClearFocus:Z
 
-    .line 93
+    .line 94
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_nSquitBeforeColorIndex:I
 
-    .line 100
+    .line 101
     iput-object p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->context:Landroid/content/Context;
 
-    .line 101
+    .line 102
     return-void
 .end method
 
@@ -370,10 +370,10 @@
 
     const/4 v1, 0x0
 
-    .line 104
+    .line 105
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 51
+    .line 52
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -384,35 +384,35 @@
 
     iput-object v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->LOG_TAG:Ljava/lang/String;
 
-    .line 56
+    .line 57
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_ROW:I
 
-    .line 57
+    .line 58
     const/16 v0, 0x8
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
-    .line 65
+    .line 66
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MARGIN:I
 
-    .line 66
+    .line 67
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->GAP:I
 
-    .line 67
+    .line 68
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->POSITION_GAP:I
 
-    .line 75
+    .line 76
     const/16 v0, 0xe
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 76
+    .line 77
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mPreviousColorIndex:I
 
-    .line 78
+    .line 79
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
-    .line 79
+    .line 80
     sget-object v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     array-length v0, v0
@@ -421,29 +421,29 @@
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
-    .line 81
+    .line 82
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
-    .line 83
+    .line 84
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 84
+    .line 85
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bDrawFocusImage:Z
 
-    .line 86
+    .line 87
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->bClearFocus:Z
 
-    .line 93
+    .line 94
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_nSquitBeforeColorIndex:I
 
-    .line 105
+    .line 106
     iput-object p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->context:Landroid/content/Context;
 
-    .line 106
+    .line 107
     return-void
 .end method
 
@@ -458,10 +458,10 @@
 
     const/4 v1, 0x0
 
-    .line 109
+    .line 110
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 51
+    .line 52
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -472,35 +472,35 @@
 
     iput-object v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->LOG_TAG:Ljava/lang/String;
 
-    .line 56
+    .line 57
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_ROW:I
 
-    .line 57
+    .line 58
     const/16 v0, 0x8
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
-    .line 65
+    .line 66
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MARGIN:I
 
-    .line 66
+    .line 67
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->GAP:I
 
-    .line 67
+    .line 68
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->POSITION_GAP:I
 
-    .line 75
+    .line 76
     const/16 v0, 0xe
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 76
+    .line 77
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mPreviousColorIndex:I
 
-    .line 78
+    .line 79
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
-    .line 79
+    .line 80
     sget-object v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     array-length v0, v0
@@ -509,29 +509,29 @@
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
-    .line 81
+    .line 82
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
-    .line 83
+    .line 84
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 84
+    .line 85
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bDrawFocusImage:Z
 
-    .line 86
+    .line 87
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->bClearFocus:Z
 
-    .line 93
+    .line 94
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_nSquitBeforeColorIndex:I
 
-    .line 110
+    .line 111
     iput-object p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->context:Landroid/content/Context;
 
-    .line 111
+    .line 112
     return-void
 .end method
 
@@ -541,34 +541,34 @@
     .parameter "isUpEvent"
 
     .prologue
-    .line 255
+    .line 256
     iget v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 256
+    .line 257
     .local v0, previousColorIndex:I
     iput p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 258
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->invalidate()V
+    .line 259
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    .line 260
+    .line 261
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
     if-ne p1, v1, :cond_2
 
-    .line 262
+    .line 263
     iget-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
     if-nez v1, :cond_0
 
     if-eqz p2, :cond_0
 
-    .line 264
+    .line 265
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnSelectCustomColorListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnSelectCustomColorListener;
 
     if-eqz v1, :cond_0
 
-    .line 265
+    .line 266
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnSelectCustomColorListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnSelectCustomColorListener;
 
     invoke-interface {v1}, Lcom/android/settings/myprofile/SpLitColorPickerView$OnSelectCustomColorListener;->onSelectCustomColor()Z
@@ -577,7 +577,7 @@
 
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
-    .line 266
+    .line 267
     iget-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
     const/4 v2, 0x1
@@ -588,17 +588,17 @@
 
     if-nez v1, :cond_0
 
-    .line 267
+    .line 268
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 276
+    .line 277
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnColorChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnColorChangedListener;
 
     if-eqz v1, :cond_1
 
-    .line 277
+    .line 278
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnColorChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnColorChangedListener;
 
     invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getColor()I
@@ -607,17 +607,17 @@
 
     invoke-interface {v1, v2}, Lcom/android/settings/myprofile/SpLitColorPickerView$OnColorChangedListener;->onColorChanged(I)V
 
-    .line 279
+    .line 280
     :cond_1
     return-void
 
-    .line 272
+    .line 273
     :cond_2
     iget-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
     if-nez v1, :cond_0
 
-    .line 273
+    .line 274
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
@@ -632,8 +632,8 @@
     .parameter "isUpEvent"
 
     .prologue
-    .line 210
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getWidth()I
+    .line 211
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v5
 
@@ -643,9 +643,9 @@
 
     div-int/lit8 v2, v5, 0x2
 
-    .line 211
+    .line 212
     .local v2, pl:I
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v5
 
@@ -653,11 +653,11 @@
 
     div-int v3, v5, v6
 
-    .line 212
+    .line 213
     .local v3, pt:I
     const/4 v4, 0x0
 
-    .line 213
+    .line 214
     .local v4, x_idx:I
     iget v5, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
 
@@ -667,7 +667,7 @@
 
     add-int v0, v5, v6
 
-    .line 215
+    .line 216
     .local v0, cur_x:I
     const/4 v1, 0x1
 
@@ -679,17 +679,17 @@
 
     if-ge v1, v5, :cond_0
 
-    .line 216
+    .line 217
     add-int/lit8 v4, v1, -0x1
 
-    .line 217
+    .line 218
     int-to-float v5, v0
 
     cmpl-float v5, v5, p1
 
     if-lez v5, :cond_2
 
-    .line 222
+    .line 223
     :cond_0
     int-to-float v5, v3
 
@@ -705,19 +705,19 @@
 
     if-gt v5, v6, :cond_1
 
-    .line 223
+    .line 224
     iget v5, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
     add-int/2addr v4, v5
 
-    .line 224
+    .line 225
     :cond_1
     invoke-direct {p0, v4, p3}, Lcom/android/settings/myprofile/SpLitColorPickerView;->applyColor(IZ)V
 
-    .line 252
+    .line 253
     return-void
 
-    .line 220
+    .line 221
     :cond_2
     iget v5, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
 
@@ -727,7 +727,7 @@
 
     add-int/2addr v0, v5
 
-    .line 215
+    .line 216
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -738,12 +738,12 @@
     .parameter "canvas"
 
     .prologue
-    .line 282
+    .line 283
     move-object/from16 v0, p0
 
     iget v15, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MARGIN:I
 
-    .line 283
+    .line 284
     .local v15, x:I
     move-object/from16 v0, p0
 
@@ -751,25 +751,25 @@
 
     move/from16 v16, v0
 
-    .line 284
+    .line 285
     .local v16, y:I
     new-instance v13, Landroid/graphics/Rect;
 
     invoke-direct {v13}, Landroid/graphics/Rect;-><init>()V
 
-    .line 285
+    .line 286
     .local v13, rect:Landroid/graphics/Rect;
     new-instance v14, Landroid/graphics/Rect;
 
     invoke-direct {v14}, Landroid/graphics/Rect;-><init>()V
 
-    .line 286
+    .line 287
     .local v14, selectorRect:Landroid/graphics/Rect;
     new-instance v10, Landroid/graphics/Rect;
 
     invoke-direct {v10}, Landroid/graphics/Rect;-><init>()V
 
-    .line 288
+    .line 289
     .local v10, focusedRect:Landroid/graphics/Rect;
     const/4 v12, 0x0
 
@@ -781,10 +781,10 @@
 
     if-ge v12, v1, :cond_4
 
-    .line 289
+    .line 290
     const/4 v15, 0x0
 
-    .line 290
+    .line 291
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_HEIGHT:I
@@ -799,7 +799,7 @@
 
     add-int/lit8 v16, v1, 0x5
 
-    .line 292
+    .line 293
     const/4 v11, 0x0
 
     .local v11, i:I
@@ -810,7 +810,7 @@
 
     if-ge v11, v1, :cond_3
 
-    .line 293
+    .line 294
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
@@ -827,7 +827,7 @@
 
     invoke-virtual {v13, v15, v0, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 294
+    .line 295
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
@@ -836,7 +836,7 @@
 
     add-int v9, v1, v11
 
-    .line 295
+    .line 296
     .local v9, colorIndex:I
     sget-object v1, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
@@ -850,7 +850,7 @@
 
     aget v8, v1, v2
 
-    .line 297
+    .line 298
     .local v8, color:I
     move-object/from16 v0, p0
 
@@ -874,18 +874,18 @@
 
     if-nez v1, :cond_0
 
-    .line 298
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getResources()Landroid/content/res/Resources;
+    .line 299
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0203c4
+    const v2, 0x7f020444
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
-    .line 299
+    .line 300
     .local v7, bitmapTrans:Landroid/graphics/Bitmap;
     iget v1, v13, Landroid/graphics/Rect;->left:I
 
@@ -901,26 +901,26 @@
 
     invoke-virtual {v0, v7, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 302
+    .line 303
     .end local v7           #bitmapTrans:Landroid/graphics/Bitmap;
     :cond_0
     new-instance v6, Landroid/graphics/Paint;
 
     invoke-direct {v6}, Landroid/graphics/Paint;-><init>()V
 
-    .line 303
+    .line 304
     .local v6, paint:Landroid/graphics/Paint;
     invoke-virtual {v6, v8}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 304
+    .line 305
     sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v6, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 306
+    .line 307
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 307
+    .line 308
     iget v1, v13, Landroid/graphics/Rect;->left:I
 
     int-to-float v1, v1
@@ -933,7 +933,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 308
+    .line 309
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MARGIN:I
@@ -962,7 +962,7 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    .line 309
+    .line 310
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
@@ -971,20 +971,20 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 310
+    .line 311
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 312
+    .line 313
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
     if-ne v9, v1, :cond_1
 
-    .line 313
+    .line 314
     invoke-virtual {v14, v13}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 316
+    .line 317
     :cond_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getDrawFocus()Z
 
@@ -992,17 +992,17 @@
 
     if-eqz v1, :cond_2
 
-    .line 318
+    .line 319
     move-object/from16 v0, p0
 
     iget v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     if-ne v9, v1, :cond_2
 
-    .line 319
+    .line 320
     invoke-virtual {v10, v13}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 323
+    .line 324
     :cond_2
     move-object/from16 v0, p0
 
@@ -1016,12 +1016,12 @@
 
     add-int/2addr v15, v1
 
-    .line 292
+    .line 293
     add-int/lit8 v11, v11, 0x1
 
     goto/16 :goto_1
 
-    .line 288
+    .line 289
     .end local v6           #paint:Landroid/graphics/Paint;
     .end local v8           #color:I
     .end local v9           #colorIndex:I
@@ -1030,7 +1030,7 @@
 
     goto/16 :goto_0
 
-    .line 327
+    .line 328
     .end local v11           #i:I
     :cond_4
     iget v1, v14, Landroid/graphics/Rect;->left:I
@@ -1043,7 +1043,7 @@
 
     iput v1, v14, Landroid/graphics/Rect;->left:I
 
-    .line 328
+    .line 329
     iget v1, v14, Landroid/graphics/Rect;->right:I
 
     move-object/from16 v0, p0
@@ -1054,7 +1054,7 @@
 
     iput v1, v14, Landroid/graphics/Rect;->right:I
 
-    .line 329
+    .line 330
     iget v1, v14, Landroid/graphics/Rect;->top:I
 
     move-object/from16 v0, p0
@@ -1065,7 +1065,7 @@
 
     iput v1, v14, Landroid/graphics/Rect;->top:I
 
-    .line 330
+    .line 331
     iget v1, v14, Landroid/graphics/Rect;->bottom:I
 
     move-object/from16 v0, p0
@@ -1076,17 +1076,17 @@
 
     iput v1, v14, Landroid/graphics/Rect;->bottom:I
 
-    .line 331
+    .line 332
     iget v1, v14, Landroid/graphics/Rect;->left:I
 
     if-gez v1, :cond_5
 
-    .line 332
+    .line 333
     const/4 v1, 0x0
 
     iput v1, v14, Landroid/graphics/Rect;->left:I
 
-    .line 334
+    .line 335
     :cond_5
     move-object/from16 v0, p0
 
@@ -1094,14 +1094,14 @@
 
     if-eqz v1, :cond_6
 
-    .line 336
+    .line 337
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v14}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 337
+    .line 338
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectDrawable:Landroid/graphics/drawable/Drawable;
@@ -1110,7 +1110,7 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 340
+    .line 341
     :cond_6
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getDrawFocus()Z
 
@@ -1118,14 +1118,14 @@
 
     if-eqz v1, :cond_7
 
-    .line 342
+    .line 343
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v10}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 343
+    .line 344
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedDrawable:Landroid/graphics/drawable/Drawable;
@@ -1134,7 +1134,7 @@
 
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 345
+    .line 346
     :cond_7
     return-void
 .end method
@@ -1145,7 +1145,7 @@
     .parameter "height"
 
     .prologue
-    const v12, 0x7f0203c2
+    const v12, 0x7f020442
 
     const/4 v11, 0x6
 
@@ -1153,13 +1153,13 @@
 
     const/4 v1, 0x0
 
-    .line 132
+    .line 133
     iput p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_PICKER_WIDTH:I
 
-    .line 133
+    .line 134
     iput p2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_PICKER_HEIGHT:I
 
-    .line 135
+    .line 136
     const-string v2, "SpLitColorPickerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1184,17 +1184,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 137
+    .line 138
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_0
 
-    .line 138
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getResources()Landroid/content/res/Resources;
+    .line 139
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0203c6
+    const v3, 0x7f020445
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1202,7 +1202,7 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
-    .line 139
+    .line 140
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -1211,7 +1211,7 @@
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
 
-    .line 140
+    .line 141
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -1220,7 +1220,7 @@
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_HEIGHT:I
 
-    .line 142
+    .line 143
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_PICKER_WIDTH:I
 
     iget v3, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
@@ -1239,7 +1239,7 @@
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
 
-    .line 143
+    .line 144
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_PICKER_HEIGHT:I
 
     iget v3, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_ROW:I
@@ -1258,7 +1258,7 @@
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_HEIGHT:I
 
-    .line 147
+    .line 148
     const-string v2, "SpLitColorPickerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1283,7 +1283,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
+    .line 151
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
     new-instance v3, Landroid/graphics/Rect;
@@ -1296,7 +1296,7 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 153
+    .line 154
     :cond_0
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
@@ -1306,7 +1306,7 @@
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_WIDTH:I
 
-    .line 154
+    .line 155
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -1315,17 +1315,17 @@
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_HEIGHT:I
 
-    .line 156
+    .line 157
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_WIDTH:I
 
-    .line 157
+    .line 158
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_HEIGHT:I
 
     iput v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_HEIGHT:I
 
-    .line 159
+    .line 160
     const-string v2, "SpLitColorPickerView"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1350,13 +1350,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 161
+    .line 162
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_1
 
-    .line 162
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getResources()Landroid/content/res/Resources;
+    .line 163
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -1366,14 +1366,14 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 165
+    .line 166
     :cond_1
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_2
 
-    .line 166
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->getResources()Landroid/content/res/Resources;
+    .line 167
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -1383,25 +1383,25 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 169
+    .line 170
     :cond_2
     new-array v5, v11, [I
 
     fill-array-data v5, :array_0
 
-    .line 173
+    .line 174
     .local v5, colors:[I
     new-array v6, v11, [F
 
     fill-array-data v6, :array_1
 
-    .line 177
+    .line 178
     .local v6, positions:[F
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->rainbow:Landroid/graphics/Bitmap;
 
     if-nez v2, :cond_3
 
-    .line 178
+    .line 179
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_WIDTH:I
 
     iget v3, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLOR_SHADOW_HEIGHT:I
@@ -1414,14 +1414,14 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->rainbow:Landroid/graphics/Bitmap;
 
-    .line 179
+    .line 180
     new-instance v8, Landroid/graphics/Canvas;
 
     iget-object v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->rainbow:Landroid/graphics/Bitmap;
 
     invoke-direct {v8, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 180
+    .line 181
     .local v8, c:Landroid/graphics/Canvas;
     new-instance v0, Landroid/graphics/LinearGradient;
 
@@ -1443,27 +1443,27 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    .line 182
+    .line 183
     .local v0, g:Landroid/graphics/LinearGradient;
     new-instance v9, Landroid/graphics/Paint;
 
     invoke-direct {v9}, Landroid/graphics/Paint;-><init>()V
 
-    .line 183
+    .line 184
     .local v9, p:Landroid/graphics/Paint;
     invoke-virtual {v9, v0}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    .line 184
+    .line 185
     sget-object v1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v9, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 185
+    .line 186
     const/4 v1, 0x1
 
     invoke-virtual {v9, v1}, Landroid/graphics/Paint;->setDither(Z)V
 
-    .line 186
+    .line 187
     new-instance v1, Landroid/graphics/Rect;
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->POSITION_GAP:I
@@ -1478,19 +1478,19 @@
 
     invoke-virtual {v8, v1, v9}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    .line 187
+    .line 188
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mColorShadow:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 189
+    .line 190
     .end local v0           #g:Landroid/graphics/LinearGradient;
     .end local v8           #c:Landroid/graphics/Canvas;
     .end local v9           #p:Landroid/graphics/Paint;
     :cond_3
     return-void
 
-    .line 169
+    .line 170
     :array_0
     .array-data 0x4
         0x0t 0x0t 0xfft 0xfft
@@ -1501,7 +1501,7 @@
         0xfft 0x0t 0xfft 0xfft
     .end array-data
 
-    .line 173
+    .line 174
     :array_1
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
@@ -1517,42 +1517,42 @@
     .locals 1
 
     .prologue
-    .line 576
+    .line 581
     iget v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mCurrentDeviceOrientation:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 587
+    .line 592
     :goto_0
     return-void
 
-    .line 578
+    .line 583
     :pswitch_0
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_ROW:I
 
-    .line 579
+    .line 584
     const/16 v0, 0x8
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
     goto :goto_0
 
-    .line 583
+    .line 588
     :pswitch_1
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_ROW:I
 
-    .line 584
+    .line 589
     const/16 v0, 0x10
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
     goto :goto_0
 
-    .line 576
+    .line 581
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1567,10 +1567,10 @@
     .parameter "event"
 
     .prologue
-    .line 439
+    .line 440
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    .line 444
+    .line 445
     invoke-super {p0, p1}, Landroid/view/View;->dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -1582,7 +1582,7 @@
     .locals 2
 
     .prologue
-    .line 374
+    .line 375
     sget-object v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
@@ -1596,7 +1596,7 @@
     .locals 1
 
     .prologue
-    .line 128
+    .line 129
     iget v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
     return v0
@@ -1606,7 +1606,7 @@
     .locals 1
 
     .prologue
-    .line 563
+    .line 564
     iget-boolean v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bDrawFocusImage:Z
 
     return v0
@@ -1617,13 +1617,13 @@
     .parameter "canvas"
 
     .prologue
-    .line 408
+    .line 409
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 410
+    .line 411
     invoke-direct {p0, p1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->drawColors(Landroid/graphics/Canvas;)V
 
-    .line 411
+    .line 412
     return-void
 .end method
 
@@ -1639,7 +1639,7 @@
 
     const/4 v0, 0x1
 
-    .line 464
+    .line 465
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->LOG_TAG:Ljava/lang/String;
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->toString()Ljava/lang/String;
@@ -1648,46 +1648,46 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 465
-    invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/SpLitColorPickerView;->playSoundEffect(I)V
-
     .line 466
+    invoke-virtual {p0, v4}, Landroid/view/View;->playSoundEffect(I)V
+
+    .line 467
     const/16 v1, 0x13
 
     if-ne p1, v1, :cond_2
 
-    .line 468
+    .line 469
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
     if-ge v1, v2, :cond_1
 
-    .line 470
+    .line 471
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 472
+    .line 473
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnFocusChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnFocusChangedListener;
 
     if-eqz v1, :cond_0
 
-    .line 473
+    .line 474
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnFocusChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnFocusChangedListener;
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     invoke-interface {v1, p1, v2}, Lcom/android/settings/myprofile/SpLitColorPickerView$OnFocusChangedListener;->onRequestColorPicker(II)V
 
-    .line 545
+    .line 546
     :cond_0
     :goto_0
     return v0
 
-    .line 477
+    .line 478
     :cond_1
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 478
+    .line 479
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
@@ -1696,39 +1696,39 @@
 
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 479
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->postInvalidate()V
+    .line 480
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
     goto :goto_0
 
-    .line 483
+    .line 484
     :cond_2
     const/16 v1, 0x14
 
     if-ne p1, v1, :cond_4
 
-    .line 485
+    .line 486
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
 
     if-lt v1, v2, :cond_3
 
-    .line 487
+    .line 488
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 488
+    .line 489
     const/16 v1, 0x82
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->requestFocus(I)Z
+    invoke-virtual {p0, v1}, Landroid/view/View;->requestFocus(I)Z
 
     goto :goto_0
 
-    .line 492
+    .line 493
     :cond_3
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 493
+    .line 494
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
@@ -1737,55 +1737,55 @@
 
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 494
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->postInvalidate()V
+    .line 495
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
     goto :goto_0
 
-    .line 498
+    .line 499
     :cond_4
     const/16 v1, 0x15
 
     if-ne p1, v1, :cond_6
 
-    .line 500
+    .line 501
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     if-nez v1, :cond_5
 
-    .line 502
+    .line 503
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 503
+    .line 504
     const/16 v1, 0x11
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->requestFocus(I)Z
+    invoke-virtual {p0, v1}, Landroid/view/View;->requestFocus(I)Z
 
     goto :goto_0
 
-    .line 507
+    .line 508
     :cond_5
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 508
+    .line 509
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 509
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->postInvalidate()V
+    .line 510
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
     goto :goto_0
 
-    .line 513
+    .line 514
     :cond_6
     const/16 v1, 0x16
 
     if-ne p1, v1, :cond_8
 
-    .line 515
+    .line 516
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->NUM_COLUMN:I
@@ -1798,60 +1798,60 @@
 
     if-ne v1, v2, :cond_7
 
-    .line 517
+    .line 518
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 518
-    invoke-virtual {p0, v5}, Lcom/android/settings/myprofile/SpLitColorPickerView;->requestFocus(I)Z
+    .line 519
+    invoke-virtual {p0, v5}, Landroid/view/View;->requestFocus(I)Z
 
     goto :goto_0
 
-    .line 522
+    .line 523
     :cond_7
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDrawFocus(Z)V
 
-    .line 523
+    .line 524
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 524
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->postInvalidate()V
+    .line 525
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
 
     goto :goto_0
 
-    .line 528
+    .line 529
     :cond_8
     if-ne p1, v5, :cond_a
 
-    .line 530
+    .line 531
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setColorIndex(I)V
 
-    .line 531
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->postInvalidate()V
-
     .line 532
+    invoke-virtual {p0}, Landroid/view/View;->postInvalidate()V
+
+    .line 533
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->applyColor(IZ)V
 
-    .line 534
+    .line 535
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnFocusChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnFocusChangedListener;
 
     if-eqz v1, :cond_0
 
-    .line 536
+    .line 537
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
     if-ne v1, v2, :cond_9
 
-    .line 537
+    .line 538
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnFocusChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnFocusChangedListener;
 
     iget v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
@@ -1860,7 +1860,7 @@
 
     goto/16 :goto_0
 
-    .line 539
+    .line 540
     :cond_9
     iget-object v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnFocusChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnFocusChangedListener;
 
@@ -1868,7 +1868,7 @@
 
     goto/16 :goto_0
 
-    .line 545
+    .line 546
     :cond_a
     invoke-super {p0, p1, p2}, Landroid/view/View;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
@@ -1883,7 +1883,7 @@
     .parameter "event"
 
     .prologue
-    .line 550
+    .line 551
     iget-object v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->LOG_TAG:Ljava/lang/String;
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->toString()Ljava/lang/String;
@@ -1892,7 +1892,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 552
+    .line 553
     const/16 v0, 0x13
 
     if-eq p1, v0, :cond_0
@@ -1913,11 +1913,11 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 557
+    .line 558
     :cond_0
     const/4 v0, 0x1
 
-    .line 559
+    .line 560
     :goto_0
     return v0
 
@@ -1938,15 +1938,15 @@
     .parameter "bottom"
 
     .prologue
-    .line 395
+    .line 396
     invoke-super/range {p0 .. p5}, Landroid/view/View;->onLayout(ZIIII)V
 
-    .line 396
+    .line 397
     iget-boolean v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->isShowDrawableInLastBlock:Z
 
     if-nez v1, :cond_0
 
-    .line 397
+    .line 398
     sget-object v1, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     const/16 v2, 0xf
@@ -1955,7 +1955,7 @@
 
     aput v3, v1, v2
 
-    .line 400
+    .line 401
     :cond_0
     sub-int v1, p4, p2
 
@@ -1967,16 +1967,16 @@
 
     mul-int v0, v1, v2
 
-    .line 401
+    .line 402
     .local v0, height:I
     if-eqz p1, :cond_1
 
-    .line 402
+    .line 403
     sub-int v1, p4, p2
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->initColorPicker(II)V
 
-    .line 404
+    .line 405
     :cond_1
     return-void
 .end method
@@ -1990,18 +1990,18 @@
 
     const/4 v5, 0x0
 
-    .line 415
+    .line 416
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
 
-    .line 416
+    .line 417
     .local v2, x:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
 
-    .line 417
+    .line 418
     .local v3, y:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2009,28 +2009,28 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 434
+    .line 435
     :cond_0
     :goto_0
     return v6
 
-    .line 419
+    .line 420
     :pswitch_0
     iget-object v4, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->context:Landroid/content/Context;
 
     check-cast v4, Landroid/app/Activity;
 
-    const v5, 0x7f0b021d
+    const v5, 0x7f0b0259
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 420
+    .line 421
     .local v1, mView:Landroid/view/View;
     if-eqz v1, :cond_0
 
-    .line 421
+    .line 422
     iget-object v4, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->context:Landroid/content/Context;
 
     const-string v5, "input_method"
@@ -2041,7 +2041,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 422
+    .line 423
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
@@ -2053,7 +2053,7 @@
 
     goto :goto_0
 
-    .line 426
+    .line 427
     .end local v0           #imm:Landroid/view/inputmethod/InputMethodManager;
     .end local v1           #mView:Landroid/view/View;
     :pswitch_1
@@ -2061,16 +2061,16 @@
 
     goto :goto_0
 
-    .line 429
-    :pswitch_2
-    invoke-virtual {p0, v5}, Lcom/android/settings/myprofile/SpLitColorPickerView;->playSoundEffect(I)V
-
     .line 430
+    :pswitch_2
+    invoke-virtual {p0, v5}, Landroid/view/View;->playSoundEffect(I)V
+
+    .line 431
     invoke-direct {p0, v2, v3, v6}, Lcom/android/settings/myprofile/SpLitColorPickerView;->changeColor(FFZ)V
 
     goto :goto_0
 
-    .line 417
+    .line 418
     nop
 
     :pswitch_data_0
@@ -2086,10 +2086,10 @@
     .parameter "color"
 
     .prologue
-    .line 348
+    .line 349
     const/4 v0, 0x0
 
-    .line 350
+    .line 351
     .local v0, foundInPreset:Z
     const/4 v1, 0x0
 
@@ -2103,52 +2103,52 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 351
+    .line 352
     sget-object v2, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     aget v2, v2, v1
 
     if-ne v2, p1, :cond_2
 
-    .line 352
+    .line 353
     iput v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 353
+    .line 354
     const/4 v0, 0x1
 
-    .line 358
+    .line 359
     :cond_0
     if-nez v0, :cond_3
 
-    .line 359
+    .line 360
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
-    .line 360
+    .line 361
     invoke-virtual {p0, p1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setCustomColor(I)V
 
-    .line 370
+    .line 371
     :cond_1
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    .line 371
+    .line 372
     return-void
 
-    .line 350
+    .line 351
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 363
+    .line 364
     :cond_3
     iget-boolean v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
     if-nez v2, :cond_1
 
-    .line 365
+    .line 366
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
@@ -2161,18 +2161,18 @@
     .parameter "index"
 
     .prologue
-    .line 122
+    .line 123
     iget v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mPreviousColorIndex:I
 
-    .line 123
+    .line 124
     iput p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 124
+    .line 125
     iput p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mFocusedColorIndex:I
 
-    .line 125
+    .line 126
     return-void
 .end method
 
@@ -2181,34 +2181,34 @@
     .parameter "color"
 
     .prologue
-    .line 199
+    .line 200
     iget-boolean v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->useCustomColor:Z
 
     if-eqz v0, :cond_0
 
-    .line 200
+    .line 201
     iget v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 203
+    .line 204
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->isShowDrawableInLastBlock:Z
 
     if-eqz v0, :cond_1
 
-    .line 204
+    .line 205
     sget-object v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
     aput p1, v0, v1
 
-    .line 206
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->invalidate()V
-
     .line 207
+    :cond_1
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 208
     return-void
 .end method
 
@@ -2217,13 +2217,13 @@
     .parameter "screenOrientation"
 
     .prologue
-    .line 571
+    .line 572
     iput p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mCurrentDeviceOrientation:I
 
-    .line 572
+    .line 573
     invoke-direct {p0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->updateRowVsColumn()V
 
-    .line 573
+    .line 578
     return-void
 .end method
 
@@ -2232,10 +2232,10 @@
     .parameter "m_bDrawFocusImage"
 
     .prologue
-    .line 567
+    .line 568
     iput-boolean p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bDrawFocusImage:Z
 
-    .line 568
+    .line 569
     return-void
 .end method
 
@@ -2244,10 +2244,10 @@
     .parameter "a_bKeep"
 
     .prologue
-    .line 459
+    .line 460
     iput-boolean p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->m_bKeepCustomColor:Z
 
-    .line 460
+    .line 461
     return-void
 .end method
 
@@ -2257,17 +2257,17 @@
     .parameter "value"
 
     .prologue
-    .line 590
+    .line 595
     sget-object v0, Lcom/android/settings/myprofile/SpLitColorPickerView;->COLORS:[I
 
     iget v1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->MAX_COLOR_INDEX:I
 
     aput p1, v0, v1
 
-    .line 591
+    .line 596
     iput-boolean p2, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->isShowDrawableInLastBlock:Z
 
-    .line 593
+    .line 598
     return-void
 .end method
 
@@ -2276,10 +2276,10 @@
     .parameter "l"
 
     .prologue
-    .line 382
+    .line 383
     iput-object p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnColorChangedListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnColorChangedListener;
 
-    .line 383
+    .line 384
     return-void
 .end method
 
@@ -2288,10 +2288,10 @@
     .parameter "l"
 
     .prologue
-    .line 386
+    .line 387
     iput-object p1, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mOnSelectCustomColorListener:Lcom/android/settings/myprofile/SpLitColorPickerView$OnSelectCustomColorListener;
 
-    .line 387
+    .line 388
     return-void
 .end method
 
@@ -2300,10 +2300,10 @@
     .parameter "visibility"
 
     .prologue
-    .line 193
+    .line 194
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 194
+    .line 195
     const/16 v0, 0x8
 
     if-ne p1, v0, :cond_0
@@ -2318,12 +2318,12 @@
 
     if-nez v0, :cond_0
 
-    .line 195
+    .line 196
     iget v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mPreviousColorIndex:I
 
     iput v0, p0, Lcom/android/settings/myprofile/SpLitColorPickerView;->mSelectedColorIndex:I
 
-    .line 196
+    .line 197
     :cond_0
     return-void
 .end method

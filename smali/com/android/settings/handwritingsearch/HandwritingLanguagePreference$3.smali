@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 204
+    .line 192
     iput-object p1, p0, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$3;->this$0:Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 207
+    .line 195
     .local p1, adapter:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$3;->this$0:Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;
 
@@ -65,9 +65,9 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, p3, v1}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0, p3, v1}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
-    .line 208
+    .line 196
     iget-object v0, p0, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$3;->this$0:Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;
 
     #getter for: Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;->mTextView:Landroid/widget/TextView;
@@ -84,6 +84,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 209
+    .line 197
     return-void
 .end method

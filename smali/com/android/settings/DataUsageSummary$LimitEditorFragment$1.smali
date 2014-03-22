@@ -39,7 +39,7 @@
     .parameter
 
     .prologue
-    .line 2507
+    .line 2772
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->this$0:Lcom/android/settings/DataUsageSummary$LimitEditorFragment;
 
     iput-object p2, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->val$bytesPicker:Landroid/widget/NumberPicker;
@@ -50,7 +50,7 @@
 
     iput-object p5, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->val$target:Lcom/android/settings/DataUsageSummary;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -63,12 +63,12 @@
     .parameter "which"
 
     .prologue
-    .line 2511
+    .line 2776
     iget-object v2, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->val$bytesPicker:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v2}, Landroid/widget/NumberPicker;->clearFocus()V
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->clearFocus()V
 
-    .line 2513
+    .line 2778
     iget-object v2, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->val$bytesPicker:Landroid/widget/NumberPicker;
 
     invoke-virtual {v2}, Landroid/widget/NumberPicker;->getValue()I
@@ -81,7 +81,7 @@
 
     mul-long v0, v2, v4
 
-    .line 2514
+    .line 2779
     .local v0, bytes:J
     iget-object v2, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->val$editor:Lcom/android/settings/net/NetworkPolicyEditor;
 
@@ -89,7 +89,7 @@
 
     invoke-virtual {v2, v3, v0, v1}, Lcom/android/settings/net/NetworkPolicyEditor;->setPolicyLimitBytes(Landroid/net/NetworkTemplate;J)V
 
-    .line 2515
+    .line 2780
     iget-object v2, p0, Lcom/android/settings/DataUsageSummary$LimitEditorFragment$1;->val$target:Lcom/android/settings/DataUsageSummary;
 
     const/4 v3, 0x0
@@ -97,6 +97,6 @@
     #calls: Lcom/android/settings/DataUsageSummary;->updatePolicy(Z)V
     invoke-static {v2, v3}, Lcom/android/settings/DataUsageSummary;->access$100(Lcom/android/settings/DataUsageSummary;Z)V
 
-    .line 2516
+    .line 2781
     return-void
 .end method

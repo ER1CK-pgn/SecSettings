@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Landroid/preference/Preference$OnPreferenceChangeListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # static fields
@@ -21,6 +22,12 @@
 # instance fields
 .field private dialogTitle:I
 
+.field private mActionBarLayout:Landroid/view/View;
+
+.field private mActionBarSwitch:Landroid/widget/Switch;
+
+.field private mActivity:Landroid/app/Activity;
+
 .field private mAllDisabledDialog:Landroid/app/AlertDialog;
 
 .field private mAnimationHandler:Landroid/os/Handler;
@@ -34,6 +41,8 @@
 .field private mGuideDialog:Landroid/app/AlertDialog;
 
 .field private mHelp:Landroid/view/MenuItem;
+
+.field private mIsFromAutoRotation:Z
 
 .field private mResolver:Landroid/content/ContentResolver;
 
@@ -71,7 +80,7 @@
 
     const/4 v1, 0x5
 
-    .line 99
+    .line 101
     const/4 v0, 0x2
 
     new-array v0, v0, [I
@@ -80,28 +89,28 @@
 
     sput-object v0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenHelpID:[I
 
-    .line 100
+    .line 102
     new-array v0, v1, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStayHelpText:[I
 
-    .line 101
+    .line 103
     new-array v0, v1, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotationHelpText:[I
 
-    .line 102
+    .line 104
     new-array v0, v2, [I
 
     fill-array-data v0, :array_3
 
     sput-object v0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStayHelpFolderText:[I
 
-    .line 103
+    .line 105
     new-array v0, v2, [I
 
     fill-array-data v0, :array_4
@@ -110,55 +119,55 @@
 
     return-void
 
-    .line 99
+    .line 101
     nop
 
     :array_0
     .array-data 0x4
-        0xf5t 0x3t 0xbt 0x7ft
-        0xf6t 0x3t 0xbt 0x7ft
-    .end array-data
-
-    .line 100
-    :array_1
-    .array-data 0x4
-        0xa0t 0xft 0x9t 0x7ft
-        0xa1t 0xft 0x9t 0x7ft
-        0xa2t 0xft 0x9t 0x7ft
-        0xa3t 0xft 0x9t 0x7ft
-        0xa4t 0xft 0x9t 0x7ft
-    .end array-data
-
-    .line 101
-    :array_2
-    .array-data 0x4
-        0xa8t 0xft 0x9t 0x7ft
-        0xa5t 0xft 0x9t 0x7ft
-        0xa2t 0xft 0x9t 0x7ft
-        0xa3t 0xft 0x9t 0x7ft
-        0xa4t 0xft 0x9t 0x7ft
+        0x5ct 0x4t 0xbt 0x7ft
+        0x5dt 0x4t 0xbt 0x7ft
     .end array-data
 
     .line 102
-    :array_3
+    :array_1
     .array-data 0x4
-        0xa0t 0xft 0x9t 0x7ft
-        0xa1t 0xft 0x9t 0x7ft
-        0xa2t 0xft 0x9t 0x7ft
-        0xa3t 0xft 0x9t 0x7ft
-        0xa4t 0xft 0x9t 0x7ft
-        0xa8t 0x15t 0x9t 0x7ft
+        0xdet 0x10t 0x9t 0x7ft
+        0xdft 0x10t 0x9t 0x7ft
+        0xe0t 0x10t 0x9t 0x7ft
+        0xe1t 0x10t 0x9t 0x7ft
+        0xe2t 0x10t 0x9t 0x7ft
     .end array-data
 
     .line 103
+    :array_2
+    .array-data 0x4
+        0xe6t 0x10t 0x9t 0x7ft
+        0xe3t 0x10t 0x9t 0x7ft
+        0xe0t 0x10t 0x9t 0x7ft
+        0xe1t 0x10t 0x9t 0x7ft
+        0xe2t 0x10t 0x9t 0x7ft
+    .end array-data
+
+    .line 104
+    :array_3
+    .array-data 0x4
+        0xdet 0x10t 0x9t 0x7ft
+        0xdft 0x10t 0x9t 0x7ft
+        0xe0t 0x10t 0x9t 0x7ft
+        0xe1t 0x10t 0x9t 0x7ft
+        0xe2t 0x10t 0x9t 0x7ft
+        0xdt 0x17t 0x9t 0x7ft
+    .end array-data
+
+    .line 105
     :array_4
     .array-data 0x4
-        0xa8t 0xft 0x9t 0x7ft
-        0xa5t 0xft 0x9t 0x7ft
-        0xa2t 0xft 0x9t 0x7ft
-        0xa3t 0xft 0x9t 0x7ft
-        0xa4t 0xft 0x9t 0x7ft
-        0xa8t 0x15t 0x9t 0x7ft
+        0xe6t 0x10t 0x9t 0x7ft
+        0xe3t 0x10t 0x9t 0x7ft
+        0xe0t 0x10t 0x9t 0x7ft
+        0xe1t 0x10t 0x9t 0x7ft
+        0xe2t 0x10t 0x9t 0x7ft
+        0xdt 0x17t 0x9t 0x7ft
     .end array-data
 .end method
 
@@ -170,38 +179,38 @@
 
     const/4 v1, 0x0
 
-    .line 66
-    invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
-
-    .line 85
-    iput-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
-
-    .line 86
-    iput-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
-
-    .line 91
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
+    .line 68
+    invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 92
-    iput-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
+    .line 87
+    iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
+
+    .line 88
+    iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
+
+    .line 93
+    iput v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
     .line 94
+    iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
+
+    .line 96
     new-array v0, v2, [I
 
     fill-array-data v0, :array_0
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStayAnimationImage:[I
 
-    .line 95
+    .line 97
     new-array v0, v2, [I
 
     fill-array-data v0, :array_1
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotationAnimationImage:[I
 
-    .line 96
+    .line 98
     const/4 v0, 0x2
 
     new-array v0, v0, [I
@@ -210,19 +219,22 @@
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPauseAnimationImage:[I
 
-    .line 113
+    .line 116
     const-string v0, "default"
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
-    .line 307
+    .line 120
+    iput-boolean v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mIsFromAutoRotation:Z
+
+    .line 359
     new-instance v0, Lcom/android/settings/smartscreen/SmartScreenSettings$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/smartscreen/SmartScreenSettings$2;-><init>(Lcom/android/settings/smartscreen/SmartScreenSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
-    .line 579
+    .line 631
     new-instance v0, Lcom/android/settings/smartscreen/SmartScreenSettings$7;
 
     new-instance v1, Landroid/os/Handler;
@@ -233,7 +245,7 @@
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenObserver:Landroid/database/ContentObserver;
 
-    .line 685
+    .line 737
     new-instance v0, Lcom/android/settings/smartscreen/SmartScreenSettings$12;
 
     invoke-direct {v0, p0}, Lcom/android/settings/smartscreen/SmartScreenSettings$12;-><init>(Lcom/android/settings/smartscreen/SmartScreenSettings;)V
@@ -242,31 +254,31 @@
 
     return-void
 
-    .line 94
+    .line 96
     nop
 
     :array_0
     .array-data 0x4
-        0x5dt 0x4t 0x2t 0x7ft
-        0x5et 0x4t 0x2t 0x7ft
-        0x5ft 0x4t 0x2t 0x7ft
-        0x60t 0x4t 0x2t 0x7ft
+        0xdet 0x4t 0x2t 0x7ft
+        0xdft 0x4t 0x2t 0x7ft
+        0xe0t 0x4t 0x2t 0x7ft
+        0xe1t 0x4t 0x2t 0x7ft
     .end array-data
 
-    .line 95
+    .line 97
     :array_1
     .array-data 0x4
-        0x4t 0x4t 0x2t 0x7ft
-        0x5t 0x4t 0x2t 0x7ft
-        0x6t 0x4t 0x2t 0x7ft
-        0x7t 0x4t 0x2t 0x7ft
+        0x83t 0x4t 0x2t 0x7ft
+        0x84t 0x4t 0x2t 0x7ft
+        0x85t 0x4t 0x2t 0x7ft
+        0x86t 0x4t 0x2t 0x7ft
     .end array-data
 
-    .line 96
+    .line 98
     :array_2
     .array-data 0x4
-        0x53t 0x4t 0x2t 0x7ft
-        0x54t 0x4t 0x2t 0x7ft
+        0xd4t 0x4t 0x2t 0x7ft
+        0xd5t 0x4t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -275,7 +287,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-direct {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->updateAnimation()V
 
     return-void
@@ -286,7 +298,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-direct {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->stopAnimation()V
 
     return-void
@@ -297,7 +309,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
 
     return-object v0
@@ -308,7 +320,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -321,7 +333,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -334,7 +346,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -347,7 +359,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -360,10 +372,32 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/settings/smartscreen/SmartScreenSettings;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 68
+    iget-boolean v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mIsFromAutoRotation:Z
+
+    return v0
+.end method
+
+.method static synthetic access$1700(Lcom/android/settings/smartscreen/SmartScreenSettings;)Landroid/widget/Switch;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 68
+    iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     return-object v0
 .end method
@@ -376,7 +410,7 @@
     .parameter "x3"
 
     .prologue
-    .line 66
+    .line 68
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->showAllOptionDisabledDialog(IILjava/lang/String;)V
 
     return-void
@@ -387,7 +421,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -400,7 +434,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -415,7 +449,7 @@
     .parameter "x2"
 
     .prologue
-    .line 66
+    .line 68
     invoke-direct {p0, p1, p2}, Lcom/android/settings/smartscreen/SmartScreenSettings;->broadcastStatusChanged(Ljava/lang/String;Z)V
 
     return-void
@@ -426,7 +460,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     return-object v0
@@ -437,7 +471,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
 
     return-object v0
@@ -448,7 +482,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
 
     return-object v0
@@ -459,7 +493,7 @@
     .parameter "x0"
 
     .prologue
-    .line 66
+    .line 68
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
 
     return-object v0
@@ -467,29 +501,28 @@
 
 .method private broadcastStatusChanged(Ljava/lang/String;Z)V
     .locals 2
-    .parameter "intent_type"
-    .parameter "isEnable"
+    .parameter
+    .parameter
 
     .prologue
-    .line 671
+    .line 723
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 672
-    .local v0, motion_changed:Landroid/content/Intent;
+    .line 724
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 673
+    .line 725
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 674
+    .line 726
     return-void
 .end method
 
@@ -497,19 +530,19 @@
     .locals 3
 
     .prologue
-    .line 591
+    .line 643
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
     const-string v1, "pref_smart_stay_noti"
 
     if-ne v0, v1, :cond_1
 
-    .line 592
-    const v0, 0x7f090f9c
+    .line 644
+    const v0, 0x7f0910da
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
-    .line 601
+    .line 653
     :cond_0
     :goto_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -520,7 +553,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090fef
+    const v1, 0x7f09112d
 
     invoke-virtual {p0, v1}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getString(I)Ljava/lang/String;
 
@@ -540,13 +573,7 @@
 
     move-result-object v0
 
-    const v1, 0x1010355
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const v1, 0x7f090729
+    const v1, 0x7f09077c
 
     new-instance v2, Lcom/android/settings/smartscreen/SmartScreenSettings$10;
 
@@ -576,10 +603,10 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 646
+    .line 698
     return-void
 
-    .line 593
+    .line 645
     :cond_1
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -587,14 +614,14 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 594
-    const v0, 0x7f090f9e
+    .line 646
+    const v0, 0x7f0910dc
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
     goto :goto_0
 
-    .line 595
+    .line 647
     :cond_2
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -602,14 +629,14 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 596
-    const v0, 0x7f090fa9
+    .line 648
+    const v0, 0x7f0910e7
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
     goto :goto_0
 
-    .line 597
+    .line 649
     :cond_3
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -617,8 +644,8 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 598
-    const v0, 0x7f090fab
+    .line 650
+    const v0, 0x7f0910e9
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
@@ -632,10 +659,10 @@
     .parameter "key"
 
     .prologue
-    .line 650
+    .line 702
     move-object v0, p3
 
-    .line 651
+    .line 703
     .local v0, motion_type:Ljava/lang/String;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -675,12 +702,12 @@
 
     iput-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 667
+    .line 719
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 668
+    .line 720
     return-void
 .end method
 
@@ -688,17 +715,17 @@
     .locals 2
 
     .prologue
-    .line 340
+    .line 392
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-nez v0, :cond_1
 
-    .line 346
+    .line 398
     :cond_0
     :goto_0
     return-void
 
-    .line 341
+    .line 393
     :cond_1
     const-string v0, "SmartScreenSettings"
 
@@ -706,17 +733,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 342
+    .line 394
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 343
+    .line 395
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
-    .line 344
+    .line 396
     invoke-direct {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->updateAnimation()V
 
     goto :goto_0
@@ -726,17 +753,17 @@
     .locals 2
 
     .prologue
-    .line 350
+    .line 402
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-nez v0, :cond_1
 
-    .line 355
+    .line 407
     :cond_0
     :goto_0
     return-void
 
-    .line 351
+    .line 403
     :cond_1
     const-string v0, "SmartScreenSettings"
 
@@ -744,12 +771,12 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
+    .line 404
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 353
+    .line 405
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
@@ -765,16 +792,16 @@
     .prologue
     const/16 v3, 0x66
 
-    .line 318
+    .line 370
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-nez v0, :cond_0
 
-    .line 336
+    .line 388
     :goto_0
     return-void
 
-    .line 319
+    .line 371
     :cond_0
     const-string v0, "SmartScreenSettings"
 
@@ -800,12 +827,12 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 320
+    .line 372
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_1
 
-    .line 321
+    .line 373
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationImage:[I
@@ -816,14 +843,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 322
+    .line 374
     iget v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
-    .line 325
+    .line 377
     :cond_1
     iget v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
@@ -835,14 +862,14 @@
 
     iput v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
-    .line 327
+    .line 379
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
     const-string v1, "pref_smart_pause_noti"
 
     if-ne v0, v1, :cond_2
 
-    .line 328
+    .line 380
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0x5dc
@@ -851,13 +878,13 @@
 
     goto :goto_0
 
-    .line 330
+    .line 382
     :cond_2
     iget v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationIndex:I
 
     if-nez v0, :cond_3
 
-    .line 331
+    .line 383
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const-wide/16 v1, 0x7d0
@@ -866,7 +893,7 @@
 
     goto :goto_0
 
-    .line 333
+    .line 385
     :cond_3
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationHandler:Landroid/os/Handler;
 
@@ -884,7 +911,7 @@
     .parameter "pref_noti"
 
     .prologue
-    .line 293
+    .line 345
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -893,7 +920,7 @@
 
     move-result-object v1
 
-    .line 295
+    .line 347
     .local v1, mSharedPreferences:Landroid/content/SharedPreferences;
     const/4 v2, 0x0
 
@@ -901,24 +928,24 @@
 
     move-result v0
 
-    .line 296
+    .line 348
     .local v0, do_not_show_again:Z
     if-nez v0, :cond_0
 
-    .line 297
+    .line 349
     const-string v2, "pref_smart_scroll_noti"
 
     if-ne p1, v2, :cond_1
 
-    .line 298
+    .line 350
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->showGuideDialogForScroll()V
 
-    .line 303
+    .line 355
     :cond_0
     :goto_0
     return-void
 
-    .line 300
+    .line 352
     :cond_1
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->showGuideDialog()V
 
@@ -933,7 +960,7 @@
 
     const/4 v1, 0x0
 
-    .line 677
+    .line 729
     iget-object v2, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v3, "smart_scroll_adv_web"
@@ -942,14 +969,14 @@
 
     move-result v2
 
-    .line 678
+    .line 730
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v4, "smart_scroll_adv_chrome"
 
     invoke-static {v3, v4, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 679
+    .line 731
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v4, "smart_scroll_adv_email_body"
@@ -958,14 +985,14 @@
 
     move-result v3
 
-    .line 680
+    .line 732
     iget-object v4, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v5, "smart_scroll_adv_gmail_body"
 
     invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 682
+    .line 734
     or-int/2addr v2, v3
 
     if-ge v2, v0, :cond_0
@@ -984,10 +1011,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 199
+    .line 239
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 200
+    .line 240
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -998,7 +1025,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 201
+    .line 241
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
@@ -1009,185 +1036,414 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 223
+    .line 263
     :cond_0
     return-void
 .end method
 
+.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 3
+    .parameter "buttonView"
+    .parameter "desiredState"
+
+    .prologue
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    .line 268
+    const/4 v2, 0x0
+
+    invoke-static {v2}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 271
+    invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    if-nez p2, :cond_2
+
+    :goto_0
+    invoke-static {v2, v0}, Lcom/android/internal/view/RotationPolicy;->setRotationLockForAccessibility(Landroid/content/Context;Z)V
+
+    .line 274
+    :goto_1
+    iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0, p2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+
+    .line 275
+    return-void
+
+    .line 269
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    if-nez p2, :cond_1
+
+    :goto_2
+    invoke-static {v2, v0}, Lcom/android/internal/view/RotationPolicy;->setRotationLock(Landroid/content/Context;Z)V
+
+    goto :goto_1
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_2
+
+    :cond_2
+    move v0, v1
+
+    .line 271
+    goto :goto_0
+.end method
+
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 13
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v5, 0x0
+    const/16 v10, 0x10
 
-    const/4 v4, 0x1
+    const/4 v12, -0x2
 
-    .line 120
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
+    const/4 v7, 0x1
 
-    .line 122
-    const v3, 0x7f07009c
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->addPreferencesFromResource(I)V
+    const/4 v8, 0x0
 
     .line 124
-    const-string v3, "smartscreen_stay"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/CheckBoxPreference;
-
-    iput-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
-
-    .line 125
-    const-string v3, "smartscreen_rotation"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/CheckBoxPreference;
-
-    iput-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
+    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 126
-    const-string v3, "smartscreen_pause"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/CheckBoxPreference;
-
-    iput-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
-
-    .line 127
-    const-string v3, "smartscreen_scroll"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/SwitchPreferenceScreen;
-
-    iput-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
-
-    .line 129
-    iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
-
-    .line 149
-    invoke-virtual {p0, v4}, Lcom/android/settings/smartscreen/SmartScreenSettings;->setHasOptionsMenu(Z)V
-
-    .line 152
-    invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 153
-    iget-boolean v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mOpenDetailMenu:Z
-
-    if-eqz v3, :cond_0
-
-    sget v3, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSettingValue:I
-
-    const/4 v6, -0x1
-
-    if-eq v3, v6, :cond_0
-
-    .line 154
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 155
-    .local v0, extra_bundle:Landroid/os/Bundle;
-    const-string v3, "extra_parent_preference_key"
+    .line 127
+    .local v0, arguments:Landroid/os/Bundle;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 128
+    const-string v6, "fromAccelerometer"
 
-    move-result-object v1
+    invoke-virtual {v0, v6, v8}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    .line 156
-    .local v1, targetKey:Ljava/lang/String;
-    sget v3, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSettingValue:I
+    move-result v6
 
-    if-ne v3, v4, :cond_1
+    iput-boolean v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mIsFromAutoRotation:Z
 
-    move v2, v4
+    .line 131
+    :cond_0
+    const v6, 0x7f0700c0
 
-    .line 157
-    .local v2, value:Z
-    :goto_0
-    const-string v3, "smartscreen_scroll"
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->addPreferencesFromResource(I)V
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 158
-    iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    .line 159
-    iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    .line 133
+    invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {p0, v3, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
 
-    .line 164
-    .end local v0           #extra_bundle:Landroid/os/Bundle;
-    .end local v1           #targetKey:Ljava/lang/String;
-    .end local v2           #value:Z
-    :cond_0
+    .line 134
+    iget-boolean v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mIsFromAutoRotation:Z
+
+    if-eqz v6, :cond_3
+
+    .line 135
+    new-instance v6, Landroid/widget/Switch;
+
+    iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    invoke-direct {v6, v9}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    .line 136
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    instance-of v6, v6, Landroid/preference/PreferenceActivity;
+
+    if-eqz v6, :cond_2
+
+    .line 137
+    iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    check-cast v3, Landroid/preference/PreferenceActivity;
+
+    .line 138
+    .local v3, preferenceActivity:Landroid/preference/PreferenceActivity;
+    invoke-virtual {v3}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    invoke-virtual {v3}, Landroid/preference/PreferenceActivity;->onIsMultiPane()Z
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    .line 139
+    :cond_1
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v9, 0x7f0f0034
+
+    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    .line 140
+    .local v2, padding:I
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v6, v8, v8, v2, v8}, Landroid/widget/Switch;->setPadding(IIII)V
+
+    .line 141
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v10, v10}, Landroid/app/ActionBar;->setDisplayOptions(II)V
+
+    .line 142
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v6
+
+    iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    new-instance v10, Landroid/app/ActionBar$LayoutParams;
+
+    const/16 v11, 0x15
+
+    invoke-direct {v10, v12, v12, v11}, Landroid/app/ActionBar$LayoutParams;-><init>(III)V
+
+    invoke-virtual {v6, v9, v10}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
+
+    .line 144
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarLayout:Landroid/view/View;
+
+    .line 147
+    .end local v2           #padding:I
+    .end local v3           #preferenceActivity:Landroid/preference/PreferenceActivity;
+    :cond_2
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v6, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 150
+    :cond_3
+    const-string v6, "smartscreen_stay"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/CheckBoxPreference;
+
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
+
+    .line 151
+    const-string v6, "smartscreen_rotation"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/CheckBoxPreference;
+
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
+
+    .line 152
+    const-string v6, "smartscreen_pause"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/CheckBoxPreference;
+
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
+
+    .line 153
+    const-string v6, "smartscreen_scroll"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/preference/SwitchPreferenceScreen;
+
+    iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
+
+    .line 155
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 175
+    iget-boolean v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mIsFromAutoRotation:Z
+
+    if-eqz v6, :cond_4
+
+    .line 176
+    const-string v6, "smartscreen_stay"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->removePreference(Ljava/lang/String;)V
+
+    .line 177
+    const-string v6, "smartscreen_pause"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->removePreference(Ljava/lang/String;)V
+
+    .line 178
+    const-string v6, "smartscreen_scroll"
+
+    invoke-virtual {p0, v6}, Lcom/android/settings/smartscreen/SmartScreenSettings;->removePreference(Ljava/lang/String;)V
+
+    .line 181
+    :cond_4
+    invoke-virtual {p0, v7}, Lcom/android/settings/smartscreen/SmartScreenSettings;->setHasOptionsMenu(Z)V
+
+    .line 184
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
+
+    move-result v6
+
+    if-nez v6, :cond_5
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    .line 185
+    :cond_5
+    iget-boolean v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mOpenDetailMenu:Z
+
+    if-eqz v6, :cond_6
+
+    sget v6, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSettingValue:I
+
+    const/4 v9, -0x1
+
+    if-eq v6, v9, :cond_6
+
+    .line 186
+    invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    .line 187
+    .local v1, extra_bundle:Landroid/os/Bundle;
+    const-string v6, "extra_parent_preference_key"
+
+    invoke-virtual {v1, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 188
+    .local v4, targetKey:Ljava/lang/String;
+    sget v6, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSettingValue:I
+
+    if-ne v6, v7, :cond_7
+
+    move v5, v7
+
+    .line 189
+    .local v5, value:Z
+    :goto_0
+    const-string v6, "smartscreen_scroll"
+
+    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    .line 190
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v6, v5}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+
+    .line 191
+    iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v9
+
+    invoke-virtual {p0, v6, v9}, Lcom/android/settings/smartscreen/SmartScreenSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+
+    .line 196
+    .end local v1           #extra_bundle:Landroid/os/Bundle;
+    .end local v4           #targetKey:Ljava/lang/String;
+    .end local v5           #value:Z
+    :cond_6
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-static {v3}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
+    invoke-static {v6}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_2
+    if-eqz v6, :cond_8
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_2
+    if-eqz v6, :cond_8
 
     :goto_1
-    iput-boolean v4, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
+    iput-boolean v7, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
 
-    .line 165
+    .line 197
     return-void
 
-    .restart local v0       #extra_bundle:Landroid/os/Bundle;
-    .restart local v1       #targetKey:Ljava/lang/String;
-    :cond_1
-    move v2, v5
+    .restart local v1       #extra_bundle:Landroid/os/Bundle;
+    .restart local v4       #targetKey:Ljava/lang/String;
+    :cond_7
+    move v5, v8
 
-    .line 156
+    .line 188
     goto :goto_0
 
-    .end local v0           #extra_bundle:Landroid/os/Bundle;
-    .end local v1           #targetKey:Ljava/lang/String;
-    :cond_2
-    move v4, v5
+    .end local v1           #extra_bundle:Landroid/os/Bundle;
+    .end local v4           #targetKey:Ljava/lang/String;
+    :cond_8
+    move v7, v8
 
-    .line 164
+    .line 196
     goto :goto_1
 .end method
 
@@ -1201,7 +1457,7 @@
 
     const/4 v2, 0x0
 
-    .line 551
+    .line 603
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -1212,8 +1468,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 552
-    const v0, 0x7f091147
+    .line 604
+    const v0, 0x7f091291
 
     invoke-interface {p1, v2, v1, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1223,7 +1479,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020180
+    const v1, 0x7f0201c8
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1231,39 +1487,39 @@
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mHelp:Landroid/view/MenuItem;
 
-    .line 556
+    .line 608
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mHelp:Landroid/view/MenuItem;
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 559
+    .line 611
     :cond_0
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 560
+    .line 612
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
     .locals 3
-    .parameter "item"
+    .parameter
 
     .prologue
-    .line 565
+    .line 617
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
-    move-result v1
+    move-result v0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
-    .line 572
-    const/4 v1, 0x0
+    .line 624
+    const/4 v0, 0x0
 
-    .line 575
+    .line 627
     :goto_0
-    return v1
+    return v0
 
-    .line 567
+    .line 619
     :pswitch_0
     new-instance v0, Landroid/content/Intent;
 
@@ -1271,25 +1527,24 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 568
-    .local v0, intent:Landroid/content/Intent;
+    .line 620
     const-string v1, "helphub:section"
 
     const-string v2, "smart_screen"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 569
+    .line 621
     invoke-virtual {p0, v0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->startActivity(Landroid/content/Intent;)V
 
-    .line 575
+    .line 627
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    move-result v1
+    move-result v0
 
     goto :goto_0
 
-    .line 565
+    .line 617
     nop
 
     :pswitch_data_0
@@ -1302,17 +1557,17 @@
     .locals 2
 
     .prologue
-    .line 191
+    .line 231
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
 
-    .line 192
+    .line 232
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenObserver:Landroid/database/ContentObserver;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 193
+    .line 233
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -1321,7 +1576,7 @@
 
     invoke-static {v0, v1}, Lcom/android/internal/view/RotationPolicy;->unregisterRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
 
-    .line 195
+    .line 235
     return-void
 .end method
 
@@ -1335,12 +1590,12 @@
 
     const/4 v3, 0x1
 
-    .line 226
+    .line 278
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 228
+    .line 280
     .local v0, key:Ljava/lang/String;
     check-cast p2, Ljava/lang/Boolean;
 
@@ -1353,7 +1608,7 @@
 
     move v1, v3
 
-    .line 230
+    .line 282
     .local v1, value:I
     :goto_0
     if-ne v1, v3, :cond_2
@@ -1368,15 +1623,15 @@
 
     if-eqz v4, :cond_2
 
-    .line 231
+    .line 283
     const-string v2, "pref_smart_scroll_noti"
 
     iput-object v2, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
-    .line 232
+    .line 284
     invoke-direct {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->makeTalkBackDisablePopup()V
 
-    .line 242
+    .line 294
     :cond_0
     :goto_1
     return v3
@@ -1385,10 +1640,10 @@
     :cond_1
     move v1, v2
 
-    .line 228
+    .line 280
     goto :goto_0
 
-    .line 233
+    .line 285
     .restart local v1       #value:I
     :cond_2
     const-string v4, "smartscreen_scroll"
@@ -1399,12 +1654,12 @@
 
     if-eqz v4, :cond_0
 
-    .line 234
+    .line 286
     const-string v4, "pref_smart_scroll_noti"
 
     iput-object v4, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
-    .line 235
+    .line 287
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -1413,7 +1668,7 @@
 
     invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 236
+    .line 288
     const-string v4, "com.sec.SMART_SCROLL_CHANGED"
 
     if-ne v1, v3, :cond_3
@@ -1423,10 +1678,10 @@
     :cond_3
     invoke-direct {p0, v4, v2}, Lcom/android/settings/smartscreen/SmartScreenSettings;->broadcastStatusChanged(Ljava/lang/String;Z)V
 
-    .line 238
+    .line 290
     if-ne v1, v3, :cond_0
 
-    .line 239
+    .line 291
     iget-object v2, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
     invoke-virtual {p0, v2}, Lcom/android/settings/smartscreen/SmartScreenSettings;->createGuideDialog(Ljava/lang/String;)V
@@ -1444,38 +1699,45 @@
 
     const/4 v4, 0x1
 
-    .line 247
+    .line 299
     invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 248
+    .line 300
     .local v2, key:Ljava/lang/String;
     const/4 v3, 0x0
 
-    .line 251
+    .line 303
     .local v3, value:Z
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-nez v6, :cond_0
 
-    .line 252
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 304
+    :cond_0
     iget-boolean v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mOpenDetailMenu:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     sget v6, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSettingValue:I
 
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_0
+    if-eq v6, v7, :cond_1
 
-    .line 253
+    .line 305
     sget v6, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSettingValue:I
 
-    if-ne v6, v4, :cond_3
+    if-ne v6, v4, :cond_4
 
     move v0, v4
 
@@ -1483,48 +1745,48 @@
     :goto_0
     move-object v1, p2
 
-    .line 254
+    .line 306
     check-cast v1, Landroid/preference/CheckBoxPreference;
 
-    .line 255
+    .line 307
     .local v1, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isEnabled()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
-    .line 256
+    .line 308
     invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 262
+    .line 314
     .end local v0           #bValue:Z
     .end local v1           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    :cond_0
+    :cond_1
     const-string v6, "smartscreen_stay"
 
     invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
-    .line 263
+    .line 315
     iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v6}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
     move-result v3
 
-    .line 264
+    .line 316
     const-string v6, "pref_smart_stay_noti"
 
     iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
-    .line 273
-    :cond_1
+    .line 325
+    :cond_2
     :goto_1
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
@@ -1534,13 +1796,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7
 
-    .line 274
+    .line 326
     invoke-direct {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->makeTalkBackDisablePopup()V
 
-    .line 289
-    :cond_2
+    .line 341
+    :cond_3
     :goto_2
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
@@ -1548,150 +1810,150 @@
 
     return v4
 
-    :cond_3
+    :cond_4
     move v0, v5
 
-    .line 253
+    .line 305
     goto :goto_0
 
-    .line 265
-    :cond_4
+    .line 317
+    :cond_5
     const-string v6, "smartscreen_rotation"
 
     invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
-    .line 266
+    .line 318
     iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v6}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
     move-result v3
 
-    .line 267
+    .line 319
     const-string v6, "pref_smart_rotation_noti"
 
     iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
     goto :goto_1
 
-    .line 268
-    :cond_5
+    .line 320
+    :cond_6
     const-string v6, "smartscreen_pause"
 
     invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
-    .line 269
+    .line 321
     iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v6}, Landroid/preference/CheckBoxPreference;->isChecked()Z
 
     move-result v3
 
-    .line 270
+    .line 322
     const-string v6, "pref_smart_pause_noti"
 
     iput-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
     goto :goto_1
 
-    .line 276
-    :cond_6
+    .line 328
+    :cond_7
     iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v6, :cond_9
+    if-ne p2, v6, :cond_a
 
-    .line 277
+    .line 329
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "intelligent_sleep_mode"
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_9
 
     :goto_3
     invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 285
-    :cond_7
+    .line 337
+    :cond_8
     :goto_4
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    .line 286
+    .line 338
     iget-object v4, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/smartscreen/SmartScreenSettings;->createGuideDialog(Ljava/lang/String;)V
 
     goto :goto_2
 
-    :cond_8
+    :cond_9
     move v4, v5
 
-    .line 277
+    .line 329
     goto :goto_3
 
-    .line 278
-    :cond_9
+    .line 330
+    :cond_a
     iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v6, :cond_b
+    if-ne p2, v6, :cond_c
 
-    .line 279
+    .line 331
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "intelligent_rotation_mode"
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_b
 
     :goto_5
     invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_4
 
-    :cond_a
+    :cond_b
     move v4, v5
 
     goto :goto_5
 
-    .line 280
-    :cond_b
+    .line 332
+    :cond_c
     iget-object v6, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v6, :cond_7
+    if-ne p2, v6, :cond_8
 
-    .line 281
+    .line 333
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "smart_pause"
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_d
 
     :goto_6
     invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 282
+    .line 334
     const-string v4, "com.sec.SMART_PAUSE_CHANGED"
 
     invoke-direct {p0, v4, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->broadcastStatusChanged(Ljava/lang/String;Z)V
 
     goto :goto_4
 
-    :cond_c
+    :cond_d
     move v4, v5
 
-    .line 281
+    .line 333
     goto :goto_6
 .end method
 
@@ -1703,24 +1965,24 @@
 
     const/4 v2, 0x0
 
-    .line 169
+    .line 201
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 170
+    .line 202
     const-string v0, "SmartScreenSettings"
 
     const-string v3, "onResume()"
 
     invoke-static {v0, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 172
+    .line 204
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
-    .line 173
+    .line 205
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -1729,7 +1991,53 @@
 
     invoke-static {v0, v3}, Lcom/android/internal/view/RotationPolicy;->registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
 
-    .line 176
+    .line 208
+    iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarLayout:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    .line 209
+    iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarLayout:Landroid/view/View;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 210
+    invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
+
+    .line 212
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mIsFromAutoRotation:Z
+
+    if-eqz v0, :cond_1
+
+    .line 213
+    iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {v3, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    .line 216
+    :cond_1
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
 
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
@@ -1740,14 +2048,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4
 
     move v0, v1
 
-    :goto_0
+    :goto_1
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 177
+    .line 217
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
 
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
@@ -1758,14 +2066,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     move v0, v1
 
-    :goto_1
+    :goto_2
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 178
+    .line 218
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
 
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
@@ -1776,14 +2084,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6
 
     move v0, v1
 
-    :goto_2
+    :goto_3
     invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 179
+    .line 219
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
@@ -1794,14 +2102,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7
 
     move v0, v1
 
-    :goto_3
+    :goto_4
     invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 181
+    .line 221
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
@@ -1812,14 +2120,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2
 
     move v2, v1
 
-    :cond_0
+    :cond_2
     invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 183
+    .line 223
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v2, "intelligent_sleep_mode"
@@ -1832,7 +2140,7 @@
 
     invoke-virtual {v0, v2, v1, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 184
+    .line 224
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v2, "intelligent_rotation_mode"
@@ -1845,7 +2153,7 @@
 
     invoke-virtual {v0, v2, v1, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 185
+    .line 225
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v2, "smart_pause"
@@ -1858,7 +2166,7 @@
 
     invoke-virtual {v0, v2, v1, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 186
+    .line 226
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v2, "smart_scroll"
@@ -1871,32 +2179,38 @@
 
     invoke-virtual {v0, v2, v1, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 187
+    .line 227
     return-void
-
-    :cond_1
-    move v0, v2
-
-    .line 176
-    goto :goto_0
-
-    :cond_2
-    move v0, v2
-
-    .line 177
-    goto :goto_1
 
     :cond_3
     move v0, v2
 
-    .line 178
-    goto :goto_2
+    .line 213
+    goto/16 :goto_0
 
     :cond_4
     move v0, v2
 
-    .line 179
+    .line 216
+    goto :goto_1
+
+    :cond_5
+    move v0, v2
+
+    .line 217
+    goto :goto_2
+
+    :cond_6
+    move v0, v2
+
+    .line 218
     goto :goto_3
+
+    :cond_7
+    move v0, v2
+
+    .line 219
+    goto :goto_4
 .end method
 
 .method public showGuideDialog()V
@@ -1909,7 +2223,7 @@
 
     const/4 v11, 0x1
 
-    .line 359
+    .line 411
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
@@ -1918,7 +2232,7 @@
 
     invoke-direct {v0, v9}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 362
+    .line 414
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
@@ -1928,27 +2242,27 @@
 
     move-result-object v6
 
-    .line 363
+    .line 415
     .local v6, mSharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v6}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 365
+    .line 417
     .local v2, edit:Landroid/content/SharedPreferences$Editor;
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     if-eqz v9, :cond_0
 
-    .line 366
+    .line 418
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v9}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 367
+    .line 419
     iput-object v13, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 370
+    .line 422
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
@@ -1962,17 +2276,17 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    .line 371
+    .line 423
     .local v4, inflater:Landroid/view/LayoutInflater;
-    const v9, 0x7f040172
+    const v9, 0x7f0401b0
 
     invoke-virtual {v4, v9, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
 
-    .line 372
+    .line 424
     .local v5, layout:Landroid/view/View;
-    const v9, 0x7f0b0138
+    const v9, 0x7f0b0147
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1980,7 +2294,7 @@
 
     check-cast v7, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 374
+    .line 426
     .local v7, mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenHelpID:[I
 
@@ -1988,7 +2302,7 @@
 
     new-array v8, v9, [Landroid/widget/TextView;
 
-    .line 376
+    .line 428
     .local v8, tvList:[Landroid/widget/TextView;
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -1996,28 +2310,28 @@
 
     if-ne v9, v10, :cond_5
 
-    .line 377
+    .line 429
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStayAnimationImage:[I
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationImage:[I
 
-    .line 378
+    .line 430
     iget-boolean v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
 
     if-eqz v9, :cond_4
 
-    .line 379
+    .line 431
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStayHelpFolderText:[I
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartHelpText:[I
 
-    .line 384
+    .line 436
     :goto_0
-    const v9, 0x7f090f9c
+    const v9, 0x7f0910da
 
     iput v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
-    .line 399
+    .line 451
     :cond_1
     :goto_1
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
@@ -2032,7 +2346,7 @@
 
     if-ne v9, v10, :cond_d
 
-    .line 401
+    .line 453
     :cond_2
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenHelpID:[I
 
@@ -2046,7 +2360,7 @@
 
     aput-object v9, v8, v12
 
-    .line 402
+    .line 454
     aget-object v9, v8, v12
 
     iget-object v10, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartHelpText:[I
@@ -2059,7 +2373,7 @@
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 404
+    .line 456
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenHelpID:[I
 
     aget v9, v9, v11
@@ -2072,16 +2386,16 @@
 
     aput-object v9, v8, v11
 
-    .line 405
+    .line 457
     const-string v1, ""
 
-    .line 406
+    .line 458
     .local v1, description:Ljava/lang/String;
     iget-boolean v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
 
     if-eqz v9, :cond_9
 
-    .line 407
+    .line 459
     const/4 v3, 0x1
 
     .local v3, i:I
@@ -2092,7 +2406,7 @@
 
     if-ge v3, v9, :cond_b
 
-    .line 408
+    .line 460
     if-eq v3, v11, :cond_3
 
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartHelpText:[I
@@ -2103,7 +2417,7 @@
 
     if-ne v3, v9, :cond_8
 
-    .line 409
+    .line 461
     :cond_3
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -2135,13 +2449,13 @@
 
     move-result-object v1
 
-    .line 407
+    .line 459
     :goto_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 382
+    .line 434
     .end local v1           #description:Ljava/lang/String;
     .end local v3           #i:I
     :cond_4
@@ -2151,7 +2465,7 @@
 
     goto :goto_0
 
-    .line 385
+    .line 437
     :cond_5
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -2159,30 +2473,30 @@
 
     if-ne v9, v10, :cond_7
 
-    .line 386
+    .line 438
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotationAnimationImage:[I
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationImage:[I
 
-    .line 387
+    .line 439
     iget-boolean v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
 
     if-eqz v9, :cond_6
 
-    .line 388
+    .line 440
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotationHelpFolderText:[I
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartHelpText:[I
 
-    .line 393
+    .line 445
     :goto_4
-    const v9, 0x7f090f9e
+    const v9, 0x7f0910dc
 
     iput v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
     goto/16 :goto_1
 
-    .line 391
+    .line 443
     :cond_6
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotationHelpText:[I
 
@@ -2190,7 +2504,7 @@
 
     goto :goto_4
 
-    .line 394
+    .line 446
     :cond_7
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -2198,19 +2512,19 @@
 
     if-ne v9, v10, :cond_1
 
-    .line 395
+    .line 447
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPauseAnimationImage:[I
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationImage:[I
 
-    .line 396
-    const v9, 0x7f090fa9
+    .line 448
+    const v9, 0x7f0910e7
 
     iput v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
     goto/16 :goto_1
 
-    .line 411
+    .line 463
     .restart local v1       #description:Ljava/lang/String;
     .restart local v3       #i:I
     :cond_8
@@ -2252,7 +2566,7 @@
 
     goto :goto_3
 
-    .line 416
+    .line 468
     .end local v3           #i:I
     :cond_9
     const/4 v3, 0x1
@@ -2265,10 +2579,10 @@
 
     if-ge v3, v9, :cond_b
 
-    .line 417
+    .line 469
     if-ne v3, v11, :cond_a
 
-    .line 418
+    .line 470
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2299,13 +2613,13 @@
 
     move-result-object v1
 
-    .line 416
+    .line 468
     :goto_6
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_5
 
-    .line 420
+    .line 472
     :cond_a
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -2345,18 +2659,18 @@
 
     goto :goto_6
 
-    .line 424
+    .line 476
     :cond_b
     aget-object v9, v8, v11
 
     invoke-virtual {v9, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 443
+    .line 495
     .end local v1           #description:Ljava/lang/String;
     .end local v3           #i:I
     :cond_c
     :goto_7
-    const v9, 0x7f0b0140
+    const v9, 0x7f0b014f
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2366,15 +2680,15 @@
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mAnimationView:Landroid/widget/ImageView;
 
-    .line 446
+    .line 498
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 447
+    .line 499
     iget v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->dialogTitle:I
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 449
+    .line 501
     const v9, 0x104000a
 
     new-instance v10, Lcom/android/settings/smartscreen/SmartScreenSettings$3;
@@ -2383,19 +2697,19 @@
 
     invoke-virtual {v0, v9, v10}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 456
+    .line 508
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v9
 
     iput-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 457
+    .line 509
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v9}, Landroid/app/AlertDialog;->show()V
 
-    .line 458
+    .line 510
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     new-instance v10, Lcom/android/settings/smartscreen/SmartScreenSettings$4;
@@ -2404,13 +2718,13 @@
 
     invoke-virtual {v9, v10}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 463
+    .line 515
     invoke-direct {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->startAnimation()V
 
-    .line 464
+    .line 516
     return-void
 
-    .line 426
+    .line 478
     :cond_d
     iget-object v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
 
@@ -2418,7 +2732,7 @@
 
     if-ne v9, v10, :cond_c
 
-    .line 428
+    .line 480
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenHelpID:[I
 
     aget v9, v9, v12
@@ -2431,10 +2745,10 @@
 
     aput-object v9, v8, v12
 
-    .line 429
+    .line 481
     aget-object v9, v8, v12
 
-    const v10, 0x7f090fc3
+    const v10, 0x7f091101
 
     invoke-virtual {p0, v10}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2442,7 +2756,7 @@
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 431
+    .line 483
     sget-object v9, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScreenHelpID:[I
 
     aget v9, v9, v11
@@ -2455,12 +2769,12 @@
 
     aput-object v9, v8, v11
 
-    .line 432
+    .line 484
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v9, 0x7f090fc4
+    const v9, 0x7f091102
 
     invoke-virtual {p0, v9}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2482,7 +2796,7 @@
 
     move-result-object v1
 
-    .line 433
+    .line 485
     .restart local v1       #description:Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -2498,7 +2812,7 @@
 
     move-result-object v10
 
-    const v9, 0x7f090fc5
+    const v9, 0x7f091103
 
     invoke-virtual {p0, v9}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2520,7 +2834,7 @@
 
     move-result-object v1
 
-    .line 434
+    .line 486
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2535,7 +2849,7 @@
 
     move-result-object v10
 
-    const v9, 0x7f090fc6
+    const v9, 0x7f091104
 
     invoke-virtual {p0, v9}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2557,7 +2871,7 @@
 
     move-result-object v1
 
-    .line 435
+    .line 487
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2566,7 +2880,7 @@
 
     move-result-object v10
 
-    const v9, 0x7f090fc7
+    const v9, 0x7f091105
 
     invoke-virtual {p0, v9}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2588,12 +2902,12 @@
 
     move-result-object v1
 
-    .line 436
+    .line 488
     iget-boolean v9, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
 
     if-eqz v9, :cond_e
 
-    .line 437
+    .line 489
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2602,7 +2916,7 @@
 
     move-result-object v10
 
-    const v9, 0x7f0915a8
+    const v9, 0x7f09170d
 
     invoke-virtual {p0, v9}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2624,7 +2938,7 @@
 
     move-result-object v1
 
-    .line 439
+    .line 491
     :cond_e
     aget-object v9, v8, v11
 
@@ -2637,7 +2951,7 @@
     .locals 14
 
     .prologue
-    .line 468
+    .line 520
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
@@ -2646,7 +2960,7 @@
 
     invoke-direct {v0, v12}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 470
+    .line 522
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
@@ -2656,29 +2970,29 @@
 
     move-result-object v8
 
-    .line 471
+    .line 523
     .local v8, mSharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v8}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 473
+    .line 525
     .local v1, edit:Landroid/content/SharedPreferences$Editor;
     iget-object v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     if-eqz v12, :cond_0
 
-    .line 474
+    .line 526
     iget-object v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v12}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 475
+    .line 527
     const/4 v12, 0x0
 
     iput-object v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 478
+    .line 530
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
 
@@ -2692,9 +3006,9 @@
 
     check-cast v6, Landroid/view/LayoutInflater;
 
-    .line 479
+    .line 531
     .local v6, inflater:Landroid/view/LayoutInflater;
-    const v12, 0x7f040173
+    const v12, 0x7f0401b1
 
     const/4 v13, 0x0
 
@@ -2702,9 +3016,9 @@
 
     move-result-object v7
 
-    .line 480
+    .line 532
     .local v7, layout:Landroid/view/View;
-    const v12, 0x7f0b03f7
+    const v12, 0x7f0b045e
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2712,13 +3026,13 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    .line 482
+    .line 534
     .local v5, helpTextTop:Landroid/widget/TextView;
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v12, 0x7f090fcb
+    const v12, 0x7f091109
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2740,7 +3054,7 @@
 
     move-result-object v10
 
-    .line 483
+    .line 535
     .local v10, s:Ljava/lang/String;
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -2750,7 +3064,7 @@
 
     move-result-object v13
 
-    const v12, 0x7f090fcc
+    const v12, 0x7f09110a
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2772,7 +3086,7 @@
 
     move-result-object v10
 
-    .line 484
+    .line 536
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2787,7 +3101,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fcd
+    const v13, 0x7f09110b
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2807,7 +3121,7 @@
 
     move-result-object v10
 
-    .line 485
+    .line 537
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2822,7 +3136,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fce
+    const v13, 0x7f09110c
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2842,7 +3156,7 @@
 
     move-result-object v10
 
-    .line 486
+    .line 538
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2851,7 +3165,7 @@
 
     move-result-object v13
 
-    const v12, 0x7f090fcf
+    const v12, 0x7f09110d
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2873,7 +3187,7 @@
 
     move-result-object v10
 
-    .line 487
+    .line 539
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -2882,7 +3196,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd0
+    const v13, 0x7f09110e
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2902,11 +3216,11 @@
 
     move-result-object v10
 
-    .line 488
+    .line 540
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 490
-    const v12, 0x7f0b03f8
+    .line 542
+    const v12, 0x7f0b045f
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2914,20 +3228,20 @@
 
     check-cast v3, Landroid/widget/LinearLayout;
 
-    .line 492
+    .line 544
     .local v3, helpContent:Landroid/widget/LinearLayout;
     new-instance v2, Lcom/android/settings/HelpItem;
 
     invoke-direct {v2, v6}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 493
+    .line 545
     .local v2, first:Lcom/android/settings/HelpItem;
-    const v12, 0x7f090fda
+    const v12, 0x7f091118
 
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(I)V
 
-    .line 494
-    const v12, 0x7f090fd1
+    .line 546
+    const v12, 0x7f09110f
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2937,36 +3251,36 @@
 
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 495
-    const v12, 0x7f020411
+    .line 547
+    const v12, 0x7f020490
 
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 496
+    .line 548
     const/4 v12, 0x0
 
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 497
+    .line 549
     invoke-virtual {v2}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v12
 
     invoke-virtual {v3, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 499
+    .line 551
     new-instance v11, Lcom/android/settings/HelpItem;
 
     invoke-direct {v11, v6}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 500
+    .line 552
     .local v11, second:Lcom/android/settings/HelpItem;
-    const v12, 0x7f090fd9
+    const v12, 0x7f091117
 
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(I)V
 
-    .line 501
-    const v12, 0x7f090fd2
+    .line 553
+    const v12, 0x7f091110
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2976,25 +3290,25 @@
 
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 502
-    const v12, 0x7f020410
+    .line 554
+    const v12, 0x7f02048f
 
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 503
+    .line 555
     const/4 v12, 0x0
 
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 504
+    .line 556
     invoke-virtual {v11}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v12
 
     invoke-virtual {v3, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 506
-    const v12, 0x7f0b03f9
+    .line 558
+    const v12, 0x7f0b0460
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3002,13 +3316,13 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    .line 508
+    .line 560
     .local v4, helpTextBottom:Landroid/widget/TextView;
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v12, 0x7f090fd3
+    const v12, 0x7f091111
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -3030,7 +3344,7 @@
 
     move-result-object v10
 
-    .line 509
+    .line 561
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -3045,7 +3359,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd4
+    const v13, 0x7f091112
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -3065,7 +3379,7 @@
 
     move-result-object v10
 
-    .line 510
+    .line 562
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -3080,7 +3394,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd5
+    const v13, 0x7f091113
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -3100,7 +3414,7 @@
 
     move-result-object v10
 
-    .line 511
+    .line 563
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -3109,7 +3423,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd6
+    const v13, 0x7f091114
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -3129,12 +3443,12 @@
 
     move-result-object v10
 
-    .line 512
+    .line 564
     iget-boolean v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mSupportFolderType:Z
 
     if-eqz v12, :cond_1
 
-    .line 513
+    .line 565
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -3143,7 +3457,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0915a8
+    const v13, 0x7f09170d
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -3163,12 +3477,12 @@
 
     move-result-object v10
 
-    .line 515
+    .line 567
     :cond_1
     invoke-virtual {v4, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 517
-    const v12, 0x7f0b03fa
+    .line 569
+    const v12, 0x7f0b0461
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3176,16 +3490,16 @@
 
     check-cast v9, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 519
+    .line 571
     .local v9, mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 520
-    const v12, 0x7f090fab
+    .line 572
+    const v12, 0x7f0910e9
 
     invoke-virtual {v0, v12}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 522
+    .line 574
     const v12, 0x104000a
 
     new-instance v13, Lcom/android/settings/smartscreen/SmartScreenSettings$5;
@@ -3194,19 +3508,19 @@
 
     invoke-virtual {v0, v12, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 534
+    .line 586
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v12
 
     iput-object v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 535
+    .line 587
     iget-object v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v12}, Landroid/app/AlertDialog;->show()V
 
-    .line 536
+    .line 588
     iget-object v12, p0, Lcom/android/settings/smartscreen/SmartScreenSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     new-instance v13, Lcom/android/settings/smartscreen/SmartScreenSettings$6;
@@ -3215,6 +3529,6 @@
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 546
+    .line 598
     return-void
 .end method

@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="lock_pattern_header_text_marginTop">10.0dip</dimen>
+    <dimen name="listview_icon_size">37.0dip</dimen>
+    <dimen name="lock_screen_layout_width">570.0dip</dimen>
+    <dimen name="lock_screen_button_marginTop">19.0dip</dimen>
+    <dimen name="lock_screen_header_text_height">36.0dip</dimen>
+    <dimen name="lock_screen_header_text_marginLeft">38.0dip</dimen>
+    <dimen name="lock_screen_header_text_marginRight">38.0dip</dimen>
+    <dimen name="lock_screen_edit_text_size">24.0dip</dimen>
     <dimen name="lock_pattern_header_text_size">18.0dip</dimen>
+    <dimen name="lock_pattern_header_text_marginTop">10.0dip</dimen>
+    <dimen name="lock_pattern_header_text_marginBottom">30.0dip</dimen>
+    <dimen name="lock_pattern_view_width">325.0dip</dimen>
+    <dimen name="lock_pattern_view_marginBottom">31.0dip</dimen>
+    <dimen name="lock_pattern_header_text_height">24.0dip</dimen>
+    <dimen name="lock_password_header_text_size">22.0dip</dimen>
+    <dimen name="lock_password_header_text_marginTop">9.0dip</dimen>
+    <dimen name="lock_password_edit_text_marginTop">23.0dip</dimen>
+    <dimen name="lock_password_edit_text_height">46.0dip</dimen>
+    <dimen name="lock_additional_pin_header_text_size">24.0dip</dimen>
+    <dimen name="lock_additional_pin_header_text_height">36.0dip</dimen>
+    <dimen name="lock_additional_pin_header_text_marginTop">9.0dip</dimen>
+    <dimen name="lock_additional_pin_edit_text_marginTop">13.0dip</dimen>
+    <dimen name="lock_additional_pin_edit_text_marginBottom">12.0dip</dimen>
+    <dimen name="lock_additional_pin_second_text_height">48.0dip</dimen>
+    <dimen name="lock_additional_pin_second_text_marginBottom">24.0dip</dimen>
+    <dimen name="lock_additional_pin_second_text_size">20.0dip</dimen>
     <dimen name="setupwizard_title_text_size">30.0dip</dimen>
+    <dimen name="setupwizard_title_top_margin">12.0dip</dimen>
+    <dimen name="bottom_buttons_side_margin_land">0.0dip</dimen>
+    <dimen name="bottom_button_area_divider_width">0.0dip</dimen>
+    <dimen name="trans_indicator_margin">25.0dip</dimen>
     <dimen name="easy_contents_side_padding">14.0dip</dimen>
     <dimen name="easy_contents_text_size">18.0dip</dimen>
     <dimen name="easy_list_item_text_size">21.0sp</dimen>
@@ -13,8 +40,8 @@
     <dimen name="payment_contents_side_padding">14.0dip</dimen>
     <dimen name="payment_contents_width">300.0dip</dimen>
     <dimen name="payment_list_title_height">50.0dip</dimen>
-    <dimen name="payment_list_item_title_text_size">22.0dip</dimen>
-    <dimen name="payment_list_item_description_text_size">16.0dip</dimen>
+    <dimen name="payment_list_item_title_text_size">20.0sp</dimen>
+    <dimen name="payment_list_item_description_text_size">14.0dip</dimen>
     <dimen name="password_lock_headerText_side_padding">0.0dip</dimen>
     <dimen name="bottom_buttons_height">48.0dip</dimen>
     <dimen name="bottom_button_text_size">21.0dip</dimen>
@@ -42,12 +69,13 @@
     <item type="dimen" name="setup_title_height">14.999998%</item>
     <item type="dimen" name="setup_border_width">4.999995%</item>
     <dimen name="setup_margin_bottom">0.0dip</dimen>
-    <dimen name="setup_title_size">25.0sp</dimen>
+    <dimen name="setup_title_size">25.0dip</dimen>
     <dimen name="setup_button_size">32.0dip</dimen>
     <dimen name="setup_item_margin">16.0dip</dimen>
     <dimen name="divider_height">3.0dip</dimen>
     <dimen name="divider_margin_top">6.0dip</dimen>
     <dimen name="divider_margin_bottom">7.0dip</dimen>
+    <dimen name="vert_divider_width">1.0dip</dimen>
     <dimen name="header_icon_width">28.0dip</dimen>
     <dimen name="appwidget_min_width">260.0dip</dimen>
     <dimen name="appwidget_min_height">40.0dip</dimen>
@@ -61,6 +89,8 @@
     <dimen name="circle_avatar_frame_stroke_width">1.0dip</dimen>
     <dimen name="circle_avatar_frame_shadow_radius">3.0dip</dimen>
     <dimen name="update_user_photo_popup_min_width">300.0dip</dimen>
+    <dimen name="captioning_preview_height">200.0dip</dimen>
+    <item type="dimen" name="settings_side_margin">@*android:dimen/preference_fragment_padding_side</item>
     <dimen name="lock_screen_shortcut_app_icon_size">48.0dip</dimen>
     <dimen name="lock_screen_shortcut_cursor_height">52.0dip</dimen>
     <dimen name="lock_screen_shortcut_cursor_width">30.0dip</dimen>
@@ -203,6 +233,9 @@
     <dimen name="account_and_sync_account_textsize">22.0sp</dimen>
     <dimen name="account_and_sync_summary_textsize">17.0sp</dimen>
     <dimen name="account_and_sync_list_height">64.0dip</dimen>
+    <dimen name="account_add_list_padding">30.0dip</dimen>
+    <dimen name="account_and_sync_list_padding">-20.0dip</dimen>
+    <dimen name="account_sync_settings_list_padding">30.0dip</dimen>
     <dimen name="alert_dialog_padding_left_right">17.0dip</dimen>
     <dimen name="appwidget_smart_network_text_size">20.0dip</dimen>
     <dimen name="appwidget_smart_network_min_width">110.0dip</dimen>
@@ -211,6 +244,35 @@
     <dimen name="setupwizard_wifi_screen_margin_right">16.0dip</dimen>
     <dimen name="setupwizard_wifi_screen_margin_top">11.0dip</dimen>
     <dimen name="setupwizard_wifi_screen_margin_bottom">0.0dip</dimen>
+    <dimen name="subtitle_margin_left">16.0dip</dimen>
+    <dimen name="subtitle_margin_right">16.0dip</dimen>
+    <dimen name="subtitle_margin_top">11.0dip</dimen>
+    <dimen name="subtitle_font_size">17.0sp</dimen>
+    <dimen name="custom_title_height">56.0dip</dimen>
+    <dimen name="custom_title_margin_left">16.0dip</dimen>
+    <dimen name="custom_title_margin_right">16.0dip</dimen>
+    <dimen name="custom_title_appname_margin_left">8.0dip</dimen>
+    <dimen name="custom_title_icon_width">32.0dip</dimen>
+    <dimen name="custom_title_icon_height">32.0dip</dimen>
+    <dimen name="custom_title_heading_font_size">19.0sp</dimen>
+    <dimen name="step_indicator_font_size">17.0sp</dimen>
+    <dimen name="custom_ttile_divider_line_height">1.0dip</dimen>
+    <dimen name="wifi_description_text_margin_top">11.0dip</dimen>
+    <dimen name="wifi_fragment_margin_left">16.0dip</dimen>
+    <dimen name="wifi_fragment_margin_right">16.0dip</dimen>
+    <dimen name="wifi_fragment_margin_top">11.0dip</dimen>
+    <dimen name="wifi_dialog_margin_top">22.0dip</dimen>
+    <dimen name="wifi_dialog_margin_bottom_p">10.0dip</dimen>
+    <dimen name="wifi_dialog_margin_bottom_m">-10.0dip</dimen>
+    <dimen name="screen_description_font_size">17.0sp</dimen>
+    <dimen name="bottom_btn_font_size">17.0sp</dimen>
+    <dimen name="bottom_btn_layout_margin_top">10.0dip</dimen>
+    <dimen name="bottom_btn_layout_margin_left">0.0dip</dimen>
+    <dimen name="bottom_btn_layout_margin_right">0.0dip</dimen>
+    <dimen name="bottom_btn_layout_margin_bottom">0.0dip</dimen>
+    <dimen name="bottom_button_height">48.0dip</dimen>
+    <dimen name="margin_between_button_and_arrow">8.0dip</dimen>
+    <dimen name="bottom_button_divider_width">1.0dip</dimen>
     <dimen name="screen_layout_paddingLeft">20.0dip</dimen>
     <dimen name="screen_layout_paddingRight">10.0dip</dimen>
     <dimen name="date_view_text_size">17.0dip</dimen>
@@ -226,6 +288,8 @@
     <dimen name="fontsize_spinner_marginLeft">1.0dip</dimen>
     <dimen name="fontsize_spinner_layoutWidht">50.0dip</dimen>
     <dimen name="fontsize_spinner_layoutHeight">40.0dip</dimen>
+    <dimen name="fonttype_spinner_layoutWidht">0.0dip</dimen>
+    <dimen name="previewarea_layout_maxwidth">0.0dip</dimen>
     <dimen name="previewarea_layoutHeight">78.0dip</dimen>
     <dimen name="previewarea_layout_marginRight">17.0dip</dimen>
     <dimen name="previewarea_layout_marginLeft">17.0dip</dimen>
@@ -237,6 +301,7 @@
     <dimen name="dialog_editprofile_label_paddingLeft">7.0dip</dimen>
     <dimen name="dialog_editprofile_edittext_margin">5.0dip</dimen>
     <dimen name="spinner_textview_layoutHeight">30.0dip</dimen>
+    <dimen name="custom_colorview_parentlayout_padding">0.0dip</dimen>
     <dimen name="custom_colorview_parentlayout_marginLeft">13.0dip</dimen>
     <dimen name="custom_colorview_parentlayout_marginRight">13.0dip</dimen>
     <dimen name="custom_colorview_parentlayout_marginTop">18.0dip</dimen>
@@ -254,6 +319,8 @@
     <dimen name="myplace_location_edit_area_btn_height">38.0dip</dimen>
     <dimen name="myplace_map_capture_width">360.0dip</dimen>
     <dimen name="myplace_map_capture_height">129.0dip</dimen>
+    <dimen name="button_select_all_height">56.0dip</dimen>
+    <dimen name="delete_list_fragment_left_right_margin">0.0dip</dimen>
     <dimen name="powersavingmode_help_dialog_tap_img_width">50.0dip</dimen>
     <dimen name="powersavingmode_help_dialog_tap_img_height">50.0dip</dimen>
     <dimen name="powersavingmode_help_dialog_tap_img_margin_right">8.0dip</dimen>
@@ -302,6 +369,7 @@
     <dimen name="svoice_help_edit_bubble_save_btn_margin_right">4.0dip</dimen>
     <dimen name="svoice_help_edit_land_bubble_save_btn_margin_top">11.0dip</dimen>
     <dimen name="svoice_help_edit_land_bubble_save_btn_margin_right">0.0dip</dimen>
+    <dimen name="svoice_help_dialog_tap_margin_right">5.0dip</dimen>
     <dimen name="notification_panel_width">68.0dip</dimen>
     <dimen name="notification_panel_height">79.0dip</dimen>
     <dimen name="notification_image_width">46.0dip</dimen>
@@ -356,28 +424,29 @@
     <dimen name="fingerprint_select_marginTop">30.0dip</dimen>
     <dimen name="fingerprint_select_marginLeft">22.0dip</dimen>
     <dimen name="fingerprint_select_marginRight">22.0dip</dimen>
-    <dimen name="fingerprint_select_left_thumb_marginTop">160.0dip</dimen>
-    <dimen name="fingerprint_select_left_thumb_marginLeft">256.0dip</dimen>
-    <dimen name="fingerprint_select_left_index_marginTop">30.0dip</dimen>
-    <dimen name="fingerprint_select_left_index_marginLeft">185.0dip</dimen>
-    <dimen name="fingerprint_select_left_middle_marginTop">4.0dip</dimen>
-    <dimen name="fingerprint_select_left_middle_marginLeft">120.0dip</dimen>
-    <dimen name="fingerprint_select_left_ring_marginTop">29.0dip</dimen>
-    <dimen name="fingerprint_select_left_ring_marginLeft">53.0dip</dimen>
-    <dimen name="fingerprint_select_left_little_marginTop">96.0dip</dimen>
-    <dimen name="fingerprint_select_left_little_marginLeft">3.0dip</dimen>
-    <dimen name="fingerprint_select_right_thumb_marginTop">160.0dip</dimen>
-    <dimen name="fingerprint_select_right_thumb_marginLeft">7.0dip</dimen>
-    <dimen name="fingerprint_select_right_index_marginTop">29.0dip</dimen>
-    <dimen name="fingerprint_select_right_index_marginLeft">80.0dip</dimen>
-    <dimen name="fingerprint_select_right_middle_marginTop">4.0dip</dimen>
-    <dimen name="fingerprint_select_right_middle_marginLeft">147.0dip</dimen>
-    <dimen name="fingerprint_select_right_ring_marginTop">29.0dip</dimen>
-    <dimen name="fingerprint_select_right_ring_marginLeft">212.0dip</dimen>
-    <dimen name="fingerprint_select_right_little_marginTop">96.0dip</dimen>
-    <dimen name="fingerprint_select_right_little_marginLeft">263.0dip</dimen>
+    <dimen name="fingerprint_select_left_thumb_marginTop">152.0dip</dimen>
+    <dimen name="fingerprint_select_left_thumb_marginLeft">7.0dip</dimen>
+    <dimen name="fingerprint_select_left_index_marginTop">27.0dip</dimen>
+    <dimen name="fingerprint_select_left_index_marginLeft">80.0dip</dimen>
+    <dimen name="fingerprint_select_left_middle_marginTop">5.0dip</dimen>
+    <dimen name="fingerprint_select_left_middle_marginLeft">142.0dip</dimen>
+    <dimen name="fingerprint_select_left_ring_marginTop">27.0dip</dimen>
+    <dimen name="fingerprint_select_left_ring_marginLeft">207.0dip</dimen>
+    <dimen name="fingerprint_select_left_little_marginTop">97.0dip</dimen>
+    <dimen name="fingerprint_select_left_little_marginLeft">257.0dip</dimen>
+    <dimen name="fingerprint_select_right_thumb_marginTop">155.0dip</dimen>
+    <dimen name="fingerprint_select_right_thumb_marginLeft">260.0dip</dimen>
+    <dimen name="fingerprint_select_right_index_marginTop">30.0dip</dimen>
+    <dimen name="fingerprint_select_right_index_marginLeft">190.0dip</dimen>
+    <dimen name="fingerprint_select_right_middle_marginTop">5.0dip</dimen>
+    <dimen name="fingerprint_select_right_middle_marginLeft">125.0dip</dimen>
+    <dimen name="fingerprint_select_right_ring_marginTop">27.0dip</dimen>
+    <dimen name="fingerprint_select_right_ring_marginLeft">60.0dip</dimen>
+    <dimen name="fingerprint_select_right_little_marginTop">98.0dip</dimen>
+    <dimen name="fingerprint_select_right_little_marginLeft">12.0dip</dimen>
     <dimen name="fingerprint_select_handimage_to_text_margin">72.0dip</dimen>
-    <dimen name="fingerprint_select_textsize">19.0dip</dimen>
+    <dimen name="fingerprint_disable_textsize">19.0dip</dimen>
+    <dimen name="fingerprint_select_textsize">25.0dip</dimen>
     <dimen name="fingerprint_select_between_dot">3.0dip</dimen>
     <dimen name="fingerprint_select_tip_marginTop">19.0dip</dimen>
     <dimen name="fingerprint_select_tip_height">48.0dip</dimen>
@@ -386,6 +455,8 @@
     <dimen name="fingerprint_select_tip_icon_width">30.0dip</dimen>
     <dimen name="fingerprint_select_tip_icon_marginLeft">11.0dip</dimen>
     <dimen name="fingerprint_select_tip_icon_marginRight">12.0dip</dimen>
+    <dimen name="fingerprint_register_anim_size_height">120.0dip</dimen>
+    <dimen name="fingerprint_register_anim_size_width">160.0dip</dimen>
     <dimen name="fingerprint_register_anim_marginTop">53.0dip</dimen>
     <dimen name="fingerprint_register_step_to_image_marginTop">44.0dip</dimen>
     <dimen name="fingerprint_register_step_to_text_marginTop">38.0dip</dimen>
@@ -483,15 +554,62 @@
     <dimen name="vpn_empty_view_popup_padding_right">20.0dip</dimen>
     <dimen name="settings_main_preference_item_padding_left">16.0dip</dimen>
     <dimen name="watch_style_list_height">220.0dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_01e5">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01e6">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01e7">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01e8">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01e9">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01ea">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01eb">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01ec">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01ed">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01ee">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_01ef">false</item>
+    <dimen name="automatic_brightness_textsize">19.0sp</dimen>
+    <dimen name="brightness_level_textsize">15.0sp</dimen>
+    <dimen name="brightness_adjustment_step_textsize">25.0sp</dimen>
+    <dimen name="install_all_warning_text_size">18.0sp</dimen>
+    <dimen name="install_all_installation_text_size">16.0sp</dimen>
+    <dimen name="help_button_width">270.0dip</dimen>
+    <dimen name="notification_reset_button_padding_top">3.0dip</dimen>
+    <dimen name="grid_settings_header_view_min_height">120.0dip</dimen>
+    <dimen name="grid_settings_header_view_min_width">120.0dip</dimen>
+    <dimen name="grid_settings_header_view_top_margin">13.0dip</dimen>
+    <dimen name="grid_settings_header_view_bottom_margin">15.0dip</dimen>
+    <dimen name="grid_settings_header_view_text_size">14.0dip</dimen>
+    <dimen name="grid_settings_header_view_text_top_padding">10.0dip</dimen>
+    <dimen name="grid_settings_header_view_text_left_right_padding">12.0dip</dimen>
+    <dimen name="grid_settings_expandable_category_min_height">28.0dip</dimen>
+    <dimen name="grid_settings_expandable_category_text_size">15.0dip</dimen>
+    <dimen name="grid_settings_expandable_category_text_left_padding">16.0dip</dimen>
+    <dimen name="grid_settings_expandable_category_text_right_padding">9.0dip</dimen>
+    <dimen name="grid_settings_expandable_category_image_right_padding">8.0dip</dimen>
+    <dimen name="listpreference_layout_marginLeft">0.0dip</dimen>
+    <dimen name="listpreference_layout_marginRight">0.0dip</dimen>
+    <dimen name="listpreference_paddingLeft">5.0dip</dimen>
+    <dimen name="listpreference_paddingRight">5.0dip</dimen>
+    <dimen name="listfragment_paddingLeft">0.0dip</dimen>
+    <dimen name="listfragment_paddingRight">0.0dip</dimen>
+    <dimen name="recommended_app_icon_padding_right">17.0dip</dimen>
+    <dimen name="recommended_app_icon_size">48.0dip</dimen>
+    <dimen name="notification_reset_icon_width">32.0dip</dimen>
+    <dimen name="notification_reset_icon_height">32.0dip</dimen>
+    <dimen name="notification_reset_icon_marginTop">7.0dip</dimen>
+    <dimen name="notification_reset_icon_marginRight">22.0dip</dimen>
+    <dimen name="notification_reset_icon_marginBottom">4.0dip</dimen>
+    <dimen name="previewregion_personalmessage">560.0dip</dimen>
+    <dimen name="previewregion_personalmessage_left">68.0dip</dimen>
+    <dimen name="previewregion_personalmessage_top">90.0dip</dimen>
+    <dimen name="previewregion_personalmessage_text_right">46.0dip</dimen>
+    <dimen name="previewregion_personalmessage_datetime_right">63.0dip</dimen>
+    <dimen name="setregion_personalmessage">623.0dip</dimen>
+    <dimen name="setregion_personalmessage_tb">48.0dip</dimen>
+    <dimen name="setregion_personalmessage_rl">28.0dip</dimen>
+    <dimen name="setregion_personalmessage_contents_w">532.0dip</dimen>
+    <dimen name="setregion_personalmessage_contents_ht">46.0dip</dimen>
+    <dimen name="setregion_personalmessage_contents_hp">138.0dip</dimen>
+    <dimen name="setregion_personalmessage_contents_hb">347.0dip</dimen>
+    <dimen name="setregion_personalmessage_contents_b">26.0dip</dimen>
+    <dimen name="launch_home_app">24.0dip</dimen>
+    <item type="dimen" name="APKTOOL_DUMMY_025a">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_025b">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_025c">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_025d">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_025e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_025f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0260">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0261">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0262">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0263">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0264">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0265">false</item>
 </resources>

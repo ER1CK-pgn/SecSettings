@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1248
+    .line 1314
     iput-object p1, p0, Lcom/android/settings/deviceinfo/Status$7$1;->this$1:Lcom/android/settings/deviceinfo/Status$7;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 1251
+    .line 1317
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Status$7$1;->this$1:Lcom/android/settings/deviceinfo/Status$7;
 
     iget-object v0, v0, Lcom/android/settings/deviceinfo/Status$7;->this$0:Lcom/android/settings/deviceinfo/Status;
@@ -49,6 +49,6 @@
     #calls: Lcom/android/settings/deviceinfo/Status;->updateRegistrationStatus()V
     invoke-static {v0}, Lcom/android/settings/deviceinfo/Status;->access$1500(Lcom/android/settings/deviceinfo/Status;)V
 
-    .line 1252
+    .line 1318
     return-void
 .end method

@@ -399,7 +399,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090186
+    const v2, 0x7f0901a9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -440,7 +440,7 @@
     :goto_0
     sget-object v1, Lcom/android/settings/DateTimeIntentReceiver;->mDialog:Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;
 
-    invoke-virtual {v1}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
@@ -449,7 +449,7 @@
     .line 107
     sget-object v0, Lcom/android/settings/DateTimeIntentReceiver;->mDialog:Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 109
     return-void

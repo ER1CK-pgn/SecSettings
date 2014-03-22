@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 26
+    .line 30
     new-instance v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     const-string v1, "OPAQUE"
@@ -53,7 +53,7 @@
 
     sput-object v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    .line 28
+    .line 32
     new-instance v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     const-string v1, "TRANSPARENT"
@@ -62,7 +62,7 @@
 
     sput-object v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->TRANSPARENT:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    .line 33
+    .line 37
     new-instance v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     const-string v1, "OPAQUE_NO_MOVE"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    .line 24
+    .line 28
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
@@ -104,7 +104,7 @@
     .end annotation
 
     .prologue
-    .line 24
+    .line 28
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -115,7 +115,7 @@
     .parameter
 
     .prologue
-    .line 24
+    .line 28
     const-class v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -131,10 +131,10 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 28
     sget-object v0, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->$VALUES:[Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v0}, [Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

@@ -12,8 +12,9 @@
     </string-array>
     <string-array name="lock_screen_unlock_effect_entries">
         <item>Nessuno</item>
-        <item>Increspatura</item>
-        <item>Effetto illuminazione</item>
+        <item>Effetto increspatura</item>
+        <item>Illuminazione</item>
+        <item>Particle effect</item>
     </string-array>
     <string-array name="auto_power_off_entries">
         <item>Disattivo</item>
@@ -106,11 +107,11 @@
         <item>30 minuti</item>
     </string-array>
     <string-array name="entries_font_size">
-        <item>Molto piccolo</item>
+        <item>Minuscolo</item>
         <item>Piccolo</item>
         <item>Normale</item>
         <item>Grande</item>
-        <item>Molto grande</item>
+        <item>Enorme</item>
     </string-array>
     <string-array name="tts_rate_entries">
         <item>Molto lento</item>
@@ -143,7 +144,7 @@
         <item>Connessione…</item>
         <item>Autenticazione in corso…</item>
         <item>Ottenimento indirizzo IP in corso…</item>
-        <item>Connesso</item>
+        <item>Collegato.</item>
         <item>Disattivati</item>
         <item>Disconnessione…</item>
         <item>Disconnesso</item>
@@ -231,6 +232,10 @@
         <item>10</item>
         <item>11</item>
     </string-array>
+    <string-array name="wifi_ap_tx_power_mode_entries">
+        <item>Standard</item>
+        <item>Alto</item>
+    </string-array>
     <string-array name="wifi_ap_maxclient">
         <item>1</item>
         <item>2</item>
@@ -248,6 +253,11 @@
         <item>5 minuti</item>
         <item>1 ora</item>
         <item>Nessun timeout</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries_for_vzw">
+        <item>2 minuti</item>
+        <item>5 minuti</item>
+        <item>1 ora</item>
     </string-array>
     <string-array name="wifi_signal">
         <item>Debole</item>
@@ -273,7 +283,7 @@
     </string-array>
     <string-array name="wifi_ap_list_priority_entries">
         <item>Alfabeto</item>
-        <item>RSSI</item>
+        <item>Potenza del segnale</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
         <item>Automatica</item>
@@ -375,10 +385,114 @@
         <item>eHRPD</item>
         <item>Non specificato</item>
     </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Nessuno</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
     <string-array name="app_install_location_entries">
         <item>Memoria interna del dispositivo</item>
         <item>Scheda SD rimovibile</item>
         <item>Predefinito</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Posizione</item>
+        <item>Personale</item>
+        <item>Messaggi</item>
+        <item>Multimedia</item>
+        <item>Dispositivo</item>
+        <item>Dispositivo</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>coarse location</item>
+        <item>fine location</item>
+        <item>GPS</item>
+        <item>Vibrazione</item>
+        <item>Leggi contatti</item>
+        <item>modify contacts</item>
+        <item>Leggi registro chiamate</item>
+        <item>modify call log</item>
+        <item>read calendar</item>
+        <item>modify calendar</item>
+        <item>wi-fi scan</item>
+        <item>Notifica</item>
+        <item>cell scan</item>
+        <item>call phone</item>
+        <item>read SMS</item>
+        <item>write SMS</item>
+        <item>ricevi SMS</item>
+        <item>receive emergency SMS</item>
+        <item>receive MMS</item>
+        <item>receive WAP push</item>
+        <item>Invia SMS</item>
+        <item>read ICC SMS</item>
+        <item>write ICC SMS</item>
+        <item>modify settings</item>
+        <item>draw on top</item>
+        <item>Notifiche accessi</item>
+        <item>Fotocamera</item>
+        <item>Registra audio</item>
+        <item>play audio</item>
+        <item>read clipboard</item>
+        <item>modify clipboard</item>
+        <item>media buttons</item>
+        <item>audio focus</item>
+        <item>master volume</item>
+        <item>voice volume</item>
+        <item>Volume suoneria</item>
+        <item>Volume supporti</item>
+        <item>Volume sveglia</item>
+        <item>notification volume</item>
+        <item>bluetooth volume</item>
+        <item>keep awake</item>
+        <item>monitor location</item>
+        <item>monitor high power location</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Posizione</item>
+        <item>Posizione</item>
+        <item>Posizione</item>
+        <item>Vibrazione</item>
+        <item>Leggi contatti</item>
+        <item>Modify contacts</item>
+        <item>Leggi registro chiamate</item>
+        <item>Modify call log</item>
+        <item>Read calendar</item>
+        <item>Modify calendar</item>
+        <item>Posizione</item>
+        <item>Post notification</item>
+        <item>Posizione</item>
+        <item>Call phone</item>
+        <item>Receive SMS/MMS</item>
+        <item>Send SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Invia SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Invia SMS/MMS</item>
+        <item>Modify settings</item>
+        <item>Draw on top</item>
+        <item>Notifiche accessi</item>
+        <item>Fotocamera</item>
+        <item>Registra audio</item>
+        <item>Play audio</item>
+        <item>Read clipboard</item>
+        <item>Modify clipboard</item>
+        <item>Media buttons</item>
+        <item>Audio focus</item>
+        <item>Master volume</item>
+        <item>Voice volume</item>
+        <item>Volume suoneria</item>
+        <item>Volume supporti</item>
+        <item>Volume sveglia</item>
+        <item>Notification volume</item>
+        <item>Bluetooth volume</item>
+        <item>Keep awake</item>
+        <item>Posizione</item>
+        <item>Location</item>
     </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Breve (0,5 secondi)</item>
@@ -390,6 +504,43 @@
         <item>Breve</item>
         <item>Medio</item>
         <item>Prolungato</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Predefinito</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Serif</item>
+        <item>Monospace</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Molto piccolo</item>
+        <item>Piccolo</item>
+        <item>Normale</item>
+        <item>Grande</item>
+        <item>Molto grande</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Nessuno</item>
+        <item>Contorno</item>
+        <item>Ombra esterna</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Bianco su nero</item>
+        <item>Bianco o nero</item>
+        <item>Giallo su nero</item>
+        <item>Giallo su blu</item>
+        <item>Personale</item>
+    </string-array>
+    <string-array name="select_runtime_titles">
+        <item>Dalvik</item>
+        <item>Arte</item>
+        <item>ART (debug)</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>Non controllare mai</item>
@@ -434,6 +585,9 @@
         <item>1280x720 tvdpi</item>
         <item>1920x1080 xhdpi</item>
         <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi (secure)</item>
+        <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
     </string-array>
     <string-array name="enable_opengl_traces_entries">
         <item>Nessuno</item>
@@ -451,6 +605,12 @@
         <item>Mostra a schermo come barre</item>
         <item>Mostra a schermo come linee</item>
         <item>Mostra in adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Non attivo</item>
+        <item>Visualizza le aree di overdraw</item>
+        <item>Visualizza le aree per gli utenti con deuteranomalia</item>
+        <item>Visualizza il contatore overdraw</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>Limite standard</item>
@@ -481,6 +641,12 @@
         <item>Non consentire mai</item>
         <item>Consenti sempre</item>
     </string-array>
+    <string-array name="ram_states">
+        <item>Normale</item>
+        <item>Moderato</item>
+        <item>Basso</item>
+        <item>critical</item>
+    </string-array>
     <string-array name="allshare_download_to">
         <item>Dispositivo</item>
         <item>Scheda SD</item>
@@ -503,6 +669,10 @@
         <item>Video</item>
         <item>Fotografie</item>
         <item>Musica</item>
+    </string-array>
+    <string-array name="cpa_authentication_entries">
+        <item>CHAP</item>
+        <item>PAP</item>
     </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatica</item>
@@ -573,12 +743,12 @@
         <item>10 minuti</item>
     </string-array>
     <string-array name="selinux_seculevel_entries">
-        <item>Alta</item>
+        <item>Alto</item>
         <item>Normale</item>
     </string-array>
     <string-array name="selinux_seculevel_summaries">
-        <item>Alto: blocca tutte le azioni non autenticate</item>
-        <item>Normale: blocca le minacce esplicite</item>
+        <item>Elevata: blocca le minacce conosciute e potenziali</item>
+        <item>Normale: blocca le minacce conosciute</item>
     </string-array>
     <string-array name="time_interval_entries">
         <item>3 minuti</item>
@@ -593,6 +763,21 @@
     </string-array>
     <string-array name="shortcut_entries_no_talkback">
         <item>Accessibilità</item>
+    </string-array>
+    <string-array name="earthquake_magnitude_entries">
+        <item>Tutti</item>
+        <item>M4.0+</item>
+        <item>M5.0+</item>
+    </string-array>
+    <string-array name="safetycare_emergency_message_interval_entries">
+        <item>Una volta</item>
+        <item>Ogni 10 minuti</item>
+        <item>Every 20 minutes</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (modifica automatica)</item>
+        <item>Solo MB</item>
+        <item>Solo GB</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 secondi</item>

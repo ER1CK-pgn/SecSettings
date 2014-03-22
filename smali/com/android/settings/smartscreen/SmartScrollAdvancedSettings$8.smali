@@ -30,7 +30,7 @@
     .line 520
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$8;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -70,7 +70,7 @@
     .line 524
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$8;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f090fab
+    const v3, 0x7f0910e9
 
     const/4 v6, 0x0
 

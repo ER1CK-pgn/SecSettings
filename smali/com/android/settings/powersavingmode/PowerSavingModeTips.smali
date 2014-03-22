@@ -29,7 +29,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 40
-    invoke-virtual {p0}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -53,7 +53,7 @@
 
     .prologue
     .line 45
-    const v32, 0x7f040106
+    const v32, 0x7f04012c
 
     const/16 v33, 0x0
 
@@ -69,7 +69,7 @@
 
     .line 78
     .local v31, view:Landroid/view/View;
-    const v32, 0x7f0b02de
+    const v32, 0x7f0b031a
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -79,7 +79,7 @@
 
     .line 79
     .local v27, mScreen:Landroid/widget/TextView;
-    const v32, 0x7f0b02df
+    const v32, 0x7f0b031b
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     .line 80
     .local v28, mScreenTip1:Landroid/widget/TextView;
-    const v32, 0x7f0b02e0
+    const v32, 0x7f0b031c
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -99,7 +99,7 @@
 
     .line 81
     .local v29, mScreenTip2:Landroid/widget/TextView;
-    const v32, 0x7f0b02e1
+    const v32, 0x7f0b031d
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -109,7 +109,7 @@
 
     .line 82
     .local v30, mScreenTip3:Landroid/widget/TextView;
-    const v32, 0x7f0b02e2
+    const v32, 0x7f0b031e
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -119,7 +119,7 @@
 
     .line 83
     .local v11, mBrightness:Landroid/widget/TextView;
-    const v32, 0x7f0b02e3
+    const v32, 0x7f0b031f
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -129,7 +129,7 @@
 
     .line 84
     .local v12, mBrightnessTip1:Landroid/widget/TextView;
-    const v32, 0x7f0b02e4
+    const v32, 0x7f0b0320
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     .line 85
     .local v13, mBrightnessTip2:Landroid/widget/TextView;
-    const v32, 0x7f0b02e5
+    const v32, 0x7f0b0321
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     .line 86
     .local v7, mBluetooth:Landroid/widget/TextView;
-    const v32, 0x7f0b02e6
+    const v32, 0x7f0b0322
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
 
     .line 87
     .local v8, mBluetoothTip1:Landroid/widget/TextView;
-    const v32, 0x7f0b02e7
+    const v32, 0x7f0b0323
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     .line 88
     .local v9, mBluetoothTip2:Landroid/widget/TextView;
-    const v32, 0x7f0b02e8
+    const v32, 0x7f0b0324
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -179,7 +179,7 @@
 
     .line 89
     .local v10, mBluetoothTip3:Landroid/widget/TextView;
-    const v32, 0x7f0b02e9
+    const v32, 0x7f0b0325
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -189,7 +189,7 @@
 
     .line 90
     .local v25, mMobileData:Landroid/widget/TextView;
-    const v32, 0x7f0b02ea
+    const v32, 0x7f0b0326
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -199,7 +199,7 @@
 
     .line 92
     .local v26, mMobileDataTip1:Landroid/widget/TextView;
-    const v32, 0x7f0b02eb
+    const v32, 0x7f0b0327
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -209,7 +209,7 @@
 
     .line 93
     .local v3, mAutoSync:Landroid/widget/TextView;
-    const v32, 0x7f0b02ec
+    const v32, 0x7f0b0328
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -219,7 +219,7 @@
 
     .line 94
     .local v4, mAutoSyncTip1:Landroid/widget/TextView;
-    const v32, 0x7f0b02ed
+    const v32, 0x7f0b0329
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -229,7 +229,7 @@
 
     .line 95
     .local v18, mGPS:Landroid/widget/TextView;
-    const v32, 0x7f0b02ee
+    const v32, 0x7f0b032a
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     .line 96
     .local v19, mGPSTip2:Landroid/widget/TextView;
-    const v32, 0x7f0b02ef
+    const v32, 0x7f0b032b
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -249,7 +249,7 @@
 
     .line 97
     .local v20, mGPSTip3:Landroid/widget/TextView;
-    const v32, 0x7f0b02f0
+    const v32, 0x7f0b032c
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -259,7 +259,7 @@
 
     .line 98
     .local v23, mLiveWallpaper:Landroid/widget/TextView;
-    const v32, 0x7f0b02f1
+    const v32, 0x7f0b032d
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -269,7 +269,7 @@
 
     .line 100
     .local v24, mLiveWallpaperTip1:Landroid/widget/TextView;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v32
 
@@ -284,11 +284,11 @@
 
     move/from16 v0, v32
 
-    invoke-virtual {v13, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v13, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 150
     :cond_0
-    const v32, 0x7f0b02d6
+    const v32, 0x7f0b0312
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -298,7 +298,7 @@
 
     .line 151
     .local v15, mCPUTipsTitle:Landroid/widget/TextView;
-    const v32, 0x7f0b02d7
+    const v32, 0x7f0b0313
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -308,7 +308,7 @@
 
     .line 152
     .local v14, mCPUTips:Landroid/widget/TextView;
-    const v32, 0x7f0b02d8
+    const v32, 0x7f0b0314
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -318,7 +318,7 @@
 
     .line 153
     .local v17, mDisplayTipsTitle:Landroid/widget/TextView;
-    const v32, 0x7f0b02d9
+    const v32, 0x7f0b0315
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -328,7 +328,7 @@
 
     .line 155
     .local v16, mDisplayTips:Landroid/widget/TextView;
-    const v32, 0x7f0b02da
+    const v32, 0x7f0b0316
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -338,7 +338,7 @@
 
     .line 156
     .local v6, mBackgroundTipsTitle:Landroid/widget/TextView;
-    const v32, 0x7f0b02db
+    const v32, 0x7f0b0317
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -348,7 +348,7 @@
 
     .line 157
     .local v5, mBackgroundTips:Landroid/widget/TextView;
-    const v32, 0x7f0b02dc
+    const v32, 0x7f0b0318
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -358,7 +358,7 @@
 
     .line 158
     .local v22, mHapticTipsTitle:Landroid/widget/TextView;
-    const v32, 0x7f0b02dd
+    const v32, 0x7f0b0319
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -372,14 +372,14 @@
 
     move/from16 v0, v32
 
-    invoke-virtual {v15, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v15, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 161
     const/16 v32, 0x8
 
     move/from16 v0, v32
 
-    invoke-virtual {v14, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v14, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 162
     const/16 v32, 0x8
@@ -388,7 +388,7 @@
 
     move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 163
     const/16 v32, 0x8
@@ -397,21 +397,21 @@
 
     move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 165
     const/16 v32, 0x8
 
     move/from16 v0, v32
 
-    invoke-virtual {v6, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v6, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 166
     const/16 v32, 0x8
 
     move/from16 v0, v32
 
-    invoke-virtual {v5, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 167
     const/16 v32, 0x8
@@ -420,7 +420,7 @@
 
     move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 168
     const/16 v32, 0x8
@@ -429,10 +429,10 @@
 
     move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 170
-    const v32, 0x7f0b02df
+    const v32, 0x7f0b031b
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -453,13 +453,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c3d
+    const v33, 0x7f090d4a
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -478,7 +478,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 172
-    const v32, 0x7f0b02e0
+    const v32, 0x7f0b031c
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -499,13 +499,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c3e
+    const v33, 0x7f090d4b
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -524,7 +524,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 174
-    const v32, 0x7f0b02e1
+    const v32, 0x7f0b031d
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -545,13 +545,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c3f
+    const v33, 0x7f090d4c
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -570,7 +570,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 181
-    const v32, 0x7f0b02e3
+    const v32, 0x7f0b031f
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -591,13 +591,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c40
+    const v33, 0x7f090d4d
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -614,7 +614,7 @@
     invoke-virtual {v12, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 183
-    const v32, 0x7f0b02e4
+    const v32, 0x7f0b0320
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -635,13 +635,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c41
+    const v33, 0x7f090d4e
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -658,7 +658,7 @@
     invoke-virtual {v13, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 186
-    const v32, 0x7f0b02e6
+    const v32, 0x7f0b0322
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -679,13 +679,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c42
+    const v33, 0x7f090d4f
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -702,7 +702,7 @@
     invoke-virtual {v8, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 188
-    const v32, 0x7f0b02e7
+    const v32, 0x7f0b0323
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -723,13 +723,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c43
+    const v33, 0x7f090d50
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -746,7 +746,7 @@
     invoke-virtual {v9, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 190
-    const v32, 0x7f0b02e8
+    const v32, 0x7f0b0324
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -767,13 +767,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c44
+    const v33, 0x7f090d51
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -790,7 +790,7 @@
     invoke-virtual {v10, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 193
-    const v32, 0x7f0b02ea
+    const v32, 0x7f0b0326
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -811,13 +811,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c47
+    const v33, 0x7f090d54
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -836,7 +836,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 197
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v32
 
@@ -853,7 +853,7 @@
 
     move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 199
     const/16 v32, 0x8
@@ -862,11 +862,11 @@
 
     move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 202
     :cond_1
-    const v32, 0x7f0b02ec
+    const v32, 0x7f0b0328
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -887,13 +887,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c48
+    const v33, 0x7f090d55
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -910,7 +910,7 @@
     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 205
-    const v32, 0x7f0b02ee
+    const v32, 0x7f0b032a
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -931,13 +931,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c4a
+    const v33, 0x7f090d57
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -956,7 +956,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 207
-    const v32, 0x7f0b02ef
+    const v32, 0x7f0b032b
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -977,13 +977,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c4b
+    const v33, 0x7f090d58
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 
@@ -1002,7 +1002,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 210
-    const v32, 0x7f0b02f1
+    const v32, 0x7f0b032d
 
     invoke-virtual/range {v31 .. v32}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1023,13 +1023,13 @@
 
     move-result-object v32
 
-    const v33, 0x7f090c4c
+    const v33, 0x7f090d59
 
     move-object/from16 v0, p0
 
     move/from16 v1, v33
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/powersavingmode/PowerSavingModeTips;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v33
 

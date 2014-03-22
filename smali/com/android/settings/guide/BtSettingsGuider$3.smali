@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 484
+    .line 486
     iput-object p1, p0, Lcom/android/settings/guide/BtSettingsGuider$3;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 487
+    .line 489
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider$3;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
     #getter for: Lcom/android/settings/guide/BtSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/BtSettingsGuider$OnCloseHelpDialogListener;
@@ -52,7 +52,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 488
+    .line 490
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider$3;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
     #getter for: Lcom/android/settings/guide/BtSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/BtSettingsGuider$OnCloseHelpDialogListener;
@@ -62,12 +62,12 @@
 
     invoke-interface {v0}, Lcom/android/settings/guide/BtSettingsGuider$OnCloseHelpDialogListener;->OnCloseHelpDialog()V
 
-    .line 490
+    .line 492
     :cond_0
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider$3;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
     invoke-virtual {v0}, Lcom/android/settings/guide/BtSettingsGuider;->dismissHelpDialog()V
 
-    .line 491
+    .line 493
     return-void
 .end method

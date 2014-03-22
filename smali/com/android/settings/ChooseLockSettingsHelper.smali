@@ -18,7 +18,7 @@
 
     .prologue
     .line 34
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
     iput-object p1, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mActivity:Landroid/app/Activity;
@@ -55,23 +55,7 @@
     .parameter "request"
 
     .prologue
-    .line 169
-    iget-object v1, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v1}, Lcom/android/internal/widget/LockPatternUtils;->isLockFingerprintEnabled()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    .line 177
-    :goto_0
-    return v1
-
     .line 170
-    :cond_0
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
@@ -87,7 +71,7 @@
     .line 172
     iget-object v1, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mFragment:Landroid/app/Fragment;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     .line 173
     iget-object v1, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mFragment:Landroid/app/Fragment;
@@ -95,18 +79,18 @@
     invoke-virtual {v1, v0, p1}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 177
-    :goto_1
+    :goto_0
     const/4 v1, 0x1
 
-    goto :goto_0
+    return v1
 
     .line 175
-    :cond_1
+    :cond_0
     iget-object v1, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v1, v0, p1}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private confirmPassword(II)Z
@@ -129,6 +113,14 @@
 
     move-result v2
 
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->savedPatternExists()Z
+
+    move-result v2
+
     if-nez v2, :cond_2
 
     .line 158
@@ -141,15 +133,6 @@
     const v2, 0x9000
 
     if-ne p1, v2, :cond_3
-
-    .line 142
-    iget-object v2, p0, Lcom/android/settings/ChooseLockSettingsHelper;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->savedSignatureExists()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
 
     .line 151
     :cond_2
@@ -387,10 +370,10 @@
         0x10000 -> :sswitch_0
         0x20000 -> :sswitch_3
         0x40000 -> :sswitch_3
+        0x41000 -> :sswitch_1
         0x50000 -> :sswitch_3
         0x60000 -> :sswitch_3
         0x70000 -> :sswitch_3
-        0x80000 -> :sswitch_1
         0x90000 -> :sswitch_2
     .end sparse-switch
 .end method

@@ -155,10 +155,10 @@
 
     .prologue
     .line 76
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onReset()V
+    invoke-super {p0}, Landroid/content/Loader;->onReset()V
 
     .line 77
-    invoke-virtual {p0}, Lcom/android/settings/net/SummaryForAllUidLoader;->cancelLoad()Z
+    invoke-virtual {p0}, Landroid/content/Loader;->cancelLoad()Z
 
     .line 78
     return-void
@@ -169,10 +169,10 @@
 
     .prologue
     .line 51
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onStartLoading()V
+    invoke-super {p0}, Landroid/content/Loader;->onStartLoading()V
 
     .line 52
-    invoke-virtual {p0}, Lcom/android/settings/net/SummaryForAllUidLoader;->forceLoad()V
+    invoke-virtual {p0}, Landroid/content/Loader;->forceLoad()V
 
     .line 53
     return-void
@@ -183,10 +183,10 @@
 
     .prologue
     .line 70
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onStopLoading()V
+    invoke-super {p0}, Landroid/content/Loader;->onStopLoading()V
 
     .line 71
-    invoke-virtual {p0}, Lcom/android/settings/net/SummaryForAllUidLoader;->cancelLoad()Z
+    invoke-virtual {p0}, Landroid/content/Loader;->cancelLoad()Z
 
     .line 72
     return-void

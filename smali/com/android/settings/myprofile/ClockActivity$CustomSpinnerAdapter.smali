@@ -78,7 +78,7 @@
 
     const-string v3, "layout_inflater"
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/myprofile/ClockActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -89,7 +89,7 @@
     if-nez p2, :cond_0
 
     .line 245
-    const v2, 0x7f040174
+    const v2, 0x7f0401b3
 
     const/4 v3, 0x0
 
@@ -104,7 +104,7 @@
 
     .line 247
     .local v0, holder:Lcom/android/settings/myprofile/ClockActivity$CustomSpinnerAdapter$ViewHolder;
-    const v2, 0x7f0b021f
+    const v2, 0x7f0b025b
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

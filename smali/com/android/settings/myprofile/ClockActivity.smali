@@ -253,7 +253,7 @@
 
     .prologue
     .line 222
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -409,7 +409,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -424,7 +424,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 412
-    invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 413
     const/4 v1, 0x0
@@ -457,7 +457,7 @@
     if-nez p1, :cond_0
 
     .line 215
-    const v0, 0x7f0b0223
+    const v0, 0x7f0b025f
 
     .line 218
     :goto_0
@@ -470,13 +470,13 @@
     if-ne p1, v0, :cond_1
 
     .line 217
-    const v0, 0x7f0b0222
+    const v0, 0x7f0b025e
 
     goto :goto_0
 
     .line 218
     :cond_1
-    const v0, 0x7f0b0221
+    const v0, 0x7f0b025d
 
     goto :goto_0
 .end method
@@ -488,23 +488,23 @@
     const/4 v7, 0x1
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mResources:Landroid/content/res/Resources;
 
     .line 100
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     .line 103
-    const v3, 0x7f0b021e
+    const v3, 0x7f0b025a
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -517,7 +517,7 @@
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mViewOnClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 105
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mTvEditProfileLabel:Landroid/widget/TextView;
@@ -528,7 +528,7 @@
 
     iget-object v5, p0, Lcom/android/settings/myprofile/ClockActivity;->mResources:Landroid/content/res/Resources;
 
-    const v6, 0x7f090ea7
+    const v6, 0x7f090fe0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -585,12 +585,12 @@
 
     const/16 v4, 0x8
 
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 109
-    const v3, 0x7f0b021d
+    const v3, 0x7f0b0259
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -599,9 +599,9 @@
     iput-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mTvPreviewText:Landroid/widget/TextView;
 
     .line 112
-    const v3, 0x7f0b0223
+    const v3, 0x7f0b025f
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -610,9 +610,9 @@
     iput-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignLeft:Landroid/widget/Button;
 
     .line 113
-    const v3, 0x7f0b0222
+    const v3, 0x7f0b025e
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -621,9 +621,9 @@
     iput-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignCenter:Landroid/widget/Button;
 
     .line 114
-    const v3, 0x7f0b0221
+    const v3, 0x7f0b025d
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -636,42 +636,42 @@
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 121
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignCenter:Landroid/widget/Button;
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 122
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignRight:Landroid/widget/Button;
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 124
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignLeft:Landroid/widget/Button;
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mFocusChangedListener:Landroid/view/View$OnFocusChangeListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 125
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignCenter:Landroid/widget/Button;
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mFocusChangedListener:Landroid/view/View$OnFocusChangeListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 126
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignRight:Landroid/widget/Button;
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mFocusChangedListener:Landroid/view/View$OnFocusChangeListener;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 129
     invoke-direct {p0}, Lcom/android/settings/myprofile/ClockActivity;->getTextAlignSettingsFromDB()I
@@ -682,16 +682,16 @@
 
     move-result v3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
     invoke-direct {p0, v3, v7}, Lcom/android/settings/myprofile/ClockActivity;->updateAlignButtonAndPreviewTextAlignment(Landroid/view/View;I)V
 
     .line 133
-    const v3, 0x7f0b0220
+    const v3, 0x7f0b025c
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -704,7 +704,7 @@
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a0007
+    const v5, 0x7f0a000c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -721,7 +721,7 @@
     .line 136
     new-instance v0, Lcom/android/settings/myprofile/ClockActivity$CustomSpinnerAdapter;
 
-    const v3, 0x7f040174
+    const v3, 0x7f0401b3
 
     iget-object v4, p0, Lcom/android/settings/myprofile/ClockActivity;->mFontSizeRangeArrayList:Ljava/util/ArrayList;
 
@@ -740,7 +740,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/myprofile/ClockActivity$1;-><init>(Lcom/android/settings/myprofile/ClockActivity;)V
 
-    invoke-virtual {v3, v4}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+    invoke-virtual {v3, v4}, Landroid/widget/AdapterView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
     .line 153
     invoke-direct {p0}, Lcom/android/settings/myprofile/ClockActivity;->getTextSizeFromDB()Ljava/lang/String;
@@ -766,12 +766,12 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/myprofile/ClockActivity;->mSpinnerFontSize:Landroid/widget/Spinner;
 
-    invoke-virtual {v3, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v3, v1}, Landroid/widget/AbsSpinner;->setSelection(I)V
 
     .line 164
-    const v3, 0x7f0b0224
+    const v3, 0x7f0b0260
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -829,9 +829,9 @@
     invoke-virtual {v3, v4}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setOnSelectCustomColorListener(Lcom/android/settings/myprofile/SpLitColorPickerView$OnSelectCustomColorListener;)V
 
     .line 197
-    const v3, 0x7f0b0225
+    const v3, 0x7f0b0261
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/ClockActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -1073,7 +1073,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignLeft:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -1083,17 +1083,17 @@
     check-cast p1, Landroid/widget/Button;
 
     .end local p1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203b8
+    const v1, 0x7f020439
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
@@ -1106,7 +1106,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignRight:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -1116,17 +1116,17 @@
     check-cast p1, Landroid/widget/Button;
 
     .end local p1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203bc
+    const v1, 0x7f02043d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
@@ -1139,7 +1139,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignCenter:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -1149,17 +1149,17 @@
     check-cast p1, Landroid/widget/Button;
 
     .end local p1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203b4
+    const v1, 0x7f020435
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
@@ -1172,7 +1172,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignLeft:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -1182,17 +1182,17 @@
     check-cast p1, Landroid/widget/Button;
 
     .end local p1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203b9
+    const v1, 0x7f02043a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 332
     const/4 v0, 0x0
@@ -1210,7 +1210,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignRight:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -1220,17 +1220,17 @@
     check-cast p1, Landroid/widget/Button;
 
     .end local p1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203bd
+    const v1, 0x7f02043e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 336
     const/4 v0, 0x2
@@ -1248,7 +1248,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignCenter:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -1258,17 +1258,17 @@
     check-cast p1, Landroid/widget/Button;
 
     .end local p1
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203b5
+    const v1, 0x7f020436
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 340
     const/4 v0, 0x1
@@ -1296,9 +1296,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 90
-    const v0, 0x7f0400c7
+    const v0, 0x7f0400ea
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/ClockActivity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 93
     invoke-direct {p0}, Lcom/android/settings/myprofile/ClockActivity;->init()V
@@ -1319,7 +1319,7 @@
     .line 445
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
-    invoke-virtual {v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->requestFocus()Z
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     .line 446
     :cond_0
@@ -1329,7 +1329,7 @@
 
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity;->mGradientColorPickerView:Lcom/android/settings/myprofile/GradientColorPickerView;
 
-    invoke-virtual {v0}, Lcom/android/settings/myprofile/GradientColorPickerView;->isFocusable()Z
+    invoke-virtual {v0}, Landroid/view/View;->isFocusable()Z
 
     move-result v0
 
@@ -1340,7 +1340,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/GradientColorPickerView;->setFocusable(Z)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setFocusable(Z)V
 
     .line 448
     :cond_1
@@ -1368,47 +1368,47 @@
     .line 262
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignLeft:Landroid/widget/Button;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0203b6
+    const v2, 0x7f020437
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 263
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignRight:Landroid/widget/Button;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0203ba
+    const v2, 0x7f02043b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 264
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity;->mBtnTextAlignCenter:Landroid/widget/Button;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0203b2
+    const v2, 0x7f020433
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 265
     return-void

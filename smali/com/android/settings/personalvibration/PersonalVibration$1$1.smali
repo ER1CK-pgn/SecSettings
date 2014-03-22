@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 360
+    .line 363
     iput-object p1, p0, Lcom/android/settings/personalvibration/PersonalVibration$1$1;->this$1:Lcom/android/settings/personalvibration/PersonalVibration$1;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 362
+    .line 365
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$1$1;->this$1:Lcom/android/settings/personalvibration/PersonalVibration$1;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration$1;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/PersonalVibration;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 363
+    .line 366
     return-void
 .end method

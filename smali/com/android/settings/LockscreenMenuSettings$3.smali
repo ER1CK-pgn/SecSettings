@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 716
+    .line 789
     iput-object p1, p0, Lcom/android/settings/LockscreenMenuSettings$3;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,10 +42,10 @@
     .parameter "preference"
 
     .prologue
-    .line 722
+    .line 792
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings$3;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 725
+    .line 793
     const/4 v0, 0x0
 
     return v0

@@ -30,7 +30,7 @@
     .line 309
     iput-object p1, p0, Lcom/android/settings/fmm/SimChangeAlert$PreferenceArea$1;->this$0:Lcom/android/settings/fmm/SimChangeAlert$PreferenceArea;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->length()I
+    invoke-virtual {v0}, Landroid/widget/TextView;->length()I
 
     move-result v0
 
@@ -62,11 +62,11 @@
     .line 327
     iget-object v0, p0, Lcom/android/settings/fmm/SimChangeAlert$PreferenceArea$1;->this$0:Lcom/android/settings/fmm/SimChangeAlert$PreferenceArea;
 
-    invoke-virtual {v0}, Lcom/android/settings/fmm/SimChangeAlert$PreferenceArea;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090b64
+    const v1, 0x7f090c62
 
     const/4 v2, 0x0
 

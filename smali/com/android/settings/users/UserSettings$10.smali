@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 607
+    .line 720
     iput-object p1, p0, Lcom/android/settings/users/UserSettings$10;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 609
+    .line 722
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$10;->this$0:Lcom/android/settings/users/UserSettings;
 
     if-nez p2, :cond_0
@@ -52,12 +52,12 @@
 
     :goto_0
     #calls: Lcom/android/settings/users/UserSettings;->onAddUserClicked(I)V
-    invoke-static {v1, v0}, Lcom/android/settings/users/UserSettings;->access$1400(Lcom/android/settings/users/UserSettings;I)V
+    invoke-static {v1, v0}, Lcom/android/settings/users/UserSettings;->access$1800(Lcom/android/settings/users/UserSettings;I)V
 
-    .line 612
+    .line 725
     return-void
 
-    .line 609
+    .line 722
     :cond_0
     const/4 v0, 0x2
 

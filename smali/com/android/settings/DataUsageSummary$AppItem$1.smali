@@ -32,8 +32,8 @@
     .locals 0
 
     .prologue
-    .line 1958
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 2203
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 1961
+    .line 2206
     new-instance v0, Lcom/android/settings/DataUsageSummary$AppItem;
 
     invoke-direct {v0, p1}, Lcom/android/settings/DataUsageSummary$AppItem;-><init>(Landroid/os/Parcel;)V
@@ -58,7 +58,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1958
+    .line 2203
     invoke-virtual {p0, p1}, Lcom/android/settings/DataUsageSummary$AppItem$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/settings/DataUsageSummary$AppItem;
 
     move-result-object v0
@@ -71,7 +71,7 @@
     .parameter "size"
 
     .prologue
-    .line 1966
+    .line 2211
     new-array v0, p1, [Lcom/android/settings/DataUsageSummary$AppItem;
 
     return-object v0
@@ -82,7 +82,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1958
+    .line 2203
     invoke-virtual {p0, p1}, Lcom/android/settings/DataUsageSummary$AppItem$1;->newArray(I)[Lcom/android/settings/DataUsageSummary$AppItem;
 
     move-result-object v0

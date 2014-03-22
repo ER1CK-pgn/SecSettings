@@ -37,6 +37,8 @@
 
 .field private mPaint:Landroid/graphics/Paint;
 
+.field private mPreviousLidShakeValue:F
+
 .field private mTrashBinOnly:Landroid/graphics/Bitmap;
 
 .field private mTrashCan:Landroid/graphics/Bitmap;
@@ -297,7 +299,7 @@
 
     .prologue
     .line 171
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v2
 
@@ -309,7 +311,7 @@
 
     .line 172
     .local v0, dx:I
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v2
 
@@ -414,24 +416,34 @@
     return-object v0
 .end method
 
+.method private getTrashCanLidAngle()F
+    .locals 1
+
+    .prologue
+    .line 247
+    iget v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mLidAngle:F
+
+    return v0
+.end method
+
 .method private init()V
     .locals 13
 
     .prologue
-    const v12, 0x7f0203f6
+    const v12, 0x7f020475
 
     const/4 v11, 0x0
 
     const-wide v9, 0x3ff3333333333333L
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
     .line 82
     .local v5, res:Landroid/content/res/Resources;
-    const v6, 0x7f0f0042
+    const v6, 0x7f0f0060
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -451,7 +463,7 @@
     iput-boolean v6, v0, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
 
     .line 87
-    const v6, 0x7f0203f8
+    const v6, 0x7f020477
 
     invoke-static {v5, v6, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -486,7 +498,7 @@
     iput-object v6, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mTrashCan:Landroid/graphics/Bitmap;
 
     .line 91
-    const v6, 0x7f0203f7
+    const v6, 0x7f020476
 
     invoke-static {v5, v6, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -521,7 +533,7 @@
     iput-object v6, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mTrashCanFill:Landroid/graphics/Bitmap;
 
     .line 95
-    const v6, 0x7f0203f9
+    const v6, 0x7f020478
 
     invoke-static {v5, v6, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -556,7 +568,7 @@
     iput-object v6, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mTrashBinOnly:Landroid/graphics/Bitmap;
 
     .line 99
-    const v6, 0x7f0203fa
+    const v6, 0x7f020479
 
     invoke-static {v5, v6, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -668,6 +680,19 @@
     return-void
 .end method
 
+.method private setTrashCanLidOffset(II)V
+    .locals 0
+    .parameter "x"
+    .parameter "y"
+
+    .prologue
+    .line 239
+    iput p2, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mLidOffsetY:I
+
+    .line 240
+    return-void
+.end method
+
 .method private setTrashCanShakeMode(Z)V
     .locals 0
     .parameter "b"
@@ -677,6 +702,49 @@
     iput-boolean p1, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mIsTrashCanShakeMode:Z
 
     .line 224
+    return-void
+.end method
+
+.method private startAnimator(IJ)V
+    .locals 2
+    .parameter "animatorId"
+    .parameter "startDelay"
+
+    .prologue
+    .line 252
+    iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mCurrentAnimator:Landroid/animation/Animator;
+
+    if-eqz v1, :cond_0
+
+    .line 253
+    iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mCurrentAnimator:Landroid/animation/Animator;
+
+    invoke-virtual {v1}, Landroid/animation/Animator;->cancel()V
+
+    .line 255
+    :cond_0
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, p1}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
+
+    move-result-object v0
+
+    .line 256
+    .local v0, animator:Landroid/animation/Animator;
+    invoke-virtual {v0, p0}, Landroid/animation/Animator;->setTarget(Ljava/lang/Object;)V
+
+    .line 257
+    invoke-virtual {v0, p2, p3}, Landroid/animation/Animator;->setStartDelay(J)V
+
+    .line 258
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    .line 259
+    iput-object v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mCurrentAnimator:Landroid/animation/Animator;
+
+    .line 260
     return-void
 .end method
 
@@ -692,7 +760,7 @@
     const/high16 v8, 0x3f80
 
     .line 120
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->draw(Landroid/graphics/Canvas;)V
+    invoke-super {p0, p1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     .line 122
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getClipBounds()Landroid/graphics/Rect;
@@ -741,7 +809,7 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 133
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v5
 
@@ -845,7 +913,7 @@
     if-eqz v5, :cond_6
 
     .line 162
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v5
 
@@ -863,7 +931,7 @@
 
     sub-int/2addr v5, v6
 
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v6
 
@@ -941,7 +1009,7 @@
     .restart local v0       #height:I
     .restart local v4       #width:I
     :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v5
 
@@ -955,7 +1023,7 @@
 
     sub-int/2addr v5, v6
 
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v6
 
@@ -985,13 +1053,13 @@
     .parameter "y"
 
     .prologue
-    const v2, 0x7f090991
+    const v2, 0x7f090a6f
 
     .line 199
     if-gez p2, :cond_0
 
     .line 201
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -1007,7 +1075,7 @@
 
     .line 203
     .local v7, length:I
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v0
 
@@ -1069,7 +1137,7 @@
 
     .line 208
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -1099,11 +1167,11 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    const v3, 0x7f090991
+    const v3, 0x7f090a6f
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1204,6 +1272,42 @@
     return-void
 .end method
 
+.method public setFadeOutTrashCan(F)V
+    .locals 2
+    .parameter "value"
+
+    .prologue
+    .line 469
+    iget-boolean v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mIsTablet:Z
+
+    if-nez v0, :cond_0
+
+    .line 470
+    const/high16 v0, 0x3f80
+
+    sub-float/2addr v0, p1
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanAlpha(F)V
+
+    .line 471
+    iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mTrashIcon:Landroid/graphics/drawable/Drawable;
+
+    const/high16 v1, 0x437f
+
+    mul-float/2addr v1, p1
+
+    float-to-int v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    .line 474
+    :cond_0
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 475
+    return-void
+.end method
+
 .method public setNormalTrashIcon()V
     .locals 1
 
@@ -1219,7 +1323,7 @@
     iput-boolean v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mIsNormalTrashIcon:Z
 
     .line 487
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 488
     return-void
@@ -1247,6 +1351,246 @@
 
     .line 215
     return-void
+.end method
+
+.method public setTrashCanFill(F)V
+    .locals 1
+    .parameter "value"
+
+    .prologue
+    .line 387
+    const/high16 v0, 0x3f80
+
+    sub-float/2addr v0, p1
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanAlpha(F)V
+
+    .line 388
+    invoke-direct {p0, p1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanFillAlpha(F)V
+
+    .line 389
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 390
+    return-void
+.end method
+
+.method public setTrashCanLidDown(F)V
+    .locals 4
+    .parameter "value"
+
+    .prologue
+    const/high16 v3, 0x3f80
+
+    .line 342
+    const/4 v0, 0x0
+
+    const/high16 v1, 0x4080
+
+    sub-float v2, v3, p1
+
+    mul-float/2addr v1, v2
+
+    float-to-int v1, v1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanLidOffset(II)V
+
+    .line 343
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanLidAngle(F)V
+
+    .line 344
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 345
+    cmpl-float v0, p1, v3
+
+    if-ltz v0, :cond_0
+
+    .line 350
+    :cond_0
+    return-void
+.end method
+
+.method public setTrashCanLidShake(F)V
+    .locals 9
+    .parameter "value"
+
+    .prologue
+    const/high16 v8, 0x4100
+
+    const/high16 v7, -0x3ec0
+
+    const/high16 v6, -0x4080
+
+    const/high16 v5, 0x4140
+
+    .line 360
+    const/high16 v2, 0x4100
+
+    .line 361
+    .local v2, kHalfCycles:F
+    mul-float/2addr p1, v8
+
+    .line 362
+    const/high16 v3, 0x4140
+
+    .line 363
+    .local v3, kShakeMaxAngle:F
+    invoke-direct {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getTrashCanLidAngle()F
+
+    move-result v0
+
+    .line 364
+    .local v0, angle:F
+    iget v4, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mPreviousLidShakeValue:F
+
+    sub-float v1, p1, v4
+
+    .line 365
+    .local v1, dv:F
+    iput p1, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mPreviousLidShakeValue:F
+
+    .line 366
+    iget v4, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mAngleDirection:F
+
+    mul-float/2addr v4, v1
+
+    mul-float/2addr v4, v5
+
+    add-float/2addr v0, v4
+
+    .line 367
+    cmpl-float v4, v0, v5
+
+    if-lez v4, :cond_2
+
+    .line 368
+    sub-float v4, v0, v5
+
+    sub-float v0, v5, v4
+
+    .line 369
+    iget v4, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mAngleDirection:F
+
+    mul-float/2addr v4, v6
+
+    iput v4, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mAngleDirection:F
+
+    .line 375
+    :cond_0
+    :goto_0
+    invoke-direct {p0, v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanLidAngle(F)V
+
+    .line 376
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 377
+    cmpl-float v4, p1, v8
+
+    if-ltz v4, :cond_1
+
+    .line 380
+    :cond_1
+    return-void
+
+    .line 371
+    :cond_2
+    cmpg-float v4, v0, v7
+
+    if-gez v4, :cond_0
+
+    .line 372
+    add-float v4, v0, v5
+
+    sub-float v0, v7, v4
+
+    .line 373
+    iget v4, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mAngleDirection:F
+
+    mul-float/2addr v4, v6
+
+    iput v4, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mAngleDirection:F
+
+    goto :goto_0
+.end method
+
+.method public setTrashCanLidUp(F)V
+    .locals 3
+    .parameter "value"
+
+    .prologue
+    const/high16 v2, 0x3f80
+
+    .line 331
+    const/4 v0, 0x0
+
+    const/high16 v1, 0x4080
+
+    mul-float/2addr v1, p1
+
+    float-to-int v1, v1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanLidOffset(II)V
+
+    .line 332
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 333
+    cmpl-float v0, p1, v2
+
+    if-ltz v0, :cond_0
+
+    .line 334
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mPreviousLidShakeValue:F
+
+    .line 335
+    iput v2, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mAngleDirection:F
+
+    .line 339
+    :cond_0
+    return-void
+.end method
+
+.method public setTrashCanUnfill(F)V
+    .locals 2
+    .parameter "value"
+
+    .prologue
+    const/high16 v1, 0x3f80
+
+    .line 394
+    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanAlpha(F)V
+
+    .line 395
+    sub-float v0, v1, p1
+
+    invoke-direct {p0, v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setTrashCanFillAlpha(F)V
+
+    .line 396
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    .line 397
+    cmpg-float v0, p1, v1
+
+    if-gez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iput-boolean v0, p0, Lcom/android/settings/lockscreenshortcut/DeleteView;->mIsAnimating:Z
+
+    .line 399
+    return-void
+
+    .line 397
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setVisibility(I)V
@@ -1292,7 +1636,7 @@
 
     .line 423
     .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator;>;"
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -1316,7 +1660,7 @@
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 429
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -1341,7 +1685,7 @@
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 435
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -1421,7 +1765,7 @@
 
     .line 272
     .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator;>;"
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -1445,7 +1789,7 @@
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 278
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -1470,7 +1814,7 @@
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 284
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 

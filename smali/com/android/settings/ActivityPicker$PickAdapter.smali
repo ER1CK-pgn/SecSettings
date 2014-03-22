@@ -52,11 +52,11 @@
     .end annotation
 
     .prologue
-    .line 312
+    .line 314
     .local p2, items:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/ActivityPicker$PickAdapter$Item;>;"
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 313
+    .line 315
     const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -67,10 +67,10 @@
 
     iput-object v0, p0, Lcom/android/settings/ActivityPicker$PickAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 314
+    .line 316
     iput-object p2, p0, Lcom/android/settings/ActivityPicker$PickAdapter;->mItems:Ljava/util/List;
 
-    .line 315
+    .line 317
     return-void
 .end method
 
@@ -80,7 +80,7 @@
     .locals 1
 
     .prologue
-    .line 321
+    .line 323
     iget-object v0, p0, Lcom/android/settings/ActivityPicker$PickAdapter;->mItems:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -95,7 +95,7 @@
     .parameter "position"
 
     .prologue
-    .line 328
+    .line 330
     iget-object v0, p0, Lcom/android/settings/ActivityPicker$PickAdapter;->mItems:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -110,7 +110,7 @@
     .parameter "position"
 
     .prologue
-    .line 335
+    .line 337
     int-to-long v0, p1
 
     return-wide v0
@@ -125,13 +125,13 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 342
+    .line 344
     if-nez p2, :cond_0
 
-    .line 343
+    .line 345
     iget-object v2, p0, Lcom/android/settings/ActivityPicker$PickAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040105
+    const v3, 0x7f04012a
 
     const/4 v4, 0x0
 
@@ -139,7 +139,7 @@
 
     move-result-object p2
 
-    .line 346
+    .line 348
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/settings/ActivityPicker$PickAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -150,20 +150,20 @@
     .local v0, item:Lcom/android/settings/ActivityPicker$PickAdapter$Item;
     move-object v1, p2
 
-    .line 347
+    .line 349
     check-cast v1, Landroid/widget/TextView;
 
-    .line 348
+    .line 350
     .local v1, textView:Landroid/widget/TextView;
     iget-object v2, v0, Lcom/android/settings/ActivityPicker$PickAdapter$Item;->label:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 349
+    .line 351
     iget-object v2, v0, Lcom/android/settings/ActivityPicker$PickAdapter$Item;->icon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 351
+    .line 353
     return-object p2
 .end method

@@ -3,7 +3,7 @@
 .source "Settings.java"
 
 # interfaces
-.implements Landroid/view/View$OnKeyListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # annotations
@@ -20,46 +20,39 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/Settings$HeaderAdapter;
 
+.field final synthetic val$searchViewLayout:Landroid/widget/LinearLayout;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/Settings$HeaderAdapter;)V
+.method constructor <init>(Lcom/android/settings/Settings$HeaderAdapter;Landroid/widget/LinearLayout;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 2623
+    .line 3620
     iput-object p1, p0, Lcom/android/settings/Settings$HeaderAdapter$4;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/settings/Settings$HeaderAdapter$4;->val$searchViewLayout:Landroid/widget/LinearLayout;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+.method public onLongClick(Landroid/view/View;)Z
     .locals 1
-    .parameter "view"
-    .parameter "action"
-    .parameter "event"
+    .parameter "arg0"
 
     .prologue
-    .line 2626
-    const/16 v0, 0x42
+    .line 3623
+    iget-object v0, p0, Lcom/android/settings/Settings$HeaderAdapter$4;->val$searchViewLayout:Landroid/widget/LinearLayout;
 
-    if-ne p2, v0, :cond_0
+    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
 
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 2627
-    invoke-static {}, Lcom/android/settings/Settings;->callSearchMenu()V
-
-    .line 2629
-    :cond_0
+    .line 3624
     const/4 v0, 0x0
 
     return v0

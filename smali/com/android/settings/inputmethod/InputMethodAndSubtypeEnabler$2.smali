@@ -33,14 +33,14 @@
     .parameter
 
     .prologue
-    .line 171
+    .line 176
     iput-object p1, p0, Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler$2;->this$0:Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler;
 
     iput-object p2, p0, Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler$2;->val$chkPref:Landroid/preference/CheckBoxPreference;
 
     iput-object p3, p0, Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler$2;->val$id:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -55,12 +55,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 174
+    .line 179
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler$2;->val$chkPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 175
+    .line 180
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler$2;->this$0:Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler;
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler$2;->this$0:Lcom/android/settings/inputmethod/InputMethodAndSubtypeEnabler;
@@ -74,6 +74,6 @@
 
     invoke-static {v0, v1, v2, v3}, Lcom/android/settings/inputmethod/InputMethodAndSubtypeUtil;->setSubtypesPreferenceEnabled(Lcom/android/settings/SettingsPreferenceFragment;Ljava/util/List;Ljava/lang/String;Z)V
 
-    .line 178
+    .line 183
     return-void
 .end method

@@ -35,7 +35,7 @@
 
     iput-object p2, p0, Lcom/android/settings/bluetooth/BluetoothScanDialog$2;->val$alertDialog:Landroid/app/AlertDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -70,7 +70,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/BluetoothScanDialog$2$1;-><init>(Lcom/android/settings/bluetooth/BluetoothScanDialog$2;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 75
     return-void

@@ -30,7 +30,7 @@
     .line 294
     iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionSettings$4;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -67,7 +67,7 @@
     :pswitch_0
     iget-object v4, p0, Lcom/android/settings/motion2013/AirMotionSettings$4;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-virtual {v4}, Lcom/android/settings/motion2013/AirMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v4}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
@@ -77,11 +77,11 @@
 
     iget-object v5, p0, Lcom/android/settings/motion2013/AirMotionSettings$4;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/motion2013/AirMotionSettings;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v5}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/widget/ListView;->getSelectedItemPosition()I
+    invoke-virtual {v5}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
 
     move-result v5
 

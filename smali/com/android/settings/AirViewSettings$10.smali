@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 537
+    .line 538
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$10;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,13 +43,13 @@
     .parameter "which"
 
     .prologue
-    .line 540
+    .line 541
     iget-object v1, p0, Lcom/android/settings/AirViewSettings$10;->this$0:Lcom/android/settings/AirViewSettings;
 
     #calls: Lcom/android/settings/AirViewSettings;->updateAirviewSwitch()V
     invoke-static {v1}, Lcom/android/settings/AirViewSettings;->access$600(Lcom/android/settings/AirViewSettings;)V
 
-    .line 541
+    .line 542
     iget-object v1, p0, Lcom/android/settings/AirViewSettings$10;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mResolver:Landroid/content/ContentResolver;
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    .line 542
+    .line 543
     .local v0, airViewIndex:I
     iget-object v1, p0, Lcom/android/settings/AirViewSettings$10;->this$0:Lcom/android/settings/AirViewSettings;
 
@@ -76,6 +76,6 @@
 
     invoke-virtual {v1, v0}, Landroid/preference/ListPreference;->setValueIndex(I)V
 
-    .line 543
+    .line 544
     return-void
 .end method

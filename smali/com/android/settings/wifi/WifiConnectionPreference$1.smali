@@ -30,7 +30,7 @@
     .line 77
     iput-object p1, p0, Lcom/android/settings/wifi/WifiConnectionPreference$1;->this$0:Lcom/android/settings/wifi/WifiConnectionPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
 
     .prologue
     .line 79
-    const v2, 0x1010004
+    const v2, 0x1010007
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     .line 80
     .local v1, rb:Landroid/widget/RadioButton;
-    invoke-virtual {v1}, Landroid/widget/RadioButton;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
@@ -66,7 +66,7 @@
     if-eq v1, v2, :cond_0
 
     .line 83
-    invoke-virtual {v1}, Landroid/widget/RadioButton;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v2
 
@@ -77,7 +77,7 @@
     .line 86
     :cond_0
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 87
     return-void

@@ -166,7 +166,7 @@
 
     iget-object v4, v0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->mResources:Landroid/content/res/Resources;
 
-    const v7, 0x7f0f001a
+    const v7, 0x7f0f0035
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -452,7 +452,7 @@
 
     iget-object v4, v0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->sCachedAppWidgetPreviewCanvas:Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$CanvasCache;
 
-    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$CanvasCache;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$WeakReferenceThreadLocal;->get()Ljava/lang/Object;
 
     move-result-object v19
 
@@ -464,7 +464,7 @@
 
     iget-object v4, v0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->sCachedAppWidgetPreviewSrcRect:Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$RectCache;
 
-    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$RectCache;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$WeakReferenceThreadLocal;->get()Ljava/lang/Object;
 
     move-result-object v24
 
@@ -476,7 +476,7 @@
 
     iget-object v4, v0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->sCachedAppWidgetPreviewDestRect:Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$RectCache;
 
-    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$RectCache;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$WeakReferenceThreadLocal;->get()Ljava/lang/Object;
 
     move-result-object v20
 
@@ -521,7 +521,7 @@
 
     iget-object v4, v0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->sCachedAppWidgetPreviewPaint:Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$PaintCache;
 
-    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$PaintCache;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$WeakReferenceThreadLocal;->get()Ljava/lang/Object;
 
     move-result-object v21
 
@@ -552,7 +552,7 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v4, v0}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$PaintCache;->set(Ljava/lang/Object;)V
+    invoke-virtual {v4, v0}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader$WeakReferenceThreadLocal;->set(Ljava/lang/Object;)V
 
     .line 399
     :cond_b
@@ -687,7 +687,7 @@
 
     .prologue
     .line 235
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->isCancelled()Z
+    invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
 
     move-result v0
 
@@ -696,7 +696,7 @@
     .line 236
     iget-object v0, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0f0034
+    const v1, 0x7f0f0050
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -706,7 +706,7 @@
     .local v4, appWidgetPreviewWidth:I
     iget-object v0, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0f0035
+    const v1, 0x7f0f0051
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -750,7 +750,7 @@
 
     aput-object v6, v0, v1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->publishProgress([Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Landroid/os/AsyncTask;->publishProgress([Ljava/lang/Object;)V
 
     .line 245
     .end local v4           #appWidgetPreviewWidth:I
@@ -887,7 +887,7 @@
 
     .prologue
     .line 248
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity$Item$WidgetPreviewLoader;->isCancelled()Z
+    invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
 
     move-result v1
 

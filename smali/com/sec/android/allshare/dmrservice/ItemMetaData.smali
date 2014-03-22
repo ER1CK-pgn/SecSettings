@@ -65,7 +65,7 @@
     const/4 v1, 0x0
 
     .line 80
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 19
     iput-object v1, p0, Lcom/sec/android/allshare/dmrservice/ItemMetaData;->title:Ljava/lang/String;
@@ -102,7 +102,7 @@
     const/4 v1, 0x0
 
     .line 219
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 19
     iput-object v1, p0, Lcom/sec/android/allshare/dmrservice/ItemMetaData;->title:Ljava/lang/String;
@@ -257,7 +257,7 @@
     .line 244
     iget-object v0, p0, Lcom/sec/android/allshare/dmrservice/ItemMetaData;->itemType:Lcom/sec/android/allshare/dmrservice/ItemMetaData$ItemType;
 
-    invoke-virtual {v0}, Lcom/sec/android/allshare/dmrservice/ItemMetaData$ItemType;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v0
 

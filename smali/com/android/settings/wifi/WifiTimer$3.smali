@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 232
+    .line 236
     iput-object p1, p0, Lcom/android/settings/wifi/WifiTimer$3;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,13 +42,13 @@
     .parameter "v"
 
     .prologue
-    .line 235
+    .line 239
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$3;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
     #calls: Lcom/android/settings/wifi/WifiTimer;->hideKeypad()V
     invoke-static {v0}, Lcom/android/settings/wifi/WifiTimer;->access$100(Lcom/android/settings/wifi/WifiTimer;)V
 
-    .line 237
+    .line 241
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$3;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
     #calls: Lcom/android/settings/wifi/WifiTimer;->saveChanges()Z
@@ -58,7 +58,7 @@
 
     if-nez v0, :cond_0
 
-    .line 238
+    .line 242
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$3;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
     const/16 v1, 0x12d
@@ -66,15 +66,15 @@
     #calls: Lcom/android/settings/wifi/WifiTimer;->showDialog(I)V
     invoke-static {v0, v1}, Lcom/android/settings/wifi/WifiTimer;->access$400(Lcom/android/settings/wifi/WifiTimer;I)V
 
-    .line 241
+    .line 245
     :goto_0
     return-void
 
-    .line 240
+    .line 244
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$3;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiTimer;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

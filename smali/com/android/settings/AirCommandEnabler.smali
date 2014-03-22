@@ -30,7 +30,7 @@
     const/4 v1, 0x0
 
     .line 65
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     iput-object v1, p0, Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
@@ -104,22 +104,22 @@
     .locals 1
 
     .prologue
-    .line 148
+    .line 153
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 149
+    .line 154
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 150
+    .line 155
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    .line 152
+    .line 157
     :cond_0
     return-void
 .end method
@@ -128,23 +128,23 @@
     .locals 3
 
     .prologue
-    .line 122
+    .line 127
     invoke-direct {p0}, Lcom/android/settings/AirCommandEnabler;->dismissAllDialog()V
 
-    .line 124
+    .line 129
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e64
+    const v1, 0x7f090f9d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -176,31 +176,243 @@
 
     iput-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    .line 144
+    .line 149
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 145
+    .line 150
     return-void
 .end method
 
 .method private turnOnPenInfoPreview()V
+    .locals 8
+
+    .prologue
+    const/4 v5, 0x0
+
+    const/4 v4, 0x1
+
+    .line 161
+    invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    .line 162
+    iget-object v6, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "air_view_master_onoff"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    move v1, v4
+
+    .line 163
+    .local v1, airViewState:Z
+    :goto_0
+    iget-object v6, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "air_view_mode"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 164
+    .local v0, airViewMode:I
+    iget-object v6, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "pen_hovering"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    move v2, v4
+
+    .line 165
+    .local v2, penHover:Z
+    :goto_1
+    iget-object v6, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "pen_hovering_information_preview"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    move v3, v4
+
+    .line 166
+    .local v3, penInforPreview:Z
+    :goto_2
+    if-nez v1, :cond_0
+
+    .line 168
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "air_view_master_onoff"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 170
+    :cond_0
+    sget v5, Lcom/android/settings/Utils;->FINGER_AIR_VIEW_MODE:I
+
+    if-ne v0, v5, :cond_1
+
+    .line 171
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "air_view_mode"
+
+    sget v7, Lcom/android/settings/Utils;->AUTO_AIR_VIEW_MODE:I
+
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 172
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 173
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "finger_air_view"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 175
+    :cond_1
+    if-nez v2, :cond_2
+
+    .line 176
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 178
+    :cond_2
+    if-nez v3, :cond_3
+
+    .line 179
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering_information_preview"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 182
+    .end local v0           #airViewMode:I
+    .end local v1           #airViewState:Z
+    .end local v2           #penHover:Z
+    .end local v3           #penInforPreview:Z
+    :cond_3
+    return-void
+
+    :cond_4
+    move v1, v5
+
+    .line 162
+    goto :goto_0
+
+    .restart local v0       #airViewMode:I
+    .restart local v1       #airViewState:Z
+    :cond_5
+    move v2, v5
+
+    .line 164
+    goto :goto_1
+
+    .restart local v2       #penHover:Z
+    :cond_6
+    move v3, v5
+
+    .line 165
+    goto :goto_2
+.end method
+
+
+# virtual methods
+.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 7
+    .parameter "buttonView"
+    .parameter "desiredState"
 
     .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    .line 156
-    invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
+    .line 101
+    if-eqz p2, :cond_6
+
+    .line 102
+    const/4 v1, 0x0
+
+    .line 103
+    .local v1, airViewState:Z
+    invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
 
     move-result v5
 
     if-eqz v5, :cond_2
 
-    .line 157
+    .line 104
     iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -213,12 +425,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_1
 
     move v1, v3
 
-    .line 158
-    .local v1, airViewState:Z
+    .line 108
     :goto_0
     iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
@@ -232,7 +443,7 @@
 
     move-result v0
 
-    .line 159
+    .line 109
     .local v0, airViewMode:I
     iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
@@ -250,144 +461,7 @@
 
     move v2, v3
 
-    .line 160
-    .local v2, penInforPreview:Z
-    :goto_1
-    if-nez v1, :cond_0
-
-    .line 162
-    iget-object v4, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "air_view_master_onoff"
-
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 164
-    :cond_0
-    sget v4, Lcom/android/settings/Utils;->FINGER_AIR_VIEW_MODE:I
-
-    if-ne v0, v4, :cond_1
-
-    .line 165
-    iget-object v4, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "air_view_mode"
-
-    sget v6, Lcom/android/settings/Utils;->AUTO_AIR_VIEW_MODE:I
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 167
-    :cond_1
-    if-nez v2, :cond_2
-
-    .line 168
-    iget-object v4, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "pen_hovering_information_preview"
-
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 171
-    .end local v0           #airViewMode:I
-    .end local v1           #airViewState:Z
-    .end local v2           #penInforPreview:Z
-    :cond_2
-    return-void
-
-    :cond_3
-    move v1, v4
-
-    .line 157
-    goto :goto_0
-
-    .restart local v0       #airViewMode:I
-    .restart local v1       #airViewState:Z
-    :cond_4
-    move v2, v4
-
-    .line 159
-    goto :goto_1
-.end method
-
-
-# virtual methods
-.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 7
-    .parameter "buttonView"
-    .parameter "desiredState"
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    .line 101
-    if-eqz p2, :cond_4
-
-    .line 102
-    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "air_view_master_onoff"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    move v1, v3
-
-    .line 103
-    .local v1, airViewState:Z
-    :goto_0
-    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "air_view_mode"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 104
-    .local v0, airViewMode:I
-    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "pen_hovering_information_preview"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    move v2, v3
-
-    .line 105
+    .line 110
     .local v2, penInforPreview:Z
     :goto_1
     if-eqz v1, :cond_0
@@ -396,36 +470,62 @@
 
     if-eq v0, v4, :cond_0
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5
 
-    .line 106
+    .line 111
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/AirCommandEnabler;->showAirCommandEnabledPopup()V
 
-    .line 113
+    .line 118
     .end local v0           #airViewMode:I
     .end local v1           #airViewState:Z
     .end local v2           #penInforPreview:Z
     :goto_2
     return-void
 
+    .restart local v1       #airViewState:Z
     :cond_1
     move v1, v4
 
-    .line 102
+    .line 104
     goto :goto_0
 
-    .restart local v0       #airViewMode:I
-    .restart local v1       #airViewState:Z
+    .line 106
     :cond_2
+    iget-object v5, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    move v1, v3
+
+    :goto_3
+    goto :goto_0
+
+    :cond_3
+    move v1, v4
+
+    goto :goto_3
+
+    .restart local v0       #airViewMode:I
+    :cond_4
     move v2, v4
 
-    .line 104
+    .line 109
     goto :goto_1
 
-    .line 108
+    .line 113
     .restart local v2       #penInforPreview:Z
-    :cond_3
+    :cond_5
     iget-object v4, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -438,11 +538,11 @@
 
     goto :goto_2
 
-    .line 111
+    .line 116
     .end local v0           #airViewMode:I
     .end local v1           #airViewState:Z
     .end local v2           #penInforPreview:Z
-    :cond_4
+    :cond_6
     iget-object v3, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -479,7 +579,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 86
     return-void
@@ -495,7 +595,7 @@
     .line 77
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 78
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
@@ -556,7 +656,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 93
     iput-object p1, p0, Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
@@ -567,7 +667,7 @@
     .line 96
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method
@@ -580,7 +680,7 @@
 
     const/4 v2, 0x0
 
-    .line 116
+    .line 121
     iget-object v3, p0, Lcom/android/settings/AirCommandEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -593,7 +693,7 @@
 
     move-result v0
 
-    .line 118
+    .line 123
     .local v0, state:I
     iget-object v3, p0, Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
 
@@ -602,12 +702,12 @@
     :goto_0
     invoke-virtual {v3, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 119
+    .line 124
     return-void
 
     :cond_0
     move v1, v2
 
-    .line 118
+    .line 123
     goto :goto_0
 .end method

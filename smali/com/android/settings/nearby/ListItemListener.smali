@@ -29,7 +29,7 @@
 
     .prologue
     .line 19
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 15
     const/4 v0, 0x0
@@ -113,7 +113,7 @@
     .local v0, key:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/settings/nearby/ListItemListener;->mCheckedItem:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v1, v0}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -122,13 +122,13 @@
     .line 28
     iget-object v1, p0, Lcom/android/settings/nearby/ListItemListener;->mCheckedItem:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v1, v0}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 33
     :goto_0
     iget-object v1, p0, Lcom/android/settings/nearby/ListItemListener;->mCheckedItem:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v1
 
@@ -139,7 +139,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 41
     :goto_1
@@ -149,7 +149,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/nearby/ListItemListener;->mCheckedItem:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v1, v0, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -159,7 +159,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_1
 .end method

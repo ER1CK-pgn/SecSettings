@@ -33,14 +33,14 @@
     .parameter
 
     .prologue
-    .line 354
+    .line 355
     iput-object p1, p0, Lcom/android/settings/personalvibration/SelectPatternDialog$1;->this$0:Lcom/android/settings/personalvibration/SelectPatternDialog;
 
     iput-object p2, p0, Lcom/android/settings/personalvibration/SelectPatternDialog$1;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iput-object p3, p0, Lcom/android/settings/personalvibration/SelectPatternDialog$1;->val$EditPattern:Landroid/widget/TextView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -53,12 +53,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 356
+    .line 357
     iget-object v0, p0, Lcom/android/settings/personalvibration/SelectPatternDialog$1;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/SelectPatternDialog$1;->val$EditPattern:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -66,6 +66,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 358
+    .line 359
     return-void
 .end method

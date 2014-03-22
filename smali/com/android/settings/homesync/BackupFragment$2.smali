@@ -30,7 +30,7 @@
     .line 267
     iput-object p1, p0, Lcom/android/settings/homesync/BackupFragment$2;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -62,7 +62,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 
@@ -92,7 +92,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 
@@ -122,7 +122,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 
@@ -151,7 +151,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homesync/BackupFragment$2;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-virtual {v2}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -189,7 +189,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 293
     :goto_0
@@ -203,7 +203,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method

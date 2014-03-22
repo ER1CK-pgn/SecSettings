@@ -56,7 +56,7 @@
     .line 46
     .local p0, this:Lcom/android/settings/AppWidgetLoader;,"Lcom/android/settings/AppWidgetLoader<TItem;>;"
     .local p3, itemConstructor:Lcom/android/settings/AppWidgetLoader$ItemConstructor;,"Lcom/android/settings/AppWidgetLoader$ItemConstructor<TItem;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
     iput-object p1, p0, Lcom/android/settings/AppWidgetLoader;->mContext:Landroid/content/Context;

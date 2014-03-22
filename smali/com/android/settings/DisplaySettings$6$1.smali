@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 318
+    .line 356
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$6$1;->this$1:Lcom/android/settings/DisplaySettings$6;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 320
+    .line 358
     iget-object v0, p0, Lcom/android/settings/DisplaySettings$6$1;->this$1:Lcom/android/settings/DisplaySettings$6;
 
     iget-object v0, v0, Lcom/android/settings/DisplaySettings$6;->this$0:Lcom/android/settings/DisplaySettings;
@@ -53,8 +53,8 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 321
+    .line 359
     return-void
 .end method

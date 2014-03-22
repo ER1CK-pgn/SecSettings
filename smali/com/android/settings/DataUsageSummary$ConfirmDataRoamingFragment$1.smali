@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 2669
+    .line 2939
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$ConfirmDataRoamingFragment$1;->this$0:Lcom/android/settings/DataUsageSummary$ConfirmDataRoamingFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,26 +43,26 @@
     .parameter "which"
 
     .prologue
-    .line 2672
+    .line 2942
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$ConfirmDataRoamingFragment$1;->this$0:Lcom/android/settings/DataUsageSummary$ConfirmDataRoamingFragment;
 
-    invoke-virtual {v1}, Lcom/android/settings/DataUsageSummary$ConfirmDataRoamingFragment;->getTargetFragment()Landroid/app/Fragment;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/DataUsageSummary;
 
-    .line 2673
+    .line 2943
     .local v0, target:Lcom/android/settings/DataUsageSummary;
     if-eqz v0, :cond_0
 
-    .line 2674
+    .line 2944
     const/4 v1, 0x1
 
     #calls: Lcom/android/settings/DataUsageSummary;->setDataRoaming(Z)V
-    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$3600(Lcom/android/settings/DataUsageSummary;Z)V
+    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$3900(Lcom/android/settings/DataUsageSummary;Z)V
 
-    .line 2676
+    .line 2946
     :cond_0
     return-void
 .end method

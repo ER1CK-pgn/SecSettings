@@ -139,7 +139,7 @@
     .line 74
     iget-object v1, p0, Lcom/android/settings/SelectPenDetachNotiAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040185
+    const v2, 0x7f0401c5
 
     const/4 v3, 0x0
 
@@ -159,13 +159,6 @@
     .line 80
     .local v0, v:Landroid/widget/TextView;
     :goto_0
-    iget-object v1, p0, Lcom/android/settings/SelectPenDetachNotiAdapter;->context:Landroid/content/Context;
-
-    const v2, 0x1030042
-
-    invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    .line 81
     iget-object v1, p0, Lcom/android/settings/SelectPenDetachNotiAdapter;->mPenNotificationList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -176,7 +169,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 83
+    .line 82
     return-object v0
 
     .end local v0           #v:Landroid/widget/TextView;

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1963
+    .line 2102
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$13;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,57 +38,57 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 4
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 1965
-    iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$13;->this$0:Lcom/android/settings/wifi/WifiSettings;
+    const/4 v3, 0x1
 
-    #getter for: Lcom/android/settings/wifi/WifiSettings;->mErrorApInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v1}, Lcom/android/settings/wifi/WifiSettings;->access$700(Lcom/android/settings/wifi/WifiSettings;)Landroid/net/wifi/WifiInfo;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
-
-    move-result v0
-
-    .line 1966
-    .local v0, networkId:I
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    .line 1967
-    const-string v1, "WifiSettings"
-
-    const-string v2, "Invalid network id "
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1970
-    :goto_0
-    return-void
-
-    .line 1969
-    :cond_0
-    iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$13;->this$0:Lcom/android/settings/wifi/WifiSettings;
-
-    #getter for: Lcom/android/settings/wifi/WifiSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
-    invoke-static {v1}, Lcom/android/settings/wifi/WifiSettings;->access$300(Lcom/android/settings/wifi/WifiSettings;)Landroid/net/wifi/WifiManager;
-
-    move-result-object v1
-
+    .line 2104
     iget-object v2, p0, Lcom/android/settings/wifi/WifiSettings$13;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/settings/wifi/WifiSettings;->mForgetListener:Landroid/net/wifi/WifiManager$ActionListener;
-    invoke-static {v2}, Lcom/android/settings/wifi/WifiSettings;->access$800(Lcom/android/settings/wifi/WifiSettings;)Landroid/net/wifi/WifiManager$ActionListener;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v1, v0, v2}, Landroid/net/wifi/WifiManager;->forget(ILandroid/net/wifi/WifiManager$ActionListener;)V
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
-    goto :goto_0
+    move-result-object v1
+
+    .line 2105
+    .local v1, resolver:Landroid/content/ContentResolver;
+    const-string v2, "wifi_watchdog_on"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_0
+
+    .line 2106
+    new-instance v0, Landroid/os/Message;
+
+    invoke-direct {v0}, Landroid/os/Message;-><init>()V
+
+    .line 2107
+    .local v0, msg:Landroid/os/Message;
+    const/16 v2, 0x19
+
+    iput v2, v0, Landroid/os/Message;->what:I
+
+    .line 2108
+    iget-object v2, p0, Lcom/android/settings/wifi/WifiSettings$13;->this$0:Lcom/android/settings/wifi/WifiSettings;
+
+    #getter for: Lcom/android/settings/wifi/WifiSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
+    invoke-static {v2}, Lcom/android/settings/wifi/WifiSettings;->access$300(Lcom/android/settings/wifi/WifiSettings;)Landroid/net/wifi/WifiManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
+
+    .line 2110
+    .end local v0           #msg:Landroid/os/Message;
+    :cond_0
+    return-void
 .end method

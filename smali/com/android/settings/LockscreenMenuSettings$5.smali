@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1626
+    .line 1824
     iput-object p1, p0, Lcom/android/settings/LockscreenMenuSettings$5;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "arg1"
 
     .prologue
-    .line 1629
+    .line 1827
     return-void
 .end method

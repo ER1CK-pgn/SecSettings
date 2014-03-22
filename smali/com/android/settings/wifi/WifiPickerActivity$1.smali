@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 101
+    .line 106
     iput-object p1, p0, Lcom/android/settings/wifi/WifiPickerActivity$1;->this$0:Lcom/android/settings/wifi/WifiPickerActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,18 +42,18 @@
     .parameter "v"
 
     .prologue
-    .line 103
+    .line 108
     iget-object v0, p0, Lcom/android/settings/wifi/WifiPickerActivity$1;->this$0:Lcom/android/settings/wifi/WifiPickerActivity;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WifiPickerActivity;->setResult(I)V
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->setResult(I)V
 
-    .line 104
+    .line 109
     iget-object v0, p0, Lcom/android/settings/wifi/WifiPickerActivity$1;->this$0:Lcom/android/settings/wifi/WifiPickerActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiPickerActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 105
+    .line 110
     return-void
 .end method

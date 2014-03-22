@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 108
+    .line 120
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$1;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 111
+    .line 123
     iget-object v1, p0, Lcom/android/settings/NotificationPanelMenu$1;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mBrightness:Landroid/preference/CheckBoxPreference;
@@ -52,7 +52,7 @@
 
     iget-object v2, p0, Lcom/android/settings/NotificationPanelMenu$1;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-virtual {v2}, Lcom/android/settings/NotificationPanelMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -65,12 +65,12 @@
     if-ne v2, v0, :cond_0
 
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 112
+    .line 124
     return-void
 
-    .line 111
+    .line 123
     :cond_0
     const/4 v0, 0x0
 

@@ -30,7 +30,7 @@
     .line 141
     iput-object p1, p0, Lcom/android/settings/UsbSettings$4;->this$0:Lcom/android/settings/UsbSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/UsbSettings;->showDialog(I)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     .line 156
     :goto_0
@@ -69,7 +69,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/UsbSettings$4;->this$0:Lcom/android/settings/UsbSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/UsbSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -86,7 +86,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/UsbSettings;->showDialog(I)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto :goto_0
 
@@ -96,7 +96,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/UsbSettings;->showDialog(I)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     .line 153
     iget-object v0, p0, Lcom/android/settings/UsbSettings$4;->this$0:Lcom/android/settings/UsbSettings;

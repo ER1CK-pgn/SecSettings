@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 175
+    .line 176
     iput-object p1, p0, Lcom/android/settings/wfd/WfdHelpActivity$4;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,11 +43,11 @@
     .parameter "arg1"
 
     .prologue
-    .line 179
+    .line 180
     iget-object v0, p0, Lcom/android/settings/wfd/WfdHelpActivity$4;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/wfd/WfdHelpActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 180
+    .line 181
     return-void
 .end method

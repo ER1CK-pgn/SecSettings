@@ -49,7 +49,7 @@
 
     .line 90
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -71,7 +71,7 @@
 
     .line 93
     .local v0, ex:Landroid/provider/Settings$SettingNotFoundException;
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -107,7 +107,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 86
     :goto_0
@@ -124,7 +124,7 @@
     .line 77
     iget-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->mTapAndHoldDelayList:Landroid/widget/ListView;
 
-    invoke-virtual {v0, v2, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0, v2, v2}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     goto :goto_0
 
@@ -141,7 +141,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     goto :goto_0
 
@@ -151,7 +151,7 @@
 
     const/4 v1, 0x3
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     goto :goto_0
 .end method
@@ -166,7 +166,7 @@
 
     .prologue
     .line 33
-    const v3, 0x7f040179
+    const v3, 0x7f0401b9
 
     const/4 v4, 0x0
 
@@ -179,7 +179,7 @@
     .line 35
     iget-object v3, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->view:Landroid/view/View;
 
-    const v4, 0x7f0b0402
+    const v4, 0x7f0b046b
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -190,11 +190,11 @@
     iput-object v3, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->mTapAndHoldDelayList:Landroid/widget/ListView;
 
     .line 38
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0a0062
+    const v4, 0x7f0a006c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -233,7 +233,7 @@
     :cond_0
     new-instance v0, Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -254,12 +254,12 @@
 
     const/4 v4, 0x1
 
-    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setChoiceMode(I)V
+    invoke-virtual {v3, v4}, Landroid/widget/AbsListView;->setChoiceMode(I)V
 
     .line 51
     iget-object v3, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->mTapAndHoldDelayList:Landroid/widget/ListView;
 
-    invoke-virtual {v3, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 53
     invoke-direct {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->setCurrentSelectedVAlue()V
@@ -293,7 +293,7 @@
     if-nez p3, :cond_1
 
     .line 105
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -315,7 +315,7 @@
     if-ne p3, v0, :cond_2
 
     .line 110
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -334,7 +334,7 @@
     if-ne p3, v0, :cond_3
 
     .line 115
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -353,7 +353,7 @@
     if-ne p3, v0, :cond_0
 
     .line 119
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -367,11 +367,11 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f091594
+    const v5, 0x7f0916f8
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -394,7 +394,7 @@
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
     .line 61
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -405,7 +405,7 @@
     if-nez v0, :cond_0
 
     .line 62
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -413,11 +413,11 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f091594
+    const v2, 0x7f0916f8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

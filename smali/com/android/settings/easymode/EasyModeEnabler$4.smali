@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 91
+    .line 147
     iput-object p1, p0, Lcom/android/settings/easymode/EasyModeEnabler$4;->this$0:Lcom/android/settings/easymode/EasyModeEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 94
+    .line 150
     iget-object v0, p0, Lcom/android/settings/easymode/EasyModeEnabler$4;->this$0:Lcom/android/settings/easymode/EasyModeEnabler;
 
     #getter for: Lcom/android/settings/easymode/EasyModeEnabler;->mSwitch:Landroid/widget/Switch;
@@ -54,6 +54,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 95
+    .line 151
+    iget-object v0, p0, Lcom/android/settings/easymode/EasyModeEnabler$4;->this$0:Lcom/android/settings/easymode/EasyModeEnabler;
+
+    const/4 v1, 0x0
+
+    #setter for: Lcom/android/settings/easymode/EasyModeEnabler;->mEnableEasyModeDialog:Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Lcom/android/settings/easymode/EasyModeEnabler;->access$102(Lcom/android/settings/easymode/EasyModeEnabler;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    .line 152
     return-void
 .end method

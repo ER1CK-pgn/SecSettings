@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 362
+    .line 389
     iput-object p1, p0, Lcom/android/settings/TrustedCredentialsSettings$2;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,9 +43,9 @@
     .parameter "id"
 
     .prologue
-    .line 364
+    .line 391
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 365
+    .line 392
     return-void
 .end method

@@ -35,7 +35,7 @@
 
     .prologue
     .line 408
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 404
     new-instance v0, Landroid/graphics/Rect;
@@ -136,10 +136,10 @@
     .local v13, painter:Landroid/graphics/drawable/PaintDrawable;
     move/from16 v0, v17
 
-    invoke-virtual {v13, v0}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicWidth(I)V
+    invoke-virtual {v13, v0}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicWidth(I)V
 
     .line 439
-    invoke-virtual {v13, v9}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicHeight(I)V
+    invoke-virtual {v13, v9}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicHeight(I)V
 
     .line 448
     .end local v13           #painter:Landroid/graphics/drawable/PaintDrawable;

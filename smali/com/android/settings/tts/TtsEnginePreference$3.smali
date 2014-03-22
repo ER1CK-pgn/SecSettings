@@ -35,7 +35,7 @@
 
     iput-object p2, p0, Lcom/android/settings/tts/TtsEnginePreference$3;->val$rb:Landroid/widget/RadioButton;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -70,7 +70,7 @@
 
     iget-object v4, p0, Lcom/android/settings/tts/TtsEnginePreference$3;->val$rb:Landroid/widget/RadioButton;
 
-    invoke-virtual {v4}, Landroid/widget/RadioButton;->isChecked()Z
+    invoke-virtual {v4}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v4
 

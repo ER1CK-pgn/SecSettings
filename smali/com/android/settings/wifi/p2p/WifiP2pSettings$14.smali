@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1158
+    .line 1231
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$14;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,9 +43,9 @@
     .parameter "id"
 
     .prologue
-    .line 1160
+    .line 1233
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 1161
+    .line 1234
     return-void
 .end method

@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 485
+    .line 491
     iput-object p1, p0, Lcom/android/settings/OneHandSettings$11;->this$0:Lcom/android/settings/OneHandSettings;
 
     iput-object p2, p0, Lcom/android/settings/OneHandSettings$11;->val$edit:Landroid/content/SharedPreferences$Editor;
@@ -53,7 +53,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 487
+    .line 493
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$11;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     const-string v1, "deselect_hand_adaptive_noti"
@@ -66,11 +66,11 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 488
+    .line 494
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$11;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 489
+    .line 495
     return-void
 .end method

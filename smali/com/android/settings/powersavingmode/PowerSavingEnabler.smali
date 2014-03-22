@@ -10,6 +10,8 @@
 # instance fields
 .field private mAllDisabledDialog:Landroid/app/AlertDialog;
 
+.field private mChangedAutoEnable:Z
+
 .field private mCheck:I
 
 .field private final mContext:Landroid/content/Context;
@@ -36,8 +38,8 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 115
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 119
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     iput-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
@@ -50,23 +52,23 @@
 
     iput-boolean v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mIsInMainMenu:Z
 
-    .line 57
+    .line 61
     iput-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 59
+    .line 63
     new-instance v0, Lcom/android/settings/powersavingmode/PowerSavingEnabler$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler$1;-><init>(Lcom/android/settings/powersavingmode/PowerSavingEnabler;)V
 
     iput-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 116
+    .line 120
     iput-object p1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
-    .line 117
+    .line 121
     iput-object p2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    .line 118
+    .line 122
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "android.settings.POWERSAVING_CHANGED"
@@ -75,7 +77,7 @@
 
     iput-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 120
+    .line 124
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     const-string v1, "com.android.browser"
@@ -86,15 +88,15 @@
 
     iput-boolean v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSupportBrowser:Z
 
-    .line 122
+    .line 126
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 124
+    .line 128
     invoke-virtual {p0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->refresh_SwitchPreference()V
 
-    .line 125
+    .line 129
     return-void
 .end method
 
@@ -106,8 +108,8 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 103
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 107
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     iput-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
@@ -120,23 +122,23 @@
 
     iput-boolean v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mIsInMainMenu:Z
 
-    .line 57
+    .line 61
     iput-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 59
+    .line 63
     new-instance v0, Lcom/android/settings/powersavingmode/PowerSavingEnabler$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler$1;-><init>(Lcom/android/settings/powersavingmode/PowerSavingEnabler;)V
 
     iput-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 104
+    .line 108
     iput-object p1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
-    .line 105
+    .line 109
     iput-object p2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    .line 106
+    .line 110
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "android.settings.POWERSAVING_CHANGED"
@@ -145,7 +147,7 @@
 
     iput-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 108
+    .line 112
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     const-string v1, "com.android.browser"
@@ -156,7 +158,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSupportBrowser:Z
 
-    .line 109
+    .line 113
     return-void
 .end method
 
@@ -167,13 +169,13 @@
     .parameter "in_main_menu"
 
     .prologue
-    .line 111
+    .line 115
     invoke-direct {p0, p1, p2}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    .line 112
+    .line 116
     iput-boolean p3, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mIsInMainMenu:Z
 
-    .line 113
+    .line 117
     return-void
 .end method
 
@@ -214,22 +216,22 @@
     .locals 3
 
     .prologue
-    .line 245
+    .line 266
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 246
+    .line 267
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 247
+    .line 268
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 250
+    .line 271
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -237,13 +239,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f09116d
+    const v1, 0x7f0912b7
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090c2f
+    const v1, 0x7f090d3c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -271,17 +273,30 @@
 
     iput-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 263
+    .line 284
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 264
+    .line 285
     return-void
 .end method
 
 
 # virtual methods
+.method public changeAutoEnable()V
+    .locals 1
+
+    .prologue
+    .line 217
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mChangedAutoEnable:Z
+
+    .line 218
+    return-void
+.end method
+
 .method public isAllOptionDisabled()Z
     .locals 11
 
@@ -290,7 +305,7 @@
 
     const/4 v8, 0x0
 
-    .line 268
+    .line 289
     iget-object v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -303,7 +318,7 @@
 
     move-result v4
 
-    .line 269
+    .line 290
     .local v4, powersavingState:I
     iget-object v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
@@ -317,7 +332,7 @@
 
     move-result v1
 
-    .line 270
+    .line 291
     .local v1, cpu:I
     iget-object v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
@@ -331,7 +346,7 @@
 
     move-result v2
 
-    .line 271
+    .line 292
     .local v2, display:I
     iget-object v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
@@ -345,7 +360,7 @@
 
     move-result v0
 
-    .line 272
+    .line 293
     .local v0, back:I
     iget-object v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
@@ -359,7 +374,7 @@
 
     move-result v3
 
-    .line 275
+    .line 296
     .local v3, haptic:I
     const-string v6, "PowerSavingEnabler"
 
@@ -423,14 +438,14 @@
 
     invoke-static {v6, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 278
+    .line 299
     if-nez v1, :cond_2
 
     if-nez v2, :cond_2
 
     move v5, v7
 
-    .line 280
+    .line 301
     .local v5, retVal:Z
     :goto_0
     iget-object v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
@@ -449,28 +464,28 @@
 
     if-eqz v6, :cond_0
 
-    .line 281
+    .line 302
     if-eqz v5, :cond_3
 
     if-nez v3, :cond_3
 
     move v5, v7
 
-    .line 283
+    .line 304
     :cond_0
     :goto_1
     iget-boolean v6, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSupportBrowser:Z
 
     if-eqz v6, :cond_1
 
-    .line 284
+    .line 305
     if-eqz v5, :cond_4
 
     if-nez v0, :cond_4
 
     move v5, v7
 
-    .line 287
+    .line 308
     :cond_1
     :goto_2
     return v5
@@ -479,20 +494,20 @@
     :cond_2
     move v5, v8
 
-    .line 278
+    .line 299
     goto :goto_0
 
     .restart local v5       #retVal:Z
     :cond_3
     move v5, v8
 
-    .line 281
+    .line 302
     goto :goto_1
 
     :cond_4
     move v5, v8
 
-    .line 284
+    .line 305
     goto :goto_2
 .end method
 
@@ -506,7 +521,7 @@
 
     const/4 v3, 0x0
 
-    .line 291
+    .line 312
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -519,13 +534,13 @@
 
     move-result v0
 
-    .line 299
+    .line 320
     .local v0, powersavingState:I
     if-eqz p2, :cond_2
 
     if-nez v0, :cond_2
 
-    .line 300
+    .line 321
     invoke-virtual {p0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->isAllOptionDisabled()Z
 
     move-result v1
@@ -536,21 +551,21 @@
 
     if-eqz v1, :cond_1
 
-    .line 301
+    .line 322
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->showAllOptionDisabledDialog()V
 
-    .line 316
+    .line 337
     :cond_0
     :goto_0
     return-void
 
-    .line 303
+    .line 324
     :cond_1
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 304
+    .line 325
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -561,7 +576,7 @@
 
     invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 307
+    .line 328
     const-string v1, "PowerSavingEnabler"
 
     const-string v2, "switch is on"
@@ -570,18 +585,18 @@
 
     goto :goto_0
 
-    .line 309
+    .line 330
     :cond_2
     if-nez p2, :cond_0
 
     if-ne v0, v4, :cond_0
 
-    .line 310
+    .line 331
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 311
+    .line 332
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -592,7 +607,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 314
+    .line 335
     const-string v1, "PowerSavingEnabler"
 
     const-string v2, "switch is off"
@@ -612,7 +627,7 @@
 
     const/4 v4, 0x1
 
-    .line 320
+    .line 341
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -625,7 +640,7 @@
 
     move-result v1
 
-    .line 322
+    .line 343
     .local v1, powersavingState:I
     check-cast p2, Ljava/lang/Boolean;
 
@@ -634,18 +649,18 @@
 
     move-result v0
 
-    .line 330
+    .line 351
     .local v0, isChecked:Z
     if-eqz v0, :cond_1
 
     if-nez v1, :cond_1
 
-    .line 331
+    .line 352
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 332
+    .line 353
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -656,30 +671,30 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 335
+    .line 356
     const-string v2, "PowerSavingEnabler"
 
     const-string v3, "switch is on"
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 344
+    .line 365
     :cond_0
     :goto_0
     return v4
 
-    .line 336
+    .line 357
     :cond_1
     if-nez v0, :cond_0
 
     if-ne v1, v4, :cond_0
 
-    .line 337
+    .line 358
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v2, v5}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 338
+    .line 359
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -690,7 +705,7 @@
 
     invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 341
+    .line 362
     const-string v2, "PowerSavingEnabler"
 
     const-string v3, "switch is off"
@@ -706,14 +721,14 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 185
+    .line 193
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.settings.POWERSAVING_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 186
+    .line 194
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "PowerSavingEnabler"
 
@@ -739,7 +754,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 187
+    .line 195
     const-string v1, "PowerSavingEnabler"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -774,7 +789,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
+    .line 196
     iget v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mCheck:I
 
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
@@ -789,46 +804,59 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2
 
-    .line 189
+    .line 197
     const-string v1, "changed"
 
     const-string v2, "true"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 192
+    .line 202
     :goto_0
+    iget-boolean v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mChangedAutoEnable:Z
+
+    if-eqz v1, :cond_0
+
+    .line 203
+    const-string v1, "changed"
+
+    const-string v2, "true"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 207
+    :cond_0
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 193
+    .line 208
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 194
+    .line 209
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 197
-    :cond_0
+    .line 212
+    :cond_1
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 198
+    .line 213
     return-void
 
-    .line 191
-    :cond_1
+    .line 199
+    :cond_2
     const-string v1, "changed"
 
     const-string v2, "false"
@@ -846,7 +874,7 @@
 
     const/4 v3, 0x1
 
-    .line 201
+    .line 222
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -859,21 +887,21 @@
 
     move-result v0
 
-    .line 203
+    .line 224
     .local v0, powersavingState:I
     if-ne v0, v3, :cond_1
 
-    .line 204
+    .line 225
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 205
+    .line 226
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 215
+    .line 236
     :cond_0
     :goto_0
     const-string v1, "PowerSavingEnabler"
@@ -898,16 +926,16 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
+    .line 237
     return-void
 
-    .line 207
+    .line 228
     :cond_1
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 209
+    .line 230
     invoke-virtual {p0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->isAllOptionDisabled()Z
 
     move-result v1
@@ -922,11 +950,11 @@
 
     if-eqz v1, :cond_0
 
-    .line 212
+    .line 233
     :cond_2
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -939,7 +967,10 @@
 
     const/4 v3, 0x1
 
-    .line 128
+    .line 133
+    iput-boolean v4, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mChangedAutoEnable:Z
+
+    .line 136
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -952,7 +983,7 @@
 
     move-result v0
 
-    .line 129
+    .line 137
     .local v0, powersavingState:I
     const-string v1, "PowerSavingEnabler"
 
@@ -960,7 +991,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 130
+    .line 138
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-nez v1, :cond_0
@@ -971,7 +1002,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 131
+    .line 139
     :cond_0
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
@@ -983,45 +1014,45 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 132
+    .line 140
     :cond_1
     iput v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mCheck:I
 
-    .line 133
+    .line 141
     if-ne v0, v3, :cond_6
 
-    .line 134
+    .line 142
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-eqz v1, :cond_2
 
-    .line 135
+    .line 143
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 136
+    .line 144
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 138
+    .line 146
     :cond_2
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
     if-eqz v1, :cond_3
 
-    .line 139
+    .line 147
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 140
+    .line 148
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 142
+    .line 150
     :cond_3
     const-string v1, "PowerSavingEnabler"
 
@@ -1029,19 +1060,19 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
+    .line 184
     :cond_4
     :goto_0
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-eqz v1, :cond_5
 
-    .line 177
+    .line 185
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 180
+    .line 188
     :cond_5
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
@@ -1051,7 +1082,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 181
+    .line 189
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -1064,30 +1095,30 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 182
+    .line 190
     return-void
 
-    .line 144
+    .line 152
     :cond_6
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-eqz v1, :cond_7
 
-    .line 145
+    .line 153
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 147
+    .line 155
     :cond_7
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
     if-eqz v1, :cond_4
 
-    .line 148
+    .line 156
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 .end method
@@ -1101,32 +1132,32 @@
 
     const/4 v3, 0x1
 
-    .line 219
+    .line 240
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-ne v1, p1, :cond_0
 
-    .line 242
+    .line 263
     :goto_0
     return-void
 
-    .line 222
+    .line 243
     :cond_0
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 223
+    .line 244
     iput-object p1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    .line 224
+    .line 245
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 226
+    .line 247
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1139,21 +1170,21 @@
 
     move-result v0
 
-    .line 228
+    .line 249
     .local v0, powersavingState:I
     if-ne v0, v3, :cond_1
 
-    .line 229
+    .line 250
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 230
+    .line 251
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 241
+    .line 262
     :goto_1
     const-string v1, "PowerSavingEnabler"
 
@@ -1179,24 +1210,11 @@
 
     goto :goto_0
 
-    .line 232
+    .line 253
     :cond_1
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
     goto :goto_1
-.end method
-
-.method public setSwitchOnOff()V
-    .locals 1
-
-    .prologue
-    .line 349
-    iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v0}, Landroid/widget/Switch;->toggle()V
-
-    .line 350
-    return-void
 .end method

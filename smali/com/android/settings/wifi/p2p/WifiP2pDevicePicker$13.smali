@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->send()Z
+    value = Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->showConnectingDevices(Landroid/net/wifi/p2p/WifiP2pDeviceList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1459
+    .line 1366
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$13;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "reason"
 
     .prologue
-    .line 1464
+    .line 1371
     const-string v0, "WifiP2pDevicePicker"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, " connect fail "
+    const-string v2, " remove group fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1465
+    .line 1372
     return-void
 .end method
 
@@ -73,13 +73,13 @@
     .locals 2
 
     .prologue
-    .line 1461
+    .line 1368
     const-string v0, "WifiP2pDevicePicker"
 
-    const-string v1, " connect success"
+    const-string v1, " remove group success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1462
+    .line 1369
     return-void
 .end method

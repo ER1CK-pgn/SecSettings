@@ -40,11 +40,11 @@
 
     .prologue
     .line 73
-    const v0, 0x7f04008f
+    const v0, 0x7f04009f
 
     .line 74
     .local v0, itemLayout:I
-    const v1, 0x7f0b01ae
+    const v1, 0x7f0b01cd
 
     invoke-static {p0, v0, v1}, Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest;->constructAdapter(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
 
@@ -900,7 +900,7 @@
 
     .prologue
     .line 143
-    invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 144
     invoke-static {p0}, Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest;->constructAdapter(Landroid/content/Context;)Landroid/widget/ArrayAdapter;
@@ -909,7 +909,7 @@
 
     .line 145
     .local v0, adapter:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest$LocaleInfo;>;"
-    invoke-virtual {p0, v0}, Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest;->setListAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {p0, v0}, Landroid/app/ListActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 146
     return-void
@@ -947,7 +947,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 158
-    invoke-virtual {p0}, Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest;->getListAdapter()Landroid/widget/ListAdapter;
+    invoke-virtual {p0}, Landroid/app/ListActivity;->getListAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v1
 
@@ -964,7 +964,7 @@
     invoke-static {v0}, Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest;->updateLocale(Ljava/util/Locale;)V
 
     .line 160
-    invoke-virtual {p0}, Lcom/android/settings/fulllocalepickertest/FullLocalePickerTest;->onBackPressed()V
+    invoke-virtual {p0}, Landroid/app/Activity;->onBackPressed()V
 
     .line 161
     return-void
@@ -982,7 +982,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 151
-    invoke-super {p0}, Landroid/app/ListActivity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 152
     return-void

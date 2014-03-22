@@ -84,11 +84,11 @@
     iput-boolean v0, p0, Lcom/android/settings/widget/DataUsageListView;->mSelected:Z
 
     .line 55
-    invoke-virtual {p0}, Lcom/android/settings/widget/DataUsageListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/widget/DataUsageListView;->setSelection(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/ListView;->setSelection(I)V
 
     .line 56
     const-string v0, "DataUsageListView"
@@ -103,7 +103,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/DataUsageListView;->getHeaderViewsCount()I
+    invoke-virtual {p0}, Landroid/widget/ListView;->getHeaderViewsCount()I
 
     move-result v2
 
@@ -121,7 +121,7 @@
 
     .line 61
     :pswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/widget/DataUsageListView;->getSelector()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsListView;->getSelector()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 

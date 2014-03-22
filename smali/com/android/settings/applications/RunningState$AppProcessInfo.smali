@@ -28,12 +28,12 @@
     .parameter "_info"
 
     .prologue
-    .line 130
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
     .line 131
-    iput-object p1, p0, Lcom/android/settings/applications/RunningState$AppProcessInfo;->info:Landroid/app/ActivityManager$RunningAppProcessInfo;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 132
+    iput-object p1, p0, Lcom/android/settings/applications/RunningState$AppProcessInfo;->info:Landroid/app/ActivityManager$RunningAppProcessInfo;
+
+    .line 133
     return-void
 .end method

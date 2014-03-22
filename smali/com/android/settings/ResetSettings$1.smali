@@ -1,14 +1,11 @@
 .class Lcom/android/settings/ResetSettings$1;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "ResetSettings.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/ResetSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/ResetSettings;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,86 +24,70 @@
     .parameter
 
     .prologue
-    .line 96
+    .line 102
     iput-object p1, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 3
-    .parameter "v"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 99
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    const/4 v4, 0x1
 
-    iget-object v1, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
-
-    invoke-virtual {v1}, Lcom/android/settings/ResetSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    iget-object v1, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
-
-    invoke-virtual {v1}, Lcom/android/settings/ResetSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0915a0
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    .line 105
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
+    const-string v1, "android.intent.action.SETTINGS_SOFT_RESET_COMPLETED"
 
-    invoke-virtual {v1}, Lcom/android/settings/ResetSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    move-result v0
 
-    const v2, 0x7f0915a1
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    .line 106
+    iget-object v0, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
 
-    move-result-object v1
+    #setter for: Lcom/android/settings/ResetSettings;->databaseReset:Z
+    invoke-static {v0, v4}, Lcom/android/settings/ResetSettings;->access$002(Lcom/android/settings/ResetSettings;Z)Z
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    .line 107
+    iget-object v0, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
 
-    move-result-object v0
+    new-instance v1, Lcom/android/settings/ResetSettings$ResetSettingsTask;
 
-    const v1, 0x7f0914c0
+    iget-object v2, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
 
-    new-instance v2, Lcom/android/settings/ResetSettings$1$2;
+    const/4 v3, 0x0
 
-    invoke-direct {v2, p0}, Lcom/android/settings/ResetSettings$1$2;-><init>(Lcom/android/settings/ResetSettings$1;)V
+    invoke-direct {v1, v2, v3}, Lcom/android/settings/ResetSettings$ResetSettingsTask;-><init>(Lcom/android/settings/ResetSettings;Lcom/android/settings/ResetSettings$1;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    iput-object v1, v0, Lcom/android/settings/ResetSettings;->resetTask:Lcom/android/settings/ResetSettings$ResetSettingsTask;
 
-    move-result-object v0
+    .line 108
+    iget-object v0, p0, Lcom/android/settings/ResetSettings$1;->this$0:Lcom/android/settings/ResetSettings;
 
-    const v1, 0x7f090173
+    iget-object v0, v0, Lcom/android/settings/ResetSettings;->resetTask:Lcom/android/settings/ResetSettings$ResetSettingsTask;
 
-    new-instance v2, Lcom/android/settings/ResetSettings$1$1;
+    new-array v1, v4, [Landroid/content/Context;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/ResetSettings$1$1;-><init>(Lcom/android/settings/ResetSettings$1;)V
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    aput-object p1, v1, v2
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
-
-    .line 124
+    .line 111
+    :cond_0
     return-void
 .end method

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 234
+    .line 251
     iput-object p1, p0, Lcom/android/settings/LockscreenMenuSettings$1;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 237
+    .line 254
     iget-object v1, p0, Lcom/android/settings/LockscreenMenuSettings$1;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
     #getter for: Lcom/android/settings/LockscreenMenuSettings;->mSafetyZone:Landroid/preference/SwitchPreferenceScreen;
@@ -52,7 +52,7 @@
 
     iget-object v2, p0, Lcom/android/settings/LockscreenMenuSettings$1;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -67,8 +67,8 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 238
+    .line 255
     return-void
 .end method

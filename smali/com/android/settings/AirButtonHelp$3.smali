@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 155
+    .line 160
     iput-object p1, p0, Lcom/android/settings/AirButtonHelp$3;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,20 +45,20 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 158
+    .line 163
     invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 159
+    .line 164
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp$3;->this$0:Lcom/android/settings/AirButtonHelp;
 
     #calls: Lcom/android/settings/AirButtonHelp;->turnOnPenInfoPreview()V
     invoke-static {v0}, Lcom/android/settings/AirButtonHelp;->access$200(Lcom/android/settings/AirButtonHelp;)V
 
-    .line 162
+    .line 167
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp$3;->this$0:Lcom/android/settings/AirButtonHelp;
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -75,7 +75,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 163
+    .line 168
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp$3;->this$0:Lcom/android/settings/AirButtonHelp;
 
     #getter for: Lcom/android/settings/AirButtonHelp;->mActionBarSwitch:Landroid/widget/Switch;
@@ -85,6 +85,6 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 164
+    .line 169
     return-void
 .end method

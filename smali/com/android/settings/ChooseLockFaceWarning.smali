@@ -32,7 +32,7 @@
     .line 46
     new-instance v0, Landroid/content/Intent;
 
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+    invoke-super {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -60,22 +60,33 @@
     return-object v0
 .end method
 
+.method protected isValidFragment(Ljava/lang/String;)Z
+    .locals 1
+    .parameter "fragmentName"
+
+    .prologue
+    .line 54
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 4
     .parameter "savedInstanceState"
 
     .prologue
-    .line 54
+    .line 59
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 55
-    const v1, 0x7f0901d4
+    .line 60
+    const v1, 0x7f0901f9
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/ChooseLockFaceWarning;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 57
+    .line 62
     .local v0, msg:Ljava/lang/CharSequence;
     invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning;->getIntent()Landroid/content/Intent;
 
@@ -91,17 +102,17 @@
 
     if-eqz v1, :cond_0
 
-    .line 58
-    const v1, 0x7f0901d6
+    .line 63
+    const v1, 0x7f0901fb
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/ChooseLockFaceWarning;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 60
+    .line 65
     :cond_0
-    invoke-virtual {p0, v0, v0}, Lcom/android/settings/ChooseLockFaceWarning;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0, v0}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 61
+    .line 66
     return-void
 .end method

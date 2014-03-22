@@ -9,7 +9,7 @@
 
     .prologue
     .line 23
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -33,9 +33,9 @@
     .parameter "paint"
 
     .prologue
-    .line 29
+    .line 33
     invoke-virtual {p0, p1, p2}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    .line 30
+    .line 34
     return-void
 .end method

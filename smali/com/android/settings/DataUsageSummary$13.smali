@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1580
+    .line 1710
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$13;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,35 +38,56 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 3
     .parameter "v"
 
     .prologue
-    .line 1583
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$13;->this$0:Lcom/android/settings/DataUsageSummary;
+    const/4 v1, 0x0
 
-    invoke-virtual {v0}, Lcom/android/settings/DataUsageSummary;->isAdded()Z
+    .line 1713
+    iget-object v2, p0, Lcom/android/settings/DataUsageSummary$13;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    move-result v0
+    #getter for: Lcom/android/settings/DataUsageSummary;->mAppRestrict:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v2}, Lcom/android/settings/DataUsageSummary;->access$1600(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    if-nez v0, :cond_0
+    move-result-object v2
 
-    .line 1587
+    invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v0, 0x1
+
+    .line 1715
+    .local v0, restrictBackground:Z
     :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
-    .line 1586
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$13;->this$0:Lcom/android/settings/DataUsageSummary;
-
+    .line 1719
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$13;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1800(Lcom/android/settings/DataUsageSummary;)Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary$ConfirmAppRestrictFragment;->show(Lcom/android/settings/DataUsageSummary;)V
 
-    move-result-object v1
+    .line 1723
+    :goto_1
+    return-void
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/DataUsageSummary;->startActivity(Landroid/content/Intent;)V
+    .end local v0           #restrictBackground:Z
+    :cond_0
+    move v0, v1
 
+    .line 1713
     goto :goto_0
+
+    .line 1721
+    .restart local v0       #restrictBackground:Z
+    :cond_1
+    iget-object v2, p0, Lcom/android/settings/DataUsageSummary$13;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #calls: Lcom/android/settings/DataUsageSummary;->setAppRestrictBackground(Z)V
+    invoke-static {v2, v1}, Lcom/android/settings/DataUsageSummary;->access$1700(Lcom/android/settings/DataUsageSummary;Z)V
+
+    goto :goto_1
 .end method

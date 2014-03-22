@@ -169,7 +169,7 @@
 
     .line 54
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v7, 0x7f0401ca
+    const v7, 0x7f040207
 
     const/4 v8, 0x0
 
@@ -179,7 +179,7 @@
 
     .line 55
     .local v3, view:Landroid/view/View;
-    const v7, 0x7f0b0078
+    const v7, 0x7f0b007e
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -189,7 +189,7 @@
 
     .line 56
     .local v2, text:Landroid/widget/TextView;
-    const v7, 0x7f09045a
+    const v7, 0x7f090494
 
     invoke-virtual {v2, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -216,7 +216,7 @@
     invoke-virtual {v4, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 64
-    const v7, 0x7f0b051d
+    const v7, 0x7f0b057f
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -245,7 +245,7 @@
     invoke-virtual {v1, v5}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
     .line 70
-    const v5, 0x7f09074c
+    const v5, 0x7f09079f
 
     new-instance v6, Lcom/android/settings/wifi/WifiPoorConnection$2;
 

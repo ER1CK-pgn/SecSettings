@@ -13,7 +13,8 @@
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:background="@drawable/tw_wifioffload_dialog_bottom_medium_holo_dark" android:layout_width="fill_parent" android:layout_height="62.0dip">
-        <Button android:textSize="17.0dip" android:textStyle="bold" android:textColor="@drawable/tw_wifioffload_popup_button_text_holo_dark" android:id="@id/dont_disturb" android:background="@drawable/tw_wifioffload_popup_button_background_holo_dark" android:layout_width="fill_parent" android:layout_height="43.0dip" android:layout_marginLeft="3.0dip" android:layout_marginTop="3.0dip" android:layout_marginRight="3.0dip" android:layout_marginBottom="3.0dip" android:text="@string/do_not_disturb" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/tw_wifioffload_dialog_bottom_medium_holo_dark" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textSize="17.0dip" android:textStyle="bold" android:textColor="@drawable/tw_wifioffload_popup_button_text_holo_dark" android:id="@id/dont_disturb" android:background="@drawable/tw_wifioffload_popup_button_background_holo_dark" android:layout_width="fill_parent" android:layout_height="43.0dip" android:layout_marginLeft="2.0dip" android:layout_marginTop="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/notifyme_later" />
+        <Button android:textSize="17.0dip" android:textStyle="bold" android:textColor="@drawable/tw_wifioffload_popup_button_text_holo_dark" android:id="@id/dont_notifyme" android:background="@drawable/tw_wifioffload_popup_button_background_holo_dark" android:layout_width="fill_parent" android:layout_height="43.0dip" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:layout_marginBottom="2.0dip" android:text="@string/do_not_notifyme" />
     </LinearLayout>
 </LinearLayout>

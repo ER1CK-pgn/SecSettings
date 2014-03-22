@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 30
+    .line 58
     iput-object p1, p0, Lcom/android/settings/wifi/WifiReset$1;->this$0:Lcom/android/settings/wifi/WifiReset;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 33
+    .line 64
     const-string v1, "android.net.wifi.WIFI_STATE_CHANGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -53,7 +53,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 34
+    .line 66
     const-string v1, "wifi_state"
 
     const/4 v2, 0x4
@@ -62,13 +62,13 @@
 
     move-result v0
 
-    .line 35
+    .line 68
     .local v0, state:I
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 36
+    .line 70
     iget-object v1, p0, Lcom/android/settings/wifi/WifiReset$1;->this$0:Lcom/android/settings/wifi/WifiReset;
 
     #getter for: Lcom/android/settings/wifi/WifiReset;->mContext:Landroid/content/Context;
@@ -85,12 +85,12 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 37
+    .line 72
     iget-object v1, p0, Lcom/android/settings/wifi/WifiReset$1;->this$0:Lcom/android/settings/wifi/WifiReset;
 
     invoke-virtual {v1}, Lcom/android/settings/wifi/WifiReset;->reset()V
 
-    .line 40
+    .line 78
     .end local v0           #state:I
     :cond_0
     return-void

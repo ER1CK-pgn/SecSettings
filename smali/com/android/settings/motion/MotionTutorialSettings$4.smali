@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 409
+    .line 424
     iput-object p1, p0, Lcom/android/settings/motion/MotionTutorialSettings$4;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,10 +45,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 411
+    .line 426
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings$4;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
-    #calls: Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v1}, Lcom/android/settings/motion/MotionTutorialSettings;->access$600(Lcom/android/settings/motion/MotionTutorialSettings;)Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -59,25 +59,25 @@
 
     move-result v0
 
-    .line 414
+    .line 429
     .local v0, motionState:I
     if-nez v0, :cond_0
 
-    .line 415
+    .line 430
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings$4;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
     #calls: Lcom/android/settings/motion/MotionTutorialSettings;->showMotionDialog()V
     invoke-static {v1}, Lcom/android/settings/motion/MotionTutorialSettings;->access$700(Lcom/android/settings/motion/MotionTutorialSettings;)V
 
-    .line 421
+    .line 436
     :goto_0
     return-void
 
-    .line 416
+    .line 431
     :cond_0
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings$4;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
-    #calls: Lcom/android/settings/motion/MotionTutorialSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v1}, Lcom/android/settings/motion/MotionTutorialSettings;->access$800(Lcom/android/settings/motion/MotionTutorialSettings;)Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -95,7 +95,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 417
+    .line 432
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings$4;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
     #calls: Lcom/android/settings/motion/MotionTutorialSettings;->startTryActually()V
@@ -103,7 +103,7 @@
 
     goto :goto_0
 
-    .line 419
+    .line 434
     :cond_1
     iget-object v1, p0, Lcom/android/settings/motion/MotionTutorialSettings$4;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 

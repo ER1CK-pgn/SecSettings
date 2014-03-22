@@ -62,7 +62,7 @@
     const/4 v8, 0x1
 
     .line 123
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
@@ -71,7 +71,7 @@
     invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->clearPackagePreferredActivities(Ljava/lang/String;)V
 
     .line 124
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
@@ -80,7 +80,7 @@
     invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->clearPackagePreferredActivities(Ljava/lang/String;)V
 
     .line 126
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -163,7 +163,7 @@
     .line 156
     .restart local v2       #mDefaultCN:Landroid/content/ComponentName;
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
@@ -176,40 +176,25 @@
 .end method
 
 .method private setIndicatorTransparency()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 113
-    const/16 v0, 0x1400
-
-    .line 114
-    .local v0, visibility:I
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
-
     .line 116
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
+    invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
     .line 117
-    .local v1, wmLp:Landroid/view/WindowManager$LayoutParams;
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+    .local v0, wmLp:Landroid/view/WindowManager$LayoutParams;
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    or-int/lit16 v2, v2, 0xc00
+    or-int/lit16 v1, v1, 0xc00
 
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     .line 119
     return-void
@@ -222,20 +207,20 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const v6, 0x7f090984
+    const v6, 0x7f090a62
 
     .line 44
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 45
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v4
 
     if-eqz v4, :cond_0
 
     .line 46
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v4
 
@@ -243,17 +228,17 @@
 
     .line 52
     :cond_0
-    const v4, 0x7f04008c
+    const v4, 0x7f04009a
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureSettingsSetupWizard;->setContentView(I)V
+    invoke-virtual {p0, v4}, Landroid/app/Activity;->setContentView(I)V
 
     .line 53
     invoke-direct {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->setIndicatorTransparency()V
 
     .line 57
-    const v4, 0x7f0b0080
+    const v4, 0x7f0b0089
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureSettingsSetupWizard;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -286,7 +271,7 @@
     .local v1, nextBtn:Landroid/widget/Button;
     const-string v4, ""
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v5
 
@@ -327,7 +312,7 @@
 
     .line 92
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
@@ -337,11 +322,11 @@
 
     .line 96
     .local v3, original_str:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureSettingsSetupWizard;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0203dc
+    const v5, 0x7f02045c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -353,7 +338,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 110
     .end local v1           #nextBtn:Landroid/widget/Button;
@@ -373,7 +358,7 @@
     .line 100
     const v4, 0x7f0b000e
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureSettingsSetupWizard;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 

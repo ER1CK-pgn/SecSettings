@@ -89,7 +89,7 @@
     const/4 v4, 0x0
 
     .line 179
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -107,11 +107,11 @@
     if-eqz v2, :cond_0
 
     .line 183
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v5, 0x7f0f0019
+    const v5, 0x7f0f0034
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -121,7 +121,7 @@
     .local v1, padding:I
     iget-object v2, p0, Lcom/android/settings/PenHovering;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 185
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -170,7 +170,7 @@
     .line 196
     const-string v2, "hovering_pointer"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHovering;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -181,7 +181,7 @@
     .line 197
     iget-object v5, p0, Lcom/android/settings/PenHovering;->mToggleHoveringPointer:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -196,12 +196,12 @@
     move v2, v3
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 198
     const-string v2, "hovering_information_preview"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHovering;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -212,7 +212,7 @@
     .line 199
     iget-object v5, p0, Lcom/android/settings/PenHovering;->mToggleHoveringInformationPreview:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -227,12 +227,12 @@
     move v2, v3
 
     :goto_1
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 200
     const-string v2, "hovering_icon_label"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHovering;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -243,7 +243,7 @@
     .line 201
     iget-object v5, p0, Lcom/android/settings/PenHovering;->mToggleHoveringIconLabel:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -258,12 +258,12 @@
     move v2, v3
 
     :goto_2
-    invoke-virtual {v5, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 202
     const-string v2, "hovering_list_scroll"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PenHovering;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -274,7 +274,7 @@
     .line 203
     iget-object v2, p0, Lcom/android/settings/PenHovering;->mToggleHoveringListScroll:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -287,10 +287,10 @@
     if-eqz v5, :cond_4
 
     :goto_3
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 206
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -303,7 +303,7 @@
     iput v2, p0, Lcom/android/settings/PenHovering;->pointer_state:I
 
     .line 207
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -316,7 +316,7 @@
     iput v2, p0, Lcom/android/settings/PenHovering;->information_preview_state:I
 
     .line 208
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -329,7 +329,7 @@
     iput v2, p0, Lcom/android/settings/PenHovering;->icon_label_state:I
 
     .line 209
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -378,7 +378,7 @@
     const/4 v4, 0x0
 
     .line 217
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -418,22 +418,22 @@
     .line 222
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringPointer:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 223
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringInformationPreview:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 224
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringIconLabel:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 225
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringListScroll:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 234
     :goto_0
@@ -443,22 +443,22 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringPointer:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 229
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringInformationPreview:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 230
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringIconLabel:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 231
     iget-object v1, p0, Lcom/android/settings/PenHovering;->mToggleHoveringListScroll:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -472,7 +472,7 @@
     const/4 v4, 0x0
 
     .line 164
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -484,7 +484,7 @@
 
     .line 165
     .local v3, hoveringPointer:I
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -496,7 +496,7 @@
 
     .line 166
     .local v1, hoveringInformationPreview:I
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -508,7 +508,7 @@
 
     .line 167
     .local v0, hoveringIconLabel:I
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -643,9 +643,9 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 75
-    const v0, 0x7f07006c
+    const v0, 0x7f070089
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHovering;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 76
     invoke-direct {p0}, Lcom/android/settings/PenHovering;->initializeAllPreferences()V
@@ -668,12 +668,12 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 117
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 119
     iget v1, p0, Lcom/android/settings/PenHovering;->pointer_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -687,7 +687,7 @@
 
     iget v1, p0, Lcom/android/settings/PenHovering;->information_preview_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -701,7 +701,7 @@
 
     iget v1, p0, Lcom/android/settings/PenHovering;->icon_label_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -715,7 +715,7 @@
 
     iget v1, p0, Lcom/android/settings/PenHovering;->list_scroll_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -744,11 +744,11 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 128
     .end local v0           #intent:Landroid/content/Intent;
@@ -764,7 +764,7 @@
 
     .line 130
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -815,7 +815,7 @@
     if-eqz v0, :cond_3
 
     .line 143
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -823,7 +823,7 @@
 
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mToggleHoveringPointer:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -856,7 +856,7 @@
     .line 159
     :cond_1
     :goto_2
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
@@ -879,7 +879,7 @@
     if-eqz v0, :cond_5
 
     .line 145
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -887,7 +887,7 @@
 
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mToggleHoveringInformationPreview:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -916,7 +916,7 @@
     if-eqz v0, :cond_7
 
     .line 147
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -924,7 +924,7 @@
 
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mToggleHoveringIconLabel:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -953,7 +953,7 @@
     if-eqz v0, :cond_0
 
     .line 149
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -961,7 +961,7 @@
 
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mToggleHoveringListScroll:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -988,7 +988,7 @@
     .line 156
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_2
 .end method
@@ -1022,7 +1022,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 91
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1055,11 +1055,11 @@
     .line 98
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 99
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1089,7 +1089,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 106
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 108
     iget-object v0, p0, Lcom/android/settings/PenHovering;->mActionBarLayout:Landroid/view/View;
@@ -1104,7 +1104,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 110
-    invoke-virtual {p0}, Lcom/android/settings/PenHovering;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

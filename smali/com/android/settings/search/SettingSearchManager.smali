@@ -146,7 +146,7 @@
 
     .prologue
     .line 102
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
     const/4 v0, -0x1
@@ -193,7 +193,7 @@
 
     const-string v1, "Connections"
 
-    const v2, 0x7f090b9c
+    const v2, 0x7f090ca4
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -206,7 +206,7 @@
 
     const-string v1, "My device"
 
-    const v2, 0x7f090b9d
+    const v2, 0x7f090ca5
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -219,7 +219,7 @@
 
     const-string v1, "Accounts"
 
-    const v2, 0x7f090b9e
+    const v2, 0x7f090ca6
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -232,7 +232,7 @@
 
     const-string v1, "More"
 
-    const v2, 0x7f090b9f
+    const v2, 0x7f090ca7
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -344,7 +344,7 @@
 
     .line 507
     .local v4, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v4}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -812,7 +812,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090174
+    const v3, 0x7f090196
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

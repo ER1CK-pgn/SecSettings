@@ -3,12 +3,12 @@
 .source "SMotionGuideHub.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/motion2013/SMotionGuideHub;->showUseRingDialog()V
+    value = Lcom/android/settings/motion2013/SMotionGuideHub;->showMotionDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,30 +27,28 @@
     .parameter
 
     .prologue
-    .line 1182
+    .line 1240
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionGuideHub$6;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
     .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    .line 1184
-    iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$6;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
+    .line 1242
+    const-string v0, "SMotionGuideHub"
 
-    const/4 v1, 0x0
+    const-string v1, "use motion dismiss"
 
-    #calls: Lcom/android/settings/motion2013/SMotionGuideHub;->startTurnOverTryActually(Z)V
-    invoke-static {v0, v1}, Lcom/android/settings/motion2013/SMotionGuideHub;->access$1200(Lcom/android/settings/motion2013/SMotionGuideHub;Z)V
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1185
+    .line 1244
     return-void
 .end method

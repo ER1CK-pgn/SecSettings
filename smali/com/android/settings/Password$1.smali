@@ -30,7 +30,7 @@
     .line 89
     iput-object p1, p0, Lcom/android/settings/Password$1;->this$0:Lcom/android/settings/Password;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,13 +38,15 @@
 
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 6
+    .locals 7
     .parameter "v"
     .parameter "keyCode"
     .parameter "event"
 
     .prologue
-    const/16 v5, 0x43
+    const/16 v6, 0x19
+
+    const/16 v5, 0x18
 
     const/16 v4, 0x14
 
@@ -55,9 +57,15 @@
     .line 94
     if-eq p2, v4, :cond_1
 
-    if-eq p2, v5, :cond_1
+    const/16 v1, 0x43
+
+    if-eq p2, v1, :cond_1
 
     if-eq p2, v3, :cond_1
+
+    if-eq p2, v6, :cond_1
+
+    if-eq p2, v5, :cond_1
 
     iget-object v1, p0, Lcom/android/settings/Password$1;->this$0:Lcom/android/settings/Password;
 
@@ -91,9 +99,15 @@
     :cond_1
     if-eq p2, v4, :cond_2
 
-    if-eq p2, v5, :cond_2
+    const/16 v1, 0x43
+
+    if-eq p2, v1, :cond_2
 
     if-eq p2, v3, :cond_2
+
+    if-eq p2, v6, :cond_2
+
+    if-eq p2, v5, :cond_2
 
     const/4 v1, 0x7
 

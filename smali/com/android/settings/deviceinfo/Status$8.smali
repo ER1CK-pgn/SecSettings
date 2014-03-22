@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1506
+    .line 1572
     iput-object p1, p0, Lcom/android/settings/deviceinfo/Status$8;->this$0:Lcom/android/settings/deviceinfo/Status;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,7 @@
     .parameter "service"
 
     .prologue
-    .line 1508
-    const-string v0, "Status"
-
-    const-string v1, "onServiceConnected()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1509
+    .line 1575
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Status$8;->this$0:Lcom/android/settings/deviceinfo/Status;
 
     new-instance v1, Landroid/os/Messenger;
@@ -60,13 +53,13 @@
     #setter for: Lcom/android/settings/deviceinfo/Status;->mServiceMessenger:Landroid/os/Messenger;
     invoke-static {v0, v1}, Lcom/android/settings/deviceinfo/Status;->access$1602(Lcom/android/settings/deviceinfo/Status;Landroid/os/Messenger;)Landroid/os/Messenger;
 
-    .line 1510
+    .line 1576
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Status$8;->this$0:Lcom/android/settings/deviceinfo/Status;
 
     #calls: Lcom/android/settings/deviceinfo/Status;->getOemData()V
     invoke-static {v0}, Lcom/android/settings/deviceinfo/Status;->access$1700(Lcom/android/settings/deviceinfo/Status;)V
 
-    .line 1511
+    .line 1577
     return-void
 .end method
 
@@ -75,14 +68,14 @@
     .parameter "className"
 
     .prologue
-    .line 1514
+    .line 1580
     const-string v0, "Status"
 
     const-string v1, "onServiceDisconnected()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1515
+    .line 1581
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Status$8;->this$0:Lcom/android/settings/deviceinfo/Status;
 
     const/4 v1, 0x0
@@ -90,6 +83,6 @@
     #setter for: Lcom/android/settings/deviceinfo/Status;->mServiceMessenger:Landroid/os/Messenger;
     invoke-static {v0, v1}, Lcom/android/settings/deviceinfo/Status;->access$1602(Lcom/android/settings/deviceinfo/Status;Landroid/os/Messenger;)Landroid/os/Messenger;
 
-    .line 1516
+    .line 1582
     return-void
 .end method

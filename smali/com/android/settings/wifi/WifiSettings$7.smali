@@ -3,12 +3,12 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/speech/tts/TextToSpeech$OnInitListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/WifiSettings;->startWith(I)V
+    value = Lcom/android/settings/wifi/WifiSettings;->onResume()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,49 +20,100 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/wifi/WifiSettings;
 
-.field final synthetic val$activity:Landroid/app/Activity;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/wifi/WifiSettings;Landroid/app/Activity;)V
+.method constructor <init>(Lcom/android/settings/wifi/WifiSettings;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 1064
+    .line 1044
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$7;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    iput-object p2, p0, Lcom/android/settings/wifi/WifiSettings$7;->val$activity:Landroid/app/Activity;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public onInit(I)V
     .locals 3
+    .parameter "status"
 
     .prologue
-    .line 1066
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$7;->val$activity:Landroid/app/Activity;
+    .line 1047
+    if-nez p1, :cond_4
 
-    if-eqz v0, :cond_0
+    .line 1049
+    iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$7;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    .line 1067
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$7;->val$activity:Landroid/app/Activity;
+    #getter for: Lcom/android/settings/wifi/WifiSettings;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
+    invoke-static {v1}, Lcom/android/settings/wifi/WifiSettings;->access$600(Lcom/android/settings/wifi/WifiSettings;)Landroid/speech/tts/TextToSpeech;
 
-    new-instance v1, Landroid/content/Intent;
+    move-result-object v1
 
-    const-string v2, "com.android.settings.wifi.WIFI_ON"
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2}, Landroid/speech/tts/TextToSpeech;->isLanguageAvailable(Ljava/util/Locale;)I
 
-    .line 1069
+    move-result v0
+
+    .line 1050
+    .local v0, result:I
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v1, -0x2
+
+    if-ne v0, v1, :cond_2
+
+    .line 1052
     :cond_0
+    const-string v1, "TTS"
+
+    const-string v2, "This Language is not supported"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1060
+    .end local v0           #result:I
+    :cond_1
+    :goto_0
     return-void
+
+    .line 1053
+    .restart local v0       #result:I
+    :cond_2
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_3
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_1
+
+    .line 1055
+    :cond_3
+    const-string v1, "TTS"
+
+    const-string v2, "This Language is not downloaded"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 1058
+    .end local v0           #result:I
+    :cond_4
+    const-string v1, "TTS"
+
+    const-string v2, "Initilization Failed!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

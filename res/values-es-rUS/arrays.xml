@@ -11,9 +11,10 @@
         <item>Grande</item>
     </string-array>
     <string-array name="lock_screen_unlock_effect_entries">
-        <item>Ninguna</item>
-        <item>Onda</item>
+        <item>Ninguno</item>
+        <item>Efecto ondulatorio</item>
         <item>Efecto de luz</item>
+        <item>Particle effect</item>
     </string-array>
     <string-array name="auto_power_off_entries">
         <item>Desactivar</item>
@@ -125,9 +126,9 @@
     </string-array>
     <string-array name="tts_pitch_entries">
         <item>Muy baja</item>
-        <item>Bajo</item>
+        <item>Baja</item>
         <item>Normal</item>
-        <item>Alto</item>
+        <item>Alta</item>
         <item>Muy alto</item>
     </string-array>
     <string-array name="tts_pitch_values">
@@ -143,7 +144,7 @@
         <item>Conectando…</item>
         <item>Autenticando…</item>
         <item>Obteniendo dirección IP…</item>
-        <item>Conectado</item>
+        <item>Conectado.</item>
         <item>Suspendido</item>
         <item>Desconectando…</item>
         <item>Desconectado</item>
@@ -231,6 +232,10 @@
         <item>10</item>
         <item>11</item>
     </string-array>
+    <string-array name="wifi_ap_tx_power_mode_entries">
+        <item>Estándar</item>
+        <item>Alto</item>
+    </string-array>
     <string-array name="wifi_ap_maxclient">
         <item>1</item>
         <item>2</item>
@@ -248,6 +253,11 @@
         <item>5 minutos</item>
         <item>1 hora</item>
         <item>Tiempo de espera desactivado</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries_for_vzw">
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>1 hora</item>
     </string-array>
     <string-array name="wifi_signal">
         <item>Débil</item>
@@ -273,7 +283,7 @@
     </string-array>
     <string-array name="wifi_ap_list_priority_entries">
         <item>Alfabeto</item>
-        <item>RSSI</item>
+        <item>Intensidad de la señal</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
         <item>Automático</item>
@@ -314,19 +324,19 @@
         <item>3</item>
     </string-array>
     <string-array name="wifi_peap_phase2_entries">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>MSCHAPV2</item>
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_phase2_entries">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>PAP</item>
         <item>MSCHAP</item>
         <item>MSCHAPV2</item>
         <item>GTC</item>
     </string-array>
     <string-array name="wifi_network_setup">
-        <item>Desactivada</item>
+        <item>Desactivado</item>
         <item>Presione el botón</item>
         <item>PIN para punto de acceso</item>
         <item>PIN de este dispositivo</item>
@@ -336,13 +346,13 @@
         <item>Estática</item>
     </string-array>
     <string-array name="wifi_proxy_settings">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>Manual</item>
     </string-array>
     <string-array name="wifi_connection_settings">
         <item>Normal</item>
         <item>Centro de la ciudad</item>
-        <item>Privado</item>
+        <item>Casa</item>
     </string-array>
     <string-array name="wifi_connection_settings_summary">
         <item>Esta es la configuración de conexión Wi-Fi más general</item>
@@ -360,7 +370,7 @@
         <item>2</item>
     </string-array>
     <string-array name="apn_auth_entries">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>PAP</item>
         <item>CHAP</item>
         <item>PAP o CHAP</item>
@@ -375,21 +385,162 @@
         <item>eHRPD</item>
         <item>Sin especificar</item>
     </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Ninguno</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
     <string-array name="app_install_location_entries">
         <item>Almacenamiento interno del dispositivo</item>
         <item>Tarjeta de memoria extraíble</item>
         <item>Predeterminado</item>
     </string-array>
+    <string-array name="app_ops_categories">
+        <item>Ubicación</item>
+        <item>Personal</item>
+        <item>Mensajes</item>
+        <item>Multimedia</item>
+        <item>Dispositivo</item>
+        <item>Dispositivo</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>coarse location</item>
+        <item>fine location</item>
+        <item>GPS</item>
+        <item>Vibrar</item>
+        <item>Leer contactos</item>
+        <item>modify contacts</item>
+        <item>Leer el registro de llamadas</item>
+        <item>modify call log</item>
+        <item>read calendar</item>
+        <item>modify calendar</item>
+        <item>wi-fi scan</item>
+        <item>Notificación</item>
+        <item>cell scan</item>
+        <item>call phone</item>
+        <item>read SMS</item>
+        <item>write SMS</item>
+        <item>Recibir mensaje de texto</item>
+        <item>receive emergency SMS</item>
+        <item>receive MMS</item>
+        <item>receive WAP push</item>
+        <item>Enviar mensaje de texto</item>
+        <item>read ICC SMS</item>
+        <item>write ICC SMS</item>
+        <item>modify settings</item>
+        <item>draw on top</item>
+        <item>Notificaciones de acceso</item>
+        <item>Cámara</item>
+        <item>Grabar audio</item>
+        <item>play audio</item>
+        <item>read clipboard</item>
+        <item>modify clipboard</item>
+        <item>media buttons</item>
+        <item>audio focus</item>
+        <item>master volume</item>
+        <item>voice volume</item>
+        <item>Volumen</item>
+        <item>Volumen multimedia</item>
+        <item>Volumen de la alarma</item>
+        <item>notification volume</item>
+        <item>bluetooth volume</item>
+        <item>keep awake</item>
+        <item>monitor location</item>
+        <item>monitor high power location</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Ubicación</item>
+        <item>Ubicación</item>
+        <item>Ubicación</item>
+        <item>Vibrar</item>
+        <item>Leer contactos</item>
+        <item>Modify contacts</item>
+        <item>Leer el registro de llamadas</item>
+        <item>Modify call log</item>
+        <item>Read calendar</item>
+        <item>Modify calendar</item>
+        <item>Ubicación</item>
+        <item>Post notification</item>
+        <item>Ubicación</item>
+        <item>Call phone</item>
+        <item>Receive SMS/MMS</item>
+        <item>Send SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Enviar mensaje de texto/mensaje multimedia</item>
+        <item>Receive SMS/MMS</item>
+        <item>Enviar mensaje de texto/mensaje multimedia</item>
+        <item>Modify settings</item>
+        <item>Draw on top</item>
+        <item>Notificaciones de acceso</item>
+        <item>Cámara</item>
+        <item>Grabar audio</item>
+        <item>Play audio</item>
+        <item>Read clipboard</item>
+        <item>Modify clipboard</item>
+        <item>Media buttons</item>
+        <item>Audio focus</item>
+        <item>Master volume</item>
+        <item>Voice volume</item>
+        <item>Volumen</item>
+        <item>Volumen multimedia</item>
+        <item>Volumen de la alarma</item>
+        <item>Notification volume</item>
+        <item>Bluetooth volume</item>
+        <item>Keep awake</item>
+        <item>Ubicación</item>
+        <item>Location</item>
+    </string-array>
     <string-array name="long_press_timeout_titles_selector">
-        <item>Corto (0,5 segundos)</item>
+        <item>Corto (0.5 segundos)</item>
         <item>Medio (1 segundo)</item>
-        <item>Largo (1,5 segundos)</item>
+        <item>Largo (1.5 segundos)</item>
         <item>Personalizado</item>
     </string-array>
     <string-array name="long_press_timeout_selector_titles">
         <item>Corto</item>
         <item>Mediano</item>
         <item>Largo</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Predeterminado</item>
+        <item>Sans serif</item>
+        <item>Sans serif condensed</item>
+        <item>Serif</item>
+        <item>Espacio único</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Muy pequeño</item>
+        <item>Pequeño</item>
+        <item>Normal</item>
+        <item>Grande</item>
+        <item>Muy grande</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Ninguno</item>
+        <item>Contorno</item>
+        <item>Sombra paralela</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Blanco sobre negro</item>
+        <item>Negro sobre blanco</item>
+        <item>Amarillo sobre negro</item>
+        <item>Amarillo sobre azul</item>
+        <item>Personalizado</item>
+    </string-array>
+    <string-array name="select_runtime_titles">
+        <item>Dalvik</item>
+        <item>Arte</item>
+        <item>ART (debug)</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>No comprobar nunca</item>
@@ -429,14 +580,17 @@
         <item>Escala de animación 10x</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>720x480 mdpi</item>
         <item>1280x720 tvdpi</item>
         <item>1920x1080 xhdpi</item>
         <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi (secure)</item>
+        <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
     </string-array>
     <string-array name="enable_opengl_traces_entries">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>Logcat</item>
         <item>Systrace (Graphics)</item>
         <item>Call stack on glGetError</item>
@@ -451,6 +605,12 @@
         <item>Mostrar en pantalla como barras</item>
         <item>Mostrar en pantalla como líneas</item>
         <item>Mostrar en adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Desactivado</item>
+        <item>Mostrar áreas de sobregiro</item>
+        <item>Mostrar áreas para personas con daltonismo</item>
+        <item>Mostrar contador de sobregiro</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>Límite normal</item>
@@ -481,6 +641,12 @@
         <item>No permitir nunca</item>
         <item>Permitir siempre</item>
     </string-array>
+    <string-array name="ram_states">
+        <item>Normal</item>
+        <item>Moderado</item>
+        <item>Bajo</item>
+        <item>critical</item>
+    </string-array>
     <string-array name="allshare_download_to">
         <item>Dispositivo</item>
         <item>Tarjeta de memoria</item>
@@ -504,6 +670,10 @@
         <item>Imágenes</item>
         <item>Música</item>
     </string-array>
+    <string-array name="cpa_authentication_entries">
+        <item>CHAP</item>
+        <item>PAP</item>
+    </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automático</item>
         <item>Manualmente</item>
@@ -523,9 +693,9 @@
         <item>Personalizar</item>
     </string-array>
     <string-array name="signature_settings_verification_level_entries">
-        <item>Alto</item>
-        <item>Medio</item>
-        <item>Bajo</item>
+        <item>Alta</item>
+        <item>Mediano</item>
+        <item>Baja</item>
     </string-array>
     <string-array name="data_service_entries">
         <item>Tarjeta SIM 1</item>
@@ -541,7 +711,7 @@
     <string-array name="register_icon_entries_v1">
         <item>Tarjeta SIM 1</item>
         <item>Tarjeta SIM 2</item>
-        <item>Privado</item>
+        <item>Casa</item>
         <item>Oficina</item>
         <item>Corazón</item>
     </string-array>
@@ -552,7 +722,7 @@
         <item>Mensaje de texto</item>
         <item>Mensaje multimedia</item>
         <item>Internet</item>
-        <item>Privado</item>
+        <item>Casa</item>
         <item>Oficina</item>
         <item>Corazón</item>
     </string-array>
@@ -573,12 +743,12 @@
         <item>10 minutos</item>
     </string-array>
     <string-array name="selinux_seculevel_entries">
-        <item>Alta</item>
+        <item>Alto</item>
         <item>Normal</item>
     </string-array>
     <string-array name="selinux_seculevel_summaries">
-        <item>Alto: se bloquean todas las acciones sin autenticar</item>
-        <item>Normal: se bloquean acciones de amenazas específicas</item>
+        <item>Alto: bloquea las amenazas conocidas y potenciales</item>
+        <item>Normal: bloquea las amenazas conocidas</item>
     </string-array>
     <string-array name="time_interval_entries">
         <item>3 minutos</item>
@@ -593,6 +763,21 @@
     </string-array>
     <string-array name="shortcut_entries_no_talkback">
         <item>Accesibilidad</item>
+    </string-array>
+    <string-array name="earthquake_magnitude_entries">
+        <item>Todos</item>
+        <item>M4.0+</item>
+        <item>M5.0+</item>
+    </string-array>
+    <string-array name="safetycare_emergency_message_interval_entries">
+        <item>Una vez</item>
+        <item>Cada 10 minutos</item>
+        <item>Every 20 minutes</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (cambio automático)</item>
+        <item>Sólo MB</item>
+        <item>Sólo GB</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1.5 segundos</item>
@@ -621,7 +806,7 @@
         <item>Rápido</item>
     </string-array>
     <string-array name="facebook_auto_refresh_entries">
-        <item>Ninguna</item>
+        <item>Ninguno</item>
         <item>Cada 30 minutos</item>
         <item>Cada hora</item>
         <item>Cada 2 horas</item>

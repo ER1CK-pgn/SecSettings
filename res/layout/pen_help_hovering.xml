@@ -4,14 +4,14 @@
     <LinearLayout android:orientation="vertical" android:background="#ff1b2a31" android:layout_width="fill_parent" android:layout_height="wrap_content"
       xmlns:android="http://schemas.android.com/apk/res/android">
         <TextView android:text="@string/pen_help_hovering_msg" style="@style/pen_help_title" />
-        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_010f" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_014f" android:contentDescription="@null" />
         <TextView android:text="@string/pen_help_hovering_msg_hover" style="@style/pen_help_title" />
         <Button android:textSize="20.0sp" android:textColor="#ffd7d7d7" android:ellipsize="marquee" android:id="@id/hovering_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/pen_help_hovering_button" android:singleLine="true" />
         <TextView android:id="@id/hovering_pointer_title" android:text="@string/pen_help_hovering_pointer_title" style="@style/pen_help_title" />
         <TextView android:text="@string/pen_help_hovering_pointer_msg1" style="@style/pen_help_msg" />
-        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0110" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0150" android:contentDescription="@null" />
         <TextView android:text="@string/pen_help_hovering_pointer_msg2" style="@style/pen_help_msg" />
-        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0111" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0151" android:contentDescription="@null" />
         <TextView android:id="@id/hovering_info_preview_title" android:text="@string/pen_help_hovering_info_tip_title" style="@style/pen_help_title" />
         <TextView android:text="@string/pen_help_hovering_info_tip_msg" style="@style/pen_help_msg" />
         <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -26,9 +26,9 @@
         </RelativeLayout>
         <TextView android:id="@id/hovering_icon_label_title" android:text="@string/pen_help_hovering_icon_label_title" style="@style/pen_help_title" />
         <TextView android:text="@string/pen_help_hovering_icon_lable_msg" style="@style/pen_help_msg" />
-        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0117" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0157" android:contentDescription="@null" />
         <TextView android:id="@id/hovering_list_scrolling_title" android:text="@string/pen_help_hovering_list_scroll_title" style="@style/pen_help_title" />
         <TextView android:text="@string/pen_help_hovering_list_scroll_msg" style="@style/pen_help_msg" />
-        <ImageView android:layout_gravity="center" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0118" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/APKTOOL_DUMMY_0158" android:contentDescription="@null" />
     </LinearLayout>
 </ScrollView>

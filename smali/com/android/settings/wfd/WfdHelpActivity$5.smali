@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 250
+    .line 251
     iput-boolean p2, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$desiredState:Z
 
     iput-object p3, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$nfcAdapter:Landroid/nfc/NfcAdapter;
@@ -44,7 +44,7 @@
     .locals 8
 
     .prologue
-    .line 252
+    .line 253
     const-string v5, "WfdHelpActivity"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -69,16 +69,16 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 254
     const/4 v4, 0x0
 
-    .line 257
+    .line 258
     .local v4, success:Z
     iget-boolean v5, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$desiredState:Z
 
     if-eqz v5, :cond_0
 
-    .line 259
+    .line 260
     :try_start_0
     iget-object v5, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$nfcAdapter:Landroid/nfc/NfcAdapter;
 
@@ -94,7 +94,7 @@
 
     move-result-object v1
 
-    .line 260
+    .line 261
     .local v1, NfcManagerClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     const-string v5, "enable"
 
@@ -106,13 +106,13 @@
 
     move-result-object v3
 
-    .line 261
+    .line 262
     .local v3, setNfcEnabled:Ljava/lang/reflect/Method;
     const/4 v5, 0x1
 
-    invoke-virtual {v3, v5}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v3, v5}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
-    .line 262
+    .line 263
     iget-object v5, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$nfcAdapter:Landroid/nfc/NfcAdapter;
 
     const/4 v6, 0x0
@@ -135,18 +135,18 @@
 
     move-result v0
 
-    .line 263
+    .line 264
     .local v0, Nfc:Z
     move v4, v0
 
-    .line 284
+    .line 285
     .end local v0           #Nfc:Z
     .end local v1           #NfcManagerClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     .end local v3           #setNfcEnabled:Ljava/lang/reflect/Method;
     :goto_0
     if-eqz v4, :cond_1
 
-    .line 285
+    .line 286
     const-string v5, "WfdHelpActivity"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -171,11 +171,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 289
+    .line 290
     :goto_1
     return-void
 
-    .line 272
+    .line 273
     :cond_0
     :try_start_1
     iget-object v5, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$nfcAdapter:Landroid/nfc/NfcAdapter;
@@ -192,7 +192,7 @@
 
     move-result-object v1
 
-    .line 273
+    .line 274
     .restart local v1       #NfcManagerClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     const-string v5, "disable"
 
@@ -204,13 +204,13 @@
 
     move-result-object v2
 
-    .line 274
+    .line 275
     .local v2, setNfcDisabled:Ljava/lang/reflect/Method;
     const/4 v5, 0x1
 
-    invoke-virtual {v2, v5}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v2, v5}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
-    .line 275
+    .line 276
     iget-object v5, p0, Lcom/android/settings/wfd/WfdHelpActivity$5;->val$nfcAdapter:Landroid/nfc/NfcAdapter;
 
     const/4 v6, 0x0
@@ -233,13 +233,13 @@
 
     move-result v0
 
-    .line 276
+    .line 277
     .restart local v0       #Nfc:Z
     move v4, v0
 
     goto :goto_0
 
-    .line 287
+    .line 288
     .end local v0           #Nfc:Z
     .end local v1           #NfcManagerClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     .end local v2           #setNfcDisabled:Ljava/lang/reflect/Method;
@@ -270,61 +270,61 @@
 
     goto :goto_1
 
-    .line 281
+    .line 282
     :catch_0
     move-exception v5
 
     goto :goto_0
 
-    .line 280
+    .line 281
     :catch_1
     move-exception v5
 
     goto :goto_0
 
-    .line 279
+    .line 280
     :catch_2
     move-exception v5
 
     goto :goto_0
 
-    .line 278
+    .line 279
     :catch_3
     move-exception v5
 
     goto :goto_0
 
-    .line 277
+    .line 278
     :catch_4
     move-exception v5
 
     goto :goto_0
 
-    .line 268
+    .line 269
     :catch_5
     move-exception v5
 
     goto :goto_0
 
-    .line 267
+    .line 268
     :catch_6
     move-exception v5
 
     goto :goto_0
 
-    .line 266
+    .line 267
     :catch_7
     move-exception v5
 
     goto :goto_0
 
-    .line 265
+    .line 266
     :catch_8
     move-exception v5
 
     goto :goto_0
 
-    .line 264
+    .line 265
     :catch_9
     move-exception v5
 

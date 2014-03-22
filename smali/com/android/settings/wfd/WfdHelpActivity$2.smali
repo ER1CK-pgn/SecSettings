@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 90
+    .line 91
     iput-object p1, p0, Lcom/android/settings/wfd/WfdHelpActivity$2;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 93
+    .line 94
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 94
+    .line 95
     .local v0, action:Ljava/lang/String;
     const-string v1, "WfdHelpActivity"
 
@@ -69,7 +69,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 95
+    .line 96
     const-string v1, "com.samsung.wfd.ALL_CLEAR"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -78,12 +78,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 96
+    .line 97
     iget-object v1, p0, Lcom/android/settings/wfd/WfdHelpActivity$2;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
-    invoke-virtual {v1}, Lcom/android/settings/wfd/WfdHelpActivity;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 98
+    .line 99
     :cond_0
     return-void
 .end method

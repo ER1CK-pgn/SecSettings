@@ -95,7 +95,7 @@
 
     .prologue
     .line 162
-    invoke-super {p0, p1, p2}, Landroid/preference/Preference$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-super {p0, p1, p2}, Landroid/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 163
     iget v0, p0, Lcom/android/settings/PointerSpeedPreference$SavedState;->progress:I

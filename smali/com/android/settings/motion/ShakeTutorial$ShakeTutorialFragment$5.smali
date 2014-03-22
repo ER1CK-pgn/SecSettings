@@ -28,13 +28,13 @@
     .parameter "arg1"
 
     .prologue
-    .line 273
+    .line 271
     iget-object v0, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$5;->this$0:Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;
 
     #calls: Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;->removeBTPreference()V
     invoke-static {v0}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;->access$400(Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;)V
 
-    .line 274
+    .line 272
     iget-object v0, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$5;->this$0:Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;
 
     const/4 v1, 0x1
@@ -42,7 +42,7 @@
     #setter for: Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;->mCanShake:Z
     invoke-static {v0, v1}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;->access$102(Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;Z)Z
 
-    .line 275
+    .line 273
     invoke-static {}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;->access$200()Landroid/hardware/motion/MotionRecognitionManager;
 
     move-result-object v0
@@ -58,7 +58,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 276
+    .line 274
     invoke-static {}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;->access$200()Landroid/hardware/motion/MotionRecognitionManager;
 
     move-result-object v0
@@ -74,7 +74,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/motion/MotionRecognitionManager;->registerListenerEvent(Landroid/hardware/motion/MRListener;I)V
 
-    .line 278
+    .line 276
     :cond_0
     return-void
 .end method

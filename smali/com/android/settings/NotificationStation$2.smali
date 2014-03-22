@@ -72,11 +72,11 @@
     .line 76
     iget-object v1, p0, Lcom/android/settings/NotificationStation$2;->this$0:Lcom/android/settings/NotificationStation;
 
-    invoke-virtual {v1}, Lcom/android/settings/NotificationStation;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v1}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getHandler()Landroid/os/Handler;
+    invoke-virtual {v1}, Landroid/view/View;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 
@@ -120,11 +120,11 @@
     .line 83
     iget-object v1, p0, Lcom/android/settings/NotificationStation$2;->this$0:Lcom/android/settings/NotificationStation;
 
-    invoke-virtual {v1}, Lcom/android/settings/NotificationStation;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v1}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getHandler()Landroid/os/Handler;
+    invoke-virtual {v1}, Landroid/view/View;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 

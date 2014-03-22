@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 223
+    .line 224
     iput-object p1, p0, Lcom/android/settings/AirViewPreferenceEnabler$7;->this$0:Lcom/android/settings/AirViewPreferenceEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 225
+    .line 226
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler$7;->this$0:Lcom/android/settings/AirViewPreferenceEnabler;
 
     #getter for: Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
@@ -55,7 +55,7 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/Utils;->SetAirViewMasterValue(Landroid/content/Context;I)V
 
-    .line 226
+    .line 227
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler$7;->this$0:Lcom/android/settings/AirViewPreferenceEnabler;
 
     const/4 v1, 0x0
@@ -63,13 +63,13 @@
     #calls: Lcom/android/settings/AirViewPreferenceEnabler;->broadcastAirViewChanged(Z)V
     invoke-static {v0, v1}, Lcom/android/settings/AirViewPreferenceEnabler;->access$300(Lcom/android/settings/AirViewPreferenceEnabler;Z)V
 
-    .line 227
+    .line 228
     const-string v0, "AirViewPreferenceEnabler"
 
     const-string v1, "Air view switch is off"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 228
+    .line 229
     return-void
 .end method

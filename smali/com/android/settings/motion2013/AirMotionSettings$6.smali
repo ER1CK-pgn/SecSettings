@@ -30,7 +30,7 @@
     .line 438
     iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .line 440
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -80,7 +80,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 444
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
@@ -90,7 +90,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 445
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
@@ -100,7 +100,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 446
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
@@ -110,7 +110,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 447
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
@@ -120,7 +120,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 448
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
@@ -130,12 +130,12 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 450
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$6;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 

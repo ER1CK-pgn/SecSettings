@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/nfc/NfcEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    value = Lcom/android/settings/nfc/NfcEnabler;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 595
+    .line 377
     iput-object p1, p0, Lcom/android/settings/nfc/NfcEnabler$5;->this$0:Lcom/android/settings/nfc/NfcEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,21 +38,31 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 3
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 598
+    const/4 v2, 0x0
+
+    .line 380
     iget-object v0, p0, Lcom/android/settings/nfc/NfcEnabler$5;->this$0:Lcom/android/settings/nfc/NfcEnabler;
 
     #getter for: Lcom/android/settings/nfc/NfcEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcEnabler;->access$100(Lcom/android/settings/nfc/NfcEnabler;)Landroid/nfc/NfcAdapter;
+    invoke-static {v0}, Lcom/android/settings/nfc/NfcEnabler;->access$000(Lcom/android/settings/nfc/NfcEnabler;)Landroid/nfc/NfcAdapter;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->disable()Z
+    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->disableNdefPush()Z
 
-    .line 599
+    .line 381
+    iget-object v0, p0, Lcom/android/settings/nfc/NfcEnabler$5;->this$0:Lcom/android/settings/nfc/NfcEnabler;
+
+    const/4 v1, 0x1
+
+    #calls: Lcom/android/settings/nfc/NfcEnabler;->setAndroidBeamSwitch(ZZZ)V
+    invoke-static {v0, v1, v2, v2}, Lcom/android/settings/nfc/NfcEnabler;->access$500(Lcom/android/settings/nfc/NfcEnabler;ZZZ)V
+
+    .line 382
     return-void
 .end method

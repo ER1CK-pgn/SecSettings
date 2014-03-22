@@ -311,7 +311,7 @@
     :cond_6
     sget-object v18, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v19, 0x7f090ff9
+    const v19, 0x7f091137
 
     const/16 v20, 0x1
 
@@ -515,7 +515,7 @@
     .line 369
     sget-object v18, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v19, 0x7f090ff9
+    const v19, 0x7f091137
 
     const/16 v20, 0x1
 
@@ -677,7 +677,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f110008
+    const v6, 0x7f110009
 
     long-to-int v7, v0
 
@@ -749,7 +749,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f110009
+    const v7, 0x7f11000a
 
     long-to-int v8, v3
 
@@ -830,7 +830,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0015
+    const v4, 0x7f0a001a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -853,7 +853,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0013
+    const v4, 0x7f0a0018
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -956,11 +956,11 @@
 
     .line 132
     .local v4, i:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/ScreenTimeoutFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v4}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v4}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -986,14 +986,14 @@
 
     .line 139
     .restart local v4       #i:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/ScreenTimeoutFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v4}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v4}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 142
-    invoke-virtual {p0}, Lcom/android/settings/ScreenTimeoutFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
@@ -1125,7 +1125,7 @@
     .line 156
     iget-object v7, p0, Lcom/android/settings/ScreenTimeoutFragment;->mSummaryView:Landroid/widget/TextView;
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->invalidate()V
+    invoke-virtual {v7}, Landroid/view/View;->invalidate()V
 
     .line 157
     return-void
@@ -1184,7 +1184,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0013
+    const v1, 0x7f0a0018
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1199,7 +1199,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0012
+    const v1, 0x7f0a0017
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1219,7 +1219,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0015
+    const v1, 0x7f0a001a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1234,7 +1234,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0014
+    const v1, 0x7f0a0019
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1353,7 +1353,7 @@
     .line 247
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090059
+    const v15, 0x7f09006d
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1372,7 +1372,7 @@
 
     .line 181
     .local v7, e:Ljava/lang/NullPointerException;
-    invoke-virtual {v7}, Ljava/lang/NullPointerException;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1400,7 +1400,7 @@
     .line 191
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090572
+    const v15, 0x7f0905a1
 
     const/16 v16, 0x1
 
@@ -1505,7 +1505,7 @@
     :cond_9
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090572
+    const v15, 0x7f0905a1
 
     const/16 v16, 0x1
 
@@ -1565,7 +1565,7 @@
     .line 216
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090572
+    const v15, 0x7f0905a1
 
     const/16 v16, 0x1
 
@@ -1614,7 +1614,7 @@
     :cond_c
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090572
+    const v15, 0x7f0905a1
 
     const/16 v16, 0x1
 
@@ -1662,7 +1662,7 @@
     .line 227
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090572
+    const v15, 0x7f0905a1
 
     const/16 v16, 0x1
 
@@ -1693,7 +1693,7 @@
     :cond_e
     sget-object v14, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f090572
+    const v15, 0x7f0905a1
 
     const/16 v16, 0x1
 
@@ -1737,7 +1737,7 @@
     invoke-direct {p0, v0}, Lcom/android/settings/ScreenTimeoutFragment;->setScreenTimeoutValue(I)V
 
     .line 107
-    invoke-virtual {p0}, Lcom/android/settings/ScreenTimeoutFragment;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 108
     return-void
@@ -1782,7 +1782,7 @@
 
     .line 90
     .local v3, idx:I
-    const v4, 0x7f090571
+    const v4, 0x7f0905a0
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1792,7 +1792,7 @@
     invoke-virtual {v0, v4, v3, p0}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 92
-    const v4, 0x7f090173
+    const v4, 0x7f090195
 
     new-instance v5, Lcom/android/settings/ScreenTimeoutFragment$1;
 
@@ -1928,7 +1928,7 @@
     .line 393
     iget-object v9, p0, Lcom/android/settings/ScreenTimeoutFragment;->mScreenTimeDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v9}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v9}, Landroid/app/Dialog;->dismiss()V
 
     .line 394
     const/4 v9, 0x0
@@ -1939,11 +1939,11 @@
     :cond_1
     sget-object v9, Lcom/android/settings/ScreenTimeoutFragment;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p0}, Lcom/android/settings/ScreenTimeoutFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
-    invoke-virtual {v10}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v10}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     const-string v10, "layout_inflater"
 
@@ -1955,7 +1955,7 @@
 
     .line 398
     .local v4, inflater:Landroid/view/LayoutInflater;
-    const v9, 0x7f040111
+    const v9, 0x7f040139
 
     const/4 v10, 0x0
 
@@ -1965,7 +1965,7 @@
 
     .line 399
     .local v5, layout:Landroid/view/View;
-    const v9, 0x7f0b0300
+    const v9, 0x7f0b033e
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1975,7 +1975,7 @@
 
     .line 400
     .local v8, tv:Landroid/widget/TextView;
-    const v9, 0x7f09005a
+    const v9, 0x7f09006e
 
     const/4 v10, 0x1
 
@@ -1989,7 +1989,7 @@
 
     aput-object v12, v10, v11
 
-    invoke-virtual {p0, v9, v10}, Lcom/android/settings/ScreenTimeoutFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v9, v10}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v9
 
@@ -1999,7 +1999,7 @@
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 403
-    const v9, 0x7f090571
+    const v9, 0x7f0905a0
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2020,7 +2020,7 @@
     .line 407
     iget-object v9, p0, Lcom/android/settings/ScreenTimeoutFragment;->mScreenTimeDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v9}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v9}, Landroid/app/Dialog;->show()V
 
     .line 408
     return-void

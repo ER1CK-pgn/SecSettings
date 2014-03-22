@@ -35,7 +35,7 @@
     .parameter
 
     .prologue
-    .line 311
+    .line 355
     iput-object p1, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -49,7 +49,7 @@
     .parameter "x1"
 
     .prologue
-    .line 311
+    .line 355
     invoke-direct {p0, p1}, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;-><init>(Lcom/android/settings/CredentialStorage;)V
 
     return-void
@@ -64,7 +64,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 315
+    .line 359
     iget-object v2, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
     #getter for: Lcom/android/settings/CredentialStorage;->mKeyStore:Landroid/security/KeyStore;
@@ -74,7 +74,7 @@
 
     invoke-virtual {v2}, Landroid/security/KeyStore;->reset()Z
 
-    .line 318
+    .line 371
     :try_start_0
     iget-object v2, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
@@ -84,7 +84,7 @@
 
     move-result-object v1
 
-    .line 320
+    .line 373
     .local v1, keyChainConnection:Landroid/security/KeyChain$KeyChainConnection;
     :try_start_1
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
@@ -102,23 +102,23 @@
 
     move-result-object v2
 
-    .line 324
+    .line 377
     :try_start_2
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->close()V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 328
+    .line 381
     .end local v1           #keyChainConnection:Landroid/security/KeyChain$KeyChainConnection;
     :goto_0
     return-object v2
 
-    .line 321
+    .line 374
     .restart local v1       #keyChainConnection:Landroid/security/KeyChain$KeyChainConnection;
     :catch_0
     move-exception v0
 
-    .line 322
+    .line 375
     .local v0, e:Landroid/os/RemoteException;
     const/4 v2, 0x0
 
@@ -129,7 +129,7 @@
 
     move-result-object v2
 
-    .line 324
+    .line 377
     :try_start_4
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->close()V
     :try_end_4
@@ -137,13 +137,13 @@
 
     goto :goto_0
 
-    .line 326
+    .line 379
     .end local v0           #e:Landroid/os/RemoteException;
     .end local v1           #keyChainConnection:Landroid/security/KeyChain$KeyChainConnection;
     :catch_1
     move-exception v0
 
-    .line 327
+    .line 380
     .local v0, e:Ljava/lang/InterruptedException;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -151,14 +151,14 @@
 
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
-    .line 328
+    .line 381
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
     goto :goto_0
 
-    .line 324
+    .line 377
     .end local v0           #e:Ljava/lang/InterruptedException;
     .restart local v1       #keyChainConnection:Landroid/security/KeyChain$KeyChainConnection;
     :catchall_0
@@ -177,7 +177,7 @@
     .parameter "x0"
 
     .prologue
-    .line 311
+    .line 355
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -195,17 +195,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 333
+    .line 386
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 334
+    .line 387
     iget-object v0, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
-    const v1, 0x7f090917
+    const v1, 0x7f0909f5
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -213,20 +213,20 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 340
+    .line 393
     :goto_0
     iget-object v0, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
-    invoke-virtual {v0}, Lcom/android/settings/CredentialStorage;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 341
+    .line 394
     return-void
 
-    .line 337
+    .line 390
     :cond_0
     iget-object v0, p0, Lcom/android/settings/CredentialStorage$ResetKeyStoreAndKeyChain;->this$0:Lcom/android/settings/CredentialStorage;
 
-    const v1, 0x7f090918
+    const v1, 0x7f0909f6
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -242,7 +242,7 @@
     .parameter "x0"
 
     .prologue
-    .line 311
+    .line 355
     check-cast p1, Ljava/lang/Boolean;
 
     .end local p1

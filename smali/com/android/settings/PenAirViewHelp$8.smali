@@ -3,12 +3,12 @@
 .source "PenAirViewHelp.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/PenAirViewHelp;->showTurnOnDialog(Ljava/lang/String;)V
+    value = Lcom/android/settings/PenAirViewHelp;->showInforPreviewDisableDialog(Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,73 +20,61 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/PenAirViewHelp;
 
-.field final synthetic val$tutorial_type:Ljava/lang/String;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/PenAirViewHelp;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/settings/PenAirViewHelp;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 324
+    .line 284
     iput-object p1, p0, Lcom/android/settings/PenAirViewHelp$8;->this$0:Lcom/android/settings/PenAirViewHelp;
 
-    iput-object p2, p0, Lcom/android/settings/PenAirViewHelp$8;->val$tutorial_type:Ljava/lang/String;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 4
     .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v0, 0x0
 
-    .line 326
-    iget-object v0, p0, Lcom/android/settings/PenAirViewHelp$8;->this$0:Lcom/android/settings/PenAirViewHelp;
-
-    invoke-virtual {v0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
+    .line 286
     iget-object v1, p0, Lcom/android/settings/PenAirViewHelp$8;->this$0:Lcom/android/settings/PenAirViewHelp;
 
-    #getter for: Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
-    invoke-static {v1}, Lcom/android/settings/PenAirViewHelp;->access$000(Lcom/android/settings/PenAirViewHelp;)Ljava/lang/String;
+    #getter for: Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
+    invoke-static {v1}, Lcom/android/settings/PenAirViewHelp;->access$200(Lcom/android/settings/PenAirViewHelp;)Landroid/widget/Switch;
 
     move-result-object v1
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    iget-object v2, p0, Lcom/android/settings/PenAirViewHelp$8;->this$0:Lcom/android/settings/PenAirViewHelp;
 
-    .line 327
-    iget-object v0, p0, Lcom/android/settings/PenAirViewHelp$8;->this$0:Lcom/android/settings/PenAirViewHelp;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    #getter for: Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
-    invoke-static {v0}, Lcom/android/settings/PenAirViewHelp;->access$200(Lcom/android/settings/PenAirViewHelp;)Landroid/widget/Switch;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
+    move-result-object v2
 
-    .line 328
-    iget-object v0, p0, Lcom/android/settings/PenAirViewHelp$8;->this$0:Lcom/android/settings/PenAirViewHelp;
+    const-string v3, "pen_hovering_information_preview"
 
-    iget-object v1, p0, Lcom/android/settings/PenAirViewHelp$8;->val$tutorial_type:Ljava/lang/String;
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/PenAirViewHelp;->startTryActually(Ljava/lang/String;)V
+    move-result v2
 
-    .line 329
+    if-eqz v2, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    .line 288
     return-void
 .end method

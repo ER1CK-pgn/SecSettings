@@ -39,30 +39,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1879
+    .line 2124
     const v0, 0x1090008
 
     invoke-direct {p0, p1, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
-    .line 1873
+    .line 2118
     iput-boolean v1, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangePossible:Z
 
-    .line 1874
+    .line 2119
     iput-boolean v1, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangeVisible:Z
 
-    .line 1880
+    .line 2125
     const v0, 0x1090009
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->setDropDownViewResource(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
 
-    .line 1881
+    .line 2126
     new-instance v0, Lcom/android/settings/DataUsageSummary$CycleChangeItem;
 
     invoke-direct {v0, p1}, Lcom/android/settings/DataUsageSummary$CycleChangeItem;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangeItem:Lcom/android/settings/DataUsageSummary$CycleChangeItem;
 
-    .line 1882
+    .line 2127
     return-void
 .end method
 
@@ -70,12 +70,12 @@
     .locals 1
 
     .prologue
-    .line 1895
+    .line 2140
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangeItem:Lcom/android/settings/DataUsageSummary$CycleChangeItem;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->remove(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Landroid/widget/ArrayAdapter;->remove(Ljava/lang/Object;)V
 
-    .line 1896
+    .line 2141
     iget-boolean v0, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangePossible:Z
 
     if-eqz v0, :cond_0
@@ -84,12 +84,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 1897
+    .line 2142
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangeItem:Lcom/android/settings/DataUsageSummary$CycleChangeItem;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->add(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Landroid/widget/ArrayAdapter;->add(Ljava/lang/Object;)V
 
-    .line 1899
+    .line 2144
     :cond_0
     return-void
 .end method
@@ -101,15 +101,15 @@
     .parameter "target"
 
     .prologue
-    .line 1906
+    .line 2151
     if-eqz p1, :cond_2
 
-    .line 1907
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->getCount()I
+    .line 2152
+    invoke-virtual {p0}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v0
 
-    .line 1908
+    .line 2153
     .local v0, count:I
     add-int/lit8 v1, v0, -0x1
 
@@ -117,26 +117,26 @@
     :goto_0
     if-ltz v1, :cond_2
 
-    .line 1909
-    invoke-virtual {p0, v1}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->getItem(I)Ljava/lang/Object;
+    .line 2154
+    invoke-virtual {p0, v1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/settings/DataUsageSummary$CycleItem;
 
-    .line 1910
+    .line 2155
     .local v2, item:Lcom/android/settings/DataUsageSummary$CycleItem;
     instance-of v3, v2, Lcom/android/settings/DataUsageSummary$CycleChangeItem;
 
     if-eqz v3, :cond_1
 
-    .line 1908
+    .line 2153
     :cond_0
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 1912
+    .line 2157
     :cond_1
     invoke-virtual {v2, p1}, Lcom/android/settings/DataUsageSummary$CycleItem;->compareTo(Lcom/android/settings/DataUsageSummary$CycleItem;)I
 
@@ -144,7 +144,7 @@
 
     if-ltz v3, :cond_0
 
-    .line 1917
+    .line 2162
     .end local v0           #count:I
     .end local v1           #i:I
     .end local v2           #item:Lcom/android/settings/DataUsageSummary$CycleItem;
@@ -162,13 +162,13 @@
     .parameter "possible"
 
     .prologue
-    .line 1885
+    .line 2130
     iput-boolean p1, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangePossible:Z
 
-    .line 1886
+    .line 2131
     invoke-direct {p0}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->updateChange()V
 
-    .line 1887
+    .line 2132
     return-void
 .end method
 
@@ -177,12 +177,12 @@
     .parameter "visible"
 
     .prologue
-    .line 1890
+    .line 2135
     iput-boolean p1, p0, Lcom/android/settings/DataUsageSummary$CycleAdapter;->mChangeVisible:Z
 
-    .line 1891
+    .line 2136
     invoke-direct {p0}, Lcom/android/settings/DataUsageSummary$CycleAdapter;->updateChange()V
 
-    .line 1892
+    .line 2137
     return-void
 .end method

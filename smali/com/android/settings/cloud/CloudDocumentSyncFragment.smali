@@ -53,18 +53,18 @@
 
     iget-object v3, p0, Lcom/android/settings/cloud/SyncFragment;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v3}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v3
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 87
-    invoke-virtual {p0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v2, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 89
     const-string v2, "CloudSettings"
@@ -81,7 +81,7 @@
 
     iget-object v4, p0, Lcom/android/settings/cloud/SyncFragment;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v4}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v4
 
@@ -125,7 +125,7 @@
 
     iget-object v3, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v3}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v3
 
@@ -145,11 +145,11 @@
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v2, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 102
     const-string v2, "CloudSettings"
@@ -166,7 +166,7 @@
 
     iget-object v4, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -195,7 +195,7 @@
     .line 37
     const-string v0, "pref_wifi_only"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -207,7 +207,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 43
     return-void
@@ -222,9 +222,9 @@
     invoke-super {p0, p1}, Lcom/android/settings/cloud/SyncFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 28
-    const v0, 0x7f07001e
+    const v0, 0x7f070027
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 31
     invoke-virtual {p0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->getPreferencesReference()V
@@ -256,7 +256,7 @@
     .line 55
     iget-object v0, p0, Lcom/android/settings/cloud/SyncFragment;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 58
     invoke-virtual {p0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->updatePreferences()V
@@ -318,7 +318,7 @@
     sput-boolean v1, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->isDocumentSyncAvailable:Z
 
     .line 64
-    invoke-virtual {p0}, Lcom/android/settings/cloud/CloudDocumentSyncFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
@@ -331,7 +331,7 @@
     .line 67
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     .line 68
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
@@ -346,7 +346,7 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 72
     :goto_0
@@ -356,7 +356,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     goto :goto_0
 .end method

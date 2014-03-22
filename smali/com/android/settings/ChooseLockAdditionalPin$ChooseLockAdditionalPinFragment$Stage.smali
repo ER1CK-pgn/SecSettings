@@ -44,7 +44,7 @@
     .locals 8
 
     .prologue
-    const v7, 0x7f09021c
+    const v7, 0x7f090241
 
     const/4 v6, 0x2
 
@@ -52,42 +52,42 @@
 
     const/4 v4, 0x0
 
-    .line 146
+    .line 155
     new-instance v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
     const-string v1, "Introduction"
 
-    const v2, 0x7f0910a0
+    const v2, 0x7f0911e1
 
     invoke-direct {v0, v1, v4, v2, v7}, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->Introduction:Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
-    .line 149
+    .line 158
     new-instance v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
     const-string v1, "NeedToConfirm"
 
-    const v2, 0x7f0906de
+    const v2, 0x7f090731
 
-    const v3, 0x7f090227
+    const v3, 0x7f09024c
 
     invoke-direct {v0, v1, v5, v2, v3}, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->NeedToConfirm:Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
-    .line 152
+    .line 161
     new-instance v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
     const-string v1, "ConfirmWrong"
 
-    const v2, 0x7f0906e0
+    const v2, 0x7f090733
 
     invoke-direct {v0, v1, v6, v2, v7}, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;-><init>(Ljava/lang/String;III)V
 
     sput-object v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->ConfirmWrong:Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
-    .line 144
+    .line 153
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
@@ -122,16 +122,16 @@
     .end annotation
 
     .prologue
-    .line 158
+    .line 167
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 159
+    .line 168
     iput p3, p0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->numericHint:I
 
-    .line 160
+    .line 169
     iput p4, p0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->buttonText:I
 
-    .line 161
+    .line 170
     return-void
 .end method
 
@@ -140,7 +140,7 @@
     .parameter
 
     .prologue
-    .line 144
+    .line 153
     const-class v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -156,10 +156,10 @@
     .locals 1
 
     .prologue
-    .line 144
+    .line 153
     sget-object v0, Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->$VALUES:[Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;
 
-    invoke-virtual {v0}, [Lcom/android/settings/ChooseLockAdditionalPin$ChooseLockAdditionalPinFragment$Stage;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

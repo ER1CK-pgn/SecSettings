@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 127
+    .line 132
     iput-object p1, p0, Lcom/android/settings/AirCommandEnabler$3;->this$0:Lcom/android/settings/AirCommandEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,20 +45,20 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 130
+    .line 135
     invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 131
+    .line 136
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler$3;->this$0:Lcom/android/settings/AirCommandEnabler;
 
     #calls: Lcom/android/settings/AirCommandEnabler;->turnOnPenInfoPreview()V
     invoke-static {v0}, Lcom/android/settings/AirCommandEnabler;->access$100(Lcom/android/settings/AirCommandEnabler;)V
 
-    .line 134
+    .line 139
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler$3;->this$0:Lcom/android/settings/AirCommandEnabler;
 
@@ -75,7 +75,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 135
+    .line 140
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler$3;->this$0:Lcom/android/settings/AirCommandEnabler;
 
     #getter for: Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
@@ -85,6 +85,6 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 136
+    .line 141
     return-void
 .end method

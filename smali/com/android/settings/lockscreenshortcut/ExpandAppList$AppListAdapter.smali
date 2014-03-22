@@ -75,20 +75,20 @@
     .parameter "parent"
 
     .prologue
-    const v11, 0x7f0b0278
+    const v11, 0x7f0b02b4
 
-    const v10, 0x7f0b0050
+    const v10, 0x7f0b0059
 
-    const v9, 0x7f0b004f
+    const v9, 0x7f0b0058
 
-    const v8, 0x7f04016b
+    const v8, 0x7f0401a7
 
     const/4 v7, 0x0
 
     .line 313
     iget-object v5, p0, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->this$0:Lcom/android/settings/lockscreenshortcut/ExpandAppList;
 
-    invoke-virtual {v5}, Lcom/android/settings/lockscreenshortcut/ExpandAppList;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {v5}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v4
 
@@ -97,7 +97,7 @@
     if-nez p2, :cond_3
 
     .line 317
-    const v5, 0x7f0400ca
+    const v5, 0x7f0400ed
 
     invoke-virtual {v4, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     .line 341
     .local v1, appName:Landroid/widget/TextView;
-    const v5, 0x7f0910b3
+    const v5, 0x7f0911f4
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -193,7 +193,7 @@
     if-nez v3, :cond_0
 
     .line 329
-    const v5, 0x7f0400ca
+    const v5, 0x7f0400ed
 
     invoke-virtual {v4, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -244,7 +244,7 @@
 
     .line 346
     .restart local v1       #appName:Landroid/widget/TextView;
-    const v5, 0x7f0910b4
+    const v5, 0x7f0911f5
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -269,7 +269,7 @@
 
     .line 353
     .local v0, appIcon:Landroid/widget/ImageView;
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -284,14 +284,14 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v6}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v5
 
     if-eqz v5, :cond_6
 
     .line 354
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -312,7 +312,7 @@
 
     .line 355
     :cond_6
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -327,14 +327,14 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
     if-eqz v5, :cond_2
 
     .line 356
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -414,7 +414,7 @@
 
     if-nez v5, :cond_a
 
-    const v5, 0x7f0910b4
+    const v5, 0x7f0911f5
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -430,7 +430,7 @@
     .line 369
     .restart local v1       #appName:Landroid/widget/TextView;
     :cond_a
-    const v5, 0x7f0910b3
+    const v5, 0x7f0911f4
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -452,7 +452,7 @@
 
     .line 374
     .restart local v1       #appName:Landroid/widget/TextView;
-    const v5, 0x7f0910b4
+    const v5, 0x7f0911f5
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -477,7 +477,7 @@
 
     .line 381
     .restart local v0       #appIcon:Landroid/widget/ImageView;
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -492,14 +492,14 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v6}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v5
 
     if-eqz v5, :cond_d
 
     .line 382
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -520,7 +520,7 @@
 
     .line 383
     :cond_d
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -535,14 +535,14 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
     if-eqz v5, :cond_2
 
     .line 384
-    invoke-virtual {p0, p1}, Lcom/android/settings/lockscreenshortcut/ExpandAppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 

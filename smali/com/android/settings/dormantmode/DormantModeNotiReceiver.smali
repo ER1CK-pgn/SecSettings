@@ -14,197 +14,6 @@
     return-void
 .end method
 
-.method private TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
-    .locals 9
-    .parameter "context"
-    .parameter "hour"
-    .parameter "mine"
-
-    .prologue
-    const/16 v7, 0xc
-
-    .line 110
-    const-string v2, ""
-
-    .line 111
-    .local v2, mTimeAMPM:Ljava/lang/String;
-    new-instance v0, Ljava/text/DateFormatSymbols;
-
-    invoke-direct {v0}, Ljava/text/DateFormatSymbols;-><init>()V
-
-    .line 112
-    .local v0, dfs:Ljava/text/DateFormatSymbols;
-    invoke-virtual {v0}, Ljava/text/DateFormatSymbols;->getAmPmStrings()[Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 114
-    .local v1, dfsAmPm:[Ljava/lang/String;
-    invoke-static {p1}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    .line 115
-    if-ge p2, v7, :cond_2
-
-    .line 116
-    if-nez p2, :cond_0
-
-    add-int/lit8 p2, p2, 0xc
-
-    .line 117
-    :cond_0
-    const/4 v6, 0x0
-
-    aget-object v2, v1, v6
-
-    .line 124
-    :cond_1
-    :goto_0
-    new-instance v6, Ljava/text/DecimalFormat;
-
-    const-string v7, "00"
-
-    invoke-direct {v6, v7}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
-
-    int-to-long v7, p2
-
-    invoke-virtual {v6, v7, v8}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 125
-    .local v3, mTimeHour:Ljava/lang/String;
-    new-instance v6, Ljava/text/DecimalFormat;
-
-    const-string v7, "00"
-
-    invoke-direct {v6, v7}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
-
-    int-to-long v7, p3
-
-    invoke-virtual {v6, v7, v8}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 127
-    .local v4, mTimeMin:Ljava/lang/String;
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 129
-    .local v5, setTime:Ljava/lang/StringBuilder;
-    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 130
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 134
-    :goto_1
-    return-object v5
-
-    .line 119
-    .end local v3           #mTimeHour:Ljava/lang/String;
-    .end local v4           #mTimeMin:Ljava/lang/String;
-    .end local v5           #setTime:Ljava/lang/StringBuilder;
-    :cond_2
-    if-eq p2, v7, :cond_3
-
-    add-int/lit8 p2, p2, -0xc
-
-    .line 120
-    :cond_3
-    const/4 v6, 0x1
-
-    aget-object v2, v1, v6
-
-    goto :goto_0
-
-    .line 132
-    .restart local v3       #mTimeHour:Ljava/lang/String;
-    .restart local v4       #mTimeMin:Ljava/lang/String;
-    .restart local v5       #setTime:Ljava/lang/StringBuilder;
-    :cond_4
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    goto :goto_1
-.end method
-
 .method private cancelOnGoingAlarm(Landroid/content/Context;)V
     .locals 6
     .parameter "context"
@@ -212,7 +21,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 222
+    .line 203
     const-string v3, "alarm"
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -221,7 +30,7 @@
 
     check-cast v0, Landroid/app/AlarmManager;
 
-    .line 224
+    .line 205
     .local v0, alarm:Landroid/app/AlarmManager;
     new-instance v3, Landroid/content/Intent;
 
@@ -233,7 +42,7 @@
 
     move-result-object v2
 
-    .line 225
+    .line 206
     .local v2, sStart:Landroid/app/PendingIntent;
     new-instance v3, Landroid/content/Intent;
 
@@ -245,14 +54,14 @@
 
     move-result-object v1
 
-    .line 227
+    .line 208
     .local v1, sEnd:Landroid/app/PendingIntent;
     invoke-virtual {v0, v2}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    .line 228
+    .line 209
     invoke-virtual {v0, v1}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    .line 231
+    .line 212
     return-void
 .end method
 
@@ -263,16 +72,16 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 144
+    .line 125
     const/4 v3, 0x0
 
-    .line 146
+    .line 127
     .local v3, isEnabled:Z
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
-    .line 147
+    .line 128
     .local v0, c:Ljava/util/Calendar;
     const/16 v5, 0xb
 
@@ -290,7 +99,7 @@
 
     add-int v1, v5, v6
 
-    .line 149
+    .line 130
     .local v1, curTime:I
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -316,7 +125,7 @@
 
     add-int v4, v5, v6
 
-    .line 150
+    .line 131
     .local v4, startTime:I
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -342,39 +151,39 @@
 
     add-int v2, v5, v6
 
-    .line 152
+    .line 133
     .local v2, endTime:I
     if-ge v4, v2, :cond_1
 
-    .line 153
+    .line 134
     if-lt v1, v4, :cond_0
 
     if-ge v1, v2, :cond_0
 
-    .line 154
+    .line 135
     const/4 v3, 0x1
 
-    .line 163
+    .line 144
     :cond_0
     :goto_0
     return v3
 
-    .line 156
+    .line 137
     :cond_1
     if-le v4, v2, :cond_3
 
-    .line 157
+    .line 138
     if-lt v1, v2, :cond_2
 
     if-lt v1, v4, :cond_0
 
-    .line 158
+    .line 139
     :cond_2
     const/4 v3, 0x1
 
     goto :goto_0
 
-    .line 160
+    .line 141
     :cond_3
     const/4 v3, 0x1
 
@@ -386,18 +195,18 @@
     .parameter "context"
 
     .prologue
-    .line 168
+    .line 149
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v6
 
-    .line 169
+    .line 150
     .local v6, cStart:Ljava/util/Calendar;
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v5
 
-    .line 170
+    .line 151
     .local v5, cEnd:Ljava/util/Calendar;
     const/16 v18, 0xb
 
@@ -435,7 +244,7 @@
 
     add-int v7, v18, v19
 
-    .line 172
+    .line 153
     .local v7, curTime:I
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -449,7 +258,7 @@
 
     move-result v15
 
-    .line 173
+    .line 154
     .local v15, startHour:I
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -463,7 +272,7 @@
 
     move-result v16
 
-    .line 174
+    .line 155
     .local v16, startMin:I
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -477,7 +286,7 @@
 
     move-result v8
 
-    .line 175
+    .line 156
     .local v8, endHour:I
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -491,7 +300,7 @@
 
     move-result v9
 
-    .line 177
+    .line 158
     .local v9, endMin:I
     mul-int/lit16 v0, v15, 0xe10
 
@@ -501,7 +310,7 @@
 
     add-int v17, v18, v19
 
-    .line 178
+    .line 159
     .local v17, startTime:I
     mul-int/lit16 v0, v8, 0xe10
 
@@ -511,19 +320,19 @@
 
     add-int v10, v18, v19
 
-    .line 180
+    .line 161
     .local v10, endTime:I
     sub-int v14, v7, v17
 
-    .line 181
+    .line 162
     .local v14, setStartTime:I
     sub-int v13, v7, v10
 
-    .line 184
+    .line 165
     .local v13, setEndTime:I
     if-lez v14, :cond_1
 
-    .line 185
+    .line 166
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
@@ -532,7 +341,7 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 186
+    .line 167
     const/16 v18, 0xb
 
     div-int/lit16 v0, v14, 0xe10
@@ -547,7 +356,7 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 187
+    .line 168
     const/16 v18, 0xc
 
     rem-int/lit16 v0, v14, 0xe10
@@ -564,7 +373,7 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 188
+    .line 169
     const/16 v18, 0xd
 
     rem-int/lit8 v19, v14, 0x3c
@@ -577,11 +386,11 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 198
+    .line 179
     :goto_0
     if-ge v10, v7, :cond_2
 
-    .line 199
+    .line 180
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
@@ -590,7 +399,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 200
+    .line 181
     const/16 v18, 0xb
 
     div-int/lit16 v0, v13, 0xe10
@@ -605,7 +414,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 201
+    .line 182
     const/16 v18, 0xc
 
     rem-int/lit16 v0, v13, 0xe10
@@ -622,7 +431,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 202
+    .line 183
     const/16 v18, 0xd
 
     rem-int/lit8 v19, v13, 0x3c
@@ -635,7 +444,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 211
+    .line 192
     :cond_0
     :goto_1
     const-string v18, "alarm"
@@ -650,7 +459,7 @@
 
     check-cast v4, Landroid/app/AlarmManager;
 
-    .line 213
+    .line 194
     .local v4, alarm:Landroid/app/AlarmManager;
     const/16 v18, 0x0
 
@@ -674,7 +483,7 @@
 
     move-result-object v12
 
-    .line 214
+    .line 195
     .local v12, sStart:Landroid/app/PendingIntent;
     const/16 v18, 0x0
 
@@ -698,7 +507,7 @@
 
     move-result-object v11
 
-    .line 216
+    .line 197
     .local v11, sEnd:Landroid/app/PendingIntent;
     const/16 v18, 0x1
 
@@ -712,7 +521,7 @@
 
     invoke-virtual {v4, v0, v1, v2, v12}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 217
+    .line 198
     const/16 v18, 0x1
 
     invoke-virtual {v5}, Ljava/util/Calendar;->getTimeInMillis()J
@@ -725,10 +534,10 @@
 
     invoke-virtual {v4, v0, v1, v2, v11}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 218
+    .line 199
     return-void
 
-    .line 190
+    .line 171
     .end local v4           #alarm:Landroid/app/AlarmManager;
     .end local v11           #sEnd:Landroid/app/PendingIntent;
     .end local v12           #sStart:Landroid/app/PendingIntent;
@@ -741,7 +550,7 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 191
+    .line 172
     const/16 v18, 0xb
 
     invoke-static {v14}, Ljava/lang/Math;->abs(I)I
@@ -760,7 +569,7 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 192
+    .line 173
     const/16 v18, 0xc
 
     invoke-static {v14}, Ljava/lang/Math;->abs(I)I
@@ -781,7 +590,7 @@
 
     invoke-virtual {v6, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 193
+    .line 174
     const/16 v18, 0xd
 
     invoke-static {v14}, Ljava/lang/Math;->abs(I)I
@@ -798,11 +607,11 @@
 
     goto/16 :goto_0
 
-    .line 203
+    .line 184
     :cond_2
     if-le v10, v7, :cond_0
 
-    .line 204
+    .line 185
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
@@ -811,7 +620,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 205
+    .line 186
     const/16 v18, 0xb
 
     invoke-static {v13}, Ljava/lang/Math;->abs(I)I
@@ -830,7 +639,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 206
+    .line 187
     const/16 v18, 0xc
 
     invoke-static {v13}, Ljava/lang/Math;->abs(I)I
@@ -851,7 +660,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 207
+    .line 188
     const/16 v18, 0xd
 
     invoke-static {v13}, Ljava/lang/Math;->abs(I)I
@@ -876,10 +685,10 @@
     .parameter "context"
 
     .prologue
-    .line 137
-    const v1, 0x7f020414
+    .line 118
+    const v1, 0x7f020493
 
-    .line 139
+    .line 120
     .local v1, notiID:I
     const-string v2, "notification"
 
@@ -889,11 +698,11 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    .line 140
+    .line 121
     .local v0, nm:Landroid/app/NotificationManager;
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 141
+    .line 122
     return-void
 .end method
 
@@ -903,7 +712,7 @@
 
     .prologue
     .line 61
-    const v14, 0x7f020414
+    const v14, 0x7f020493
 
     .line 63
     .local v14, notiID:I
@@ -953,7 +762,7 @@
 
     .line 68
     .local v13, noti:Landroid/app/Notification$Builder;
-    const v19, 0x7f020414
+    const v19, 0x7f020493
 
     move/from16 v0, v19
 
@@ -965,7 +774,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f09127a
+    const v21, 0x7f0913e4
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -979,7 +788,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f09127a
+    const v21, 0x7f0913e4
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1002,7 +811,7 @@
 
     .line 71
     .local v8, allways:I
-    if-nez v8, :cond_1
+    if-nez v8, :cond_2
 
     .line 72
     invoke-direct/range {p0 .. p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->setOnGoingAlarm(Landroid/content/Context;)V
@@ -1064,21 +873,17 @@
 
     .line 78
     .local v5, Endmin:I
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
-    move-object/from16 v1, p1
-
-    invoke-direct {v0, v1, v6, v7}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
+    invoke-static {v0, v6, v7}, Lcom/android/settings/dormantmode/DormantModeUtils;->TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
 
     move-result-object v17
 
     .line 79
     .local v17, starttime:Ljava/lang/StringBuilder;
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
-    move-object/from16 v1, p1
-
-    invoke-direct {v0, v1, v4, v5}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
+    invoke-static {v0, v4, v5}, Lcom/android/settings/dormantmode/DormantModeUtils;->TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -1123,7 +928,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f09127c
+    const v20, 0x7f0913e6
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1185,7 +990,7 @@
 
     invoke-virtual {v12, v14, v0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 106
+    .line 114
     .end local v4           #Endhour:I
     .end local v5           #Endmin:I
     .end local v6           #Starthour:I
@@ -1197,7 +1002,7 @@
     :goto_0
     return-void
 
-    .line 92
+    .line 93
     .restart local v4       #Endhour:I
     .restart local v5       #Endmin:I
     .restart local v6       #Starthour:I
@@ -1207,11 +1012,30 @@
     .restart local v17       #starttime:Ljava/lang/StringBuilder;
     .restart local v18       #timeString:Ljava/lang/String;
     :cond_0
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v19
+
+    const-string v20, "VZW"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1
+
+    .line 95
+    invoke-virtual/range {p0 .. p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->notificationClear(Landroid/content/Context;)V
+
+    goto :goto_0
+
+    .line 97
+    :cond_1
     invoke-virtual {v13}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
     move-result-object v11
 
-    .line 93
+    .line 98
     .local v11, n:Landroid/app/Notification;
     const/16 v19, 0x10
 
@@ -1219,14 +1043,14 @@
 
     iput v0, v11, Landroid/app/Notification;->twQuickPanelEvent:I
 
-    .line 95
+    .line 100
     new-instance v15, Landroid/widget/RemoteViews;
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v19
 
-    const v20, 0x7f04007b
+    const v20, 0x7f040081
 
     move-object/from16 v0, v19
 
@@ -1234,9 +1058,9 @@
 
     invoke-direct {v15, v0, v1}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
-    .line 96
+    .line 101
     .local v15, remoteViews:Landroid/widget/RemoteViews;
-    const v19, 0x7f0b015f
+    const v19, 0x7f0b0170
 
     const/16 v20, 0x8
 
@@ -1246,15 +1070,33 @@
 
     invoke-virtual {v15, v0, v1}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 97
+    .line 102
     iput-object v15, v11, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    .line 98
+    .line 103
+    iget v0, v11, Landroid/app/Notification;->flags:I
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x2
+
+    move/from16 v0, v19
+
+    iput v0, v11, Landroid/app/Notification;->flags:I
+
+    .line 104
+    const/16 v19, -0x1
+
+    move/from16 v0, v19
+
+    iput v0, v11, Landroid/app/Notification;->priority:I
+
+    .line 105
     invoke-virtual {v12, v14, v11}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
     goto :goto_0
 
-    .line 102
+    .line 110
     .end local v4           #Endhour:I
     .end local v5           #Endmin:I
     .end local v6           #Starthour:I
@@ -1265,8 +1107,8 @@
     .end local v15           #remoteViews:Landroid/widget/RemoteViews;
     .end local v17           #starttime:Ljava/lang/StringBuilder;
     .end local v18           #timeString:Ljava/lang/String;
-    :cond_1
-    const v19, 0x7f09127b
+    :cond_2
+    const v19, 0x7f0913e5
 
     move-object/from16 v0, p1
 
@@ -1280,7 +1122,7 @@
 
     invoke-virtual {v13, v0}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 103
+    .line 111
     const-wide/16 v19, 0x0
 
     move-wide/from16 v0, v19
@@ -1301,7 +1143,7 @@
 
     invoke-virtual/range {v19 .. v20}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
-    .line 104
+    .line 112
     invoke-virtual {v13}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
     move-result-object v19
@@ -1402,6 +1244,12 @@
 
     if-ne v3, v2, :cond_2
 
+    invoke-static {p1}, Lcom/android/settings/dormantmode/DormantModeUtils;->isAllOptionDisabled(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
     .line 45
     invoke-virtual {p0, p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->notificationCreate(Landroid/content/Context;)V
 
@@ -1446,7 +1294,7 @@
     .line 53
     const-string v3, "com.android.settings"
 
-    const-string v4, "com.android.settings.dormantmode.DormantmodeSettings"
+    const-string v4, "com.android.settings.Settings$DormantmodeSettingsActivity"
 
     invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 566
+    .line 574
     iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     iput-object p2, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->val$motion_type:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -50,7 +50,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 568
+    .line 576
     const-string v0, "air_scroll"
 
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->val$motion_type:Ljava/lang/String;
@@ -61,7 +61,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 569
+    .line 577
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/AirMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -73,18 +73,18 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 570
+    .line 578
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/AirMotionSettings;->broadcastAirScrollChanged(Z)V
     invoke-static {v0, v2}, Lcom/android/settings/motion2013/AirMotionSettings;->access$1500(Lcom/android/settings/motion2013/AirMotionSettings;Z)V
 
-    .line 571
+    .line 579
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/motion2013/AirMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
@@ -97,12 +97,12 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/motion2013/AirMotionSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
-    .line 577
+    .line 585
     :cond_0
     :goto_0
     return-void
 
-    .line 572
+    .line 580
     :cond_1
     const-string v0, "air_turn"
 
@@ -114,7 +114,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 573
+    .line 581
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/AirMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -126,18 +126,18 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 574
+    .line 582
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/AirMotionSettings;->broadcastAirBrowseChanged(Z)V
     invoke-static {v0, v2}, Lcom/android/settings/motion2013/AirMotionSettings;->access$1700(Lcom/android/settings/motion2013/AirMotionSettings;Z)V
 
-    .line 575
+    .line 583
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings$10;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/motion2013/AirMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 

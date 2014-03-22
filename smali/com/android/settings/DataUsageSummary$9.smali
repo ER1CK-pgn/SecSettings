@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1510
+    .line 1610
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,74 +38,215 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
+    .locals 7
     .parameter "v"
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    .line 1513
-    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+    .line 1613
+    iget-object v5, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mConfirmAtBoot:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$1000(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    #getter for: Lcom/android/settings/DataUsageSummary;->mBinding:Z
+    invoke-static {v5}, Lcom/android/settings/DataUsageSummary;->access$600(Lcom/android/settings/DataUsageSummary;)Z
 
-    move-result-object v3
+    move-result v5
 
-    invoke-virtual {v3}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+    if-eqz v5, :cond_1
 
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    move v0, v1
-
-    .line 1514
-    .local v0, confirmAtBoot:Z
+    .line 1653
+    :cond_0
     :goto_0
-    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    invoke-virtual {v3}, Lcom/android/settings/DataUsageSummary;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "mobile_data_question"
-
-    if-eqz v0, :cond_1
-
-    :goto_1
-    invoke-static {v3, v4, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 1520
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #getter for: Lcom/android/settings/DataUsageSummary;->mConfirmAtBoot:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1000(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
-
-    .line 1521
     return-void
 
-    .end local v0           #confirmAtBoot:Z
-    :cond_0
-    move v0, v2
+    .line 1614
+    :cond_1
+    iget-object v5, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    .line 1513
+    invoke-virtual {v5}, Lcom/android/settings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "airplane_mode_on"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    .line 1616
+    .local v2, isAirplaneMode:I
+    if-nez v2, :cond_0
+
+    .line 1620
+    iget-object v5, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mDataEnabled:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v5}, Lcom/android/settings/DataUsageSummary;->access$700(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+
+    move-result v5
+
+    if-nez v5, :cond_4
+
+    move v1, v3
+
+    .line 1621
+    .local v1, dataEnabled:Z
+    :goto_1
+    iget-object v5, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mCurrentTab:Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/settings/DataUsageSummary;->access$800(Lcom/android/settings/DataUsageSummary;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1622
+    .local v0, currentTab:Ljava/lang/String;
+    const-string v5, "mobile"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    .line 1630
+    if-eqz v1, :cond_7
+
+    .line 1631
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    .line 1632
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-virtual {v3}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+
+    move-result-object v3
+
+    const-string v5, "confirmDataEnable"
+
+    invoke-virtual {v3, v5}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+
+    move-result-object v3
+
+    if-nez v3, :cond_3
+
+    .line 1633
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$900(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    .line 1634
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$900(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/DialogFragment;->dismiss()V
+
+    .line 1636
+    :cond_2
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    iget-object v5, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-static {v5}, Lcom/android/settings/DataUsageSummary$ConfirmDataEnableFragment;->show(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
+
+    move-result-object v5
+
+    #setter for: Lcom/android/settings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
+    invoke-static {v3, v5}, Lcom/android/settings/DataUsageSummary;->access$902(Lcom/android/settings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
+
+    .line 1652
+    :cond_3
+    :goto_2
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #calls: Lcom/android/settings/DataUsageSummary;->updatePolicy(Z)V
+    invoke-static {v3, v4}, Lcom/android/settings/DataUsageSummary;->access$100(Lcom/android/settings/DataUsageSummary;Z)V
+
     goto :goto_0
 
-    .restart local v0       #confirmAtBoot:Z
-    :cond_1
-    move v1, v2
+    .end local v0           #currentTab:Ljava/lang/String;
+    .end local v1           #dataEnabled:Z
+    :cond_4
+    move v1, v4
 
-    .line 1514
+    .line 1620
     goto :goto_1
+
+    .line 1638
+    .restart local v0       #currentTab:Ljava/lang/String;
+    .restart local v1       #dataEnabled:Z
+    :cond_5
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v5
+
+    const-string v6, "CscFeature_Setting_EnablePromptPopupWhenActivatingDataConnection"
+
+    invoke-virtual {v5, v6, v4}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;Z)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    .line 1639
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-virtual {v3}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+
+    move-result-object v3
+
+    const-string v5, "confirmDataEnable"
+
+    invoke-virtual {v3, v5}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+
+    move-result-object v3
+
+    if-nez v3, :cond_3
+
+    .line 1640
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary$ConfirmDataEnableFragment;->show(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
+
+    goto :goto_2
+
+    .line 1643
+    :cond_6
+    iget-object v5, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #calls: Lcom/android/settings/DataUsageSummary;->setMobileDataEnabled(Z)V
+    invoke-static {v5, v3}, Lcom/android/settings/DataUsageSummary;->access$000(Lcom/android/settings/DataUsageSummary;Z)V
+
+    goto :goto_2
+
+    .line 1648
+    :cond_7
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$9;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary$ConfirmDataDisableFragment;->show(Lcom/android/settings/DataUsageSummary;)V
+
+    goto :goto_2
 .end method

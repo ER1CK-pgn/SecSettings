@@ -34,27 +34,27 @@
     .parameter
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->this$0:Lcom/android/settings/applications/UninstallMultipleScreen;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
+    .line 74
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->appname:Ljava/lang/String;
 
-    .line 75
+    .line 76
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->pname:Ljava/lang/String;
 
-    .line 77
+    .line 78
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->versionName:Ljava/lang/String;
 
-    .line 79
+    .line 80
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->versionCode:I
@@ -68,7 +68,7 @@
     .parameter "x1"
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->versionName:Ljava/lang/String;
 
     return-object p1
@@ -80,7 +80,7 @@
     .parameter "x1"
 
     .prologue
-    .line 72
+    .line 73
     iput p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->versionCode:I
 
     return p1
@@ -92,7 +92,7 @@
     .parameter "x1"
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->icon:Landroid/graphics/drawable/Drawable;
 
     return-object p1
@@ -103,7 +103,7 @@
     .parameter "x0"
 
     .prologue
-    .line 72
+    .line 73
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->pname:Ljava/lang/String;
 
     return-object v0
@@ -115,7 +115,7 @@
     .parameter "x1"
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->pname:Ljava/lang/String;
 
     return-object p1
@@ -126,7 +126,7 @@
     .parameter "x0"
 
     .prologue
-    .line 72
+    .line 73
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->appname:Ljava/lang/String;
 
     return-object v0
@@ -138,7 +138,7 @@
     .parameter "x1"
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;->appname:Ljava/lang/String;
 
     return-object p1

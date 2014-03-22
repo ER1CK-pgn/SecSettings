@@ -25,7 +25,7 @@
 
     .prologue
     .line 49
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -147,7 +147,7 @@
     if-eqz v5, :cond_2
 
     .line 123
-    const v14, 0x7f090786
+    const v14, 0x7f0907d9
 
     const/4 v15, 0x1
 
@@ -168,7 +168,11 @@
     iput-object v14, v3, Lcom/android/settings/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     .line 124
-    invoke-static {v12, v5, v11}, Lcom/android/settings/users/UserUtils;->getUserIcon(Landroid/os/UserManager;Landroid/content/pm/UserInfo;Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/settings/net/UidDetailProvider;->mContext:Landroid/content/Context;
+
+    invoke-static {v14, v12, v5, v11}, Lcom/android/settings/users/UserUtils;->getUserIcon(Landroid/content/Context;Landroid/os/UserManager;Landroid/content/pm/UserInfo;Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v14
 
@@ -184,7 +188,7 @@
 
     .line 100
     :sswitch_0
-    const v14, 0x7f0908bc
+    const v14, 0x7f09097b
 
     invoke-virtual {v11, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -209,7 +213,7 @@
 
     if-eqz v14, :cond_1
 
-    const v14, 0x7f090a17
+    const v14, 0x7f090afb
 
     :goto_1
     invoke-virtual {v11, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -229,7 +233,7 @@
 
     .line 104
     :cond_1
-    const v14, 0x7f090a16
+    const v14, 0x7f090afa
 
     goto :goto_1
 
@@ -304,7 +308,7 @@
 
     .line 135
     .local v5, info:Landroid/content/pm/ApplicationInfo;
-    invoke-virtual {v5, v10}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v10}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v14
 
@@ -315,7 +319,7 @@
     iput-object v14, v3, Lcom/android/settings/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     .line 136
-    invoke-virtual {v5, v10}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v10}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v14
 
@@ -394,7 +398,7 @@
     .local v1, appInfo:Landroid/content/pm/ApplicationInfo;
     iget-object v14, v3, Lcom/android/settings/net/UidDetail;->detailLabels:[Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, v10}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v10}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v15
 
@@ -425,7 +429,7 @@
     iput-object v14, v3, Lcom/android/settings/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     .line 148
-    invoke-virtual {v1, v10}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v10}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v14
 

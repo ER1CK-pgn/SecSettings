@@ -36,7 +36,7 @@
     invoke-direct {p0, p2}, Landroid/view/View$DragShadowBuilder;-><init>(Landroid/view/View;)V
 
     .line 738
-    const v0, 0x7f0b028a
+    const v0, 0x7f0b02c6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -61,7 +61,7 @@
     iput-object p1, p0, Lcom/android/settings/PenDetachmentOption$PanelDragShadowBuilder;->mCanvas:Landroid/graphics/Canvas;
 
     .line 745
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption$PanelDragShadowBuilder;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/view/View$DragShadowBuilder;->getView()Landroid/view/View;
 
     move-result-object v0
 
@@ -72,9 +72,9 @@
     .line 747
     iget-object v1, p0, Lcom/android/settings/PenDetachmentOption$PanelDragShadowBuilder;->mPanel:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f0203af
+    const v2, 0x7f02042d
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 748
     invoke-virtual {v0, p1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
@@ -89,7 +89,7 @@
 
     .prologue
     .line 754
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption$PanelDragShadowBuilder;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/view/View$DragShadowBuilder;->getView()Landroid/view/View;
 
     move-result-object v0
 
@@ -100,9 +100,9 @@
     .line 756
     iget-object v1, p0, Lcom/android/settings/PenDetachmentOption$PanelDragShadowBuilder;->mPanel:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f0203ac
+    const v2, 0x7f02042b
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 759
     :cond_0

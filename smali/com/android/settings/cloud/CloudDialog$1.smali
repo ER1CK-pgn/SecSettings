@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 113
+    .line 115
     iput-object p1, p0, Lcom/android/settings/cloud/CloudDialog$1;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 117
+    .line 119
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$1;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #calls: Lcom/android/settings/cloud/CloudDialog;->dismissProgressDialog()Z
@@ -50,23 +50,23 @@
 
     if-eqz v0, :cond_0
 
-    .line 118
+    .line 120
     const-string v0, "CloudSettings"
 
     const-string v1, "Request Timed out"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 119
+    .line 121
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$1;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/cloud/CloudDialog;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 121
+    .line 123
     :cond_0
     return-void
 .end method
@@ -76,7 +76,7 @@
     .parameter "millisUntilFinished"
 
     .prologue
-    .line 125
+    .line 127
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$1;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->progressDialog:Landroid/app/ProgressDialog;
@@ -86,7 +86,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 126
+    .line 128
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$1;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->progressDialog:Landroid/app/ProgressDialog;
@@ -94,20 +94,20 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 127
+    .line 129
     const-string v0, "CloudSettings"
 
     const-string v1, "Still waiting for the response from cloud agent"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 131
+    .line 133
     :cond_0
     return-void
 .end method

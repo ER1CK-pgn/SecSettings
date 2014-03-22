@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 86
+    .line 118
     iput-object p1, p0, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,15 +41,15 @@
     .locals 4
 
     .prologue
-    .line 89
-    const-wide/16 v1, 0x5dc
+    .line 121
+    const-wide/16 v1, 0xfa
 
     :try_start_0
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 93
+    .line 125
     :goto_0
     const-string v1, "CheckBluetoothStateActivity"
 
@@ -57,19 +57,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 94
+    .line 126
     const/4 v1, 0x0
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->access$102(Z)Z
+    invoke-static {v1}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->access$202(Z)Z
 
-    .line 95
+    .line 127
     return-void
 
-    .line 90
+    .line 122
     :catch_0
     move-exception v0
 
-    .line 91
+    .line 123
     .local v0, ignored:Ljava/lang/InterruptedException;
     const-string v1, "CheckBluetoothStateActivity"
 

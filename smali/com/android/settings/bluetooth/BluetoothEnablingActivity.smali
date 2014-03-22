@@ -57,11 +57,11 @@
 
     .prologue
     .line 82
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f040032
+    const v3, 0x7f040036
 
     const/4 v4, 0x0
 
@@ -71,7 +71,7 @@
 
     .line 83
     .local v1, view:Landroid/view/View;
-    const v2, 0x7f0b0096
+    const v2, 0x7f0b009f
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -81,9 +81,9 @@
 
     .line 84
     .local v0, contentView:Landroid/widget/TextView;
-    const v2, 0x7f090eff
+    const v2, 0x7f091039
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -117,7 +117,7 @@
     if-eqz v3, :cond_0
 
     .line 61
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 79
     :goto_0
@@ -135,7 +135,7 @@
     .local v1, filter:Landroid/content/IntentFilter;
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->mBluetoothReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v3, v1}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v3, v1}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 67
     const/4 v3, 0x1
@@ -143,13 +143,13 @@
     iput-boolean v3, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->mRegistered:Z
 
     .line 70
-    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v2, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 72
     .local v2, p:Lcom/android/internal/app/AlertController$AlertParams;
-    const v3, 0x7f090efe
+    const v3, 0x7f091038
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -163,7 +163,7 @@
     iput-object v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
     .line 74
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
     .line 77
     iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->mTimeoutHandler:Landroid/os/Handler;
@@ -188,7 +188,7 @@
 
     .prologue
     .line 101
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onDestroy()V
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
     .line 102
     iget-boolean v0, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->mRegistered:Z
@@ -198,7 +198,7 @@
     .line 103
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->mBluetoothReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 105
     :cond_0
@@ -231,7 +231,7 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 94
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 96
     :cond_0

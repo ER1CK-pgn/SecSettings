@@ -30,7 +30,7 @@
     .line 133
     iput-object p1, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity$4;->this$0:Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v0
 
@@ -88,7 +88,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     .line 138
     iget-object v0, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity$4;->this$0:Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;
@@ -109,7 +109,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v0
 
@@ -159,7 +159,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     .line 141
     iget-object v0, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity$4;->this$0:Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;

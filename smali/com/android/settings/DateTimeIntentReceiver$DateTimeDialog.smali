@@ -120,7 +120,7 @@
 
     .line 131
     .local v8, wm:Landroid/view/IWindowManager;
-    invoke-interface {v8}, Landroid/view/IWindowManager;->hasSystemNavBar()Z
+    invoke-interface {v8}, Landroid/view/IWindowManager;->hasNavigationBar()Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -174,7 +174,7 @@
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->setCanceledOnTouchOutside(Z)V
 
     .line 159
-    const v9, 0x7f040060
+    const v9, 0x7f040065
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->setContentView(I)V
 
@@ -182,7 +182,7 @@
     invoke-virtual {p0, p3}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 162
-    const v9, 0x7f0b0119
+    const v9, 0x7f0b0128
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -202,7 +202,7 @@
     invoke-virtual {v9, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 164
-    const v9, 0x7f0b010b
+    const v9, 0x7f0b011a
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -222,7 +222,7 @@
     invoke-virtual {v9, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 166
-    const v9, 0x7f0b0110
+    const v9, 0x7f0b011f
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -234,7 +234,7 @@
     invoke-static {p1, v9}, Lcom/android/settings/DateTimeIntentReceiver;->access$202(Lcom/android/settings/DateTimeIntentReceiver;Lcom/sec/android/touchwiz/widget/TwCheckBox;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     .line 167
-    const v9, 0x7f0b010e
+    const v9, 0x7f0b011d
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -254,7 +254,7 @@
     invoke-virtual {v9, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 169
-    const v9, 0x7f0b0114
+    const v9, 0x7f0b0123
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -266,7 +266,7 @@
     invoke-static {p1, v9}, Lcom/android/settings/DateTimeIntentReceiver;->access$402(Lcom/android/settings/DateTimeIntentReceiver;Lcom/sec/android/touchwiz/widget/TwCheckBox;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     .line 170
-    const v9, 0x7f0b0111
+    const v9, 0x7f0b0120
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -286,7 +286,7 @@
     invoke-virtual {v9, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 172
-    const v9, 0x7f0b0118
+    const v9, 0x7f0b0127
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -298,7 +298,7 @@
     invoke-static {p1, v9}, Lcom/android/settings/DateTimeIntentReceiver;->access$602(Lcom/android/settings/DateTimeIntentReceiver;Lcom/sec/android/touchwiz/widget/TwCheckBox;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     .line 173
-    const v9, 0x7f0b0115
+    const v9, 0x7f0b0124
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -326,7 +326,7 @@
     invoke-static {p1, v9}, Lcom/android/settings/DateTimeIntentReceiver;->access$802(Lcom/android/settings/DateTimeIntentReceiver;Landroid/content/res/Resources;)Landroid/content/res/Resources;
 
     .line 178
-    const v9, 0x7f0b010c
+    const v9, 0x7f0b011b
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -338,7 +338,7 @@
     invoke-static {p1, v9}, Lcom/android/settings/DateTimeIntentReceiver;->access$902(Lcom/android/settings/DateTimeIntentReceiver;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     .line 179
-    const v9, 0x7f0b010d
+    const v9, 0x7f0b011c
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -350,7 +350,7 @@
     invoke-static {p1, v9}, Lcom/android/settings/DateTimeIntentReceiver;->access$1002(Lcom/android/settings/DateTimeIntentReceiver;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     .line 180
-    const v9, 0x7f0b0117
+    const v9, 0x7f0b0126
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -382,7 +382,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090187
+    const v10, 0x7f0901aa
 
     invoke-virtual {v9, v10}, Landroid/widget/Button;->setText(I)V
 
@@ -596,7 +596,7 @@
     invoke-static {v9, v10}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 203
-    const v9, 0x7f0b0111
+    const v9, 0x7f0b0120
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DateTimeIntentReceiver$DateTimeDialog;->findViewById(I)Landroid/view/View;
 
@@ -951,7 +951,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0700a8
+    const v4, 0x7f0700cd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -1770,7 +1770,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f09019c
+    const v6, 0x7f0901bf
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -1891,7 +1891,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f09019b
+    const v6, 0x7f0901be
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 

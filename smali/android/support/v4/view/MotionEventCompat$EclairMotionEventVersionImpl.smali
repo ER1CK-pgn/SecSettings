@@ -23,7 +23,7 @@
 
     .prologue
     .line 80
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,6 +38,19 @@
     .prologue
     .line 83
     invoke-static {p1, p2}, Landroid/support/v4/view/MotionEventCompatEclair;->findPointerIndex(Landroid/view/MotionEvent;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getPointerCount(Landroid/view/MotionEvent;)I
+    .locals 1
+    .parameter "event"
+
+    .prologue
+    .line 99
+    invoke-static {p1}, Landroid/support/v4/view/MotionEventCompatEclair;->getPointerCount(Landroid/view/MotionEvent;)I
 
     move-result v0
 

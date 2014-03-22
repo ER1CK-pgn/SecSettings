@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 161
+    .line 168
     iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler$2;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 165
+    .line 172
     iget-object v1, p0, Lcom/android/settings/MultiWindowEnabler$2;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     #getter for: Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
@@ -74,10 +74,10 @@
     :goto_0
     invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 166
+    .line 173
     return-void
 
-    .line 165
+    .line 172
     :cond_0
     const/4 v0, 0x0
 

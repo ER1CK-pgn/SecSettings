@@ -35,7 +35,7 @@
 
     iput p2, p0, Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter$1;->val$position:I
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -86,7 +86,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 306
     :cond_0
@@ -168,7 +168,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 322
     :cond_1
@@ -200,7 +200,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/RadioButton;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v2
 
@@ -214,7 +214,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 304
     const/4 v1, 0x0
@@ -266,7 +266,7 @@
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_2
 .end method

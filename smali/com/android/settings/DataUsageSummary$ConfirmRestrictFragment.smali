@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 2688
+    .line 2958
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
@@ -30,37 +30,37 @@
     .parameter "parent"
 
     .prologue
-    .line 2690
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->isAdded()Z
+    .line 2960
+    invoke-virtual {p0}, Landroid/app/Fragment;->isAdded()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 2695
+    .line 2965
     :goto_0
     return-void
 
-    .line 2692
+    .line 2962
     :cond_0
     new-instance v0, Lcom/android/settings/DataUsageSummary$ConfirmRestrictFragment;
 
     invoke-direct {v0}, Lcom/android/settings/DataUsageSummary$ConfirmRestrictFragment;-><init>()V
 
-    .line 2693
+    .line 2963
     .local v0, dialog:Lcom/android/settings/DataUsageSummary$ConfirmRestrictFragment;
     const/4 v1, 0x0
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/settings/DataUsageSummary$ConfirmRestrictFragment;->setTargetFragment(Landroid/app/Fragment;I)V
+    invoke-virtual {v0, p0, v1}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 2694
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+    .line 2964
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
     const-string v2, "confirmRestrict"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DataUsageSummary$ConfirmRestrictFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -72,36 +72,36 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 2699
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$ConfirmRestrictFragment;->getActivity()Landroid/app/Activity;
+    .line 2969
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 2701
+    .line 2971
     .local v1, context:Landroid/content/Context;
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2702
+    .line 2972
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v2, 0x7f090a11
+    const v2, 0x7f090af5
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2703
+    .line 2973
     invoke-static {v1}, Lcom/android/settings/Utils;->hasMultipleUsers(Landroid/content/Context;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 2704
-    const v2, 0x7f090a13
+    .line 2974
+    const v2, 0x7f090af7
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2709
+    .line 2979
     :goto_0
     const v2, 0x104000a
 
@@ -111,23 +111,23 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2718
+    .line 2988
     const/high16 v2, 0x104
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2720
+    .line 2990
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2
 
     return-object v2
 
-    .line 2706
+    .line 2976
     :cond_0
-    const v2, 0x7f090a12
+    const v2, 0x7f090af6
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

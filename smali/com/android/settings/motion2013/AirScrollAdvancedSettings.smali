@@ -41,14 +41,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 45
-    const v1, 0x7f07000b
+    const v1, 0x7f070010
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 49
     const-string v1, "all_list"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -59,7 +59,7 @@
     .line 50
     const-string v1, "web_page"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -70,7 +70,7 @@
     .line 51
     const-string v1, "contact_list"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -81,7 +81,7 @@
     .line 52
     const-string v1, "email_list"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -92,7 +92,7 @@
     .line 53
     const-string v1, "album_and_photo"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -103,7 +103,7 @@
     .line 54
     const-string v1, "email_body"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -112,7 +112,7 @@
     iput-object v1, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mEmailBody:Landroid/preference/CheckBoxPreference;
 
     .line 57
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
@@ -120,7 +120,7 @@
     .local v0, ps:Landroid/preference/PreferenceScreen;
     iget-object v1, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mAllList:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 60
     return-void
@@ -142,7 +142,7 @@
     if-ne p2, v2, :cond_1
 
     .line 79
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -150,7 +150,7 @@
 
     iget-object v4, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mAllList:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -172,7 +172,7 @@
     if-ne p2, v2, :cond_3
 
     .line 82
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -180,7 +180,7 @@
 
     iget-object v4, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mWebPage:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -200,7 +200,7 @@
     if-ne p2, v2, :cond_5
 
     .line 85
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -208,7 +208,7 @@
 
     iget-object v4, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mContactList:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -228,7 +228,7 @@
     if-ne p2, v2, :cond_7
 
     .line 88
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -236,7 +236,7 @@
 
     iget-object v4, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mEmailList:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -256,7 +256,7 @@
     if-ne p2, v2, :cond_9
 
     .line 91
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -264,7 +264,7 @@
 
     iget-object v4, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mAlbumAndPhoto:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -284,7 +284,7 @@
     if-ne p2, v2, :cond_b
 
     .line 94
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -292,7 +292,7 @@
 
     iget-object v4, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mEmailBody:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -307,7 +307,7 @@
 
     .line 98
     :cond_b
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
 
@@ -326,7 +326,7 @@
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
     .line 66
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -348,7 +348,7 @@
     move v0, v1
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 69
     iget-object v3, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mWebPage:Landroid/preference/CheckBoxPreference;
@@ -366,7 +366,7 @@
     move v0, v1
 
     :goto_1
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 70
     iget-object v3, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mContactList:Landroid/preference/CheckBoxPreference;
@@ -384,7 +384,7 @@
     move v0, v1
 
     :goto_2
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 71
     iget-object v3, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mEmailList:Landroid/preference/CheckBoxPreference;
@@ -402,7 +402,7 @@
     move v0, v1
 
     :goto_3
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 72
     iget-object v3, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mAlbumAndPhoto:Landroid/preference/CheckBoxPreference;
@@ -420,7 +420,7 @@
     move v0, v1
 
     :goto_4
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 73
     iget-object v0, p0, Lcom/android/settings/motion2013/AirScrollAdvancedSettings;->mEmailBody:Landroid/preference/CheckBoxPreference;
@@ -436,7 +436,7 @@
     if-eqz v3, :cond_5
 
     :goto_5
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 74
     return-void

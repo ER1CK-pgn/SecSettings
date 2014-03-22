@@ -38,10 +38,10 @@
     .line 208
     iput-object p1, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->this$0:Lcom/android/settings/PenHelpFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 209
-    const v0, 0x7f0400fd
+    const v0, 0x7f040122
 
     const/4 v1, 0x0
 
@@ -54,7 +54,7 @@
     .line 210
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00ad
+    const v1, 0x7f0b00ba
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -67,7 +67,7 @@
     .line 211
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00b1
+    const v1, 0x7f0b00be
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -80,7 +80,7 @@
     .line 212
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b009b
+    const v1, 0x7f0b00a6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
     .line 213
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00b0
+    const v1, 0x7f0b00bd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +169,7 @@
     .line 233
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->titleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 234
     return-void
@@ -186,9 +186,9 @@
     .line 238
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->contentPlayBtn:Landroid/widget/ImageButton;
 
-    const v1, 0x7f0200e8
+    const v1, 0x7f020128
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setImageResource(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 239
     iget-object v0, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem;->contentPlayBtn:Landroid/widget/ImageButton;
@@ -197,7 +197,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/PenHelpFragment$PenHelpItem$1;-><init>(Lcom/android/settings/PenHelpFragment$PenHelpItem;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 247
     :cond_0

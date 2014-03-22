@@ -151,7 +151,7 @@
     .line 69
     sget-object v0, Lcom/sec/android/allshare/dmrservice/ItemMetaData$ItemType;->$VALUES:[Lcom/sec/android/allshare/dmrservice/ItemMetaData$ItemType;
 
-    invoke-virtual {v0}, [Lcom/sec/android/allshare/dmrservice/ItemMetaData$ItemType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

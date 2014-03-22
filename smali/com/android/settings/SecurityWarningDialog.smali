@@ -49,17 +49,17 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 75
-    invoke-virtual {p0, v0}, Lcom/android/settings/SecurityWarningDialog;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 77
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 81
     .end local v0           #lockScreenSettingsIntent:Landroid/content/Intent;
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -93,7 +93,7 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 55
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -102,7 +102,7 @@
     .line 57
     const-string v2, "layout_inflater"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/SecurityWarningDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -111,15 +111,15 @@
     iput-object v2, p0, Lcom/android/settings/SecurityWarningDialog;->mInflater:Landroid/view/LayoutInflater;
 
     .line 58
-    iget-object v0, p0, Lcom/android/settings/SecurityWarningDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 59
     .local v0, ap:Lcom/android/internal/app/AlertController$AlertParams;
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09143a
+    const v3, 0x7f09158e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -130,7 +130,7 @@
     .line 60
     iget-object v2, p0, Lcom/android/settings/SecurityWarningDialog;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f040072
+    const v3, 0x7f040077
 
     const/4 v4, 0x0
 
@@ -147,11 +147,11 @@
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 63
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09143c
+    const v3, 0x7f091590
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -160,11 +160,11 @@
     iput-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
     .line 64
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09143d
+    const v3, 0x7f091591
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -173,7 +173,7 @@
     iput-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
     .line 66
-    invoke-virtual {p0}, Lcom/android/settings/SecurityWarningDialog;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
     .line 67
     return-void

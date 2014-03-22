@@ -41,10 +41,10 @@
     .parameter "target"
 
     .prologue
-    .line 2935
+    .line 3205
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 2936
+    .line 3206
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mProvider:Lcom/android/settings/net/UidDetailProvider;
 
-    .line 2937
+    .line 3207
     invoke-static {p2}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -62,7 +62,7 @@
 
     iput-object v0, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mItem:Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 2938
+    .line 3208
     invoke-static {p3}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -71,7 +71,7 @@
 
     iput-object v0, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mTarget:Landroid/view/View;
 
-    .line 2939
+    .line 3209
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 2958
+    .line 3228
     const v2, 0x1020006
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -92,7 +92,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 2959
+    .line 3229
     .local v0, icon:Landroid/widget/ImageView;
     const v2, 0x1020016
 
@@ -102,29 +102,29 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 2961
+    .line 3231
     .local v1, title:Landroid/widget/TextView;
     if-eqz p0, :cond_0
 
-    .line 2962
+    .line 3232
     iget-object v2, p0, Lcom/android/settings/net/UidDetail;->icon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2963
+    .line 3233
     iget-object v2, p0, Lcom/android/settings/net/UidDetail;->label:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2968
+    .line 3238
     :goto_0
     return-void
 
-    .line 2965
+    .line 3235
     :cond_0
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2966
+    .line 3236
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
@@ -139,21 +139,21 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 2943
+    .line 3213
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/settings/DataUsageSummary$UidDetailTask;
 
-    .line 2944
+    .line 3214
     .local v1, existing:Lcom/android/settings/DataUsageSummary$UidDetailTask;
     if-eqz v1, :cond_0
 
-    .line 2945
-    invoke-virtual {v1, v4}, Lcom/android/settings/DataUsageSummary$UidDetailTask;->cancel(Z)Z
+    .line 3215
+    invoke-virtual {v1, v4}, Landroid/os/AsyncTask;->cancel(Z)Z
 
-    .line 2948
+    .line 3218
     :cond_0
     iget v2, p1, Lcom/android/settings/DataUsageSummary$AppItem;->key:I
 
@@ -161,18 +161,18 @@
 
     move-result-object v0
 
-    .line 2949
+    .line 3219
     .local v0, cachedDetail:Lcom/android/settings/net/UidDetail;
     if-eqz v0, :cond_1
 
-    .line 2950
+    .line 3220
     invoke-static {v0, p2}, Lcom/android/settings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/settings/net/UidDetail;Landroid/view/View;)V
 
-    .line 2955
+    .line 3225
     :goto_0
     return-void
 
-    .line 2952
+    .line 3222
     :cond_1
     new-instance v2, Lcom/android/settings/DataUsageSummary$UidDetailTask;
 
@@ -182,7 +182,7 @@
 
     new-array v4, v4, [Ljava/lang/Void;
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/settings/DataUsageSummary$UidDetailTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v2, v3, v4}, Landroid/os/AsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     move-result-object v2
 
@@ -198,7 +198,7 @@
     .parameter "params"
 
     .prologue
-    .line 2977
+    .line 3247
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mProvider:Lcom/android/settings/net/UidDetailProvider;
 
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mItem:Lcom/android/settings/DataUsageSummary$AppItem;
@@ -219,7 +219,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2930
+    .line 3200
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -235,12 +235,12 @@
     .parameter "result"
 
     .prologue
-    .line 2982
+    .line 3252
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mTarget:Landroid/view/View;
 
     invoke-static {p1, v0}, Lcom/android/settings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/settings/net/UidDetail;Landroid/view/View;)V
 
-    .line 2983
+    .line 3253
     return-void
 .end method
 
@@ -249,7 +249,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2930
+    .line 3200
     check-cast p1, Lcom/android/settings/net/UidDetail;
 
     .end local p1
@@ -262,13 +262,13 @@
     .locals 2
 
     .prologue
-    .line 2972
+    .line 3242
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$UidDetailTask;->mTarget:Landroid/view/View;
 
     invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/settings/net/UidDetail;Landroid/view/View;)V
 
-    .line 2973
+    .line 3243
     return-void
 .end method

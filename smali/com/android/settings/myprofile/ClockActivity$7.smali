@@ -30,7 +30,7 @@
     .line 295
     iput-object p1, p0, Lcom/android/settings/myprofile/ClockActivity$7;->this$0:Lcom/android/settings/myprofile/ClockActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -74,19 +74,19 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/ClockActivity$7;->this$0:Lcom/android/settings/myprofile/ClockActivity;
 
-    invoke-virtual {v1}, Lcom/android/settings/myprofile/ClockActivity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v1}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
     const-string v2, "EDIT_PROFILE_DIALOG"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/myprofile/EditMyProfileDialog;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 298
     :pswitch_data_0
-    .packed-switch 0x7f0b021e
+    .packed-switch 0x7f0b025a
         :pswitch_0
     .end packed-switch
 .end method

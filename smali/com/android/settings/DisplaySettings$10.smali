@@ -20,17 +20,27 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/DisplaySettings;
 
+.field final synthetic val$edit:Landroid/content/SharedPreferences$Editor;
+
+.field final synthetic val$mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/DisplaySettings;)V
+.method constructor <init>(Lcom/android/settings/DisplaySettings;Landroid/content/SharedPreferences$Editor;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
     .locals 0
+    .parameter
+    .parameter
     .parameter
 
     .prologue
-    .line 1135
+    .line 1237
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$10;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/settings/DisplaySettings$10;->val$edit:Landroid/content/SharedPreferences$Editor;
+
+    iput-object p3, p0, Lcom/android/settings/DisplaySettings$10;->val$mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,26 +48,32 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 3
     .parameter "dialog"
     .parameter "id"
 
     .prologue
-    .line 1137
-    iget-object v0, p0, Lcom/android/settings/DisplaySettings$10;->this$0:Lcom/android/settings/DisplaySettings;
+    .line 1239
+    iget-object v0, p0, Lcom/android/settings/DisplaySettings$10;->val$edit:Landroid/content/SharedPreferences$Editor;
 
-    #getter for: Lcom/android/settings/DisplaySettings;->mClearfont:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$600(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
+    const-string v1, "pref_font_noti"
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/android/settings/DisplaySettings$10;->val$mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    const/4 v1, 0x0
+    invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    move-result v2
 
-    .line 1140
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    .line 1240
+    iget-object v0, p0, Lcom/android/settings/DisplaySettings$10;->val$edit:Landroid/content/SharedPreferences$Editor;
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    .line 1241
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 1142
+    .line 1242
     return-void
 .end method

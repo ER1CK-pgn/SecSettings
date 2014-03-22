@@ -78,36 +78,36 @@
 
     const/4 v1, 0x0
 
-    .line 42
+    .line 83
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 66
+    .line 131
     iput-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
-    .line 67
+    .line 133
     iput-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastState:Landroid/net/NetworkInfo$DetailedState;
 
-    .line 68
+    .line 135
     iput-boolean v1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->isAutoInterworking:Z
 
-    .line 69
+    .line 137
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnected:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 70
+    .line 139
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
     invoke-direct {v0, p0, v2}, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;-><init>(Lcom/android/settings/wifi/hs20/Hs20Settings;Lcom/android/settings/wifi/hs20/Hs20Settings$1;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
-    .line 72
+    .line 143
     iput-boolean v1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->isInDialog:Z
 
-    .line 349
+    .line 699
     return-void
 .end method
 
@@ -116,7 +116,7 @@
     .parameter "x0"
 
     .prologue
-    .line 42
+    .line 83
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
     return-object v0
@@ -127,7 +127,7 @@
     .parameter "x0"
 
     .prologue
-    .line 42
+    .line 83
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     return-object v0
@@ -139,7 +139,7 @@
     .parameter "x1"
 
     .prologue
-    .line 42
+    .line 83
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/hs20/Hs20Settings;->setRefreshAction(Ljava/lang/Boolean;)V
 
     return-void
@@ -151,7 +151,7 @@
     .parameter "x1"
 
     .prologue
-    .line 42
+    .line 83
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastScanResult:Ljava/util/List;
 
     return-object p1
@@ -162,7 +162,7 @@
     .parameter "x0"
 
     .prologue
-    .line 42
+    .line 83
     invoke-direct {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->updateConnectableApList()V
 
     return-void
@@ -172,53 +172,53 @@
     .locals 2
 
     .prologue
-    .line 213
+    .line 423
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 214
+    .line 425
     .local v0, mFilter:Landroid/content/IntentFilter;
     const-string v1, "android.net.wifi.WIFI_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 215
+    .line 427
     const-string v1, "android.net.wifi.SCAN_RESULTS"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 216
+    .line 429
     const-string v1, "android.net.wifi.NETWORK_IDS_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 217
+    .line 431
     const-string v1, "android.net.wifi.HS20_AP_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 218
+    .line 433
     const-string v1, "android.net.wifi.HS20_ANQP_COMPLETE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 221
+    .line 439
     const-string v1, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 222
+    .line 441
     const-string v1, "android.net.wifi.supplicant.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 223
+    .line 443
     const-string v1, "android.net.wifi.RSSI_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 224
+    .line 445
     return-object v0
 .end method
 
@@ -230,7 +230,7 @@
     .prologue
     const/16 v3, 0x11
 
-    .line 339
+    .line 679
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -239,11 +239,11 @@
 
     if-ge v0, v3, :cond_1
 
-    .line 340
+    .line 681
     :cond_0
     const/4 v0, 0x0
 
-    .line 342
+    .line 685
     :goto_0
     return-object v0
 
@@ -318,7 +318,7 @@
 
     const/4 v1, 0x0
 
-    .line 330
+    .line 661
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnectableHs:Lcom/android/settings/ProgressCategory;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -327,12 +327,12 @@
 
     invoke-virtual {v2, v3}, Lcom/android/settings/ProgressCategory;->setProgress(Z)V
 
-    .line 331
+    .line 663
     iget-boolean v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->isInDialog:Z
 
     if-eqz v2, :cond_1
 
-    .line 332
+    .line 665
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanStateListener:Lcom/android/settings/wifi/hs20/Hs20Settings$OnScanStateListener;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -348,17 +348,17 @@
 
     invoke-interface {v2, v0}, Lcom/android/settings/wifi/hs20/Hs20Settings$OnScanStateListener;->onScanCompleted(Ljava/lang/Boolean;)V
 
-    .line 336
+    .line 673
     :goto_1
     return-void
 
     :cond_0
     move v0, v1
 
-    .line 332
+    .line 665
     goto :goto_0
 
-    .line 334
+    .line 669
     :cond_1
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mOptionsMenu:Landroid/view/Menu;
 
@@ -389,17 +389,17 @@
     .locals 10
 
     .prologue
-    .line 257
+    .line 511
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnectableHs:Lcom/android/settings/ProgressCategory;
 
-    invoke-virtual {v7}, Lcom/android/settings/ProgressCategory;->removeAll()V
+    invoke-virtual {v7}, Landroid/preference/PreferenceGroup;->removeAll()V
 
-    .line 258
+    .line 513
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v7}, Ljava/util/LinkedHashMap;->clear()V
 
-    .line 261
+    .line 519
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mHS20ConnectableList:Landroid/net/wifi/HS20ConnectableList;
 
     if-eqz v7, :cond_2
@@ -408,7 +408,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 262
+    .line 521
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastScanResult:Ljava/util/List;
 
     invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -430,8 +430,19 @@
 
     check-cast v5, Landroid/net/wifi/ScanResult;
 
-    .line 263
+    .line 523
     .local v5, result:Landroid/net/wifi/ScanResult;
+    iget-object v7, v5, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+
+    const-string v8, "HS20"
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_0
+
+    .line 525
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -457,7 +468,7 @@
 
     move-result-object v3
 
-    .line 264
+    .line 527
     .local v3, key:Ljava/lang/String;
     iget-object v7, v5, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
 
@@ -465,7 +476,7 @@
 
     move-result-object v4
 
-    .line 265
+    .line 529
     .local v4, printkey:Ljava/lang/String;
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mHS20ConnectableList:Landroid/net/wifi/HS20ConnectableList;
 
@@ -473,18 +484,18 @@
 
     move-result-object v6
 
-    .line 266
+    .line 531
     .local v6, tempHs20:Landroid/net/wifi/Hs20ScanResult;
     if-eqz v6, :cond_0
 
-    .line 267
+    .line 533
     const-string v7, "Hs20Settings"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "AP added: "
+    const-string v9, "AP added to UI: "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -500,7 +511,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
+    .line 535
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
     new-instance v8, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
@@ -509,11 +520,11 @@
 
     invoke-direct {v8, v9, v6}, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;-><init>(Landroid/content/Context;Landroid/net/wifi/Hs20ScanResult;)V
 
-    invoke-virtual {v7, v3, v8}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v7, v3, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 263
+    .line 525
     .end local v3           #key:Ljava/lang/String;
     .end local v4           #printkey:Ljava/lang/String;
     .end local v6           #tempHs20:Landroid/net/wifi/Hs20ScanResult;
@@ -522,7 +533,7 @@
 
     goto :goto_1
 
-    .line 272
+    .line 545
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v5           #result:Landroid/net/wifi/ScanResult;
     :cond_2
@@ -534,27 +545,27 @@
 
     iput-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
-    .line 273
+    .line 547
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v7}, Ljava/util/LinkedHashMap;->isEmpty()Z
+    invoke-virtual {v7}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v7
 
     if-nez v7, :cond_7
 
-    .line 274
+    .line 549
     new-instance v1, Ljava/util/ArrayList;
 
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v7}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+    invoke-virtual {v7}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
     move-result-object v7
 
     invoke-direct {v1, v7}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 276
+    .line 553
     .local v1, accessPoints:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/wifi/hs20/Hs20AccessPoint;>;"
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
@@ -568,7 +579,7 @@
 
     if-eqz v7, :cond_5
 
-    .line 277
+    .line 555
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -588,7 +599,7 @@
 
     check-cast v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
 
-    .line 278
+    .line 557
     .local v0, accessPoint:Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
     iget-object v7, v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;->bssid:Ljava/lang/String;
 
@@ -642,14 +653,14 @@
 
     if-eqz v7, :cond_4
 
-    .line 279
+    .line 559
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
     invoke-virtual {v0, v7}, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;->update(Landroid/net/wifi/WifiInfo;)V
 
     goto :goto_2
 
-    .line 280
+    .line 561
     :cond_4
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -693,27 +704,27 @@
 
     if-eqz v7, :cond_3
 
-    .line 281
+    .line 563
     const-string v7, "Hs20Settings"
 
     const-string v8, "updateConnectableApList SSID with HESSID"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 282
+    .line 565
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
     invoke-virtual {v0, v7}, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;->update(Landroid/net/wifi/WifiInfo;)V
 
     goto :goto_2
 
-    .line 287
+    .line 575
     .end local v0           #accessPoint:Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
     .end local v2           #i$:Ljava/util/Iterator;
     :cond_5
     invoke-static {v1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    .line 288
+    .line 577
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -732,40 +743,40 @@
 
     check-cast v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
 
-    .line 289
+    .line 579
     .restart local v0       #accessPoint:Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
     iget-object v7, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnectableHs:Lcom/android/settings/ProgressCategory;
 
-    invoke-virtual {v7, v0}, Lcom/android/settings/ProgressCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v7, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     goto :goto_3
 
-    .line 291
+    .line 583
     .end local v0           #accessPoint:Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
     :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v7
 
     iget-object v8, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mNoHs:Landroid/preference/PreferenceGroup;
 
-    invoke-virtual {v7, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v7, v8}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 295
+    .line 591
     .end local v1           #accessPoints:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/wifi/hs20/Hs20AccessPoint;>;"
     .end local v2           #i$:Ljava/util/Iterator;
     :goto_4
     return-void
 
-    .line 293
+    .line 587
     :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v7
 
     iget-object v8, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mNoHs:Landroid/preference/PreferenceGroup;
 
-    invoke-virtual {v7, v8}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v7, v8}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     goto :goto_4
 .end method
@@ -775,10 +786,10 @@
     .parameter "state"
 
     .prologue
-    .line 298
+    .line 597
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastState:Landroid/net/NetworkInfo$DetailedState;
 
-    .line 299
+    .line 599
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
@@ -787,10 +798,10 @@
 
     iput-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
-    .line 301
+    .line 603
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v3
 
@@ -808,7 +819,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 305
+    .line 611
     const-string v3, "Hs20Settings"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -831,18 +842,18 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 306
+    .line 613
     new-instance v1, Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+    invoke-virtual {v3}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
     move-result-object v3
 
     invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 307
+    .line 615
     .local v1, accessPoints:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/wifi/hs20/Hs20AccessPoint;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -863,7 +874,7 @@
 
     check-cast v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
 
-    .line 308
+    .line 617
     .local v0, accessPoint:Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
     iget-object v3, v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;->bssid:Ljava/lang/String;
 
@@ -917,7 +928,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 309
+    .line 619
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
     iget-object v4, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastState:Landroid/net/NetworkInfo$DetailedState;
@@ -926,7 +937,7 @@
 
     goto :goto_0
 
-    .line 310
+    .line 621
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -970,14 +981,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 311
+    .line 623
     const-string v3, "Hs20Settings"
 
     const-string v4, "updateConnectableApList SSID with HESSID"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 312
+    .line 625
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
     iget-object v4, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastState:Landroid/net/NetworkInfo$DetailedState;
@@ -986,7 +997,7 @@
 
     goto/16 :goto_0
 
-    .line 316
+    .line 633
     .end local v0           #accessPoint:Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
     .end local v1           #accessPoints:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/wifi/hs20/Hs20AccessPoint;>;"
     .end local v2           #i$:Ljava/util/Iterator;
@@ -999,32 +1010,32 @@
     .parameter "state"
 
     .prologue
-    .line 319
+    .line 639
     const/4 v0, 0x3
 
     if-ne v0, p1, :cond_0
 
-    .line 320
+    .line 641
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;->startScan()V
 
-    .line 328
+    .line 657
     :goto_0
     return-void
 
-    .line 321
+    .line 643
     :cond_0
     const/4 v0, 0x2
 
     if-eq v0, p1, :cond_1
 
-    .line 322
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    .line 645
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f0902d6
+    const v1, 0x7f09030d
 
     const/4 v2, 0x1
 
@@ -1034,12 +1045,12 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 324
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->finish()V
+    .line 649
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_0
 
-    .line 326
+    .line 653
     :cond_1
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
@@ -1056,12 +1067,12 @@
     .parameter "intent"
 
     .prologue
-    .line 228
+    .line 453
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 229
+    .line 455
     .local v0, action:Ljava/lang/String;
     const-string v2, "Hs20Settings"
 
@@ -1085,7 +1096,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
+    .line 459
     const-string v2, "android.net.wifi.SCAN_RESULTS"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1094,19 +1105,19 @@
 
     if-eqz v2, :cond_1
 
-    .line 232
+    .line 461
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
     const/16 v3, 0x138a
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;->sendEmptyMessage(I)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 254
+    .line 505
     :cond_0
     :goto_0
     return-void
 
-    .line 233
+    .line 463
     :cond_1
     const-string v2, "android.net.wifi.WIFI_STATE_CHANGED"
 
@@ -1116,7 +1127,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 234
+    .line 465
     const-string v2, "wifi_state"
 
     const/4 v3, 0x4
@@ -1129,7 +1140,7 @@
 
     goto :goto_0
 
-    .line 236
+    .line 469
     :cond_2
     const-string v2, "android.net.wifi.HS20_AP_CHANGED"
 
@@ -1139,7 +1150,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 237
+    .line 471
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getConnectableAPList()Landroid/net/wifi/HS20ConnectableList;
@@ -1148,12 +1159,12 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mHS20ConnectableList:Landroid/net/wifi/HS20ConnectableList;
 
-    .line 238
+    .line 473
     invoke-direct {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->updateConnectableApList()V
 
     goto :goto_0
 
-    .line 239
+    .line 475
     :cond_3
     const-string v2, "android.net.wifi.HS20_ANQP_COMPLETE"
 
@@ -1163,16 +1174,16 @@
 
     if-eqz v2, :cond_4
 
-    .line 240
+    .line 477
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
     const/16 v3, 0x138c
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;->sendEmptyMessage(I)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     goto :goto_0
 
-    .line 248
+    .line 493
     :cond_4
     const-string v2, "android.net.wifi.STATE_CHANGE"
 
@@ -1182,7 +1193,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 249
+    .line 495
     const-string v2, "networkInfo"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1191,7 +1202,7 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 251
+    .line 499
     .local v1, info:Landroid/net/NetworkInfo;
     iget-object v2, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnected:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -1201,7 +1212,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 252
+    .line 501
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
     move-result-object v2
@@ -1220,24 +1231,24 @@
 
     const/4 v1, 0x1
 
-    .line 97
+    .line 193
     const-string v0, "Hs20Settings"
 
     const-string v3, "onActivityCreated"
 
     invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 98
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    .line 195
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mContext:Landroid/content/Context;
 
-    .line 100
+    .line 199
     const-string v0, "wifi"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1245,22 +1256,22 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 101
+    .line 201
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20Settings$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/hs20/Hs20Settings$2;-><init>(Lcom/android/settings/wifi/hs20/Hs20Settings;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnectListener:Landroid/net/wifi/WifiManager$ActionListener;
 
-    .line 112
+    .line 223
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mValidApList:Ljava/util/LinkedHashMap;
 
-    .line 113
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 225
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1277,8 +1288,8 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->isAutoInterworking:Z
 
-    .line 115
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    .line 229
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1286,13 +1297,13 @@
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->isInDialog:Z
 
-    .line 116
+    .line 231
     iget-boolean v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->isInDialog:Z
 
     if-eqz v0, :cond_1
 
-    .line 117
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    .line 233
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1300,8 +1311,8 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanStateListener:Lcom/android/settings/wifi/hs20/Hs20Settings$OnScanStateListener;
 
-    .line 118
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    .line 235
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1313,22 +1324,22 @@
 
     iput-object v1, v0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanListner:Lcom/android/settings/wifi/hs20/Hs20PickerDialog$OnScanButtonPressed;
 
-    .line 127
+    .line 253
     :goto_1
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 128
+    .line 255
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 113
+    .line 225
     goto :goto_0
 
-    .line 125
+    .line 249
     :cond_1
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/hs20/Hs20Settings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     goto :goto_1
 .end method
@@ -1338,25 +1349,25 @@
     .parameter "icicle"
 
     .prologue
-    .line 77
+    .line 153
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 78
+    .line 155
     const-string v0, "Hs20Settings"
 
     const-string v1, "onCreate"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 79
-    const v0, 0x7f070047
+    .line 157
+    const v0, 0x7f07005e
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 80
+    .line 159
     const-string v0, "connectable_hs"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1364,10 +1375,10 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnectableHs:Lcom/android/settings/ProgressCategory;
 
-    .line 81
+    .line 161
     const-string v0, "no_connectable_hs"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1375,10 +1386,10 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mNoHs:Landroid/preference/PreferenceGroup;
 
-    .line 82
+    .line 163
     const-string v0, "available_hs"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1386,30 +1397,30 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mAvailableHs:Landroid/preference/PreferenceGroup;
 
-    .line 83
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 165
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mAvailableHs:Landroid/preference/PreferenceGroup;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 85
+    .line 169
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mConnectableHs:Lcom/android/settings/ProgressCategory;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/settings/ProgressCategory;->setProgress(Z)V
 
-    .line 87
+    .line 173
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20Settings$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/hs20/Hs20Settings$1;-><init>(Lcom/android/settings/wifi/hs20/Hs20Settings;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 93
+    .line 185
     return-void
 .end method
 
@@ -1423,20 +1434,20 @@
 
     const/4 v2, 0x0
 
-    .line 151
+    .line 301
     const-string v0, "Hs20Settings"
 
     const-string v1, "onCreateOptionsMenu"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 152
+    .line 303
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mOptionsMenu:Landroid/view/Menu;
 
-    .line 153
+    .line 305
     const/4 v0, 0x1
 
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1444,10 +1455,10 @@
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 155
+    .line 309
     const/4 v0, 0x2
 
-    const v1, 0x7f090317
+    const v1, 0x7f09034e
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1459,10 +1470,10 @@
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 158
+    .line 315
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 159
+    .line 317
     return-void
 .end method
 
@@ -1473,31 +1484,31 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 163
+    .line 325
     const-string v1, "Hs20Settings"
 
     const-string v2, "onOptionsItemSelected"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 164
+    .line 327
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 176
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .line 351
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
     :goto_0
     return v0
 
-    .line 166
+    .line 331
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
@@ -1507,8 +1518,8 @@
 
     if-nez v1, :cond_0
 
-    .line 167
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    .line 333
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1516,9 +1527,9 @@
 
     goto :goto_0
 
-    .line 169
+    .line 337
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
@@ -1526,7 +1537,7 @@
 
     goto :goto_0
 
-    .line 173
+    .line 345
     :pswitch_1
     iget-object v1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
@@ -1534,7 +1545,7 @@
 
     goto :goto_0
 
-    .line 164
+    .line 327
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1546,29 +1557,29 @@
     .locals 2
 
     .prologue
-    .line 143
+    .line 285
     const-string v0, "Hs20Settings"
 
     const-string v1, "onPause"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 144
+    .line 287
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 145
+    .line 289
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;->stopScan()V
 
-    .line 146
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 291
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 147
+    .line 293
     return-void
 .end method
 
@@ -1580,13 +1591,13 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 181
+    .line 361
     check-cast p2, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;
 
     .end local p2
     iget-object v2, p2, Lcom/android/settings/wifi/hs20/Hs20AccessPoint;->bssid:Ljava/lang/String;
 
-    .line 182
+    .line 363
     .local v2, selectedBssid:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastWifiInfo:Landroid/net/wifi/WifiInfo;
 
@@ -1612,19 +1623,19 @@
 
     if-nez v3, :cond_2
 
-    .line 185
+    .line 369
     :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 186
+    .line 371
     .local v0, args:Landroid/os/Bundle;
     const-string v3, "BSSID"
 
     invoke-virtual {v0, v3, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 187
+    .line 373
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     new-instance v4, Lcom/android/settings/wifi/hs20/Hs20Settings$4;
@@ -1633,8 +1644,8 @@
 
     invoke-virtual {v3, v0, v4}, Landroid/net/wifi/WifiManager;->connectHs20Ap(Landroid/os/Bundle;Landroid/net/wifi/WifiManager$ActionListener;)V
 
-    .line 196
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 391
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1648,31 +1659,24 @@
 
     if-nez v3, :cond_2
 
-    .line 197
+    .line 393
     new-instance v1, Landroid/os/Message;
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
 
-    .line 198
+    .line 395
     .local v1, msg:Landroid/os/Message;
-    new-instance v1, Landroid/os/Message;
-
-    .end local v1           #msg:Landroid/os/Message;
-    invoke-direct {v1}, Landroid/os/Message;-><init>()V
-
-    .line 199
-    .restart local v1       #msg:Landroid/os/Message;
     const/16 v3, 0x29
 
     iput v3, v1, Landroid/os/Message;->what:I
 
-    .line 200
+    .line 397
     new-instance v0, Landroid/os/Bundle;
 
     .end local v0           #args:Landroid/os/Bundle;
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 201
+    .line 399
     .restart local v0       #args:Landroid/os/Bundle;
     const-string v3, "enable"
 
@@ -1680,10 +1684,10 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 202
+    .line 401
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 203
+    .line 403
     iget-object v3, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v3, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
@@ -1692,16 +1696,16 @@
 
     if-eqz v3, :cond_1
 
-    .line 204
+    .line 405
     const-string v3, "Hs20Settings"
 
     const-string v4, "HOTSPOT20 config store error"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 205
+    .line 407
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1709,13 +1713,13 @@
 
     invoke-static {v3, v4, v6}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 208
+    .line 413
     .end local v0           #args:Landroid/os/Bundle;
     .end local v1           #msg:Landroid/os/Message;
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 209
+    .line 415
     return v6
 .end method
 
@@ -1723,17 +1727,17 @@
     .locals 3
 
     .prologue
-    .line 132
+    .line 263
     const-string v0, "Hs20Settings"
 
     const-string v1, "onResume"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 133
+    .line 265
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 134
+    .line 267
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -1744,7 +1748,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 135
+    .line 269
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getConnectableAPList()Landroid/net/wifi/HS20ConnectableList;
@@ -1753,7 +1757,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mHS20ConnectableList:Landroid/net/wifi/HS20ConnectableList;
 
-    .line 136
+    .line 271
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
@@ -1762,9 +1766,9 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings;->mLastScanResult:Ljava/util/List;
 
-    .line 137
+    .line 273
     invoke-direct {p0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->updateConnectableApList()V
 
-    .line 139
+    .line 277
     return-void
 .end method

@@ -30,7 +30,7 @@
     .line 204
     iput-object p1, p0, Lcom/android/settings/wifi/WpsDialog$4$1;->this$1:Lcom/android/settings/wifi/WpsDialog$4;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -86,7 +86,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09033c
+    const v2, 0x7f090373
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

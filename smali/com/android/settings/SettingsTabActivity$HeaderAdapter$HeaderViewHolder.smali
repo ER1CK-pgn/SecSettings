@@ -29,8 +29,8 @@
     .locals 0
 
     .prologue
-    .line 1217
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1347
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -40,7 +40,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1217
+    .line 1347
     invoke-direct {p0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;-><init>()V
 
     return-void

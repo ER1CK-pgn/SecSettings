@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1090
+    .line 1102
     iput-object p1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,12 +47,12 @@
 
     const/4 v3, 0x0
 
-    .line 1093
+    .line 1105
     move-object v0, p1
 
     check-cast v0, Lcom/android/settings/lockscreenshortcut/DeleteView;
 
-    .line 1094
+    .line 1106
     .local v0, dv:Lcom/android/settings/lockscreenshortcut/DeleteView;
     invoke-virtual {p2}, Landroid/view/DragEvent;->getAction()I
 
@@ -60,18 +60,18 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1141
+    .line 1153
     :goto_0
     return v4
 
-    .line 1096
+    .line 1108
     :pswitch_0
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->stopTrashCanShakeAnimation()V
 
-    .line 1097
+    .line 1109
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->startTrashCanFillUnfillAnimation()V
 
-    .line 1098
+    .line 1110
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
@@ -81,7 +81,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1099
+    .line 1111
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
@@ -91,7 +91,7 @@
 
     invoke-virtual {v1, v3}, Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;->setShadowVisibility(Z)V
 
-    .line 1100
+    .line 1112
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
@@ -101,7 +101,7 @@
 
     invoke-virtual {v1, v3}, Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;->setOnDelete(Z)V
 
-    .line 1102
+    .line 1114
     :cond_0
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -123,11 +123,11 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f020560
+    const v2, 0x7f0205fc
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1103
+    .line 1115
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     iget-object v2, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -140,25 +140,25 @@
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->removeShortcut(I)V
     invoke-static {v1, v2}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1800(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;I)V
 
-    .line 1104
+    .line 1116
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->adjustCursorWidth()V
     invoke-static {v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1900(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;)V
 
-    .line 1105
+    .line 1117
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->saveShortcutList()V
     invoke-static {v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$2000(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;)V
 
-    .line 1106
+    .line 1118
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mAdditionImage:Z
     invoke-static {v1, v4}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$2102(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Z)Z
 
-    .line 1107
+    .line 1119
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     iget-object v2, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -171,7 +171,7 @@
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->showAddButton(Z)V
     invoke-static {v1, v2}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$900(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Z)V
 
-    .line 1108
+    .line 1120
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mAdditionImage:Z
@@ -179,7 +179,7 @@
 
     goto :goto_0
 
-    .line 1113
+    .line 1125
     :pswitch_1
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -190,7 +190,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 1114
+    .line 1126
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
@@ -200,18 +200,18 @@
 
     invoke-virtual {v1}, Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;->releaseSurface()V
 
-    .line 1117
+    .line 1129
     :cond_1
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->stopTrashCanShakeAnimation()V
 
-    .line 1118
+    .line 1130
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 1122
+    .line 1134
     :pswitch_2
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -222,7 +222,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 1123
+    .line 1135
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
@@ -232,18 +232,18 @@
 
     invoke-virtual {v1, v4}, Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;->setOnDelete(Z)V
 
-    .line 1125
+    .line 1137
     :cond_2
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->startTrashCanShakeAnimation()V
 
-    .line 1126
-    const v1, 0x7f0203ea
+    .line 1138
+    const v1, 0x7f020469
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto/16 :goto_0
 
-    .line 1130
+    .line 1142
     :pswitch_3
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -254,7 +254,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 1131
+    .line 1143
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$7;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
@@ -264,21 +264,21 @@
 
     invoke-virtual {v1, v3}, Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;->setOnDelete(Z)V
 
-    .line 1133
+    .line 1145
     :cond_3
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->stopTrashCanShakeAnimation()V
 
-    .line 1134
+    .line 1146
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setNormalTrashIcon()V
 
-    .line 1135
-    const v1, 0x7f0203eb
+    .line 1147
+    const v1, 0x7f02046a
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto/16 :goto_0
 
-    .line 1094
+    .line 1106
     nop
 
     :pswitch_data_0

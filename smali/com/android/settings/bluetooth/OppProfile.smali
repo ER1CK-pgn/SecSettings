@@ -12,7 +12,7 @@
 
     .prologue
     .line 28
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -69,7 +69,7 @@
 
     .prologue
     .line 79
-    const v0, 0x7f090266
+    const v0, 0x7f09028b
 
     return v0
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1154
+    .line 1148
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleAcceptDevice;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1154
+    .line 1148
     invoke-direct {p0, p1}, Lcom/android/settings/nearby/NearbyEnabler$HandleAcceptDevice;-><init>(Lcom/android/settings/nearby/NearbyEnabler;)V
 
     return-void
@@ -57,7 +57,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1158
+    .line 1152
     iget-object v2, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleAcceptDevice;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -73,13 +73,13 @@
 
     if-nez v2, :cond_1
 
-    .line 1171
+    .line 1165
     .end local p2
     :cond_0
     :goto_0
     return v1
 
-    .line 1163
+    .line 1157
     .restart local p2
     :cond_1
     :try_start_0
@@ -111,7 +111,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1165
+    .line 1159
     iget-object v2, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleAcceptDevice;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -133,16 +133,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1171
+    .line 1165
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1166
+    .line 1160
     :catch_0
     move-exception v0
 
-    .line 1167
+    .line 1161
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "NearbyEnabler"
 

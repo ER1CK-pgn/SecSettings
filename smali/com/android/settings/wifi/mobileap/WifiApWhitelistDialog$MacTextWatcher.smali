@@ -32,15 +32,15 @@
     .parameter "index"
 
     .prologue
-    .line 215
+    .line 222
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 216
+    .line 223
     iput p2, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->mIndex:I
 
-    .line 217
+    .line 224
     return-void
 .end method
 
@@ -51,7 +51,7 @@
     .parameter "s"
 
     .prologue
-    .line 220
+    .line 227
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->mTextNoChange:Ljava/lang/Boolean;
@@ -63,9 +63,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
-    .line 221
+    .line 228
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->mEtMacArray:[Landroid/widget/EditText;
@@ -87,16 +87,16 @@
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_0
 
-    .line 222
+    .line 229
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->mIndex:I
 
     const/4 v2, 0x5
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_0
 
-    .line 223
+    .line 230
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->mIsTalkBackEnabled:Z
@@ -106,7 +106,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 225
+    .line 232
     const-wide/16 v1, 0xc8
 
     :try_start_0
@@ -114,48 +114,30 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 230
+    .line 243
     :cond_0
     :goto_0
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
-
-    #getter for: Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->mEtMacArray:[Landroid/widget/EditText;
-    invoke-static {v1}, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->access$100(Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;)[Landroid/widget/EditText;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->mIndex:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    aget-object v1, v1, v2
-
-    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
-
-    .line 236
-    :cond_1
-    :goto_1
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->validate()V
     invoke-static {v1}, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->access$300(Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;)V
 
-    .line 237
+    .line 244
     return-void
 
-    .line 226
+    .line 233
     :catch_0
     move-exception v0
 
-    .line 227
+    .line 234
     .local v0, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
-    .line 234
+    .line 241
     .end local v0           #e:Ljava/lang/InterruptedException;
-    :cond_2
+    :cond_1
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
     const/4 v2, 0x0
@@ -167,7 +149,7 @@
     #setter for: Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->mTextNoChange:Ljava/lang/Boolean;
     invoke-static {v1, v2}, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->access$002(Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;Ljava/lang/Boolean;)Ljava/lang/Boolean;
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
@@ -178,17 +160,17 @@
     .parameter "after"
 
     .prologue
-    .line 242
+    .line 249
     if-eqz p1, :cond_0
 
-    .line 243
+    .line 250
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog$MacTextWatcher;->mTempMac:Ljava/lang/String;
 
-    .line 244
+    .line 251
     :cond_0
     return-void
 .end method
@@ -201,6 +183,6 @@
     .parameter "count"
 
     .prologue
-    .line 249
+    .line 256
     return-void
 .end method

@@ -44,14 +44,14 @@
     iput-boolean v0, p0, Lcom/android/settings/ProgressCategory;->mChangeProgressText:Z
 
     .line 38
-    const v0, 0x7f09119b
+    const v0, 0x7f0912f4
 
     iput v0, p0, Lcom/android/settings/ProgressCategory;->mNoDeviceTitle:I
 
     .line 42
-    const v0, 0x7f04012c
+    const v0, 0x7f04015c
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ProgressCategory;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 43
     const/4 v0, -0x1
@@ -87,14 +87,14 @@
     iput-boolean v0, p0, Lcom/android/settings/ProgressCategory;->mChangeProgressText:Z
 
     .line 38
-    const v0, 0x7f09119b
+    const v0, 0x7f0912f4
 
     iput v0, p0, Lcom/android/settings/ProgressCategory;->mNoDeviceTitle:I
 
     .line 49
-    const v0, 0x7f04012c
+    const v0, 0x7f04015c
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ProgressCategory;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 50
     iput p3, p0, Lcom/android/settings/ProgressCategory;->mEmptyTextRes:I
@@ -111,10 +111,10 @@
 
     .prologue
     .line 55
-    invoke-super {p0, p1}, Lcom/android/settings/ProgressCategoryBase;->onBindView(Landroid/view/View;)V
+    invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 56
-    const v2, 0x7f0b0350
+    const v2, 0x7f0b039a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
 
     .line 57
     .local v1, textView:Landroid/widget/TextView;
-    const v2, 0x7f0b034f
+    const v2, 0x7f0b0399
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +141,7 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f0900f5
+    const v2, 0x7f090115
 
     :goto_0
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
@@ -162,7 +162,7 @@
 
     .line 61
     :cond_0
-    const v2, 0x7f0900f2
+    const v2, 0x7f090112
 
     goto :goto_0
 
@@ -214,7 +214,7 @@
     iput-boolean p1, p0, Lcom/android/settings/ProgressCategory;->mProgress:Z
 
     .line 102
-    invoke-virtual {p0}, Lcom/android/settings/ProgressCategory;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 103
     return-void
@@ -243,7 +243,7 @@
 
     .line 118
     :cond_0
-    const v0, 0x7f0900f5
+    const v0, 0x7f090115
 
     iput v0, p0, Lcom/android/settings/ProgressCategory;->mProgressText:I
 

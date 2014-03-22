@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1177
+    .line 1258
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionGuideHub$7;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,14 @@
     .parameter "which"
 
     .prologue
-    .line 1179
+    .line 1260
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$7;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     #calls: Lcom/android/settings/motion2013/SMotionGuideHub;->startTurnOverTryActually(Z)V
     invoke-static {v0, v1}, Lcom/android/settings/motion2013/SMotionGuideHub;->access$1200(Lcom/android/settings/motion2013/SMotionGuideHub;Z)V
 
-    .line 1180
+    .line 1261
     return-void
 .end method

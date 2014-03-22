@@ -9,7 +9,7 @@
 
     .prologue
     .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -25,6 +25,19 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
+    .locals 1
+    .parameter "view"
+
+    .prologue
+    .line 70
+    invoke-virtual {p0}, Landroid/view/View;->getParentForAccessibility()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static postInvalidateOnAnimation(Landroid/view/View;)V

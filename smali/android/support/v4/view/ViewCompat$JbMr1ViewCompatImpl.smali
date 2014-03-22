@@ -19,8 +19,23 @@
     .locals 0
 
     .prologue
-    .line 367
+    .line 506
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$JBViewCompatImpl;-><init>()V
 
     return-void
+.end method
+
+
+# virtual methods
+.method public getLayoutDirection(Landroid/view/View;)I
+    .locals 1
+    .parameter "view"
+
+    .prologue
+    .line 525
+    invoke-static {p1}, Landroid/support/v4/view/ViewCompatJellybeanMr1;->getLayoutDirection(Landroid/view/View;)I
+
+    move-result v0
+
+    return v0
 .end method

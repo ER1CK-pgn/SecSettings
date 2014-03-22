@@ -387,7 +387,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 76
-    const v5, 0x7f0400dd
+    const v5, 0x7f040101
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->setContentView(I)V
 
@@ -405,7 +405,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090b6a
+    const v7, 0x7f090c69
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -420,7 +420,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090b6b
+    const v7, 0x7f090c6a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -435,7 +435,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090b6d
+    const v7, 0x7f090c6c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -452,7 +452,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090b6c
+    const v8, 0x7f090c6b
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -461,7 +461,7 @@
     aput-object v7, v5, v6
 
     .line 91
-    const v5, 0x7f0b0148
+    const v5, 0x7f0b0157
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -474,7 +474,7 @@
     .line 92
     new-instance v5, Lcom/android/settings/ModePreview$RadioAdapter;
 
-    const v6, 0x7f0400de
+    const v6, 0x7f040102
 
     sget-object v7, Lcom/android/settings/ModePreview;->mModeItem:[Ljava/lang/String;
 
@@ -520,7 +520,7 @@
     invoke-virtual {v5, v11}, Landroid/widget/ListView;->setOverScrollMode(I)V
 
     .line 100
-    const v5, 0x7f0b021c
+    const v5, 0x7f0b01f5
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -537,7 +537,7 @@
     invoke-virtual {v1, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 108
-    const v5, 0x7f0b021b
+    const v5, 0x7f0b01f4
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -554,7 +554,7 @@
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 119
-    const v5, 0x7f0b024d
+    const v5, 0x7f0b0289
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -570,7 +570,7 @@
     invoke-virtual {v5, v9}, Landroid/widget/CheckedTextView;->setVisibility(I)V
 
     .line 121
-    const v5, 0x7f0b024e
+    const v5, 0x7f0b028a
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -621,12 +621,12 @@
     if-eqz v5, :cond_1
 
     .line 153
-    const v5, 0x7f090b68
+    const v5, 0x7f090c67
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->setTitle(I)V
 
     .line 154
-    const v5, 0x7f0b021a
+    const v5, 0x7f0b01f3
 
     invoke-virtual {p0, v5}, Lcom/android/settings/ModePreview;->findViewById(I)Landroid/view/View;
 
@@ -672,7 +672,7 @@
 
     .line 270
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f120005
+    const v1, 0x7f120007
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -935,7 +935,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0b05f6
+    .packed-switch 0x7f0b0672
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -1025,7 +1025,7 @@
 
     .line 192
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v7, 0x7f040115
+    const v7, 0x7f04013e
 
     invoke-virtual {v2, v7, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1033,7 +1033,7 @@
 
     .line 193
     .local v3, layout:Landroid/view/View;
-    const v7, 0x7f0b0315
+    const v7, 0x7f0b0355
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1043,7 +1043,7 @@
 
     .line 194
     .local v6, tv:Landroid/widget/TextView;
-    const v7, 0x7f090b7e
+    const v7, 0x7f090c82
 
     const/4 v8, 0x1
 
@@ -1064,7 +1064,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 196
-    const v7, 0x7f0b0138
+    const v7, 0x7f0b0147
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1077,7 +1077,7 @@
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 199
-    const v7, 0x7f090b7b
+    const v7, 0x7f090c7f
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 557
+    .line 548
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$20;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,17 +43,17 @@
     .parameter "whichButton"
 
     .prologue
-    .line 559
+    .line 550
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$20;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$1100(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
-    .line 560
+    .line 551
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$20;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 561
+    .line 552
     return-void
 .end method

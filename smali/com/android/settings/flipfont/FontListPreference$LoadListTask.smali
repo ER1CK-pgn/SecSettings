@@ -39,12 +39,12 @@
     .parameter
 
     .prologue
-    .line 374
+    .line 363
     iput-object p1, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 375
+    .line 364
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->mProgressDialog:Landroid/app/ProgressDialog;
@@ -58,7 +58,7 @@
     .parameter "x1"
 
     .prologue
-    .line 374
+    .line 363
     invoke-direct {p0, p1}, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;-><init>(Lcom/android/settings/flipfont/FontListPreference;)V
 
     return-void
@@ -71,7 +71,7 @@
     .parameter "x0"
 
     .prologue
-    .line 374
+    .line 363
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -87,7 +87,7 @@
     .parameter "params"
 
     .prologue
-    .line 393
+    .line 382
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     new-instance v1, Lcom/android/settings/flipfont/FontListAdapter;
@@ -104,7 +104,7 @@
     #setter for: Lcom/android/settings/flipfont/FontListPreference;->mFontListAdapter:Lcom/android/settings/flipfont/FontListAdapter;
     invoke-static {v0, v1}, Lcom/android/settings/flipfont/FontListPreference;->access$002(Lcom/android/settings/flipfont/FontListPreference;Lcom/android/settings/flipfont/FontListAdapter;)Lcom/android/settings/flipfont/FontListAdapter;
 
-    .line 394
+    .line 383
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     #getter for: Lcom/android/settings/flipfont/FontListPreference;->mFontListAdapter:Lcom/android/settings/flipfont/FontListAdapter;
@@ -114,7 +114,7 @@
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListAdapter;->loadTypefaces()V
 
-    .line 395
+    .line 384
     const/4 v0, 0x0
 
     return-object v0
@@ -125,7 +125,7 @@
     .parameter "x0"
 
     .prologue
-    .line 374
+    .line 363
     check-cast p1, Ljava/lang/Void;
 
     .end local p1
@@ -139,13 +139,13 @@
     .parameter "unused"
 
     .prologue
-    .line 402
+    .line 391
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v1}, Landroid/app/ProgressDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 403
+    .line 392
     iget-object v1, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
@@ -156,22 +156,22 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 409
+    .line 398
     :cond_0
     :goto_0
     return-void
 
-    .line 405
+    .line 394
     :catch_0
     move-exception v0
 
-    .line 406
+    .line 395
     .local v0, ex:Ljava/lang/Exception;
     sget-boolean v1, Lcom/android/settings/flipfont/FontListPreference;->DEBUG:Z
 
     if-eqz v1, :cond_0
 
-    .line 407
+    .line 396
     const-string v1, "FlipFont"
 
     const-string v2, "dismiss/show ListLoad() - catch (Exception ex)"
@@ -185,14 +185,14 @@
     .locals 5
 
     .prologue
-    .line 381
+    .line 370
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     iget-object v2, v2, Lcom/android/settings/flipfont/FontListPreference;->mState:Landroid/os/Bundle;
 
     iput-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->privState:Landroid/os/Bundle;
 
-    .line 383
+    .line 372
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     #getter for: Lcom/android/settings/flipfont/FontListPreference;->context:Landroid/content/Context;
@@ -204,7 +204,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090a67
+    const v3, 0x7f090b4b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -212,7 +212,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 384
+    .line 373
     .local v1, sTitle:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
@@ -225,7 +225,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090a80
+    const v3, 0x7f090b64
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -233,7 +233,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 387
+    .line 376
     .local v0, sMsg:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
@@ -252,6 +252,6 @@
 
     iput-object v2, p0, Lcom/android/settings/flipfont/FontListPreference$LoadListTask;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 388
+    .line 377
     return-void
 .end method

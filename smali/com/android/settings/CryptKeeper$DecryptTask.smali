@@ -175,12 +175,12 @@
     .line 191
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-virtual {v1}, Lcom/android/settings/CryptKeeper;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     .line 192
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/CryptKeeper;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 214
     :goto_0
@@ -203,7 +203,7 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/CryptKeeper;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
 
@@ -249,9 +249,9 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v1, 0x7f0b006c
+    const v1, 0x7f0b0075
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/CryptKeeper;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -260,9 +260,9 @@
     .line 203
     iget-object v1, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v2, 0x7f090bb5
+    const v2, 0x7f090cbd
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/CryptKeeper;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
@@ -276,7 +276,7 @@
     if-ge v2, v3, :cond_3
 
     .line 205
-    const v1, 0x7f09098f
+    const v1, 0x7f090a6d
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -289,7 +289,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v5}, Landroid/widget/EditText;->setEnabled(Z)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 212
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;

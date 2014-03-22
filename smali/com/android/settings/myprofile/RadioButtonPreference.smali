@@ -67,9 +67,9 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/preference/CheckBoxPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 19
-    const v0, 0x7f04010b
+    const v0, 0x7f040131
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/RadioButtonPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 20
     return-void
@@ -106,13 +106,13 @@
     invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->onBindView(Landroid/view/View;)V
 
     .line 39
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/RadioButtonPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
     .line 41
     .local v0, checked:Z
-    const v3, 0x7f0b02fa
+    const v3, 0x7f0b0335
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -147,7 +147,7 @@
     if-eqz v1, :cond_1
 
     .line 47
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/RadioButtonPreference;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v3
 

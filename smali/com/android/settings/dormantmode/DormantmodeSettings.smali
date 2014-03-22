@@ -40,7 +40,7 @@
 
 .field private mFilter:Landroid/content/IntentFilter;
 
-.field private mHelpPref:Landroid/preference/Preference;
+.field private mHelpPref:Lcom/android/settings/UnclickablePreference;
 
 .field private mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
@@ -74,10 +74,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 94
+    .line 96
     sput v2, Lcom/android/settings/dormantmode/DormantmodeSettings;->DIALOG_CURRENT_TIMEPICKER:I
 
-    .line 105
+    .line 107
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/String;
@@ -95,15 +95,15 @@
     .locals 2
 
     .prologue
-    .line 53
+    .line 55
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 101
+    .line 103
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIsGoingIntoAllowedList:Z
 
-    .line 103
+    .line 105
     sget-object v0, Landroid/provider/ContactsContract$RawContacts;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -124,7 +124,7 @@
 
     iput-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->builder:Landroid/net/Uri$Builder;
 
-    .line 109
+    .line 111
     new-instance v0, Lcom/android/settings/dormantmode/DormantmodeSettings$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -138,206 +138,12 @@
     return-void
 .end method
 
-.method private TimeFormat(II)Ljava/lang/StringBuilder;
-    .locals 9
-    .parameter "hour"
-    .parameter "mine"
-
-    .prologue
-    const/16 v7, 0xc
-
-    .line 541
-    const-string v2, ""
-
-    .line 542
-    .local v2, mTimeAMPM:Ljava/lang/String;
-    new-instance v0, Ljava/text/DateFormatSymbols;
-
-    invoke-direct {v0}, Ljava/text/DateFormatSymbols;-><init>()V
-
-    .line 543
-    .local v0, dfs:Ljava/text/DateFormatSymbols;
-    invoke-virtual {v0}, Ljava/text/DateFormatSymbols;->getAmPmStrings()[Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 545
-    .local v1, dfsAmPm:[Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    invoke-static {v6}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    .line 546
-    if-ge p1, v7, :cond_2
-
-    .line 547
-    if-nez p1, :cond_0
-
-    add-int/lit8 p1, p1, 0xc
-
-    .line 548
-    :cond_0
-    const/4 v6, 0x0
-
-    aget-object v2, v1, v6
-
-    .line 555
-    :cond_1
-    :goto_0
-    new-instance v6, Ljava/text/DecimalFormat;
-
-    const-string v7, "00"
-
-    invoke-direct {v6, v7}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
-
-    int-to-long v7, p1
-
-    invoke-virtual {v6, v7, v8}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 556
-    .local v3, mTimeHour:Ljava/lang/String;
-    new-instance v6, Ljava/text/DecimalFormat;
-
-    const-string v7, "00"
-
-    invoke-direct {v6, v7}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
-
-    int-to-long v7, p2
-
-    invoke-virtual {v6, v7, v8}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 558
-    .local v4, mTimeMin:Ljava/lang/String;
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 560
-    .local v5, setTime:Ljava/lang/StringBuilder;
-    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 561
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    .line 565
-    :goto_1
-    return-object v5
-
-    .line 550
-    .end local v3           #mTimeHour:Ljava/lang/String;
-    .end local v4           #mTimeMin:Ljava/lang/String;
-    .end local v5           #setTime:Ljava/lang/StringBuilder;
-    :cond_2
-    if-eq p1, v7, :cond_3
-
-    add-int/lit8 p1, p1, -0xc
-
-    .line 551
-    :cond_3
-    const/4 v6, 0x1
-
-    aget-object v2, v1, v6
-
-    goto :goto_0
-
-    .line 563
-    .restart local v3       #mTimeHour:Ljava/lang/String;
-    .restart local v4       #mTimeMin:Ljava/lang/String;
-    .restart local v5       #setTime:Ljava/lang/StringBuilder;
-    :cond_4
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    goto :goto_1
-.end method
-
 .method static synthetic access$000(Lcom/android/settings/dormantmode/DormantmodeSettings;)Landroid/widget/Button;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
 
     return-object v0
@@ -349,7 +155,7 @@
     .parameter "x1"
 
     .prologue
-    .line 53
+    .line 55
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
 
     return-object p1
@@ -360,7 +166,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
     return-object v0
@@ -373,7 +179,7 @@
     .parameter "x2"
 
     .prologue
-    .line 53
+    .line 55
     invoke-direct {p0, p1, p2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setEndTime(II)V
 
     return-void
@@ -385,8 +191,8 @@
     .parameter "x1"
 
     .prologue
-    .line 53
-    invoke-virtual {p0, p1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->showDialog(I)V
+    .line 55
+    invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     return-void
 .end method
@@ -396,7 +202,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStarthour:I
 
     return v0
@@ -407,7 +213,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStartmin:I
 
     return v0
@@ -420,7 +226,7 @@
     .parameter "x2"
 
     .prologue
-    .line 53
+    .line 55
     invoke-direct {p0, p1, p2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setStartTime(II)V
 
     return-void
@@ -431,7 +237,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     sput p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->DIALOG_CURRENT_TIMEPICKER:I
 
     return p0
@@ -443,8 +249,8 @@
     .parameter "x1"
 
     .prologue
-    .line 53
-    invoke-virtual {p0, p1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->showDialog(I)V
+    .line 55
+    invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     return-void
 .end method
@@ -454,7 +260,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
 
     return-object v0
@@ -466,7 +272,7 @@
     .parameter "x1"
 
     .prologue
-    .line 53
+    .line 55
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
 
     return-object p1
@@ -477,7 +283,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
     return v0
@@ -488,7 +294,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 55
     iget v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
     return v0
@@ -499,34 +305,34 @@
     .parameter "value"
 
     .prologue
-    .line 569
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getResources()Landroid/content/res/Resources;
+    .line 549
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0a00a5
+    const v5, 0x7f0a00c5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 570
+    .line 550
     .local v3, values:[Ljava/lang/String;
-    const v2, 0x7f0a00a4
+    const v2, 0x7f0a00c4
 
-    .line 571
+    .line 551
     .local v2, summaryArrayResId:I
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0a00a4
+    const v5, 0x7f0a00c4
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 572
+    .line 552
     .local v1, summaries:[Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -536,7 +342,7 @@
 
     if-ge v0, v4, :cond_1
 
-    .line 574
+    .line 554
     aget-object v4, v3, v0
 
     invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -545,20 +351,20 @@
 
     if-eqz v4, :cond_0
 
-    .line 575
+    .line 555
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
     aget-object v5, v1, v0
 
     invoke-virtual {v4, v5}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 572
+    .line 552
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 578
+    .line 558
     :cond_1
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
@@ -568,7 +374,7 @@
 
     invoke-virtual {v4, v5}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    .line 579
+    .line 559
     return-void
 .end method
 
@@ -578,8 +384,8 @@
     .parameter "minute"
 
     .prologue
-    .line 532
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 538
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -587,8 +393,8 @@
 
     invoke-static {v1, v2, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 533
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 539
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -596,18 +402,22 @@
 
     invoke-static {v1, v2, p2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 535
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->TimeFormat(II)Ljava/lang/StringBuilder;
+    .line 541
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-static {v1, p1, p2}, Lcom/android/settings/dormantmode/DormantModeUtils;->TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 537
+    .line 543
     .local v0, EndTime:Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
 
-    invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 538
+    .line 544
     return-void
 .end method
 
@@ -617,8 +427,8 @@
     .parameter "minute"
 
     .prologue
-    .line 523
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 529
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -626,8 +436,8 @@
 
     invoke-static {v1, v2, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 524
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 530
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -635,18 +445,22 @@
 
     invoke-static {v1, v2, p2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 526
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->TimeFormat(II)Ljava/lang/StringBuilder;
+    .line 532
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-static {v1, p1, p2}, Lcom/android/settings/dormantmode/DormantModeUtils;->TimeFormat(Landroid/content/Context;II)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 528
+    .line 534
     .local v0, StartTime:Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
 
-    invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 529
+    .line 535
     return-void
 .end method
 
@@ -662,12 +476,12 @@
 
     const/4 v7, 0x0
 
-    .line 331
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    .line 356
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 332
+    .line 357
     .local v0, activity:Landroid/app/Activity;
     new-instance v3, Landroid/widget/Switch;
 
@@ -675,17 +489,17 @@
 
     iput-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 334
+    .line 359
     instance-of v3, v0, Landroid/preference/PreferenceActivity;
 
     if-eqz v3, :cond_1
 
     move-object v2, v0
 
-    .line 335
+    .line 360
     check-cast v2, Landroid/preference/PreferenceActivity;
 
-    .line 336
+    .line 361
     .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
     invoke-virtual {v2}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
@@ -699,32 +513,32 @@
 
     if-nez v3, :cond_1
 
-    .line 337
+    .line 362
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 339
+    .line 364
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v7, v7, v1, v7}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v7, v7, v1, v7}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 340
+    .line 365
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3, v5, v5}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 342
+    .line 367
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -739,7 +553,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 347
+    .line 372
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -750,7 +564,7 @@
 
     iput-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarLayout:Landroid/view/View;
 
-    .line 350
+    .line 375
     .end local v1           #padding:I
     .end local v2           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_1
@@ -762,7 +576,7 @@
 
     iput-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
-    .line 352
+    .line 377
     return-void
 .end method
 
@@ -774,17 +588,19 @@
 
     const/4 v3, 0x0
 
-    .line 212
+    .line 244
     const-string v1, "dormant_mode_help"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Landroid/preference/Preference;
+    check-cast v1, Lcom/android/settings/UnclickablePreference;
 
-    .line 214
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Lcom/android/settings/UnclickablePreference;
+
+    .line 246
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -792,25 +608,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_4
 
-    .line 215
-    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Landroid/preference/Preference;
+    .line 247
+    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Lcom/android/settings/UnclickablePreference;
 
-    const v4, 0x7f04007a
+    const v4, 0x7f0913d4
 
-    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setTitle(I)V
 
-    .line 219
+    .line 252
     :goto_0
-    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Landroid/preference/Preference;
-
-    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setSelectable(Z)V
-
-    .line 221
     const-string v1, "disable_incoming_calls"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -818,10 +629,10 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
-    .line 222
+    .line 253
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -831,17 +642,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_5
 
     move v1, v2
 
     :goto_1
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 224
+    .line 255
     const-string v1, "disable_notifications"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -849,10 +660,10 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
-    .line 225
+    .line 256
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -862,17 +673,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_6
 
     move v1, v2
 
     :goto_2
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 227
+    .line 258
     const-string v1, "disable_alarm_and_timer"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -880,10 +691,10 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
-    .line 228
+    .line 259
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -893,17 +704,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_7
 
     move v1, v2
 
     :goto_3
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 230
+    .line 261
     const-string v1, "disable_led_indicator"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -911,10 +722,10 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
-    .line 231
+    .line 262
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -924,17 +735,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_8
 
     move v1, v2
 
     :goto_4
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 233
+    .line 264
     const-string v1, "always"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -942,10 +753,10 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    .line 234
+    .line 265
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -955,17 +766,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_9
 
     move v1, v2
 
     :goto_5
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 236
+    .line 267
     const-string v1, "allowed_contacts"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -973,10 +784,10 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
-    .line 237
+    .line 268
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -988,13 +799,13 @@
 
     invoke-virtual {v1, v4}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    .line 238
+    .line 269
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 240
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 271
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1006,16 +817,16 @@
 
     invoke-direct {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setAllowListsummery(Ljava/lang/String;)V
 
-    .line 242
+    .line 273
     const-string v1, "allowed_list"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
-    .line 243
+    .line 274
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
@@ -1032,10 +843,10 @@
 
     invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 246
+    .line 277
     const-string v1, "set_time_category"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1043,15 +854,15 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimPref:Landroid/preference/PreferenceCategory;
 
-    .line 248
+    .line 279
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
     if-nez v1, :cond_0
 
-    .line 249
+    .line 280
     new-instance v1, Lcom/android/settings/dormantmode/DormantmodeSettings$3;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1059,37 +870,50 @@
 
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
-    .line 277
+    .line 308
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
-    if-nez v4, :cond_c
+    if-nez v4, :cond_a
 
     :goto_6
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 278
+    .line 309
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
-    const v2, 0x7f04007e
+    const v2, 0x7f040084
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    .line 279
+    .line 310
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimPref:Landroid/preference/PreferenceCategory;
 
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 285
+    .line 313
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    const-string v1, "feature_category"
+
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/PreferenceCategory;
+
+    .line 314
+    .local v0, featureCategory:Landroid/preference/PreferenceCategory;
+    if-eqz v0, :cond_3
+
+    .line 315
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1099,7 +923,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1107,57 +931,55 @@
 
     move-result v1
 
+    if-nez v1, :cond_1
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v1
+
     if-eqz v1, :cond_2
 
-    .line 286
+    .line 317
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 318
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 287
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 319
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 288
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 320
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
     const-string v1, "allowed_contacts_category"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
     check-cast v1, Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v2, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 291
+    .line 323
     :cond_2
-    const-string v1, "feature_category"
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/preference/PreferenceCategory;
-
-    .line 292
-    .local v0, featureCategory:Landroid/preference/PreferenceCategory;
-    if-eqz v0, :cond_5
-
-    .line 293
     const/4 v1, 0x0
 
     invoke-static {v1}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -1166,221 +988,61 @@
 
     if-eqz v1, :cond_3
 
-    .line 294
+    .line 324
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 297
+    .line 327
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 298
-    :cond_4
-    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 302
-    :cond_5
     return-void
 
-    .line 217
+    .line 249
     .end local v0           #featureCategory:Landroid/preference/PreferenceCategory;
-    :cond_6
-    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Landroid/preference/Preference;
+    :cond_4
+    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mHelpPref:Lcom/android/settings/UnclickablePreference;
 
-    const v4, 0x7f040079
+    const v4, 0x7f0913d3
 
-    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setTitle(I)V
 
     goto/16 :goto_0
+
+    :cond_5
+    move v1, v3
+
+    .line 253
+    goto/16 :goto_1
+
+    :cond_6
+    move v1, v3
+
+    .line 256
+    goto/16 :goto_2
 
     :cond_7
     move v1, v3
 
-    .line 222
-    goto/16 :goto_1
+    .line 259
+    goto/16 :goto_3
 
     :cond_8
     move v1, v3
 
-    .line 225
-    goto/16 :goto_2
+    .line 262
+    goto/16 :goto_4
 
     :cond_9
     move v1, v3
 
-    .line 228
-    goto/16 :goto_3
-
-    :cond_a
-    move v1, v3
-
-    .line 231
-    goto/16 :goto_4
-
-    :cond_b
-    move v1, v3
-
-    .line 234
+    .line 265
     goto/16 :goto_5
 
-    :cond_c
+    :cond_a
     move v2, v3
 
-    .line 277
+    .line 308
     goto/16 :goto_6
-.end method
-
-.method public isAllOptionDisabled()Z
-    .locals 8
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 417
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "dormant_disable_incoming_calls"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    .line 418
-    .local v1, incoming:I
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "dormant_disable_notifications"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    .line 419
-    .local v3, notification:I
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "dormant_disable_alarm_and_timer"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 420
-    .local v0, alarm:I
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "dormant_disable_led_indicator"
-
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    .line 422
-    .local v2, indicator:I
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 423
-    :cond_0
-    const/4 v1, 0x0
-
-    .line 430
-    :cond_1
-    const-string v5, "DormantModeSettings"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "isAllOptionDisabled()"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 431
-    if-nez v1, :cond_2
-
-    if-nez v3, :cond_2
-
-    if-nez v0, :cond_2
-
-    if-nez v2, :cond_2
-
-    .line 432
-    const/4 v4, 0x1
-
-    .line 434
-    :cond_2
-    return v4
 .end method
 
 .method loadDormantTime()V
@@ -1389,8 +1051,8 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 355
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 380
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1402,8 +1064,8 @@
 
     iput v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStarthour:I
 
-    .line 356
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 381
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1415,8 +1077,8 @@
 
     iput v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
-    .line 357
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 382
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1428,8 +1090,8 @@
 
     iput v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStartmin:I
 
-    .line 358
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 383
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1441,7 +1103,7 @@
 
     iput v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
-    .line 359
+    .line 384
     return-void
 .end method
 
@@ -1450,11 +1112,11 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 142
+    .line 144
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 143
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getListView()Landroid/widget/ListView;
+    .line 145
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -1462,14 +1124,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 144
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getListView()Landroid/widget/ListView;
+    .line 146
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->clearFocus()V
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->clearFocus()V
 
-    .line 145
+    .line 147
     return-void
 .end method
 
@@ -1478,22 +1140,22 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 120
+    .line 122
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 122
-    const v0, 0x7f070036
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->addPreferencesFromResource(I)V
-
     .line 124
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    const v0, 0x7f070043
+
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
+
+    .line 126
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
-    .line 125
+    .line 127
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "android.settings.DORMANTMODE_ACTIVITY_LAUNCH"
@@ -1502,23 +1164,23 @@
 
     iput-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mFilter:Landroid/content/IntentFilter;
 
-    .line 126
+    .line 128
     new-instance v0, Lcom/android/settings/dormantmode/DormantmodeSettings$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/dormantmode/DormantmodeSettings$2;-><init>(Lcom/android/settings/dormantmode/DormantmodeSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 135
+    .line 137
     invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->initDromantswitchBtn()V
 
-    .line 136
+    .line 138
     invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->initPref()V
 
-    .line 137
+    .line 139
     invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->updateDormantmodepage()V
 
-    .line 138
+    .line 140
     return-void
 .end method
 
@@ -1529,37 +1191,37 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 440
+    .line 446
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     if-eqz v0, :cond_0
 
-    .line 441
+    .line 447
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 442
+    .line 448
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
-    .line 444
+    .line 450
     :cond_0
     packed-switch p1, :pswitch_data_0
 
-    .line 457
+    .line 463
     iput-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
-    .line 461
+    .line 467
     :goto_0
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     return-object v0
 
-    .line 446
+    .line 452
     :pswitch_0
     new-instance v0, Landroid/app/TimePickerDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1567,7 +1229,7 @@
 
     iget v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStartmin:I
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -1583,17 +1245,17 @@
 
     goto :goto_0
 
-    .line 451
+    .line 457
     :pswitch_1
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v6
 
-    .line 452
+    .line 458
     .local v6, calendar:Ljava/util/Calendar;
     new-instance v0, Landroid/app/TimePickerDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1601,7 +1263,7 @@
 
     iget v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -1617,7 +1279,7 @@
 
     goto :goto_0
 
-    .line 444
+    .line 450
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1633,29 +1295,29 @@
 
     const/4 v3, 0x0
 
-    .line 176
+    .line 185
     const-string v1, "DormantModeSettings"
 
     const-string v2, "onPause() "
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 177
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 186
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 178
+    .line 187
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 180
+    .line 189
     iget-boolean v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIsGoingIntoAllowedList:Z
 
     if-nez v1, :cond_0
 
-    .line 181
+    .line 190
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1668,32 +1330,30 @@
 
     move-result v0
 
-    .line 182
+    .line 191
     .local v0, state:I
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->isAllOptionDisabled()Z
+    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/settings/dormantmode/DormantModeUtils;->isAllOptionDisabled(Landroid/content/Context;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 184
+    .line 193
     if-ne v4, v0, :cond_0
 
-    .line 185
+    .line 194
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 186
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    .line 195
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const v2, 0x7f09127d
+    const v2, 0x7f0913e7
 
     invoke-static {v1, v2, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1701,15 +1361,15 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 191
+    .line 200
     .end local v0           #state:I
     :cond_0
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     invoke-virtual {v1}, Lcom/android/settings/dormantmode/DormantModeEnabler;->pause()V
 
-    .line 193
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 202
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1717,7 +1377,7 @@
 
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 194
+    .line 203
     return-void
 .end method
 
@@ -1731,12 +1391,12 @@
 
     const/4 v3, 0x0
 
-    .line 494
+    .line 500
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 495
+    .line 501
     const-string v1, "allowed_contacts"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1745,12 +1405,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 496
+    .line 502
     check-cast p2, Ljava/lang/String;
 
-    .line 498
+    .line 504
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1758,10 +1418,10 @@
 
     invoke-static {v0, v1, p2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 499
+    .line 505
     invoke-direct {p0, p2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setAllowListsummery(Ljava/lang/String;)V
 
-    .line 500
+    .line 506
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
@@ -1780,7 +1440,7 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 504
+    .line 510
     :goto_0
     const-string v0, "Custom"
 
@@ -1790,7 +1450,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 505
+    .line 511
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1813,7 +1473,7 @@
 
     move-result-object v0
 
-    .line 506
+    .line 512
     if-eqz v0, :cond_1
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
@@ -1822,19 +1482,19 @@
 
     if-eqz v1, :cond_1
 
-    .line 507
+    .line 513
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 519
+    .line 525
     :cond_0
     :goto_1
     return v10
 
-    .line 501
+    .line 507
     :catch_0
     move-exception v0
 
-    .line 502
+    .line 508
     const-string v1, "DormantModeSettings"
 
     const-string v2, "could not set KEY_ALLOW_LIST"
@@ -1843,21 +1503,21 @@
 
     goto :goto_0
 
-    .line 509
+    .line 515
     :cond_1
     if-eqz v0, :cond_2
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 511
+    .line 517
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
     check-cast v4, Landroid/preference/PreferenceActivity;
 
-    .line 512
+    .line 518
     const-class v0, Lcom/android/settings/dormantmode/DormantModeCustomList;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -1868,7 +1528,7 @@
 
     invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
 
-    const v7, 0x7f091276
+    const v7, 0x7f0913e0
 
     move-object v8, v3
 
@@ -1876,12 +1536,12 @@
 
     invoke-virtual/range {v4 .. v10}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 514
+    .line 520
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIsGoingIntoAllowedList:Z
 
-    .line 515
+    .line 521
     const-string v0, "DormantModeSettings"
 
     const-string v1, "display custom contact list for tablet"
@@ -1901,29 +1561,36 @@
 
     const/4 v3, 0x1
 
-    .line 364
+    .line 389
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_0
 
-    .line 365
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 390
+    :cond_0
     iget-boolean v5, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
-    .line 366
+    .line 391
     sget v5, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSettingValue:I
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_1
 
-    .line 367
+    .line 392
     sget v5, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSettingValue:I
 
-    if-ne v5, v3, :cond_3
+    if-ne v5, v3, :cond_4
 
     move v2, v3
 
@@ -1931,63 +1598,65 @@
     :goto_0
     move-object v0, p2
 
-    .line 368
+    .line 393
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 369
+    .line 394
     .local v0, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
-    .line 370
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 395
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 376
+    .line 401
     .end local v0           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v2           #value:Z
-    :cond_0
+    :cond_1
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6
 
-    .line 377
+    .line 402
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
-    .line 378
+    .line 403
     .restart local v2       #value:Z
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "dormant_disable_incoming_calls"
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     move v5, v3
 
     :goto_1
     invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 404
+    .line 429
     .end local v2           #value:Z
-    :cond_1
+    :cond_2
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->isAllOptionDisabled()Z
+    iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/settings/dormantmode/DormantModeUtils;->isAllOptionDisabled(Landroid/content/Context;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10
 
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
@@ -1995,7 +1664,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
@@ -2003,7 +1672,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
@@ -2011,7 +1680,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
@@ -2019,62 +1688,62 @@
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10
 
-    .line 406
-    :cond_2
+    .line 431
+    :cond_3
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v3, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 412
+    .line 438
     :goto_3
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
 
     return v3
 
-    :cond_3
+    :cond_4
     move v2, v4
 
-    .line 367
+    .line 392
     goto :goto_0
 
     .restart local v2       #value:Z
-    :cond_4
+    :cond_5
     move v5, v4
 
-    .line 378
+    .line 403
     goto :goto_1
 
-    .line 380
+    .line 405
     .end local v2           #value:Z
-    :cond_5
+    :cond_6
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
-    .line 381
+    .line 406
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
-    .line 382
+    .line 407
     .restart local v2       #value:Z
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "dormant_disable_notifications"
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     move v5, v3
 
@@ -2083,38 +1752,38 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     move v5, v4
 
     goto :goto_4
 
-    .line 384
+    .line 409
     .end local v2           #value:Z
-    :cond_7
+    :cond_8
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
-    .line 385
+    .line 410
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
-    .line 386
+    .line 411
     .restart local v2       #value:Z
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "dormant_disable_alarm_and_timer"
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     move v5, v3
 
@@ -2123,38 +1792,38 @@
 
     goto :goto_2
 
-    :cond_8
+    :cond_9
     move v5, v4
 
     goto :goto_5
 
-    .line 388
+    .line 413
     .end local v2           #value:Z
-    :cond_9
+    :cond_a
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_c
 
-    .line 389
+    .line 414
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
-    .line 390
+    .line 415
     .restart local v2       #value:Z
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "dormant_disable_led_indicator"
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     move v5, v3
 
@@ -2163,75 +1832,75 @@
 
     goto/16 :goto_2
 
-    :cond_a
+    :cond_b
     move v5, v4
 
     goto :goto_6
 
-    .line 392
+    .line 417
     .end local v2           #value:Z
-    :cond_b
+    :cond_c
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
-    .line 393
+    .line 418
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
-    .line 394
+    .line 419
     .restart local v2       #value:Z
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
     const-string v7, "dormant_always"
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
     move v5, v3
 
     :goto_7
     invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 395
+    .line 420
     iget-object v6, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v5
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_e
 
     move v5, v3
 
     :goto_8
     invoke-virtual {v6, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 397
+    .line 422
     const-string v5, "DormantModeSettings"
 
     const-string v6, "Broadcast intent : android.settings.DORMANTMODE_CHANGED"
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 423
     new-instance v1, Landroid/content/Intent;
 
     const-string v5, "android.settings.DORMANTMODE_CHANGED"
 
     invoke-direct {v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 399
+    .line 424
     .local v1, intent:Landroid/content/Intent;
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
@@ -2240,39 +1909,50 @@
     goto/16 :goto_2
 
     .end local v1           #intent:Landroid/content/Intent;
-    :cond_c
-    move v5, v4
-
-    .line 394
-    goto :goto_7
-
     :cond_d
     move v5, v4
 
-    .line 395
+    .line 419
+    goto :goto_7
+
+    :cond_e
+    move v5, v4
+
+    .line 420
     goto :goto_8
 
-    .line 400
+    .line 425
     .end local v2           #value:Z
-    :cond_e
+    :cond_f
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
-    .line 401
+    .line 426
     iput-boolean v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIsGoingIntoAllowedList:Z
 
     goto/16 :goto_2
 
-    .line 409
-    :cond_f
+    .line 434
+    :cond_10
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v4, v3}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 435
+    iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
+
+    new-instance v4, Landroid/content/Intent;
+
+    const-string v5, "android.settings.DORMANTMODE_CHANGED"
+
+    invoke-direct {v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_3
 .end method
@@ -2285,28 +1965,28 @@
 
     const/4 v3, 0x1
 
-    .line 149
+    .line 151
     const-string v0, "DormantModeSettings"
 
     const-string v1, "onResume() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
+    .line 152
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 151
+    .line 153
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 152
+    .line 154
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarLayout:Landroid/view/View;
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 153
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    .line 155
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -2316,18 +1996,18 @@
 
     invoke-virtual {v0, v3}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 156
+    .line 158
     :cond_0
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/dormantmode/DormantModeEnabler;->resume()V
 
-    .line 157
+    .line 159
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 158
+    .line 160
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -2336,8 +2016,8 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 159
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 161
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -2351,44 +2031,56 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 162
+    .line 165
+    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->updatePref()V
+
+    .line 167
     invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->updateDormantmodepage()V
 
-    .line 163
+    .line 168
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     if-eqz v0, :cond_1
 
-    .line 164
+    .line 169
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 166
+    .line 171
     :cond_1
+    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->loadDormantTime()V
+
+    .line 173
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
 
     if-eqz v0, :cond_2
 
-    .line 167
+    .line 174
     iget v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStarthour:I
 
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStartmin:I
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setStartTime(II)V
 
-    .line 168
+    .line 176
+    :cond_2
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
+
+    if-eqz v0, :cond_3
+
+    .line 177
     iget v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setEndTime(II)V
 
-    .line 171
-    :cond_2
+    .line 180
+    :cond_3
     iput-boolean v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIsGoingIntoAllowedList:Z
 
-    .line 172
+    .line 181
     return-void
 .end method
 
@@ -2396,30 +2088,30 @@
     .locals 2
 
     .prologue
-    .line 198
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    .line 207
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
-    .line 199
+    .line 208
     const-string v0, "DormantModeSettings"
 
     const-string v1, "onStop() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 201
+    .line 210
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 202
+    .line 211
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 203
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    .line 212
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -2431,18 +2123,18 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 205
+    .line 214
     :cond_0
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     if-eqz v0, :cond_1
 
-    .line 206
+    .line 215
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimePickerDlg:Landroid/app/Dialog;
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 208
+    .line 217
     :cond_1
     return-void
 .end method
@@ -2456,21 +2148,21 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 466
+    .line 472
     sget v1, Lcom/android/settings/dormantmode/DormantmodeSettings;->DIALOG_CURRENT_TIMEPICKER:I
 
     if-ne v1, v3, :cond_2
 
-    .line 467
+    .line 473
     iput p2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStarthour:I
 
-    .line 468
+    .line 474
     iput p3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStartmin:I
 
-    .line 469
+    .line 475
     invoke-direct {p0, p2, p3}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setStartTime(II)V
 
-    .line 476
+    .line 482
     :cond_0
     :goto_0
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mStarthour:I
@@ -2485,14 +2177,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 477
+    .line 483
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
     const/16 v2, 0x3b
 
     if-ne v1, v2, :cond_3
 
-    .line 478
+    .line 484
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
     add-int/lit8 v1, v1, 0x1
@@ -2501,29 +2193,29 @@
 
     iput v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
-    .line 479
+    .line 485
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
-    .line 480
+    .line 486
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
     iget v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
     invoke-direct {p0, v1, v2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setEndTime(II)V
 
-    .line 485
+    .line 491
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const v2, 0x7f091271
+    const v2, 0x7f0913db
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2531,7 +2223,7 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 487
+    .line 493
     :cond_1
     const-string v1, "DormantModeSettings"
 
@@ -2539,23 +2231,23 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 488
+    .line 494
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.settings.DORMANTMODE_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 489
+    .line 495
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 490
+    .line 496
     return-void
 
-    .line 470
+    .line 476
     .end local v0           #intent:Landroid/content/Intent;
     :cond_2
     sget v1, Lcom/android/settings/dormantmode/DormantmodeSettings;->DIALOG_CURRENT_TIMEPICKER:I
@@ -2564,23 +2256,23 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 471
+    .line 477
     iput p2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
-    .line 472
+    .line 478
     iput p3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
-    .line 473
+    .line 479
     invoke-direct {p0, p2, p3}, Lcom/android/settings/dormantmode/DormantmodeSettings;->setEndTime(II)V
 
-    .line 474
+    .line 480
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
 
-    invoke-virtual {v1}, Landroid/widget/Button;->requestFocus()Z
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_0
 
-    .line 482
+    .line 488
     :cond_3
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
@@ -2588,7 +2280,7 @@
 
     iput v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
 
-    .line 483
+    .line 489
     iget v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndhour:I
 
     iget v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mEndmin:I
@@ -2606,8 +2298,8 @@
 
     const/4 v1, 0x0
 
-    .line 305
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 330
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -2617,91 +2309,91 @@
 
     move-result v0
 
-    .line 308
+    .line 333
     .local v0, State:I
     if-nez v0, :cond_0
 
-    .line 309
+    .line 334
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 310
+    .line 335
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 311
+    .line 336
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 312
+    .line 337
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 313
+    .line 338
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 314
+    .line 339
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
     invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 315
+    .line 340
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 316
+    .line 341
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
     invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 328
+    .line 353
     :goto_0
     return-void
 
-    .line 318
+    .line 343
     :cond_0
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v3, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 319
+    .line 344
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 320
+    .line 345
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 321
+    .line 346
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 322
+    .line 347
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 323
+    .line 348
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 324
+    .line 349
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mSetTimeDialogPref:Landroid/preference/Preference;
 
     iget-object v4, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -2712,12 +2404,12 @@
     :cond_1
     invoke-virtual {v3, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 325
+    .line 350
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 326
+    .line 351
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
 
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
@@ -2735,4 +2427,218 @@
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
+.end method
+
+.method public updatePref()V
+    .locals 5
+
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 220
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v0, :cond_0
+
+    .line 221
+    iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mIncomingCallPref:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v4, "dormant_disable_incoming_calls"
+
+    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 223
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v0, :cond_1
+
+    .line 224
+    iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mNotificationsPref:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v4, "dormant_disable_notifications"
+
+    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    move v0, v1
+
+    :goto_1
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 226
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v0, :cond_2
+
+    .line 227
+    iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlarmandTimePref:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v4, "dormant_disable_alarm_and_timer"
+
+    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    move v0, v1
+
+    :goto_2
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 229
+    :cond_2
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v0, :cond_3
+
+    .line 230
+    iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mLedIndicatorPref:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v4, "dormant_disable_led_indicator"
+
+    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    move v0, v1
+
+    :goto_3
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 232
+    :cond_3
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v0, :cond_4
+
+    .line 233
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAlwaysPref:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "dormant_always"
+
+    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-eqz v3, :cond_b
+
+    :goto_4
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 235
+    :cond_4
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
+
+    if-eqz v0, :cond_5
+
+    .line 236
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "dormant_allow_list"
+
+    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
+
+    .line 238
+    :cond_5
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
+
+    if-eqz v0, :cond_6
+
+    .line 239
+    iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedListPref:Landroid/preference/Preference;
+
+    iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings;->mAllowedContactsPref:Landroid/preference/ListPreference;
+
+    invoke-virtual {v1}, Landroid/preference/ListPreference;->getValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "Custom"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 241
+    :cond_6
+    return-void
+
+    :cond_7
+    move v0, v2
+
+    .line 221
+    goto/16 :goto_0
+
+    :cond_8
+    move v0, v2
+
+    .line 224
+    goto :goto_1
+
+    :cond_9
+    move v0, v2
+
+    .line 227
+    goto :goto_2
+
+    :cond_a
+    move v0, v2
+
+    .line 230
+    goto :goto_3
+
+    :cond_b
+    move v1, v2
+
+    .line 233
+    goto :goto_4
 .end method

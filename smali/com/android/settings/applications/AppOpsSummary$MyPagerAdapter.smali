@@ -28,13 +28,13 @@
     .parameter "fm"
 
     .prologue
-    .line 53
+    .line 54
     iput-object p1, p0, Lcom/android/settings/applications/AppOpsSummary$MyPagerAdapter;->this$0:Lcom/android/settings/applications/AppOpsSummary;
 
-    .line 54
+    .line 55
     invoke-direct {p0, p2}, Landroid/support/v13/app/FragmentPagerAdapter;-><init>(Landroid/app/FragmentManager;)V
 
-    .line 55
+    .line 56
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 65
     sget-object v0, Lcom/android/settings/applications/AppOpsSummary;->sPageTemplates:[Lcom/android/settings/applications/AppOpsState$OpsTemplate;
 
     array-length v0, v0
@@ -57,7 +57,7 @@
     .parameter "position"
 
     .prologue
-    .line 59
+    .line 60
     new-instance v0, Lcom/android/settings/applications/AppOpsCategory;
 
     sget-object v1, Lcom/android/settings/applications/AppOpsSummary;->sPageTemplates:[Lcom/android/settings/applications/AppOpsState$OpsTemplate;
@@ -74,7 +74,7 @@
     .parameter "position"
 
     .prologue
-    .line 69
+    .line 70
     iget-object v0, p0, Lcom/android/settings/applications/AppOpsSummary$MyPagerAdapter;->this$0:Lcom/android/settings/applications/AppOpsSummary;
 
     iget-object v0, v0, Lcom/android/settings/applications/AppOpsSummary;->mPageNames:[Ljava/lang/CharSequence;
@@ -89,10 +89,10 @@
     .parameter "state"
 
     .prologue
-    .line 83
+    .line 84
     if-nez p1, :cond_0
 
-    .line 86
+    .line 87
     :cond_0
     return-void
 .end method
@@ -104,7 +104,7 @@
     .parameter "positionOffsetPixels"
 
     .prologue
-    .line 74
+    .line 75
     return-void
 .end method
 
@@ -113,11 +113,11 @@
     .parameter "position"
 
     .prologue
-    .line 78
+    .line 79
     iget-object v0, p0, Lcom/android/settings/applications/AppOpsSummary$MyPagerAdapter;->this$0:Lcom/android/settings/applications/AppOpsSummary;
 
     iput p1, v0, Lcom/android/settings/applications/AppOpsSummary;->mCurPos:I
 
-    .line 79
+    .line 80
     return-void
 .end method

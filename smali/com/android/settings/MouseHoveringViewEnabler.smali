@@ -26,7 +26,7 @@
     const/4 v2, 0x0
 
     .line 95
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 75
     iput-object v2, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -138,7 +138,7 @@
 
     iget-object v1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090cb9
+    const v2, 0x7f090dd3
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -150,7 +150,7 @@
 
     iget-object v1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090cb8
+    const v2, 0x7f090dd2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -456,7 +456,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 125
     return-void
@@ -472,7 +472,7 @@
     .line 111
     iget-object v0, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 113
     iget-object v0, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mContext:Landroid/content/Context;
@@ -517,7 +517,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 139
     iput-object p1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -528,7 +528,7 @@
     .line 143
     iget-object v0, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method
@@ -561,7 +561,7 @@
     .line 203
     iget-object v1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 205
     iget-object v1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -592,7 +592,7 @@
     .line 215
     iget-object v1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -600,7 +600,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/MouseHoveringViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method

@@ -33,19 +33,19 @@
 
     const/4 v0, 0x0
 
-    .line 139
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
     .line 141
-    iput-boolean v0, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
-
-    .line 142
-    iput-object v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mActualState:Ljava/lang/Boolean;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 143
+    iput-boolean v0, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
+
+    .line 144
+    iput-object v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mActualState:Ljava/lang/Boolean;
+
+    .line 145
     iput-object v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
-    .line 149
+    .line 151
     iput-boolean v0, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
     return-void
@@ -56,7 +56,7 @@
     .parameter "x0"
 
     .prologue
-    .line 139
+    .line 141
     invoke-direct {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;-><init>()V
 
     return-void
@@ -68,7 +68,7 @@
     .parameter "stateResId"
 
     .prologue
-    .line 284
+    .line 286
     invoke-virtual {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getButtonDescription()I
 
     move-result v2
@@ -77,15 +77,15 @@
 
     move-result-object v0
 
-    .line 285
+    .line 287
     .local v0, gadget:Ljava/lang/String;
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 286
+    .line 288
     .local v1, state:Ljava/lang/String;
-    const v2, 0x7f0908f3
+    const v2, 0x7f0909d1
 
     const/4 v3, 0x2
 
@@ -130,7 +130,7 @@
     .locals 1
 
     .prologue
-    .line 230
+    .line 232
     const/4 v0, 0x1
 
     return v0
@@ -143,16 +143,16 @@
     .prologue
     const/4 v0, 0x5
 
-    .line 352
+    .line 354
     iget-boolean v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
     if-eqz v1, :cond_0
 
-    .line 368
+    .line 370
     :goto_0
     return v0
 
-    .line 362
+    .line 364
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getActualState(Landroid/content/Context;)I
 
@@ -162,19 +162,19 @@
 
     goto :goto_0
 
-    .line 364
+    .line 366
     :pswitch_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 366
+    .line 368
     :pswitch_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 362
+    .line 364
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -186,7 +186,7 @@
     .locals 1
 
     .prologue
-    .line 342
+    .line 344
     iget-object v0, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
@@ -226,14 +226,14 @@
 
     const/4 v3, 0x0
 
-    .line 301
+    .line 303
     iget-boolean v0, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 302
+    .line 304
     .local v0, wasInTransition:Z
     packed-switch p2, :pswitch_data_0
 
-    .line 321
+    .line 323
     :goto_0
     if-eqz v0, :cond_1
 
@@ -241,19 +241,19 @@
 
     if-nez v1, :cond_1
 
-    .line 322
+    .line 324
     iget-boolean v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
     if-eqz v1, :cond_1
 
-    .line 323
+    .line 325
     const-string v1, "SettingsAppWidgetProvider"
 
     const-string v2, "processing deferred state change"
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 324
+    .line 326
     iget-object v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mActualState:Ljava/lang/Boolean;
 
     if-eqz v1, :cond_2
@@ -272,27 +272,27 @@
 
     if-eqz v1, :cond_2
 
-    .line 326
+    .line 328
     const-string v1, "SettingsAppWidgetProvider"
 
     const-string v2, "... but intended state matches, so no changes."
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 331
+    .line 333
     :cond_0
     :goto_1
     iput-boolean v3, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
-    .line 334
+    .line 336
     :cond_1
     return-void
 
-    .line 304
+    .line 306
     :pswitch_0
     iput-boolean v3, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 305
+    .line 307
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -301,11 +301,11 @@
 
     goto :goto_0
 
-    .line 308
+    .line 310
     :pswitch_1
     iput-boolean v3, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 309
+    .line 311
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -314,11 +314,11 @@
 
     goto :goto_0
 
-    .line 312
+    .line 314
     :pswitch_2
     iput-boolean v4, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 313
+    .line 315
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -327,11 +327,11 @@
 
     goto :goto_0
 
-    .line 316
+    .line 318
     :pswitch_3
     iput-boolean v4, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 317
+    .line 319
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -340,16 +340,16 @@
 
     goto :goto_0
 
-    .line 327
+    .line 329
     :cond_2
     iget-object v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     if-eqz v1, :cond_0
 
-    .line 328
+    .line 330
     iput-boolean v4, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 329
+    .line 331
     iget-object v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -360,7 +360,7 @@
 
     goto :goto_1
 
-    .line 302
+    .line 304
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -380,30 +380,30 @@
 
     const/4 v5, 0x0
 
-    .line 237
+    .line 239
     invoke-virtual {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContainerId()I
 
     move-result v1
 
-    .line 238
+    .line 240
     .local v1, containerId:I
     invoke-virtual {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getButtonId()I
 
     move-result v0
 
-    .line 239
+    .line 241
     .local v0, buttonId:I
     invoke-virtual {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getIndicatorId()I
 
     move-result v2
 
-    .line 240
+    .line 242
     .local v2, indicatorId:I
     invoke-virtual {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getPosition()I
 
     move-result v3
 
-    .line 241
+    .line 243
     .local v3, pos:I
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getTriState(Landroid/content/Context;)I
 
@@ -411,14 +411,14 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 277
+    .line 279
     :goto_0
     :pswitch_0
     return-void
 
-    .line 243
+    .line 245
     :pswitch_1
-    const v4, 0x7f0908f5
+    const v4, 0x7f0909d3
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -426,14 +426,14 @@
 
     invoke-virtual {p2, v1, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    .line 245
+    .line 247
     invoke-virtual {p0, v5}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getButtonImageId(Z)I
 
     move-result v4
 
     invoke-virtual {p2, v0, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
-    .line 246
+    .line 248
     invoke-static {}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$500()[I
 
     move-result-object v4
@@ -444,9 +444,9 @@
 
     goto :goto_0
 
-    .line 250
+    .line 252
     :pswitch_2
-    const v4, 0x7f0908f4
+    const v4, 0x7f0909d2
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -454,14 +454,14 @@
 
     invoke-virtual {p2, v1, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    .line 252
+    .line 254
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getButtonImageId(Z)I
 
     move-result v4
 
     invoke-virtual {p2, v0, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
-    .line 253
+    .line 255
     invoke-static {}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$600()[I
 
     move-result-object v4
@@ -472,7 +472,7 @@
 
     goto :goto_0
 
-    .line 262
+    .line 264
     :pswitch_3
     invoke-virtual {p0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->isTurningOn()Z
 
@@ -480,8 +480,8 @@
 
     if-eqz v4, :cond_0
 
-    .line 263
-    const v4, 0x7f0908f6
+    .line 265
+    const v4, 0x7f0909d4
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -489,14 +489,14 @@
 
     invoke-virtual {p2, v1, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    .line 265
+    .line 267
     invoke-virtual {p0, v6}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getButtonImageId(Z)I
 
     move-result v4
 
     invoke-virtual {p2, v0, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
-    .line 266
+    .line 268
     invoke-static {}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$700()[I
 
     move-result-object v4
@@ -507,9 +507,9 @@
 
     goto :goto_0
 
-    .line 269
+    .line 271
     :cond_0
-    const v4, 0x7f0908f7
+    const v4, 0x7f0909d5
 
     invoke-direct {p0, p1, v4}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getContentDescription(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -517,14 +517,14 @@
 
     invoke-virtual {p2, v1, v4}, Landroid/widget/RemoteViews;->setContentDescription(ILjava/lang/CharSequence;)V
 
-    .line 271
+    .line 273
     invoke-virtual {p0, v5}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getButtonImageId(Z)I
 
     move-result v4
 
     invoke-virtual {p2, v0, v4}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
-    .line 272
+    .line 274
     invoke-static {}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$500()[I
 
     move-result-object v4
@@ -535,7 +535,7 @@
 
     goto :goto_0
 
-    .line 241
+    .line 243
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -548,7 +548,7 @@
 .end method
 
 .method public final toggleState(Landroid/content/Context;)V
-    .locals 4
+    .locals 5
     .parameter
 
     .prologue
@@ -556,7 +556,7 @@
 
     const/4 v0, 0x0
 
-    .line 159
+    .line 161
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -569,7 +569,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 161
+    .line 163
     :try_start_0
     invoke-static {}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$400()Landroid/app/enterprise/IRestrictionPolicy;
 
@@ -577,7 +577,7 @@
 
     if-nez v2, :cond_0
 
-    .line 162
+    .line 164
     const-string v2, "restriction_policy"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -590,7 +590,7 @@
 
     invoke-static {v2}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$402(Landroid/app/enterprise/IRestrictionPolicy;)Landroid/app/enterprise/IRestrictionPolicy;
 
-    .line 164
+    .line 166
     :cond_0
     invoke-static {}, Lcom/android/settings/widget/SettingsAppWidgetProvider;->access$400()Landroid/app/enterprise/IRestrictionPolicy;
 
@@ -602,16 +602,24 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    new-instance v3, Landroid/app/enterprise/ContextInfo;
 
-    invoke-interface {v2, v3}, Landroid/app/enterprise/IRestrictionPolicy;->isSettingsChangesAllowed(Z)Z
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/app/enterprise/ContextInfo;-><init>(I)V
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v4}, Landroid/app/enterprise/IRestrictionPolicy;->isSettingsChangesAllowed(Landroid/app/enterprise/ContextInfo;Z)Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    .line 165
-    const v2, 0x104026d
+    .line 167
+    const v2, 0x104027c
 
     const/4 v3, 0x0
 
@@ -623,27 +631,27 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 199
+    .line 201
     :goto_0
     return-void
 
-    .line 168
+    .line 170
     :catch_0
     move-exception v2
 
-    .line 169
-    invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 171
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 173
+    .line 175
     :cond_1
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->getTriState(Landroid/content/Context;)I
 
     move-result v2
 
-    .line 175
+    .line 177
     packed-switch v2, :pswitch_data_0
 
-    .line 188
+    .line 190
     :cond_2
     :goto_1
     :pswitch_0
@@ -653,12 +661,12 @@
 
     iput-object v2, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
-    .line 189
+    .line 191
     iget-boolean v2, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
     if-eqz v2, :cond_3
 
-    .line 194
+    .line 196
     iput-boolean v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mDeferredStateChangeRequestNeeded:Z
 
     goto :goto_0
@@ -666,16 +674,16 @@
     :pswitch_1
     move v0, v1
 
-    .line 181
+    .line 183
     goto :goto_1
 
-    .line 183
+    .line 185
     :pswitch_2
     iget-object v2, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     if-eqz v2, :cond_2
 
-    .line 184
+    .line 186
     iget-object v2, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mIntendedState:Ljava/lang/Boolean;
 
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
@@ -688,16 +696,18 @@
 
     goto :goto_1
 
-    .line 196
+    .line 198
     :cond_3
     iput-boolean v1, p0, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->mInTransition:Z
 
-    .line 197
+    .line 199
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/widget/SettingsAppWidgetProvider$StateTracker;->requestStateChange(Landroid/content/Context;Z)V
 
     goto :goto_0
 
-    .line 175
+    .line 177
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

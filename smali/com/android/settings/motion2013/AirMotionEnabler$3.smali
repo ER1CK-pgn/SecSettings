@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/motion2013/AirMotionEnabler;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/motion2013/AirMotionEnabler;->showTalkBackDisableDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,6 +21,21 @@
 .field final synthetic this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
 
+# direct methods
+.method constructor <init>(Lcom/android/settings/motion2013/AirMotionEnabler;)V
+    .locals 0
+    .parameter
+
+    .prologue
+    .line 196
+    iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionEnabler$3;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 4
@@ -29,18 +44,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 208
+    .line 200
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionEnabler$3;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mSwitch:Landroid/widget/Switch;
-    invoke-static {v1}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$400(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/widget/Switch;
+    invoke-static {v1}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/widget/Switch;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionEnabler$3;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -61,6 +76,6 @@
     :cond_0
     invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 210
+    .line 201
     return-void
 .end method

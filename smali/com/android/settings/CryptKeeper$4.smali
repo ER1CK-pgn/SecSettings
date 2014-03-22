@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 617
+    .line 618
     iput-object p1, p0, Lcom/android/settings/CryptKeeper$4;->this$0:Lcom/android/settings/CryptKeeper;
 
     iput-object p2, p0, Lcom/android/settings/CryptKeeper$4;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,11 +47,11 @@
     .parameter "v"
 
     .prologue
-    .line 620
+    .line 621
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$4;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker()V
 
-    .line 621
+    .line 622
     return-void
 .end method

@@ -144,7 +144,7 @@
     .line 88
     iget-object v1, p0, Lcom/android/settings/ModePreviewAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040185
+    const v2, 0x7f0401c5
 
     const/4 v3, 0x0
 

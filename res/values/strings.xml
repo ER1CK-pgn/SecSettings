@@ -23,13 +23,29 @@
     <string name="input_method_selector_always_show_value">1</string>
     <string name="input_method_selector_always_hide_value">2</string>
     <string name="input_method_selector_visibility_default_value">0</string>
+    <string name="sview_cover_wday_month_day_no_year">E, MMMM d</string>
+    <string name="sview_cover_wday_day_month_no_year">E, d MMMM</string>
+    <string name="drawer_all">All</string>
+    <string name="drawer_frequent">Frequently used</string>
+    <string name="drawer_mysettings">My settings</string>
+    <string name="drawer_apps">Apps</string>
+    <string name="drawer_sfeature">S Feature</string>
+    <string name="uimode_grid">Grid view</string>
+    <string name="uimode_list">List view</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="remove_favorite">Remove from favourites</string>
+    <string name="add_favorite">Add to favourites</string>
+    <string name="favorite_category">Favorites</string>
     <string name="number_1">1.</string>
     <string name="number_2">2.</string>
     <string name="number_3">3.</string>
     <string name="number_4">4.</string>
     <string name="number_5">5.</string>
+    <string name="powersaving_enable_settings_title">Select when enabled</string>
+    <string name="powersaving_always_on">Always</string>
     <string name="powersaving_auto_turn_on">Auto enable</string>
-    <string name="powersaving_auto_turn_on_summary">Automatically enable Power saving mode when the battery power falls below %d%%, even if you have disabled Power saving mode</string>
+    <string name="powersaving_auto_turn_on_summary">Power saving mode will be automatically enabled when battery power falls below 20%</string>
     <string name="air_gesture_depth">To learn more, go to Settings > My device > Motions and gestures > Air gesture</string>
     <string name="easy_mode_feature">Easy mode provides an easier experience for first time smartphone users with a simpler layout and bigger icons</string>
     <string name="factory_datareset">Factory data reset</string>
@@ -45,6 +61,8 @@
     <string name="feature_settings_sfinder_title">S Finder</string>
     <string name="feature_settings_sfinder_summary">Search for a wide variety of content on your device</string>
     <string name="feature_settings_sfinder_msg1">Press and hold the menu key to start searching.</string>
+    <string name="feature_settings_sfinder_msg1_without_menukey">Use the S Finder function in air command. You can also open S Finder via the quick panel.</string>
+    <string name="feature_settings_sfinder_msg1_without_menukey_without_spen">You can start S Finder via the quick panel.</string>
     <string name="feature_settings_sfinder_msg2">"Search for content on your device and find more on the web.
 Using the handwriting search feature, you can also search for symbols and solutions to formulas."</string>
     <string name="feature_settings_sfinder_msg3">Search for a keyword and apply filters such as date, location, and content type for more refined results. For broader results, apply filters without searching for a keyword. Try applying filters one-by-one and see how this affects your search results.</string>
@@ -63,6 +81,8 @@ Using the handwriting search feature, you can also search for symbols and soluti
     <string name="feature_settings_snote_msg">Find your notebooks quickly, and compose and edit them easily. You can also create charts using easy chart.</string>
     <string name="feature_settings_easychart_title">Easy chart</string>
     <string name="feature_settings_easychart_summary">Create bar, line, or pie charts, or tables, and insert them into S Note pages</string>
+    <string name="feature_settings_multiwindow_msg1_swipe_right_edge">Swipe from the right edge of the screen.</string>
+    <string name="feature_settings_multiwindow_msg1_menu_key">Press and hold the recent key to show or hide the multi window tray.</string>
     <string name="feature_settings_multiwindow_msg1">Press and hold the back key to show or hide the multi window tray.</string>
     <string name="feature_settings_multiwindow_msg2">You can also enable or disable multi window via the quick panel.</string>
     <string name="feature_settings_easyclip_title">Easy clip</string>
@@ -119,6 +139,17 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="nine">9</string>
     <string name="zero">0</string>
     <string name="masked_star_chars">****</string>
+    <string name="security_policy_updates_summary">Increase the security of your device by updating the security policy</string>
+    <string name="security_policy_updates_summary_vzw">Increase protection on your phone by updating the security policy</string>
+    <string name="security_policy_updates_summary_tablet_vzw">Increase protection on your tablet by updating the security policy</string>
+    <string name="security_reports_title">Send security reports</string>
+    <string name="security_reports_summary">Send security reports to Samsung via Wi-Fi for threat analysis</string>
+    <string name="preferred_networks">Preferred networks</string>
+    <string name="wifi_or_mobile_network">Wi-Fi or mobile networks</string>
+    <string name="wifi_network_only">Wi-Fi networks only</string>
+    <string name="manual_updates">Manual updates</string>
+    <string name="auto_updates_title">Automatic updates</string>
+    <string name="auto_updates_summary">Update the security policy automatically when connected to preferred networks</string>
     <string name="collect_diagnostics_title">Collect diagnostics</string>
     <string name="collect_diagnostics_summary">Collect diagnostics data for troubleshooting</string>
     <string name="power_saving_mode_on_summary">%s battery power</string>
@@ -244,6 +275,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="bluetooth_connected">Connected</string>
     <string name="bluetooth_connected_no_headset">Connected (no phone)</string>
     <string name="bluetooth_connected_no_a2dp">Connected (no media)</string>
+    <string name="bluetooth_connected_no_map">Connected (no message access)</string>
     <string name="bluetooth_connected_no_headset_no_a2dp">Connected (no phone or media)</string>
     <string name="bluetooth_disconnected">Disconnected</string>
     <string name="bluetooth_disconnecting">Disconnecting…</string>
@@ -251,7 +283,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="bluetooth_unknown" />
     <string name="bluetooth_pairing">Pairing…</string>
     <string name="bluetooth_device">Unnamed Bluetooth device</string>
-    <string name="progress_scanning">Scanning...</string>
+    <string name="progress_scanning">Scanning…</string>
     <string name="progress_tap_to_pair">Tap to pair</string>
     <string name="bluetooth_no_devices_found">No nearby Bluetooth devices found</string>
     <string name="bluetooth_notif_ticker">Bluetooth pairing request</string>
@@ -274,6 +306,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="bluetooth_connection_dialog_text">Connect to %1$s?</string>
     <string name="bluetooth_phonebook_request">Contacts request</string>
     <string name="bluetooth_pb_acceptance_dialog_text">%1$s would like to access your contacts and call history. Give access to %2$s?</string>
+    <string name="bluetooth_remember_choice">"Don't ask again"</string>
     <string name="bluetooth_pb_remember_choice">"Don't ask again"</string>
     <string name="bluetooth_available">Bluetooth available</string>
     <string name="bluetooth_available_detailed">Open available Bluetooth devices</string>
@@ -295,7 +328,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="intent_sender_startactivity_text">Start activity</string>
     <string name="intent_sender_resource_label">Resource:</string>
     <string name="intent_sender_account_label">Account:</string>
-    <string name="proxy_settings_title">Proxy settings</string>
+    <string name="proxy_settings_title">Proxy</string>
     <string name="proxy_clear_text">Clear</string>
     <string name="proxy_port_label">Proxy port</string>
     <string name="proxy_port_hint">8080</string>
@@ -313,6 +346,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="proxy_error_empty_host_set_port">The port field must be empty if the host field is empty</string>
     <string name="proxy_error_invalid_port">The port you typed is not valid</string>
     <string name="proxy_warning_limited_support">HTTP proxy used by browser but may not be used by other applications</string>
+    <string name="proxy_url">"PAC URL: "</string>
     <string name="radio_info_signal_location_label">Location:</string>
     <string name="radio_info_neighboring_location_label">Neighboring CID:</string>
     <string name="radio_info_cellinfo_label">CellInfo:</string>
@@ -362,7 +396,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="sdcard_settings_scanning_status">Scanning SD card for media…</string>
     <string name="sdcard_settings_read_only_status">SD card mounted read-only</string>
     <string name="sdcard_settings_factory_reset_warning"><li>"The decryption key for files on the SD card
-(You cannot use encrypted files on the SD card after you reset your device to factory defaults.)"</li></string>
+(You cannot use encrypted files on the SD card after you reset your device to factory defaults)"</li></string>
     <string name="skip_label">Skip</string>
     <string name="next_label">Next</string>
     <string name="language_picker_title">Language</string>
@@ -381,6 +415,7 @@ However, you may receive cumulative push data when you turn on the screen"</stri
     <string name="cancel">Cancel</string>
     <string name="settings_label">Settings</string>
     <string name="settings_label_launcher">Settings</string>
+    <string name="settings_label_launcher2">Grid Settings</string>
     <string name="settings_shortcut">Settings Shortcut</string>
     <string name="airplane_mode">Flight mode</string>
     <string name="radio_controls_title">More...</string>
@@ -431,13 +466,15 @@ Do you want to reboot now?"</string>
     <string name="lock_after_timeout_summary">Screen will be locked in %s after screen automatically turns off</string>
     <string name="show_owner_info_on_lockscreen_label">Show owner info on lock screen</string>
     <string name="owner_info_settings_title">Owner information</string>
+    <string name="security_enable_widgets_title">Widgets</string>
+    <string name="security_enable_widgets_disabled_summary">Disabled by administrator</string>
     <string name="owner_info_settings_summary">Show user information on lock screen</string>
     <string name="owner_info_settings_edit_text_hint">Enter text to display on lock screen</string>
     <string name="show_user_info_on_lockscreen_label">Show user info on lock screen</string>
     <string name="user_info_settings_title">User info</string>
     <string name="show_profile_info_on_lockscreen_label">Show profile info on lock screen</string>
     <string name="profile_info_settings_title">Profile info</string>
-    <string name="location_settings_title">Location services</string>
+    <string name="location_settings_title">Location</string>
     <string name="security_settings_title">Security</string>
     <string name="security_settings_summary">Set my location, screen unlock, SIM card lock, and credential storage lock</string>
     <string name="cdma_security_settings_summary">Set my location, screen unlock, and credential storage lock</string>
@@ -502,7 +539,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="sc_pin_dialog_cardexpired">The smart card PIN has expired. Contact the device administrator.</string>
     <string name="sc_pin_dialog_register_message">Registering smart card...</string>
     <string name="sc_pin_dialog_verify_message">Verifying PIN with smart card...</string>
-    <string name="sc_pin_dialog_wait_message">Please wait for the smartcard registration</string>
+    <string name="sc_pin_dialog_wait_message">Device is pairing with smart card reader. Please wait...</string>
     <string name="password_expired_cac">Your PIN has expired. Enter a new smart card PIN.</string>
     <string name="lockpassword_cac_contains_non_digits">Smart card password must only contain numbers 0-9</string>
     <string name="smartcard_credential">Smart card credential</string>
@@ -511,8 +548,8 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="smartcard_config">Configuration</string>
     <string name="smartcard_configuration_summary">Configure device to use smart card credential</string>
     <string name="smartcard_register">Register smart card</string>
-    <string name="smartcard_registerd">The device has a smart card registered to it</string>
-    <string name="smartcard_notregisterd">The device does not have a smart card registered to it</string>
+    <string name="smartcard_registerd">Device is registered with smart card</string>
+    <string name="smartcard_notregisterd">Device is not registered with smart card</string>
     <string name="smartcard_register_summary">Register a smart card to your device</string>
     <string name="smartcard_unregister">Deregister smart card</string>
     <string name="smartcard_unregister_summary">Deregister the smart card and clear any related data</string>
@@ -595,7 +632,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="bluetooth_enter_passkey_other_device">You may also need to enter this password on other device</string>
     <string name="bluetooth_confirm_passkey_msg">Confirm passkey is %2$s to pair with %1$s</string>
     <string name="bluetooth_incoming_pairing_msg">From:&lt;br>&lt;b>%1$s&lt;/b>&lt;br>&lt;br>Pair with this device?</string>
-    <string name="bluetooth_display_passkey_pin_msg">To pair with:&lt;br>&lt;b>%1$s&lt;/b>&lt;br>&lt;br>Type on it:&lt;br>&lt;b>%2$s&lt;/b>, then press Return or Enter</string>
+    <string name="bluetooth_display_passkey_pin_msg">Enter %1$s on %2$s to pair, then tap Return or Enter</string>
     <string name="bluetooth_display_move_to_my_place_msg">Your Bluetooth device will copy to My place list. Continue?</string>
     <string name="bluetooth_pairing_accept">Pair</string>
     <string name="bluetooth_pairing_decline">Cancel</string>
@@ -632,6 +669,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="bluetooth_profile_pan">Internet access</string>
     <string name="bluetooth_profile_pan_nap">Internet connection sharing</string>
     <string name="bluetooth_profile_dun">Dial-up networking connection</string>
+    <string name="bluetooth_profile_map">Message Access</string>
     <string name="bluetooth_disconnect_a2dp_profile">%1$s will be disconnected from media audio</string>
     <string name="bluetooth_disconnect_headset_profile">%s will be disconnected from Bluetooth hands-free audio</string>
     <string name="bluetooth_disconnect_hid_profile">%1$s will be disconnected from input device</string>
@@ -646,6 +684,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="bluetooth_a2dp_profile_summary_connected">Connected to media audio</string>
     <string name="bluetooth_headset_profile_summary_connected">Connected to phone audio</string>
     <string name="bluetooth_opp_profile_summary_connected">Connected to file transfer server</string>
+    <string name="bluetooth_map_profile_summary_connected">Connected to map</string>
     <string name="bluetooth_opp_profile_summary_not_connected">Not connected to file transfer server</string>
     <string name="bluetooth_sap_profile_summary_connected">Your SIM card is being shared with another device</string>
     <string name="bluetooth_sap_profile_summary_not_connected">Device is not connected to Sim Access Server</string>
@@ -658,6 +697,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="bluetooth_opp_profile_summary_use_for">Use to transfer file</string>
     <string name="bluetooth_hid_profile_summary_use_for">Use for input</string>
     <string name="bluetooth_pan_profile_summary_use_for">Use for Internet access</string>
+    <string name="bluetooth_map_profile_summary_use_for">Use for map</string>
     <string name="bluetooth_dun_profile_summary_use_for">Use for Dial-up networking</string>
     <string name="bluetooth_sap_profile_summary_use_for">To share your SIM card, connect to this device from your other device</string>
     <string name="bluetooth_dock_settings">Dock Settings</string>
@@ -676,6 +716,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="wifi_display_status_connecting">Connecting</string>
     <string name="wifi_display_status_connected">Connected</string>
     <string name="wifi_display_status_available">Available</string>
+    <string name="wifi_display_status_in_use">In use</string>
     <string name="wifi_display_details">Display settings</string>
     <string name="wifi_display_disconnect_title">Disconnect?</string>
     <string name="wifi_display_disconnect_text">This will end your connection with:&lt;br>&lt;b>%1$s&lt;/b></string>
@@ -686,9 +727,23 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="wifi_display_summary_on">On</string>
     <string name="wifi_display_summary_off">Off</string>
     <string name="wifi_display_summary_disabled">Disabled</string>
+    <string name="wifi_display_certification_heading">Certification</string>
+    <string name="wifi_display_session_info">Session info</string>
+    <string name="wifi_display_listen_mode">Enable listen mode</string>
+    <string name="wifi_display_autonomous_go">Enable autonomous GO</string>
+    <string name="wifi_display_pause">Pause</string>
+    <string name="wifi_display_resume">Resume</string>
+    <string name="wifi_display_wps_config">WPS configuration</string>
+    <string name="wifi_display_listen_channel">Listen channel</string>
+    <string name="wifi_display_operating_channel">Operating channel</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Allow data exchange when device touches another device</string>
     <string name="nfc_explained">When NFC is on, you can send or receive data when your device touches other NFC-capable devices or NFC tags</string>
+    <string name="nfc_explained_on">Credit cards and transportation cards can be used</string>
+    <string name="nfc_explained_off">Unable to transfer data between devices, use credit cards, or use transportation cards</string>
+    <string name="nfc_explained_reader_on">Credit cards and transportation cards can be used and also data can be transferred between devices</string>
+    <string name="nfc_settings_tag_title">Tags/connecting devices</string>
+    <string name="nfc_settings_tag_message">Turning off NFC will prevent you from reading and writing tags and transferring data between devices</string>
     <string name="nfc_settings_rw_p2p_title">Read and Write/P2P</string>
     <string name="nfc_settings_rw_p2p_summary">You can read and write tags and transfer data between devices</string>
     <string name="android_beam_settings_title">Android Beam</string>
@@ -729,7 +784,7 @@ Encryption takes an hour or more. Before you start, ensure that the battery is c
     <string name="nfc_osaifukeitai_summary_on_clf">Osaifu-Keitai of Mobile Phone is locked.</string>
     <string name="nfc_osaifukeitai_summary_on_uim">Osaifu-Keitai of DOCOMO UIM card is locked.</string>
     <string name="nfc_osaifukeitai_summary_off">Osaifu-Keitai function is available.</string>
-    <string name="wifi_help_tutorial_complete">Tutorial complete</string>
+    <string name="wifi_help_tutorial_complete">Tutorial complete.</string>
     <string name="wifi_hs20">%1$s (Passpoint)</string>
     <string name="wifi_hotspot20_enable">Passpoint</string>
     <string name="wifi_hotspot20_enable_summary_off">Connect to passpoint-enabled Wi-Fi APs automatically</string>
@@ -892,8 +947,8 @@ Please check validity of certificates"</string>
     <string name="wifi_ssid_max_byte_error">Maximum number of letters reached</string>
     <string name="wifi_password_max_byte_error">Password must contain at least %1$d characters and not exceed %2$d characters</string>
     <string name="wifi_no_usim_warning">Insert USIM card and try again</string>
-    <string name="wifi_invalid_usim_warning">This USIM card does not support</string>
-    <string name="wifi_not_support_usim_warning">This USIM card does not support. try to connect T wifi zone</string>
+    <string name="wifi_invalid_usim_warning">Invalid USIM card</string>
+    <string name="wifi_not_support_usim_warning">USIM card not supported. Connect to T wifi zone instead.</string>
     <string name="wifi_authentication_succeed">Authenticated</string>
     <string name="wifi_authentication_failed">Authentication failed</string>
     <string name="wifi_authentication_no_response">Failed to connect to the network</string>
@@ -936,14 +991,16 @@ Allow this for all apps that want to scan?"</string>
     <string name="wifi_failed_connect_wifi_message">Failed to connect to Wi-Fi network</string>
     <string name="wifi_failed_forget_message">Failed to forget network</string>
     <string name="wifi_failed_save_message">Failed to save network</string>
+    <string name="wifi_ap_help_touch_msg_summary">Select Portable Wi-Fi hotspot to view its settings.</string>
+    <string name="wifi_ap_help_enable_msg_summary">Tap Configure to configure the settings.</string>
     <string name="wifi_enable_warning_wifi_direct">Connecting to Wi-Fi network will disconnect device connected via Wi-Fi Direct</string>
     <string name="wifi_enable_warning">Turning on Wi-Fi will disable Mobile HotSpot. Continue?</string>
     <string name="wifi_ap_turning_on">Mobile HotSpot connecting...</string>
     <string name="wifi_ap_turning_off">Disabling Mobile HotSpot...</string>
-    <string name="wifi_enable_warning_about_oxygen">Turning on Wi-Fi will disable Easy group network. Continue ?</string>
-    <string name="hotspot_enable_warning_about_oxygen">Turning on Hotspot will disable Easy group network. Continue ?</string>
-    <string name="oxygen_enable_warning_about_wifi">Turning on Easy group network will disable Wi-Fi. Continue ?</string>
-    <string name="oxygen_enable_warning_about_hotspot">Turning on Easy group network will disable Hotspot. Continue ?</string>
+    <string name="wifi_enable_warning_about_oxygen">Easy group network cannot be enabled while Wi-Fi is turned on. Easy group network will be disabled.</string>
+    <string name="hotspot_enable_warning_about_oxygen">Easy group network and portable Wi-Fi hotspot cannot both be enabled. Easy group network will be disabled.</string>
+    <string name="oxygen_enable_warning_about_wifi">Easy group network cannot be enabled while Wi-Fi is turned on. Wi-Fi will be turned off.</string>
+    <string name="oxygen_enable_warning_about_hotspot">Easy group network and portable Wi-Fi hotspot cannot both be enabled. Portable Wi-Fi hotspot will be disabled.</string>
     <string name="wifi_ap_enable_warning" />
     <string name="wifi_mobileAP_modemnai_missmath_title">Hotspot Error</string>
     <string name="wifi_mobileAP_modemnai_missmath_message">Unable to connect to data network, turning off Hotspot. Your plan may not have the Hotspot service, please contact your phone company</string>
@@ -992,7 +1049,7 @@ Phone setup can require significant network activity."</string>
     <string name="wifi_ap_edit_allowed_device">Edit device</string>
     <string name="wifi_ap_done">OK</string>
     <string name="wifi_ap_colon">:</string>
-    <string name="wifi_ap_wifi_off_warn">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, turn off Mobile HotSpot</string>
+    <string name="wifi_ap_wifi_off_warn">Wi-Fi is turned off when Mobile HotSpot is active. To turn on Wi-Fi, please turn off Mobile HotSpot.</string>
     <string name="wifi_ap_allowed_device_remove">Remove device</string>
     <string name="wifi_ap_devicename">My device name</string>
     <string name="wifi_tether_otherdevices_name">Device name</string>
@@ -1018,10 +1075,8 @@ Phone setup can require significant network activity."</string>
     <string name="wifi_ap_connected_device">Connected device</string>
     <string name="wifi_ap_connected_devices">Connected devices</string>
     <string name="wifi_ap_howto">How to connect to your Mobile HotSpot</string>
-    <string name="wifi_ap_tx_power_mode">Transmit power mode</string>
-    <string name="wifi_ap_low_tx_power_mode">Maximize battery life</string>
-    <string name="wifi_ap_high_tx_power_mode">Maximize hotspot range</string>
-    <string name="wifi_ap_high_tx_power_mode_warning">"Using high power mode will drain your phone's battery quickly."</string>
+    <string name="wifi_ap_tx_power_mode">Mobile HotSpot range</string>
+    <string name="wifi_ap_high_tx_power_mode_warning">"Using high power mode will drain your device's battery quickly. Please connect your phone to a charger."</string>
     <string name="wifi_ap_connection_mode">Allow Wi-Fi access to</string>
     <string name="wifi_ap_menu_addlist">Add list</string>
     <string name="wifi_ap_menu_delete">Delete</string>
@@ -1043,6 +1098,9 @@ Phone setup can require significant network activity."</string>
     <string name="wifi_ap_connection_duration">Connection duration</string>
     <string name="wifi_ap_no_devices">No devices</string>
     <string name="wifi_ap_remove_whitelist">Remove this device from allowed device list and it will be disconnected</string>
+    <string name="mobile_hotsport_popup_message">Wi-Fi is currently active. When Wi-Fi is on, you cannot turn on USB tethering.</string>
+    <string name="mobile_hotsport_popup_left">Leave Wi-Fi on</string>
+    <string name="mobile_hotsport_popup_right">Turn Wi-Fi off</string>
     <string name="wifi_ap_instruction_open_activate">1. Activate Wi-Fi on the device&lt;br>2. Find &lt;font color=#ffff00>%1$s&lt;/font> in Wi-Fi network list and connect to it&lt;br>3. Enjoy Internet with Mobile HotSpot</string>
     <string name="wifi_ap_instruction_activate">1. Activate Wi-Fi on the device&lt;br>2. Find &lt;font color=#ffff00>%1$s&lt;/font> in Wi-Fi network list&lt;br>3. Connect to &lt;font color=#ffff00>%2$s&lt;/font> by entering &lt;font color=#ffff00>%3$s&lt;/font> as the password&lt;br>4. Enjoy your Mobile Hotspot</string>
     <string name="wifi_ap_instruction">"You can use your device as an internet AP (Access point) using Mobile HotSpot.
@@ -1058,17 +1116,17 @@ Note: it will cause your mobile data and consumes more battery"</string>
 To use your phones hotspot capability, you must have the Smartphone Mobile HotSpot service added to your rate plan.
 
 You can create an allowed device list and set the connection mode for allowed devices."</string>
-    <string name="wifi_ap_instruction_mtr">"Turn your phone into a portable Wi-Fi hotspot so you can share your mobile data connection with other devices such as, laptop PC, tablet, PS3 etc. To use your phone's hotspot capability, 4G Mobile Hotspot feature is required. If you do not already have this feature added to your rate plan, please visit a local MetroPCS store or call 888-8metro8."</string>
+    <string name="wifi_ap_instruction_mtr">"Turn your phone into a portable Wi-Fi hotspot so you can share your mobile data connection with other devices such as, laptop PC, tablet, PS3 etc. To use your phone's hotspot capability, Mobile Hotspot feature is required. If you do not already have this feature added to your rate plan, please visit a local MetroPCS store or call 888-8metro8."</string>
     <string name="wifi_ap_instruction_changeable_maxclient">"You can use your device as an internet AP (Access point) using Mobile HotSpot.
 This allows other devices (maximum %1$s) to connect to it via Wi-Fi. The connected devices will have access to the internet via your data network"</string>
     <string name="wifi_ap_instruction_changeable_maxclient_note">Mobile HotSpot consumes more battery. Connect the device to an outlet to extend battery life</string>
     <string name="wifi_ap_instruction_battery_warning">Mobile Hotspot consumes more battery. Connect the device to an outlet to extend battery life</string>
     <string name="wifi_ap_warn_max_whitelist">The maximum number of allowed devices has been exceeded</string>
-    <string name="wifi_ap_instruction_changeable_maxclient_mid">You can create an allowed device list and set the connection mode for allowed devices</string>
+    <string name="wifi_ap_instruction_changeable_maxclient_mid">You can create an allowed device list and set the connection mode for allowed devices.</string>
     <string name="wifi_ap_change_security">Change Security</string>
     <string name="wifi_ap_none_security_warning">Warning: Selecting Open(no security) may make your device mobile hotspot accessible by unauthorized users. Consider using WPA2 Personal security.</string>
     <string name="wifi_ap_warn_roaming_title">International Roaming</string>
-    <string name="wifi_ap_warn_roaming_msg">Note that the charge for data transmitted and received while using this service internationally can be as high as $20.48 per MB. Please check your calling plan for the applicable charges in the location where you plan to use the service.</string>
+    <string name="wifi_ap_warn_roaming_msg">Note that the charge for data transmitted and received while using this service internationally can be as high as %1$s per MB. Please check your calling plan for the applicable charges in the location where you plan to use the service.</string>
     <string name="wifi_ap_change_policy_warn">Connected device will be disconnected.</string>
     <string name="wifi_ap_advanced_title">Advanced</string>
     <string name="wifi_ap_advanced">Advanced</string>
@@ -1144,8 +1202,7 @@ Use of service constitutes acceptance of the"<a href="http://www.uscellular.com/
     <string name="wifi_watchdog_connectivity_check_enable_dialog">Mobile data may be used to maintain a stable Internet connection. This may increase data usage.</string>
     <string name="wifi_watchdog_not_available_service">Internet not available via selected Wi-Fi AP. Change network?</string>
     <string name="wifi_watchdog_recheck">Recheck</string>
-    <string name="wifi_watchdog_poor_network_alert">"The Internet connection via this Wi-Fi network is unstable. Auto network switch will be enabled. If you enable Auto network switch, you will be switched to mobile networks automatically when the Wi-Fi connection is unstable.
-(Wi-Fi > Advanced > Auto network switch)"</string>
+    <string name="wifi_watchdog_poor_network_alert">The Internet connection via this Wi-Fi network is unstable. Tap OK to go to your advanced Wi-Fi settings, then enable auto network switch. This function will automatically switch your device to a different Wi-Fi or mobile network whenever your current connection is unstable. You can also enable this function by going to Wi-Fi > Advanced > Auto network switch.</string>
     <string name="mobile_ap_disable">"Mobile Hotspot has been turned off.
 Wi-Fi is now on."</string>
     <string name="mobile_ap_not_disable">"Wi-Fi has not been turned on.
@@ -1273,22 +1330,9 @@ for file sharing"</string>
     <string name="wfd_settings_terminates">The current Screen Mirroring connection will end</string>
     <string name="wfd_settings_connection_fail">Failed to connect via Screen Mirroring</string>
     <string name="wfd_settings_network_fail">Screen Mirroring connection has ended or the connected device has been turned off</string>
-    <string name="wfd_settings_my_device">My device</string>
-    <string name="wfd_settings_connecting">Connect in %d secs</string>
     <string name="wfd_settings_guide">"To share your phone's screen with another screen, turn on Screen Mirroring"</string>
     <string name="wfd_settings_start_alarm">Connected via Screen Mirroring</string>
     <string name="wfd_settings_disable_alarm">Screen Mirroring has been disabled</string>
-    <string name="wfd_settings_terminates_scan">Current connection will be disconnected so that scanning can start</string>
-    <string name="wfd_settings_cannot_proceed_cause_p2p_busy">Using Screen Mirroring will disconnect the device connected via Wi-Fi Direct</string>
-    <string name="wfd_settings_restart">To improve the quality of Screen Mirroring and the Wi-Fi connection, Screen Mirroring will restart</string>
-    <string name="wfd_settings_cannot_proceed_cause_hdmi_busy">Using Screen Mirroring will end the HDMI connection</string>
-    <string name="wfd_settings_ongoing_restart">Current Screen Mirroring connection wll end to start new scanning</string>
-    <string name="wfd_settings_cannot_proceed_cause_drm">This files is licensed. it cannot be displayed on TV</string>
-    <string name="wfd_settings_cannot_proceed_cause_max_res">Because it exceed maximum resolution to display on TV it cannot be displayed on TV</string>
-    <string name="wfd_settings_update_dongle">A Screen Mirroring update is available on Play Store. Download now?</string>
-    <string name="wfd_settings_update_process">Updating Screen Mirroring firmware...</string>
-    <string name="wfd_settings_cannot_proceed_cause_sbeam_busy">Using Screen Mirroring will disconnect the device connected via S Beam</string>
-    <string name="wfd_settings_cannot_proceed_cause_hotspot_busy">Using Screen Mirroring will disable the portable Wi-Fi hotspot</string>
     <string name="wifi_p2p_cancel_connect_message">Do you want to cancel invitation to connect with %1$s?</string>
     <string name="wifi_p2p_delete_group_message">Forget this group?</string>
     <string name="wfd_learn_nfc">Learn about NFC</string>
@@ -1298,16 +1342,15 @@ for file sharing"</string>
     <string name="wfd_nfc_write_success">Information linked to NFC sticker</string>
     <string name="wfd_nfc_write_failed">Failed to link dongle info to NFC sticker. Try again.</string>
     <string name="wfd_nfc_off_message">NFC is turned off. To link Screen Mirroring info to the NFC item, NFC will be turned on.</string>
-    <string name="wfd_nfc_help_message">To link NFC information to a sticker, connect the AllShare Cast dongle. After linking is complete, you can start Screen Mirroring by touching the NFC sticker.</string>
-    <string name="wfd_nfc_help_message_1">Start Screen Mirroring then Connect Screen Mirroring dongle</string>
-    <string name="wfd_nfc_help_message_2">Touch the NFC sticker with your device</string>
-    <string name="wfd_nfc_help_message_3">NFC information will be linked to that sticker so that when linking is complete you can start Screen Mirroring by touching the NFC sticker</string>
-    <string name="wfd_help_message_1">Connect the Screen Mirroring dongle to an HDMI device using the HDMI A-to-A cable</string>
-    <string name="wfd_help_message_2">When the red indicator starts blinking (this might take %d seconds or more), press the reset key. The indicator will turn blue. You do not have to press the reset key after you have connected for the first time</string>
-    <string name="wfd_help_message_3">Start Screen Mirroring on your device</string>
-    <string name="wfd_help_message_4">The name of the Screen Mirroring dongle is displayed on the connected display device. Select that name from the product list displayed on your mobile device. The first time you connect, you must complete this step within %1$d minutes of completing step %2$d</string>
-    <string name="wfd_tag_write_message_1">Touch the NFC sticker with your device</string>
-    <string name="wfd_tag_write_message_2">NFC information will be linked to that sticker so that when linking is complete you can enable Screen Mirroring by touching the NFC sticker</string>
+    <string name="wfd_nfc_help_message_1">Connect the Screen Mirroring dongle to an HDMI device using the HDMI A-to-A cable.</string>
+    <string name="wfd_nfc_help_message_2">Touch the NFC sticker with your device.</string>
+    <string name="wfd_nfc_help_message_3">NFC information will be linked to that sticker so that when linking is complete you can start Screen Mirroring by touching the NFC sticker.</string>
+    <string name="wfd_help_message_1">Connect the Screen Mirroring dongle to an HDMI device using the HDMI A-to-A cable.</string>
+    <string name="wfd_help_message_2">When the red indicator starts blinking (this might take %d seconds or more), press the reset key. The indicator will turn blue. You do not have to press the reset key after you have connected for the first time.</string>
+    <string name="wfd_help_message_3">Start Screen Mirroring on your device.</string>
+    <string name="wfd_help_message_4">The name of the Screen Mirroring dongle is displayed on the connected display device. Select that name from the product list displayed on your mobile device. The first time you connect, you must complete this step within %1$d minutes of completing step %2$d.</string>
+    <string name="wfd_tag_write_message_1">Touch the NFC sticker with your device.</string>
+    <string name="wfd_tag_write_message_2">NFC information will be linked to that sticker so that when linking is complete you can enable Screen Mirroring by touching the NFC sticker.</string>
     <string name="wfd_welcome_message">Welcome and thank you for using Screen Mirroring. Tap the button below to enable Screen Mirroring.</string>
     <string name="wfd_pin_connection">Connect using PIN</string>
     <string name="wfd_dongle_rename">Rename dongle</string>
@@ -1358,6 +1401,7 @@ for file sharing"</string>
     <string name="wifi_state_unknown">Unknown</string>
     <string name="wifi_config_info">WiFi config</string>
     <string name="config_list_label">Configured networks</string>
+    <string name="home_settings">Home</string>
     <string name="display_settings_title">Display</string>
     <string name="sound_settings">Sound</string>
     <string name="vibration">Vibration</string>
@@ -1410,6 +1454,7 @@ for file sharing"</string>
     <string name="vibrate_when_ringing_title">Vibrate when ringing</string>
     <string name="unable_to_set_as_ringtone">Unable to set as ringtone</string>
     <string name="my_sound_title">Adapt Sound</string>
+    <string name="samsung_applications">Samsung applications</string>
     <string name="dock_settings">Dock</string>
     <string name="dock_settings_title">Dock settings</string>
     <string name="dock_audio_settings_title">Audio</string>
@@ -1423,6 +1468,7 @@ for file sharing"</string>
     <string name="dock_sounds_enable_summary_on">Play sounds when inserting and removing device from dock</string>
     <string name="dock_sounds_enable_summary_off">Do not play sounds when inserting and removing device from dock</string>
     <string name="cover">S View Cover</string>
+    <string name="flip_cover">Flip cover</string>
     <string name="automatic_unlock">Automatic unlock</string>
     <string name="automatic_unlock_summary">Flip the cover open to unlock the screen when secure lock is disabled</string>
     <string name="automatic_receive_call">Accept calls</string>
@@ -1458,7 +1504,7 @@ for file sharing"</string>
     <string name="summary_font_size">%1$s</string>
     <string name="dialog_title_font_size">Font size</string>
     <string name="multi_window_title">Multi window</string>
-    <string name="multi_window_summary">Multitask by using two applications at the same time</string>
+    <string name="multi_window_summary">Multitask by using two applications at the same time.</string>
     <string name="multi_window_contents">"To use multiple applications at the same time, go to Settings > Display and enable multi window, or tap Multi window in the notification panel.
 You can also show or hide the multi window handle by pressing and holding the back key."</string>
     <string name="open_via_multi_window_view">Open in multi window view</string>
@@ -1557,7 +1603,14 @@ or visit CS center"</string>
     <string name="installed_variant_default">Default</string>
     <string name="kernel_version">Kernel version</string>
     <string name="build_number">Build number</string>
-    <string name="selinux_status">SELinux status</string>
+    <string name="selinux_status">SE for Android status</string>
+    <string name="security_sw_version">Security software version</string>
+    <string name="security_sw_version_default">None</string>
+    <string name="security_sw_version_checking">Checking...</string>
+    <string name="security_sw_version_Enabled">Enabled</string>
+    <string name="security_sw_version_Enforced">Enforced</string>
+    <string name="security_sw_version_Ready">Ready</string>
+    <string name="security_sw_version_Disabled">Disabled</string>
     <string name="device_info_not_available">Not available</string>
     <string name="device_status_activity_title">Status</string>
     <string name="device_status">Status</string>
@@ -1646,13 +1699,18 @@ or visit CS center"</string>
     <string name="usb_ptp_title">Camera (PTP)</string>
     <string name="usb_ptp_summary">Allows you to transfer photos using camera software, and transfer any files onto PC that do not support MTP</string>
     <string name="usb_label_installer_cd">Install file-transfer tools</string>
+    <string name="usb_charging_title">Charging device only</string>
+    <string name="usb_charging_summary">Your device will only be charged, no data can be transferred</string>
     <string name="usb_mtp_usb3_title">Media device (USB 3.0)</string>
     <string name="usb_mtp_usb3_summary">Allows you to transfer media files in Windows via USB 3.0</string>
     <string name="usb_mtp_usb3_dialog_ok">Use USB 3.0</string>
     <string name="usb_mtp_usb3_dialog_summary">USB 3.0 speeds up data transfers, but it may sometimes interfere with calls or data when it is in use. It will turn off automatically after 10 minutes if it is not being used, and your connection will switch to using USB 2.0.</string>
     <string name="usb_mtp_usb3_dialog_summary_att">USB 3.0 speeds up data transfers, but it may interfere with wireless connections when it is in use. It will turn off automatically after 10 minutes if it is not being used, and your connection will switch to using USB 2.0.</string>
-    <string name="usb_not_support_mtp_usb3_dialog_summary">Unable to connect devices via USB 3.0. Your USB cable or connected device does not support USB 3.0.</string>
+    <string name="usb_mtp_usb3_dialog_summary_spr">USB 3.0 speeds up data transfers, but it may sometimes interfere with calls or data when it is in use. It will turn off automatically after 4 minutes if it is not being used, and your connection will switch to using USB 2.0.</string>
+    <string name="usb_not_support_mtp_usb3_dialog_summary">Unable to connect devices via USB3.0.</string>
     <string name="usb_not_support_mtp_usb3_dialog_title">Notice</string>
+    <string name="usb_mtp_usb3_dialog_turning_off_airplane_body">Turning off Airplane mode will end your USB 3.0 connection and stop any ongoing data transfers.</string>
+    <string name="usb_mtp_usb3_dialog_turning_off_airplane_end_button">End USB 3.0</string>
     <string name="storage_other_users">Other users</string>
     <string name="battery_status_title">Battery status</string>
     <string name="battery_level_title">Battery level</string>
@@ -1767,11 +1825,35 @@ You are currently signed into the following accounts:
     <string name="bluetooth_tethering_errored_subtext">Bluetooth tethering error</string>
     <string name="bluetooth_tethering_overflow_error">Unable to tether to more than %d devices</string>
     <string name="bluetooth_untether_blank">%1$s will be untethered</string>
-    <string name="bluetooth_tethering_bluetooth_visibilityoff">Bluetooth visibility has been disabled. To connect from a new device, enable Bluetooth visibility on this device</string>
+    <string name="bluetooth_tethering_bluetooth_visibilityoff">Bluetooth visibility has been disabled. To connect from a new device, enable Bluetooth visibility on this device.</string>
     <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Unable to use Bluetooth tethering while connected to Wi-Fi network</string>
     <string name="tethering_help_button_text">Help</string>
     <string name="network_settings_title">Mobile networks</string>
+    <string name="manage_mobile_plan_title">Mobile plan</string>
+    <string name="sms_application_title">Default SMS app</string>
+    <string name="sms_change_default_dialog_title">Change SMS app</string>
+    <string name="sms_change_default_dialog_text">Your SMS app will be changed from %2$s to %1$s</string>
+    <string name="sms_change_default_no_previous_dialog_text">%s will be used as your SMS app</string>
+    <string name="mobile_unknown_sim_operator">Unable to view mobile plan. Your service provider has not been recognised.</string>
+    <string name="mobile_no_provisioning_url">Unable to view your mobile plan. %s has no known website containing this information.</string>
+    <string name="mobile_insert_sim_card">Unable to view your mobile plan. Insert a SIM card and restart the device.</string>
+    <string name="mobile_connect_to_internet">Unable to view mobile plan. There is no network connection. Connect to a network and try again.</string>
     <string name="location_title">My Location</string>
+    <string name="location_mode_title">Mode</string>
+    <string name="location_mode_high_accuracy_title">High accuracy</string>
+    <string name="location_mode_battery_saving_title">Power saving</string>
+    <string name="location_mode_sensors_only_title">GPS only</string>
+    <string name="location_mode_location_off_title">Location services disabled</string>
+    <string name="location_category_recent_location_requests">Recent location requests</string>
+    <string name="location_no_recent_apps">No apps have requested your location recently</string>
+    <string name="location_category_location_services">Location services</string>
+    <string name="location_high_battery_use">Battery usage: high</string>
+    <string name="location_low_battery_use">Battery usage: low</string>
+    <string name="location_mode_screen_title">Locating method</string>
+    <string name="location_mode_high_accuracy_description">Uses GPS, Wi-Fi, and mobile networks to estimate your location</string>
+    <string name="location_mode_battery_saving_description">Uses Wi-Fi and mobile networks to estimate your location</string>
+    <string name="location_mode_sensors_only_description">Uses GPS to estimate your location</string>
+    <string name="location_loading_injected_setting">Retrieving...</string>
     <string name="location_network_based">Use wireless networks</string>
     <string name="location_neighborhood_level">"Let apps use Google's location service to estimate your location faster. Anonymous location data will be collected and sent to Google."</string>
     <string name="location_neighborhood_level_wifi">Location determined by Wi-Fi</string>
@@ -1838,9 +1920,9 @@ You are currently signed into the following accounts:
     <string name="lockpattern_recording_intro_footer">Press Menu for help</string>
     <string name="lockpattern_recording_inprogress">Release finger when finished</string>
     <string name="lockpattern_recording_incorrect_too_short">Connect at least %d dots. Try again:</string>
-    <string name="lockpattern_pattern_entered_header">Pattern recorded!</string>
-    <string name="lockpattern_need_to_confirm">Draw pattern again to confirm:</string>
-    <string name="lockpattern_pattern_confirmed_header">Your new unlock pattern:</string>
+    <string name="lockpattern_pattern_entered_header">Pattern recorded</string>
+    <string name="lockpattern_need_to_confirm">Draw pattern again to confirm</string>
+    <string name="lockpattern_pattern_confirmed_header">Your new unlock pattern</string>
     <string name="lockpattern_confirm_button_text">Confirm</string>
     <string name="lockpattern_restart_button_text">Redraw</string>
     <string name="lockpattern_retry_button_text">Retry</string>
@@ -1912,14 +1994,15 @@ You are currently signed into the following accounts:
     <string name="show_background_processes">Show cached processes</string>
     <string name="reset_app_preferences">Reset app preferences</string>
     <string name="reset_app_preferences_title">Reset app preferences?</string>
-    <string name="reset_app_preferences_desc">"This will reset all preferences for:
+    <string name="reset_app_preferences_desc">"This will reset all your preferences for:
 
-"<li>Disabled apps</li>"
-"<li>Disabled app notifications</li>"
-"<li>Default applications for actions</li>"
-"<li>Background data restrictions for apps</li>"
+Disabled apps
+Disabled app notifications
+Default apps for actions
+Background data restrictions for apps
+Any permission restrictions
 
-You will not lose any app data"</string>
+Your existing app data will not be lost."</string>
     <string name="reset_app_preferences_button">Reset apps</string>
     <string name="manage_space_text">Manage space</string>
     <string name="filter">Filter</string>
@@ -2046,9 +2129,7 @@ You will not lose any app data"</string>
     <string name="keyboard_layout_dialog_switch_hint">To switch layouts, tap the control button and the spacebar together</string>
     <string name="keyboard_layout_default_label">Default</string>
     <string name="keyboard_layout_picker_title">Keyboard type</string>
-    <string name="user_dict_settings_titlebar">User dictionary</string>
-    <string name="user_dict_single_settings_title">Personal dictionary</string>
-    <string name="user_dict_multiple_settings_title">Personal dictionaries</string>
+    <string name="user_dict_settings_title">Personal dictionary</string>
     <string name="user_dict_settings_summary" />
     <string name="user_dict_settings_add_menu_title">Add</string>
     <string name="user_dict_settings_add_dialog_title">Add to dictionary</string>
@@ -2112,6 +2193,13 @@ You will not lose any app data"</string>
     <string name="verifier_device_identifier_not_available">Device information not available</string>
     <string name="keep_screen_on">Stay awake</string>
     <string name="keep_screen_on_summary">Screen will never sleep while charging</string>
+    <string name="bt_hci_snoop_log">Bluetooth HCI snoop log</string>
+    <string name="bt_hci_snoop_log_summary">Capture all bluetooth HCI packets in a file</string>
+    <string name="select_runtime_title">Select runtime system</string>
+    <string name="select_runtime_dialog_title">Select runtime system</string>
+    <string name="select_runtime_warning_message">Your device will restart to change the runtime from %1$s to %2$s</string>
+    <string name="wifi_display_certification">Authorise wireless display devices</string>
+    <string name="wifi_display_certification_summary">Show options for Wireless Display certificates.</string>
     <string name="allow_mock_location">Allow mock locations</string>
     <string name="allow_mock_location_summary">Allow mock locations</string>
     <string name="adb_warning_title">Allow USB debugging?</string>
@@ -2127,6 +2215,8 @@ You will not lose any app data"</string>
     <string name="enforce_read_external_confirm_message">"When the SD card is protected, apps must request permission to read data from external storage.
 
 Some apps may not work until updated by their developers"</string>
+    <string name="enable_terminal_title">Local terminal</string>
+    <string name="enable_terminal_summary">Enable terminal app that offers local shell access</string>
     <string name="gadget_picker_title">Choose gadget</string>
     <string name="widget_picker_title">Choose widget</string>
     <string name="allow_bind_app_widget_activity_allow_bind_title">Create widget and allow access?</string>
@@ -2136,16 +2226,52 @@ Some apps may not work until updated by their developers"</string>
     <string name="battery_history_hours">%1$dh %2$dm %3$ds</string>
     <string name="battery_history_minutes">%1$dm %2$ds</string>
     <string name="battery_history_seconds">%d sec</string>
+    <string name="battery_history_days_no_seconds">%1$dd %2$dh %3$dm</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%1$dm</string>
     <string name="usage_stats_label">Usage statistics</string>
     <string name="testing_usage_stats">Usage statistics</string>
     <string name="display_order_text">Sort by:</string>
     <string name="app_name_label">Application</string>
     <string name="launch_count_label">Count</string>
     <string name="usage_time_label">Usage time</string>
+    <string name="glance_settings">Glance</string>
+    <string name="glance_settings_title">Glance settings</string>
+    <string name="glance_settings_summary">When glance is enabled, the apps are displayed glance information on the bottom of the screen.</string>
+    <string name="glance_apps_category_title">Apps</string>
+    <string name="glance_apps_name_phone">Phone</string>
+    <string name="glance_apps_name_contacts">Contacts</string>
+    <string name="glance_apps_name_message">Message</string>
+    <string name="glance_apps_name_gallery">Gallery</string>
+    <string name="glance_apps_name_settings">Settings</string>
+    <string name="glance_apps_name_email">Email</string>
+    <string name="glance_apps_name_s_planner">S Planner</string>
+    <string name="glance_apps_name_scrapbook">Scrapbook</string>
+    <string name="glance_apps_name_s_finder">S Finder</string>
+    <string name="glance_apps_name_video_editor">Video Editor</string>
+    <string name="easy_mode_app_feature">Control your device with a minimal home screen layout and simpler app interactions</string>
+    <string name="easy_mode_settings_category_title">Apps</string>
+    <string name="easy_mode_select_all">Select all easy apps</string>
+    <string name="easy_mode_call">Call</string>
+    <string name="easy_mode_camera">Camera</string>
+    <string name="easy_mode_clock">Clock</string>
+    <string name="easy_mode_contacts">Contacts</string>
+    <string name="easy_mode_email">Email</string>
+    <string name="easy_mode_gallery">Gallery</string>
+    <string name="easy_mode_home">Home</string>
+    <string name="easy_mode_internet">Internet</string>
+    <string name="easy_mode_messages">Messages</string>
+    <string name="easy_mode_myfiles">My Files</string>
+    <string name="easy_mode_music">Music</string>
+    <string name="easy_mode_phone">Phone</string>
+    <string name="easy_mode_splanner">S Planner</string>
+    <string name="easy_mode_video">Video</string>
+    <string name="easy_mode_voicerecorder">Voice Recorder</string>
     <string name="accessibility_settings">Accessibility</string>
     <string name="accessibility_settings_title">Accessibility settings</string>
     <string name="accessibility_services_title">Services</string>
-    <string name="accessibility_system_title">General</string>
+    <string name="accessibility_system_title">System</string>
+    <string name="accessibility_captioning_title">Google subtitles (CC)</string>
     <string name="accessibility_screen_magnification_title">Magnification gestures</string>
     <string name="accessibility_screen_magnification_summary_1">"When this feature is enabled, you can zoom in and out by triple tapping the screen.
 
@@ -2156,7 +2282,8 @@ Adjust zoom level: Pinch two or more fingers together or spread them apart.
 You can also temporarily magnify what is under your finger by triple-tapping and holding. In this magnified state, you can drag your finger to explore different parts of the screen. Lift your finger to return to your previous state.
 
 Note: Triple tap for magnifier works everywhere except the keyboard and navigation bar."</string>
-    <string name="accessibility_screen_magnification_summary_2">When this feature is enabled, the response time could be slowed down in Phone, Calculator, and other apps.</string>
+    <string name="accessibility_screen_magnification_summary_2">When this feature is enabled, the response time could be slowed down in Phone, Calculator, and other apps</string>
+    <string name="accessibility_screen_magnification_summary_3">When this feature is enabled, the response time could be slowed down in Calculator and other apps</string>
     <string name="accessibility_global_gesture_preference_title">Accessibility shortcut</string>
     <string name="accessibility_global_gesture_preference_summary_on">On</string>
     <string name="accessibility_global_gesture_preference_summary_off">Off</string>
@@ -2211,6 +2338,33 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="accessibility_notification_reminder_time">Reminder interval</string>
     <string name="accessibility_feature_state_on">On</string>
     <string name="accessibility_feature_state_off">Off</string>
+    <string name="captioning_preview_title">Preview</string>
+    <string name="captioning_standard_options_title">Basic options</string>
+    <string name="captioning_locale">Language</string>
+    <string name="captioning_text_size">Text size</string>
+    <string name="captioning_preset">Caption style</string>
+    <string name="captioning_custom_options_title">Custom options</string>
+    <string name="captioning_background_color">Background colour</string>
+    <string name="captioning_background_opacity">Background opacity</string>
+    <string name="captioning_foreground_color">Text colour</string>
+    <string name="captioning_edge_color">Edge colour</string>
+    <string name="captioning_edge_type">Edge type</string>
+    <string name="captioning_typeface">Font family</string>
+    <string name="captioning_preview_text">Captions will look like this</string>
+    <string name="captioning_preview_characters">Aa</string>
+    <string name="accessibility_samsung_captioning_title">Samsung Subtitles (CC)</string>
+    <string name="locale_default">Default</string>
+    <string name="color_none">None</string>
+    <string name="color_white">White</string>
+    <string name="color_gray">Gray</string>
+    <string name="color_black">Black</string>
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_magenta">Magenta</string>
+    <string name="color_custom">\#%1$02X%2$02X%3$02X</string>
     <string name="service_title">%1$s</string>
     <string name="enable_service_title">Use %1$s?</string>
     <string name="capabilities_list_title">%1$s needs to:</string>
@@ -2236,6 +2390,32 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="accessibility_touch_exploration_warning">This feature changes the way your device responds to touch. Enable?</string>
     <string name="accessibility_service_default_description">No description provided</string>
     <string name="settings_button">Settings</string>
+    <string name="print_settings">Printing</string>
+    <string name="print_settings_title">Print services</string>
+    <string name="print_service_security_warning_title">Use %1$s?</string>
+    <string name="print_service_security_warning_summary">Your document may pass through one or more servers on its way to the printer.</string>
+    <string name="print_no_services_installed">No services installed</string>
+    <string name="print_no_printers_found">No printers found</string>
+    <string name="print_menu_item_settings">Settings</string>
+    <string name="print_menu_item_add_printers">Add printers</string>
+    <string name="print_feature_state_on">On</string>
+    <string name="print_feature_state_off">Off</string>
+    <string name="print_menu_item_add_service">Add service</string>
+    <string name="print_menu_item_add_printer">Add printer</string>
+    <string name="print_menu_item_search">Search</string>
+    <string name="print_searching_for_printers">Searching for printers</string>
+    <string name="print_service_disabled">Service disabled</string>
+    <string name="print_print_jobs">Print jobs</string>
+    <string name="print_print_job">Print job</string>
+    <string name="print_restart">Restart</string>
+    <string name="print_cancel">Cancel</string>
+    <string name="print_job_summary">"%1$s
+%2$s"</string>
+    <string name="print_printing_state_title_template">Printing %1$s</string>
+    <string name="print_failed_state_title_template">Printer error %1$s</string>
+    <string name="print_blocked_state_title_template">Printer blocked %1$s</string>
+    <string name="print_search_box_shown_utterance">Search box shown</string>
+    <string name="print_search_box_hidden_utterance">Search box hidden</string>
     <string name="negativecolors_use_popup_title">Enable negative colours</string>
     <string name="negativecolors_use_popup_msg">Negative colours and colour adjustment cannot both be enabled. Colour adjustment will be disabled</string>
     <string name="colorblind_use_popup_title">Enable colour adjustment</string>
@@ -2255,6 +2435,16 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="enable_adjust_for_color_blind_message">Colour adjustment and negative colours cannot both be enabled. Negative colours will be disabled</string>
     <string name="seekbar_description">Seek control</string>
     <string name="percent">Colour adjustment: %d percent</string>
+    <string name="direct_access_title">Direct access</string>
+    <string name="direct_access_summary">Open your accessibility settings by pressing the home key three times in quick succession</string>
+    <string name="direct_access_actions_accessibility_title">Accessibility</string>
+    <string name="direct_access_actions_talkback_title">TalkBack</string>
+    <string name="direct_access_actions_talkback_mode_off">TalkBack is disabled</string>
+    <string name="direct_access_actions_talkback_mode_on">TalkBack is enabled</string>
+    <string name="direct_access_actions_negative_title">Negative colours</string>
+    <string name="direct_access_actions_mode_off">Disabled</string>
+    <string name="direct_access_actions_mode_on">Enabled</string>
+    <string name="direct_access_actions_accesscontrol_title">Interaction control</string>
     <string name="power_usage_summary_title">Battery</string>
     <string name="power_usage_summary">See what has been using your battery</string>
     <string name="power_usage_not_available">Battery usage data not available</string>
@@ -2291,8 +2481,10 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="usage_type_gps">GPS</string>
     <string name="usage_type_wifi_running">Wi-Fi has been on for</string>
     <string name="usage_type_phone">device</string>
-    <string name="usage_type_data_send">Data sent</string>
-    <string name="usage_type_data_recv">Data received</string>
+    <string name="usage_type_data_send">Data sent over mobile network</string>
+    <string name="usage_type_data_recv">Data received via mobile network</string>
+    <string name="usage_type_data_wifi_send">Data sent via Wi-Fi</string>
+    <string name="usage_type_data_wifi_recv">Data received via Wi-Fi</string>
     <string name="usage_type_audio">Audio</string>
     <string name="usage_type_video">Video</string>
     <string name="usage_type_on_time">Time on</string>
@@ -2316,7 +2508,7 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="battery_sugg_bluetooth_headset">Connect to another Bluetooth device</string>
     <string name="battery_desc_apps">Battery used by applications</string>
     <string name="battery_sugg_apps_info">Stop or uninstall application</string>
-    <string name="battery_sugg_apps_gps">Control GPS manually to prevent applications from using it</string>
+    <string name="battery_sugg_apps_gps">Change to a power saving locating method</string>
     <string name="battery_sugg_apps_settings">Application may offer settings to reduce battery use</string>
     <string name="battery_desc_users">Battery used by user</string>
     <string name="menu_stats_unplugged">%1$s since unplugged</string>
@@ -2325,6 +2517,30 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="menu_stats_refresh">Refresh</string>
     <string name="process_kernel_label">Android OS</string>
     <string name="process_mediaserver_label">Mediaserver</string>
+    <string name="process_stats_summary_title">Process stats</string>
+    <string name="process_stats_summary">Stats about running processes</string>
+    <string name="app_memory_use">Memory use</string>
+    <string name="process_stats_total_duration">%1$s apps from the last %2$s</string>
+    <string name="process_stats_memory_status">The status of your device memory is currently %s</string>
+    <string name="process_stats_ram_use">Average RAM use</string>
+    <string name="process_stats_run_time">Run time</string>
+    <string name="services_subtitle">Services</string>
+    <string name="process_stats_avg_ram_use">Average RAM use</string>
+    <string name="process_stats_max_ram_use">Maximum RAM use</string>
+    <string name="process_stats_type_cached">Cached</string>
+    <string name="process_stats_type_background">Background</string>
+    <string name="process_stats_type_foreground">Foreground</string>
+    <string name="menu_proc_stats_duration">Duration</string>
+    <string name="menu_duration_3h">3 hours</string>
+    <string name="menu_duration_6h">6 hours</string>
+    <string name="menu_duration_12h">12 hours</string>
+    <string name="menu_duration_1d">1 day</string>
+    <string name="menu_show_system">Show system stats</string>
+    <string name="menu_use_uss">Use USS</string>
+    <string name="menu_proc_stats_type">Stats by type</string>
+    <string name="menu_proc_stats_type_background">Background</string>
+    <string name="menu_proc_stats_type_foreground">Foreground</string>
+    <string name="menu_proc_stats_type_cached">Cached</string>
     <string name="voice_title">Voice</string>
     <string name="voice_input_output_settings">Voice input and output</string>
     <string name="voice_input_output_settings_title">Voice input and output settings</string>
@@ -2347,6 +2563,7 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="tts_default_pitch_title">Pitch</string>
     <string name="tts_default_pitch_summary">Set tone of spoken text</string>
     <string name="tts_default_lang_title">Language</string>
+    <string name="tts_lang_not_selected">No language is selected</string>
     <string name="tts_default_lang_summary">Set language-specific voice for spoken text</string>
     <string name="tts_play_example_title">Listen to an example</string>
     <string name="tts_play_example_summary">Play short demonstration of speech synthesis</string>
@@ -2359,6 +2576,12 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="tts_engine_error_reselect">Select another TTS engine</string>
     <string name="tts_engine_security_warning">This speech synthesis engine may collect all speech, including passwords, credit card numbers, and other personal data. Continue?</string>
     <string name="tts_engine_network_required">This language requires a working network connection for text-to-speech output.</string>
+    <string name="tts_default_sample_string">Example of speech synthesis</string>
+    <string name="tts_status_title">Default language status</string>
+    <string name="tts_status_ok">%s is fully supported</string>
+    <string name="tts_status_requires_network">A network connection is required to support %s</string>
+    <string name="tts_status_not_supported">%s is not supported</string>
+    <string name="tts_status_checking">Checking...</string>
     <string name="tts_engines_section">Engines</string>
     <string name="tts_engine_name_settings">%s settings</string>
     <string name="tts_engine_name_is_enabled_summary">%s enabled</string>
@@ -2385,7 +2608,7 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="gadget_state_turning_off">turning off</string>
     <string name="gadget_wifi">Wi-Fi</string>
     <string name="gadget_bluetooth">Bluetooth</string>
-    <string name="gadget_gps">GPS</string>
+    <string name="gadget_location">Location</string>
     <string name="gadget_sync">Sync</string>
     <string name="gadget_brightness_template">Brightness %1$s</string>
     <string name="gadget_brightness_state_auto">auto</string>
@@ -2568,8 +2791,7 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="show_hw_screen_updates_summary">Flash views inside windows when drawn with the GPU</string>
     <string name="show_hw_layers_updates">Show hardware layers updates</string>
     <string name="show_hw_layers_updates_summary">Flash hardware layers green when they update</string>
-    <string name="show_hw_overdraw">Show GPU overdraw</string>
-    <string name="show_hw_overdraw_summary">From least to most GPU usage: blue, green, light red, red</string>
+    <string name="debug_hw_overdraw">Debug GPU overdraw</string>
     <string name="disable_overlays">Disable hardware overlays</string>
     <string name="disable_overlays_summary">Always use GPU for screen compositing</string>
     <string name="enable_traces_title">Enable traces</string>
@@ -2580,6 +2802,8 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="enable_opengl_traces_title">Enable OpenGL traces</string>
     <string name="debug_layout">Show layout boundaries</string>
     <string name="debug_layout_summary">Show clip bounds, margins, etc.</string>
+    <string name="force_rtl_layout_all_locales">Force RTL layout</string>
+    <string name="force_rtl_layout_all_locales_summary">Forces the screen to be laid out from right to left in all locales</string>
     <string name="show_cpu_usage">Show CPU usage</string>
     <string name="show_cpu_usage_summary">Screen overlay showing current CPU usage</string>
     <string name="force_hw_ui">Force GPU rendering</string>
@@ -2599,8 +2823,6 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="app_process_limit_title">Limit background processes</string>
     <string name="show_all_anrs">Show all ANRs</string>
     <string name="show_all_anrs_summary">Show app not responding dialogue for background apps</string>
-    <string name="experimental_webview">Use Experimental WebView</string>
-    <string name="experimental_webview_summary">Apps will use the newest (beta) WebView</string>
     <string name="data_usage_summary_title">Data usage</string>
     <string name="data_usage_cycle">Data usage cycle</string>
     <string name="data_usage_menu_roaming">Data roaming</string>
@@ -2616,7 +2838,13 @@ To enable/disable this function and change the settings, press the home key and 
     <string name="data_usage_label_foreground">Foreground</string>
     <string name="data_usage_label_background">Background</string>
     <string name="data_usage_app_restricted">Restricted</string>
-    <string name="data_usage_disclaimer">Measured by your device. Your service provider may account for data usage differently</string>
+    <string name="data_usage_disclaimer">Measured by your device. Your service provider may account for data usage differently.</string>
+    <string name="data_usage_menu_display_unit">Display units</string>
+    <string name="data_usage_display_gb">GB</string>
+    <string name="data_usage_display_mb">MB</string>
+    <string name="data_usage_display_dynamic">MB/GB (auto change)</string>
+    <string name="data_usage_select_unit">Display units</string>
+    <string name="fileSizeSuffix">%1$s%2$s%3$s</string>
     <string name="btn_tmo">Upgrade data service</string>
     <string name="data_usage_disclaimer_tmo">Tap on the link below to explore data plan upgrade options for your rate plan</string>
     <string name="data_usage_disable_mobile">Disable mobile data connection?</string>
@@ -2632,6 +2860,8 @@ Mobile data will be disabled."</string>
     <string name="data_usage_disable_mobile_warning_skt">"Data Network disallowed.
 Data such as calendar events or emails will not be synchronized automatically."</string>
     <string name="data_usage_disable_mobile_warning_ktt">"Data Network disallowed.
+Data such as calendar events or emails will not be synchronized automatically."</string>
+    <string name="data_usage_disable_mobile_warning_ktt_jb">"Data Network disallowed.
 Data such as calendar events or emails will not be synchronized automatically."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Data Network disallowed.
 Data such as calendar events or emails will not be synchronized automatically."</string>
@@ -2691,7 +2921,7 @@ This setting affects all users on this phone."</string>
     <string name="data_usage_total_during_range">%2$s: about %1$s used</string>
     <string name="data_usage_total_during_range_mobile">%2$s: about %1$s used, as measured by your device. Your service provider may account for usage differently</string>
     <string name="data_usage_metered_title">Mobile hotspots</string>
-    <string name="data_usage_metered_body">Select the Wi-Fi networks which are mobile hotspots. You can restrict background apps from using these networks. You can also set apps to warn you before using these networks for large downloads</string>
+    <string name="data_usage_metered_body">Select the Wi-Fi networks which are mobile hotspots. You can restrict background apps from using these networks. You can also set apps to warn you before using these networks for large downloads.</string>
     <string name="data_usage_metered_mobile">Mobile networks</string>
     <string name="data_usage_metered_wifi">Wi-Fi networks</string>
     <string name="data_usage_metered_wifi_disabled">To select mobile hotspots, turn Wi-Fi on</string>
@@ -2783,8 +3013,8 @@ This setting affects all users on this phone."</string>
     <string name="monotype_dialog_font_applemint">Apple mint</string>
     <string name="monotype_dialog_font_tinkerbell">Tinker bell</string>
     <string name="monotype_dialog_font_baikzongyul">Baikzongyul Pen</string>
-    <string name="monotype_dialog_font_maruberi">Maruberi</string>
-    <string name="monotype_dialog_font_mincho">Mincho</string>
+    <string name="monotype_dialog_font_maruberi">UDRGothic</string>
+    <string name="monotype_dialog_font_mincho">UDMincho</string>
     <string name="monotype_dialog_font_pop">Pop</string>
     <string name="monotype_default_font">Default font</string>
     <string name="monotype_restart_dialog_text_1">Restart phone</string>
@@ -2884,25 +3114,35 @@ This setting affects all users on this phone."</string>
     <string name="selinux_status_disabled">Disabled</string>
     <string name="selinux_status_permissive">Permissive</string>
     <string name="selinux_status_enforcing">Enforcing</string>
+    <string name="ssl_ca_cert_warning">Network may be monitored</string>
+    <string name="done_button">Done</string>
+    <string name="ssl_ca_cert_dialog_title">Check credentials</string>
+    <string name="ssl_ca_cert_info_message">"The administrator for this device is: %s
+
+Your administrator is capable of monitoring your network activity, including your emails, apps, and secure websites.
+
+For more info, contact your administrator."</string>
+    <string name="ssl_ca_cert_warning_message">A trusted certificate on your device is allowing a third party to monitor your network activity, including your emails, apps, and secure websites</string>
+    <string name="ssl_ca_cert_settings_button">Check trusted credentials</string>
     <string name="about_usb_settings_remove_the_cable_popup">USB is connected. Remove the cable</string>
     <string name="user_settings_title">Users</string>
     <string name="user_list_title">Users &amp; profiles</string>
     <string name="user_add_user_menu">Add user or profile</string>
-    <string name="user_summary_restricted_profile">Restricted profile</string>
-    <string name="user_need_lock_message">"Before you can create a restricted profile, you'll need to set up a screen lock to protect your apps and personal data."</string>
-    <string name="user_set_lock_button">Set lock</string>
+    <string name="user_summary_restricted_profile">Restricted account</string>
+    <string name="user_need_lock_message">Before you can create a restricted user profile, you must set up a screen lock to protect your apps and personal data</string>
+    <string name="user_set_lock_button">Set up screen lock</string>
     <string name="user_summary_not_set_up">Not set up</string>
-    <string name="user_summary_restricted_not_set_up">Not set up - Restricted profile</string>
+    <string name="user_summary_restricted_not_set_up">Not set up yet</string>
     <string name="user_owner">Owner</string>
     <string name="user_you">You (%s)</string>
     <string name="user_you_section">You</string>
     <string name="user_nickname">Nickname</string>
     <string name="user_add_user_type_title">Add</string>
-    <string name="user_add_user_item_summary">Users have their own apps and content</string>
-    <string name="user_add_profile_item_summary">You can restrict access to apps and content from your account</string>
+    <string name="user_add_user_item_summary">Accounts allow users to access their own apps and content</string>
+    <string name="user_add_profile_item_summary">Restricted accounts allow users limited access to apps and content</string>
     <string name="user_add_user_item_title">User</string>
     <string name="user_add_profile_item_title">Restricted profile</string>
-    <string name="user_add_user_title">Add new user</string>
+    <string name="user_add_user_title">Add user</string>
     <string name="user_add_user_message_long">"You can share this device with other people by creating additional users. Each user has their own space, which they can customise with their own apps, wallpaper and so on. Users can also adjust device settings like Wi-Fi that affect everyone.
 
 After you create a new user, that person needs to go through a setup process.
@@ -2916,16 +3156,16 @@ Any user can accept updated app permissions on behalf of all other users."</stri
 Any user can accept updated app permissions on behalf of all other users."</string>
     <string name="user_setup_dialog_title">Set up user now?</string>
     <string name="user_setup_dialog_message">Make sure the person is available to take the tablet and set up their space</string>
-    <string name="user_setup_profile_dialog_message">Set up profile now?</string>
+    <string name="user_setup_profile_dialog_message">You will be taken to the account setup screen</string>
     <string name="user_setup_button_setup_now">Set up now</string>
     <string name="user_setup_button_setup_later">Not now</string>
     <string name="user_cannot_manage_message">"Only the phone's owner can manage users."</string>
     <string name="user_cannot_add_accounts_message">Restricted profiles cannot add accounts</string>
     <string name="user_remove_user_menu">Delete %1$s from this device</string>
     <string name="user_new_user_name">New user</string>
-    <string name="user_new_profile_name">New profile</string>
+    <string name="user_new_profile_name">New restricted account</string>
     <string name="user_confirm_remove_self_title">Delete yourself?</string>
-    <string name="user_confirm_remove_title">Remove user?</string>
+    <string name="user_confirm_remove_title">Delete user</string>
     <string name="user_profile_confirm_remove_title">Remove profile?</string>
     <string name="user_confirm_remove_self_message">"You will lose your space and data on this phone. You can't undo this action."</string>
     <string name="user_confirm_remove_message">"This user's space and data will disappear from this phone. You can't undo this action."</string>
@@ -2936,10 +3176,28 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="application_restrictions">Allow apps and content</string>
     <string name="apps_with_restrictions_header">Applications with restrictions</string>
     <string name="apps_with_restrictions_settings_button">Expand settings for application</string>
+    <string name="home_app_uninstall_button">Uninstall this application</string>
+    <string name="only_one_home_message">Home settings will be hidden until you install another home application.</string>
     <string name="global_change_warning">This setting affects all users on this phone.</string>
     <string name="global_locale_change_title">Change language</string>
     <string name="global_font_change_title">Change font size</string>
+    <string name="nfc_payment_settings_title">Tap and pay</string>
+    <string name="nfc_payment_enable_summary">Select your default payment application.</string>
+    <string name="nfc_payment_disable_summary">NFC is turned off</string>
+    <string name="nfc_payment_no_apps_samsung">No payment service apps are currently installed</string>
+    <string name="nfc_payment_no_apps">Pay with just a tap</string>
+    <string name="nfc_payment_learn_more">Learn more</string>
+    <string name="nfc_payment_menu_item_add_service">Find apps</string>
+    <string name="nfc_payment_set_default_label">Set as your preference?</string>
+    <string name="nfc_payment_set_default">Always use %1$s when you tap &amp; pay?</string>
+    <string name="nfc_payment_set_default_instead_of">Always use %1$s instead of %2$s when you tap &amp; pay?</string>
+    <string name="restriction_settings_title">Restrictions</string>
+    <string name="restriction_menu_reset">Remove restrictions</string>
+    <string name="restriction_menu_change_pin">Change PIN</string>
     <string name="app_notifications_switch_label">Show notifications</string>
+    <string name="app_auto_start_label">Auto run</string>
+    <string name="app_auto_start_popup_title">Disable auto run</string>
+    <string name="app_auto_start_popup_content">If you disable auto run for this app, this app will not run automatically when you restart your device</string>
     <string name="help_label">Help</string>
     <string name="help_url_wifi" />
     <string name="help_url_bluetooth" />
@@ -2956,24 +3214,24 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="help_url_users" />
     <string name="help_url_location_access" />
     <string name="help_url_security" />
+    <string name="help_url_nfc_payment" />
     <string name="user_account_title">Account for content</string>
     <string name="user_picture_title">Photo ID</string>
     <string name="cell_broadcast_settings">Cell broadcasts</string>
-    <string name="cell_broadcast_settings_summary">Select the types of emergency alerts to display.</string>
-    <string name="user_restrictions_title">Application and content restrictions</string>
+    <string name="user_restrictions_title">Application/content restrictions</string>
     <string name="user_rename">RENAME</string>
-    <string name="app_restrictions_custom_label">Set application limits</string>
-    <string name="user_restrictions_controlled_by">Controlled by %1$s</string>
+    <string name="app_restrictions_custom_label">Set app restrictions</string>
+    <string name="user_restrictions_controlled_by">Controlled via %1$s</string>
     <string name="app_not_supported_in_limited">This app is not supported in restricted profiles</string>
-    <string name="app_sees_restricted_accounts">This app can access your accounts</string>
+    <string name="app_sees_restricted_accounts">This app can access accounts</string>
     <string name="restriction_wifi_config_title">Wi‑Fi and Mobile</string>
     <string name="restriction_wifi_config_summary">Allow modification of Wi‑Fi and Mobile settings</string>
     <string name="restriction_bluetooth_config_title">Bluetooth</string>
     <string name="restriction_bluetooth_config_summary">Allow modification of Bluetooth pairings and settings</string>
     <string name="restriction_nfc_enable_title">NFC</string>
     <string name="restriction_nfc_enable_summary">Allow data exchange when the phone touches another device</string>
-    <string name="restriction_location_enable_title">Location access</string>
-    <string name="restriction_location_enable_summary">Let apps use your location information</string>
+    <string name="restriction_location_enable_title">Location</string>
+    <string name="restriction_location_enable_summary">Allow apps to use your location information</string>
     <string name="wizard_back">Back</string>
     <string name="wizard_next">Next</string>
     <string name="wizard_finish">Finish</string>
@@ -2981,6 +3239,8 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="user_image_choose_photo">Choose photo from Gallery</string>
     <string name="regulatory_info_text" />
     <string name="temperature_warning_msg">To avoid overheating, maximum brightness has been reduced.</string>
+    <string name="overheating_warning_msg">Unable to increase the brightness further. The device is overheating.</string>
+    <string name="low_temperature_warning_msg">Unable to increase the brightness further. The device temperature is too low.</string>
     <string name="kies_via_wifi">Kies via Wi-Fi</string>
     <string name="kies_via_wifi_summary">Connect to Kies on your PC via Wi-Fi</string>
     <string name="usb_utility_title">USB utilities</string>
@@ -3029,6 +3289,13 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="go_to_samsungdive">Go to the find my mobile webpage</string>
     <string name="lock_my_mobile">Reactivation lock</string>
     <string name="lock_my_mobile_summary">Use your Samsung account to stop other people from reactivating your device after it has been reset</string>
+    <string name="lock_my_mobile_disclaimer">"Use your Samsung account to stop other people from reactivating your device after it has been reset.
+
+Before you request a repair under the warranty, the reactivation lock must be disabled.
+
+Remember your Samsung account information so you can reactivate your device when it is locked.
+
+Your device cannot be used or repaired under warranty if it remains locked and you cannot provide proof of purchase."</string>
     <string name="screen_mode_setting">Screen mode</string>
     <string name="screen_mode_summary">Select the screen mode</string>
     <string name="screen_mode_dynamic">Dynamic</string>
@@ -3043,11 +3310,16 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="clock_weather_position">Clock and weather position</string>
     <string name="clock_position">Clock position</string>
     <string name="weather">Weather</string>
-    <string name="weather_summary">Show weather information on the S View Cover</string>
+    <string name="weather_summary">Show the weather for your current location on the S View Cover</string>
     <string name="select_info_title">Select info shown cover</string>
     <string name="walking_mate_title">Walking mate</string>
     <string name="walking_mate_summary">Show walking mate information on the S View Cover</string>
+    <string name="walking_mate_popup_msg">To show walking mate information on the S View Cover, you must set up a profile in S Health. S Health will be opened.</string>
     <string name="sview_color">S View window colour</string>
+    <string name="all_screen_title">Use for all screens</string>
+    <string name="all_screen_summary">Applies this setting to the background of calls, music, alarms, and messaging</string>
+    <string name="random_background_title">Random colour</string>
+    <string name="random_background_summary">Changes the colour of the S View window at random, every day</string>
     <string name="screen_mode_auto">Adapt display</string>
     <string name="screen_mode_auto_summary">This mode automatically optimises the display to the best quality</string>
     <string name="screen_mode_auto_contents">"Adapt Display mode automatically optimises the colour, saturation, and sharpness of your display for the following applications:
@@ -3066,9 +3338,10 @@ This mode does not apply to third party applications."</string>
     <string name="flight_mode_disable_popup">Flight mode will be disabled</string>
     <string name="flight_mode_enable_popup">Flight mode allows you to disable calling, messaging, and mobile networks functions</string>
     <string name="flight_mode_enable_popup_more_specific_bluetoothonly">Flight mode disables calling, messaging, and data network functions. It also turns off connectivity functions such as WLAN and Bluetooth. You can use Bluetooth in Flight mode by turning it on in Settings or the quick panel.</string>
-    <string name="flight_mode_enable_popup_more_specific">Flight mode allows you to turn off calling, messaging and data network features. It also turns off connectivity features such as Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, turn them on in Settings or on the notification panel</string>
+    <string name="flight_mode_enable_popup_more_specific">Flight mode allows you to turn off calling, messaging and data network features. It also turns off connectivity features such as Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, turn them on in Settings or on the notification panel.</string>
     <string name="flight_mode_enable_popup2">Flight mode allows you to disable messaging and mobile networks features</string>
     <string name="flight_mode_enable_popup_more_specific2">Flight mode allows you to turn off network features, including Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, turn them on in Settings or the notification panel.</string>
+    <string name="flight_mode_enable_popup_more_specific2_without_bt">Flight mode allows you to turn off network features, including Wi-Fi. To use Wi-Fi, turn it on in Settings or the notification panel.</string>
     <string name="help_text_title">Help text</string>
     <string name="help_text_summary">Show help text on lock screen</string>
     <string name="auto_power_off_entry">%d hours</string>
@@ -3076,7 +3349,10 @@ This mode does not apply to third party applications."</string>
     <string name="face_lock_warning">Do not use face unlock while driving. It may distract you from the road and cause an accident</string>
     <string name="face_voice_lock_warning">Do not use face and voice unlock while driving. It may distract you from the road and cause an accident</string>
     <string name="face_lock_warning_popup_self_shot">Self shot can only be used when the phone is open</string>
-    <string name="development_warning_msg">These settings are intended for development use only. They can cause errors to occur on your device and with the applications on it</string>
+    <string name="additional_information">Additional information</string>
+    <string name="additional_information_summary">Show information weather, upcoming event and steps when Walking mate (in S-Health) is enabled</string>
+    <string name="upcoming_event">Upcoming event</string>
+    <string name="steps">Steps</string>
     <string name="start_up_title">Show on start-up</string>
     <string name="home">Home</string>
     <string name="header_category_connectivity">Connectivity</string>
@@ -3161,6 +3437,9 @@ This mode does not apply to third party applications."</string>
     <string name="sdcard_encrypt_needed">To use the SD card, tap Continue to encrypt it or tap Disable to disable SD card encryption</string>
     <string name="sdcard_yes">Yes</string>
     <string name="sdcard_no">No</string>
+    <string name="sdcard_encrypt_cc">The security policy restricts encryption options. Only full encryption is available.</string>
+    <string name="sdcard_encrypt_cc_mount">The security policy restricts the mounting of your SD card. The SD card will not be mounted automatically.</string>
+    <string name="sdcard_encrypt_applied_cc">The security policy prevents your SD card from being decrypted</string>
     <string name="mobileap_notification_dialog_title">Notification</string>
     <string name="mobileap_dig_ok">OK</string>
     <string name="ssid_max_byte_error">Name must contain no more than 32 characters.</string>
@@ -3178,6 +3457,7 @@ This mode does not apply to third party applications."</string>
     <string name="sdcard_encdec_usability_warning">The SD card files encrypted on this device can be only used on this device</string>
     <string name="sdcard_encdec_factory_reset_warning">If you reset your device to factory defaults, the decryption key for files on the SD card will be erased. You will not be able to use encrypted files on the SD card, but you will still be able to use unencrypted files.</string>
     <string name="sdcard_decrypt_lockscreen_type_change_warning">If you switch to another type of lock after you have disabled SD card encryption, the key for decrypting files on the SD card will be erased. (If you disable SD card encryption without inserting the encrypted SD card, you will no longer be able to decrypt or use the files on that SD card.)</string>
+    <string name="sdcard_can_not_used_user_mode_warning">If SD card encryption is enabled, SD card cannot be used in User mode</string>
     <string name="sdcard_encrypt_policy_set_full_on_confirm">Encryption may take a long time depending on the amount of data. It is recommended that you plug device into charger</string>
     <string name="sdcard_decrypt_policy_set_decryption_configured_confirm">Decryption may take a long time depending on the amount of data. It is recommended that you plug device into charger</string>
     <string name="sdcard_encrypt_enc_error">Error encrypting SD card. Unable to mount SD card</string>
@@ -3199,6 +3479,7 @@ This mode does not apply to third party applications."</string>
     <string name="sdcard_decrypt_error">Error decrypting SD card. Some files may still be encrypted</string>
     <string name="sdcard_mount_msg">Tap Continue to mount SD card</string>
     <string name="sd_waiting_encryption_decryption">Waiting for SD card encryption or decryption...</string>
+    <string name="sdcard_mount_disabled_summary">"Disabled because SD card encryption has been enabled by the device's owner"</string>
     <string name="status_fips">FIPS 140-2</string>
     <string name="FIPS_kernel_crypto_module">Kernel crypto module</string>
     <string name="FIPS_key_managemnet_module">Key management module</string>
@@ -3269,6 +3550,15 @@ This mode does not apply to third party applications."</string>
     <string name="power_saving_tips_gps_3">Continuing to use GPS when the GPS signal is weak may increase battery consumption</string>
     <string name="power_saving_tips_live_wallpaper_1">Using live wallpapers may increase battery consumption</string>
     <string name="external_sd_memory_unmounted">Your phone does not have SD card. Insert SD card.</string>
+    <string name="power_saving_tips_screen">"1. Press the power key to turn off the screen when you are not using the device.
+2. Setting the screen to time out in under a minute can extend battery life.
+3. Smart stay uses your device camera to detect your eye movement before the screen times out; this consumes more battery. When smart stay is enabled, set the screen timeout to over one minute to reduce the effect on battery life."</string>
+    <string name="power_saving_tips_brightness">Reducing the brightness of the screen or enabling automatic brightness can save battery power</string>
+    <string name="power_saving_tips_bluetooth">Turning on and connecting via Bluetooth may increase battery consumption</string>
+    <string name="power_saving_tips_mobile_data">Disabling mobile data will prevent background applications from using battery power</string>
+    <string name="power_saving_tips_auto_sync">Syncing data may increase battery consumption. Disable auto sync to save battery power.</string>
+    <string name="power_saving_tips_gps">Using GPS, especially when the GPS signal is weak, can increase battery consumption</string>
+    <string name="power_saving_tips_live_wallpaper">Using live wallpapers may increase battery consumption</string>
     <string name="accessibility_vision_category">Vision</string>
     <string name="high_contrast_title">Negative colours</string>
     <string name="high_contrast_summary">Reverses the colours of screen</string>
@@ -3314,13 +3604,32 @@ This mode does not apply to third party applications."</string>
     <string name="access_control_summary">Set options for controlling touch and other device interactions</string>
     <string name="lcd_curtain_title">Screen curtain</string>
     <string name="lcd_curtain_summary">Keep the screen turned off even if you press the home key or tap the screen. Double press the power key to enable or disable this function</string>
-    <string name="ultrasonic_cane_title">Ultrasonic assistant</string>
-    <string name="ultrasonic_cane_summary">Use the ultrasonic assistant to detect nearby objects in front of you</string>
+    <string name="ultrasonic_category">Ultrasonic Cover</string>
+    <string name="ultrasonic_cane_title">Ultrasonic sensor</string>
+    <string name="ultrasonic_cane_summary">Detects nearby objects in front of you. Double press the voice recorder key to enable or disable this function</string>
     <string name="ultrasoundlength_title">Ultrasonic range</string>
     <string name="ultrasoundlength_summary">For ultrasonic signals over a longer range, the width of the area covered will be narrower</string>
+    <string name="ultrasonic_sensor_enabled">Ultrasonic sensor enabled</string>
+    <string name="ultrasonic_sensor_disabled">Ultrasonic sensor disabled</string>
     <string name="ultrasonic_short">Short</string>
     <string name="ultrasonic_middle">Middle</string>
     <string name="ultrasonic_long">Long</string>
+    <string name="ultrasonic_content">"The Product is not intended to diagnose, treat, cure or prevent any disease. This Product is a non-medical device.
+
+ It cannot replace a cane and should never be used as a mobility aid or substitute for any mobility aid tool. It must always be used in combination with a cane, a dog guide, or a human guide because, by itself, it does not provide information necessary for safe travel.
+
+ We strongly recommend you to educate yourself fully and abide by the operating procedures of this manual before your first use. Furthermore, we encourage you to train yourself with how to use the Product and be sure to have fully understood how the Product works correctly. We are not responsible for or liable for any misuse of the Product or incorrect interpretation of the Product manual. While using the Product in training, it is strongly recommended that you work with a sighted friend who can give you visual feedback, particularly when you work with more advanced skills.
+
+The Product does not detect drop-offs. When doing exercises that require hand scanning, make sure that you use an area without steps or drop-offs, and without car or pedestrian traffic.
+
+The Product does not provide the scope and detail of information obtained through vision and the coverage area/range may vary due to circumstances.
+
+ Users should always remove headphones from their ears when approaching and crossing intersections or when walking through areas that include business driveways, parking lots, or alleys—where traffic might cross the path of travel.
+
+For further warnings and disclaimers, please refer to the Product manual.
+"</string>
+    <string name="rapid_key_input_title">Rapid key input</string>
+    <string name="rapid_key_input_summary">Release your finger to enter selection instead of double tapping</string>
     <string name="sync_all_label">Sync all</string>
     <string name="sync_now_label">Sync now</string>
     <string name="cancel_sync_label">Cancel sync</string>
@@ -3384,7 +3693,7 @@ This mode does not apply to third party applications."</string>
     <string name="hovering_pointer_msg">The air view pointer is shown on the screen</string>
     <string name="hovering_information_preview">Information preview</string>
     <string name="hovering_intormation_preview_msg">A preview of information, the full text, or zoomed-in image is shown on the screen</string>
-    <string name="hovering_icon_label">Icon labels (by pen nib)</string>
+    <string name="hovering_icon_label">Icon labels</string>
     <string name="hovering_icon_label_msg">Icon labels will be shown</string>
     <string name="hovering_list_scroll">List scrolling</string>
     <string name="hovering_list_scroll_msg">Scroll down or up lists by holding the pen over the edge of the screen</string>
@@ -3402,11 +3711,24 @@ This mode does not apply to third party applications."</string>
     <string name="pen_setings_disable_pen_detection">Disable pen detection</string>
     <string name="pen_settings_pen_input">Direct pen input</string>
     <string name="pen_settings_pen_input_summary">Display the handwriting pad on the text input area when the S Pen is detected</string>
-    <string name="pen_settings_pen_input_exclusive_options_popup_content">Direct pen input and the options below cannot both be enabled. The options below will be disabled.</string>
+    <string name="pen_settings_pen_input_more_information">More information</string>
+    <string name="pen_settings_pen_input_input_languages">Input languages</string>
+    <string name="pen_settings_pen_input_predictive_text">Text suggestion</string>
+    <string name="pen_settings_pen_input_gesture_guide">Gesture guide</string>
+    <string name="pen_settings_pen_input_descriptions">Hover the S Pen over the text input area, then tap the button indicated to use the handwriting pad</string>
+    <string name="pen_settings_pen_input_try_btn">Try it</string>
+    <string name="pen_settings_pen_input_dialog_disable_title">Enable %s</string>
+    <string name="pen_settings_pen_input_dialog_disable">%1$s is disabled. Enable %2$s.</string>
+    <string name="pen_settings_pen_input_dialog_disable_off_function">%s and the features below cannot all be enabled. The features below will be disabled.</string>
+    <string name="pen_settings_pen_input_exclusive_app_talkback">TalkBack</string>
+    <string name="pen_settings_pen_input_exclusive_app_magnification_gestures">Magnification gestures</string>
+    <string name="pen_settings_pen_input_dialog_button_ok">OK</string>
+    <string name="pen_settings_pen_input_dialog_button_cancel">Cancel</string>
     <string name="pen_detachment_option_action_memo">Action memo</string>
     <string name="pen_detachment_option_air_command">Air command</string>
     <string name="pen_settings_enable_direct_pen_input_title">Enable Direct pen input</string>
     <string name="pen_settings_pointer_msg">Shows the pointer when you hover the S Pen over the screen</string>
+    <string name="pen_settings_pen_input_exclusive_options_popup_content">Direct pen input and the options below cannot both be enabled. The options below will be disabled.</string>
     <string name="pen_help_hovering">Air view</string>
     <string name="pen_help_gesture">Gesture</string>
     <string name="pen_help_quick_command">Quick Command</string>
@@ -3486,9 +3808,11 @@ This mode does not apply to third party applications."</string>
     <string name="double_tap_title">Double tap to top</string>
     <string name="pick_up_title">Smart alert</string>
     <string name="turn_over_title">Turn over to mute/pause</string>
-    <string name="peek_title">Peek</string>
-    <string name="peek_view_albums_list_title">View albums list</string>
-    <string name="peek_chapter_preview_title">Chapter preview</string>
+    <string name="peek_title">Twist</string>
+    <string name="peek_view_albums_list_title">View album list</string>
+    <string name="peek_chapter_preview_title">View video chapter list</string>
+    <string name="peek_view_albums_list_msg">View album list while you look at a picture or album in Gallery</string>
+    <string name="peek_chapter_preview_msg">Show video chapter list in the currently playing video</string>
     <string name="tilt_summary">Zoom in or out of the screen when in Gallery or Internet</string>
     <string name="tilt_summary_without_browser">Zoom in or out of the screen when in Gallery</string>
     <string name="tilt_to_scroll_list_summary">Scroll up and down list</string>
@@ -3498,8 +3822,8 @@ This mode does not apply to third party applications."</string>
     <string name="double_tap_summary">Go to the top of a list</string>
     <string name="pick_up_summary">Catch missed calls and messages</string>
     <string name="turn_over_summary">Mute incoming calls and pause playing sounds when screen on</string>
-    <string name="peek_view_albums_list_summary">Show albums list when you viewing a photo in Gallery</string>
-    <string name="peek_chapter_preview_summary">Show chapter preview in the currently playing video</string>
+    <string name="peek_view_albums_list_summary">To view the list of albums in Gallery, tap and hold the screen while viewing a picture, and then tilt the top of the device towards the right or left.</string>
+    <string name="peek_chapter_preview_summary">To view the list of video chapters, tap and hold the screen while viewing a video, and then tilt the top of the device towards right or left.</string>
     <string name="sensitivity_settings_title">Sensitivity settings</string>
     <string name="sensitivity_title">Sensitivity</string>
     <string name="sensitivity_slow">Slow</string>
@@ -3521,15 +3845,15 @@ This mode does not apply to third party applications."</string>
     <string name="pan_to_browse_image_tutorial_content">Tap and hold the screen when zoomed in to a picture, then move the device left, right, up, and down to pan.</string>
     <string name="shake_tutorial_content">Shake your device to scan for Bluetooth and Kies Air devices, and more. Also, shake to update emails, news, weather, or stock data via mobile networks. This may result in charges.</string>
     <string name="shake_tutorial_content_removekies">Shake your device to scan for Bluetooth and more</string>
-    <string name="shake_tutorial_content_removekiesonly">Shake your device to scan for Bluetooth devices and more. Also, shake to update email, news, weather, or stock data via mobile networks. This may incur charges</string>
+    <string name="shake_tutorial_content_removekiesonly">Shake your device to scan for Bluetooth devices and more. Also, shake to update email, news, weather, or stock data via mobile networks. This may incur charges.</string>
     <string name="shake_tutorial_content_basicapp">Shake your device to scan for Bluetooth devices and more. Also, shake to update email data via mobile networks. This may incur charges</string>
     <string name="double_tap_tutorial_content">Double tap to go to the top of contact list, email list, and email messages</string>
     <string name="pick_up_tutorial_content">Get a vibration alert to notify you if you have missed any calls or messages since the last time you picked up your device.</string>
     <string name="pick_up_tutorial_content_1">Pick up your device to be notified about missed calls and messages</string>
     <string name="pick_up_tutorial_content_2">You will be alerted if you have missed calls and messages</string>
     <string name="turn_over_tutorial_content">Turn the device over to mute incoming calls, message alerts and alarms, or to pause media.</string>
-    <string name="peek_view_albums_list_tutorial_content">Press and hold the device screen when viewing a photo, and tilt towards the right to see other albums in Gallery.</string>
-    <string name="peek_chapter_preview_tutorial_content">Press and hold the device screen when viewing a video, and tilt towards the right to see other chapter preview in Video.</string>
+    <string name="peek_view_albums_list_tutorial_content">Press and hold the device screen when viewing a photo, and tilt towards the right to see other albums in Gallery</string>
+    <string name="peek_chapter_preview_tutorial_content">Press and hold the device screen when viewing a video, and tilt towards the right to see other chapter preview in Video</string>
     <string name="motion_tutorial_try_btn">Try</string>
     <string name="motion_tutorial_good_job">Good job!</string>
     <string name="motion_tutorial_try_again_btn">Try again</string>
@@ -3553,14 +3877,16 @@ This mode does not apply to third party applications."</string>
     <string name="palm_swipe_title">Palm swipe to capture</string>
     <string name="palm_swipe_summary">Capture screen by swiping it from right to left or vice versa with the side of your hand</string>
     <string name="palm_touch_title">Palm touch to mute/pause</string>
+    <string name="enable_palm_motion">Enable palm motion</string>
+    <string name="disable_talkback_to_enable_palm_motion_message">Palm motion and TalkBack cannot both be enabled. TalkBack will be disabled.</string>
     <string name="palm_touch_summary">Mute or pause sounds by covering screen</string>
     <string name="tap_and_twist_title">Tap and twist</string>
     <string name="tap_and_twist_summary">Rotate image by placing your finger on the image and then twisting it</string>
     <string name="learn_about_palm_swipe_title">Learn about palm swipe</string>
-    <string name="learn_about_palm_swipe_content">Capture the screen by swiping it from right to left or vice versa with the side of your hand.</string>
+    <string name="learn_about_palm_swipe_content">Capture the screen by swiping it from right to left or vice versa with the side of your hand</string>
     <string name="learn_about_palm_touch_title">Learn about palm touch</string>
-    <string name="learn_about_palm_touch_content">Place your hand on the screen to mute incoming calls, message alerts, and alarms, or pause media while the screen is on.</string>
-    <string name="learn_about_palm_touch_content_no_call">Mute or pause media by covering the screen with your hand.</string>
+    <string name="learn_about_palm_touch_content">Place your hand on the screen to mute incoming calls and alarms, or pause media while the screen is on.</string>
+    <string name="learn_about_palm_touch_content_no_call">Place your hand on the screen to mute alarms or pause media while the screen is on</string>
     <string name="learn_about_tap_and_twist_title">Learn about tap and twist</string>
     <string name="learn_about_tap_and_twist_content">Rotate image by placing your finger on the image and then twist it</string>
     <string name="motion_unlock_title">Motion unlock</string>
@@ -3584,19 +3910,19 @@ This mode does not apply to third party applications."</string>
     <string name="side_motion_peek_title">Peek</string>
     <string name="side_motion_peek_summary">Show albums list when you view in Gallery</string>
     <string name="to_enable_side_motion_message">To enable side motion, enable at least one relevant function</string>
-    <string name="arc_motion_title">Arc motions</string>
-    <string name="arc_motion_summary">Control your device by pushing to one side while placed on a flat surface</string>
+    <string name="arc_motion_title">Rocking motions</string>
+    <string name="arc_motion_summary">Control your device by raising or pushing the device on one side while it is placed on a flat surface</string>
     <string name="arc_motion_ripple_effect_title">Ripple effect</string>
     <string name="arc_motion_quick_glance_title">Quick glance</string>
     <string name="arc_motion_music_playback_title">Music playback</string>
     <string name="arc_motion_messaging_title">Messaging</string>
     <string name="arc_motion_ripple_effect_summary">Show ripple effect on lock screen</string>
-    <string name="arc_motion_quick_glance_summary">View important information when the screen is off</string>
-    <string name="arc_motion_music_playback_summary" />
+    <string name="arc_motion_quick_glance_summary">View important info quickly when the screen is off</string>
+    <string name="arc_motion_music_playback_summary">Play the previous or next track</string>
     <string name="arc_motion_messaging_summary" />
-    <string name="learn_about_arc_motion_ripple_effect_content">Show ripple effect on lock screen</string>
-    <string name="learn_about_arc_motion_quick_glance_content">Put your phone on a flat surface with the screen facing upwards. When the screen is turned off, quickly check your status information by raising up the device to a side.</string>
-    <string name="learn_about_arc_motion_music_playback_content">Put your phone on a flat surface with the screen facing upwards. When the screen is turned off, press left edge of the phone to play previous track and press right edge of the phone to play next track.</string>
+    <string name="learn_about_arc_motion_ripple_effect_content">When you tilt the device to the left or right, the ripples move in that direction. This effect is only available when the ripple effect is set for the lock screen.</string>
+    <string name="learn_about_arc_motion_quick_glance_content">Put your device on a flat surface with the screen facing upwards. When the screen has turned off, raise one side of the device. Your status information will appear on the screen.</string>
+    <string name="learn_about_arc_motion_music_playback_content">Put your device on a flat surface with the screen facing upwards. When the screen has turned off, tap the left edge of the screen to play the previous track or tap the right edge of the screen to play the next track.</string>
     <string name="learn_about_arc_motion_messaging_content" />
     <string name="to_enable_arc_motion_message">To enable arc motion, enable at least one relevant function</string>
     <string name="motion2013_pick_up_title">Pick up</string>
@@ -3611,6 +3937,20 @@ This mode does not apply to third party applications."</string>
     <string name="motion2013_mute_pause_title">Mute/Pause</string>
     <string name="motion2013_palm_motion_title">Palm motion</string>
     <string name="motion2013_capture_screen_title">Capture screen</string>
+    <string name="motion2014_air_wake_up_title">Air wake up</string>
+    <string name="motion2014_air_wake_up_summary">When the screen is off, reach towards your device to wake it up</string>
+    <string name="motion2014_air_wake_up_guide_content">"Put your device on a flat surface with the screen facing upwards. Once the screen has turned off, move your hand above the sensor as shown in the image above. The device's screen will be turned on."</string>
+    <string name="motion2014_air_browse_summary">Move between items or scroll through pages without touching the screen</string>
+    <string name="motion2014_air_browse_guide_content">Scroll through long pages or go to the next or previous item by moving your hand up, down, left or right above the sensor.</string>
+    <string name="motion2014_air_browse_tutorial_title_1">Move your hand up/down</string>
+    <string name="motion2014_air_browse_tutorial_title_2">Move your hand left/right</string>
+    <string name="motion2014_air_browse_email_body_summary">Scroll through a body of email</string>
+    <string name="motion2014_air_browse_internet_summary">Scroll through a web pages and move between windows in Internet</string>
+    <string name="motion2014_merged_mute_pause_summary">Mute or pause sounds by covering screen or turning over the device</string>
+    <string name="motion2014_merged_mute_pause_advanced_title">Mute/pause by</string>
+    <string name="motion2014_merged_mute_pause_turn_over_title">Turning over the device</string>
+    <string name="motion2014_merged_mute_pause_palm_touch_title">Covering screen with palm</string>
+    <string name="motion2014_merged_mute_pause_guide_head">Use following motions to mute or pause sounds</string>
     <string name="dualclock_settings_summary">Show dual clock on lock screen when roaming</string>
     <string name="set_home_city">Set home city</string>
     <string name="air_motion_title">Air gesture</string>
@@ -3626,7 +3966,7 @@ This mode does not apply to third party applications."</string>
     <string name="air_note_swap_title">Air note-swap</string>
     <string name="air_note_swap_descciption">Description</string>
     <string name="air_scroll_title">Air jump</string>
-    <string name="air_scroll_descripption">Scroll web pages in screen-sized jumps</string>
+    <string name="air_scroll_descripption">Scroll email messages in screen-sized jumps</string>
     <string name="air_turn_title">Air browse</string>
     <string name="air_turn_descption">Move between pictures, pages, or music tracks</string>
     <string name="air_item_move_title">Air move</string>
@@ -3765,7 +4105,7 @@ This mode does not apply to third party applications."</string>
     <string name="pen_attention">Attention</string>
     <string name="pen_air_view">Pen</string>
     <string name="finger_air_view">Finger</string>
-    <string name="auto_air_view">Auto</string>
+    <string name="auto_air_view">Auto switch</string>
     <string name="air_button_disable_msg">Air command will be turned off if you uncheck Information preview. Proceed?</string>
     <string name="air_button_disable_msg2">Enabling Air view finger mode will disable air command</string>
     <string name="air_button_needs_to_be_turned_on_msg">Information preview of Air view pen options needs to be turned on to enable Air command</string>
@@ -3795,10 +4135,10 @@ This mode does not apply to third party applications."</string>
     <string name="air_button_setting_dialog_air_button_title">Enable %s</string>
     <string name="air_button_setting_dialog_air_button">Enable %1$s to try %2$s.</string>
     <string name="air_button_help_button_msg">Help</string>
-    <string name="pen_air_view_help_pointer_msg">When you hover your pen over the screen, the air view features will appear.</string>
+    <string name="pen_air_view_help_pointer_msg">The pointer appears, showing which features are available for you to try when the S Pen is hovering over the screen</string>
     <string name="pen_air_view_help_infor_preview_msg">Preview information, extend text, or enlarge pictures by hovering your pen over the screen</string>
-    <string name="pen_air_view_help_progress_preview_msg">Preview a scene or show the elapsed time by hovering your pen or finger over the progress bar.</string>
-    <string name="pen_air_view_help_speed_dial_preview_msg">Show the names of contacts assigned to speed dial numbers by hovering your pen or finger over them.</string>
+    <string name="pen_air_view_help_progress_preview_msg">Preview a scene or show the elapsed time by hovering your pen over the progress bar</string>
+    <string name="pen_air_view_help_speed_dial_preview_msg">Preview the contacts assigned to speed dial numbers by hovering your pen over the keypad</string>
     <string name="pen_air_view_help_icon_label_msg">View the labels of icons by hovering your pen over them.</string>
     <string name="pen_air_view_help_list_scrolling_msg">Scroll up or down lists by holding the pen over the edge of the screen</string>
     <string name="pen_air_view_information_preview_disable_msg">Disabling information preview will disable %s</string>
@@ -3806,9 +4146,9 @@ This mode does not apply to third party applications."</string>
     <string name="finger_air_view_to_try_ps_enable_it_msg">To try %s, enable it in Air view finger mode</string>
     <string name="downloadable_dialog_popup_text">Additional help content must be downloaded. Mobile data will be used if you download data without connecting via Wi-Fi network. You will be taken to the download screen.</string>
     <string name="pen_air_command_enabled_popup_msg">To experience the full range of air command features, enable information preview in air view pen options</string>
-    <string name="pen_air_view_infor_preview_pupup_msg">Disabling information preview will disable some of the air command features, such as inserting/attaching content, adding recipients, and displaying available actions</string>
-    <string name="air_view_finger_mode_enable_pupup_msg">Enabling Air view finger mode will disable some of the air command features, such as inserting/attaching content, adding recipients, and displaying available actions</string>
-    <string name="air_view_disable_popup_msg">Disabling air view will disable some of the air command features, such as inserting/attaching content, adding recipients, and displaying available actions</string>
+    <string name="pen_air_view_infor_preview_pupup_msg">Disabling information preview will disable the air command feature that displays available actions</string>
+    <string name="air_view_finger_mode_enable_pupup_msg">Enabling Air view finger mode will disable the air command feature that displays available actions</string>
+    <string name="air_view_disable_popup_msg">Disabling air view will disable the air command feature that displays available actions</string>
     <string name="finger_air_view_title">Air view</string>
     <string name="to_enable_finger_air_view_message">To enable air view, enable at least one function</string>
     <string name="finger_air_view_setting_guide">Select what will be shown when you hover your finger over items on the screen</string>
@@ -3834,7 +4174,7 @@ This mode does not apply to third party applications."</string>
     <string name="finger_air_view_speed_dial_tip_summary">Preview the contacts assigned to speed dial numbers by hovering your finger over the keypad</string>
     <string name="finger_air_view_help_title">Air view help</string>
     <string name="finger_air_view_help_information_priview_content">Preview information, extend text, or enlarge pictures by hovering your finger over the screen</string>
-    <string name="finger_air_view_help_information_priview_splanner_title">S planner</string>
+    <string name="finger_air_view_help_information_priview_splanner_title">S Planner</string>
     <string name="finger_air_view_help_information_priview_splanner_title_calendar">Calendar</string>
     <string name="finger_air_view_help_information_priview_splanner_content">See more details in S Planner by hovering your finger over an event</string>
     <string name="finger_air_view_help_information_priview_splanner_content_calendar">See more details in %s by hovering your finger over an event.</string>
@@ -3872,7 +4212,7 @@ This mode does not apply to third party applications."</string>
     <string name="set_roaming_city">Set roaming city</string>
     <string name="my_profile_title">Personal message</string>
     <string name="my_profile_summary">Customise personal message</string>
-    <string name="my_profile_edit">Edit personal message</string>
+    <string name="my_profile_edit">Edit personal information</string>
     <string name="my_profile_align">Align</string>
     <string name="my_profile_fontsize">Font size</string>
     <string name="my_profile_preview">ABCD abcd</string>
@@ -3954,6 +4294,7 @@ This mode does not apply to third party applications."</string>
     <string name="bt_enable_title">Bluetooth</string>
     <string name="bt_enable_line1">Turn Bluetooth on to use Bluetooth services</string>
     <string name="bt_enable_line2">Turn on Bluetooth?</string>
+    <string name="bt_turn_on">Turn on</string>
     <string name="bt_enable_cancel">Cancel</string>
     <string name="bt_enable_ok">OK</string>
     <string name="bluetooth_class_of_device_title">Class of device</string>
@@ -4064,7 +4405,7 @@ This mode does not apply to third party applications."</string>
     <string name="allshare_no_items">No items</string>
     <string name="allshare_access_mode_changed">The access control mode was changed. Now devices on the not-allowed device list can access your device by searching</string>
     <string name="allshare_not_allowed_device_list">Not-allowed devices list</string>
-    <string name="allshare_title_summary">Share your media files via DLNA</string>
+    <string name="allshare_title_summary">Share your media files with other devices</string>
     <string name="allshare_progress_message">Organising files for sharing with nearby devices...</string>
     <string name="allshare_device_name_slash">You cannot have a forward slash (/) in the device name</string>
     <string name="allshare_restart_file_sharing_q">To apply the changes, restart file sharing. Restart now?</string>
@@ -4091,13 +4432,17 @@ This mode does not apply to third party applications."</string>
     <string name="accessibility_widget_zoom">Zoom</string>
     <string name="accessibility_power_button_ends_call_summary">Press the power key to end calls when screen is on. This will not turn off screen</string>
     <string name="accessibility_easy_interaction_summary">Tap to stop/snooze alarms, calendar events, and timer alerts, and accept/reject incoming calls</string>
+    <string name="accessibility_easy_interaction_summary_talbet">Tap to stop/snooze alarms, calendar event alerts, and accept/reject incoming calls</string>
+    <string name="accessibility_easy_interaction_summary_tablet_wifi">Tap to stop/snooze alarms and calendar events</string>
     <string name="Dialog_PowerkeyEndsCalls">Unable to set the power key to end calls while proximity sensor is off. Proximity sensor will be turned on</string>
     <string name="location_networks_disabled">See location in applications (such as Maps) using wireless networks</string>
     <string name="location_gps_disabled">Locate to street-level (requires more battery plus view of sky)</string>
     <string name="share_accessibility_settings">Manage accessibility</string>
-    <string name="share_accessibility_settings_summary">Save and update your accessibility settings, or share them with another device</string>
+    <string name="share_accessibility_settings_summary">Save and update your accessibility settings, or share them with other devices</string>
     <string name="export">Export</string>
     <string name="export_description">Save the accessibility settings as a file</string>
+    <string name="import_export">Import / Export</string>
+    <string name="import_export_description">Import or export your accessibility setting files.</string>
     <string name="importandrestore">Update</string>
     <string name="importandrestore_description">Update your accessibility settings by importing the saved file</string>
     <string name="share">Share via</string>
@@ -4133,7 +4478,7 @@ This mode does not apply to third party applications."</string>
     <string name="smart_pause_title">Smart pause</string>
     <string name="smart_pause_summary">Video will pause when the device detects that you are facing away from the screen</string>
     <string name="smart_scroll_title">Smart scroll</string>
-    <string name="smart_scroll_summary">When your eyes have been detected, the screen will scroll according to the angle at which you tilt your head or the device</string>
+    <string name="smart_scroll_summary">Scroll up or down by tilting your head or device while looking at the screen</string>
     <string name="smart_block_title">Smart block</string>
     <string name="smart_block_summary">Automatically blocks messages that might be spam</string>
     <string name="guide_smart_block_help_text">Smart block intelligently identifies and blocks messages containing user registered words, phrases, and other messages that may be spam. If you want to filter out spam messages, enable smart block.</string>
@@ -4147,7 +4492,7 @@ This mode does not apply to third party applications."</string>
     <string name="smart_scroll_unit_summary">Select the units to use for scrolling in smart screen</string>
     <string name="smart_scroll_acceleration_title">Acceleration</string>
     <string name="smart_scroll_acceleration_summary">Select how fast scrolling accelerates in smart screen based on the angle of your face</string>
-    <string name="smart_scroll_visual_feedback_icon_title">Visual Feedback display</string>
+    <string name="smart_scroll_visual_feedback_icon_title">Visual feedback display</string>
     <string name="smart_scroll_visual_feedback_icon_summary">Display visual feedback icon in smart scroll</string>
     <string name="smart_scroll_enable_msg">To enable smart scroll, enable at least one relevant function</string>
     <string name="smartsceen_tutorial_try_btn">Try it</string>
@@ -4342,6 +4687,8 @@ This mode does not apply to third party applications."</string>
     <string name="bua_plus_contacts">Contacts</string>
     <string name="bua_plus_media">Media</string>
     <string name="bua_plus_media_only">Backup Assistant Plus Media</string>
+    <string name="bua_plus_contacts_hux_intent">com.samsung.vmmhux.ACTION_VMMHUX_SETUPWIZARD</string>
+    <string name="bua_plus_contacts_vux_intent">com.fusionone.android.sync.baclient</string>
     <string name="bua_plus_storage_calculating">Calculating...</string>
     <string name="bua_plus_storage_subscribe">Subscribe now</string>
     <string name="bua_plus_storage_subscribe_detail">Subscribe to Backup Assistant Plus</string>
@@ -4354,9 +4701,14 @@ This mode does not apply to third party applications."</string>
     <string name="location_e911">E911</string>
     <string name="location_e911_description">E911 Location cannot be turned off on any mobile phone</string>
     <string name="location_masterswitch_dialogtitle">Location consent</string>
-    <string name="location_masterswitch_dialogtext">"Your phone can share its approximate location with apps, which is useful for things like maps, shopping and weather.
+    <string name="location_masterswitch_dialogtext">"Your phone can share its approximate location with apps and services like maps, shopping and weather.
 
-Apps that use your location should inform you. Be cautious and read their policies carefully to understand how they collect, use and share your location information.
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_masterswitch_dialogtext_tablet">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
 
 Determining your location will use the mobile network. Data usage will apply."</string>
     <string name="vzw_location_title">Verizon location consent</string>
@@ -4419,6 +4771,7 @@ Activating this setting disables any other use of USB except data transfering"</
     <string name="cdma_pay_as_you_go">View Verizon Account</string>
     <string name="voice_input_control_title">Voice control</string>
     <string name="voice_input_control_message">If you set the alert type for calls or alarms to vibration, voice command is not available</string>
+    <string name="voice_input_control_message_without_calls">If you set the alert type for alarms to vibration, voice command is not available</string>
     <string name="voice_input_control_ok">OK</string>
     <string name="voice_input_control_cancel">Cancel</string>
     <string name="voice_input_control_summry">Use voice commands to control device</string>
@@ -4431,17 +4784,26 @@ Activating this setting disables any other use of USB except data transfering"</
     <string name="voice_input_control_camera">Camera</string>
     <string name="voice_input_control_camera_summary">"You can take pictures with voice commands '%1$s', '%2$s', '%3$s' and '%4$s'"</string>
     <string name="voice_input_control_music">Music</string>
-    <string name="voice_input_control_music_summary">"You can control the music player with the voice commands '%1$s', '%2$s', '%3$s', '%4$s', '%5$s', and '%6$s'"</string>
+    <string name="voice_input_control_music_summary">"You can control the music player with the voice commands '%1$s', '%2$s', '%3$s', '%4$s', '%5$s' and '%6$s'"</string>
     <string name="voice_input_control_radio">Radio</string>
     <string name="voice_input_control_radio_summary">"You can control the FM radio with the voice commands '%1$s', '%2$s', '%3$s', '%4$s', '%5$s' and '%6$s'"</string>
+    <string name="voice_control_incomming_calls_summary_v2">Answer or reject calls with the voice commands ‘%1$s’ and ‘%2$s’. The speaker will turn on when you answer a call with a voice command</string>
+    <string name="voice_control_chaton_calls_summary_v2">Answer or reject ChatON Voice &amp; Video Chat with the voice commands ‘%1$s’ or ‘%2$s’. The speaker will turn on when you answer a call with a voice command</string>
+    <string name="voice_control_alarm_summary_v2">Stop or snooze alarms with the voice commands ‘%1$s’ and ‘%2$s’</string>
+    <string name="voice_control_camera_summary_v2">Take pictures with the voice commands ‘%1$s’, ‘%2$s’, ‘%3$s’, and ‘%4$s’</string>
+    <string name="voice_control_camera_summary_v3">Take pictures with the voice commands ‘%1$s’, ‘%2$s’, ‘%3$s’, and ‘%4$s’; or record videos with the voice command ‘%5$s’</string>
+    <string name="voice_control_music_summary_v2">Control Music with the voice commands ‘%1$s’, ‘%2$s’, ‘%3$s’, ‘%4$s’, ‘%5$s’, and ‘%6$s’</string>
+    <string name="voice_control_smart_remote_summary_v2">Control your home entertainment devices with the voice commands ‘%1$s’, ‘%2$s’, ‘%3$s’, ‘%4$s’, ‘%5$s’, ‘%6$s’, ‘%7$s’, ‘%8$s’, and ‘%9$s’</string>
     <string name="voice_input_control_tutorial_step_1">Tap to enable or disable voice control.</string>
     <string name="voice_input_control_tutorial_step_2">Voice control enabled.</string>
     <string name="do_not_disturb">Not now, remind me later</string>
+    <string name="notifyme_later">Not now</string>
+    <string name="do_not_notifyme">"Don't show again"</string>
     <string name="wifi_on_dialog_summary">To switch to Wi-Fi, select a network</string>
     <string name="never_turn_on_wifi">Do not show unknown Wi-Fi</string>
     <string name="note">To turn Wi-Fi notifications off, go to Wi-Fi settings</string>
-    <string name="notify_me_available_network">Notify me</string>
-    <string name="notify_me_available_network_summary">When launching apps, notify me when Wi-Fi is available</string>
+    <string name="notify_me_available_network">Show Wi-Fi pop-up</string>
+    <string name="notify_me_available_network_summary">When opening apps, tell me when Wi-Fi is available</string>
     <string name="wifi_connect_seamlessly">Auto-connect</string>
     <string name="wifi_connect_seamlessly_summary">When launching high data usage applications, connect to known Wi-Fi networks when Wi-Fi is off</string>
     <string name="wifi_search_networks">Searching for networks...</string>
@@ -4456,7 +4818,6 @@ for apps"</string>
     <string name="lgt_service_global_auto_roaming">Global roaming</string>
     <string name="docomoservice_settings">docomo service/cloud</string>
     <string name="docomocloud_settings">docomo cloud</string>
-    <string name="home_settings">Change home</string>
     <string name="home_settings_category">Home</string>
     <string name="home_settings_header">Change home</string>
     <string name="home_settings_message">%s Will be applied for your home screen</string>
@@ -4512,7 +4873,7 @@ for apps"</string>
     <string name="onehand_activate_pattern_summary">Enable to adjust the scale of the unlock pattern, for use with one hand</string>
     <string name="onehand_tutorial_category">Tutorial</string>
     <string name="onehand_tutorial_help_title">Learn about one-handed operation</string>
-    <string name="onehand_tutorial_help_text">The one-handed operation settings help you to use keypads easily with only one hand. If you select one-handed operation, the position of the dialling keypad, in-call buttons, Samsung keyboard, and Calculator can be adjusted by tapping the arrows on either side of the screen. If you tap the right arrow, the keypad slides right, and if you tap the left arrow, the keypad slides left. The unlock pattern cannot be moved left or right, but can be resized.</string>
+    <string name="onehand_tutorial_help_text">The one-handed operation settings help you to use keypads easily with only one hand. If you enable one-handed operation, the position of the dialling keypad, in-call buttons, Calculator, and unlock pattern can be adjusted by tapping the arrows on either side of the screen. If you tap the right arrow, they slide right, and if you tap the left arrow, they slide left.</string>
     <string name="onehand_tutorial_help_text_without_samsungkeyboard">The one-handed operation settings help you to use keypads easily with only one hand. If you enable one-handed operation, the position of the dialling keypad, in-call buttons, Calculator, and unlock pattern can be adjusted by tapping the arrows on either side of the screen. If you tap the right arrow, they slide right, and if you tap the left arrow, they slide left.</string>
     <string name="onehand_anyscreen_options_popup_content">Enable on any screen and the options below cannot both be enabled. The options below will be disabled.</string>
     <string name="onehand_anyscreen_option_zoom">Zoom</string>
@@ -4598,11 +4959,20 @@ for apps"</string>
     <string name="quick_applications">Applications</string>
     <string name="manual_setup">Manual setup</string>
     <string name="power_saving_off_message">To enable Power saving mode, enable at least one function</string>
-    <string name="wifi_setup_screentitle">Connect to Wi-Fi</string>
-    <string name="wifi_setup_screentext1">"You will need a connection to the internet to complete the setup of your tablet. If you can't connect right now; you may purchase a data plan from the previous screen, or exit the setup wizard"</string>
-    <string name="wifi_setup_screentext1_scamera">"You will need a connection to the internet to complete the setup of your camera. If you can't connect right now; you may purchase a data plan from the previous screen, or exit the setup wizard"</string>
-    <string name="exit_setup">Exit</string>
+    <string name="vzw_wifi_setup_screentitle">Wi-Fi setup</string>
+    <string name="vzw_wifi_setup_screen_description">Tap a Wi-Fi network to connect.</string>
+    <string name="skip_wifi_setup">Skip</string>
+    <string name="vzw_wifi_scan">Rescan</string>
+    <string name="btn_label_next">Next</string>
+    <string name="dlg_btn_label_ok">OK</string>
+    <string name="dlg_btn_label_cancel">Cancel</string>
     <string name="setup_wizard">Setup Wizard</string>
+    <string name="wifi_turned_off">To see available Wi-Fi networks, turn on Wi-Fi in the notification panel.</string>
+    <string name="no_internet_connection">Network does not have internet access. Try a different network or exit Setup Wizard</string>
+    <string name="no_netowrks_found">No networks found.</string>
+    <string name="skip_wifi_confirmation">A network connection is required for tablet setup. Please connect to a network to continue.</string>
+    <string name="no_scanresults_found_dialog_title">No networks</string>
+    <string name="no_scanresults_found_dialog_desc">No networks found. Try again in range of Wi-Fi network.</string>
     <string name="led_indicator_low_battery">Low battery</string>
     <string name="led_indicator_low_battery_summary">The red LED blinks when the battery power is low while the screen is off</string>
     <string name="task_manager_title">Task manager</string>
@@ -4638,6 +5008,13 @@ for apps"</string>
     <string name="other_settings">Other settings</string>
     <string name="more_settings">More settings</string>
     <string name="more_networks">More networks</string>
+    <string name="smart_bonding">Download booster</string>
+    <string name="smart_bonding_description">"Download large files faster using Wi-Fi and mobile network at the same time.
+shown on the Status Bar when Download booster runs."</string>
+    <string name="smart_bonding_size">Set minimum file size</string>
+    <string name="smart_bonding_size_summary">Set the minimum file size for downloading using Download booster.</string>
+    <string name="smart_bonding_popup_msg">It will allow to access data network by using Download booster. Download booster runs when Wi-Fi and Mobile date both turn on. Data fee will be occurred depends on flat-rate payment system you registered</string>
+    <string name="smart_bonding_popup">Display notification popup-ups for data usage</string>
     <string name="customizable_key_title">Customizable key</string>
     <string name="short_press">Short press</string>
     <string name="long_press">Long press</string>
@@ -4668,10 +5045,10 @@ Tap OK to continue"</string>
     <string name="mode_change_title">Home screen mode</string>
     <string name="standard_mode">Standard mode</string>
     <string name="standard_mode_body">Standard mode provides the conventional layout for the apps and widgets on your home screens</string>
-    <string name="standard_mode_popup_body">Easy mode will be applied to your home screens</string>
     <string name="standard_mode_popup_title">Enable easy mode</string>
+    <string name="standard_mode_popup_body">Easy mode will be applied to your home screens</string>
     <string name="starter_mode_body">Easy mode provides an easier experience for first time smartphone users with a simpler layout and bigger icons</string>
-    <string name="starter_mode_popup_title">Enable Standard mode</string>
+    <string name="starter_mode_popup_title">Enable standard mode</string>
     <string name="starter_mode_popup_body">Standard mode will be applied to your home screens</string>
     <string name="easy_mode_title">Select your home screen layout</string>
     <string name="op_mode">T mode</string>
@@ -4730,6 +5107,23 @@ Tap OK to continue"</string>
     <string name="lock_screen_options_summary_kor">Customise lock screen clocks and more for simple unlock</string>
     <string name="quick_note_title">Action Memo on lock screen</string>
     <string name="quick_note_summary">To open Action Memo, double tap the lock screen while pressing the pen button</string>
+    <string name="popup_note_title">Popup Note on lock screen</string>
+    <string name="popup_note_summary">Use Popup Note on the lock screen</string>
+    <string name="magazine_card_title">Magazine card</string>
+    <string name="magazine_card_summary">Display up-to date information on your lock screen</string>
+    <string name="magazine_update_duration">Update duration</string>
+    <string name="magazine_category">Category</string>
+    <string name="magazine_category_weather">Weather</string>
+    <string name="magazine_category_today">"Today's schedule"</string>
+    <string name="magazine_category_news">News</string>
+    <string name="magazine_category_social">Social</string>
+    <string name="magazine_category_hereandnow">Here &amp; Now</string>
+    <string name="magazine_category_email">Email</string>
+    <string name="magazine_card_security">Card security</string>
+    <string name="magazine_card_security_summary">Show full information on magazine cards when screen security is enabled</string>
+    <string name="real_time">Real time</string>
+    <string name="update_duration_summary">%1$s</string>
+    <string name="category_summary">%1$s</string>
     <string name="nousbdriver_attention_message">"Unable to find software on your PC that can recognise your device. Service pack 3, Windows Media Player, version 10 or higher, for Windows XP or Android File Transfer for Mac OS must be installed.
 
 You can download and install PC Kies from http://www.samsung.com/kies in order to sync data with your device, back up data, and upgrade your device (Windows and Mac OS are supported)"</string>
@@ -4832,9 +5226,9 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="page_buddy_help">Page buddy help</string>
     <string name="lanunch_page_buddy">Create page buddies</string>
     <string name="lanunch_page_buddy_help_1">Page buddy will be created on the home screen when the following actions have been taken. For example, when the S Pen has been detached (only for models that include the S Pen), the earphones have been connected, and other specific actions</string>
-    <string name="lanunch_page_buddy_help_2">An icon that represents the page buddy will be added to the right side of the page indicator</string>
-    <string name="lanunch_page_buddy_help_3">The page buddy will appear automatically when you are on any of the Home screens</string>
-    <string name="lanunch_page_buddy_help_4">When using page buddy, all your interactions, such as with your apps and widgets, will be the same as on your other home screens</string>
+    <string name="lanunch_page_buddy_help_2">An icon that represents the page buddy will be added to the right side of the page indicator.</string>
+    <string name="lanunch_page_buddy_help_3">The page buddy will appear automatically when you are on any of the Home screens.</string>
+    <string name="lanunch_page_buddy_help_4">When using page buddy, all your interactions, such as with your apps and widgets, will be the same as on your other home screens.</string>
     <string name="terminate_page_buddy">Remove page buddies</string>
     <string name="terminate_page_buddy_help">The page buddy will disappear automatically when you perform the opposite of the actions above</string>
     <string name="recommend_applications">Application recommendations</string>
@@ -4897,6 +5291,8 @@ Data usage is measured by your phone. Your carrier may account for usage differe
     <string name="availablebutton_category">Available buttons</string>
     <string name="bright_adjustment_panel_title">Brightness adjustment</string>
     <string name="bright_adjustment_panel_summary">Adjust the screen brightness via the notification panel</string>
+    <string name="brightness_and_volume">Brightness and volume</string>
+    <string name="brightness_and_volume_summary">Adjust the brightness and volume via the notification panel</string>
     <string name="set_quick_setting_button_title">Set the quick setting buttons</string>
     <string name="set_quick_setting_button_summary">You can customise which quick setting buttons appear at the top of the notification panel. Tap and hold then drag buttons to re-order them</string>
     <string name="notification_panel_wifi">Wi-Fi</string>
@@ -5048,8 +5444,13 @@ If you delete those documents from My Files, the same documents will be deleted 
     <string name="scloud_sms">SMS</string>
     <string name="scloud_mms">MMS</string>
     <string name="scloud_current_wallpaper">current wallpaper</string>
+    <string name="scloud_remove_cache_warning_1">This will disable synchronisation and clear the cloud data from this device</string>
+    <string name="scloud_sync_summary_pictures">View pictures that are in Dropbox in Gallery</string>
+    <string name="scloud_sync_summary_video">View videos that are in Dropbox in Video</string>
+    <string name="scloud_sync_summary_music">View music that is in Dropbox in Music</string>
     <string name="scloud_pin_board">Pin Board</string>
     <string name="scloud_scrapbook">Scrapbook</string>
+    <string name="scloud_link_account_summary_free_baidu">Get a free %d GB Baidu cloud account for two years</string>
     <string name="description_play_button">Play</string>
     <string name="set_up_simuim">Set UIM/SIM card lock</string>
     <string name="simuim_card_lock">UIM/SIM card lock</string>
@@ -5204,8 +5605,7 @@ To receive background data, disable restrict background data"</string>
     <string name="flight_mode_enabled_toast">Unable to connect to mobile networks while Flight mode is enabled. Disable Flight mode and try again</string>
     <string name="epush_settings">ePush</string>
     <string name="label_settings">Device info</string>
-    <string name="wimax_settings">4G settings</string>
-    <string name="wimax_settings_summary">Set up &amp; manage 4G network and modem</string>
+    <string name="wimax_settings">4G</string>
     <string name="wimax">4G</string>
     <string name="wimax_quick_toggle_summary">Turn on 4G</string>
     <string name="wimax_notify_open_networks">Network notification</string>
@@ -5255,10 +5655,10 @@ To receive background data, disable restrict background data"</string>
     <string name="wimax_gateway">Gateway :</string>
     <string name="wimax_dns1">DNS1 :</string>
     <string name="wimax_dns2">DNS2 :</string>
-    <string name="airplane_mode_desc">Airplane mode allows you to turn off calling, messaging, and data network features. In addition, it turns off connectivity features such as Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, please turn them on in the Settings or Notification panel</string>
+    <string name="airplane_mode_desc">Flight mode allows you to turn off network features, including Wi-Fi. To use Wi-Fi, turn it on in Settings or the notification panel.</string>
     <string name="airplane_mode_status">Current status</string>
-    <string name="airplane_mode_on">Airplane mode ON</string>
-    <string name="airplane_mode_off">Airplane mode OFF</string>
+    <string name="airplane_mode_on">Flight mode is enabled</string>
+    <string name="airplane_mode_off">Flight mode is disabled</string>
     <string name="edit_screen_capture_title">Edit after screen capture</string>
     <string name="edit_screen_capture_summary">Go to edit screen after capturing screen</string>
     <string name="full_locale_test">Full locale test</string>
@@ -5286,6 +5686,15 @@ To receive background data, disable restrict background data"</string>
     <string name="myplace_location_disabled_dialog_content">Not all location sources are currently enabled. For faster and more accurate location detection, enable GPS location settings</string>
     <string name="myplace_current_location">Current location</string>
     <string name="myplace_search">Search</string>
+    <string name="place_settings_title">Custom settings</string>
+    <string name="place_settings_help">When this mode is turned on, saved settings will be applied automatically if the device detect this location.</string>
+    <string name="place_settings_enable">Enable custom settings</string>
+    <string name="place_settings_wifi">Turn on Wi-Fi</string>
+    <string name="place_settings_bluetooth">Turn on Bluetooth</string>
+    <string name="place_settings_blocking_mode">Turn on Blocking mode</string>
+    <string name="place_settings_data_network">Use Data Network</string>
+    <string name="place_settings_activated">custom settings is activated</string>
+    <string name="place_settings_deactivated">custom settings is deactivated</string>
     <string name="seandroid_control">SEAndroid Control</string>
     <string name="changing_mode_pe">Changing mode to Permissive or Enforcing</string>
     <string name="seandroid_set_enforcing">SEAndroid Set Enforcing</string>
@@ -5313,47 +5722,9 @@ To receive background data, disable restrict background data"</string>
     <string name="stms_version" />
     <string name="airplane_mode_on_message">Airplane mode on, could not access network services</string>
     <string name="to_enable_feature_common_message">To enable this feature, enable at least one relevant function</string>
-    <string name="samba_settings_title">HomeSync server</string>
-    <string name="samba_configure">Configure</string>
-    <string name="samba_access_log">Access log</string>
-    <string name="samba_server_info">HomeSync Sever infomation</string>
-    <string name="samba_access_from_pc">Access from PC</string>
-    <string name="samba_msg">"You can upload and download files to HomeSync from PC.
-PC and HomeSync should be in the same network."</string>
-    <string name="samba_netbios_name">NetBIOS name (IP Address)</string>
-    <string name="samba_network">Current network</string>
-    <string name="samba_network_lan">LAN</string>
-    <string name="samba_network_wifi">WIFI</string>
-    <string name="samba_network_not">Not Connected</string>
-    <string name="samba_support_windowos">• Windows OS</string>
-    <string name="samba_netbios_ip" formatted="false">%s (%s)</string>
-    <string name="samba_windowos_plan" formatted="false">Enter \\\\%s or \\\\%s in the Windows Explorer.</string>
-    <string name="samba_configure_text">Set the password when client accesses.</string>
-    <string name="samba_passwd">Password</string>
-    <string name="samba_show_passwd">Show Password</string>
-    <string name="samba_configname">User name</string>
-    <string name="samba_popup_network_connect">Connect to Wi-Fi or check LAN status.</string>
-    <string name="samba_popup_ok">OK</string>
-    <string name="samba_done">done</string>
-    <string name="samba_delete_log">delete log</string>
-    <string name="samba_current_list">Current accessed client</string>
-    <string name="samba_delete">deleted</string>
-    <string name="samba_info_title">HomeSync Client information</string>
-    <string name="samba_current_access_count">Currently accessed client (%d)</string>
-    <string name="sambatabhost">Access log</string>
-    <string name="samba_username_dialog_Title">UserName Input</string>
-    <string name="samba_username_dialog">Change UserName</string>
-    <string name="samba_netbiosname_dialog_Title">Netbios Name Input</string>
-    <string name="samba_netbiosname_dialog">Change NetBiosName</string>
-    <string name="samba_init_noti_summary">Please set HomeSync server</string>
-    <string name="samba_config_ok">OK</string>
-    <string name="samba_config_cancle">Cancel</string>
-    <string name="default_passwd">The default password is 1234</string>
-    <string name="samba_no_access_client">No Accessed Client</string>
-    <string name="samba_no_access_log">No Access log</string>
-    <string name="samba_wrong_passwd">Spaces and special characters unavailable.</string>
-    <string name="samba_max_passwd">Maximum number of letters reached</string>
     <string name="eth_setting">Ethernet settings</string>
+    <string name="eth_toast_connected">Connected to Ethernet</string>
+    <string name="eth_toast_failed">Ethernet connection failed</string>
     <string name="eth_settings_summary">Set up &amp; manage Ethernet connection</string>
     <string name="eth_config_title">Configure Ethernet device</string>
     <string name="eth_dev_list">Select Ethernet device</string>
@@ -5427,14 +5798,14 @@ Guest devices need to be able to connect to the HomeSync device."</string>
     <string name="androidbeam_off_popup_title">Turn off Android Beam</string>
     <string name="cannot_use_card_without_NFC">NFC-related functions, such as some methods of sharing content and NFC payment, will not be available when NFC is turned off</string>
     <string name="limit_app_contents_transfer">Sharing content via NFC will be limited when Android Beam is turned off</string>
-    <string name="airplane_mode_menu_summary">Disable call and message functions, and mobile data</string>
+    <string name="airplane_mode_menu_summary">Disable call and message functions and mobile data</string>
     <string name="airplane_mode_menu_summary2">Disable mobile data</string>
     <string name="airplane_mode_menu_summary3">Turn off all wireless connections</string>
     <string name="airplane_mode_menu_summary4">Disable all wireless connections</string>
     <string name="sbeam_menu_summary">Send files via NFC and Wi-Fi Direct</string>
     <string name="blocking_mode_menu_summary">Blocks notifications about selected features</string>
     <string name="safety_assurance_menu_summary">When an emergency situation is declared, emergency messages will be sent</string>
-    <string name="accessibility_assurance_menu_summary">Improves accessibility for users who have impaired vision, hearing, or reduced dexterity</string>
+    <string name="accessibility_assurance_menu_summary">Improves accessibility for users who have impaired vision, hearing or reduced dexterity</string>
     <string name="motions_and_gestures_menu_summary">Use motions and hand gestures to control your device</string>
     <string name="air_view_menu_summary">Air view shows you helpful information when you hover your finger over the screen</string>
     <string name="voice_control_menu_summary">Use voice commands to control device</string>
@@ -5461,10 +5832,9 @@ Inquiry about roaming [Roaming Customer Service(free)]"</string>
 Are you sure you want to continue?"</string>
     <string name="not_available_in_airplane_mode">Unable to select a network while in Flight mode</string>
     <string name="roaming_data_warning_msg_3G">Data roaming may incur additional charges in addition to your domestic flat rate plan. Automatic updates for email or applications may also incur additional charges. Using large-data services such as video or email may incur charges over 20,000 won per minute</string>
-    <string name="lte_roaming_set_warning_message">"Paied as you use LTE data when LTE roaming is allowed, the domestic flat-rate and roaming flat-rate is not apply.
+    <string name="lte_roaming_set_warning_message">"You will be charged when you send/receive data via an LTE network. You will not be charged a domestic or roaming flat-rate.
 
-LTE roaming can be unstable in some places.
-If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2-6343-9000)"</string>
+For more information about roaming, call roaming customer services for free on(+82-2-6343-9000)"</string>
     <string name="auto_roaming_dial_impossible">You are not in a roaming area</string>
     <string name="audio_output_hdmi_stereo">HDMI stereo</string>
     <string name="audio_output_hdmi_surround">HDMI surround</string>
@@ -5529,6 +5899,8 @@ If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2
     <string name="spc_factory_reset_auth_fail">Authentication Failed</string>
     <string name="spc_factory_reset_not_admin">Not an administrator account. Only an administrator can factory reset the device.</string>
     <string name="spc_factory_reset_retry">Retry</string>
+    <string name="permission_factory_reset">HomeSync Factory Reset</string>
+    <string name="guest_activation_restrict">SAFE activation is not allowed in guest user account</string>
     <string name="reset">Reset</string>
     <string name="reset_menu_message">Edited menu will be reset. Continue?</string>
     <string name="disable_talkBack">Disable TalkBack</string>
@@ -5541,8 +5913,8 @@ If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2
     <string name="save">Save</string>
     <string name="menu_edit_summary">Reorder or remove menu</string>
     <string name="ok">OK</string>
-    <string name="left_handed">Left hand</string>
-    <string name="right_handed">Right hand</string>
+    <string name="left_handed">Left</string>
+    <string name="right_handed">Right</string>
     <string name="assistant_menu_title">Assistant menu</string>
     <string name="dominant_hand">Dominant hand</string>
     <string name="preference_dominant_hand_default">1</string>
@@ -5555,6 +5927,7 @@ If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2
     <string name="screenRotate">Rotate screen</string>
     <string name="zoom">Zoom</string>
     <string name="volume">Set volume</string>
+    <string name="set_brightness">Set brightness</string>
     <string name="quickPanel">Open notification panel</string>
     <string name="quickSettings">Go to quick settings</string>
     <string name="notificationPanel">Go to notification panel</string>
@@ -5587,6 +5960,10 @@ If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2
     <string name="fingerprint_web">Web login</string>
     <string name="fingerprint_web_summary">Use registered fingerprint to sign into websites</string>
     <string name="fingerprint_web_message">You can sign into websites by swiping your registered fingerprint over the home key when the fingerprint panel is shown</string>
+    <string name="fingerprint_samsung_account">Samsung Account</string>
+    <string name="fingerprint_samsung_account_summary">Use fingerprint as confirm password on samsung Account</string>
+    <string name="fingerprint_samsung_account_message">You can confirm password using samsung account by swiping your registered fingerprint over the home key when the fingerprint panel is shown. Confirm password is used for purchasing contents, verifying password throuogh Samsung service</string>
+    <string name="fingerprint_not_samsung_account_message">To turn on this features, register samsung account on settings > User and backup > accounts</string>
     <string name="fingerprint_tutorial">For the best results:</string>
     <string name="fingerprint_tutorial_summary">Swipe the entire pad of your finger, from base to tip, across the home key to register your fingerprint properly</string>
     <string name="fingerprint_tutorial_summary_2">Keep your finger flat against the home key and swipe at a moderate speed</string>
@@ -5595,15 +5972,20 @@ If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2
     <string name="fingerprint_edit">Select fingers to edit</string>
     <string name="fingerprint_right">Right</string>
     <string name="fingerprint_left">Left</string>
-    <string name="fingerprint_register_message">Swipe the finger over the center of the home key from the first knuckle until the tip</string>
-    <string name="fingerprint_register_message_again">Swipe the finger over the center of the home key from the first knuckle until the tip, again</string>
+    <string name="fingerprint_register_guide">Swipe your finger over the homekey from first knuckle to the tip</string>
+    <string name="fingerprint_register_message">Place your finger on the area</string>
+    <string name="fingerprint_register_message_move">Move your finger into the area</string>
+    <string name="fingerprint_register_message_again">Swipe your finger over the homekey</string>
+    <string name="fingerprint_register_0">0%</string>
+    <string name="fingerprint_register_100">100%</string>
     <string name="fingerprint_delete">Remove fingerprint</string>
     <string name="fingerprint_delete_message">This fingerprint will be removed</string>
-    <string name="fingerprint_do_not_reset">Fingerprint unlock enabled. At least 1 fingerprint must remain registered</string>
+    <string name="fingerprint_do_not_reset">Lock screen is secured by fingerprint. After changing screen lock type, remove fingerprint</string>
     <string name="fingerprint_alternative_lock_message">Enter a password to use when you are unable to use the fingerprint function</string>
     <string name="fingerprint_alternative_lock_confirm_title">Enter the alternative password</string>
     <string name="fingerprint_alternative_lock_confirm">Enter the password used as an alternative to fingerprints</string>
     <string name="fingerprint_alternative_lock_changed">Alternative password changed</string>
+    <string name="fingerprint_lock_off">To change another screen lock types,verify alternative password</string>
     <string name="fingerprint_unlock">Screen lock will be secured with fingerprint</string>
     <string name="fingerprint_unlock2">To unlock the device, swipe your registered finger over the home key in lock screen</string>
     <string name="fingerprint_unlock_message">Your available fingers are marked in blue</string>
@@ -5614,7 +5996,7 @@ If you have any question,contact [Roaming Customer Center(no-charge call)](+82-2
     <string name="fingerprint_shortcut_is_not_available">The shortcut assigned to this fingerprint (%s) will no longer be available</string>
     <string name="fingerprint_features_is_not_available">If no fingerprints are registered, %s will no longer be available</string>
     <string name="fingerprint_attention">Attention</string>
-    <string name="fingerprint_selectfinger_message">Select a fingerprint to register, among thumb, index and middle</string>
+    <string name="fingerprint_selectfinger_message">Select a fingerprint to register</string>
     <string name="fingerprint_already_registered">This fingerprint has already been registered. Swipe a different finger to register a new fingerprint</string>
     <string name="fingerprint_error_message">Failed to recognise fingerprint. Swipe your finger as shown in the guide animation</string>
     <string name="fingerprint_error_message_not_samefingers">A different fingerprint has been recognised. Swipe the same finger throughout the whole of the registration process</string>
@@ -5719,6 +6101,8 @@ To protect your data, you need to disable personal page after you use it. We rec
     <string name="tap_to_delete_fingerprint">Tap to delete fingerprint</string>
     <string name="tap_to_register_fingerprint">Tap to register fingerprint</string>
     <string name="tap_to_change_shortcut_to">Tap to change shortcut to %s</string>
+    <string name="wlan_permission_request">Permission request</string>
+    <string name="wlan_warning_popup_message">Application is trying to use WLAN. Allow this?</string>
     <string name="window_animation_3d_title">Animation Style</string>
     <string name="tab_category_display">Display</string>
     <string name="tab_category_device">Device</string>
@@ -5735,7 +6119,7 @@ To protect your data, you need to disable personal page after you use it. We rec
     <string name="menu_header_category_accounts_and_backup">Accounts and backup</string>
     <string name="book_cover">Book cover</string>
     <string name="cover_note">Daynote</string>
-    <string name="cover_note_summary">Displays a quick note pad showing the date, time, weather, and your schedule instead of the lock screen when you open the book cover</string>
+    <string name="cover_note_summary">Displays a quick note pad showing the date, time, weather, and your schedule and drawings when you open the book cover</string>
     <string name="cover_note_enable_popup_message">Daynote can only be enabled when the lock type is set as swipe or none. The lock type is currently set as %s. You will be taken to select a different lock type.</string>
     <string name="cover_note_disable_popup_title">Disable Daynote</string>
     <string name="cover_note_disable_popup_message">Daynote and %s cannot both be enabled. Daynote will be disabled.</string>
@@ -5751,9 +6135,11 @@ To protect your data, you need to disable personal page after you use it. We rec
     <string name="enable_screen_help">The one-handed operation settings help you to use every screen easily with only one hand. From the right-hand edge of the device, swipe to the left onto the screen and quickly back off the screen to the right in one movement. This will cause whatever is on the screen to move to the right and become smaller. From the left-hand edge of the device, swipe to the right onto the screen and quickly back off the screen to the left in one movement. This will cause whatever is on the screen to move to the left and become smaller.</string>
     <string name="handwriting_recognition">Handwriting recognition</string>
     <string name="handwriting_language_desc_select_eng">Handwriting can be recognised in S Note, Action Memo, photo note, and photo frame feature. You will be able to search for handwriting in the language you select below. After you select a language the device will recognise handwriting in that language.</string>
-    <string name="handwriting_language_desc_select_kor_jpn">Handwriting can be recognised in S Note, Action Memo, photo notes, and photo frame feature. You will be able to search for handwriting in %1$s, %2$s, and the language you select below. After you select a language the device will recognise handwriting in that language.</string>
-    <string name="handwriting_language_desc_select_exception">Handwriting can be recognised in S Note, Action Memo, photo notes, and photo frame feature. You will be able to search for handwriting in both %s and the language you select below. After you select a language the device will recognise handwriting in that language.</string>
+    <string name="handwriting_language_desc_select_kor_jpn">Handwriting can be recognised in S Note, Action Memo, photo note, and photo frame feature. You will be able to search for handwriting in %1$s, %2$s, and the language you select below. After you select a language the device will recognise handwriting in that language.</string>
+    <string name="handwriting_language_desc_select_exception">Handwriting can be recognised in S Note, Action Memo, photo note, and photo frame feature. You will be able to search for handwriting in both %s and the language you select below. After you select a language the device will recognise handwriting in that language.</string>
+    <string name="handwriting_language_changed">Handwriting recognition language changed to %s</string>
     <string name="perform_long_press_text">To customise the tap and hold delay, tap and hold the box below, then release after the desired length of time. Tap Save to enable your customised tap and hold delay.</string>
+    <string name="perform_long_press_description">To customize the tap and hold delay, tap and hold the box below, then release after the desired length of time.</string>
     <string name="longpress_cancel_text">Cancel</string>
     <string name="longpress_save_text">Save</string>
     <string name="longpress_title">Tap and hold delay</string>
@@ -5761,7 +6147,7 @@ To protect your data, you need to disable personal page after you use it. We rec
     <string name="longpress_on_move_message">Please try to keep the finger at one place to register Tap and Hold Delay</string>
     <string name="longpress_on_move_ok">OK</string>
     <string name="auto_swipe_title">Auto factory reset</string>
-    <string name="auto_swipe_summary">If you failed (10) times to enter the password,your phone will be automatically reset to factory default condition. The application installed before the local wipe will be removed too.</string>
+    <string name="auto_swipe_summary">If the password is entered incorrectly 10 times the device will be reset to factory settings. All data, including files and downloaded apps, will be deleted</string>
     <string name="settings_reset_title">Reset settings</string>
     <string name="reset_settings_summary">Reset system settings back to the default</string>
     <string name="reset_settings_desc">If you have changed any of the system settings, Reset settings returns your device back to the way it originally behaved.</string>
@@ -5771,6 +6157,7 @@ To protect your data, you need to disable personal page after you use it. We rec
 %s"</string>
     <string name="reset_soft_settings_button">Reset settings</string>
     <string name="warning_title">Warning</string>
+    <string name="settings_reset_boot_device">Resetting settings. Please wait for device to reboot ...</string>
     <string name="warning_reset_message">"Selecting OK will cause changes to some of the customizations you have made. Such as ringtone you have selected, the brightness of the screen, and the behavior of the keyboard.
 
 Reset system settings? You can't reverse this action."</string>
@@ -5783,13 +6170,16 @@ Reset system settings? You can't reverse this action."</string>
     <string name="function_inner_screen_only">This function can only be used via the inner screen</string>
     <string name="function_inner_screen_only_open_folder">This function can only be used via the inner screen. Open folder to try it.</string>
     <string name="folder_sounds">Folder open/close sounds</string>
+    <string name="folder_sounds_summary">Play sounds when opening and closing folder</string>
+    <string name="sound_effects_enable_title_folder">Touch and hardkey sounds</string>
+    <string name="sound_effects_enable_summary_folder">Play sound when selecting an item on the screen</string>
     <string name="premium_watch_settings_title">Premium watch</string>
-    <string name="premiumwatch_summary">Premium watch displays an analogue watch face on the outer screen of your flip phone. To enable premium watch, close the flip phone and press the home key twice.</string>
+    <string name="premiumwatch_summary">Premium watch displays an analogue watch face on the outer screen of your flip phone. To enable premium watch, close the flip phone and tap the home key twice.</string>
     <string name="watch_style_title">Watch style</string>
-    <string name="watch_style1">Style 1</string>
-    <string name="watch_style2">Style 2</string>
-    <string name="watch_style3">Style 3</string>
-    <string name="watch_style4">Style 4</string>
+    <string name="watch_style1">Watch 1</string>
+    <string name="watch_style2">Watch 2</string>
+    <string name="watch_style3">Watch 3</string>
+    <string name="watch_style4">Watch 4</string>
     <string name="premiumwatch_signature">Signature</string>
     <string name="premiumwatch_signature_enable">Show signature</string>
     <string name="premiumwatch_signature_summary">Show your signature on premium watch</string>
@@ -5824,17 +6214,224 @@ The collected information is only used internally by Samsung pursuant to our pri
     <string name="use_wifi_only_summary">Only update the security policy automatically when your device is connected to a Wi-Fi network</string>
     <string name="watercolor_effect">Watercolour</string>
     <string name="oil_paint">Oil paint</string>
-    <string name="toddler_mode_title">Toddler mode</string>
+    <string name="use_wifi_only_popup">Downloading via mobile networks may result in additional charges. If Possible download via a WI-FI network.</string>
+    <string name="toddler_mode_title">Network restriction mode</string>
     <string name="toddler_mode_summary">Disable all communication methods except for incoming calls and SMS messages</string>
-    <string name="notification_panel_toddlermode">Toddler mode</string>
-    <string name="accessibility_toddler_mode_activate">In Toddler mode, you can use all your applications without connecting to the network. You can also receive calls and SMS messages. Toddler mode will be enabled.</string>
-    <string name="accessibility_toddler_mode_deactivate">Toddler mode will be disabled</string>
+    <string name="notification_panel_toddlermode">Network restriction</string>
+    <string name="accessibility_toddler_mode_activate">Network restriction mode is to restrict making voice call and network connection. But you can receive calls and SMS messages. Network restriction mode will be enabled.</string>
+    <string name="accessibility_toddler_mode_deactivate">Network restriction mode will be disabled</string>
     <string name="item_will_be_removed">1 item will be deleted</string>
     <string name="items_will_be_removed">%d items will be deleted</string>
     <string name="manual_setting">Manual setting</string>
+    <string name="reset_personal_data_summary">Personal data will be erased including contacts, call records, accounts</string>
+    <string name="reset_erase_application">Erase applications</string>
+    <string name="reset_erase_application_summary">Erase installed applications</string>
+    <string name="reset_erase_sd_card">Erase SD card</string>
+    <string name="reset_erase_sd_card_summary">Erase all data on the internal SD card, such as music or photo</string>
+    <string name="reset_personal_data_confirm">Erase all your personal information? Data cannot be recovered</string>
+    <string name="reset_erase_application_confirm">Erase all your personal information and downloaded apps? Data cannot be recovered</string>
+    <string name="reset_erase_sd_card_confirm">Erase all your personal information and SD card data?? Data cannot be recovered</string>
+    <string name="reset_erase_application_sd_card_confirm">Erase all your personal information, downloaded apps and ? Data cannot be recovered</string>
+    <string name="none_package">Current profile can not execute this function</string>
+    <string name="ripple">Ripple</string>
+    <string name="turn_off_all_sounds">Turn off all sounds</string>
+    <string name="turn_off_all_sounds1">Turn off all sounds and answering message cannot both be enabled.</string>
+    <string name="turn_off_all_sounds2">Turn off all sounds and answering message cannot both be enabled. Answering message will be disabled.</string>
+    <string name="emergency_mode_title">Emergency mode</string>
+    <string name="roaming_lte_roaming_lgt_text_on">LTE data roaming plan if you do not subscribe to, billing for what you use, and does not apply to existing 3G roaming plans. Continue?</string>
+    <string name="roaming_lte_roaming_lgt_text_off">LTE preferred mode disabled. 3G networks use data roaming.</string>
+    <string name="sound_mode">Sound mode</string>
+    <string name="accessibility_categories_title">Categories</string>
+    <string name="vision_title">Vision</string>
+    <string name="accessibility_features_category">Features</string>
+    <string name="hearing_title">Hearing</string>
+    <string name="mobility_and_cognitive_title">Mobility and cognition</string>
+    <string name="cognitive_preference_title">Cognition</string>
+    <string name="wifi_card_name">Set this frequency</string>
+    <string name="wifi_card_summary">Wi-Fi allows the device to connect to the Internet wirelessly.</string>
+    <string name="need_this_setting">Need this setting?</string>
+    <string name="flight_mode_card_summary">Disable all wireless connections</string>
+    <string name="mobile_network_card_summary">Set options for mobile networks</string>
+    <string name="card_display_order">Card display order</string>
+    <string name="most_used_info_first">Most used info. first</string>
+    <string name="resent_info_first">Resent info. first</string>
+    <string name="contextual_info_first">Contextual info. first</string>
+    <string name="suggestion_info_first">Suggestion first</string>
+    <string name="random">Random</string>
+    <string name="glance_card_category_title">Glance card</string>
+    <string name="guest_lounge_menu_title">Guest lounge</string>
+    <string name="guest_lounge_menu_summary">Create space for others to use when lending your device by selecting certain apps and contents</string>
+    <string name="guest_list_title">Guest</string>
+    <string name="guest_add_menu">Add new guest</string>
+    <string name="guest_need_lock_message">"Before you can create a new guest, you'll need to set up a screen lock to protect your apps and personal data"</string>
+    <string name="guest_set_lock_button">Set lock</string>
+    <string name="guest_new_profile_name">New guest</string>
+    <string name="guest_profile_allowed_settings">Allowed settings</string>
+    <string name="guest_profile_allowed_apps">Allowed applications</string>
+    <string name="guest_profile_applications_title">Applications</string>
+    <string name="guest_profile_applications_summary">Select applications to allow</string>
+    <string name="guest_profile_mobile_data_title">Mobile data</string>
+    <string name="guest_profile_mobile_data_summary">Enable data access over mobile network</string>
+    <string name="guest_profile_incoming_calls_title">Incoming calls</string>
+    <string name="guest_profile_incoming_calls_summary">Allow guests to take incoming calls</string>
+    <string name="guest_profile_confirm_remove_title">Remove guest</string>
+    <string name="guest_profile_confirm_remove_message">"This guest's space and data will disappear from this device. You can't undo this action"</string>
+    <string name="guest_profile_disable_mobile_warning_title">Attention</string>
+    <string name="guest_profile_disable_mobile_warning">"Data Network disallowed.
+Be aware of owner's data network will be off as well. Connect Wi-fi to use network services"</string>
+    <string name="guest_profile_info_settings_title">Guest info</string>
+    <string name="guest_profile_app_restriction_title">Application restriction</string>
+    <string name="safetycare_settings">Safety</string>
+    <string name="safetycare_emergency_mode">Emergency mode</string>
+    <string name="safetycare_emergency_mode_disable">Disable Emergency mode</string>
+    <string name="safetycare_emergency_mode_disable_msg">Device will restart to disable Emergency mode</string>
+    <string name="safetycare_low_power_title">Lower power homescreen</string>
+    <string name="safetycare_low_power_summary">It switch over to lower consuming battery</string>
+    <string name="safetycare_low_power_help_msg">"Home screen change to black theme to reduce consuming battery and given basic application for emergency situation as Message and contact, siren.
+
+In order for [Emergency mode] to function as intended, it is necessary to have the function, once deployed by you, automatically turn off the GPS and Wi-Fi functions of your device to reduce battery consumption."</string>
+    <string name="safetycare_disaster_category">Natural and man-made disasters</string>
+    <string name="safetycare_disaster_alert_title">Disaster alert</string>
+    <string name="safetycare_disaster_alert_summary">Receive alert notifications in disaster as like earthquake, hurricane, typhoon etc, with options to switch to Emergency mode from the notification panel</string>
+    <string name="safetycare_disaster_alert_summary2">Information and emergency system to send message or direct call will be given with disaster dashboard</string>
+    <string name="safetycare_disaster_alert_enable_title">Enable Disaster alert</string>
+    <string name="safetycare_disaster_alert_enable_desc">Enable Disaster alert?</string>
+    <string name="safetycare_disaster_alert_magnitude">Magnitude</string>
+    <string name="safetycare_disaster_alert_magnitude_summary">M5.0+</string>
+    <string name="safetycare_disaster_alert_coverage">Coverage</string>
+    <string name="safetycare_set_as_distance">Set as distance</string>
+    <string name="safetycare_heat_alarm_title">Heat alert</string>
+    <string name="safetycare_heat_alarm_summary">Receive alert notifications alert in case of sudden changes in temperature. You can call directly to emergency contact and siren will be ringing to alarm for others that you are in emergency situation</string>
+    <string name="safetycare_heat_alarm_enable_title">Enable Heat alert</string>
+    <string name="safetycare_heat_alarm_enable_desc">Enable Heat alert?</string>
+    <string name="safetycare_quick_action_for_emergency_category">Quick action for emergency</string>
+    <string name="safetycare_send_manually_title">Send manually</string>
+    <string name="safetycare_send_automatically_title">Send automatically</string>
+    <string name="safetycare_send_automatically_summary">"Automatically send alert messages in crashes, falls and other physical traumas in case turn on [Trauma detection] or users haven't moved as least 24 hours when [No activity detection] is enabled"</string>
+    <string name="safetycare_send_automatically_enable_title">Enable Send automatically</string>
+    <string name="safetycare_send_automatically_enable_desc">Enable Send automatically?</string>
+    <string name="safetycare_emergency_message">Emergency message</string>
+    <string name="safetycare_emergency_edit_message">Edit emergency message</string>
+    <string name="safetycare_emergency_message_interval">Message interval</string>
+    <string name="safetycare_emergency_contacts">Emergency contacts</string>
+    <string name="safetycare_emergency_contacts_set">Set emergency contacts</string>
+    <string name="safetycare_emergency_contact_popup">No emergency contacts have been set. To use safety assistance, set emergency contacts.</string>
+    <string name="safetycare_trauma_detection_title">Trauma detection</string>
+    <string name="safetycare_no_activity_detection_title">No activity detection</string>
+    <string name="safetycare_emergency_default_message">This is an emergency. Please help.</string>
+    <string name="safetycare_cannot_save_message">Unable to save. No text has been entered.</string>
+    <string name="safetycare_exceed_message_size_limitation">Message size limit reached</string>
+    <string name="safetycare_maximum_characters_for_mms_message">Maximum number of characters reached</string>
+    <string name="safetycare_edit_application">Edit application</string>
+    <string name="safetycare_add_or_remove_application">Add or remove application</string>
+    <string name="safetycare_connectivity_and_sound">Connectivity &amp; sound</string>
+    <string name="safetycare_about">About</string>
+    <string name="safetycare_about_emergency_mode">About emergency mode</string>
+    <string name="lock_screen_set_shortcuts_title">Shortcuts</string>
+    <string name="lock_screen_set_shortcuts_option_camera">Camera</string>
+    <string name="lock_screen_set_shortcuts_option_favorite">Custom</string>
+    <string name="lock_screen_favorite_apps_title">Edit shortcuts</string>
+    <string name="lock_screen_favorite_apps_summary">Edit the shortcuts shown at the bottom of the lock screen.</string>
+    <string name="glance_roaming">Roaming</string>
+    <string name="glance_roaming_summary">Check useful settings when you’re travelling abroad</string>
+    <string name="glance_low_memory">Low memory</string>
+    <string name="glance_low_memory_summary">Check useful settings in low memory</string>
+    <string name="glance_battery_low">Battery low</string>
+    <string name="glance_battery_low_summary">Check useful settings in battery low</string>
+    <string name="clear">Clear</string>
+    <string name="launch_application_settings">Default applications</string>
+    <string name="set_defaults">Set defaults</string>
+    <string name="clear_defaults">Clear defaults</string>
+    <string name="default_sms_warning">Setting %s as your default messaging app will prevent you from using some messaging features of Samsung applications</string>
+    <string name="default_sms_warning_title">%s</string>
+    <string name="msap_concierge">Mobile Concierge Service</string>
+    <string name="battery_low">Battery low</string>
+    <string name="low_memory">Low memory</string>
+    <string name="recommended_apps">Recommended apps</string>
+    <string name="recommended_apps_summary">Recommended apps will be displayed on the notification panel once the following actions have been taken. For example, once earphones have been connected or following other specific actions</string>
+    <string name="recommended_automatically">Recommended automatically</string>
+    <string name="recommended_apps_maximum_num_msg">Unable to add application. Maximum number of applications (%d) reached.</string>
+    <string name="recommended_apps_minimum_num_msg">Select at least one application</string>
+    <string name="docking">Docking</string>
+    <string name="users_and_backup_category">User and backup</string>
+    <string name="most_used">Most used</string>
+    <string name="ask_to_use_bluetooth">Ask to use Bluetooth</string>
+    <string name="asks_your_permission_to_use">Asks your permission to use Bluetooth via a pop-up.</string>
+    <string name="application_function_control">Application permissions</string>
+    <string name="contextual_contents_settings_label">Contextual Contents</string>
+    <string name="contextual_contents_settings_explained">Contextual Contents:</string>
+    <string name="contextual_contents_settings_cat_apps_label">Apps</string>
+    <string name="contextual_contents_settings_message">Message</string>
+    <string name="contextual_contents_settings_email">Email</string>
+    <string name="contextual_contents_settings_browser">Browser</string>
+    <string name="knox_management_category">Samsung KNOX</string>
+    <string name="knox_management_state_title">KNOX</string>
+    <string name="knox_settings_app_name">KNOX</string>
+    <string name="knox_settings_tap_create">Tap here to creat KNOX</string>
+    <string name="knox_uninstall">Uninstall</string>
+    <string name="action_knox_add">action knox add</string>
+    <string name="festival_effect_settings_title">Festival effect</string>
+    <string name="festival_effect_help">Festival effect supports special animation effect on allowed functions below during 1 day</string>
+    <string name="allowed_functions">Allowed functions</string>
+    <string name="home_lock_screen_title">Home and lock screen</string>
+    <string name="weather_widget_title">Weather widget</string>
+    <string name="learn_about_home_lock_screen_content">"Special animated effects will appear on the home screen for Valentine's Day, Chinese Valentine's Day, and your birthday"</string>
+    <string name="learn_about_home_lock_screen_content2">Your can set your birthday in Contacts > Me</string>
+    <string name="learn_about_home_lock_screen_content3">"Themed wallpaper will appear on New Year's Day, the Spring Festival, the Lantern Festival, the Dragon Boat Festival, the Mid-Autumn Festival, and at Christmas"</string>
+    <string name="learn_about_notification_panel_content">"Event notification appears at New Year's Day, Spring festival, Lantern festival, Dragon boat festival, Mid-Autumn Festival, Christmas and Birthday"</string>
+    <string name="learn_about_notification_panel_content2">Birthday based on registered in Contacts</string>
+    <string name="learn_about_weather_widget_content">"Special weather widget appears at New year's day, Spring festival, Lantern festival, Dragon boat festival, Mid-Autumn festival and Christmas"</string>
+    <string name="show_in_call">Show in-call screen</string>
+    <string name="show_in_call_summary">Turns on your screen automatically when you move your device away from your ear during a call</string>
+    <string name="cmcc_agps_header">A-GPS Menu</string>
+    <string name="clock_sync">Sync with GPS clock</string>
+    <string name="clock_sync_enabled">Sync device clock with GPS satellite clock</string>
+    <string name="clock_sync_disabled">Sync device clock with GPS satellite clock</string>
+    <string name="assisted_gps_function_switch">A-GPS</string>
+    <string name="assisted_gps_function_switch_summary">Set A-GPS for home and foreign networks</string>
+    <string name="satellite_view">GPS satellite</string>
+    <string name="satellite_view_summary">Show GPS satellite information</string>
+    <string name="agps_on_for_all_network">A-GPS turned on for all networks</string>
+    <string name="agps_off">A-GPS turned off</string>
+    <string name="agps_on_for_home_network">A-GPS turned on for home network</string>
+    <string name="agps_note">A-GPS help</string>
+    <string name="agps_international_roaming_note">Note: A-GPS turned on for all networks may incur charges when using foreign networks</string>
+    <string name="agps_default_value_title">Reset A-GPS to default settings</string>
+    <string name="agps_default_value">Default settings</string>
+    <string name="agps_default_value_note">A-GPS settings will revert to default</string>
+    <string name="satellite_view_title_log">Log information</string>
+    <string name="satellite_view_ready">"Height: %1$1.2f m Speed: %2$1.2f km/h 
+Orientation: %3$1.2f
+Time: %4$s"</string>
+    <string name="satellite_view_button_text">Update A-GPS</string>
+    <string name="satellite_view_end">Satellite view calculate end</string>
+    <string name="satellite_view_show">Calculating location...</string>
+    <string name="satellite_view_button_log_text">Log</string>
+    <string name="satellite_view_log_text">No A-GPS information</string>
+    <string name="satellite_view_button_log_text_clear">Clear</string>
+    <string name="language_input_method_selection">Input method selection</string>
+    <string name="language_input_method_settings">Input method settings</string>
+    <string name="wifi_menu_wifi_calling">Wi-Fi Calling</string>
+    <string name="notification_panel_wifi_calling">"WI-Fi
+Calling"</string>
     <string name="bluetooth_advanced_settings">Advanced Settings</string>
     <string name="bluetooth_profile_hfdevice">Handsfree</string>
     <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
     <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
     <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
+    <item type="string" name="APKTOOL_DUMMY_17fb">false</item>
+    <item type="string" name="APKTOOL_DUMMY_17fc">false</item>
+    <item type="string" name="APKTOOL_DUMMY_17fd">false</item>
+    <item type="string" name="APKTOOL_DUMMY_17fe">false</item>
+    <item type="string" name="APKTOOL_DUMMY_17ff">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1800">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1801">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1802">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1803">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1804">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1805">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1806">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1807">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1808">false</item>
+    <item type="string" name="APKTOOL_DUMMY_1809">false</item>
 </resources>

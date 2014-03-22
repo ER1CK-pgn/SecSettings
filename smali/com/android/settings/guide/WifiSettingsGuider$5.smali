@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 342
+    .line 358
     iput-object p1, p0, Lcom/android/settings/guide/WifiSettingsGuider$5;->this$0:Lcom/android/settings/guide/WifiSettingsGuider;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,14 +41,14 @@
     .locals 2
 
     .prologue
-    .line 346
+    .line 362
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider$5;->this$0:Lcom/android/settings/guide/WifiSettingsGuider;
 
     const/4 v1, 0x1
 
     #setter for: Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
-    invoke-static {v0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->access$102(Lcom/android/settings/guide/WifiSettingsGuider;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->access$202(Lcom/android/settings/guide/WifiSettingsGuider;Z)Z
 
-    .line 347
+    .line 363
     return-void
 .end method

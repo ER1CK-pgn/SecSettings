@@ -28,16 +28,16 @@
     .parameter "context"
 
     .prologue
-    .line 226
+    .line 282
     iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionEnabler$MotionSettingObserver;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
-    .line 227
+    .line 283
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 228
+    .line 284
     iput-object p3, p0, Lcom/android/settings/motion2013/AirMotionEnabler$MotionSettingObserver;->mContext:Landroid/content/Context;
 
-    .line 229
+    .line 285
     return-void
 .end method
 
@@ -48,12 +48,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 242
+    .line 298
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$MotionSettingObserver;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->updateSwitch()V
 
-    .line 243
+    .line 299
     return-void
 .end method
 
@@ -61,14 +61,14 @@
     .locals 3
 
     .prologue
-    .line 232
+    .line 288
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionEnabler$MotionSettingObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 233
+    .line 289
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "air_motion_engine"
 
@@ -80,7 +80,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 234
+    .line 290
     return-void
 .end method
 
@@ -88,7 +88,7 @@
     .locals 1
 
     .prologue
-    .line 237
+    .line 293
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$MotionSettingObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -97,6 +97,6 @@
 
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 238
+    .line 294
     return-void
 .end method

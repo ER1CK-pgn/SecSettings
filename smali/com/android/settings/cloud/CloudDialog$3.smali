@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 140
+    .line 142
     iput-object p1, p0, Lcom/android/settings/cloud/CloudDialog$3;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 144
+    .line 146
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$3;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->dialogListener:Lcom/android/settings/cloud/CloudDialog$DialogListener;
@@ -53,7 +53,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 145
+    .line 147
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$3;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->dialogListener:Lcom/android/settings/cloud/CloudDialog$DialogListener;
@@ -63,7 +63,7 @@
 
     invoke-interface {v0}, Lcom/android/settings/cloud/CloudDialog$DialogListener;->onPositiveButtonClick()V
 
-    .line 147
+    .line 149
     :cond_0
     return-void
 .end method

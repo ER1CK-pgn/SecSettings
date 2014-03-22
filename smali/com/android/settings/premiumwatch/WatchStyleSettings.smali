@@ -45,7 +45,7 @@
     .line 101
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 102
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
@@ -86,7 +86,7 @@
     .line 108
     const/4 v0, 0x2
 
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -107,7 +107,7 @@
     .line 112
     const/4 v0, 0x3
 
-    const v1, 0x7f090bc8
+    const v1, 0x7f090cd0
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -146,7 +146,7 @@
     const/4 v6, 0x0
 
     .line 61
-    const v1, 0x7f0401a0
+    const v1, 0x7f0401e0
 
     invoke-virtual {p1, v1, p2, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -154,7 +154,7 @@
 
     .line 62
     .local v0, view:Landroid/view/View;
-    const v1, 0x7f0b0468
+    const v1, 0x7f0b04d3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -165,18 +165,18 @@
     iput-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mListView:Landroid/widget/ListView;
 
     .line 63
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->resolver:Landroid/content/ContentResolver;
 
     .line 65
-    const v1, 0x7f0b00be
+    const v1, 0x7f0b00cb
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -189,7 +189,7 @@
     .line 66
     iget-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->resolver:Landroid/content/ContentResolver;
 
-    const-string v2, "premium_watch_style_opion"
+    const-string v2, "premium_watch_style_option"
 
     invoke-static {v1, v2, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -205,9 +205,9 @@
     .line 68
     iget-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020376
+    const v2, 0x7f0203df
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 78
     :goto_0
@@ -220,11 +220,11 @@
     .line 79
     sget-object v1, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mStyleItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0915ae
+    const v3, 0x7f091716
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,11 +235,11 @@
     .line 80
     sget-object v1, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mStyleItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0915af
+    const v3, 0x7f091717
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -250,11 +250,11 @@
     .line 81
     sget-object v1, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mStyleItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0915b0
+    const v3, 0x7f091718
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -267,11 +267,11 @@
 
     const/4 v2, 0x3
 
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0915b1
+    const v4, 0x7f091719
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -284,11 +284,11 @@
 
     new-instance v2, Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    const v4, 0x7f0401a1
+    const v4, 0x7f0401e1
 
     sget-object v5, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mStyleItem:[Ljava/lang/String;
 
@@ -306,12 +306,12 @@
 
     iget v2, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mStyleState:I
 
-    invoke-virtual {v1, v2, v7}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v1, v2, v7}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 90
     iget-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v1, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 91
     return-object v0
@@ -325,9 +325,9 @@
     .line 70
     iget-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020377
+    const v2, 0x7f0203e0
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -340,9 +340,9 @@
     .line 72
     iget-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020378
+    const v2, 0x7f0203e1
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -350,9 +350,9 @@
     :cond_2
     iget-object v1, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020379
+    const v2, 0x7f0203e2
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto/16 :goto_0
 .end method
@@ -417,9 +417,9 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020376
+    const v1, 0x7f0203df
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -427,9 +427,9 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020377
+    const v1, 0x7f0203e0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -437,9 +437,9 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020378
+    const v1, 0x7f0203e1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -447,9 +447,9 @@
     :pswitch_3
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f020379
+    const v1, 0x7f0203e2
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -485,7 +485,7 @@
 
     .line 161
     :goto_0
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
@@ -493,7 +493,7 @@
 
     .line 144
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -535,7 +535,7 @@
     .line 150
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->resolver:Landroid/content/ContentResolver;
 
-    const-string v1, "premium_watch_style_opion"
+    const-string v1, "premium_watch_style_option"
 
     const/4 v2, 0x0
 
@@ -544,7 +544,7 @@
     .line 158
     :cond_0
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/premiumwatch/WatchStyleSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -561,7 +561,7 @@
     .line 152
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->resolver:Landroid/content/ContentResolver;
 
-    const-string v1, "premium_watch_style_opion"
+    const-string v1, "premium_watch_style_option"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -576,7 +576,7 @@
     .line 154
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->resolver:Landroid/content/ContentResolver;
 
-    const-string v1, "premium_watch_style_opion"
+    const-string v1, "premium_watch_style_option"
 
     invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -591,7 +591,7 @@
     .line 156
     iget-object v0, p0, Lcom/android/settings/premiumwatch/WatchStyleSettings;->resolver:Landroid/content/ContentResolver;
 
-    const-string v1, "premium_watch_style_opion"
+    const-string v1, "premium_watch_style_option"
 
     invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

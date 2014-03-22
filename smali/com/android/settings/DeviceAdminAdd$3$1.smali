@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 292
+    .line 332
     iput-object p1, p0, Lcom/android/settings/DeviceAdminAdd$3$1;->this$1:Lcom/android/settings/DeviceAdminAdd$3;
 
     invoke-direct {p0, p2}, Landroid/os/RemoteCallback;-><init>(Landroid/os/Handler;)V
@@ -40,7 +40,7 @@
     .parameter "bundle"
 
     .prologue
-    .line 295
+    .line 335
     if-eqz p1, :cond_1
 
     const-string v2, "android.app.extra.DISABLE_WARNING"
@@ -49,12 +49,12 @@
 
     move-result-object v1
 
-    .line 299
+    .line 339
     .local v1, msg:Ljava/lang/CharSequence;
     :goto_0
     if-nez v1, :cond_2
 
-    .line 301
+    .line 341
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -64,7 +64,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 305
+    .line 345
     :goto_1
     iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd$3$1;->this$1:Lcom/android/settings/DeviceAdminAdd$3;
 
@@ -84,61 +84,61 @@
 
     invoke-virtual {v2, v3}, Landroid/app/enterprise/EnterpriseDeviceManager;->removeActiveAdmin(Landroid/content/ComponentName;)V
 
-    .line 307
+    .line 347
     iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd$3$1;->this$1:Lcom/android/settings/DeviceAdminAdd$3;
 
     iget-object v2, v2, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
-    invoke-virtual {v2}, Lcom/android/settings/DeviceAdminAdd;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
-    .line 316
+    .line 356
     :cond_0
     :goto_2
     return-void
 
-    .line 295
+    .line 335
     .end local v1           #msg:Ljava/lang/CharSequence;
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 309
+    .line 349
     .restart local v1       #msg:Ljava/lang/CharSequence;
     :cond_2
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 310
+    .line 350
     .local v0, args:Landroid/os/Bundle;
     const-string v2, "android.app.extra.DISABLE_WARNING"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    .line 312
+    .line 352
     iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd$3$1;->this$1:Lcom/android/settings/DeviceAdminAdd$3;
 
     iget-object v2, v2, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
-    invoke-virtual {v2}, Lcom/android/settings/DeviceAdminAdd;->isFinishing()Z
+    invoke-virtual {v2}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 313
+    .line 353
     iget-object v2, p0, Lcom/android/settings/DeviceAdminAdd$3$1;->this$1:Lcom/android/settings/DeviceAdminAdd$3;
 
     iget-object v2, v2, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3, v0}, Lcom/android/settings/DeviceAdminAdd;->showDialog(ILandroid/os/Bundle;)Z
+    invoke-virtual {v2, v3, v0}, Landroid/app/Activity;->showDialog(ILandroid/os/Bundle;)Z
 
     goto :goto_2
 
-    .line 302
+    .line 342
     .end local v0           #args:Landroid/os/Bundle;
     :catch_0
     move-exception v2

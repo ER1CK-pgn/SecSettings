@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1022
+    .line 1034
     iput-object p1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
 
     const/4 v5, 0x0
 
-    .line 1024
+    .line 1036
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnDragging:Z
@@ -69,16 +69,16 @@
 
     if-nez v0, :cond_1
 
-    .line 1025
+    .line 1037
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnDragging:Z
     invoke-static {v0, v7}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1202(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Z)Z
 
-    .line 1026
+    .line 1038
     const/4 v6, 0x0
 
-    .line 1027
+    .line 1039
     .local v6, selectedItem:I
     const/4 v6, 0x0
 
@@ -92,7 +92,7 @@
 
     if-ge v6, v0, :cond_0
 
-    .line 1028
+    .line 1040
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutButton:Ljava/util/ArrayList;
@@ -110,14 +110,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 1030
+    .line 1042
     :cond_0
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mOnDragItem:I
     invoke-static {v0, v6}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1402(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;I)I
 
-    .line 1032
+    .line 1044
     const-string v0, "dot"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -146,7 +146,7 @@
 
     move-result-object v2
 
-    .line 1033
+    .line 1045
     .local v2, data:Landroid/content/ClipData;
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -157,7 +157,7 @@
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDragShadowBuilder:Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
     invoke-static {v0, v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1502(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;)Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;
 
-    .line 1034
+    .line 1046
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -174,12 +174,12 @@
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->startDrag(Landroid/view/View;Landroid/content/ClipData;Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;Ljava/lang/Object;I)Z
     invoke-static/range {v0 .. v5}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1600(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Landroid/view/View;Landroid/content/ClipData;Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;Ljava/lang/Object;I)Z
 
-    .line 1035
+    .line 1047
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setAlpha(F)V
 
-    .line 1036
+    .line 1048
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDeleteArea:Lcom/android/settings/lockscreenshortcut/DeleteView;
@@ -189,7 +189,7 @@
 
     invoke-virtual {v0, v5}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setVisibility(I)V
 
-    .line 1037
+    .line 1049
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDeleteArea:Lcom/android/settings/lockscreenshortcut/DeleteView;
@@ -199,7 +199,7 @@
 
     invoke-virtual {v0}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setNormalTrashIcon()V
 
-    .line 1038
+    .line 1050
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$4;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mDeleteArea:Lcom/android/settings/lockscreenshortcut/DeleteView;
@@ -207,17 +207,17 @@
 
     move-result-object v0
 
-    const v1, 0x7f0203eb
+    const v1, 0x7f02046a
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/lockscreenshortcut/DeleteView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 1040
+    .line 1052
     .end local v2           #data:Landroid/content/ClipData;
     .end local v6           #selectedItem:I
     :cond_1
     return v7
 
-    .line 1027
+    .line 1039
     .restart local v6       #selectedItem:I
     :cond_2
     add-int/lit8 v6, v6, 0x1

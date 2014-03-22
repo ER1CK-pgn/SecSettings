@@ -187,7 +187,7 @@
     .line 74
     sget-object v0, Lcom/android/settings/homesync/FileOperation$OpStatus;->$VALUES:[Lcom/android/settings/homesync/FileOperation$OpStatus;
 
-    invoke-virtual {v0}, [Lcom/android/settings/homesync/FileOperation$OpStatus;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

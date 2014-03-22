@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 836
+    .line 792
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
@@ -30,37 +30,37 @@
     .parameter "parent"
 
     .prologue
-    .line 838
-    invoke-virtual {p0}, Lcom/android/settings/DateTimeSettings;->isAdded()Z
+    .line 794
+    invoke-virtual {p0}, Landroid/app/Fragment;->isAdded()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 843
+    .line 799
     :goto_0
     return-void
 
-    .line 840
+    .line 796
     :cond_0
     new-instance v0, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;
 
     invoke-direct {v0}, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;-><init>()V
 
-    .line 841
+    .line 797
     .local v0, dialog:Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;
     const/4 v1, 0x0
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;->setTargetFragment(Landroid/app/Fragment;I)V
+    invoke-virtual {v0, p0, v1}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 842
-    invoke-virtual {p0}, Lcom/android/settings/DateTimeSettings;->getFragmentManager()Landroid/app/FragmentManager;
+    .line 798
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
     const-string v2, "confirmAutoTime"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -72,20 +72,20 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 847
-    invoke-virtual {p0}, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment;->getActivity()Landroid/app/Activity;
+    .line 803
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 849
+    .line 805
     .local v1, context:Landroid/content/Context;
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 850
+    .line 806
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v2, 0x7f09018c
+    const v2, 0x7f0901af
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -97,11 +97,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f09018d
+    const v3, 0x7f0901b0
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 854
+    .line 810
     const v2, 0x104000a
 
     new-instance v3, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;
@@ -110,14 +110,14 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 881
+    .line 837
     const/high16 v2, 0x104
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 883
+    .line 839
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2

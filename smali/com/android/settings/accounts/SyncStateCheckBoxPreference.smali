@@ -51,9 +51,9 @@
     iput-object p3, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mAuthority:Ljava/lang/String;
 
     .line 56
-    const v0, 0x7f040135
+    const v0, 0x7f040166
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 57
     return-void
@@ -85,9 +85,9 @@
     iput-boolean v0, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mOneTimeSyncMode:Z
 
     .line 47
-    const v0, 0x7f040135
+    const v0, 0x7f040166
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 48
     iput-object v1, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mAccount:Landroid/accounts/Account;
@@ -146,7 +146,7 @@
     invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->onBindView(Landroid/view/View;)V
 
     .line 62
-    const v6, 0x7f0b0364
+    const v6, 0x7f0b03ae
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -156,7 +156,7 @@
 
     .line 64
     .local v4, syncActiveView:Lcom/android/settings/widget/AnimatedImageView;
-    const v6, 0x7f0b0363
+    const v6, 0x7f0b03ad
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -183,7 +183,7 @@
     move v6, v7
 
     :goto_1
-    invoke-virtual {v4, v6}, Lcom/android/settings/widget/AnimatedImageView;->setVisibility(I)V
+    invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 68
     iget-boolean v6, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mIsActive:Z
@@ -236,15 +236,15 @@
 
     .line 83
     .local v3, summary:Landroid/widget/TextView;
-    invoke-virtual {p0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
-    const v8, 0x7f090977
+    const v8, 0x7f090a55
 
     new-array v9, v9, [Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->getSummary()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object v10
 
@@ -308,7 +308,7 @@
     if-nez v0, :cond_0
 
     .line 139
-    invoke-super {p0}, Landroid/preference/CheckBoxPreference;->onClick()V
+    invoke-super {p0}, Landroid/preference/TwoStatePreference;->onClick()V
 
     .line 143
     :cond_0
@@ -324,7 +324,7 @@
     iput-boolean p1, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mIsActive:Z
 
     .line 95
-    invoke-virtual {p0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 96
     return-void
@@ -339,7 +339,7 @@
     iput-boolean p1, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mFailed:Z
 
     .line 113
-    invoke-virtual {p0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 114
     return-void
@@ -354,7 +354,7 @@
     iput-boolean p1, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mOneTimeSyncMode:Z
 
     .line 121
-    invoke-virtual {p0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 122
     return-void
@@ -369,7 +369,7 @@
     iput-boolean p1, p0, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->mIsPending:Z
 
     .line 104
-    invoke-virtual {p0}, Lcom/android/settings/accounts/SyncStateCheckBoxPreference;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 105
     return-void

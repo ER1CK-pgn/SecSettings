@@ -30,7 +30,7 @@
     .line 102
     iput-object p1, p0, Lcom/android/settings/DreamSettings$1;->this$0:Lcom/android/settings/DreamSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -64,7 +64,7 @@
     .line 107
     iget-object v1, p0, Lcom/android/settings/DreamSettings$1;->this$0:Lcom/android/settings/DreamSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/DreamSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -88,12 +88,12 @@
 
     .line 110
     .local v0, mAlertBuilder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f09057e
+    const v1, 0x7f0905ad
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 111
-    const v1, 0x7f090ba2
+    const v1, 0x7f090caa
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -139,7 +139,7 @@
 
     iget-object v1, v1, Lcom/android/settings/DreamSettings;->mAlertDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     .line 158
     .end local v0           #mAlertBuilder:Landroid/app/AlertDialog$Builder;
@@ -151,7 +151,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/DreamSettings$1;->this$0:Lcom/android/settings/DreamSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/DreamSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 

@@ -30,7 +30,7 @@
     .line 66
     iput-object p1, p0, Lcom/android/settings/ShortCameraMenu$1;->this$0:Lcom/android/settings/ShortCameraMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .line 68
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu$1;->this$0:Lcom/android/settings/ShortCameraMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/ShortCameraMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -58,7 +58,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v2}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v2
 
@@ -67,7 +67,7 @@
     .line 69
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu$1;->this$0:Lcom/android/settings/ShortCameraMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/ShortCameraMenu;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 70
     return-void

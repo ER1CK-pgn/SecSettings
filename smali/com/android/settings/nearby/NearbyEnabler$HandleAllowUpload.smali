@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1073
+    .line 1067
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleAllowUpload;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1073
+    .line 1067
     invoke-direct {p0, p1}, Lcom/android/settings/nearby/NearbyEnabler$HandleAllowUpload;-><init>(Lcom/android/settings/nearby/NearbyEnabler;)V
 
     return-void
@@ -57,7 +57,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1076
+    .line 1070
     iget-object v2, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleAllowUpload;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -73,12 +73,12 @@
 
     if-nez v2, :cond_1
 
-    .line 1086
+    .line 1080
     :cond_0
     :goto_0
     return v1
 
-    .line 1080
+    .line 1074
     :cond_1
     :try_start_0
     iget-object v2, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleAllowUpload;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
@@ -96,16 +96,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1086
+    .line 1080
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1081
+    .line 1075
     :catch_0
     move-exception v0
 
-    .line 1082
+    .line 1076
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "NearbyEnabler"
 

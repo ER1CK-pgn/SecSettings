@@ -8,10 +8,10 @@
     .locals 0
 
     .prologue
-    .line 48
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
     .line 49
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 50
     return-void
 .end method
 
@@ -20,7 +20,7 @@
     .parameter "x0"
 
     .prologue
-    .line 28
+    .line 29
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -33,7 +33,7 @@
     .parameter "context"
 
     .prologue
-    .line 56
+    .line 57
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -55,7 +55,7 @@
     .parameter "addr"
 
     .prologue
-    .line 155
+    .line 158
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -92,7 +92,7 @@
     .parameter "context"
 
     .prologue
-    .line 52
+    .line 53
     const-string v0, "bluetooth_settings"
 
     const/4 v1, 0x0
@@ -110,7 +110,7 @@
     .parameter "addr"
 
     .prologue
-    .line 151
+    .line 154
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v0
@@ -146,7 +146,7 @@
     .parameter "endTimestamp"
 
     .prologue
-    .line 131
+    .line 134
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v1
@@ -155,16 +155,16 @@
 
     move-result-object v0
 
-    .line 132
+    .line 135
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "discoverable_end_timestamp"
 
     invoke-interface {v0, v1, p1, p2}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
-    .line 133
+    .line 136
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 134
+    .line 137
     return-void
 .end method
 
@@ -173,7 +173,7 @@
     .parameter "context"
 
     .prologue
-    .line 139
+    .line 142
     invoke-static {}, Landroid/app/QueuedWork;->singleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
@@ -184,7 +184,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
-    .line 148
+    .line 151
     return-void
 .end method
 
@@ -194,7 +194,7 @@
     .parameter "deviceAddress"
 
     .prologue
-    .line 122
+    .line 125
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v1
@@ -203,13 +203,13 @@
 
     move-result-object v0
 
-    .line 123
+    .line 126
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "last_selected_device"
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 125
+    .line 128
     const-string v1, "last_selected_device_time"
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -218,10 +218,10 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
-    .line 127
+    .line 130
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 128
+    .line 131
     return-void
 .end method
 
@@ -231,7 +231,7 @@
     .parameter "addr"
 
     .prologue
-    .line 166
+    .line 169
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v1
@@ -240,7 +240,7 @@
 
     move-result-object v0
 
-    .line 167
+    .line 170
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -262,10 +262,10 @@
 
     invoke-interface {v0, v1}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 168
+    .line 171
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 169
+    .line 172
     return-void
 .end method
 
@@ -276,7 +276,7 @@
     .parameter "autoConnect"
 
     .prologue
-    .line 160
+    .line 163
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v1
@@ -285,7 +285,7 @@
 
     move-result-object v0
 
-    .line 161
+    .line 164
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -307,43 +307,9 @@
 
     invoke-interface {v0, v1, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 162
+    .line 165
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 163
+    .line 166
     return-void
-.end method
-
-.method static shouldShowDialogInForeground(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 3
-    .parameter "context"
-    .parameter "deviceAddress"
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 62
-    invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothManager;->getInstance(Landroid/content/Context;)Lcom/android/settings/bluetooth/LocalBluetoothManager;
-
-    move-result-object v0
-
-    .line 63
-    .local v0, manager:Lcom/android/settings/bluetooth/LocalBluetoothManager;
-    if-nez v0, :cond_1
-
-    .line 118
-    :cond_0
-    :goto_0
-    return v1
-
-    .line 115
-    :cond_1
-    sget-boolean v2, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mPermissionActivityOn:Z
-
-    if-nez v2, :cond_0
-
-    .line 116
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method

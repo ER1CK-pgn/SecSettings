@@ -1,11 +1,14 @@
 .class Lcom/android/settings/Settings$HeaderAdapter$1;
-.super Landroid/database/ContentObserver;
+.super Ljava/lang/Object;
 .source "Settings.java"
+
+# interfaces
+.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/Settings$HeaderAdapter;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/Settings$HeaderAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,39 +22,45 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/Settings$HeaderAdapter;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/settings/Settings$HeaderAdapter;)V
     .locals 0
     .parameter
-    .parameter "x0"
 
     .prologue
-    .line 2328
+    .line 3592
     iput-object p1, p0, Lcom/android/settings/Settings$HeaderAdapter$1;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
-    .locals 2
-    .parameter "selfChange"
+.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    .locals 1
+    .parameter "view"
+    .parameter "action"
+    .parameter "event"
 
     .prologue
-    .line 2331
-    iget-object v0, p0, Lcom/android/settings/Settings$HeaderAdapter$1;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
+    .line 3595
+    const/16 v0, 0x42
 
-    iget-object v1, p0, Lcom/android/settings/Settings$HeaderAdapter$1;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
+    if-ne p2, v0, :cond_0
 
-    #getter for: Lcom/android/settings/Settings$HeaderAdapter;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/settings/Settings$HeaderAdapter;->access$700(Lcom/android/settings/Settings$HeaderAdapter;)Landroid/content/Context;
+    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result-object v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/Settings$HeaderAdapter;->updateCheckboxItem(Landroid/content/Context;)V
+    if-nez v0, :cond_0
 
-    .line 2332
-    return-void
+    .line 3596
+    invoke-static {}, Lcom/android/settings/Settings;->callSearchMenu()V
+
+    .line 3598
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method

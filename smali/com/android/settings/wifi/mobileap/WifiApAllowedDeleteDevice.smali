@@ -80,7 +80,7 @@
 
     .prologue
     .line 33
-    invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-super {p0, p1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 34
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;

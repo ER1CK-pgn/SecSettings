@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 249
+    .line 280
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
@@ -44,16 +44,16 @@
 
     const/4 v4, 0x0
 
-    .line 253
+    .line 284
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 254
+    .line 285
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     invoke-virtual {v2}, Lcom/android/settings/dormantmode/DormantmodeSettings;->loadDormantTime()V
 
-    .line 255
-    const v2, 0x7f0b0167
+    .line 286
+    const v2, 0x7f0b0178
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -61,14 +61,14 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    .line 256
+    .line 287
     .local v0, mFormBtn:Landroid/widget/Button;
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     #setter for: Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
     invoke-static {v2, v0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->access$002(Lcom/android/settings/dormantmode/DormantmodeSettings;Landroid/widget/Button;)Landroid/widget/Button;
 
-    .line 257
+    .line 288
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     #getter for: Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
@@ -83,7 +83,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
@@ -92,9 +92,9 @@
     move v2, v3
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/widget/Button;->setFocusable(Z)V
+    invoke-virtual {v5, v2}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 258
+    .line 289
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     iget-object v5, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
@@ -114,7 +114,7 @@
     #calls: Lcom/android/settings/dormantmode/DormantmodeSettings;->setStartTime(II)V
     invoke-static {v2, v5, v6}, Lcom/android/settings/dormantmode/DormantmodeSettings;->access$400(Lcom/android/settings/dormantmode/DormantmodeSettings;II)V
 
-    .line 259
+    .line 290
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     #getter for: Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeFromBtn:Landroid/widget/Button;
@@ -126,10 +126,10 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/dormantmode/DormantmodeSettings$3$1;-><init>(Lcom/android/settings/dormantmode/DormantmodeSettings$3;)V
 
-    invoke-virtual {v2, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 265
-    const v2, 0x7f0b0169
+    .line 296
+    const v2, 0x7f0b017a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -137,14 +137,14 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    .line 266
+    .line 297
     .local v1, mtoBtn:Landroid/widget/Button;
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     #setter for: Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
     invoke-static {v2, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->access$702(Lcom/android/settings/dormantmode/DormantmodeSettings;Landroid/widget/Button;)Landroid/widget/Button;
 
-    .line 267
+    .line 298
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     #getter for: Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
@@ -159,16 +159,16 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v5}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v5
 
     if-nez v5, :cond_1
 
     :goto_1
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setFocusable(Z)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 268
+    .line 299
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     iget-object v3, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
@@ -188,7 +188,7 @@
     #calls: Lcom/android/settings/dormantmode/DormantmodeSettings;->setEndTime(II)V
     invoke-static {v2, v3, v4}, Lcom/android/settings/dormantmode/DormantmodeSettings;->access$1000(Lcom/android/settings/dormantmode/DormantmodeSettings;II)V
 
-    .line 269
+    .line 300
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     #getter for: Lcom/android/settings/dormantmode/DormantmodeSettings;->mTimeToBtn:Landroid/widget/Button;
@@ -200,22 +200,22 @@
 
     invoke-direct {v3, p0}, Lcom/android/settings/dormantmode/DormantmodeSettings$3$2;-><init>(Lcom/android/settings/dormantmode/DormantmodeSettings$3;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 275
+    .line 306
     return-void
 
     .end local v1           #mtoBtn:Landroid/widget/Button;
     :cond_0
     move v2, v4
 
-    .line 257
+    .line 288
     goto :goto_0
 
     .restart local v1       #mtoBtn:Landroid/widget/Button;
     :cond_1
     move v3, v4
 
-    .line 267
+    .line 298
     goto :goto_1
 .end method

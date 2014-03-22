@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 36
+    .line 39
     iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler$1;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,11 +40,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 40
+    .line 43
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler$1;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/MultiWindowEnabler;->updateSwitch()V
 
-    .line 41
+    .line 44
     return-void
 .end method

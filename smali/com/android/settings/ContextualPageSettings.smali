@@ -6,6 +6,10 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
+# static fields
+.field private static sSalesCode:Ljava/lang/String;
+
+
 # instance fields
 .field private car_cardle_state:I
 
@@ -81,8 +85,8 @@
 
     const/4 v4, 0x0
 
-    .line 203
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 210
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -92,7 +96,7 @@
 
     move-result v0
 
-    .line 204
+    .line 211
     .local v0, State:I
     const-string v1, "ContextualPageSettings"
 
@@ -116,78 +120,78 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 205
+    .line 212
     if-nez v0, :cond_0
 
-    .line 206
+    .line 213
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_s_pen:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 207
+    .line 214
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_earphone:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 208
+    .line 215
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_dock:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 209
+    .line 216
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_car_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 210
+    .line 217
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_desk_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 211
+    .line 218
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_roaming:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 221
+    .line 228
     :goto_0
     return-void
 
-    .line 213
+    .line 220
     :cond_0
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v5}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 214
+    .line 221
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_s_pen:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 215
+    .line 222
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_earphone:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 216
+    .line 223
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_dock:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 217
+    .line 224
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_car_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 218
+    .line 225
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_desk_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 219
+    .line 226
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_roaming:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -202,8 +206,8 @@
 
     const/4 v8, 0x0
 
-    .line 254
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 261
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -213,9 +217,9 @@
 
     move-result v5
 
-    .line 255
+    .line 262
     .local v5, SpenScreen:I
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -225,9 +229,9 @@
 
     move-result v3
 
-    .line 256
+    .line 263
     .local v3, EarphoneScreen:I
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -237,9 +241,9 @@
 
     move-result v2
 
-    .line 257
+    .line 264
     .local v2, DockScreen:I
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -249,9 +253,9 @@
 
     move-result v0
 
-    .line 258
+    .line 265
     .local v0, CarCardleScreen:I
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -261,9 +265,9 @@
 
     move-result v1
 
-    .line 259
+    .line 266
     .local v1, DeskCradleScreen:I
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -273,7 +277,7 @@
 
     move-result v4
 
-    .line 262
+    .line 269
     .local v4, RoamingScreen:I
     if-nez v3, :cond_0
 
@@ -285,7 +289,7 @@
 
     move v6, v7
 
-    .line 266
+    .line 273
     .local v6, retVal:Z
     :goto_0
     if-eqz v6, :cond_1
@@ -294,7 +298,7 @@
 
     move v6, v7
 
-    .line 269
+    .line 276
     :goto_1
     if-eqz v6, :cond_2
 
@@ -302,7 +306,7 @@
 
     move v6, v7
 
-    .line 272
+    .line 279
     :goto_2
     const-string v7, "ContextualPageSettings"
 
@@ -386,27 +390,27 @@
 
     invoke-static {v7, v8}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 280
+    .line 287
     return v6
 
     .end local v6           #retVal:Z
     :cond_0
     move v6, v8
 
-    .line 262
+    .line 269
     goto :goto_0
 
     .restart local v6       #retVal:Z
     :cond_1
     move v6, v8
 
-    .line 266
+    .line 273
     goto :goto_1
 
     :cond_2
     move v6, v8
 
-    .line 269
+    .line 276
     goto :goto_2
 .end method
 
@@ -416,7 +420,7 @@
     .parameter "desiredState"
 
     .prologue
-    .line 225
+    .line 232
     const-string v0, "ContextualPageSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -439,8 +443,8 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 226
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 233
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -453,13 +457,13 @@
     :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 227
+    .line 234
     invoke-direct {p0}, Lcom/android/settings/ContextualPageSettings;->updateContextualPageSaving()V
 
-    .line 228
+    .line 235
     return-void
 
-    .line 226
+    .line 233
     :cond_0
     const/4 v0, 0x0
 
@@ -490,12 +494,12 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 88
-    const v4, 0x7f070025
+    const v4, 0x7f07002f
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 90
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -519,11 +523,11 @@
 
     .line 95
     .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v7, 0x7f0f0019
+    const v7, 0x7f0f0034
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -533,7 +537,7 @@
     .local v1, padding:I
     iget-object v4, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v6, v6, v1, v6}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v4, v6, v6, v1, v6}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 98
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -571,7 +575,7 @@
     .line 105
     iget-object v4, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4}, Landroid/widget/Switch;->requestFocus()Z
+    invoke-virtual {v4}, Landroid/view/View;->requestFocus()Z
 
     .line 108
     .end local v1           #padding:I
@@ -588,7 +592,7 @@
     .line 110
     const-string v4, "contextual_page_s_pen"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -599,7 +603,7 @@
     .line 111
     iget-object v7, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_s_pen:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -609,17 +613,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     move v4, v5
 
     :goto_0
-    invoke-virtual {v7, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 112
     const-string v4, "contextual_page_earphone"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -630,7 +634,7 @@
     .line 113
     iget-object v7, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_earphone:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -640,17 +644,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4
 
     move v4, v5
 
     :goto_1
-    invoke-virtual {v7, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 114
     const-string v4, "contextual_page_dock"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -661,7 +665,7 @@
     .line 115
     iget-object v7, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_dock:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -671,17 +675,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5
 
     move v4, v5
 
     :goto_2
-    invoke-virtual {v7, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 116
     const-string v4, "contextual_page_car_cradle"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -692,7 +696,7 @@
     .line 117
     iget-object v7, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_car_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -702,17 +706,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6
 
     move v4, v5
 
     :goto_3
-    invoke-virtual {v7, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 118
     const-string v4, "contextual_page_desk_cradle"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -723,7 +727,7 @@
     .line 119
     iget-object v7, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_desk_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -733,17 +737,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     move v4, v5
 
     :goto_4
-    invoke-virtual {v7, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 120
     const-string v4, "contextual_page_roaming"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/ContextualPageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -754,7 +758,7 @@
     .line 121
     iget-object v4, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_roaming:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -764,13 +768,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_8
 
     :goto_5
-    invoke-virtual {v4, v5}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 123
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -783,7 +787,7 @@
     iput v4, p0, Lcom/android/settings/ContextualPageSettings;->s_pen_state:I
 
     .line 124
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -796,7 +800,7 @@
     iput v4, p0, Lcom/android/settings/ContextualPageSettings;->earphone_state:I
 
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -809,7 +813,7 @@
     iput v4, p0, Lcom/android/settings/ContextualPageSettings;->dock_state:I
 
     .line 126
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -822,7 +826,7 @@
     iput v4, p0, Lcom/android/settings/ContextualPageSettings;->car_cardle_state:I
 
     .line 127
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -835,7 +839,7 @@
     iput v4, p0, Lcom/android/settings/ContextualPageSettings;->desk_cradle_state:I
 
     .line 128
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -848,7 +852,7 @@
     iput v4, p0, Lcom/android/settings/ContextualPageSettings;->roaming_state:I
 
     .line 130
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
@@ -856,52 +860,87 @@
     .local v3, ps:Landroid/preference/PreferenceScreen;
     iget-object v4, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_car_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 144
     iget-object v4, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_desk_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 146
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v4
+
+    sput-object v4, Lcom/android/settings/ContextualPageSettings;->sSalesCode:Ljava/lang/String;
+
+    .line 148
+    const-string v4, "BST"
+
+    sget-object v5, Lcom/android/settings/ContextualPageSettings;->sSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const-string v4, "VMU"
+
+    sget-object v5, Lcom/android/settings/ContextualPageSettings;->sSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 149
+    :cond_1
+    iget-object v4, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_roaming:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 153
+    :cond_2
     return-void
 
     .end local v3           #ps:Landroid/preference/PreferenceScreen;
-    :cond_1
+    :cond_3
     move v4, v6
 
     .line 111
     goto/16 :goto_0
 
-    :cond_2
+    :cond_4
     move v4, v6
 
     .line 113
     goto/16 :goto_1
 
-    :cond_3
+    :cond_5
     move v4, v6
 
     .line 115
     goto/16 :goto_2
 
-    :cond_4
+    :cond_6
     move v4, v6
 
     .line 117
     goto/16 :goto_3
 
-    :cond_5
+    :cond_7
     move v4, v6
 
     .line 119
     goto/16 :goto_4
 
-    :cond_6
+    :cond_8
     move v5, v6
 
     .line 121
-    goto :goto_5
+    goto/16 :goto_5
 .end method
 
 .method public onPause()V
@@ -910,20 +949,20 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 166
+    .line 173
     const-string v1, "ContextualPageSettings"
 
     const-string v2, "onPause() "
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 174
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 169
+    .line 176
     iget v1, p0, Lcom/android/settings/ContextualPageSettings;->s_pen_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -937,7 +976,7 @@
 
     iget v1, p0, Lcom/android/settings/ContextualPageSettings;->earphone_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -951,7 +990,7 @@
 
     iget v1, p0, Lcom/android/settings/ContextualPageSettings;->dock_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -965,7 +1004,7 @@
 
     iget v1, p0, Lcom/android/settings/ContextualPageSettings;->car_cardle_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -979,7 +1018,7 @@
 
     iget v1, p0, Lcom/android/settings/ContextualPageSettings;->desk_cradle_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -993,7 +1032,7 @@
 
     iget v1, p0, Lcom/android/settings/ContextualPageSettings;->roaming_state:I
 
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -1005,7 +1044,7 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 175
+    .line 182
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -1013,7 +1052,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 176
+    .line 183
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "ContextualPageSettings"
 
@@ -1021,14 +1060,14 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 177
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getActivity()Landroid/app/Activity;
+    .line 184
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 180
+    .line 187
     .end local v0           #intent:Landroid/content/Intent;
     :cond_1
     invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->isAllOptionDisabled()Z
@@ -1037,8 +1076,8 @@
 
     if-eqz v1, :cond_2
 
-    .line 181
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 188
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1046,24 +1085,24 @@
 
     invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 182
+    .line 189
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 183
+    .line 190
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 188
+    .line 195
     :goto_0
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPageEnabler:Lcom/android/settings/ContextualPageEnabler;
 
     invoke-virtual {v1}, Lcom/android/settings/ContextualPageEnabler;->pause()V
 
-    .line 189
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 196
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1071,16 +1110,16 @@
 
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 190
+    .line 197
     return-void
 
-    .line 185
+    .line 192
     :cond_2
     iget-object v1, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -1095,7 +1134,7 @@
 
     const/4 v2, 0x0
 
-    .line 231
+    .line 238
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_s_pen:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -1104,8 +1143,8 @@
 
     if-eqz v0, :cond_2
 
-    .line 232
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 239
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1113,7 +1152,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_s_pen:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1124,7 +1163,7 @@
     :goto_0
     invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 244
+    .line 251
     :cond_0
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->isAllOptionDisabled()Z
@@ -1133,14 +1172,14 @@
 
     if-eqz v0, :cond_c
 
-    .line 245
+    .line 252
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 250
+    .line 257
     :goto_2
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
@@ -1149,10 +1188,10 @@
     :cond_1
     move v0, v2
 
-    .line 232
+    .line 239
     goto :goto_0
 
-    .line 233
+    .line 240
     :cond_2
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_earphone:Landroid/preference/CheckBoxPreference;
 
@@ -1162,8 +1201,8 @@
 
     if-eqz v0, :cond_4
 
-    .line 234
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 241
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1171,7 +1210,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_earphone:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1189,7 +1228,7 @@
 
     goto :goto_3
 
-    .line 235
+    .line 242
     :cond_4
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_dock:Landroid/preference/CheckBoxPreference;
 
@@ -1199,8 +1238,8 @@
 
     if-eqz v0, :cond_6
 
-    .line 236
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 243
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1208,7 +1247,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_dock:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1226,7 +1265,7 @@
 
     goto :goto_4
 
-    .line 237
+    .line 244
     :cond_6
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_car_cradle:Landroid/preference/CheckBoxPreference;
 
@@ -1236,8 +1275,8 @@
 
     if-eqz v0, :cond_8
 
-    .line 238
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 245
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1245,7 +1284,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_car_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1263,7 +1302,7 @@
 
     goto :goto_5
 
-    .line 239
+    .line 246
     :cond_8
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_desk_cradle:Landroid/preference/CheckBoxPreference;
 
@@ -1273,8 +1312,8 @@
 
     if-eqz v0, :cond_a
 
-    .line 240
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 247
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1282,7 +1321,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_desk_cradle:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1300,7 +1339,7 @@
 
     goto :goto_6
 
-    .line 241
+    .line 248
     :cond_a
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_roaming:Landroid/preference/CheckBoxPreference;
 
@@ -1310,8 +1349,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 242
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 249
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1319,7 +1358,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPage_roaming:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1337,11 +1376,11 @@
 
     goto :goto_7
 
-    .line 247
+    .line 254
     :cond_c
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto/16 :goto_2
 .end method
@@ -1352,30 +1391,30 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 149
+    .line 156
     const-string v0, "ContextualPageSettings"
 
     const-string v1, "onResume() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 150
+    .line 157
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 152
+    .line 159
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 153
+    .line 160
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 154
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getActivity()Landroid/app/Activity;
+    .line 161
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1385,22 +1424,22 @@
 
     invoke-virtual {v0, v3}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 158
+    .line 165
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/ContextualPageSettings;->updateContextualPageSaving()V
 
-    .line 159
+    .line 166
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mContextualPageEnabler:Lcom/android/settings/ContextualPageEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/ContextualPageEnabler;->resume()V
 
-    .line 160
+    .line 167
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 161
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 168
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1414,7 +1453,7 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 162
+    .line 169
     return-void
 .end method
 
@@ -1422,30 +1461,30 @@
     .locals 2
 
     .prologue
-    .line 194
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    .line 201
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
-    .line 195
+    .line 202
     const-string v0, "ContextualPageSettings"
 
     const-string v1, "onStop() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 196
+    .line 203
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 197
+    .line 204
     iget-object v0, p0, Lcom/android/settings/ContextualPageSettings;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 198
-    invoke-virtual {p0}, Lcom/android/settings/ContextualPageSettings;->getActivity()Landroid/app/Activity;
+    .line 205
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1457,7 +1496,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 200
+    .line 207
     :cond_0
     return-void
 .end method

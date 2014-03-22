@@ -48,7 +48,7 @@
 
     sput-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->CUSTOM_LIST_STATE:Ljava/lang/String;
 
-    .line 245
+    .line 252
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -136,12 +136,12 @@
     .parameter "packageName"
 
     .prologue
-    .line 291
+    .line 298
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 292
+    .line 299
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "com.sec.android.app.popupuireceiver"
 
@@ -149,17 +149,17 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 293
+    .line 300
     const-string v1, "app_package_name"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 295
+    .line 302
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/dormantmode/DormantModeCustomList;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v1}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 296
+    .line 303
     return-void
 .end method
 
@@ -174,20 +174,20 @@
 
     const/4 v6, 0x0
 
-    .line 92
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
+    .line 94
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 93
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getListView()Landroid/widget/ListView;
+    .line 95
+    invoke-virtual {p0}, Landroid/app/ListFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
 
-    .line 95
+    .line 97
     sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v1
 
@@ -197,21 +197,21 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setEmptyView(Landroid/view/View;)V
 
-    .line 97
+    .line 99
     invoke-static {v3}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 98
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getView()Landroid/view/View;
+    .line 100
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0b0161
+    const v1, 0x7f0b0172
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -219,20 +219,20 @@
 
     iput-object v0, p0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mCustomListAdd:Landroid/view/View;
 
-    .line 99
+    .line 101
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mCustomListAdd:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 105
+    .line 107
     :goto_0
     new-instance v0, Landroid/widget/SimpleCursorAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f04016d
+    const v2, 0x7f0401a9
 
     new-array v4, v8, [Ljava/lang/String;
 
@@ -250,47 +250,47 @@
 
     sput-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mAdapter_custom_list:Landroid/widget/SimpleCursorAdapter;
 
-    .line 112
+    .line 114
     const-string v0, "custom_list_view"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->setCustomListState(Ljava/lang/String;)V
 
-    .line 113
+    .line 115
     sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
 
     sget-object v1, Lcom/android/settings/dormantmode/DormantModeCustomList;->mAdapter_custom_list:Landroid/widget/SimpleCursorAdapter;
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 114
+    .line 116
     sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
 
     new-instance v1, Lcom/android/settings/dormantmode/DormantModeCustomList$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/dormantmode/DormantModeCustomList$1;-><init>(Lcom/android/settings/dormantmode/DormantModeCustomList;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
 
-    .line 127
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getLoaderManager()Landroid/app/LoaderManager;
+    .line 129
+    invoke-virtual {p0}, Landroid/app/Fragment;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
 
     invoke-virtual {v0, v6, v3, p0}, Landroid/app/LoaderManager;->initLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
 
-    .line 128
-    invoke-virtual {p0, v8}, Lcom/android/settings/dormantmode/DormantModeCustomList;->setHasOptionsMenu(Z)V
+    .line 130
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
-    .line 129
+    .line 131
     return-void
 
-    .line 101
+    .line 103
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0b0160
+    const v1, 0x7f0b0171
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -298,7 +298,7 @@
 
     iput-object v0, p0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mCustomListAdd:Landroid/view/View;
 
-    .line 102
+    .line 104
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mCustomListAdd:Landroid/view/View;
 
     const/16 v1, 0x8
@@ -315,43 +315,43 @@
     .parameter "data"
 
     .prologue
-    .line 137
+    .line 139
     const-string v7, "custom_list_view"
 
     invoke-virtual {p0, v7}, Lcom/android/settings/dormantmode/DormantModeCustomList;->setCustomListState(Ljava/lang/String;)V
 
-    .line 139
-    invoke-super {p0, p1, p2, p3}, Landroid/app/ListFragment;->onActivityResult(IILandroid/content/Intent;)V
-
     .line 141
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
+
+    .line 143
     if-nez p1, :cond_2
 
     if-eqz p3, :cond_2
 
-    .line 142
+    .line 144
     const-string v7, "result"
 
     invoke-virtual {p3, v7}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v5
 
-    .line 144
+    .line 146
     .local v5, mParticipantsList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v3, 0x0
 
-    .line 145
+    .line 147
     .local v3, i:I
     new-instance v6, Ljava/lang/StringBuffer;
 
     invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 147
+    .line 149
     .local v6, selection:Ljava/lang/StringBuffer;
     const-string v7, "_id IN ("
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 148
+    .line 150
     :cond_0
     :goto_0
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
@@ -360,7 +360,7 @@
 
     if-ge v3, v7, :cond_1
 
-    .line 149
+    .line 151
     invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v7
@@ -373,54 +373,54 @@
 
     move-result-object v0
 
-    .line 151
+    .line 153
     .local v0, args:[Ljava/lang/String;
     const-string v7, "\'"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 152
+    .line 154
     const/4 v7, 0x0
 
     aget-object v7, v0, v7
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 153
+    .line 155
     const-string v7, "\'"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 155
+    .line 157
     add-int/lit8 v3, v3, 0x1
 
-    .line 156
+    .line 158
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
     if-ge v3, v7, :cond_0
 
-    .line 157
+    .line 159
     const-string v7, ","
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
-    .line 159
+    .line 161
     .end local v0           #args:[Ljava/lang/String;
     :cond_1
     const-string v7, ")"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 161
+    .line 163
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    .line 163
+    .line 165
     .local v4, mOperationList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
     sget-object v7, Landroid/provider/ContactsContract$RawContacts;->CONTENT_URI:Landroid/net/Uri;
 
@@ -448,7 +448,7 @@
 
     move-result-object v1
 
-    .line 166
+    .line 168
     .local v1, builder:Landroid/content/ContentProviderOperation$Builder;
     const-string v7, "sec_custom_dormant_contact"
 
@@ -460,7 +460,7 @@
 
     invoke-virtual {v1, v7, v8}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 167
+    .line 169
     invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -469,20 +469,20 @@
 
     invoke-virtual {v1, v7, v8}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 168
+    .line 170
     invoke-virtual {v1}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
     move-result-object v7
 
     invoke-virtual {v4, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 171
+    .line 173
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -493,11 +493,11 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/OperationApplicationException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 180
+    .line 182
     :goto_1
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    .line 186
+    .line 188
     .end local v1           #builder:Landroid/content/ContentProviderOperation$Builder;
     .end local v3           #i:I
     .end local v4           #mOperationList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
@@ -506,7 +506,7 @@
     :cond_2
     return-void
 
-    .line 173
+    .line 175
     .restart local v1       #builder:Landroid/content/ContentProviderOperation$Builder;
     .restart local v3       #i:I
     .restart local v4       #mOperationList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentProviderOperation;>;"
@@ -515,20 +515,20 @@
     :catch_0
     move-exception v2
 
-    .line 175
+    .line 177
     .local v2, e:Landroid/os/RemoteException;
-    invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
-    .line 176
+    .line 178
     .end local v2           #e:Landroid/os/RemoteException;
     :catch_1
     move-exception v2
 
-    .line 178
+    .line 180
     .local v2, e:Landroid/content/OperationApplicationException;
-    invoke-virtual {v2}, Landroid/content/OperationApplicationException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 .end method
@@ -538,17 +538,17 @@
     .parameter "v"
 
     .prologue
-    .line 272
+    .line 279
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
 
-    const v2, 0x7f0b0161
+    const v2, 0x7f0b0172
 
     if-ne v1, v2, :cond_0
 
-    .line 273
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getActivity()Landroid/app/Activity;
+    .line 280
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -560,14 +560,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 274
+    .line 281
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "intent.action.INTERACTION_TOPMENU"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 276
+    .line 283
     .local v0, phonebookIntent:Landroid/content/Intent;
     const-string v1, "additional"
 
@@ -575,36 +575,36 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 277
+    .line 284
     const-string v1, "maxRecipientCount"
 
     const/16 v2, 0xfa
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 278
+    .line 285
     const-string v1, "existingRecipientCount"
 
     sget-object v2, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCount()I
+    invoke-virtual {v2}, Landroid/widget/AdapterView;->getCount()I
 
     move-result v2
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 280
+    .line 287
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/dormantmode/DormantModeCustomList;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v1}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 285
+    .line 292
     .end local v0           #phonebookIntent:Landroid/content/Intent;
     :cond_0
     :goto_0
     return-void
 
-    .line 282
+    .line 289
     :cond_1
     const-string v1, "com.android.contacts"
 
@@ -632,18 +632,18 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 251
+    .line 258
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantModeCustomList;->builder:Landroid/net/Uri$Builder;
 
     invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
     move-result-object v2
 
-    .line 253
+    .line 260
     .local v2, baseUri:Landroid/net/Uri;
     new-instance v0, Landroid/content/CursorLoader;
 
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -659,30 +659,25 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-    .locals 3
+    .locals 6
     .parameter "menu"
     .parameter "inflater"
 
     .prologue
+    const v5, 0x7f090bf1
+
+    const v4, 0x7f020124
+
+    const/4 v3, 0x5
+
+    const/4 v1, 0x1
+
     const/4 v2, 0x0
 
-    .line 190
-    invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
-
     .line 192
-    const/4 v0, 0x1
+    invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    const v1, 0x7f090b07
-
-    invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v0
-
-    const v1, 0x7f0200e4
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    .line 195
+    .line 194
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -691,28 +686,47 @@
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 195
+    invoke-interface {p1, v2, v1, v2, v5}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-interface {v0, v4}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    .line 199
     const/4 v0, 0x2
 
-    const v1, 0x7f091279
+    const v1, 0x7f0913e3
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020199
+    const v1, 0x7f0201e4
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const/4 v1, 0x5
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 201
-    :cond_0
+    .line 208
+    :goto_0
     return-void
+
+    .line 204
+    :cond_0
+    invoke-interface {p1, v2, v1, v2, v5}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-interface {v0, v4}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+
+    goto :goto_0
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
@@ -723,7 +737,7 @@
 
     .prologue
     .line 80
-    const v0, 0x7f04007c
+    const v0, 0x7f040082
 
     const/4 v1, 0x0
 
@@ -751,25 +765,25 @@
     .end annotation
 
     .prologue
-    .line 259
+    .line 266
     .local p1, loader:Landroid/content/Loader;,"Landroid/content/Loader<Landroid/database/Cursor;>;"
     sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mAdapter_custom_list:Landroid/widget/SimpleCursorAdapter;
 
-    invoke-virtual {v0}, Landroid/widget/SimpleCursorAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 260
+    .line 267
     sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mAdapter_custom_list:Landroid/widget/SimpleCursorAdapter;
 
     invoke-virtual {v0, p2}, Landroid/widget/SimpleCursorAdapter;->swapCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
 
-    .line 261
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getActivity()Landroid/app/Activity;
+    .line 268
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    .line 263
+    .line 270
     return-void
 .end method
 
@@ -802,7 +816,7 @@
     .end annotation
 
     .prologue
-    .line 266
+    .line 273
     .local p1, loader:Landroid/content/Loader;,"Landroid/content/Loader<Landroid/database/Cursor;>;"
     sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mAdapter_custom_list:Landroid/widget/SimpleCursorAdapter;
 
@@ -810,7 +824,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/SimpleCursorAdapter;->swapCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
 
-    .line 268
+    .line 275
     return-void
 .end method
 
@@ -823,18 +837,18 @@
 
     const/4 v3, 0x0
 
-    .line 216
+    .line 223
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v5
 
     packed-switch v5, :pswitch_data_0
 
-    .line 242
+    .line 249
     :goto_0
     return v3
 
-    .line 218
+    .line 225
     :pswitch_0
     const/4 v3, -0x1
 
@@ -842,9 +856,9 @@
 
     move-result-object v0
 
-    .line 219
+    .line 226
     .local v0, dmf:Lcom/android/settings/dormantmode/DormantModeCustomListDel;
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
 
@@ -852,9 +866,9 @@
 
     move-result-object v1
 
-    .line 220
+    .line 227
     .local v1, ft:Landroid/app/FragmentTransaction;
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v3
 
@@ -864,35 +878,35 @@
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    invoke-virtual {v3}, Landroid/view/ViewGroup;->getId()I
+    invoke-virtual {v3}, Landroid/view/View;->getId()I
 
     move-result v3
 
     invoke-virtual {v1, v3, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 221
+    .line 228
     const/16 v3, 0x1001
 
     invoke-virtual {v1, v3}, Landroid/app/FragmentTransaction;->setTransition(I)Landroid/app/FragmentTransaction;
 
-    .line 222
+    .line 229
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3}, Landroid/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 223
+    .line 230
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
 
     move v3, v4
 
-    .line 226
+    .line 233
     goto :goto_0
 
-    .line 228
+    .line 235
     .end local v0           #dmf:Lcom/android/settings/dormantmode/DormantModeCustomListDel;
     .end local v1           #ft:Landroid/app/FragmentTransaction;
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -904,14 +918,14 @@
 
     if-eqz v5, :cond_0
 
-    .line 229
+    .line 236
     new-instance v2, Landroid/content/Intent;
 
     const-string v5, "intent.action.INTERACTION_TOPMENU"
 
     invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 230
+    .line 237
     .local v2, phonebookIntent:Landroid/content/Intent;
     const-string v5, "additional"
 
@@ -919,24 +933,24 @@
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 231
+    .line 238
     const-string v5, "maxRecipientCount"
 
     const/16 v6, 0xfa
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 233
-    invoke-virtual {p0, v2, v3}, Lcom/android/settings/dormantmode/DormantModeCustomList;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 240
+    invoke-virtual {p0, v2, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     .end local v2           #phonebookIntent:Landroid/content/Intent;
     :goto_1
     move v3, v4
 
-    .line 239
+    .line 246
     goto :goto_0
 
-    .line 235
+    .line 242
     :cond_0
     const-string v3, "com.android.contacts"
 
@@ -944,7 +958,7 @@
 
     goto :goto_1
 
-    .line 216
+    .line 223
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -959,25 +973,25 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 205
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getListView()Landroid/widget/ListView;
+    .line 212
+    invoke-virtual {p0}, Landroid/app/ListFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getCount()I
+    invoke-virtual {v1}, Landroid/widget/AdapterView;->getCount()I
 
     move-result v0
 
-    .line 207
+    .line 214
     .local v0, state:I
     if-eqz v0, :cond_0
 
-    .line 208
+    .line 215
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v2, 0x7f0200e4
+    const v2, 0x7f020124
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -985,17 +999,17 @@
 
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 212
+    .line 219
     :goto_0
     return-void
 
-    .line 210
+    .line 217
     :cond_0
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v2, 0x7f0200e3
+    const v2, 0x7f020123
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1009,16 +1023,30 @@
 .end method
 
 .method public onResume()V
-    .locals 0
+    .locals 2
 
     .prologue
     .line 86
-    invoke-super {p0}, Landroid/app/ListFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 87
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->reloadcustomlist()V
+    invoke-virtual {p0}, Landroid/app/ListFragment;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
 
     .line 88
+    sget-object v0, Lcom/android/settings/dormantmode/DormantModeCustomList;->mlistView:Landroid/widget/ListView;
+
+    sget-object v1, Lcom/android/settings/dormantmode/DormantModeCustomList;->mAdapter_custom_list:Landroid/widget/SimpleCursorAdapter;
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    .line 89
+    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->reloadcustomlist()V
+
+    .line 90
     return-void
 .end method
 
@@ -1026,8 +1054,8 @@
     .locals 3
 
     .prologue
-    .line 132
-    invoke-virtual {p0}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getLoaderManager()Landroid/app/LoaderManager;
+    .line 134
+    invoke-virtual {p0}, Landroid/app/Fragment;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
 
@@ -1037,7 +1065,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/app/LoaderManager;->restartLoader(ILandroid/os/Bundle;Landroid/app/LoaderManager$LoaderCallbacks;)Landroid/content/Loader;
 
-    .line 133
+    .line 135
     return-void
 .end method
 
@@ -1046,9 +1074,9 @@
     .parameter "state"
 
     .prologue
-    .line 288
+    .line 295
     sput-object p1, Lcom/android/settings/dormantmode/DormantModeCustomList;->CUSTOM_LIST_STATE:Ljava/lang/String;
 
-    .line 289
+    .line 296
     return-void
 .end method

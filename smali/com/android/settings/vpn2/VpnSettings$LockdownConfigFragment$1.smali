@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 610
+    .line 622
     iput-object p1, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->this$0:Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment;
 
     iput-object p2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->val$listView:Landroid/widget/ListView;
@@ -45,7 +45,7 @@
 
     iput-object p4, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->val$context:Landroid/content/Context;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -60,14 +60,14 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 613
+    .line 625
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->val$listView:Landroid/widget/ListView;
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v2}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v0
 
-    .line 614
+    .line 626
     .local v0, newIndex:I
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->this$0:Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment;
 
@@ -78,26 +78,26 @@
 
     if-ne v2, v0, :cond_0
 
-    .line 632
+    .line 644
     :goto_0
     return-void
 
-    .line 616
+    .line 628
     :cond_0
     if-nez v0, :cond_1
 
-    .line 617
+    .line 629
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->val$keyStore:Landroid/security/KeyStore;
 
     const-string v3, "LOCKDOWN_VPN"
 
     invoke-virtual {v2, v3}, Landroid/security/KeyStore;->delete(Ljava/lang/String;)Z
 
-    .line 631
+    .line 643
     :goto_1
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->this$0:Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment;
 
-    invoke-virtual {v2}, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -109,7 +109,7 @@
 
     goto :goto_0
 
-    .line 620
+    .line 632
     :cond_1
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->this$0:Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment;
 
@@ -126,7 +126,7 @@
 
     check-cast v1, Lcom/android/internal/net/VpnProfile;
 
-    .line 621
+    .line 633
     .local v1, profile:Lcom/android/internal/net/VpnProfile;
     invoke-virtual {v1}, Lcom/android/internal/net/VpnProfile;->isValidLockdownProfile()Z
 
@@ -134,10 +134,10 @@
 
     if-nez v2, :cond_2
 
-    .line 622
+    .line 634
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->val$context:Landroid/content/Context;
 
-    const v3, 0x7f090a43
+    const v3, 0x7f090b27
 
     invoke-static {v2, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -147,7 +147,7 @@
 
     goto :goto_0
 
-    .line 626
+    .line 638
     :cond_2
     iget-object v2, p0, Lcom/android/settings/vpn2/VpnSettings$LockdownConfigFragment$1;->val$keyStore:Landroid/security/KeyStore;
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 319
+    .line 318
     iput-object p1, p0, Lcom/android/settings/DreamSettings$6;->this$0:Lcom/android/settings/DreamSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
     const/4 v2, 0x1
 
-    .line 321
+    .line 320
     iget-object v0, p0, Lcom/android/settings/DreamSettings$6;->this$0:Lcom/android/settings/DreamSettings;
 
     #getter for: Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
@@ -67,7 +67,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Lcom/android/settings/DreamBackend;->setActivatedOnDock(Z)V
 
-    .line 322
+    .line 321
     iget-object v0, p0, Lcom/android/settings/DreamSettings$6;->this$0:Lcom/android/settings/DreamSettings;
 
     #getter for: Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
@@ -85,15 +85,15 @@
     :cond_2
     invoke-virtual {v0, v1}, Lcom/android/settings/DreamBackend;->setActivatedOnSleep(Z)V
 
-    .line 323
+    .line 322
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 324
+    .line 323
     return-void
 
     :cond_3
     move v0, v1
 
-    .line 321
+    .line 320
     goto :goto_0
 .end method

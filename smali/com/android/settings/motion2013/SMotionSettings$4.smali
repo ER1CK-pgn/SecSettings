@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 117
+    .line 111
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionSettings$4;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 120
+    .line 114
     iget-object v1, p0, Lcom/android/settings/motion2013/SMotionSettings$4;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
     #getter for: Lcom/android/settings/motion2013/SMotionSettings;->mSurface:Landroid/preference/SwitchPreferenceScreen;
@@ -53,7 +53,7 @@
     iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$4;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/SMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
-    invoke-static {v2}, Lcom/android/settings/motion2013/SMotionSettings;->access$700(Lcom/android/settings/motion2013/SMotionSettings;)Landroid/content/ContentResolver;
+    invoke-static {v2}, Lcom/android/settings/motion2013/SMotionSettings;->access$600(Lcom/android/settings/motion2013/SMotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -68,8 +68,8 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 121
+    .line 115
     return-void
 .end method

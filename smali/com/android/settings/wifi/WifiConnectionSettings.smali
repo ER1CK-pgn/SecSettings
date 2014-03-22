@@ -59,14 +59,14 @@
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 33
-    const v7, 0x7f0700c2
+    const v7, 0x7f0700e4
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/wifi/WifiConnectionSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v7}, Landroid/preference/PreferenceActivity;->addPreferencesFromResource(I)V
 
     .line 35
     const-string v7, "mode_list"
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/wifi/WifiConnectionSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v7}, Landroid/preference/PreferenceActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -77,7 +77,7 @@
     invoke-virtual {v2}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 38
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -89,11 +89,11 @@
 
     .line 39
     .local v3, position:I
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
-    const v8, 0x7f0a004f
+    const v8, 0x7f0a0057
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -101,11 +101,11 @@
 
     .line 40
     .local v5, settings:[Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
-    const v8, 0x7f0a0050
+    const v8, 0x7f0a0058
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -134,17 +134,17 @@
 
     aget-object v7, v7, v1
 
-    invoke-virtual {v4, v7}, Lcom/android/settings/wifi/WifiConnectionPreference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
     .line 46
     aget-object v7, v5, v1
 
-    invoke-virtual {v4, v7}, Lcom/android/settings/wifi/WifiConnectionPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 47
     aget-object v7, v6, v1
 
-    invoke-virtual {v4, v7}, Lcom/android/settings/wifi/WifiConnectionPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 48
     const/4 v7, 0x1
@@ -152,10 +152,10 @@
     invoke-virtual {v4, v7}, Lcom/android/settings/wifi/WifiConnectionPreference;->setSelectable(Z)V
 
     .line 49
-    invoke-virtual {v4, v9}, Lcom/android/settings/wifi/WifiConnectionPreference;->setPersistent(Z)V
+    invoke-virtual {v4, v9}, Landroid/preference/Preference;->setPersistent(Z)V
 
     .line 50
-    invoke-virtual {v4, p0}, Lcom/android/settings/wifi/WifiConnectionPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v4, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 52
     if-ne v1, v3, :cond_0
@@ -182,7 +182,7 @@
     if-nez v7, :cond_2
 
     .line 60
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
@@ -225,7 +225,7 @@
     packed-switch v0, :pswitch_data_0
 
     .line 93
-    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
@@ -234,7 +234,7 @@
 
     .line 86
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 87
     const/4 v0, 0x1
@@ -305,11 +305,11 @@
     if-eqz v5, :cond_2
 
     .line 109
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v6, 0x7f0a0050
+    const v6, 0x7f0a0058
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -327,7 +327,7 @@
     .line 117
     .end local v3           #summary:[Ljava/lang/String;
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -349,7 +349,7 @@
 
     .prologue
     .line 72
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 73
     return-void

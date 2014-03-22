@@ -31,7 +31,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 37
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryDetail;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v2
 
@@ -79,7 +79,7 @@
 
     .prologue
     .line 47
-    const v2, 0x7f04010e
+    const v2, 0x7f040135
 
     const/4 v3, 0x0
 
@@ -89,7 +89,7 @@
 
     .line 48
     .local v1, view:Landroid/view/View;
-    const v2, 0x1010002
+    const v2, 0x1010004
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

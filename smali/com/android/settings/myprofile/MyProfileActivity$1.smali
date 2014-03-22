@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 440
+    .line 449
     iput-object p1, p0, Lcom/android/settings/myprofile/MyProfileActivity$1;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "color"
 
     .prologue
-    .line 443
+    .line 452
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$1;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
@@ -54,12 +54,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 444
+    .line 453
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$1;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #calls: Lcom/android/settings/myprofile/MyProfileActivity;->reflectSelectedTextFontColor(I)V
     invoke-static {v0, p1}, Lcom/android/settings/myprofile/MyProfileActivity;->access$100(Lcom/android/settings/myprofile/MyProfileActivity;I)V
 
-    .line 445
+    .line 454
     return-void
 .end method

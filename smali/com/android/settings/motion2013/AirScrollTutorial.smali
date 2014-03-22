@@ -29,7 +29,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 49
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollTutorial;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -48,13 +48,13 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 32
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollTutorial;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     .line 34
     .local v0, context:Landroid/content/Context;
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollTutorial;->getPreferenceManager()Landroid/preference/PreferenceManager;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
     move-result-object v3
 
@@ -62,7 +62,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion2013/AirScrollTutorial;->setPreferenceScreen(Landroid/preference/PreferenceScreen;)V
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->setPreferenceScreen(Landroid/preference/PreferenceScreen;)V
 
     .line 36
     const/4 v1, 0x1
@@ -101,11 +101,11 @@
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 39
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirScrollTutorial;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
-    invoke-virtual {v3, v2}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v2}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     .line 36
     add-int/lit8 v1, v1, 0x1
@@ -123,7 +123,7 @@
 
     .prologue
     .line 63
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 64
     iget-object v0, p0, Lcom/android/settings/motion2013/AirScrollTutorial;->mListView:Landroid/widget/ListView;
@@ -133,7 +133,7 @@
     .line 65
     iget-object v0, p0, Lcom/android/settings/motion2013/AirScrollTutorial;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->unregisterIRMotion()V
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->unregisterIRMotion()V
 
     .line 68
     :cond_0
@@ -155,7 +155,7 @@
     .line 57
     iget-object v0, p0, Lcom/android/settings/motion2013/AirScrollTutorial;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->registerIRMotion()V
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->registerIRMotion()V
 
     .line 59
     :cond_0

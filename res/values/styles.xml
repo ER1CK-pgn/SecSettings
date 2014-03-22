@@ -77,8 +77,46 @@
         <item name="android:windowSoftInputMode">adjustPan</item>
         <item name="android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
     </style>
+    <style name="PreferenceHeaderPanelSinglePane">
+        <item name="android:background">@null</item>
+        <item name="android:layout_marginStart">0.0dip</item>
+        <item name="android:layout_marginEnd">0.0dip</item>
+    </style>
+    <style name="PreferencePanelSinglePane" parent="@*android:style/PreferencePanel">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingStart">0.0dip</item>
+        <item name="android:paddingEnd">0.0dip</item>
+        <item name="android:layout_marginStart">0.0dip</item>
+        <item name="android:layout_marginEnd">0.0dip</item>
+    </style>
+    <style name="PreferenceHeaderListSinglePane" parent="@*android:style/PreferenceHeaderList">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:paddingTop">0.0dip</item>
+        <item name="android:paddingBottom">0.0dip</item>
+        <item name="android:layout_marginTop">0.0dip</item>
+        <item name="android:layout_marginBottom">0.0dip</item>
+        <item name="android:paddingStart">@dimen/settings_side_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_side_margin</item>
+        <item name="android:layout_marginStart">0.0dip</item>
+        <item name="android:layout_marginEnd">0.0dip</item>
+    </style>
+    <style name="PreferenceFragmentListSinglePane" parent="@*android:style/PreferenceFragmentList">
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:paddingStart">@dimen/settings_side_margin</item>
+        <item name="android:paddingEnd">@dimen/settings_side_margin</item>
+        <item name="android:layout_marginStart">0.0dip</item>
+        <item name="android:layout_marginEnd">0.0dip</item>
+    </style>
+    <style name="VertDivider">
+        <item name="android:background">@color/divider_color</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:layout_width">@dimen/vert_divider_width</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
     <style name="TopDivider">
-        <item name="android:background">@color/setup_divider_color</item>
+        <item name="android:background">?setup_divider_color</item>
         <item name="android:focusable">false</item>
         <item name="android:clickable">false</item>
         <item name="android:layout_width">fill_parent</item>
@@ -170,6 +208,7 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="LockScreenTheme" parent="@*android:style/Theme.DeviceDefault" />
     <style name="SecurityPreferenceButtonContainer" parent="@*android:style/Holo.SegmentedButton">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -215,7 +254,19 @@
     <style name="KeyguardAppWidgetItem">
         <item name="android:textSize">18.0sp</item>
     </style>
-    <style name="SettingsTheme" parent="@*android:style/Theme.DeviceDefault" />
+    <style name="ApnPreference">
+        <item name="android:layout">@layout/apn_preference_layout</item>
+    </style>
+    <style name="SettingsTheme" parent="@*android:style/Theme.DeviceDefault">
+        <item name="android:preferencePanelStyle">@style/PreferencePanelSinglePane</item>
+        <item name="android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanelSinglePane</item>
+        <item name="android:preferenceListStyle">@style/PreferenceHeaderListSinglePane</item>
+        <item name="android:preferenceFragmentListStyle">@style/PreferenceFragmentListSinglePane</item>
+        <item name="android:preferenceFragmentPaddingSide">@dimen/settings_side_margin</item>
+        <item name="apnPreferenceStyle">@style/ApnPreference</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add_dark</item>
+        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_dark</item>
+    </style>
     <style name="SettingsTheme.Dialog" parent="@*android:style/Theme.DeviceDefault.Dialog" />
     <style name="SettingsTheme.Dialog.NoWindowDisplay" parent="@*android:style/Theme.DeviceDefault.Dialog">
         <item name="android:windowNoDisplay">true</item>
@@ -237,6 +288,92 @@
         <item name="android:windowBackground">@*android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="Theme.vzwSetupWiFi" parent="@*android:style/Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@drawable/vzw_setupwizard_bg</item>
+    </style>
+    <style name="CustomTitleTextStyle">
+        <item name="android:textSize">@dimen/custom_title_heading_font_size</item>
+        <item name="android:textColor">@color/custom_title_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginLeft">@dimen/custom_title_appname_margin_left</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:shadowDx">3.0</item>
+        <item name="android:shadowDy">3.0</item>
+        <item name="android:shadowRadius">3.0</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="StepIndicatorTextStyle">
+        <item name="android:textSize">@dimen/step_indicator_font_size</item>
+        <item name="android:textColor">@color/step_indicator_text_color</item>
+        <item name="android:layout_marginRight">@dimen/custom_title_margin_right</item>
+        <item name="android:shadowDx">3.0</item>
+        <item name="android:shadowDy">3.0</item>
+        <item name="android:shadowRadius">3.0</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="SubTitleTextStyle">
+        <item name="android:textSize">@dimen/subtitle_font_size</item>
+        <item name="android:textColor">@color/subtitle_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowDx">3.0</item>
+        <item name="android:shadowDy">3.0</item>
+        <item name="android:shadowRadius">3.0</item>
+    </style>
+    <style name="SoftKeyButtonsStyle">
+        <item name="android:textSize">@dimen/bottom_button_text_size</item>
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+    <style name="ActionBarBottomButtonLeftStyle">
+        <item name="android:textSize">@dimen/bottom_button_text_size</item>
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+    <style name="ActionBarBottomButtonRightStyle">
+        <item name="android:textSize">@dimen/bottom_button_text_size</item>
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+    <style name="SoftKeyTextStyle">
+        <item name="android:textSize">@dimen/bottom_btn_font_size</item>
+        <item name="android:textColor">@drawable/vzw_softkey_text_color</item>
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">@dimen/bottom_button_height</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">2.0</item>
+    </style>
+    <style name="bottom_button_layout">
+        <item name="android:background">@drawable/tw_action_bar_bottom_bg</item>
+        <item name="android:layout_marginLeft">@dimen/bottom_btn_layout_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/bottom_btn_layout_margin_right</item>
+    </style>
+    <style name="button_divider_View">
+        <item name="android:background">@drawable/tw_soft_divider</item>
+        <item name="android:layout_width">@dimen/bottom_button_divider_width</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:layout_marginBottom">10.0dip</item>
+    </style>
+    <style name="bottom_button_style">
+        <item name="android:textSize">@dimen/bottom_btn_font_size</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+    <style name="arrow_image_style">
+        <item name="android:src">@drawable/vzw_sftky_arrow_image</item>
     </style>
     <style name="pen_help_title">
         <item name="android:textSize">20.0dip</item>
@@ -391,10 +528,82 @@
         <item name="android:textSize">15.0dip</item>
         <item name="android:textColor">@drawable/color_tab_text</item>
     </style>
+    <style name="VibrationFeedBackStyle">
+        <item name="android:paddingLeft">20.0dip</item>
+        <item name="android:paddingRight">20.0dip</item>
+    </style>
+    <style name="Glance_card_title">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">#ff606060</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">24.0dip</item>
+        <item name="android:layout_marginBottom">2.0dip</item>
+    </style>
+    <style name="Glance_card_item">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">85.0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+    </style>
+    <style name="Glance_card_item2">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">170.0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+    </style>
+    <style name="Glance_card_item_image">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">55.0dip</item>
+    </style>
+    <style name="Glance_card_item_title">
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">#ff364f67</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">36.0dip</item>
+    </style>
+    <style name="AlignPopupItem">
+        <item name="android:paddingLeft">20.0dip</item>
+        <item name="android:paddingRight">20.0dip</item>
+    </style>
+    <style name="SetupWizardWifiTheme" parent="@*android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:alertDialogTheme">@style/Theme.WifiDialog</item>
+        <item name="android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add_dark</item>
+        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_dark</item>
+        <item name="setup_divider_color">@color/setup_divider_color_dark</item>
+    </style>
+    <style name="SetupWizardWifiTheme.Light" parent="@*android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:alertDialogTheme">@style/Theme.Light.WifiDialog</item>
+        <item name="android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add_light</item>
+        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_light</item>
+        <item name="setup_divider_color">@color/setup_divider_color_light</item>
+    </style>
+    <style name="Theme.Light.WifiDialog" parent="@*android:style/Theme.Holo.Light.Dialog.Alert">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add_light</item>
+        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_light</item>
+    </style>
+    <style name="Theme.Settings" parent="@*android:style/Theme.Holo">
+        <item name="android:actionBarStyle">@*android:style/Widget.Holo.ActionBar.Solid</item>
+        <item name="android:preferencePanelStyle">@style/PreferencePanelSinglePane</item>
+        <item name="android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanelSinglePane</item>
+        <item name="android:preferenceListStyle">@style/PreferenceHeaderListSinglePane</item>
+        <item name="android:preferenceFragmentListStyle">@style/PreferenceFragmentListSinglePane</item>
+        <item name="android:preferenceFragmentPaddingSide">@dimen/settings_side_margin</item>
+        <item name="apnPreferenceStyle">@style/ApnPreference</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add_dark</item>
+        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_dark</item>
+    </style>
     <style name="Theme.WifiP2PDialog" parent="@*android:style/Theme.DeviceDefault.Dialog.Alert">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:windowActionBar">false</item>
     </style>
-    <item type="style" name="APKTOOL_DUMMY_0056">false</item>
+    <item type="style" name="APKTOOL_DUMMY_0074">false</item>
 </resources>

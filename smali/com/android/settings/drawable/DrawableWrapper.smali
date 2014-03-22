@@ -200,7 +200,7 @@
 
     .prologue
     .line 150
-    invoke-virtual {p0}, Lcom/android/settings/drawable/DrawableWrapper;->invalidateSelf()V
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     .line 151
     return-void
@@ -241,7 +241,7 @@
 
     .prologue
     .line 155
-    invoke-virtual {p0, p2, p3, p4}, Lcom/android/settings/drawable/DrawableWrapper;->scheduleSelf(Ljava/lang/Runnable;J)V
+    invoke-virtual {p0, p2, p3, p4}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
     .line 156
     return-void
@@ -392,7 +392,7 @@
 
     .prologue
     .line 160
-    invoke-virtual {p0, p2}, Lcom/android/settings/drawable/DrawableWrapper;->unscheduleSelf(Ljava/lang/Runnable;)V
+    invoke-virtual {p0, p2}, Landroid/graphics/drawable/Drawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
     .line 161
     return-void

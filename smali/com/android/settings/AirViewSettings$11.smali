@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 548
+    .line 549
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$11;->this$0:Lcom/android/settings/AirViewSettings;
 
     iput-object p2, p0, Lcom/android/settings/AirViewSettings$11;->val$layout:Landroid/view/View;
@@ -43,62 +43,95 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 6
+    .locals 8
     .parameter "dialog"
 
     .prologue
-    const/4 v5, 0x1
-
-    .line 551
-    iget-object v3, p0, Lcom/android/settings/AirViewSettings$11;->val$layout:Landroid/view/View;
-
-    const v4, 0x7f0b013b
-
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    const/4 v7, 0x1
 
     .line 552
-    .local v0, check:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+    iget-object v4, p0, Lcom/android/settings/AirViewSettings$11;->this$0:Lcom/android/settings/AirViewSettings;
 
-    move-result v3
-
-    if-eqz v3, :cond_0
+    #calls: Lcom/android/settings/AirViewSettings;->updateAirviewSwitch()V
+    invoke-static {v4}, Lcom/android/settings/AirViewSettings;->access$600(Lcom/android/settings/AirViewSettings;)V
 
     .line 553
-    iget-object v3, p0, Lcom/android/settings/AirViewSettings$11;->this$0:Lcom/android/settings/AirViewSettings;
+    iget-object v4, p0, Lcom/android/settings/AirViewSettings$11;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-virtual {v3}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    #getter for: Lcom/android/settings/AirViewSettings;->mResolver:Landroid/content/ContentResolver;
+    invoke-static {v4}, Lcom/android/settings/AirViewSettings;->access$000(Lcom/android/settings/AirViewSettings;)Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string v4, "com.android.settings.airviewsettings.aircommand"
+    const-string v5, "air_view_mode"
 
-    invoke-virtual {v3, v4, v5}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    const/4 v6, 0x0
 
-    move-result-object v2
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 555
-    .local v2, sp:Landroid/content/SharedPreferences;
-    invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    move-result v0
+
+    .line 554
+    .local v0, airViewIndex:I
+    iget-object v4, p0, Lcom/android/settings/AirViewSettings$11;->this$0:Lcom/android/settings/AirViewSettings;
+
+    #getter for: Lcom/android/settings/AirViewSettings;->mAirViewModeListPref:Landroid/preference/ListPreference;
+    invoke-static {v4}, Lcom/android/settings/AirViewSettings;->access$900(Lcom/android/settings/AirViewSettings;)Landroid/preference/ListPreference;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Landroid/preference/ListPreference;->setValueIndex(I)V
+
+    .line 556
+    iget-object v4, p0, Lcom/android/settings/AirViewSettings$11;->val$layout:Landroid/view/View;
+
+    const v5, 0x7f0b014a
+
+    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 556
-    .local v1, ed:Landroid/content/SharedPreferences$Editor;
-    const-string v3, "DoNotShowDialog"
-
-    invoke-interface {v1, v3, v5}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    check-cast v1, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     .line 557
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    .local v1, check:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
-    .line 559
-    .end local v1           #ed:Landroid/content/SharedPreferences$Editor;
-    .end local v2           #sp:Landroid/content/SharedPreferences;
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 558
+    iget-object v4, p0, Lcom/android/settings/AirViewSettings$11;->this$0:Lcom/android/settings/AirViewSettings;
+
+    invoke-virtual {v4}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    const-string v5, "com.android.settings.airviewsettings.aircommand"
+
+    invoke-virtual {v4, v5, v7}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    .line 560
+    .local v3, sp:Landroid/content/SharedPreferences;
+    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v2
+
+    .line 561
+    .local v2, ed:Landroid/content/SharedPreferences$Editor;
+    const-string v4, "DoNotShowDialog"
+
+    invoke-interface {v2, v4, v7}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+
+    .line 562
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    .line 564
+    .end local v2           #ed:Landroid/content/SharedPreferences$Editor;
+    .end local v3           #sp:Landroid/content/SharedPreferences;
     :cond_0
     return-void
 .end method

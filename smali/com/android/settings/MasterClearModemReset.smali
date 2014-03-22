@@ -313,7 +313,7 @@
     invoke-virtual {v3, v4}, Landroid/view/Window;->setType(I)V
 
     .line 161
-    const v3, 0x10401bc
+    const v3, 0x10401c8
 
     invoke-virtual {p0, v3}, Lcom/android/settings/MasterClearModemReset;->getText(I)Ljava/lang/CharSequence;
 

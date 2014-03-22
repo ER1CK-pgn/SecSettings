@@ -4,7 +4,7 @@
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
         <TextView android:textSize="18.0sp" android:textColor="#fff5f5f5" android:gravity="center" android:id="@id/headerText" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_weight="1.0" />
         <View android:background="#ff7e7e7e" android:layout_width="fill_parent" android:layout_height="1.0dip" />
-        <com.android.internal.widget.LockPatternView android:id="@id/lockPattern" android:layout_width="320.0dip" android:layout_height="320.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" aspect="square" />
+        <com.android.internal.widget.LockPatternView android:id="@id/lockPattern" android:layout_width="fill_parent" android:layout_height="320.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" aspect="square" />
         <TextView android:textSize="14.0sp" android:gravity="center" android:id="@id/footerText" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
     </LinearLayout>
     <LinearLayout android:orientation="horizontal" style="@style/SecurityPreferenceButtonContainer">

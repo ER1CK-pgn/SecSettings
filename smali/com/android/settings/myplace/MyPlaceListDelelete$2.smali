@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 180
+    .line 185
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceListDelelete$2;->this$0:Lcom/android/settings/myplace/MyPlaceListDelelete;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,9 +43,9 @@
     .parameter "arg1"
 
     .prologue
-    .line 183
+    .line 188
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 184
+    .line 189
     return-void
 .end method

@@ -40,7 +40,7 @@
     .line 175
     iput-object p1, p0, Lcom/android/settings/flipfont/TypefaceFinder$TypefaceSortByName;->this$0:Lcom/android/settings/flipfont/TypefaceFinder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

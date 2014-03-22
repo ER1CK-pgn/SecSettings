@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 656
+    .line 708
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$11;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     iput-object p2, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$11;->val$motion_type:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -52,7 +52,7 @@
 
     const/4 v3, 0x1
 
-    .line 658
+    .line 710
     const-string v1, "smartscreen_scroll"
 
     iget-object v2, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$11;->val$motion_type:Ljava/lang/String;
@@ -63,7 +63,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 659
+    .line 711
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$11;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #calls: Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -75,7 +75,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 660
+    .line 712
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$11;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     const-string v2, "com.sec.SMART_SCROLL_CHANGED"
@@ -83,16 +83,16 @@
     #calls: Lcom/android/settings/smartscreen/SmartScreenSettings;->broadcastStatusChanged(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->access$500(Lcom/android/settings/smartscreen/SmartScreenSettings;Ljava/lang/String;Z)V
 
-    .line 661
+    .line 713
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$11;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity;
 
-    .line 662
+    .line 714
     .local v0, preferenceActivity:Landroid/preference/PreferenceActivity;
     const-class v1, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
 
@@ -104,7 +104,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f090fab
+    const v3, 0x7f0910e9
 
     const/4 v6, 0x0
 
@@ -112,7 +112,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 664
+    .line 716
     .end local v0           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_0
     return-void

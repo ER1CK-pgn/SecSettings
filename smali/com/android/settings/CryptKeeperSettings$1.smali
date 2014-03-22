@@ -168,7 +168,7 @@
     const/4 v10, 0x1
 
     :goto_3
-    invoke-virtual {v11, v10}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v11, v10}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 99
     iget-object v10, p0, Lcom/android/settings/CryptKeeperSettings$1;->this$0:Lcom/android/settings/CryptKeeperSettings;
@@ -225,12 +225,12 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 105
     iget-object v10, p0, Lcom/android/settings/CryptKeeperSettings$1;->this$0:Lcom/android/settings/CryptKeeperSettings;
 
-    invoke-virtual {v10}, Lcom/android/settings/CryptKeeperSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v10}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
@@ -267,7 +267,7 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 116
     :cond_2
@@ -279,7 +279,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10}, Landroid/widget/Button;->isEnabled()Z
+    invoke-virtual {v10}, Landroid/view/View;->isEnabled()Z
 
     move-result v10
 
@@ -293,7 +293,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10}, Landroid/widget/Button;->requestFocus()Z
+    invoke-virtual {v10}, Landroid/view/View;->requestFocus()Z
 
     .line 120
     .end local v1           #batteryStatus:I
@@ -368,9 +368,9 @@
 
     move-result-object v10
 
-    const v11, 0x7f090ba8
+    const v11, 0x7f090cb0
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
     .line 112
     iget-object v10, p0, Lcom/android/settings/CryptKeeperSettings$1;->this$0:Lcom/android/settings/CryptKeeperSettings;
@@ -382,7 +382,7 @@
 
     const/4 v11, 0x1
 
-    invoke-virtual {v10, v11}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_7
 .end method

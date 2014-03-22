@@ -30,16 +30,16 @@
     .parameter "smsManager"
 
     .prologue
-    .line 1240
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1381
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1241
+    .line 1382
     iput-object p1, p0, Lcom/android/settings/applications/InstalledAppDetails$PremiumSmsSelectionListener;->mPackageName:Ljava/lang/String;
 
-    .line 1242
+    .line 1383
     iput-object p2, p0, Lcom/android/settings/applications/InstalledAppDetails$PremiumSmsSelectionListener;->mSmsManager:Lcom/android/internal/telephony/ISms;
 
-    .line 1243
+    .line 1384
     return-void
 .end method
 
@@ -49,25 +49,25 @@
     .parameter "permission"
 
     .prologue
-    .line 1263
+    .line 1404
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$PremiumSmsSelectionListener;->mSmsManager:Lcom/android/internal/telephony/ISms;
 
     if-eqz v0, :cond_0
 
-    .line 1264
+    .line 1405
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$PremiumSmsSelectionListener;->mSmsManager:Lcom/android/internal/telephony/ISms;
 
     invoke-interface {v0, p1, p2}, Lcom/android/internal/telephony/ISms;->setPremiumSmsPermission(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1269
+    .line 1410
     :cond_0
     :goto_0
     return-void
 
-    .line 1266
+    .line 1407
     :catch_0
     move-exception v0
 
@@ -93,7 +93,7 @@
     .end annotation
 
     .prologue
-    .line 1248
+    .line 1389
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     if-ltz p3, :cond_0
 
@@ -101,7 +101,7 @@
 
     if-ge p3, v0, :cond_0
 
-    .line 1249
+    .line 1390
     const-string v0, "InstalledAppDetails"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -124,18 +124,18 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1250
+    .line 1391
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$PremiumSmsSelectionListener;->mPackageName:Ljava/lang/String;
 
     add-int/lit8 v1, p3, 0x1
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/InstalledAppDetails$PremiumSmsSelectionListener;->setPremiumSmsPermission(Ljava/lang/String;I)V
 
-    .line 1254
+    .line 1395
     :goto_0
     return-void
 
-    .line 1252
+    .line 1393
     :cond_0
     const-string v0, "InstalledAppDetails"
 
@@ -174,7 +174,7 @@
     .end annotation
 
     .prologue
-    .line 1259
+    .line 1400
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     return-void
 .end method

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1242
+    .line 1308
     iput-object p1, p0, Lcom/android/settings/deviceinfo/Status$7;->this$0:Lcom/android/settings/deviceinfo/Status;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -41,10 +41,10 @@
     .parameter "uri"
 
     .prologue
-    .line 1245
+    .line 1311
     invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
-    .line 1246
+    .line 1312
     const-string v0, "Status"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,15 +67,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1248
+    .line 1314
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Status$7;->this$0:Lcom/android/settings/deviceinfo/Status;
 
     new-instance v1, Lcom/android/settings/deviceinfo/Status$7$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/deviceinfo/Status$7$1;-><init>(Lcom/android/settings/deviceinfo/Status$7;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/Status;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 1254
+    .line 1320
     return-void
 .end method

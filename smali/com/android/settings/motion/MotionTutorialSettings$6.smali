@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 444
+    .line 459
     iput-object p1, p0, Lcom/android/settings/motion/MotionTutorialSettings$6;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 446
+    .line 461
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings$6;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
     const/4 v1, 0x0
@@ -51,6 +51,6 @@
     #calls: Lcom/android/settings/motion/MotionTutorialSettings;->startTryActually(Z)V
     invoke-static {v0, v1}, Lcom/android/settings/motion/MotionTutorialSettings;->access$1000(Lcom/android/settings/motion/MotionTutorialSettings;Z)V
 
-    .line 447
+    .line 462
     return-void
 .end method

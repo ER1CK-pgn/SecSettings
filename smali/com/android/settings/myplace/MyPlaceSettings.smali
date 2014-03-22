@@ -30,16 +30,16 @@
     const/4 v2, 0x0
 
     .line 113
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v7
 
     .line 114
     .local v7, parentPreference:Landroid/preference/PreferenceScreen;
-    invoke-virtual {v7}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v7}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 116
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -532,7 +532,7 @@
     .line 136
     new-instance v9, Lcom/android/settings/myplace/MyPlacePreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -567,9 +567,9 @@
     if-nez v0, :cond_3
 
     .line 140
-    const v0, 0x7f0913bb
+    const v0, 0x7f09152b
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
@@ -592,7 +592,7 @@
     invoke-virtual {v9, v8}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 157
-    invoke-virtual {v7, v9}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v7, v9}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     .line 159
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
@@ -629,14 +629,14 @@
     if-ne v0, v1, :cond_4
 
     .line 143
-    const v0, 0x7f0913c0
+    const v0, 0x7f091530
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
     .line 144
-    const v0, 0x7f0400e0
+    const v0, 0x7f040104
 
     invoke-virtual {v9, v0}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -659,14 +659,14 @@
     if-ne v0, v1, :cond_5
 
     .line 147
-    const v0, 0x7f09128c
+    const v0, 0x7f0913f8
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
     .line 148
-    const v0, 0x7f0400e1
+    const v0, 0x7f040105
 
     invoke-virtual {v9, v0}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -689,14 +689,14 @@
     if-ne v0, v1, :cond_1
 
     .line 151
-    const v0, 0x7f091290
+    const v0, 0x7f0913fc
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
     .line 152
-    const v0, 0x7f0400df
+    const v0, 0x7f040103
 
     invoke-virtual {v9, v0}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -714,14 +714,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 51
-    const v0, 0x7f07005f
+    const v0, 0x7f07007c
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 52
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 53
     return-void
@@ -741,15 +741,9 @@
     .line 66
     const/4 v0, 0x1
 
-    const v1, 0x7f0907bd
+    const v1, 0x7f09080e
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v0
-
-    const v1, 0x7f0201a1
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
@@ -760,7 +754,7 @@
     .line 70
     const/4 v0, 0x2
 
-    const v1, 0x7f090991
+    const v1, 0x7f090a6f
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -773,7 +767,7 @@
     .parameter
 
     .prologue
-    const v3, 0x7f0907a1
+    const v3, 0x7f0907f4
 
     const/4 v4, 0x0
 
@@ -816,7 +810,7 @@
     invoke-virtual {v2, v0, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     .line 84
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -840,7 +834,7 @@
 
     .line 90
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -951,7 +945,7 @@
     invoke-virtual {v9, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     .line 185
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1024,7 +1018,7 @@
 
     .line 197
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1049,7 +1043,7 @@
 
     .line 203
     :cond_2
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
 
@@ -1088,7 +1082,7 @@
     const/4 v4, 0x2
 
     .line 99
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
     .line 101
     const-string v1, "MyPlaceSettings"
@@ -1136,7 +1130,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200e3
+    const v2, 0x7f020123
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1154,7 +1148,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200e4
+    const v2, 0x7f020124
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

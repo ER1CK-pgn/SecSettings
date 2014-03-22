@@ -265,12 +265,12 @@
 
     check-cast v4, Ljava/lang/String;
 
-    invoke-virtual {v1, v4}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 239
     const-string v4, "\r\n"
 
-    invoke-virtual {v1, v4}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -282,7 +282,7 @@
     .line 242
     :cond_0
     :try_start_2
-    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v1}, Ljava/io/OutputStreamWriter;->close()V
 
     .line 247
     return-void
@@ -291,7 +291,7 @@
     :catchall_0
     move-exception v4
 
-    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v1}, Ljava/io/OutputStreamWriter;->close()V
 
     throw v4
     :try_end_2
@@ -383,9 +383,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 57
-    const v2, 0x7f0401cd
+    const v2, 0x7f04020a
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 59
     invoke-static {p0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -395,7 +395,7 @@
     if-nez v2, :cond_0
 
     .line 60
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
@@ -411,9 +411,9 @@
     .line 68
     .end local v0           #actionBar:Landroid/app/ActionBar;
     :cond_0
-    const v2, 0x7f0b03d5
+    const v2, 0x7f0b043d
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -424,7 +424,7 @@
     .line 70
     const v2, 0x1020004
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -432,18 +432,18 @@
 
     .line 71
     .local v1, emptyView:Landroid/widget/FrameLayout;
-    const v2, 0x7f0b049b
+    const v2, 0x7f0b04f9
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mEmptyPortrait:Landroid/view/View;
 
     .line 72
-    const v2, 0x7f0b049c
+    const v2, 0x7f0b04fa
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -457,7 +457,7 @@
     .line 75
     new-instance v2, Landroid/widget/ArrayAdapter;
 
-    const v3, 0x1090003
+    const v3, 0x7f0401a9
 
     iget-object v4, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mList:Ljava/util/ArrayList;
 
@@ -475,10 +475,10 @@
     .line 77
     iget-object v2, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
+    invoke-virtual {v2, v1}, Landroid/widget/AdapterView;->setEmptyView(Landroid/view/View;)V
 
     .line 79
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -507,13 +507,13 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
     .line 113
-    const v0, 0x7f091153
+    const v0, 0x7f09129d
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200c3
+    const v1, 0x7f020103
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -528,7 +528,7 @@
     .line 118
     const/4 v0, 0x2
 
-    const v1, 0x7f091155
+    const v1, 0x7f09129f
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -562,7 +562,7 @@
     .line 96
     iget-object v0, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mDialogConfigure:Lcom/android/settings/wifi/WifiHiddenApAddDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiHiddenApAddDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 99
     :cond_0
@@ -607,9 +607,9 @@
     .line 130
     iget-object v1, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mDialogConfigure:Lcom/android/settings/wifi/WifiHiddenApAddDialog;
 
-    const v2, 0x7f090341
+    const v2, 0x7f090378
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/wifi/WifiHiddenApAddDialog;->setTitle(I)V
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setTitle(I)V
 
     .line 131
     iget-object v1, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mDialogConfigure:Lcom/android/settings/wifi/WifiHiddenApAddDialog;
@@ -627,13 +627,13 @@
     invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 136
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
     .line 140
     :sswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -696,7 +696,7 @@
     .line 163
     iget-object v0, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mRemoveMenu:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200e3
+    const v1, 0x7f020123
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -716,7 +716,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity;->mRemoveMenu:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200e4
+    const v1, 0x7f020124
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

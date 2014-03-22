@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 265
+    .line 267
     iput-object p1, p0, Lcom/android/settings/search/SearchListAdapter$1;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "value"
 
     .prologue
-    .line 269
-    invoke-virtual {p1}, Landroid/widget/CompoundButton;->getId()I
+    .line 271
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v2
 
-    .line 270
+    .line 272
     .local v2, position:I
     iget-object v4, p0, Lcom/android/settings/search/SearchListAdapter$1;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
@@ -58,7 +58,7 @@
 
     iget v3, v4, Lcom/android/settings/search/SearchItem;->rowId:I
 
-    .line 271
+    .line 273
     .local v3, rowId:I
     iget-object v4, p0, Lcom/android/settings/search/SearchListAdapter$1;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
@@ -68,7 +68,7 @@
 
     iget-object v1, v4, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    .line 273
+    .line 275
     .local v1, keyName:Ljava/lang/String;
     new-instance v0, Landroid/content/Intent;
 
@@ -76,23 +76,23 @@
 
     invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 274
+    .line 276
     .local v0, intent:Landroid/content/Intent;
     const-string v4, "rowId"
 
     invoke-virtual {v0, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 275
+    .line 277
     const-string v4, "keyName"
 
     invoke-virtual {v0, v4, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 276
+    .line 278
     const-string v4, "value"
 
     invoke-virtual {v0, v4, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 277
+    .line 279
     iget-object v4, p0, Lcom/android/settings/search/SearchListAdapter$1;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
     #getter for: Lcom/android/settings/search/SearchListAdapter;->mContext:Landroid/content/Context;
@@ -102,6 +102,6 @@
 
     invoke-virtual {v4, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 278
+    .line 280
     return-void
 .end method

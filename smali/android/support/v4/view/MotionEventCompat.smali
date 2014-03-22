@@ -56,7 +56,7 @@
 
     .prologue
     .line 25
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 80
     return-void
@@ -93,6 +93,36 @@
     and-int/2addr v0, v1
 
     shr-int/lit8 v0, v0, 0x8
+
+    return v0
+.end method
+
+.method public static getActionMasked(Landroid/view/MotionEvent;)I
+    .locals 1
+    .parameter "event"
+
+    .prologue
+    .line 183
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    and-int/lit16 v0, v0, 0xff
+
+    return v0
+.end method
+
+.method public static getPointerCount(Landroid/view/MotionEvent;)I
+    .locals 1
+    .parameter "event"
+
+    .prologue
+    .line 236
+    sget-object v0, Landroid/support/v4/view/MotionEventCompat;->IMPL:Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;
+
+    invoke-interface {v0, p0}, Landroid/support/v4/view/MotionEventCompat$MotionEventVersionImpl;->getPointerCount(Landroid/view/MotionEvent;)I
+
+    move-result v0
 
     return v0
 .end method

@@ -3,7 +3,7 @@
 .source "VoiceInputControlSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,47 +27,50 @@
     .parameter
 
     .prologue
-    .line 233
+    .line 323
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlSettings$6;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
     .parameter "dialog"
-    .parameter "keyCode"
-    .parameter "event"
 
     .prologue
-    const/4 v0, 0x0
+    .line 325
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$6;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-    .line 236
-    const/4 v1, 0x4
+    #getter for: Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    invoke-static {v0}, Lcom/android/settings/VoiceInputControlSettings;->access$700(Lcom/android/settings/VoiceInputControlSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    if-ne p2, v1, :cond_0
+    move-result-object v0
 
-    .line 237
-    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
+    if-eqz v0, :cond_0
 
-    .line 238
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings$6;->this$0:Lcom/android/settings/VoiceInputControlSettings;
+    .line 326
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$6;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-    #getter for: Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
-    invoke-static {v1}, Lcom/android/settings/VoiceInputControlSettings;->access$100(Lcom/android/settings/VoiceInputControlSettings;)Landroid/widget/Switch;
+    #getter for: Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    invoke-static {v0}, Lcom/android/settings/VoiceInputControlSettings;->access$700(Lcom/android/settings/VoiceInputControlSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 239
-    const/4 v0, 0x1
-
-    .line 241
+    .line 327
     :cond_0
-    return v0
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$6;->this$0:Lcom/android/settings/VoiceInputControlSettings;
+
+    const/4 v1, 0x0
+
+    #setter for: Lcom/android/settings/VoiceInputControlSettings;->mIsAutoHapticDialogShowing:Z
+    invoke-static {v0, v1}, Lcom/android/settings/VoiceInputControlSettings;->access$802(Lcom/android/settings/VoiceInputControlSettings;Z)Z
+
+    .line 328
+    return-void
 .end method

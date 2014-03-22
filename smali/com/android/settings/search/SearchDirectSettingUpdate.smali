@@ -79,7 +79,7 @@
     const/4 v2, 0x0
 
     .line 73
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
     const-string v0, "SearchDirectSettingUpdate"
@@ -99,7 +99,7 @@
     iput v5, p0, Lcom/android/settings/search/SearchDirectSettingUpdate;->SECURE:I
 
     .line 80
-    const/16 v0, 0x16
+    const/16 v0, 0x18
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -227,6 +227,18 @@
 
     aput-object v2, v0, v1
 
+    const/16 v1, 0x16
+
+    const-string v2, "bt_hci_snoop_log"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x17
+
+    const-string v2, "wifi_display_certification"
+
+    aput-object v2, v0, v1
+
     iput-object v0, p0, Lcom/android/settings/search/SearchDirectSettingUpdate;->devOptionKey:[Ljava/lang/String;
 
     .line 74
@@ -247,14 +259,14 @@
 
     const/4 v0, 0x0
 
-    .line 815
+    .line 833
     sget-object v2, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 816
+    .line 834
     const-string v3, "adb_enabled"
 
     invoke-static {v2, v3, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -263,12 +275,12 @@
 
     if-nez v3, :cond_1
 
-    .line 831
+    .line 849
     :cond_0
     :goto_0
     return v0
 
-    .line 819
+    .line 837
     :cond_1
     const-string v3, "package_verifier_enable"
 
@@ -278,34 +290,34 @@
 
     if-eqz v2, :cond_0
 
-    .line 822
+    .line 840
     sget-object v2, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 823
+    .line 841
     new-instance v3, Landroid/content/Intent;
 
     const-string v4, "android.intent.action.PACKAGE_NEEDS_VERIFICATION"
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 824
+    .line 842
     const-string v4, "application/vnd.android.package-archive"
 
     invoke-virtual {v3, v4}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 825
+    .line 843
     invoke-virtual {v3, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 826
+    .line 844
     invoke-virtual {v2, v3, v0}, Landroid/content/pm/PackageManager;->queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v2
 
-    .line 827
+    .line 845
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
@@ -314,7 +326,7 @@
 
     move v0, v1
 
-    .line 831
+    .line 849
     goto :goto_0
 .end method
 
@@ -329,15 +341,15 @@
 
     const/4 v2, 0x0
 
-    .line 493
-    .line 495
+    .line 511
+    .line 513
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
 
     sget-object v3, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v3}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    .line 498
+    .line 516
     const-string v3, "biometric_weak_liveliness"
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -346,16 +358,16 @@
 
     if-eqz v3, :cond_2
 
-    .line 499
+    .line 517
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isBiometricWeakLivelinessEnabled()Z
 
     move-result v0
 
     move v3, v0
 
-    .line 624
+    .line 642
     :goto_0
-    const v0, 0x7f0b0579
+    const v0, 0x7f0b05e0
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -367,7 +379,7 @@
 
     if-eqz v0, :cond_20
 
-    .line 625
+    .line 643
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     const-string v4, "wifi"
@@ -378,7 +390,7 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 628
+    .line 646
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiState()I
 
     move-result v4
@@ -396,16 +408,16 @@
     :cond_0
     move v3, v1
 
-    .line 671
+    .line 689
     :cond_1
     :goto_1
     if-ne v3, v1, :cond_28
 
-    .line 672
+    .line 690
     :goto_2
     return v1
 
-    .line 500
+    .line 518
     :cond_2
     const-string v3, "allshare_onoff"
 
@@ -415,7 +427,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 501
+    .line 519
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     const-string v3, "pref_allshare"
@@ -424,7 +436,7 @@
 
     move-result-object v0
 
-    .line 503
+    .line 521
     const-string v3, "allshare_onoff"
 
     invoke-interface {v0, v3, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
@@ -433,7 +445,7 @@
 
     move v3, v0
 
-    .line 504
+    .line 522
     goto :goto_0
 
     :cond_3
@@ -445,7 +457,7 @@
 
     if-eqz v3, :cond_4
 
-    .line 505
+    .line 523
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->getPowerButtonInstantlyLocks()Z
 
     move-result v0
@@ -454,7 +466,7 @@
 
     goto :goto_0
 
-    .line 506
+    .line 524
     :cond_4
     const-string v3, "visiblepattern"
 
@@ -464,7 +476,7 @@
 
     if-eqz v3, :cond_5
 
-    .line 507
+    .line 525
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isVisiblePatternEnabled()Z
 
     move-result v0
@@ -473,17 +485,17 @@
 
     goto :goto_0
 
-    .line 508
+    .line 526
     :cond_5
-    const-string v3, "clear_font"
+    const-string v0, "clear_font"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_7
+    if-eqz v0, :cond_7
 
-    .line 509
+    .line 527
     const-string v0, "persist.sys.font_clarity"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -500,26 +512,26 @@
 
     move v3, v1
 
-    .line 510
+    .line 528
     goto :goto_0
 
     :cond_6
     move v3, v2
 
-    .line 512
+    .line 530
     goto :goto_0
 
-    .line 513
+    .line 531
     :cond_7
-    const-string v3, "toggle_lock_screen_rotation_preference"
+    const-string v0, "toggle_lock_screen_rotation_preference"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_9
+    if-eqz v0, :cond_9
 
-    .line 514
+    .line 532
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/internal/view/RotationPolicy;->isRotationLocked(Landroid/content/Context;)Z
@@ -540,17 +552,17 @@
 
     goto :goto_3
 
-    .line 515
+    .line 533
     :cond_9
-    const-string v3, "backup_data"
+    const-string v0, "backup_data"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_b
+    if-eqz v0, :cond_b
 
-    .line 516
+    .line 534
     const-string v0, "backup"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -561,7 +573,7 @@
 
     move-result-object v0
 
-    .line 519
+    .line 537
     :try_start_0
     invoke-interface {v0}, Landroid/app/backup/IBackupManager;->isBackupEnabled()Z
     :try_end_0
@@ -576,37 +588,37 @@
     :goto_4
     move v3, v0
 
-    .line 527
+    .line 545
     goto/16 :goto_0
 
     :cond_a
     move v0, v2
 
-    .line 522
+    .line 540
     goto :goto_4
 
-    .line 523
+    .line 541
     :catch_0
     move-exception v0
 
-    .line 525
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 543
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v0, v2
 
     goto :goto_4
 
-    .line 527
+    .line 545
     :cond_b
-    const-string v3, "data_transfer_mode"
+    const-string v0, "data_transfer_mode"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_c
+    if-eqz v0, :cond_c
 
-    .line 528
+    .line 546
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     sget-object v3, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
@@ -619,7 +631,7 @@
 
     check-cast v0, Landroid/hardware/usb/UsbManager;
 
-    .line 529
+    .line 547
     const-string v3, "dtf"
 
     invoke-virtual {v0, v3}, Landroid/hardware/usb/UsbManager;->isFunctionEnabled(Ljava/lang/String;)Z
@@ -628,19 +640,19 @@
 
     move v3, v0
 
-    .line 530
+    .line 548
     goto/16 :goto_0
 
     :cond_c
-    const-string v3, "location_gps"
+    const-string v0, "location_gps"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_d
+    if-eqz v0, :cond_d
 
-    .line 531
+    .line 549
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -657,17 +669,17 @@
 
     goto/16 :goto_0
 
-    .line 533
+    .line 551
     :cond_d
-    const-string v3, "location_vzw_gps"
+    const-string v0, "location_vzw_gps"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_e
+    if-eqz v0, :cond_e
 
-    .line 534
+    .line 552
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -684,17 +696,17 @@
 
     goto/16 :goto_0
 
-    .line 536
+    .line 554
     :cond_e
-    const-string v3, "enforce_read_external"
+    const-string v0, "enforce_read_external"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_f
+    if-eqz v0, :cond_f
 
-    .line 537
+    .line 555
     const-string v0, "android.permission.READ_EXTERNAL_STORAGE"
 
     invoke-static {v0}, Lcom/android/settings/search/SearchDirectSettingUpdate;->isPermissionEnforced(Ljava/lang/String;)Z
@@ -705,17 +717,17 @@
 
     goto/16 :goto_0
 
-    .line 538
+    .line 556
     :cond_f
-    const-string v3, "debug_layout"
+    const-string v0, "debug_layout"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_10
+    if-eqz v0, :cond_10
 
-    .line 539
+    .line 557
     const-string v0, "debug.layout"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -726,17 +738,17 @@
 
     goto/16 :goto_0
 
-    .line 540
+    .line 558
     :cond_10
-    const-string v3, "show_hw_screen_udpates"
+    const-string v0, "show_hw_screen_udpates"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_11
+    if-eqz v0, :cond_11
 
-    .line 541
+    .line 559
     const-string v0, "debug.hwui.show_dirty_regions"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -747,17 +759,17 @@
 
     goto/16 :goto_0
 
-    .line 543
+    .line 561
     :cond_11
-    const-string v3, "show_hw_layers_udpates"
+    const-string v0, "show_hw_layers_udpates"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_12
+    if-eqz v0, :cond_12
 
-    .line 544
+    .line 562
     const-string v0, "debug.hwui.show_layers_updates"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -768,38 +780,31 @@
 
     goto/16 :goto_0
 
-    .line 546
+    .line 564
     :cond_12
-    const-string v3, "show_hw_overdraw"
+    const-string v0, "show_hw_overdraw"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_13
-
-    .line 547
-    const-string v0, "debug.hwui.show_overdraw"
-
-    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    move v3, v0
+    if-eqz v0, :cond_13
+
+    move v3, v2
 
     goto/16 :goto_0
 
-    .line 549
+    .line 567
     :cond_13
-    const-string v3, "show_screen_updates"
+    const-string v0, "show_screen_updates"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_15
+    if-eqz v0, :cond_15
 
-    .line 551
+    .line 569
     :try_start_1
     const-string v0, "SurfaceFlinger"
 
@@ -807,55 +812,55 @@
 
     move-result-object v0
 
-    .line 552
+    .line 570
     if-eqz v0, :cond_2b
 
-    .line 553
+    .line 571
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
-    .line 554
+    .line 572
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v4
 
-    .line 555
+    .line 573
     const-string v5, "android.ui.ISurfaceComposer"
 
     invoke-virtual {v3, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 556
+    .line 574
     const/16 v5, 0x3f2
 
     const/4 v6, 0x0
 
     invoke-interface {v0, v5, v3, v4, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 558
+    .line 576
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
-    .line 560
+    .line 578
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
-    .line 561
+    .line 579
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v0
 
-    .line 562
+    .line 580
     if-eqz v0, :cond_14
 
     move v0, v1
 
-    .line 563
+    .line 581
     :goto_5
     :try_start_2
     invoke-virtual {v4}, Landroid/os/Parcel;->recycle()V
 
-    .line 564
+    .line 582
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_5
@@ -863,16 +868,16 @@
     :goto_6
     move v3, v0
 
-    .line 569
+    .line 587
     goto/16 :goto_0
 
     :cond_14
     move v0, v2
 
-    .line 562
+    .line 580
     goto :goto_5
 
-    .line 566
+    .line 584
     :catch_1
     move-exception v0
 
@@ -880,26 +885,26 @@
 
     move v0, v2
 
-    .line 568
+    .line 586
     :goto_7
-    invoke-virtual {v3}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v3, v0
 
-    .line 569
+    .line 587
     goto/16 :goto_0
 
-    .line 570
+    .line 588
     :cond_15
-    const-string v3, "disable_overlays"
+    const-string v0, "disable_overlays"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_17
+    if-eqz v0, :cond_17
 
-    .line 572
+    .line 590
     :try_start_3
     const-string v0, "SurfaceFlinger"
 
@@ -907,61 +912,61 @@
 
     move-result-object v0
 
-    .line 573
+    .line 591
     if-eqz v0, :cond_2a
 
-    .line 574
+    .line 592
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v3
 
-    .line 575
+    .line 593
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v4
 
-    .line 576
+    .line 594
     const-string v5, "android.ui.ISurfaceComposer"
 
     invoke-virtual {v3, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 577
+    .line 595
     const/16 v5, 0x3f2
 
     const/4 v6, 0x0
 
     invoke-interface {v0, v5, v3, v4, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 579
+    .line 597
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
-    .line 581
+    .line 599
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
-    .line 582
+    .line 600
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
-    .line 584
+    .line 602
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
 
-    .line 585
+    .line 603
     invoke-virtual {v4}, Landroid/os/Parcel;->readInt()I
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_2
 
     move-result v0
 
-    .line 586
+    .line 604
     if-eqz v0, :cond_16
 
     move v0, v1
 
-    .line 587
+    .line 605
     :goto_8
     :try_start_4
     invoke-virtual {v4}, Landroid/os/Parcel;->recycle()V
 
-    .line 588
+    .line 606
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
     :try_end_4
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_4
@@ -969,16 +974,16 @@
     :goto_9
     move v3, v0
 
-    .line 593
+    .line 611
     goto/16 :goto_0
 
     :cond_16
     move v0, v2
 
-    .line 586
+    .line 604
     goto :goto_8
 
-    .line 590
+    .line 608
     :catch_2
     move-exception v0
 
@@ -986,26 +991,26 @@
 
     move v0, v2
 
-    .line 592
+    .line 610
     :goto_a
-    invoke-virtual {v3}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v3, v0
 
-    .line 593
+    .line 611
     goto/16 :goto_0
 
-    .line 594
+    .line 612
     :cond_17
-    const-string v3, "force_hw_ui"
+    const-string v0, "force_hw_ui"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_18
+    if-eqz v0, :cond_18
 
-    .line 595
+    .line 613
     const-string v0, "persist.sys.ui.hw"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -1016,17 +1021,17 @@
 
     goto/16 :goto_0
 
-    .line 596
+    .line 614
     :cond_18
-    const-string v3, "force_msaa"
+    const-string v0, "force_msaa"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_19
+    if-eqz v0, :cond_19
 
-    .line 597
+    .line 615
     const-string v0, "debug.egl.force_msaa"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -1037,17 +1042,17 @@
 
     goto/16 :goto_0
 
-    .line 598
+    .line 616
     :cond_19
-    const-string v3, "strict_mode"
+    const-string v0, "strict_mode"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_1b
+    if-eqz v0, :cond_1b
 
-    .line 599
+    .line 617
     const-string v0, "persist.sys.strictmode.visual"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -1062,10 +1067,10 @@
 
     move v3, v2
 
-    .line 600
+    .line 618
     goto/16 :goto_0
 
-    .line 602
+    .line 620
     :cond_1a
     const-string v0, "persist.sys.strictmode.visual"
 
@@ -1077,17 +1082,17 @@
 
     goto/16 :goto_0
 
-    .line 604
+    .line 622
     :cond_1b
-    const-string v3, "track_frame_time"
+    const-string v0, "track_frame_time"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_1c
+    if-eqz v0, :cond_1c
 
-    .line 605
+    .line 623
     const-string v0, "debug.hwui.profile"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -1098,17 +1103,17 @@
 
     goto/16 :goto_0
 
-    .line 606
+    .line 624
     :cond_1c
-    const-string v3, "backup_data"
+    const-string v0, "backup_data"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_1d
+    if-eqz v0, :cond_1d
 
-    .line 607
+    .line 625
     const-string v0, "backup"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -1119,7 +1124,7 @@
 
     move-result-object v0
 
-    .line 610
+    .line 628
     :try_start_5
     invoke-interface {v0}, Landroid/app/backup/IBackupManager;->isBackupEnabled()Z
     :try_end_5
@@ -1130,40 +1135,35 @@
     :goto_b
     move v3, v0
 
-    .line 615
+    .line 633
     goto/16 :goto_0
 
-    .line 611
+    .line 629
     :catch_3
     move-exception v0
 
-    .line 613
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 631
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v0, v2
 
     goto :goto_b
 
-    .line 615
+    .line 633
     :cond_1d
-    const-string v3, "visiblesignature"
+    const-string v0, "visiblesignature"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1e
-
-    .line 616
-    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isVisibleSignatureEnabled()Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    move v3, v0
+    if-eqz v0, :cond_1e
+
+    move v3, v2
 
     goto/16 :goto_0
 
-    .line 617
+    .line 635
     :cond_1e
     const-string v0, "location_network"
 
@@ -1173,7 +1173,7 @@
 
     if-eqz v0, :cond_1f
 
-    .line 618
+    .line 636
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1190,7 +1190,7 @@
 
     goto/16 :goto_0
 
-    .line 619
+    .line 637
     :cond_1f
     const-string v0, "location_vzw_network"
 
@@ -1200,7 +1200,7 @@
 
     if-eqz v0, :cond_29
 
-    .line 620
+    .line 638
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1217,9 +1217,9 @@
 
     goto/16 :goto_0
 
-    .line 632
+    .line 650
     :cond_20
-    const v0, 0x7f0b057b
+    const v0, 0x7f0b05e2
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1231,19 +1231,19 @@
 
     if-eqz v0, :cond_22
 
-    .line 634
+    .line 652
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/bluetooth/LocalBluetoothManager;->getInstance(Landroid/content/Context;)Lcom/android/settings/bluetooth/LocalBluetoothManager;
 
     move-result-object v0
 
-    .line 635
+    .line 653
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/LocalBluetoothManager;->getBluetoothAdapter()Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
 
     move-result-object v0
 
-    .line 636
+    .line 654
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
 
     move-result v4
@@ -1263,12 +1263,12 @@
     :cond_21
     move v3, v1
 
-    .line 638
+    .line 656
     goto/16 :goto_1
 
-    .line 640
+    .line 658
     :cond_22
-    const v0, 0x7f0b0588
+    const v0, 0x7f0b05f0
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1280,14 +1280,14 @@
 
     if-eqz v0, :cond_23
 
-    .line 642
+    .line 660
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v0
 
-    .line 643
+    .line 661
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
 
     move-result v0
@@ -1296,10 +1296,10 @@
 
     move v3, v1
 
-    .line 644
+    .line 662
     goto/16 :goto_1
 
-    .line 646
+    .line 664
     :cond_23
     const-string v0, "toggle_android_beam"
 
@@ -1309,14 +1309,14 @@
 
     if-eqz v0, :cond_24
 
-    .line 647
+    .line 665
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v0
 
-    .line 648
+    .line 666
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->isNdefPushEnabled()Z
 
     move-result v0
@@ -1325,10 +1325,10 @@
 
     move v3, v1
 
-    .line 649
+    .line 667
     goto/16 :goto_1
 
-    .line 651
+    .line 669
     :cond_24
     const-string v0, "location_toggle"
 
@@ -1338,7 +1338,7 @@
 
     if-eqz v0, :cond_26
 
-    .line 657
+    .line 675
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1351,7 +1351,7 @@
 
     move-result v0
 
-    .line 659
+    .line 677
     sget-object v4, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1364,7 +1364,7 @@
 
     move-result v4
 
-    .line 661
+    .line 679
     if-nez v0, :cond_25
 
     if-eqz v4, :cond_1
@@ -1372,10 +1372,10 @@
     :cond_25
     move v3, v1
 
-    .line 662
+    .line 680
     goto/16 :goto_1
 
-    .line 664
+    .line 682
     :cond_26
     const-string v0, "enable_switch_wifi_ap"
 
@@ -1385,7 +1385,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 665
+    .line 683
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     const-string v3, "wifi"
@@ -1396,12 +1396,12 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 666
+    .line 684
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v0
 
-    .line 667
+    .line 685
     const/16 v3, 0xd
 
     if-ne v0, v3, :cond_27
@@ -1411,28 +1411,28 @@
     :goto_c
     move v3, v0
 
-    .line 668
+    .line 686
     goto/16 :goto_1
 
     :cond_27
     move v0, v2
 
-    .line 667
+    .line 685
     goto :goto_c
 
     :cond_28
     move v1, v2
 
-    .line 671
+    .line 689
     goto/16 :goto_2
 
-    .line 590
+    .line 608
     :catch_4
     move-exception v3
 
     goto/16 :goto_a
 
-    .line 566
+    .line 584
     :catch_5
     move-exception v3
 
@@ -1463,8 +1463,8 @@
 
     const/4 v1, 0x1
 
-    .line 696
-    .line 697
+    .line 714
+    .line 715
     const-string v0, "vibrate_when_ringing"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1473,7 +1473,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 698
+    .line 716
     invoke-direct {p0}, Lcom/android/settings/search/SearchDirectSettingUpdate;->getPhoneSilentModeSettingValue()Ljava/lang/String;
 
     move-result-object v0
@@ -1493,12 +1493,12 @@
     :cond_0
     move v1, v2
 
-    .line 756
+    .line 774
     :cond_1
     :goto_0
     return v1
 
-    .line 702
+    .line 720
     :cond_2
     const-string v0, "lock_screen_short_or_camera_widget"
 
@@ -1508,7 +1508,7 @@
 
     if-eqz v0, :cond_5
 
-    .line 703
+    .line 721
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1525,7 +1525,7 @@
 
     move v0, v1
 
-    .line 704
+    .line 722
     :goto_1
     new-instance v3, Lcom/android/internal/widget/LockPatternUtils;
 
@@ -1533,7 +1533,7 @@
 
     invoke-direct {v3, v4}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    .line 705
+    .line 723
     if-eqz v0, :cond_3
 
     invoke-virtual {v3}, Lcom/android/internal/widget/LockPatternUtils;->isSecure()Z
@@ -1545,16 +1545,16 @@
     :cond_3
     move v1, v2
 
-    .line 708
+    .line 726
     goto :goto_0
 
     :cond_4
     move v0, v2
 
-    .line 703
+    .line 721
     goto :goto_1
 
-    .line 709
+    .line 727
     :cond_5
     const-string v0, "wait_for_debugger"
 
@@ -1564,7 +1564,7 @@
 
     if-eqz v0, :cond_7
 
-    .line 710
+    .line 728
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1577,7 +1577,7 @@
 
     move-result-object v0
 
-    .line 712
+    .line 730
     if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -1589,10 +1589,10 @@
     :cond_6
     move v1, v2
 
-    .line 715
+    .line 733
     goto :goto_0
 
-    .line 717
+    .line 735
     :cond_7
     const-string v0, "verify_apps_over_usb"
 
@@ -1602,7 +1602,7 @@
 
     if-eqz v0, :cond_8
 
-    .line 718
+    .line 736
     invoke-direct {p0}, Lcom/android/settings/search/SearchDirectSettingUpdate;->enableVerifierSetting()Z
 
     move-result v0
@@ -1611,10 +1611,10 @@
 
     move v1, v2
 
-    .line 721
+    .line 739
     goto :goto_0
 
-    .line 722
+    .line 740
     :cond_8
     const-string v0, "multiple_lock_screenswitch"
 
@@ -1648,7 +1648,7 @@
 
     if-eqz v0, :cond_a
 
-    .line 724
+    .line 742
     :cond_9
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
@@ -1666,12 +1666,12 @@
 
     move v1, v2
 
-    .line 727
+    .line 745
     goto/16 :goto_0
 
-    .line 729
+    .line 747
     :cond_a
-    const v0, 0x7f0b05b0
+    const v0, 0x7f0b061a
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1683,7 +1683,7 @@
 
     if-eqz v0, :cond_e
 
-    .line 730
+    .line 748
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1700,7 +1700,7 @@
 
     move v0, v1
 
-    .line 732
+    .line 750
     :goto_2
     sget-object v3, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
@@ -1718,7 +1718,7 @@
 
     move v3, v1
 
-    .line 735
+    .line 753
     :goto_3
     if-eqz v0, :cond_b
 
@@ -1727,22 +1727,22 @@
     :cond_b
     move v1, v2
 
-    .line 736
+    .line 754
     goto/16 :goto_0
 
     :cond_c
     move v0, v2
 
-    .line 730
+    .line 748
     goto :goto_2
 
     :cond_d
     move v3, v2
 
-    .line 732
+    .line 750
     goto :goto_3
 
-    .line 738
+    .line 756
     :cond_e
     const-string v0, "send_dual_captured_image_key"
 
@@ -1752,7 +1752,7 @@
 
     if-eqz v0, :cond_f
 
-    .line 739
+    .line 757
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1783,13 +1783,13 @@
 
     move v1, v2
 
-    .line 742
+    .line 760
     goto/16 :goto_0
 
     :cond_f
     move v0, v2
 
-    .line 745
+    .line 763
     :goto_4
     sget-object v3, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
@@ -1799,7 +1799,7 @@
 
     if-ge v0, v3, :cond_1
 
-    .line 746
+    .line 764
     iget-object v3, p0, Lcom/android/settings/search/SearchDirectSettingUpdate;->devOptionKey:[Ljava/lang/String;
 
     aget-object v3, v3, v0
@@ -1810,7 +1810,7 @@
 
     if-eqz v3, :cond_10
 
-    .line 747
+    .line 765
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1827,10 +1827,10 @@
 
     move v1, v2
 
-    .line 748
+    .line 766
     goto/16 :goto_0
 
-    .line 745
+    .line 763
     :cond_10
     add-int/lit8 v0, v0, 0x1
 
@@ -1841,7 +1841,7 @@
     .locals 2
 
     .prologue
-    .line 784
+    .line 802
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
@@ -1852,38 +1852,38 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 786
+    .line 804
     invoke-virtual {v0}, Landroid/media/AudioManager;->getRingerMode()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 795
+    .line 813
     const-string v0, "off"
 
     :goto_0
     return-object v0
 
-    .line 788
+    .line 806
     :pswitch_0
     const-string v0, "off"
 
     goto :goto_0
 
-    .line 790
+    .line 808
     :pswitch_1
     const-string v0, "vibrate"
 
     goto :goto_0
 
-    .line 792
+    .line 810
     :pswitch_2
     const-string v0, "mute"
 
     goto :goto_0
 
-    .line 786
+    .line 804
     nop
 
     :pswitch_data_0
@@ -1898,7 +1898,7 @@
     .locals 10
 
     .prologue
-    const v9, 0x7f0b05ac
+    const v9, 0x7f0b0614
 
     const/4 v8, 0x2
 
@@ -1911,7 +1911,7 @@
     .line 94
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b057e
+    const v1, 0x7f0b05e5
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1928,7 +1928,7 @@
     .line 95
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05b0
+    const v1, 0x7f0b061a
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1947,7 +1947,7 @@
     .line 96
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05b9
+    const v1, 0x7f0b0626
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -1964,7 +1964,7 @@
     .line 97
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05cb
+    const v1, 0x7f0b0640
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2434,7 +2434,7 @@
 
     const-string v2, "dormant_disable_incoming_calls"
 
-    const v3, 0x7f0b059a
+    const v3, 0x7f0b0602
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2453,7 +2453,7 @@
 
     const-string v2, "dormant_disable_notifications"
 
-    const v3, 0x7f0b059a
+    const v3, 0x7f0b0602
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2472,7 +2472,7 @@
 
     const-string v2, "dormant_disable_alarm_and_timer"
 
-    const v3, 0x7f0b059a
+    const v3, 0x7f0b0602
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2491,7 +2491,7 @@
 
     const-string v2, "dormant_disable_led_indicator"
 
-    const v3, 0x7f0b059a
+    const v3, 0x7f0b0602
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2510,7 +2510,7 @@
 
     const-string v2, "dormant_always"
 
-    const v3, 0x7f0b059a
+    const v3, 0x7f0b0602
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2529,7 +2529,7 @@
 
     const-string v2, "driving_mode_incoming_call_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2548,7 +2548,7 @@
 
     const-string v2, "driving_mode_chaton_call_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2567,7 +2567,7 @@
 
     const-string v2, "driving_mode_air_call_accept"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2586,7 +2586,7 @@
 
     const-string v2, "driving_mode_message_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2605,7 +2605,7 @@
 
     const-string v2, "driving_mode_email_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2624,7 +2624,7 @@
 
     const-string v2, "driving_mode_voice_mail_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2643,7 +2643,7 @@
 
     const-string v2, "driving_mode_alarm_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2662,7 +2662,7 @@
 
     const-string v2, "driving_mode_schedule_notification"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2681,7 +2681,7 @@
 
     const-string v2, "driving_mode_unlock_screen_contents"
 
-    const v3, 0x7f0b059b
+    const v3, 0x7f0b0603
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2700,7 +2700,7 @@
 
     const-string v2, "voice_input_control_incomming_calls"
 
-    const v3, 0x7f0b05ad
+    const v3, 0x7f0b0615
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2719,7 +2719,7 @@
 
     const-string v2, "voice_input_control_chatonv"
 
-    const v3, 0x7f0b05ad
+    const v3, 0x7f0b0615
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2738,7 +2738,7 @@
 
     const-string v2, "voice_input_control_alarm"
 
-    const v3, 0x7f0b05ad
+    const v3, 0x7f0b0615
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2757,7 +2757,7 @@
 
     const-string v2, "voice_input_control_camera"
 
-    const v3, 0x7f0b05ad
+    const v3, 0x7f0b0615
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2776,7 +2776,7 @@
 
     const-string v2, "voice_input_control_music"
 
-    const v3, 0x7f0b05ad
+    const v3, 0x7f0b0615
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2795,7 +2795,7 @@
 
     const-string v2, "psm_cpu_clock"
 
-    const v3, 0x7f0b05a0
+    const v3, 0x7f0b0608
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2814,7 +2814,7 @@
 
     const-string v2, "psm_display"
 
-    const v3, 0x7f0b05a0
+    const v3, 0x7f0b0608
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2833,7 +2833,7 @@
 
     const-string v2, "psm_background_colour"
 
-    const v3, 0x7f0b05a0
+    const v3, 0x7f0b0608
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2852,7 +2852,7 @@
 
     const-string v2, "psm_haptic_feedback"
 
-    const v3, 0x7f0b05a0
+    const v3, 0x7f0b0608
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -3702,7 +3702,39 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 262
+    .line 260
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const-string v1, "bt_hci_snoop_log"
+
+    const-string v2, "bluetooth_hci_log"
+
+    const/4 v3, 0x3
+
+    const-string v4, "exception"
+
+    invoke-direct {p0, v1, v2, v3, v4}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 261
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const-string v1, "wifi_display_certification"
+
+    const-string v2, "wifi_display_certification_on"
+
+    const-string v3, "exception"
+
+    invoke-direct {p0, v1, v2, v8, v3}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 265
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "lock_screen_date_and_year"
@@ -3715,7 +3747,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 265
+    .line 268
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "brightness_adjustment"
@@ -3728,14 +3760,14 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 268
+    .line 271
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "open_multi_window_view"
 
     const-string v2, "open_multi_window_view"
 
-    const v3, 0x7f0b05b0
+    const v3, 0x7f0b061a
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -3747,7 +3779,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 271
+    .line 274
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_visual_feedback_icon"
@@ -3762,7 +3794,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 272
+    .line 275
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_adv_web"
@@ -3777,7 +3809,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 273
+    .line 276
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_adv_email_list"
@@ -3792,7 +3824,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 274
+    .line 277
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_adv_email_body"
@@ -3807,7 +3839,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 275
+    .line 278
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_adv_readers_hub"
@@ -3822,7 +3854,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 276
+    .line 279
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_adv_chrome"
@@ -3837,7 +3869,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 277
+    .line 280
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smart_scroll_adv_gmail_body"
@@ -3852,7 +3884,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 281
+    .line 284
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_information_preview"
@@ -3869,7 +3901,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 282
+    .line 285
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_progress_preview"
@@ -3886,7 +3918,16 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 283
+    .line 286
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 287
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_speed_dial_preview"
@@ -3903,7 +3944,8 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 284
+    .line 289
+    :cond_0
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_webpage_magnifier"
@@ -3920,7 +3962,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 285
+    .line 290
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_icon_label"
@@ -3937,7 +3979,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 286
+    .line 291
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_list_scroll"
@@ -3954,7 +3996,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 287
+    .line 292
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_pen_sound_and_haptic_feedback"
@@ -3971,7 +4013,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 290
+    .line 295
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "information_preview"
@@ -3988,7 +4030,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 291
+    .line 296
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "progress_bar_preview"
@@ -4005,7 +4047,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 292
+    .line 297
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "speed_dial_tip"
@@ -4022,7 +4064,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 293
+    .line 298
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "magnifier"
@@ -4039,7 +4081,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 294
+    .line 299
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "sound_and_haptic_feedback"
@@ -4056,7 +4098,55 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 297
+    .line 300
+    const-string v0, "hltejs01dcm"
+
+    const-string v1, "ro.product.device"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "SC-02F"
+
+    const-string v1, "ro.product.model"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 301
+    :cond_1
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const v1, 0x7f0b0613
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "finger_air_view"
+
+    invoke-direct {p0, v1, v2, v5, v6}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 305
+    :cond_2
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "time_and_date"
@@ -4071,7 +4161,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 298
+    .line 306
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "notification"
@@ -4086,7 +4176,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 299
+    .line 307
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "missed_call"
@@ -4101,7 +4191,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 300
+    .line 308
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "unread_message"
@@ -4116,7 +4206,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 301
+    .line 309
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "battery"
@@ -4131,7 +4221,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 302
+    .line 310
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "current_music"
@@ -4146,7 +4236,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 305
+    .line 313
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "single_photo_view"
@@ -4161,7 +4251,30 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 307
+    .line 314
+    invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    .line 315
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const-string v1, "internet_window"
+
+    const-string v2, "air_motion_turn_internet_window"
+
+    const-string v3, "air_turn"
+
+    invoke-direct {p0, v1, v2, v5, v3}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 317
+    :cond_3
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "now_playing_on_music"
@@ -4176,7 +4289,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 308
+    .line 318
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "bgm_on_lock_screen"
@@ -4191,7 +4304,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 309
+    .line 319
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "note_page_view"
@@ -4206,7 +4319,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 312
+    .line 322
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "advanced_air_call_accept_auto_start_speaker"
@@ -4221,7 +4334,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 315
+    .line 325
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_spen_pointer"
@@ -4234,7 +4347,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 316
+    .line 326
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "battery_saving"
@@ -4247,7 +4360,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 317
+    .line 327
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "loss_prevention_alert"
@@ -4260,7 +4373,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 318
+    .line 328
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "key_writing_buddy"
@@ -4273,7 +4386,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 321
+    .line 331
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "any_screen"
@@ -4286,7 +4399,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 322
+    .line 332
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "dialer"
@@ -4299,7 +4412,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 323
+    .line 333
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "samsung_keypad"
@@ -4312,7 +4425,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 324
+    .line 334
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "calculator"
@@ -4325,7 +4438,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 325
+    .line 335
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "pattern"
@@ -4338,7 +4451,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 331
+    .line 341
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "torchlight_enable"
@@ -4351,7 +4464,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 334
+    .line 344
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "sim_toggle"
@@ -4364,7 +4477,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 337
+    .line 347
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "auto_update"
@@ -4377,7 +4490,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 338
+    .line 348
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "wifi_only"
@@ -4390,10 +4503,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 342
+    .line 352
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b0579
+    const v1, 0x7f0b05e0
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4405,10 +4518,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 343
+    .line 353
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b057b
+    const v1, 0x7f0b05e2
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4420,10 +4533,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 344
+    .line 354
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b0588
+    const v1, 0x7f0b05f0
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4435,10 +4548,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 345
+    .line 355
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b058a
+    const v1, 0x7f0b05f2
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4452,10 +4565,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 346
+    .line 356
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b059a
+    const v1, 0x7f0b0602
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4469,10 +4582,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 347
+    .line 357
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b059b
+    const v1, 0x7f0b0603
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4486,10 +4599,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 348
+    .line 358
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05a0
+    const v1, 0x7f0b0608
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4503,7 +4616,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 349
+    .line 359
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -4518,10 +4631,27 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 350
+    .line 360
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05ad
+    const v1, 0x7f0b0613
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "finger_air_view"
+
+    invoke-direct {p0, v1, v2, v5, v6}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 361
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const v1, 0x7f0b0615
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4535,10 +4665,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 351
+    .line 362
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05c6
+    const v1, 0x7f0b0648
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4552,10 +4682,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 352
+    .line 363
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05c8
+    const v1, 0x7f0b064a
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4569,10 +4699,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 353
+    .line 364
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05c9
+    const v1, 0x7f0b064b
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4586,10 +4716,10 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 354
+    .line 365
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
-    const v1, 0x7f0b05c7
+    const v1, 0x7f0b0649
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4603,7 +4733,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 357
+    .line 370
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "enable_switch_wifi_ap"
@@ -4614,12 +4744,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 361
+    .line 374
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "toggle_android_beam"
 
-    const v2, 0x7f0b0588
+    const v2, 0x7f0b05f0
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -4631,7 +4761,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 371
+    .line 384
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "lock_screen_shortcut_menu"
@@ -4646,7 +4776,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 372
+    .line 385
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "safetyzone_settings"
@@ -4659,7 +4789,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 375
+    .line 388
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "multiple_lock_screenswitch"
@@ -4674,7 +4804,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 376
+    .line 389
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "lock_screen_myprofile_settings"
@@ -4689,7 +4819,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 377
+    .line 390
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "lock_screen_wakeup_settings"
@@ -4704,7 +4834,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 381
+    .line 394
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "screensaver"
@@ -4719,7 +4849,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 384
+    .line 397
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const-string v1, "recommended_apps"
+
+    const-string v2, "recommended_apps_setting"
+
+    invoke-direct {p0, v1, v2, v5, v6}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 400
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "color_blind"
@@ -4732,7 +4875,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 385
+    .line 401
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "assistant_menu_preference"
@@ -4745,7 +4888,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 386
+    .line 402
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "access_control_key"
@@ -4758,7 +4901,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 387
+    .line 403
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "toggle_easy_interaction_preference"
@@ -4771,7 +4914,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 388
+    .line 404
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "notification_preference"
@@ -4784,7 +4927,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 389
+    .line 405
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "call_hearing_aid"
@@ -4797,7 +4940,37 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 392
+    .line 406
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const-string v1, "samsung_captioning_preference_screen"
+
+    const-string v2, "accessibility_sec_captioning_enabled"
+
+    const/4 v3, 0x3
+
+    invoke-direct {p0, v1, v2, v3, v6}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 407
+    sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
+
+    const-string v1, "google_captioning_preference_screen"
+
+    const-string v2, "accessibility_captioning_enabled"
+
+    const/4 v3, 0x3
+
+    invoke-direct {p0, v1, v2, v3, v6}, Lcom/android/settings/search/SearchDirectSettingUpdate;->setDirectDBInfo(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 410
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "support_secret_box"
@@ -4810,7 +4983,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 393
+    .line 411
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "support_webpass"
@@ -4823,7 +4996,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 394
+    .line 412
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "lock_screen_finger_print"
@@ -4836,7 +5009,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 397
+    .line 415
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "air_motion"
@@ -4849,7 +5022,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 398
+    .line 416
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "motion"
@@ -4862,7 +5035,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 399
+    .line 417
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "surface"
@@ -4875,7 +5048,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 402
+    .line 420
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "smartscreen_scroll"
@@ -4888,7 +5061,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 405
+    .line 423
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "location_toggle"
@@ -4899,7 +5072,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 408
+    .line 426
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "lock_screen_short_or_camera_widget"
@@ -4914,7 +5087,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 409
+    .line 427
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "dualclock_settings"
@@ -4927,7 +5100,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 412
+    .line 430
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "pen_air_view"
@@ -4940,7 +5113,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 416
+    .line 434
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "quick_glance"
@@ -4955,7 +5128,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 417
+    .line 435
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "air_scroll"
@@ -4970,7 +5143,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 418
+    .line 436
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "air_turn"
@@ -4985,7 +5158,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 419
+    .line 437
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "air_move"
@@ -5000,7 +5173,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 420
+    .line 438
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "air_call_accept"
@@ -5015,7 +5188,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 421
+    .line 439
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "air_pin"
@@ -5030,7 +5203,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 424
+    .line 442
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "pick_up_to_call_out"
@@ -5045,7 +5218,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 425
+    .line 443
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "pick_up"
@@ -5060,7 +5233,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 426
+    .line 444
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "tilt"
@@ -5075,7 +5248,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 427
+    .line 445
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "pan_to_browse_image"
@@ -5090,7 +5263,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 428
+    .line 446
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "turn_over"
@@ -5105,7 +5278,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 431
+    .line 449
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "palm_swipe"
@@ -5120,7 +5293,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 432
+    .line 450
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "palm_touch"
@@ -5135,7 +5308,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 435
+    .line 453
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "weather"
@@ -5148,7 +5321,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 436
+    .line 454
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "walking_mate"
@@ -5161,7 +5334,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 439
+    .line 457
     sget-object v0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     const-string v1, "send_dual_captured_image_key"
@@ -5176,7 +5349,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 441
+    .line 459
     return-void
 .end method
 
@@ -5185,7 +5358,7 @@
     .parameter
 
     .prologue
-    .line 760
+    .line 778
     :try_start_0
     invoke-static {}, Landroid/app/ActivityThread;->getPackageManager()Landroid/content/pm/IPackageManager;
 
@@ -5199,11 +5372,11 @@
 
     return v0
 
-    .line 761
+    .line 779
     :catch_0
     move-exception v0
 
-    .line 762
+    .line 780
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Problem talking with PackageManager"
@@ -5221,25 +5394,25 @@
     .parameter "dependencyKey"
 
     .prologue
-    .line 444
+    .line 462
     new-instance v0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
 
     invoke-direct {v0, p0}, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;-><init>(Lcom/android/settings/search/SearchDirectSettingUpdate;)V
 
-    .line 446
+    .line 464
     .local v0, directDBinfoItem:Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;
     iput-object p1, v0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->keyName:Ljava/lang/String;
 
-    .line 447
+    .line 465
     iput-object p2, v0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->DBName:Ljava/lang/String;
 
-    .line 448
+    .line 466
     iput p3, v0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->DBType:I
 
-    .line 449
+    .line 467
     iput-object p4, v0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->dependencyKey:Ljava/lang/String;
 
-    .line 451
+    .line 469
     return-object v0
 .end method
 
@@ -5254,22 +5427,22 @@
 
     const/4 v7, 0x0
 
-    .line 455
+    .line 473
     const/4 v4, 0x0
 
-    .line 456
+    .line 474
     .local v4, retValue:I
     const/4 v1, -0x1
 
-    .line 457
+    .line 475
     .local v1, DBType:I
     const/4 v0, 0x0
 
-    .line 458
+    .line 476
     .local v0, DBName:Ljava/lang/String;
     const/4 v3, 0x0
 
-    .line 460
+    .line 478
     .local v3, retResultValue:Z
     const/4 v2, 0x0
 
@@ -5283,7 +5456,7 @@
 
     if-ge v2, v5, :cond_0
 
-    .line 461
+    .line 479
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5300,7 +5473,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 462
+    .line 480
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5311,7 +5484,7 @@
 
     iget-object v0, v5, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->DBName:Ljava/lang/String;
 
-    .line 463
+    .line 481
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5322,11 +5495,11 @@
 
     iget v1, v5, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->DBType:I
 
-    .line 468
+    .line 486
     :cond_0
     if-ne v1, v6, :cond_2
 
-    .line 469
+    .line 487
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -5337,7 +5510,7 @@
 
     move-result v4
 
-    .line 483
+    .line 501
     :goto_1
     const-string v5, "24 hour"
 
@@ -5347,30 +5520,30 @@
 
     if-eqz v5, :cond_7
 
-    .line 484
+    .line 502
     const/16 v5, 0x18
 
     if-ne v4, v5, :cond_6
 
     move v3, v6
 
-    .line 489
+    .line 507
     :goto_2
     return v3
 
-    .line 460
+    .line 478
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 470
+    .line 488
     :cond_2
     const/4 v5, 0x2
 
     if-ne v1, v5, :cond_3
 
-    .line 471
+    .line 489
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -5383,13 +5556,13 @@
 
     goto :goto_1
 
-    .line 472
+    .line 490
     :cond_3
     const/4 v5, 0x3
 
     if-ne v1, v5, :cond_5
 
-    .line 473
+    .line 491
     const-string v5, "auto_restore"
 
     invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5398,7 +5571,7 @@
 
     if-eqz v5, :cond_4
 
-    .line 474
+    .line 492
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -5411,7 +5584,7 @@
 
     goto :goto_1
 
-    .line 476
+    .line 494
     :cond_4
     sget-object v5, Lcom/android/settings/search/SearchDirectSettingUpdate;->mContext:Landroid/content/Context;
 
@@ -5425,7 +5598,7 @@
 
     goto :goto_1
 
-    .line 480
+    .line 498
     :cond_5
     invoke-direct {p0, p1}, Lcom/android/settings/search/SearchDirectSettingUpdate;->getCurrentStateNoneType(Ljava/lang/String;)I
 
@@ -5436,10 +5609,10 @@
     :cond_6
     move v3, v7
 
-    .line 484
+    .line 502
     goto :goto_2
 
-    .line 486
+    .line 504
     :cond_7
     if-eqz v4, :cond_8
 
@@ -5459,14 +5632,14 @@
     .parameter "key"
 
     .prologue
-    .line 676
+    .line 694
     const/4 v0, 0x1
 
-    .line 677
+    .line 695
     .local v0, bState:Z
     const/4 v1, 0x0
 
-    .line 679
+    .line 697
     .local v1, dependencyKey:Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -5480,7 +5653,7 @@
 
     if-ge v2, v3, :cond_0
 
-    .line 680
+    .line 698
     sget-object v3, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5497,7 +5670,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 681
+    .line 699
     sget-object v3, Lcom/android/settings/search/SearchDirectSettingUpdate;->mKeyMatchDBInfo:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -5508,7 +5681,7 @@
 
     iget-object v1, v3, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->dependencyKey:Ljava/lang/String;
 
-    .line 686
+    .line 704
     :cond_0
     const-string v3, "exception"
 
@@ -5518,27 +5691,27 @@
 
     if-eqz v3, :cond_3
 
-    .line 687
+    .line 705
     invoke-direct {p0, p1}, Lcom/android/settings/search/SearchDirectSettingUpdate;->getDependecyExceptionState(Ljava/lang/String;)Z
 
     move-result v0
 
-    .line 692
+    .line 710
     :cond_1
     :goto_1
     return v0
 
-    .line 679
+    .line 697
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 688
+    .line 706
     :cond_3
     if-eqz v1, :cond_1
 
-    .line 689
+    .line 707
     invoke-virtual {p0, v1}, Lcom/android/settings/search/SearchDirectSettingUpdate;->getCurrentState(Ljava/lang/String;)Z
 
     move-result v0
@@ -5554,19 +5727,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 767
+    .line 785
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 768
+    .line 786
     iget v0, p0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mDialogType:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
-    .line 769
+    .line 787
     const-string v0, "backup"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -5577,10 +5750,10 @@
 
     move-result-object v0
 
-    .line 770
+    .line 788
     if-eqz v0, :cond_0
 
-    .line 772
+    .line 790
     const/4 v1, 0x0
 
     :try_start_0
@@ -5588,20 +5761,20 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 780
+    .line 798
     :cond_0
     :goto_0
     iput v2, p0, Lcom/android/settings/search/SearchDirectSettingUpdate;->mDialogType:I
 
-    .line 781
+    .line 799
     return-void
 
-    .line 773
+    .line 791
     :catch_0
     move-exception v0
 
-    .line 775
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 793
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 449
+    .line 497
     iput-object p1, p0, Lcom/android/settings/DockSettings$3;->this$0:Lcom/android/settings/DockSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,23 +38,59 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .parameter "dialog"
-    .parameter "which"
+    .locals 4
+    .parameter "arg0"
+    .parameter "arg1"
 
     .prologue
-    .line 452
-    iget-object v0, p0, Lcom/android/settings/DockSettings$3;->this$0:Lcom/android/settings/DockSettings;
+    const/4 v3, 0x1
+
+    .line 500
+    iget-object v1, p0, Lcom/android/settings/DockSettings$3;->this$0:Lcom/android/settings/DockSettings;
+
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "desk_home_screen_display"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 501
+    iget-object v1, p0, Lcom/android/settings/DockSettings$3;->this$0:Lcom/android/settings/DockSettings;
 
     #getter for: Lcom/android/settings/DockSettings;->mDeskHomeScreen:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/settings/DockSettings;->access$300(Lcom/android/settings/DockSettings;)Landroid/preference/CheckBoxPreference;
+    invoke-static {v1}, Lcom/android/settings/DockSettings;->access$400(Lcom/android/settings/DockSettings;)Landroid/preference/CheckBoxPreference;
 
-    move-result-object v0
+    move-result-object v1
 
+    invoke-virtual {v1, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 502
+    new-instance v0, Lcom/android/settings/DreamBackend;
+
+    iget-object v1, p0, Lcom/android/settings/DockSettings$3;->this$0:Lcom/android/settings/DockSettings;
+
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/android/settings/DreamBackend;-><init>(Landroid/content/Context;)V
+
+    .line 503
+    .local v0, mBackend:Lcom/android/settings/DreamBackend;
+    invoke-virtual {v0}, Lcom/android/settings/DreamBackend;->isEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 504
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/DreamBackend;->setEnabled(Z)V
 
-    .line 453
+    .line 505
+    :cond_0
     return-void
 .end method

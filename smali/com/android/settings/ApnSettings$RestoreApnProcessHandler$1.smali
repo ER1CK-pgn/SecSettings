@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 957
+    .line 1011
     iput-object p1, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler$1;->this$1:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,14 +41,14 @@
     .locals 4
 
     .prologue
-    .line 959
+    .line 1013
     invoke-static {}, Lcom/android/settings/ApnSettings;->access$100()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 961
+    .line 1015
     iget-object v0, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler$1;->this$1:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
     #getter for: Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->mRestoreApnUiHandler:Landroid/os/Handler;
@@ -58,7 +58,7 @@
 
     if-nez v0, :cond_0
 
-    .line 962
+    .line 1016
     iget-object v0, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler$1;->this$1:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
     new-instance v1, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;
@@ -74,7 +74,7 @@
     #setter for: Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->mRestoreApnUiHandler:Landroid/os/Handler;
     invoke-static {v0, v1}, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->access$902(Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;Landroid/os/Handler;)Landroid/os/Handler;
 
-    .line 964
+    .line 1018
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler$1;->this$1:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 967
+    .line 1021
     :cond_1
     return-void
 .end method

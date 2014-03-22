@@ -38,7 +38,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 51
-    invoke-virtual {p0}, Lcom/android/settings/PenHelpFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -99,7 +99,7 @@
 
     .line 55
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/PenHelpFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -147,7 +147,7 @@
     if-eqz v20, :cond_1
 
     .line 71
-    const v20, 0x7f0400fc
+    const v20, 0x7f040121
 
     const/16 v21, 0x0
 
@@ -162,7 +162,7 @@
     move-result-object v17
 
     .line 72
-    const v20, 0x7f0b02a4
+    const v20, 0x7f0b02e0
 
     move-object/from16 v0, v17
 
@@ -180,10 +180,10 @@
 
     move/from16 v0, v20
 
-    invoke-virtual {v7, v0}, Landroid/widget/Button;->setHoverPopupType(I)V
+    invoke-virtual {v7, v0}, Landroid/view/View;->setHoverPopupType(I)V
 
     .line 74
-    invoke-virtual {v7}, Landroid/widget/Button;->getHoverPopupWindow()Landroid/widget/HoverPopupWindow;
+    invoke-virtual {v7}, Landroid/widget/TextView;->getHoverPopupWindow()Landroid/widget/HoverPopupWindow;
 
     move-result-object v20
 
@@ -192,24 +192,24 @@
     invoke-virtual/range {v20 .. v21}, Landroid/widget/HoverPopupWindow;->setPopupGravity(I)V
 
     .line 75
-    invoke-virtual {v7}, Landroid/widget/Button;->getHoverPopupWindow()Landroid/widget/HoverPopupWindow;
+    invoke-virtual {v7}, Landroid/widget/TextView;->getHoverPopupWindow()Landroid/widget/HoverPopupWindow;
 
     move-result-object v20
 
-    const v21, 0x7f090cde
+    const v21, 0x7f090e05
 
     move-object/from16 v0, p0
 
     move/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/PenHelpFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v21
 
     invoke-virtual/range {v20 .. v21}, Landroid/widget/HoverPopupWindow;->setContent(Ljava/lang/CharSequence;)V
 
     .line 77
-    const v20, 0x7f0b01ad
+    const v20, 0x7f0b01cc
 
     move-object/from16 v0, v17
 
@@ -233,21 +233,21 @@
 
     .line 81
     .local v14, pointer_1:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cdf
+    const v20, 0x7f090e06
 
     move/from16 v0, v20
 
     invoke-virtual {v14, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 82
-    const v20, 0x7f090ce0
+    const v20, 0x7f090e07
 
     move/from16 v0, v20
 
     invoke-virtual {v14, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 83
-    const v20, 0x7f020111
+    const v20, 0x7f020151
 
     move/from16 v0, v20
 
@@ -260,7 +260,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 85
     new-instance v15, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -273,14 +273,14 @@
 
     .line 86
     .local v15, pointer_2:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090ce1
+    const v20, 0x7f090e08
 
     move/from16 v0, v20
 
     invoke-virtual {v15, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 87
-    const v20, 0x7f020112
+    const v20, 0x7f020152
 
     move/from16 v0, v20
 
@@ -300,7 +300,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 92
     new-instance v9, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -313,21 +313,21 @@
 
     .line 93
     .local v9, infoPreview:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090ce2
+    const v20, 0x7f090e09
 
     move/from16 v0, v20
 
     invoke-virtual {v9, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 94
-    const v20, 0x7f090ce3
+    const v20, 0x7f090e0a
 
     move/from16 v0, v20
 
     invoke-virtual {v9, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 95
-    const v20, 0x7f02036c
+    const v20, 0x7f0203d6
 
     move/from16 v0, v20
 
@@ -347,7 +347,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 100
     new-instance v19, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -362,17 +362,17 @@
 
     .line 101
     .local v19, zoomIn:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090ce4
+    const v20, 0x7f090e0b
 
     invoke-virtual/range {v19 .. v20}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 102
-    const v20, 0x7f090ce5
+    const v20, 0x7f090e0c
 
     invoke-virtual/range {v19 .. v20}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 103
-    const v20, 0x7f02036d
+    const v20, 0x7f0203d7
 
     invoke-virtual/range {v19 .. v20}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentImage(I)V
 
@@ -388,7 +388,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 108
     new-instance v8, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -401,21 +401,21 @@
 
     .line 109
     .local v8, iconLabel:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090ce6
+    const v20, 0x7f090e0d
 
     move/from16 v0, v20
 
     invoke-virtual {v8, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 110
-    const v20, 0x7f090ce7
+    const v20, 0x7f090e0e
 
     move/from16 v0, v20
 
     invoke-virtual {v8, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 111
-    const v20, 0x7f020117
+    const v20, 0x7f020157
 
     move/from16 v0, v20
 
@@ -428,7 +428,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 115
     new-instance v10, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -441,21 +441,21 @@
 
     .line 116
     .local v10, listScroll:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090ce8
+    const v20, 0x7f090e0f
 
     move/from16 v0, v20
 
     invoke-virtual {v10, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 117
-    const v20, 0x7f090ce9
+    const v20, 0x7f090e10
 
     move/from16 v0, v20
 
     invoke-virtual {v10, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 118
-    const v20, 0x7f020118
+    const v20, 0x7f020158
 
     move/from16 v0, v20
 
@@ -468,7 +468,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 198
     .end local v6           #helpContent:Landroid/widget/LinearLayout;
@@ -500,7 +500,7 @@
     if-eqz v20, :cond_2
 
     .line 121
-    const v20, 0x7f0400fb
+    const v20, 0x7f040120
 
     const/16 v21, 0x0
 
@@ -515,7 +515,7 @@
     move-result-object v17
 
     .line 122
-    const v20, 0x7f0b01ad
+    const v20, 0x7f0b01cc
 
     move-object/from16 v0, v17
 
@@ -539,21 +539,21 @@
 
     .line 126
     .local v5, goBack:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cec
+    const v20, 0x7f090e13
 
     move/from16 v0, v20
 
     invoke-virtual {v5, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 127
-    const v20, 0x7f090ced
+    const v20, 0x7f090e14
 
     move/from16 v0, v20
 
     invoke-virtual {v5, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 128
-    const v20, 0x7f020104
+    const v20, 0x7f020144
 
     move/from16 v0, v20
 
@@ -566,7 +566,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 132
     new-instance v11, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -579,21 +579,21 @@
 
     .line 133
     .local v11, openMenu:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cee
+    const v20, 0x7f090e15
 
     move/from16 v0, v20
 
     invoke-virtual {v11, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 134
-    const v20, 0x7f090cef
+    const v20, 0x7f090e16
 
     move/from16 v0, v20
 
     invoke-virtual {v11, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 135
-    const v20, 0x7f020105
+    const v20, 0x7f020145
 
     move/from16 v0, v20
 
@@ -606,7 +606,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 139
     new-instance v12, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -619,21 +619,21 @@
 
     .line 140
     .local v12, openPopNote:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cf0
+    const v20, 0x7f090e17
 
     move/from16 v0, v20
 
     invoke-virtual {v12, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 141
-    const v20, 0x7f090cf1
+    const v20, 0x7f090e18
 
     move/from16 v0, v20
 
     invoke-virtual {v12, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 142
-    const v20, 0x7f020106
+    const v20, 0x7f020146
 
     move/from16 v0, v20
 
@@ -646,7 +646,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 146
     new-instance v13, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -659,21 +659,21 @@
 
     .line 147
     .local v13, openQuickCommand:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cf2
+    const v20, 0x7f090e19
 
     move/from16 v0, v20
 
     invoke-virtual {v13, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 148
-    const v20, 0x7f090cf3
+    const v20, 0x7f090e1a
 
     move/from16 v0, v20
 
     invoke-virtual {v13, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 149
-    const v20, 0x7f020107
+    const v20, 0x7f020147
 
     move/from16 v0, v20
 
@@ -686,7 +686,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 153
     new-instance v3, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -699,21 +699,21 @@
 
     .line 154
     .local v3, captureScreen:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cf4
+    const v20, 0x7f090e1b
 
     move/from16 v0, v20
 
     invoke-virtual {v3, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 155
-    const v20, 0x7f090cf5
+    const v20, 0x7f090e1c
 
     move/from16 v0, v20
 
     invoke-virtual {v3, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 156
-    const v20, 0x7f020108
+    const v20, 0x7f020148
 
     move/from16 v0, v20
 
@@ -726,7 +726,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 160
     new-instance v4, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -739,21 +739,21 @@
 
     .line 161
     .local v4, cutOutImage:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cf6
+    const v20, 0x7f090e1d
 
     move/from16 v0, v20
 
     invoke-virtual {v4, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 162
-    const v20, 0x7f090cf7
+    const v20, 0x7f090e1e
 
     move/from16 v0, v20
 
     invoke-virtual {v4, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 163
-    const v20, 0x7f02036a
+    const v20, 0x7f0203d4
 
     move/from16 v0, v20
 
@@ -773,7 +773,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 168
     new-instance v16, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -788,7 +788,7 @@
 
     .line 169
     .local v16, seleteText:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cf8
+    const v20, 0x7f090e1f
 
     move-object/from16 v0, v16
 
@@ -797,7 +797,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 170
-    const v20, 0x7f090cf9
+    const v20, 0x7f090e20
 
     move-object/from16 v0, v16
 
@@ -806,7 +806,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 171
-    const v20, 0x7f02036b
+    const v20, 0x7f0203d5
 
     move-object/from16 v0, v16
 
@@ -830,7 +830,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto/16 :goto_0
 
@@ -859,7 +859,7 @@
     if-eqz v20, :cond_0
 
     .line 175
-    const v20, 0x7f0400ff
+    const v20, 0x7f040124
 
     const/16 v21, 0x0
 
@@ -874,7 +874,7 @@
     move-result-object v17
 
     .line 176
-    const v20, 0x7f0b01ad
+    const v20, 0x7f0b01cc
 
     move-object/from16 v0, v17
 
@@ -898,21 +898,21 @@
 
     .line 180
     .restart local v13       #openQuickCommand:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cfb
+    const v20, 0x7f090e22
 
     move/from16 v0, v20
 
     invoke-virtual {v13, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 181
-    const v20, 0x7f090cfc
+    const v20, 0x7f090e23
 
     move/from16 v0, v20
 
     invoke-virtual {v13, v0}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 182
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/PenHelpFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v20
 
@@ -923,7 +923,7 @@
     if-eqz v20, :cond_3
 
     .line 183
-    const v20, 0x7f020363
+    const v20, 0x7f0203cd
 
     move/from16 v0, v20
 
@@ -944,7 +944,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 191
     new-instance v18, Lcom/android/settings/PenHelpFragment$PenHelpItem;
@@ -959,7 +959,7 @@
 
     .line 192
     .local v18, writeCommand:Lcom/android/settings/PenHelpFragment$PenHelpItem;
-    const v20, 0x7f090cfd
+    const v20, 0x7f090e24
 
     move-object/from16 v0, v18
 
@@ -968,7 +968,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setTitleText(I)V
 
     .line 193
-    const v20, 0x7f090cfe
+    const v20, 0x7f090e25
 
     move-object/from16 v0, v18
 
@@ -977,7 +977,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/PenHelpFragment$PenHelpItem;->setContentText(I)V
 
     .line 194
-    const v20, 0x7f0200ef
+    const v20, 0x7f02012f
 
     move-object/from16 v0, v18
 
@@ -992,14 +992,14 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto/16 :goto_0
 
     .line 185
     .end local v18           #writeCommand:Lcom/android/settings/PenHelpFragment$PenHelpItem;
     :cond_3
-    const v20, 0x7f020364
+    const v20, 0x7f0203ce
 
     move/from16 v0, v20
 

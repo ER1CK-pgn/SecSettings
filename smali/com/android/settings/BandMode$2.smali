@@ -75,7 +75,7 @@
     .restart local v0       #ar:Landroid/os/AsyncResult;
     iget-object v1, p0, Lcom/android/settings/BandMode$2;->this$0:Lcom/android/settings/BandMode;
 
-    invoke-virtual {v1}, Lcom/android/settings/BandMode;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
@@ -88,7 +88,7 @@
     .line 210
     iget-object v1, p0, Lcom/android/settings/BandMode$2;->this$0:Lcom/android/settings/BandMode;
 
-    invoke-virtual {v1}, Lcom/android/settings/BandMode;->isFinishing()Z
+    invoke-virtual {v1}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v1
 

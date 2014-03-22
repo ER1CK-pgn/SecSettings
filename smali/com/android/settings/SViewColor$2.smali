@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 230
+    .line 239
     iput-object p1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,20 +42,20 @@
     .parameter "v"
 
     .prologue
-    .line 233
+    .line 242
     move-object v0, p1
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    .line 234
+    .line 243
     .local v0, mClickButton:Landroid/widget/ImageButton;
-    invoke-virtual {v0}, Landroid/widget/ImageButton;->getId()I
+    invoke-virtual {v0}, Landroid/view/View;->getId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 266
+    .line 275
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
     sget v2, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON1:I
@@ -63,7 +63,7 @@
     #setter for: Lcom/android/settings/SViewColor;->mCurrentCoverBackgroundColor:I
     invoke-static {v1, v2}, Lcom/android/settings/SViewColor;->access$102(Lcom/android/settings/SViewColor;I)I
 
-    .line 268
+    .line 277
     :goto_0
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -79,18 +79,18 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 269
+    .line 278
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
     #calls: Lcom/android/settings/SViewColor;->setfocusButton()V
     invoke-static {v1}, Lcom/android/settings/SViewColor;->access$300(Lcom/android/settings/SViewColor;)V
 
-    .line 270
+    .line 279
     return-void
 
-    .line 236
+    .line 245
     :pswitch_0
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -101,7 +101,7 @@
 
     goto :goto_0
 
-    .line 239
+    .line 248
     :pswitch_1
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -112,7 +112,7 @@
 
     goto :goto_0
 
-    .line 242
+    .line 251
     :pswitch_2
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -123,7 +123,7 @@
 
     goto :goto_0
 
-    .line 245
+    .line 254
     :pswitch_3
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -134,7 +134,7 @@
 
     goto :goto_0
 
-    .line 248
+    .line 257
     :pswitch_4
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -145,7 +145,7 @@
 
     goto :goto_0
 
-    .line 251
+    .line 260
     :pswitch_5
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -156,7 +156,7 @@
 
     goto :goto_0
 
-    .line 254
+    .line 263
     :pswitch_6
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -167,7 +167,7 @@
 
     goto :goto_0
 
-    .line 257
+    .line 266
     :pswitch_7
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -178,7 +178,7 @@
 
     goto :goto_0
 
-    .line 260
+    .line 269
     :pswitch_8
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -189,7 +189,7 @@
 
     goto :goto_0
 
-    .line 263
+    .line 272
     :pswitch_9
     iget-object v1, p0, Lcom/android/settings/SViewColor$2;->this$0:Lcom/android/settings/SViewColor;
 
@@ -200,9 +200,9 @@
 
     goto :goto_0
 
-    .line 234
+    .line 243
     :pswitch_data_0
-    .packed-switch 0x7f0b00bf
+    .packed-switch 0x7f0b00cc
         :pswitch_0
         :pswitch_1
         :pswitch_2

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 563
+    .line 569
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$7;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,18 +45,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 566
+    .line 572
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 567
+    .line 573
     invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$802(Z)Z
 
-    .line 568
+    .line 574
     invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$502(Z)Z
 
-    .line 569
+    .line 575
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$7;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
@@ -66,7 +66,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 570
+    .line 576
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$7;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->removeGroup(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
-    .line 580
+    .line 586
     :cond_0
     return-void
 .end method

@@ -297,11 +297,11 @@
     if-nez v2, :cond_0
 
     .line 83
-    invoke-virtual {p0}, Lcom/android/settings/ColorButton;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0203c6
+    const v3, 0x7f020445
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -385,11 +385,11 @@
     if-nez v2, :cond_1
 
     .line 100
-    invoke-virtual {p0}, Lcom/android/settings/ColorButton;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0203c8
+    const v3, 0x7f020447
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -538,7 +538,7 @@
     invoke-direct {p0, p1}, Lcom/android/settings/ColorButton;->drawColors(Landroid/graphics/Canvas;)V
 
     .line 130
-    invoke-super {p0, p1}, Landroid/widget/ImageButton;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 131
     return-void
@@ -565,7 +565,7 @@
 
     .line 74
     :cond_0
-    invoke-super/range {p0 .. p5}, Landroid/widget/ImageButton;->onLayout(ZIIII)V
+    invoke-super/range {p0 .. p5}, Landroid/view/View;->onLayout(ZIIII)V
 
     .line 75
     return-void

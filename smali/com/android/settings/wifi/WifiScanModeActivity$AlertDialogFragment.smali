@@ -23,15 +23,15 @@
     .locals 1
 
     .prologue
-    .line 113
+    .line 121
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
-    .line 114
+    .line 122
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;->mApp:Ljava/lang/String;
 
-    .line 115
+    .line 123
     return-void
 .end method
 
@@ -40,13 +40,13 @@
     .parameter "app"
 
     .prologue
-    .line 108
+    .line 116
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
-    .line 109
+    .line 117
     iput-object p1, p0, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;->mApp:Ljava/lang/String;
 
-    .line 110
+    .line 118
     return-void
 .end method
 
@@ -55,12 +55,12 @@
     .parameter "app"
 
     .prologue
-    .line 102
+    .line 110
     new-instance v0, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;-><init>(Ljava/lang/String;)V
 
-    .line 103
+    .line 111
     .local v0, frag:Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;
     return-object v0
 .end method
@@ -72,8 +72,8 @@
     .parameter "dialog"
 
     .prologue
-    .line 139
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;->getActivity()Landroid/app/Activity;
+    .line 147
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -82,7 +82,7 @@
     #calls: Lcom/android/settings/wifi/WifiScanModeActivity;->doNegativeClick()V
     invoke-static {v0}, Lcom/android/settings/wifi/WifiScanModeActivity;->access$000(Lcom/android/settings/wifi/WifiScanModeActivity;)V
 
-    .line 140
+    .line 148
     return-void
 .end method
 
@@ -91,16 +91,16 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 119
+    .line 127
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090391
+    const v1, 0x7f0903c8
 
     const/4 v2, 0x1
 
@@ -112,7 +112,7 @@
 
     aput-object v4, v2, v3
 
-    invoke-virtual {p0, v1, v2}, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v1, v2}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -120,7 +120,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090392
+    const v1, 0x7f0903c9
 
     new-instance v2, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment$2;
 
@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090393
+    const v1, 0x7f0903ca
 
     new-instance v2, Lcom/android/settings/wifi/WifiScanModeActivity$AlertDialogFragment$1;
 

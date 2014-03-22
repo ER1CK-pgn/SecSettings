@@ -127,9 +127,9 @@
 
     .prologue
     .line 114
-    const v0, 0x7f0401c3
+    const v0, 0x7f0401ff
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/WifiConnectionPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 115
     return-void
@@ -150,7 +150,7 @@
 
     .line 76
     .local v2, view:Landroid/view/View;
-    const v5, 0x1010003
+    const v5, 0x1010006
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -165,7 +165,7 @@
     invoke-virtual {v3, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 90
-    const v5, 0x1010004
+    const v5, 0x1010007
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -191,10 +191,10 @@
     if-eqz v5, :cond_2
 
     .line 94
-    invoke-virtual {v1, p0}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 96
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v5
 
@@ -212,7 +212,7 @@
     sput-object v1, Lcom/android/settings/wifi/WifiConnectionPreference;->mCurrentChecked:Landroid/widget/CompoundButton;
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v5
 
@@ -225,7 +225,7 @@
     iput-boolean v5, p0, Lcom/android/settings/wifi/WifiConnectionPreference;->mProtectFromCheckedChange:Z
 
     .line 103
-    invoke-virtual {v1, v0}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 104
     const/4 v5, 0x0
@@ -244,7 +244,7 @@
     :cond_2
     const/16 v5, 0x8
 
-    invoke-virtual {v1, v5}, Landroid/widget/RadioButton;->setVisibility(I)V
+    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -287,7 +287,7 @@
     sput-object p1, Lcom/android/settings/wifi/WifiConnectionPreference;->mCurrentChecked:Landroid/widget/CompoundButton;
 
     .line 137
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
@@ -296,7 +296,7 @@
     .line 138
     sget-object v0, Lcom/android/settings/wifi/WifiConnectionPreference;->mSelectedKey:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/WifiConnectionPreference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -315,7 +315,7 @@
 
     .prologue
     .line 122
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 

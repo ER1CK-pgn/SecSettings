@@ -3,7 +3,7 @@
 .source "SMotionSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,108 +27,51 @@
     .parameter
 
     .prologue
-    .line 422
+    .line 420
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 6
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 4
     .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v0, 0x0
 
     .line 424
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
+    iget-object v1, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/motion2013/SMotionSettings;->getActivity()Landroid/app/Activity;
+    #getter for: Lcom/android/settings/motion2013/SMotionSettings;->mAirMotion:Landroid/preference/SwitchPreferenceScreen;
+    invoke-static {v1}, Lcom/android/settings/motion2013/SMotionSettings;->access$000(Lcom/android/settings/motion2013/SMotionSettings;)Landroid/preference/SwitchPreferenceScreen;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Lcom/android/settings/Utils;->turnOffTalkBack(Landroid/content/Context;)Z
-
-    .line 425
     iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/SMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
-    invoke-static {v2}, Lcom/android/settings/motion2013/SMotionSettings;->access$1000(Lcom/android/settings/motion2013/SMotionSettings;)Landroid/content/ContentResolver;
+    invoke-static {v2}, Lcom/android/settings/motion2013/SMotionSettings;->access$1200(Lcom/android/settings/motion2013/SMotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v2
 
     const-string v3, "air_motion_engine"
 
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 426
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    #calls: Lcom/android/settings/motion2013/SMotionSettings;->broadcastAirMotionChanged(Z)V
-    invoke-static {v2, v4}, Lcom/android/settings/motion2013/SMotionSettings;->access$1100(Lcom/android/settings/motion2013/SMotionSettings;Z)V
-
-    .line 427
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    invoke-virtual {v2}, Lcom/android/settings/motion2013/SMotionSettings;->isAllAirMotionDisabled()Z
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    .line 428
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
+    const/4 v0, 0x1
 
-    const v3, 0x7f090d57
-
-    const v4, 0x7f090d62
-
-    const-string v5, "air_motion"
-
-    #calls: Lcom/android/settings/motion2013/SMotionSettings;->showAllOptionDisabledDialog(IILjava/lang/String;)V
-    invoke-static {v2, v3, v4, v5}, Lcom/android/settings/motion2013/SMotionSettings;->access$1200(Lcom/android/settings/motion2013/SMotionSettings;IILjava/lang/String;)V
-
-    .line 436
     :cond_0
-    :goto_0
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 425
     return-void
-
-    .line 430
-    :cond_1
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    invoke-virtual {v2}, Lcom/android/settings/motion2013/SMotionSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    .line 431
-    .local v1, sharedPreferences:Landroid/content/SharedPreferences;
-    const-string v2, "pref_air_motion_sensor_noti"
-
-    const/4 v3, 0x0
-
-    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    .line 432
-    .local v0, do_not_show_again:Z
-    if-nez v0, :cond_0
-
-    .line 433
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$10;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    #calls: Lcom/android/settings/motion2013/SMotionSettings;->showGuideDialog(Z)V
-    invoke-static {v2, v4}, Lcom/android/settings/motion2013/SMotionSettings;->access$1300(Lcom/android/settings/motion2013/SMotionSettings;Z)V
-
-    goto :goto_0
 .end method

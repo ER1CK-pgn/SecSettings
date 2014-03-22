@@ -47,9 +47,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 44
-    const v1, 0x7f040043
+    const v1, 0x7f040049
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/CryptDecryptConfirm$Blank;->setContentView(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setContentView(I)V
 
     .line 46
     invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
@@ -59,13 +59,13 @@
     if-eqz v1, :cond_0
 
     .line 47
-    invoke-virtual {p0}, Lcom/android/settings/CryptDecryptConfirm$Blank;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 50
     :cond_0
     const-string v1, "statusbar"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/CryptDecryptConfirm$Blank;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -73,7 +73,7 @@
 
     .line 51
     .local v0, sbm:Landroid/app/StatusBarManager;
-    const/high16 v1, 0xd77
+    const/high16 v1, 0x177
 
     invoke-virtual {v0, v1}, Landroid/app/StatusBarManager;->disable(I)V
 

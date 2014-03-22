@@ -8,5 +8,5 @@
         <ImageButton android:gravity="center" android:layout_gravity="center" android:id="@id/content_playbtn" android:background="@drawable/zzz_null" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     </FrameLayout>
     <TextView android:textAppearance="?android:textAppearanceMedium" android:id="@id/content_textview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="10.0dip" />
-    <Button android:gravity="center" android:layout_gravity="center" android:id="@id/try_btn" android:padding="10.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="32.0dip" android:text="@string/smartsceen_tutorial_try_btn" />
+    <Button android:gravity="center" android:layout_gravity="center" android:id="@id/try_btn" android:padding="10.0dip" android:visibility="gone" android:layout_width="@dimen/help_button_width" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="32.0dip" android:text="@string/smartsceen_tutorial_try_btn" />
 </LinearLayout>

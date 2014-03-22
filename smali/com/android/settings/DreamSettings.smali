@@ -17,6 +17,8 @@
 
 
 # instance fields
+.field alertDialog:Landroid/app/AlertDialog;
+
 .field private mAdapter:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
 
 .field mAlertDialog:Landroid/app/AlertDialog;
@@ -70,7 +72,9 @@
     .line 81
     iput-object v1, p0, Lcom/android/settings/DreamSettings;->mAlertDialog:Landroid/app/AlertDialog;
 
-    .line 514
+    iput-object v1, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    .line 515
     return-void
 .end method
 
@@ -185,139 +189,140 @@
 .end method
 
 .method private createWhenToDreamDialog()Landroid/app/Dialog;
-    .locals 8
+    .locals 7
 
     .prologue
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     .line 305
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    new-array v3, v6, [Ljava/lang/CharSequence;
+    new-array v2, v5, [Ljava/lang/CharSequence;
 
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090579
+    const v6, 0x7f0905a8
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    aput-object v6, v3, v4
+    aput-object v5, v2, v3
 
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090578
+    const v6, 0x7f0905a7
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    aput-object v6, v3, v5
+    aput-object v5, v2, v4
 
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090577
+    const v6, 0x7f0905a6
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    aput-object v6, v3, v2
+    aput-object v5, v2, v1
 
     .line 311
-    .local v3, items:[Ljava/lang/CharSequence;
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
+    .local v2, items:[Ljava/lang/CharSequence;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {v6}, Lcom/android/settings/DreamBackend;->isActivatedOnDock()Z
+    invoke-virtual {v5}, Lcom/android/settings/DreamBackend;->isActivatedOnDock()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {v6}, Lcom/android/settings/DreamBackend;->isActivatedOnSleep()Z
+    invoke-virtual {v5}, Lcom/android/settings/DreamBackend;->isActivatedOnSleep()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     .line 316
-    .local v2, initialSelection:I
+    .local v1, initialSelection:I
     :goto_0
-    const/4 v0, 0x0
+    new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    .line 317
-    .local v0, alertDialog:Landroid/app/AlertDialog;
-    new-instance v4, Landroid/app/AlertDialog$Builder;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
+    invoke-direct {v3, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v4, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    const v5, 0x7f0905ad
 
-    const v6, 0x7f09057e
+    invoke-virtual {v3, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {v4, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    move-result-object v3
 
-    move-result-object v4
+    new-instance v5, Lcom/android/settings/DreamSettings$6;
 
-    new-instance v6, Lcom/android/settings/DreamSettings$6;
+    invoke-direct {v5, p0}, Lcom/android/settings/DreamSettings$6;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    invoke-direct {v6, p0}, Lcom/android/settings/DreamSettings$6;-><init>(Lcom/android/settings/DreamSettings;)V
-
-    invoke-virtual {v4, v3, v2, v6}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    .line 327
-    .local v1, builder:Landroid/app/AlertDialog$Builder;
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v3, v2, v1, v5}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 328
-    invoke-virtual {v0, v5}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
+    .line 326
+    .local v0, builder:Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 330
-    return-object v0
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    .line 327
+    iget-object v3, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v3, v4}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
+
+    .line 329
+    iget-object v3, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    return-object v3
 
     .line 311
-    .end local v0           #alertDialog:Landroid/app/AlertDialog;
-    .end local v1           #builder:Landroid/app/AlertDialog$Builder;
-    .end local v2           #initialSelection:I
+    .end local v0           #builder:Landroid/app/AlertDialog$Builder;
+    .end local v1           #initialSelection:I
     :cond_0
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
+    iget-object v5, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {v6}, Lcom/android/settings/DreamBackend;->isActivatedOnDock()Z
+    invoke-virtual {v5}, Lcom/android/settings/DreamBackend;->isActivatedOnDock()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    move v2, v4
+    move v1, v3
 
     goto :goto_0
 
     :cond_1
-    iget-object v4, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
+    iget-object v3, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {v4}, Lcom/android/settings/DreamBackend;->isActivatedOnSleep()Z
+    invoke-virtual {v3}, Lcom/android/settings/DreamBackend;->isActivatedOnSleep()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
-    move v2, v5
+    move v1, v4
 
     goto :goto_0
 
     :cond_2
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
     goto :goto_0
 .end method
@@ -327,29 +332,29 @@
     .parameter "context"
 
     .prologue
-    .line 372
+    .line 371
     new-instance v0, Lcom/android/settings/DreamBackend;
 
     invoke-direct {v0, p0}, Lcom/android/settings/DreamBackend;-><init>(Landroid/content/Context;)V
 
-    .line 373
+    .line 372
     .local v0, backend:Lcom/android/settings/DreamBackend;
     invoke-virtual {v0}, Lcom/android/settings/DreamBackend;->isEnabled()Z
 
     move-result v1
 
-    .line 374
+    .line 373
     .local v1, isEnabled:Z
     if-nez v1, :cond_0
 
-    .line 375
-    const v2, 0x7f09057b
+    .line 374
+    const v2, 0x7f0905aa
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 377
+    .line 376
     :goto_0
     return-object v2
 
@@ -367,7 +372,7 @@
     .parameter "args"
 
     .prologue
-    .line 415
+    .line 416
     return-void
 .end method
 
@@ -375,77 +380,104 @@
     .locals 10
 
     .prologue
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
-    .line 382
+    .line 381
     const-string v6, "refreshFromBackend()"
 
-    new-array v7, v8, [Ljava/lang/Object;
+    new-array v7, v9, [Ljava/lang/Object;
 
     invoke-static {v6, v7}, Lcom/android/settings/DreamSettings;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 383
-    iput-boolean v9, p0, Lcom/android/settings/DreamSettings;->mRefreshing:Z
+    .line 382
+    iput-boolean v8, p0, Lcom/android/settings/DreamSettings;->mRefreshing:Z
 
-    .line 384
+    .line 383
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
     invoke-virtual {v6}, Lcom/android/settings/DreamBackend;->isEnabled()Z
 
     move-result v2
 
-    .line 386
+    .line 385
     .local v2, dreamsEnabled:Z
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mAlertDialog:Landroid/app/AlertDialog;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mAlertDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v6}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v6}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
-    .line 387
+    .line 386
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, v9}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v6, v8}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 393
+    .line 391
     :cond_0
     :goto_0
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mAdapter:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
+    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
-    invoke-virtual {v6}, Lcom/android/settings/DreamSettings$DreamInfoAdapter;->clear()V
+    invoke-virtual {v6}, Lcom/android/settings/DreamBackend;->isEnabled()Z
 
-    .line 394
-    if-eqz v2, :cond_1
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v6}, Landroid/app/Dialog;->isShowing()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 392
+    iget-object v6, p0, Lcom/android/settings/DreamSettings;->alertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v6}, Landroid/app/Dialog;->dismiss()V
 
     .line 395
+    :cond_1
+    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mAdapter:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
+
+    invoke-virtual {v6}, Landroid/widget/ArrayAdapter;->clear()V
+
+    .line 396
+    if-eqz v2, :cond_2
+
+    .line 397
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mBackend:Lcom/android/settings/DreamBackend;
 
     invoke-virtual {v6}, Lcom/android/settings/DreamBackend;->getDreamInfos()Ljava/util/List;
 
     move-result-object v1
 
-    .line 396
+    .line 398
     .local v1, dreamInfos:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/DreamBackend$DreamInfo;>;"
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mAdapter:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
 
-    invoke-virtual {v6, v1}, Lcom/android/settings/DreamSettings$DreamInfoAdapter;->addAll(Ljava/util/Collection;)V
+    invoke-virtual {v6, v1}, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V
 
-    .line 398
+    .line 400
     .end local v1           #dreamInfos:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/DreamBackend$DreamInfo;>;"
-    :cond_1
+    :cond_2
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mMenuItemsWhenEnabled:[Landroid/view/MenuItem;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
-    .line 399
+    .line 401
     iget-object v0, p0, Lcom/android/settings/DreamSettings;->mMenuItemsWhenEnabled:[Landroid/view/MenuItem;
 
     .local v0, arr$:[Landroid/view/MenuItem;
@@ -456,101 +488,83 @@
 
     .local v3, i$:I
     :goto_1
-    if-ge v3, v4, :cond_3
+    if-ge v3, v4, :cond_4
 
     aget-object v5, v0, v3
 
-    .line 400
+    .line 402
     .local v5, menuItem:Landroid/view/MenuItem;
     invoke-interface {v5, v2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 399
+    .line 401
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 389
+    .line 388
     .end local v0           #arr$:[Landroid/view/MenuItem;
     .end local v3           #i$:I
     .end local v4           #len$:I
     .end local v5           #menuItem:Landroid/view/MenuItem;
-    :cond_2
+    :cond_3
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v6}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v6
 
     if-eq v6, v2, :cond_0
 
-    .line 390
+    .line 389
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v6, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 402
+    .line 404
     .restart local v0       #arr$:[Landroid/view/MenuItem;
     .restart local v3       #i$:I
     .restart local v4       #len$:I
-    :cond_3
+    :cond_4
     const/4 v6, 0x0
 
     invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
-    .line 403
+    .line 406
     iget-object v6, p0, Lcom/android/settings/DreamSettings;->mMenuItemsWhenEnabled:[Landroid/view/MenuItem;
 
     aget-object v7, v6, v8
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
-    const v6, 0x7f020197
+    const v6, 0x7f0201d9
 
     :goto_2
     invoke-interface {v7, v6}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 405
-    iget-object v6, p0, Lcom/android/settings/DreamSettings;->mMenuItemsWhenEnabled:[Landroid/view/MenuItem;
-
-    aget-object v7, v6, v9
-
-    if-eqz v2, :cond_6
-
-    const v6, 0x7f02018e
-
-    :goto_3
-    invoke-interface {v7, v6}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    .line 409
+    .line 410
     .end local v0           #arr$:[Landroid/view/MenuItem;
     .end local v3           #i$:I
     .end local v4           #len$:I
-    :cond_4
-    iput-boolean v8, p0, Lcom/android/settings/DreamSettings;->mRefreshing:Z
+    :cond_5
+    iput-boolean v9, p0, Lcom/android/settings/DreamSettings;->mRefreshing:Z
 
-    .line 410
+    .line 411
     return-void
 
-    .line 403
+    .line 406
     .restart local v0       #arr$:[Landroid/view/MenuItem;
     .restart local v3       #i$:I
     .restart local v4       #len$:I
-    :cond_5
-    const v6, 0x7f020198
+    :cond_6
+    const v6, 0x7f0201da
 
     goto :goto_2
-
-    .line 405
-    :cond_6
-    const v6, 0x7f02018f
-
-    goto :goto_3
 .end method
 
 
@@ -560,7 +574,7 @@
 
     .prologue
     .line 84
-    const v0, 0x7f090b1b
+    const v0, 0x7f090c17
 
     return v0
 .end method
@@ -587,7 +601,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 185
-    invoke-virtual {p0}, Lcom/android/settings/DreamSettings;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
@@ -596,7 +610,7 @@
     invoke-virtual {v1, v5}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
     .line 189
-    invoke-virtual {p0}, Lcom/android/settings/DreamSettings;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v2
 
@@ -610,12 +624,12 @@
 
     .line 192
     .local v0, emptyView:Landroid/widget/TextView;
-    const v2, 0x7f09057c
+    const v2, 0x7f0905ab
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
     .line 197
-    invoke-virtual {p0}, Lcom/android/settings/DreamSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -629,7 +643,7 @@
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
     .line 201
-    invoke-virtual {v1, v0}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
+    invoke-virtual {v1, v0}, Landroid/widget/AdapterView;->setEmptyView(Landroid/view/View;)V
 
     .line 203
     new-instance v2, Lcom/android/settings/DreamSettings$DreamInfoAdapter;
@@ -650,7 +664,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/DreamSettings$2;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
     .line 227
     return-void
@@ -683,7 +697,7 @@
     invoke-static {v0, v1}, Lcom/android/settings/DreamSettings;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 90
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/app/Activity;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
     .line 91
     iput-object p1, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
@@ -718,7 +732,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 98
-    invoke-virtual {p0}, Lcom/android/settings/DreamSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -744,14 +758,14 @@
 
     invoke-direct {v3, p0}, Lcom/android/settings/DreamSettings$1;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 161
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0f0019
+    const v3, 0x7f0f0034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -761,7 +775,7 @@
     .local v1, padding:I
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/Switch;->setPaddingRelative(IIII)V
+    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
     .line 164
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -786,7 +800,7 @@
     invoke-virtual {v2, v3, v4}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
     .line 171
-    invoke-virtual {p0, v7}, Lcom/android/settings/DreamSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 172
     return-void
@@ -858,7 +872,7 @@
 
     .line 236
     .local v4, isEnabled:Z
-    const v2, 0x7f09057f
+    const v2, 0x7f0905ae
 
     const/4 v3, 0x2
 
@@ -874,35 +888,12 @@
 
     move-result-object v6
 
-    .line 244
-    .local v6, start:Landroid/view/MenuItem;
-    const/4 v0, 0x0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 245
-    const/4 v0, 0x0
-
-    invoke-interface {v6, v0}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 246
-    if-eqz v4, :cond_2
-
-    const v0, 0x7f020197
-
-    :goto_0
-    invoke-interface {v6, v0}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
     .line 251
-    :cond_0
+    .local v6, start:Landroid/view/MenuItem;
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 261
-    const v2, 0x7f09057e
+    const v2, 0x7f0905ad
 
     const/4 v3, 0x1
 
@@ -926,7 +917,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 272
     const/4 v0, 0x0
@@ -934,15 +925,15 @@
     invoke-interface {v7, v0}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 273
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_1
 
-    const v0, 0x7f02018e
+    const v0, 0x7f0201d9
 
-    :goto_1
+    :goto_0
     invoke-interface {v7, v0}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 277
-    :cond_1
+    :cond_0
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/view/MenuItem;
@@ -960,19 +951,11 @@
     .line 279
     return-void
 
-    .line 246
-    .end local v7           #whenToDream:Landroid/view/MenuItem;
-    :cond_2
-    const v0, 0x7f020198
+    .line 273
+    :cond_1
+    const v0, 0x7f0201da
 
     goto :goto_0
-
-    .line 273
-    .restart local v7       #whenToDream:Landroid/view/MenuItem;
-    :cond_3
-    const v0, 0x7f02018f
-
-    goto :goto_1
 .end method
 
 .method public onDestroyView()V
@@ -980,7 +963,7 @@
 
     .prologue
     .line 176
-    invoke-virtual {p0}, Lcom/android/settings/DreamSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -993,7 +976,7 @@
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;)V
 
     .line 177
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroyView()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroyView()V
 
     .line 178
     return-void
@@ -1003,7 +986,7 @@
     .locals 2
 
     .prologue
-    .line 336
+    .line 335
     const-string v0, "onPause()"
 
     const/4 v1, 0x0
@@ -1012,17 +995,17 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/DreamSettings;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 337
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 336
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 338
+    .line 337
     iget-object v0, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/DreamSettings;->mPackageReceiver:Lcom/android/settings/DreamSettings$PackageReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 339
+    .line 338
     return-void
 .end method
 
@@ -1030,7 +1013,7 @@
     .locals 3
 
     .prologue
-    .line 343
+    .line 342
     const-string v1, "onResume()"
 
     const/4 v2, 0x0
@@ -1039,52 +1022,52 @@
 
     invoke-static {v1, v2}, Lcom/android/settings/DreamSettings;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 344
+    .line 343
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 345
+    .line 344
     invoke-direct {p0}, Lcom/android/settings/DreamSettings;->refreshFromBackend()V
 
-    .line 348
+    .line 347
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 349
+    .line 348
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.PACKAGE_ADDED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 350
+    .line 349
     const-string v1, "android.intent.action.PACKAGE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 351
+    .line 350
     const-string v1, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 352
+    .line 351
     const-string v1, "android.intent.action.PACKAGE_REPLACED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 353
+    .line 352
     const-string v1, "package"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
-    .line 354
+    .line 353
     iget-object v1, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mPackageReceiver:Lcom/android/settings/DreamSettings$PackageReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 355
-    invoke-virtual {p0}, Lcom/android/settings/DreamSettings;->getListView()Landroid/widget/ListView;
+    .line 354
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
@@ -1092,6 +1075,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 356
+    .line 355
     return-void
 .end method

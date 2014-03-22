@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 671
+    .line 906
     iput-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppLabelComparator;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
     .parameter "x1"
 
     .prologue
-    .line 671
+    .line 906
     invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppLabelComparator;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
     return-void
@@ -65,14 +65,14 @@
     .parameter "rhs"
 
     .prologue
-    .line 675
+    .line 910
     iget-object v2, p1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 676
+    .line 911
     .local v0, lhsLabel:Ljava/lang/String;
     iget-object v2, p2, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
@@ -80,7 +80,7 @@
 
     move-result-object v1
 
-    .line 677
+    .line 912
     .local v1, rhsLabel:Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -103,7 +103,7 @@
     .parameter "x1"
 
     .prologue
-    .line 671
+    .line 906
     check-cast p1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
     .end local p1

@@ -3,7 +3,7 @@
 .source "DockSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -27,33 +27,34 @@
     .parameter
 
     .prologue
-    .line 455
+    .line 507
     iput-object p1, p0, Lcom/android/settings/DockSettings$4;->this$0:Lcom/android/settings/DockSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
     .parameter "dialog"
+    .parameter "which"
 
     .prologue
-    .line 457
+    .line 510
     iget-object v0, p0, Lcom/android/settings/DockSettings$4;->this$0:Lcom/android/settings/DockSettings;
 
     #getter for: Lcom/android/settings/DockSettings;->mDeskHomeScreen:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/settings/DockSettings;->access$300(Lcom/android/settings/DockSettings;)Landroid/preference/CheckBoxPreference;
+    invoke-static {v0}, Lcom/android/settings/DockSettings;->access$400(Lcom/android/settings/DockSettings;)Landroid/preference/CheckBoxPreference;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 458
+    .line 511
     return-void
 .end method

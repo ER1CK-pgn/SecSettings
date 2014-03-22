@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected onBindView(Landroid/view/View;)V
-    .locals 5
+    .locals 6
     .parameter "view"
 
     .prologue
@@ -50,7 +50,7 @@
 
     .line 46
     .local v2, resources:Landroid/content/res/Resources;
-    const v4, 0x7f0f003d
+    const v4, 0x7f0f005b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -60,20 +60,24 @@
     .local v3, viewSize:I
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v1, v3, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    add-int/lit8 v4, v3, -0x14
+
+    add-int/lit8 v5, v3, -0xa
+
+    invoke-direct {v1, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     .line 48
     .local v1, layoutParams:Landroid/widget/LinearLayout$LayoutParams;
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    const/4 v4, 0x1
+
+    iput v4, v1, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     .line 49
-    sget-object v4, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
-
-    invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
-
-    .line 52
-    invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 53
+    invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
+
+    .line 54
     return-void
 .end method

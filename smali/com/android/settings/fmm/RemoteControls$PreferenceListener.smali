@@ -30,7 +30,7 @@
     .line 98
     iput-object p1, p0, Lcom/android/settings/fmm/RemoteControls$PreferenceListener;->this$0:Lcom/android/settings/fmm/RemoteControls;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -92,7 +92,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 107
     :cond_0
@@ -108,7 +108,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method

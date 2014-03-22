@@ -30,7 +30,7 @@
     .line 259
     iput-object p1, p0, Lcom/android/settings/PenDetachmentOption$4;->this$0:Lcom/android/settings/PenDetachmentOption;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -81,7 +81,7 @@
 
     const-string v2, "statusbar"
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/PenDetachmentOption;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -98,7 +98,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/PenDetachmentOption$4;->this$0:Lcom/android/settings/PenDetachmentOption;
 
-    invoke-virtual {v1}, Lcom/android/settings/PenDetachmentOption;->finish()V
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     .line 273
     .end local v0           #mStatusBar:Landroid/app/StatusBarManager;

@@ -64,7 +64,7 @@
 
     .line 54
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/autohaptic/ReverbContentProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -105,7 +105,7 @@
 
     .line 61
     .local v1, e:Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

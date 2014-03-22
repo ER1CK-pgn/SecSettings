@@ -28,17 +28,17 @@
     .parameter "defaultPdgDomainName"
 
     .prologue
-    .line 35
+    .line 69
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    .line 37
+    .line 73
     iput-object p1, p0, Lcom/android/settings/wifi/IwlanNetwork;->mContext:Landroid/content/Context;
 
-    .line 40
+    .line 79
     :try_start_0
     iput-boolean p3, p0, Lcom/android/settings/wifi/IwlanNetwork;->isConnected:Z
 
-    .line 41
+    .line 81
     const-string v1, "pdg_name"
 
     invoke-virtual {p2, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
@@ -47,7 +47,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 42
+    .line 83
     const-string v1, "pdg_name"
 
     invoke-virtual {p2, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -56,7 +56,7 @@
 
     iput-object v1, p0, Lcom/android/settings/wifi/IwlanNetwork;->pdgDomainName:Ljava/lang/String;
 
-    .line 44
+    .line 87
     :cond_0
     const-string v1, "pdg_ipaddr"
 
@@ -66,7 +66,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 45
+    .line 89
     const-string v1, "pdg_ipaddr"
 
     invoke-virtual {p2, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -77,21 +77,21 @@
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 51
+    .line 101
     :cond_1
     :goto_0
     iput-object p4, p0, Lcom/android/settings/wifi/IwlanNetwork;->defaultPdgDomainName:Ljava/lang/String;
 
-    .line 52
+    .line 103
     return-void
 
-    .line 47
+    .line 93
     :catch_0
     move-exception v0
 
-    .line 48
+    .line 95
     .local v0, e:Lorg/json/JSONException;
-    invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -102,7 +102,7 @@
     .locals 1
 
     .prologue
-    .line 94
+    .line 187
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->defaultPdgDomainName:Ljava/lang/String;
 
     return-object v0
@@ -112,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 163
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->pdgDomainName:Ljava/lang/String;
 
     return-object v0
@@ -122,7 +122,7 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 171
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->pdgAddress:Ljava/lang/String;
 
     return-object v0
@@ -132,7 +132,7 @@
     .locals 1
 
     .prologue
-    .line 90
+    .line 179
     iget-boolean v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->isConnected:Z
 
     return v0
@@ -147,7 +147,7 @@
 
     const/high16 v1, -0x100
 
-    .line 56
+    .line 111
     const v0, 0x1020016
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -158,7 +158,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mTitleText:Landroid/widget/TextView;
 
-    .line 57
+    .line 113
     const v0, 0x1020010
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -169,7 +169,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mSummaryText:Landroid/widget/TextView;
 
-    .line 59
+    .line 117
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -182,24 +182,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 60
+    .line 119
     invoke-static {}, Lcom/android/settings/wifi/IwlanEnabler;->isIwlanEnable()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 61
+    .line 121
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mTitleText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 62
+    .line 123
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mSummaryText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 69
+    .line 137
     :cond_0
     :goto_0
     invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanNetwork;->getPdgDomainName()Ljava/lang/String;
@@ -216,64 +216,64 @@
 
     if-eqz v0, :cond_2
 
-    .line 70
-    invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanNetwork;->getContext()Landroid/content/Context;
+    .line 139
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f0910f8
+    const v1, 0x7f091242
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/IwlanNetwork;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 71
-    invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanNetwork;->getContext()Landroid/content/Context;
+    .line 141
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f0910fb
+    const v1, 0x7f091245
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/IwlanNetwork;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 77
+    .line 153
     :goto_1
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 79
+    .line 157
     return-void
 
-    .line 64
+    .line 127
     :cond_1
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mTitleText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 65
+    .line 129
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->mSummaryText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_0
 
-    .line 73
+    .line 145
     :cond_2
     invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanNetwork;->getPdgDomainName()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/IwlanNetwork;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 74
+    .line 147
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanNetwork;->pdgAddress:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/IwlanNetwork;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 .end method

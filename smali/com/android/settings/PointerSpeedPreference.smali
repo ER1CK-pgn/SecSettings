@@ -50,7 +50,7 @@
     iput-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mSpeedObserver:Landroid/database/ContentObserver;
 
     .line 52
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -86,7 +86,7 @@
     .line 93
     iget-object v1, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -100,7 +100,7 @@
 
     add-int/lit8 v2, v0, 0x7
 
-    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 95
     return-void
@@ -157,12 +157,12 @@
 
     const/16 v1, 0xe
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setMax(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsSeekBar;->setMax(I)V
 
     .line 72
     iget-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -179,7 +179,7 @@
 
     add-int/lit8 v1, v1, 0x7
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 74
     iget-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
@@ -196,10 +196,10 @@
 
     .prologue
     .line 99
-    invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onDialogClosed(Z)V
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onDialogClosed(Z)V
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -214,13 +214,13 @@
     .line 104
     iget-object v1, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v3}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v3}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v3
 
@@ -290,7 +290,7 @@
 
     .line 139
     :cond_0
-    invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 148
     :goto_0
@@ -301,11 +301,11 @@
     check-cast p1, Lcom/android/settings/PointerSpeedPreference$SavedState;
 
     .line 144
-    invoke-virtual {p1}, Lcom/android/settings/PointerSpeedPreference$SavedState;->getSuperState()Landroid/os/Parcelable;
+    invoke-virtual {p1}, Landroid/view/AbsSavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v0
 
-    invoke-super {p0, v0}, Landroid/preference/SeekBarDialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
+    invoke-super {p0, v0}, Landroid/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 145
     iget v0, p1, Lcom/android/settings/PointerSpeedPreference$SavedState;->oldSpeed:I
@@ -317,7 +317,7 @@
 
     iget v1, p1, Lcom/android/settings/PointerSpeedPreference$SavedState;->progress:I
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 147
     iget-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
@@ -336,19 +336,19 @@
 
     .prologue
     .line 122
-    invoke-super {p0}, Landroid/preference/SeekBarDialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
+    invoke-super {p0}, Landroid/preference/DialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v1
 
     .line 123
     .local v1, superState:Landroid/os/Parcelable;
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v2
 
@@ -375,7 +375,7 @@
     .local v0, myState:Lcom/android/settings/PointerSpeedPreference$SavedState;
     iget-object v2, p0, Lcom/android/settings/PointerSpeedPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v2}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v2
 
@@ -419,7 +419,7 @@
     .line 89
     iget-object v0, p0, Lcom/android/settings/PointerSpeedPreference;->mIm:Landroid/hardware/input/InputManager;
 
-    invoke-virtual {p1}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {p1}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v1
 
@@ -437,10 +437,10 @@
 
     .prologue
     .line 57
-    invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->showDialog(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->showDialog(Landroid/os/Bundle;)V
 
     .line 59
-    invoke-virtual {p0}, Lcom/android/settings/PointerSpeedPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 

@@ -1,14 +1,11 @@
 .class Lcom/android/settings/DockSettings$2;
-.super Ljava/lang/Object;
+.super Landroid/database/ContentObserver;
 .source "DockSettings.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/DockSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/DockSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,75 +19,33 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/DockSettings;)V
+.method constructor <init>(Lcom/android/settings/DockSettings;Landroid/os/Handler;)V
     .locals 0
     .parameter
+    .parameter "x0"
 
     .prologue
-    .line 439
+    .line 148
     iput-object p1, p0, Lcom/android/settings/DockSettings$2;->this$0:Lcom/android/settings/DockSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
-    .parameter "arg0"
-    .parameter "arg1"
+.method public onChange(Z)V
+    .locals 1
+    .parameter "selfChange"
 
     .prologue
-    const/4 v3, 0x1
+    .line 151
+    iget-object v0, p0, Lcom/android/settings/DockSettings$2;->this$0:Lcom/android/settings/DockSettings;
 
-    .line 442
-    iget-object v1, p0, Lcom/android/settings/DockSettings$2;->this$0:Lcom/android/settings/DockSettings;
+    #calls: Lcom/android/settings/DockSettings;->updateUltrasonicSensorSettingsScreen()V
+    invoke-static {v0}, Lcom/android/settings/DockSettings;->access$300(Lcom/android/settings/DockSettings;)V
 
-    invoke-virtual {v1}, Lcom/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "desk_home_screen_display"
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 443
-    iget-object v1, p0, Lcom/android/settings/DockSettings$2;->this$0:Lcom/android/settings/DockSettings;
-
-    #getter for: Lcom/android/settings/DockSettings;->mDeskHomeScreen:Landroid/preference/CheckBoxPreference;
-    invoke-static {v1}, Lcom/android/settings/DockSettings;->access$300(Lcom/android/settings/DockSettings;)Landroid/preference/CheckBoxPreference;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 444
-    new-instance v0, Lcom/android/settings/DreamBackend;
-
-    iget-object v1, p0, Lcom/android/settings/DockSettings$2;->this$0:Lcom/android/settings/DockSettings;
-
-    invoke-virtual {v1}, Lcom/android/settings/DockSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/android/settings/DreamBackend;-><init>(Landroid/content/Context;)V
-
-    .line 445
-    .local v0, mBackend:Lcom/android/settings/DreamBackend;
-    invoke-virtual {v0}, Lcom/android/settings/DreamBackend;->isEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 446
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/DreamBackend;->setEnabled(Z)V
-
-    .line 447
-    :cond_0
+    .line 152
     return-void
 .end method

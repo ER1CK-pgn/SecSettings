@@ -45,7 +45,7 @@
     if-eqz v0, :cond_0
 
     .line 58
-    invoke-virtual {p0}, Lcom/android/settings/widget/AnimatedImageView;->isShown()Z
+    invoke-virtual {p0}, Landroid/view/View;->isShown()Z
 
     move-result v0
 
@@ -79,7 +79,7 @@
 
     .prologue
     .line 39
-    invoke-virtual {p0}, Lcom/android/settings/widget/AnimatedImageView;->isShown()Z
+    invoke-virtual {p0}, Landroid/view/View;->isShown()Z
 
     move-result v1
 
@@ -96,7 +96,7 @@
 
     .line 42
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/widget/AnimatedImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -127,7 +127,7 @@
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/AnimatedRotateDrawable;->setFramesDuration(I)V
 
     .line 48
-    invoke-virtual {p0}, Lcom/android/settings/widget/AnimatedImageView;->isShown()Z
+    invoke-virtual {p0}, Landroid/view/View;->isShown()Z
 
     move-result v1
 
@@ -194,7 +194,7 @@
 
     .prologue
     .line 97
-    invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onVisibilityChanged(Landroid/view/View;I)V
+    invoke-super {p0, p1, p2}, Landroid/view/View;->onVisibilityChanged(Landroid/view/View;I)V
 
     .line 98
     invoke-direct {p0}, Lcom/android/settings/widget/AnimatedImageView;->updateAnimating()V

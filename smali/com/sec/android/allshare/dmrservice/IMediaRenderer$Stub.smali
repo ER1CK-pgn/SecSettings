@@ -34,7 +34,7 @@
     .line 25
     const-string v0, "com.sec.android.allshare.dmrservice.IMediaRenderer"
 
-    invoke-virtual {p0, p0, v0}, Lcom/sec/android/allshare/dmrservice/IMediaRenderer$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     .line 26
     return-void

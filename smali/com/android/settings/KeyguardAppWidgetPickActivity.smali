@@ -133,7 +133,7 @@
     :goto_0
     const v6, 0x7f0b000d
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -143,7 +143,7 @@
     .local v5, root:Landroid/view/ViewGroup;
     const/high16 v6, -0x100
 
-    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->setBackgroundColor(I)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 634
     invoke-virtual {v5}, Landroid/view/ViewGroup;->getChildCount()I
@@ -182,7 +182,7 @@
 
     const-wide/16 v8, 0x3e8
 
-    invoke-virtual {v6, v7, v8, v9}, Landroid/widget/GridView;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v6, v7, v8, v9}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 643
     return-void
@@ -434,9 +434,9 @@
     const/4 v5, 0x0
 
     .line 95
-    const v3, 0x7f0400c0
+    const v3, 0x7f0400df
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->setContentView(I)V
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
 
     .line 96
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -465,14 +465,14 @@
     .line 99
     const/4 v3, 0x1
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->setRequestedOrientation(I)V
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setRequestedOrientation(I)V
 
     .line 102
     :cond_0
     invoke-virtual {p0, v5, v6}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->setResultData(ILandroid/content/Intent;)V
 
     .line 105
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -506,9 +506,9 @@
     iput-object v3, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity;->mExtraConfigureOptions:Landroid/os/Bundle;
 
     .line 114
-    const v3, 0x7f0b020e
+    const v3, 0x7f0b0246
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -523,7 +523,7 @@
 
     .line 116
     .local v0, dm:Landroid/util/DisplayMetrics;
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->getWindowManager()Landroid/view/WindowManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v3
 
@@ -534,11 +534,11 @@
     invoke-virtual {v3, v0}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
     .line 117
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0036
+    const v4, 0x7f0f0052
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -553,7 +553,7 @@
     .line 121
     iget-object v3, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity;->mGridView:Landroid/widget/GridView;
 
-    invoke-virtual {v3}, Landroid/widget/GridView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
@@ -579,7 +579,7 @@
     .line 125
     iget-object v3, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity;->mAppWidgetLoader:Lcom/android/settings/AppWidgetLoader;
 
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
@@ -608,7 +608,7 @@
     .line 128
     iget-object v3, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity;->mGridView:Landroid/widget/GridView;
 
-    invoke-virtual {v3, p0}, Landroid/widget/GridView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 130
     new-instance v3, Lcom/android/internal/widget/LockPatternUtils;
@@ -624,7 +624,7 @@
     .end local v0           #dm:Landroid/util/DisplayMetrics;
     .end local v2           #maxGridWidth:I
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method
@@ -739,7 +739,9 @@
     .local v5, userId:I
     const v6, 0x4b455947
 
-    invoke-static {v6, v5}, Landroid/appwidget/AppWidgetHost;->allocateAppWidgetIdForSystem(II)I
+    const-string v7, "com.android.keyguard"
+
+    invoke-static {v6, v5, v7}, Landroid/appwidget/AppWidgetHost;->allocateAppWidgetIdForPackage(IILjava/lang/String;)I
 
     move-result v6
 
@@ -790,7 +792,7 @@
     .line 563
     .end local v1           #e:Ljava/lang/IllegalArgumentException;
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_1
 .end method
@@ -856,7 +858,7 @@
     iput-object v0, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity;->mResultData:Landroid/content/Intent;
 
     .line 156
-    invoke-virtual {p0, p1, v0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, p1, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
 
     .line 157
     return-void
@@ -877,13 +879,13 @@
     .parameter "requestCode"
 
     .prologue
-    const v2, 0x7f090702
+    const v2, 0x7f090755
 
     const/4 v1, 0x0
 
     .line 647
     :try_start_0
-    invoke-virtual {p0, p1, p2}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1

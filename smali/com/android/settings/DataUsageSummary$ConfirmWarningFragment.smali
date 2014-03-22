@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 2235
+    .line 2494
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
@@ -34,7 +34,7 @@
 
     const-wide/16 v10, 0x0
 
-    .line 2240
+    .line 2499
     invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->isAdded()Z
 
     move-result v8
@@ -43,17 +43,17 @@
 
     const/4 v2, 0x0
 
-    .line 2267
+    .line 2526
     :goto_0
     return-object v2
 
-    .line 2242
+    .line 2501
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    .line 2244
+    .line 2503
     .local v5, res:Landroid/content/res/Resources;
     #getter for: Lcom/android/settings/DataUsageSummary;->mChart:Lcom/android/settings/widget/ChartDataUsageView;
     invoke-static {p0}, Lcom/android/settings/DataUsageSummary;->access$2100(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/widget/ChartDataUsageView;
@@ -64,13 +64,13 @@
 
     move-result-wide v3
 
-    .line 2246
+    .line 2505
     .local v3, limitBytes:J
     const/4 v1, 0x2
 
-    .line 2247
+    .line 2506
     .local v1, defaultWarningGB:I
-    invoke-static {}, Lcom/android/settings/DataUsageSummary;->access$3400()Z
+    invoke-static {}, Lcom/android/settings/DataUsageSummary;->access$3700()Z
 
     move-result v8
 
@@ -78,13 +78,13 @@
 
     const/16 v1, 0x32
 
-    .line 2248
+    .line 2507
     :cond_1
     int-to-long v8, v1
 
     mul-long v6, v8, v12
 
-    .line 2251
+    .line 2510
     .local v6, warningBytes:J
     #getter for: Lcom/android/settings/DataUsageSummary;->mDisableAtLimit:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-static {p0}, Lcom/android/settings/DataUsageSummary;->access$1300(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -97,42 +97,42 @@
 
     if-eqz v8, :cond_2
 
-    .line 2252
+    .line 2511
     cmp-long v8, v3, v10
 
     if-nez v8, :cond_3
 
-    .line 2253
+    .line 2512
     const-wide/16 v6, 0x0
 
-    .line 2259
+    .line 2518
     :cond_2
     :goto_1
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 2260
+    .line 2519
     .local v0, args:Landroid/os/Bundle;
     const-string v8, "warningBytes"
 
     invoke-virtual {v0, v8, v6, v7}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 2262
+    .line 2521
     new-instance v2, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;
 
     invoke-direct {v2}, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;-><init>()V
 
-    .line 2263
+    .line 2522
     .local v2, dialog:Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;
     invoke-virtual {v2, v0}, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 2264
+    .line 2523
     const/4 v8, 0x0
 
     invoke-virtual {v2, p0, v8}, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 2265
+    .line 2524
     invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v8
@@ -143,7 +143,7 @@
 
     goto :goto_0
 
-    .line 2254
+    .line 2513
     .end local v0           #args:Landroid/os/Bundle;
     .end local v2           #dialog:Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;
     :cond_3
@@ -159,7 +159,7 @@
 
     if-gtz v8, :cond_2
 
-    .line 2255
+    .line 2514
     const-wide/32 v8, 0x100000
 
     sub-long v6, v3, v8
@@ -174,12 +174,12 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 2272
+    .line 2531
     invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 2274
+    .line 2533
     .local v1, context:Landroid/content/Context;
     invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;->getArguments()Landroid/os/Bundle;
 
@@ -191,24 +191,24 @@
 
     move-result-wide v2
 
-    .line 2276
+    .line 2535
     .local v2, warningBytes:J
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2277
+    .line 2536
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f091231
+    const v4, 0x7f09139b
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2278
-    const v4, 0x7f091232
+    .line 2537
+    const v4, 0x7f09139c
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2280
+    .line 2539
     const v4, 0x104000a
 
     new-instance v5, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment$1;
@@ -217,7 +217,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2289
+    .line 2548
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v4

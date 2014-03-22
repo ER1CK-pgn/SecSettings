@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 79
+    .line 80
     iput-object p1, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 82
+    .line 83
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 83
+    .line 84
     .local v0, action:Ljava/lang/String;
     const-string v4, "android.intent.action.BATTERY_CHANGED"
 
@@ -57,14 +57,14 @@
 
     if-eqz v4, :cond_0
 
-    .line 84
+    .line 85
     const-string v4, "plugged"
 
     invoke-virtual {p2, v4, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v3
 
-    .line 86
+    .line 87
     .local v3, plugType:I
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
@@ -99,7 +99,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 87
+    .line 88
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     #getter for: Lcom/android/settings/BatteryInfo;->mScale:Landroid/widget/TextView;
@@ -133,7 +133,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 88
+    .line 89
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     #getter for: Lcom/android/settings/BatteryInfo;->mVoltage:Landroid/widget/TextView;
@@ -169,9 +169,9 @@
 
     iget-object v6, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v7, 0x7f0900b8
+    const v7, 0x7f0900d7
 
-    invoke-virtual {v6, v7}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -185,7 +185,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 90
+    .line 91
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     #getter for: Lcom/android/settings/BatteryInfo;->mTemperature:Landroid/widget/TextView;
@@ -222,9 +222,9 @@
 
     iget-object v6, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v7, 0x7f0900ba
+    const v7, 0x7f0900d9
 
-    invoke-virtual {v6, v7}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -238,7 +238,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 92
+    .line 93
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     #getter for: Lcom/android/settings/BatteryInfo;->mTechnology:Landroid/widget/TextView;
@@ -272,7 +272,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 94
+    .line 95
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     #getter for: Lcom/android/settings/BatteryInfo;->mStatus:Landroid/widget/TextView;
@@ -282,7 +282,7 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    invoke-virtual {v5}, Lcom/android/settings/BatteryInfo;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
@@ -292,10 +292,10 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 96
+    .line 97
     packed-switch v3, :pswitch_data_0
 
-    .line 113
+    .line 114
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
     #getter for: Lcom/android/settings/BatteryInfo;->mPower:Landroid/widget/TextView;
@@ -305,15 +305,15 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v6, 0x7f0900cc
+    const v6, 0x7f0900eb
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 117
+    .line 118
     :goto_0
     const-string v4, "health"
 
@@ -323,22 +323,22 @@
 
     move-result v1
 
-    .line 119
+    .line 120
     .local v1, health:I
     const/4 v4, 0x2
 
     if-ne v1, v4, :cond_1
 
-    .line 120
+    .line 121
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900ce
+    const v5, 0x7f0900ed
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 134
+    .line 135
     .local v2, healthString:Ljava/lang/String;
     :goto_1
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
@@ -350,14 +350,14 @@
 
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 136
+    .line 137
     .end local v1           #health:I
     .end local v2           #healthString:Ljava/lang/String;
     .end local v3           #plugType:I
     :cond_0
     return-void
 
-    .line 98
+    .line 99
     .restart local v3       #plugType:I
     :pswitch_0
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
@@ -369,9 +369,9 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v6, 0x7f0900c7
+    const v6, 0x7f0900e6
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -379,7 +379,7 @@
 
     goto :goto_0
 
-    .line 101
+    .line 102
     :pswitch_1
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
@@ -390,9 +390,9 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v6, 0x7f0900c8
+    const v6, 0x7f0900e7
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -400,7 +400,7 @@
 
     goto :goto_0
 
-    .line 104
+    .line 105
     :pswitch_2
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
@@ -411,9 +411,9 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v6, 0x7f0900c9
+    const v6, 0x7f0900e8
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -421,7 +421,7 @@
 
     goto :goto_0
 
-    .line 107
+    .line 108
     :pswitch_3
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
@@ -432,9 +432,9 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v6, 0x7f0900ca
+    const v6, 0x7f0900e9
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -442,7 +442,7 @@
 
     goto :goto_0
 
-    .line 110
+    .line 111
     :pswitch_4
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
@@ -453,9 +453,9 @@
 
     iget-object v5, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v6, 0x7f0900cb
+    const v6, 0x7f0900ea
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -463,116 +463,116 @@
 
     goto :goto_0
 
-    .line 121
+    .line 122
     .restart local v1       #health:I
     :cond_1
     const/4 v4, 0x3
 
     if-ne v1, v4, :cond_2
 
-    .line 122
+    .line 123
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900cf
+    const v5, 0x7f0900ee
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2       #healthString:Ljava/lang/String;
     goto :goto_1
 
-    .line 123
+    .line 124
     .end local v2           #healthString:Ljava/lang/String;
     :cond_2
     const/4 v4, 0x4
 
     if-ne v1, v4, :cond_3
 
-    .line 124
+    .line 125
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900d0
+    const v5, 0x7f0900ef
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2       #healthString:Ljava/lang/String;
     goto/16 :goto_1
 
-    .line 125
+    .line 126
     .end local v2           #healthString:Ljava/lang/String;
     :cond_3
     const/4 v4, 0x5
 
     if-ne v1, v4, :cond_4
 
-    .line 126
+    .line 127
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900d1
+    const v5, 0x7f0900f0
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2       #healthString:Ljava/lang/String;
     goto/16 :goto_1
 
-    .line 127
+    .line 128
     .end local v2           #healthString:Ljava/lang/String;
     :cond_4
     const/4 v4, 0x6
 
     if-ne v1, v4, :cond_5
 
-    .line 128
+    .line 129
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900d2
+    const v5, 0x7f0900f1
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2       #healthString:Ljava/lang/String;
     goto/16 :goto_1
 
-    .line 129
+    .line 130
     .end local v2           #healthString:Ljava/lang/String;
     :cond_5
     const/4 v4, 0x7
 
     if-ne v1, v4, :cond_6
 
-    .line 130
+    .line 131
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900d3
+    const v5, 0x7f0900f2
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2       #healthString:Ljava/lang/String;
     goto/16 :goto_1
 
-    .line 132
+    .line 133
     .end local v2           #healthString:Ljava/lang/String;
     :cond_6
     iget-object v4, p0, Lcom/android/settings/BatteryInfo$2;->this$0:Lcom/android/settings/BatteryInfo;
 
-    const v5, 0x7f0900cd
+    const v5, 0x7f0900ec
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/BatteryInfo;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     .restart local v2       #healthString:Ljava/lang/String;
     goto/16 :goto_1
 
-    .line 96
+    .line 97
     nop
 
     :pswitch_data_0

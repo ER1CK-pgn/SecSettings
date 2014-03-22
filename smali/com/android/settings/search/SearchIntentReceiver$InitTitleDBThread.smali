@@ -149,6 +149,10 @@
     :cond_0
     invoke-static {v3}, Lcom/android/settings/search/SearchIntentReceiver;->access$102(Z)Z
 
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/settings/search/SearchIntentReceiver;->access$202(Z)Z
+
     .line 134
     const-string v1, "SearchIntentReceiver"
 

@@ -26,12 +26,12 @@
     .parameter
 
     .prologue
-    .line 252
+    .line 253
     iput-object p1, p0, Lcom/android/settings/applications/RunningState$2;->this$0:Lcom/android/settings/applications/RunningState;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 253
+    .line 254
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/applications/RunningState$2;->mNextUpdate:I
@@ -48,17 +48,17 @@
     .prologue
     const/4 v3, 0x4
 
-    .line 257
+    .line 258
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 281
+    .line 282
     :cond_0
     :goto_0
     return-void
 
-    .line 259
+    .line 260
     :pswitch_0
     iget v1, p1, Landroid/os/Message;->arg1:I
 
@@ -76,7 +76,7 @@
 
     goto :goto_1
 
-    .line 264
+    .line 265
     :pswitch_1
     iget-object v1, p0, Lcom/android/settings/applications/RunningState$2;->this$0:Lcom/android/settings/applications/RunningState;
 
@@ -84,7 +84,7 @@
 
     monitor-enter v2
 
-    .line 265
+    .line 266
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/applications/RunningState$2;->this$0:Lcom/android/settings/applications/RunningState;
 
@@ -92,12 +92,12 @@
 
     if-nez v1, :cond_2
 
-    .line 266
+    .line 267
     monitor-exit v2
 
     goto :goto_0
 
-    .line 268
+    .line 269
     :catchall_0
     move-exception v1
 
@@ -113,28 +113,28 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 269
-    invoke-virtual {p0, v3}, Lcom/android/settings/applications/RunningState$2;->removeMessages(I)V
-
     .line 270
-    invoke-virtual {p0, v3}, Lcom/android/settings/applications/RunningState$2;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v3}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 271
+    invoke-virtual {p0, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
-    .line 271
+    .line 272
     .local v0, m:Landroid/os/Message;
     const-wide/16 v1, 0x3e8
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/settings/applications/RunningState$2;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 273
+    .line 274
     iget-object v1, p0, Lcom/android/settings/applications/RunningState$2;->this$0:Lcom/android/settings/applications/RunningState;
 
     iget-object v1, v1, Lcom/android/settings/applications/RunningState;->mRefreshUiListener:Lcom/android/settings/applications/RunningState$OnRefreshUiListener;
 
     if-eqz v1, :cond_0
 
-    .line 276
+    .line 277
     iget-object v1, p0, Lcom/android/settings/applications/RunningState$2;->this$0:Lcom/android/settings/applications/RunningState;
 
     iget-object v1, v1, Lcom/android/settings/applications/RunningState;->mRefreshUiListener:Lcom/android/settings/applications/RunningState$OnRefreshUiListener;
@@ -143,14 +143,14 @@
 
     invoke-interface {v1, v2}, Lcom/android/settings/applications/RunningState$OnRefreshUiListener;->onRefreshUi(I)V
 
-    .line 277
+    .line 278
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/android/settings/applications/RunningState$2;->mNextUpdate:I
 
     goto :goto_0
 
-    .line 257
+    .line 258
     nop
 
     :pswitch_data_0

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 553
+    .line 569
     iput-object p1, p0, Lcom/android/settings/guide/WifiSettingsGuider$6;->this$0:Lcom/android/settings/guide/WifiSettingsGuider;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,6 +41,6 @@
     .locals 0
 
     .prologue
-    .line 562
+    .line 578
     return-void
 .end method

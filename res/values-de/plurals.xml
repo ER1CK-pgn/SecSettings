@@ -36,4 +36,12 @@
         <item quantity="other">%d Sekunden</item>
         <item quantity="one">1 Sekunde</item>
     </plurals>
+    <plurals name="torchlight_timeout_minutes">
+        <item quantity="other">%d Minuten</item>
+        <item quantity="one">1 Minute</item>
+    </plurals>
+    <plurals name="torchlight_timeout_seconds">
+        <item quantity="other">%d Sekunden</item>
+        <item quantity="one">1 Sekunde</item>
+    </plurals>
 </resources>

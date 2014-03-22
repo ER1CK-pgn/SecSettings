@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 296
+    .line 295
     iput-object p1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5$1;->this$1:Lcom/android/settings/bluetooth/DevicePickerActivity$5;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "view"
 
     .prologue
-    .line 299
+    .line 298
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5$1;->this$1:Lcom/android/settings/bluetooth/DevicePickerActivity$5;
 
     iget-object v0, v0, Lcom/android/settings/bluetooth/DevicePickerActivity$5;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
@@ -58,7 +58,7 @@
 
     if-nez v0, :cond_0
 
-    .line 300
+    .line 299
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5$1;->this$1:Lcom/android/settings/bluetooth/DevicePickerActivity$5;
 
     iget-object v0, v0, Lcom/android/settings/bluetooth/DevicePickerActivity$5;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
@@ -72,11 +72,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/bluetooth/LocalBluetoothAdapter;->startScanning(Z)V
 
-    .line 304
+    .line 303
     :goto_0
     return-void
 
-    .line 302
+    .line 301
     :cond_0
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5$1;->this$1:Lcom/android/settings/bluetooth/DevicePickerActivity$5;
 

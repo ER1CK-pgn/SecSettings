@@ -18,6 +18,9 @@
 .method public abstract addAction(Ljava/lang/Object;I)V
 .end method
 
+.method public abstract addChild(Ljava/lang/Object;Landroid/view/View;)V
+.end method
+
 .method public abstract getActions(Ljava/lang/Object;)I
 .end method
 
@@ -40,6 +43,9 @@
 .end method
 
 .method public abstract getViewIdResourceName(Ljava/lang/Object;)Ljava/lang/String;
+.end method
+
+.method public abstract isAccessibilityFocused(Ljava/lang/Object;)Z
 .end method
 
 .method public abstract isCheckable(Ljava/lang/Object;)Z
@@ -72,8 +78,59 @@
 .method public abstract isSelected(Ljava/lang/Object;)Z
 .end method
 
+.method public abstract isVisibleToUser(Ljava/lang/Object;)Z
+.end method
+
+.method public abstract obtain(Ljava/lang/Object;)Ljava/lang/Object;
+.end method
+
+.method public abstract recycle(Ljava/lang/Object;)V
+.end method
+
+.method public abstract setAccessibilityFocused(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setBoundsInParent(Ljava/lang/Object;Landroid/graphics/Rect;)V
+.end method
+
+.method public abstract setBoundsInScreen(Ljava/lang/Object;Landroid/graphics/Rect;)V
+.end method
+
 .method public abstract setClassName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
 .end method
 
+.method public abstract setClickable(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setContentDescription(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+.end method
+
+.method public abstract setEnabled(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setFocusable(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setFocused(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setLongClickable(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setPackageName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+.end method
+
+.method public abstract setParent(Ljava/lang/Object;Landroid/view/View;)V
+.end method
+
 .method public abstract setScrollable(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setSelected(Ljava/lang/Object;Z)V
+.end method
+
+.method public abstract setSource(Ljava/lang/Object;Landroid/view/View;)V
+.end method
+
+.method public abstract setVisibleToUser(Ljava/lang/Object;Z)V
 .end method

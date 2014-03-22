@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 558
+    .line 587
     iput-object p1, p0, Lcom/android/settings/SecuritySettings$4;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,16 +44,16 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 560
+    .line 589
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 561
+    .line 590
     .local v0, mIntent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/SecuritySettings$4;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/SecuritySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -67,14 +67,14 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 562
+    .line 591
     const-string v1, "com.osp.app.signin"
 
     const-string v2, "com.osp.app.signin.UserValidateCheck"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 565
+    .line 594
     :goto_0
     const-string v1, "MODE"
 
@@ -82,17 +82,17 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 566
+    .line 595
     iget-object v1, p0, Lcom/android/settings/SecuritySettings$4;->this$0:Lcom/android/settings/SecuritySettings;
 
     const/16 v2, 0x3e9
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/settings/SecuritySettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 567
+    .line 596
     return v3
 
-    .line 564
+    .line 593
     :cond_0
     const-string v1, "com.osp.app.signin"
 

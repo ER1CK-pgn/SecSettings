@@ -541,7 +541,7 @@
 
     iget-object v6, v0, Lcom/android/settings/bluetooth/DockService;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v6}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v6}, Landroid/app/Dialog;->dismiss()V
 
     .line 517
     const/4 v6, 0x0
@@ -644,11 +644,11 @@
 
     .line 548
     .local v3, ab:Landroid/app/AlertDialog$Builder;
-    const v6, 0x7f090289
+    const v6, 0x7f0902b1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -670,7 +670,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Lcom/android/settings/bluetooth/DockService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v6}, Landroid/content/ContextWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v12
 
@@ -678,7 +678,7 @@
 
     .line 556
     .local v12, inflater:Landroid/view/LayoutInflater;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/bluetooth/DockService;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
@@ -690,7 +690,7 @@
 
     .line 557
     .local v14, pixelScaleFactor:F
-    const v6, 0x7f04014a
+    const v6, 0x7f040180
 
     const/4 v8, 0x0
 
@@ -700,7 +700,7 @@
 
     .line 558
     .local v4, view:Landroid/view/View;
-    const v6, 0x7f0b03a3
+    const v6, 0x7f0b03ff
 
     invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -730,14 +730,14 @@
     .line 562
     .local v9, checked:Z
     :goto_3
-    invoke-virtual {v15, v9}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {v15, v9}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 563
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/settings/bluetooth/DockService;->mCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {v15, v6}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v15, v6}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 564
     const/high16 v6, 0x4160
@@ -767,7 +767,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -798,7 +798,7 @@
 
     iget-object v6, v0, Lcom/android/settings/bluetooth/DockService;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v6}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v6}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v6
 
@@ -815,14 +815,14 @@
 
     iget-object v8, v0, Lcom/android/settings/bluetooth/DockService;->mDismissListener:Landroid/content/DialogInterface$OnDismissListener;
 
-    invoke-virtual {v6, v8}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v6, v8}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 579
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/settings/bluetooth/DockService;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v6}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v6}, Landroid/app/Dialog;->show()V
 
     goto/16 :goto_0
 
@@ -861,7 +861,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6, v8}, Lcom/android/settings/bluetooth/DockService;->startForeground(ILandroid/app/Notification;)V
+    invoke-virtual {v0, v6, v8}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
 
     goto/16 :goto_1
 
@@ -935,7 +935,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/bluetooth/DockService;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0, v1}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
@@ -1022,7 +1022,7 @@
 
     invoke-direct {v4, v5}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v8, v4}, Lcom/android/settings/bluetooth/DockService;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v8, v4}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     move-result-object v1
 
@@ -1322,7 +1322,7 @@
     .line 908
     iget-object v1, p0, Lcom/android/settings/bluetooth/DockService;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
     .line 909
     const/4 v1, 0x0
@@ -1392,7 +1392,7 @@
 
     invoke-direct {v5, v6}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v4, v5}, Lcom/android/settings/bluetooth/DockService;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v4, v5}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     move-result-object v2
 
@@ -1472,7 +1472,7 @@
     .parameter "firstTime"
 
     .prologue
-    const v3, 0x7f09028b
+    const v3, 0x7f0902b3
 
     const/4 v5, 0x1
 
@@ -1515,7 +1515,7 @@
 
     .line 688
     :pswitch_1
-    invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1555,16 +1555,16 @@
     .line 671
     .restart local v0       #items:[Ljava/lang/CharSequence;
     :pswitch_3
-    const v2, 0x7f09028a
+    const v2, 0x7f0902b2
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     aput-object v2, v0, v4
 
     .line 672
-    invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/DockService;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1749,14 +1749,14 @@
 
     const/16 v4, 0x1bc
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->removeMessages(I)V
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 401
     iget-object v3, p0, Lcom/android/settings/bluetooth/DockService;->mServiceHandler:Lcom/android/settings/bluetooth/DockService$ServiceHandler;
 
     const/16 v4, 0x22b
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->removeMessages(I)V
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 402
     invoke-direct {p0}, Lcom/android/settings/bluetooth/DockService;->getPrefs()Landroid/content/SharedPreferences;
@@ -1847,7 +1847,7 @@
     .line 434
     .end local v0           #d:Landroid/bluetooth/BluetoothDevice;
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DockService;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1937,7 +1937,7 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v3, v4, v2, p2, v5}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v3, v4, v2, p2, v5}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
@@ -1947,7 +1947,7 @@
 
     const-wide/16 v3, 0x7d0
 
-    invoke-virtual {v2, v0, v3, v4}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v2, v0, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 382
     const/4 v2, 0x1
@@ -1967,7 +1967,7 @@
 
     const/16 v2, 0x1bc
 
-    invoke-virtual {v1, v2, p2, p3, p1}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, v2, p2, p3, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
@@ -1977,7 +1977,7 @@
 
     const-wide/16 v2, 0x3e8
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 355
     return-void
@@ -2041,7 +2041,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v1, v2, v4, v0}, Lcom/android/settings/bluetooth/DockService$ServiceHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v3, v1, v2, v4, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -2474,7 +2474,7 @@
 
     .line 151
     .local v1, thread:Landroid/os/HandlerThread;
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     .line 153
     invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -2521,7 +2521,7 @@
     .line 165
     iget-object v1, p0, Lcom/android/settings/bluetooth/DockService;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
     .line 166
     iput-object v5, p0, Lcom/android/settings/bluetooth/DockService;->mDialog:Landroid/app/AlertDialog;

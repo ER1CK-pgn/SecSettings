@@ -30,7 +30,7 @@
     const/4 v3, -0x1
 
     .line 49
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
     iput v3, p0, Lcom/android/settings/lockscreenshortcut/IconResizer;->mIconWidth:I
@@ -76,7 +76,7 @@
 
     .line 55
     .local v0, resources:Landroid/content/res/Resources;
-    const v3, 0x7f0f003d
+    const v3, 0x7f0f005b
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -181,10 +181,10 @@
 
     .line 83
     .local v5, painter:Landroid/graphics/drawable/PaintDrawable;
-    invoke-virtual {v5, v8}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicWidth(I)V
+    invoke-virtual {v5, v8}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicWidth(I)V
 
     .line 84
-    invoke-virtual {v5, v2}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicHeight(I)V
+    invoke-virtual {v5, v2}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicHeight(I)V
 
     .line 87
     .end local v5           #painter:Landroid/graphics/drawable/PaintDrawable;

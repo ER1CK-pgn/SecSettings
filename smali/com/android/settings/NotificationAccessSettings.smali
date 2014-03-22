@@ -235,7 +235,7 @@
 
     move-result-object v8
 
-    iget-object v9, v2, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
+    iget-object v9, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -312,7 +312,7 @@
 
     iget-object v1, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    iget-object v2, p1, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
+    iget-object v2, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -410,25 +410,25 @@
 
     .prologue
     .line 129
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 131
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/NotificationAccessSettings;->mPM:Landroid/content/pm/PackageManager;
 
     .line 132
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -437,7 +437,7 @@
     .line 133
     new-instance v0, Lcom/android/settings/NotificationAccessSettings$ListenerListAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -457,7 +457,7 @@
 
     .prologue
     .line 139
-    const v0, 0x7f0400e8
+    const v0, 0x7f04010d
 
     const/4 v1, 0x0
 
@@ -479,7 +479,7 @@
     .line 249
     iget-object v2, p0, Lcom/android/settings/NotificationAccessSettings;->mList:Lcom/android/settings/NotificationAccessSettings$ListenerListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/NotificationAccessSettings$ListenerListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -491,7 +491,7 @@
 
     iget-object v2, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    iget-object v3, v1, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
+    iget-object v3, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -525,7 +525,7 @@
 
     iget-object v3, p0, Lcom/android/settings/NotificationAccessSettings;->mPM:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v1, v3}, Landroid/content/pm/ServiceInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v3}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
@@ -537,13 +537,13 @@
 
     move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
 
     const-string v4, "dialog"
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/settings/NotificationAccessSettings$ListenerWarningDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v2, v3, v4}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -553,16 +553,16 @@
 
     .prologue
     .line 161
-    invoke-super {p0}, Landroid/app/ListFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 163
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/NotificationAccessSettings;->mPackageReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 164
     iget-object v0, p0, Lcom/android/settings/NotificationAccessSettings;->mCR:Landroid/content/ContentResolver;
@@ -580,7 +580,7 @@
 
     .prologue
     .line 144
-    invoke-super {p0}, Landroid/app/ListFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 145
     invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->updateList()V
@@ -617,13 +617,13 @@
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
     .line 154
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/NotificationAccessSettings;->mPackageReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v1, v2, v0}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 156
     iget-object v1, p0, Lcom/android/settings/NotificationAccessSettings;->mCR:Landroid/content/ContentResolver;
@@ -747,10 +747,10 @@
 
     invoke-direct {v1, v2}, Landroid/content/pm/PackageItemInfo$DisplayNameComparator;-><init>(Landroid/content/pm/PackageManager;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/NotificationAccessSettings$ListenerListAdapter;->sort(Ljava/util/Comparator;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ArrayAdapter;->sort(Ljava/util/Comparator;)V
 
     .line 203
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/app/ListFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 

@@ -22,8 +22,8 @@
     .locals 0
 
     .prologue
-    .line 60
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 58
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
     .parameter "canvas"
 
     .prologue
-    .line 88
+    .line 86
     const/4 v0, 0x0
 
     return v0
@@ -47,7 +47,7 @@
     .parameter "edgeEffect"
 
     .prologue
-    .line 73
+    .line 71
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .parameter "edgeEffect"
 
     .prologue
-    .line 69
+    .line 67
     const/4 v0, 0x1
 
     return v0
@@ -67,7 +67,7 @@
     .parameter "context"
 
     .prologue
-    .line 62
+    .line 60
     const/4 v0, 0x0
 
     return-object v0
@@ -79,7 +79,7 @@
     .parameter "deltaDistance"
 
     .prologue
-    .line 76
+    .line 74
     const/4 v0, 0x0
 
     return v0
@@ -90,7 +90,7 @@
     .parameter "edgeEffect"
 
     .prologue
-    .line 80
+    .line 78
     const/4 v0, 0x0
 
     return v0
@@ -103,6 +103,6 @@
     .parameter "height"
 
     .prologue
-    .line 66
+    .line 64
     return-void
 .end method

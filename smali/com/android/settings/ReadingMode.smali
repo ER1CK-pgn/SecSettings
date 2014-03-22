@@ -140,11 +140,11 @@
 
     .line 107
     .local v13, mRemainedApplist_Activity:[Ljava/lang/String;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v21
 
-    invoke-virtual/range {v21 .. v21}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {v21 .. v21}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v21
 
@@ -324,11 +324,11 @@
     invoke-virtual {v3, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 129
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v21
 
-    invoke-virtual/range {v21 .. v21}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v21 .. v21}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v21
 
@@ -612,7 +612,7 @@
 
     move-object/from16 v0, v21
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     move-object/from16 v21, v0
 
@@ -858,7 +858,7 @@
 
     .line 177
     .local v10, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v10}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_8
 
@@ -941,10 +941,10 @@
     const/4 v4, 0x0
 
     .line 219
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 221
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -957,7 +957,7 @@
     iput-object v0, p0, Lcom/android/settings/ReadingMode;->mActionBarSwitch:Landroid/widget/Switch;
 
     .line 223
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/app/ListFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -966,7 +966,7 @@
     .line 225
     sget-object v0, Lcom/android/settings/ReadingMode;->list_view:Landroid/widget/ListView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v1
 
@@ -976,7 +976,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setEmptyView(Landroid/view/View;)V
 
     .line 227
     instance-of v0, v2, Landroid/preference/PreferenceActivity;
@@ -990,11 +990,11 @@
 
     .line 229
     .local v7, preferenceActivity:Landroid/preference/PreferenceActivity;
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0f0019
+    const v1, 0x7f0f0034
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1004,7 +1004,7 @@
     .local v6, padding:I
     iget-object v0, p0, Lcom/android/settings/ReadingMode;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v4, v4, v6, v4}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v0, v4, v4, v6, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 232
     invoke-virtual {v2}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -1045,7 +1045,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ReadingMode;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 242
     invoke-direct {p0}, Lcom/android/settings/ReadingMode;->UpdateSavedReadingMode()V
@@ -1053,7 +1053,7 @@
     .line 244
     new-instance v0, Lcom/android/settings/ReadingMode$AppListAdapter;
 
-    const v3, 0x7f040147
+    const v3, 0x7f04017c
 
     iget-object v5, p0, Lcom/android/settings/ReadingMode;->mSavedAppListInfo:Ljava/util/ArrayList;
 
@@ -1079,17 +1079,17 @@
     .local v8, stub:Landroid/graphics/drawable/Drawable;
     sget-object v0, Lcom/android/settings/ReadingMode;->list_view:Landroid/widget/ListView;
 
-    invoke-virtual {v0, v8}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v8}, Landroid/widget/AbsListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
     .line 249
     sget-object v0, Lcom/android/settings/ReadingMode;->list_view:Landroid/widget/ListView;
 
-    invoke-virtual {v0, v4}, Landroid/widget/ListView;->setSoundEffectsEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setSoundEffectsEnabled(Z)V
 
     .line 250
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ReadingMode;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 251
     return-void
@@ -1125,11 +1125,11 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 335
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1158,7 +1158,7 @@
 
     .prologue
     .line 92
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 94
     return-void
@@ -1173,18 +1173,18 @@
     const/4 v2, 0x0
 
     .line 255
-    invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
+    invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 257
     const/4 v0, 0x1
 
-    const v1, 0x7f0914bd
+    const v1, 0x7f091613
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020473
+    const v1, 0x7f0204f6
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1206,7 +1206,7 @@
 
     .prologue
     .line 212
-    const v0, 0x7f040145
+    const v0, 0x7f04017a
 
     const/4 v1, 0x0
 
@@ -1240,7 +1240,7 @@
 
     .line 268
     .local v2, bundle:Landroid/os/Bundle;
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1249,7 +1249,7 @@
     if-eqz v1, :cond_1
 
     .line 269
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1289,7 +1289,7 @@
 
     .prologue
     .line 314
-    invoke-super {p0}, Landroid/app/ListFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 316
     sget-object v0, Lcom/android/settings/ReadingMode;->sSettingsObserver:Lcom/android/settings/ReadingMode$SettingsObserver;
@@ -1320,14 +1320,14 @@
     const/4 v4, 0x0
 
     .line 281
-    invoke-super {p0}, Landroid/app/ListFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 283
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1359,7 +1359,7 @@
     invoke-virtual {v5, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 288
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -1382,11 +1382,11 @@
 
     invoke-direct {v5}, Landroid/os/Handler;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v6
 
@@ -1403,7 +1403,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/ReadingMode;->mAppListAdapter:Lcom/android/settings/ReadingMode$AppListAdapter;
 
-    invoke-virtual {v3}, Lcom/android/settings/ReadingMode$AppListAdapter;->getCount()I
+    invoke-virtual {v3}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v3
 
@@ -1412,7 +1412,7 @@
     .line 298
     iget-object v3, p0, Lcom/android/settings/ReadingMode;->mAppListAdapter:Lcom/android/settings/ReadingMode$AppListAdapter;
 
-    invoke-virtual {v3}, Lcom/android/settings/ReadingMode$AppListAdapter;->getCount()I
+    invoke-virtual {v3}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v0
 
@@ -1472,7 +1472,7 @@
 
     iget-object v3, p0, Lcom/android/settings/ReadingMode;->mAppListAdapter:Lcom/android/settings/ReadingMode$AppListAdapter;
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/ReadingMode$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1495,11 +1495,11 @@
 
     iget-object v5, p0, Lcom/android/settings/ReadingMode;->mAppListAdapter:Lcom/android/settings/ReadingMode$AppListAdapter;
 
-    invoke-virtual {v5, v4}, Lcom/android/settings/ReadingMode$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-virtual {v3, v5}, Lcom/android/settings/ReadingMode$AppListAdapter;->remove(Ljava/lang/Object;)V
+    invoke-virtual {v3, v5}, Landroid/widget/ArrayAdapter;->remove(Ljava/lang/Object;)V
 
     .line 300
     add-int/lit8 v1, v1, 0x1
@@ -1525,12 +1525,12 @@
 
     iget-object v4, p0, Lcom/android/settings/ReadingMode;->mSavedAppListInfo:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/ReadingMode$AppListAdapter;->addAll(Ljava/util/Collection;)V
+    invoke-virtual {v3, v4}, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V
 
     .line 308
     iget-object v3, p0, Lcom/android/settings/ReadingMode;->mAppListAdapter:Lcom/android/settings/ReadingMode$AppListAdapter;
 
-    invoke-virtual {v3}, Lcom/android/settings/ReadingMode$AppListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v3}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
     .line 310
     return-void
@@ -1541,7 +1541,7 @@
 
     .prologue
     .line 324
-    invoke-super {p0}, Landroid/app/ListFragment;->onStop()V
+    invoke-super {p0}, Landroid/app/Fragment;->onStop()V
 
     .line 325
     iget-object v0, p0, Lcom/android/settings/ReadingMode;->mActionBarLayout:Landroid/view/View;
@@ -1556,7 +1556,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 327
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1570,7 +1570,7 @@
 
     .line 330
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/ReadingMode;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

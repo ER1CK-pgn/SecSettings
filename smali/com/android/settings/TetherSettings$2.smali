@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 450
+    .line 525
     iput-object p1, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,10 +44,10 @@
     .parameter "event"
 
     .prologue
-    .line 452
+    .line 527
     const/4 v0, 0x0
 
-    .line 454
+    .line 529
     .local v0, retval:Z
     const/16 v1, 0x6f
 
@@ -61,13 +61,13 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 455
+    .line 530
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 456
+    .line 531
     const/4 v0, 0x1
 
-    .line 459
+    .line 534
     :cond_0
     return v0
 .end method

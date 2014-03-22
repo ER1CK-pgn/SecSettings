@@ -30,7 +30,7 @@
     .line 184
     iput-object p1, p0, Lcom/android/settings/fmm/SimChangeAlert$1$1;->this$1:Lcom/android/settings/fmm/SimChangeAlert$1;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -63,7 +63,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/widget/LinearLayout;->getChildCount()I
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v4
 
@@ -79,7 +79,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v4, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -119,7 +119,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0400c4
+    const v5, 0x7f0400e6
 
     iget-object v6, p0, Lcom/android/settings/fmm/SimChangeAlert$1$1;->this$1:Lcom/android/settings/fmm/SimChangeAlert$1;
 
@@ -147,7 +147,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v4, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 200
     iget-object v4, p0, Lcom/android/settings/fmm/SimChangeAlert$1$1;->this$1:Lcom/android/settings/fmm/SimChangeAlert$1;
@@ -168,13 +168,13 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/widget/LinearLayout;->getChildCount()I
+    invoke-virtual {v5}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v5
 
     add-int/lit8 v5, v5, -0x1
 
-    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -213,11 +213,11 @@
 
     iget-object v4, v4, Lcom/android/settings/fmm/SimChangeAlert$1;->this$0:Lcom/android/settings/fmm/SimChangeAlert;
 
-    invoke-virtual {v4}, Lcom/android/settings/fmm/SimChangeAlert;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v4}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    const v5, 0x7f090b5e
+    const v5, 0x7f090c5c
 
     invoke-static {v4, v5, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

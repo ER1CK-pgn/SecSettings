@@ -3,4 +3,5 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <extra-attr android:name="includeInInsightSearch" android:value="true" />
     <extra-attr android:name="searchLayoutStyle" android:value="suggest_template_settings" />
+    <extra-attr android:name="categoryFilters" android:value="help" />
 </searchable>

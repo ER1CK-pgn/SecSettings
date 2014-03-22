@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 399
+    .line 436
     iput-object p1, p0, Lcom/android/settings/TrustedCredentialsSettings$4;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
 
     iput-object p2, p0, Lcom/android/settings/TrustedCredentialsSettings$4;->val$certHolder:Lcom/android/settings/TrustedCredentialsSettings$CertHolder;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .parameter "id"
 
     .prologue
-    .line 401
+    .line 438
     new-instance v0, Lcom/android/settings/TrustedCredentialsSettings$AliasOperation;
 
     iget-object v1, p0, Lcom/android/settings/TrustedCredentialsSettings$4;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
@@ -63,21 +63,21 @@
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/TrustedCredentialsSettings$AliasOperation;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 402
+    .line 439
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 403
+    .line 440
     iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$4;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
 
     #getter for: Lcom/android/settings/TrustedCredentialsSettings;->mCertDialog:Landroid/app/Dialog;
-    invoke-static {v0}, Lcom/android/settings/TrustedCredentialsSettings;->access$3200(Lcom/android/settings/TrustedCredentialsSettings;)Landroid/app/Dialog;
+    invoke-static {v0}, Lcom/android/settings/TrustedCredentialsSettings;->access$3500(Lcom/android/settings/TrustedCredentialsSettings;)Landroid/app/Dialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 404
+    .line 441
     return-void
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 118
+    .line 115
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 121
+    .line 118
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 122
+    .line 119
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.net.wifi.WIFI_AP_STATE_CHANGED"
 
@@ -57,7 +57,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 123
+    .line 120
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     const-string v3, "wifi_state"
@@ -71,7 +71,7 @@
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWarning;->handleWifiApStateChanged(I)V
     invoke-static {v2, v3}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$000(Lcom/android/settings/wifi/mobileap/WifiApWarning;I)V
 
-    .line 126
+    .line 123
     :cond_0
     const-string v2, "android.intent.action.AIRPLANE_MODE"
 
@@ -81,7 +81,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 127
+    .line 124
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     iget-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
@@ -109,7 +109,7 @@
     #setter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->isAirplaneMode:Z
     invoke-static {v2, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$102(Lcom/android/settings/wifi/mobileap/WifiApWarning;Z)Z
 
-    .line 129
+    .line 126
     :cond_2
     return-void
 .end method

@@ -30,7 +30,7 @@
     .line 206
     iput-object p1, p0, Lcom/android/settings/DreamSettings$2;->this$0:Lcom/android/settings/DreamSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -68,7 +68,7 @@
     check-cast p1, Landroid/widget/ListView;
 
     .end local p1
-    invoke-virtual {p1}, Landroid/widget/ListView;->getSelectedView()Landroid/view/View;
+    invoke-virtual {p1}, Landroid/widget/AbsListView;->getSelectedView()Landroid/view/View;
 
     move-result-object v0
 
@@ -123,7 +123,7 @@
     check-cast p1, Landroid/widget/ListView;
 
     .end local p1
-    invoke-virtual {p1}, Landroid/widget/ListView;->getSelectedView()Landroid/view/View;
+    invoke-virtual {p1}, Landroid/widget/AbsListView;->getSelectedView()Landroid/view/View;
 
     move-result-object v0
 

@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 1153
+    .line 1280
     iput-object p1, p0, Lcom/android/settings/SettingsTabActivity$2;->this$0:Lcom/android/settings/SettingsTabActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
     .parameter "h2"
 
     .prologue
-    .line 1156
+    .line 1283
     iget-object v0, p1, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -79,7 +79,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1153
+    .line 1280
     check-cast p1, Landroid/preference/PreferenceActivity$Header;
 
     .end local p1

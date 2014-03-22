@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 271
+    .line 273
     iput-object p1, p0, Lcom/android/settings/PenAirViewHelp$7;->this$0:Lcom/android/settings/PenAirViewHelp;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,14 +45,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 273
+    .line 275
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp$7;->this$0:Lcom/android/settings/PenAirViewHelp;
 
-    invoke-virtual {v0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -60,7 +60,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 275
+    .line 277
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp$7;->this$0:Lcom/android/settings/PenAirViewHelp;
 
     #getter for: Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
@@ -70,6 +70,6 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 276
+    .line 278
     return-void
 .end method

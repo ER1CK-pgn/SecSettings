@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 355
+    .line 375
     iput-object p1, p0, Lcom/android/settings/SettingsTabActivity$SettingsTabListener;->this$0:Lcom/android/settings/SettingsTabActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 355
+    .line 375
     invoke-direct {p0, p1}, Lcom/android/settings/SettingsTabActivity$SettingsTabListener;-><init>(Lcom/android/settings/SettingsTabActivity;)V
 
     return-void
@@ -55,7 +55,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 373
+    .line 393
     return-void
 .end method
 
@@ -65,15 +65,15 @@
     .parameter "arg1"
 
     .prologue
-    .line 358
+    .line 378
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$SettingsTabListener;->this$0:Lcom/android/settings/SettingsTabActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/SettingsTabActivity;->invalidateHeaders()V
+    invoke-virtual {v0}, Landroid/preference/PreferenceActivity;->invalidateHeaders()V
 
-    .line 360
+    .line 380
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$SettingsTabListener;->this$0:Lcom/android/settings/SettingsTabActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/SettingsTabActivity;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -81,7 +81,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setSelection(I)V
 
-    .line 361
+    .line 381
     return-void
 .end method
 
@@ -91,6 +91,6 @@
     .parameter "arg1"
 
     .prologue
-    .line 367
+    .line 387
     return-void
 .end method

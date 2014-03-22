@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 423
+    .line 433
     iput-object p1, p0, Lcom/android/settings/BrightnessPreference$4;->this$0:Lcom/android/settings/BrightnessPreference;
 
     iput p2, p0, Lcom/android/settings/BrightnessPreference$4;->val$val:I
@@ -46,7 +46,7 @@
     .locals 3
 
     .prologue
-    .line 425
+    .line 435
     iget-object v0, p0, Lcom/android/settings/BrightnessPreference$4;->this$0:Lcom/android/settings/BrightnessPreference;
 
     invoke-virtual {v0}, Lcom/android/settings/BrightnessPreference;->getContext()Landroid/content/Context;
@@ -63,6 +63,6 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 427
+    .line 437
     return-void
 .end method

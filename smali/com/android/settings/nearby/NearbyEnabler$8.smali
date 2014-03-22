@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 905
+    .line 899
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$8;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 908
+    .line 902
     const-string v0, "NearbyEnabler"
 
     const-string v1, "requestRestartServerPopup"
@@ -52,6 +52,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 910
+    .line 904
     return-void
 .end method

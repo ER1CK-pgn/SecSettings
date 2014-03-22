@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 309
+    .line 308
     iput-object p1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$6;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
     iput-object p2, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$6;->val$alertDialog:Landroid/app/AlertDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,16 +47,16 @@
     .parameter "dialog"
 
     .prologue
-    .line 312
+    .line 311
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$6;->val$alertDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 313
+    .line 312
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$6;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 314
+    .line 313
     return-void
 .end method

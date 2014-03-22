@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 602
+    .line 593
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$25;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "dialog"
 
     .prologue
-    .line 604
+    .line 595
     const-string v0, "WifiApWarning"
 
     const-string v1, "onCancel"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 605
+    .line 596
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$25;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -59,14 +59,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 606
+    .line 597
     const-string v0, "WifiApWarning"
 
     const-string v1, "mDialogConfigure.dismiss()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 607
+    .line 598
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$25;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -74,20 +74,20 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiApDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 609
+    .line 600
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$25;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$1100(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
-    .line 610
+    .line 601
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$25;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 611
+    .line 602
     return-void
 .end method

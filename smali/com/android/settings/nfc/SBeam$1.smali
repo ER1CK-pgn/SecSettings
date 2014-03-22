@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 124
+    .line 125
     iput-object p1, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 134
+    .line 136
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     #getter for: Lcom/android/settings/nfc/SBeam;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
@@ -60,7 +60,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 135
+    .line 137
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     #getter for: Lcom/android/settings/nfc/SBeam;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
@@ -68,9 +68,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 136
+    .line 138
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     const/4 v1, 0x0
@@ -78,7 +78,7 @@
     #setter for: Lcom/android/settings/nfc/SBeam;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
     invoke-static {v0, v1}, Lcom/android/settings/nfc/SBeam;->access$202(Lcom/android/settings/nfc/SBeam;Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;)Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 137
+    .line 139
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     const/4 v1, 0x0
@@ -86,7 +86,7 @@
     #setter for: Lcom/android/settings/nfc/SBeam;->mbShowingHelp:Z
     invoke-static {v0, v1}, Lcom/android/settings/nfc/SBeam;->access$002(Lcom/android/settings/nfc/SBeam;Z)Z
 
-    .line 139
+    .line 141
     :cond_0
     return-void
 .end method
@@ -95,7 +95,7 @@
     .locals 2
 
     .prologue
-    .line 126
+    .line 127
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     #getter for: Lcom/android/settings/nfc/SBeam;->mbShowingHelp:Z
@@ -105,18 +105,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 131
+    .line 133
     :goto_0
     return-void
 
-    .line 128
+    .line 130
     :cond_0
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     #calls: Lcom/android/settings/nfc/SBeam;->createHelpDialog()V
     invoke-static {v0}, Lcom/android/settings/nfc/SBeam;->access$100(Lcom/android/settings/nfc/SBeam;)V
 
-    .line 129
+    .line 131
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     #getter for: Lcom/android/settings/nfc/SBeam;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
@@ -124,9 +124,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 130
+    .line 132
     iget-object v0, p0, Lcom/android/settings/nfc/SBeam$1;->this$0:Lcom/android/settings/nfc/SBeam;
 
     const/4 v1, 0x1

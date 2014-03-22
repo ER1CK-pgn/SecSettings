@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field private store:Ljava/util/HashMap;
+.field private final store:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -46,13 +46,13 @@
     .parameter
 
     .prologue
-    .line 2520
+    .line 2728
     .local p0, this:Lcom/android/settings/wifi/WifiSettings$Multimap;,"Lcom/android/settings/wifi/WifiSettings$Multimap<TK;TV;>;"
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$Multimap;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2521
+    .line 2729
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -68,7 +68,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2520
+    .line 2728
     .local p0, this:Lcom/android/settings/wifi/WifiSettings$Multimap;,"Lcom/android/settings/wifi/WifiSettings$Multimap<TK;TV;>;"
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/WifiSettings$Multimap;-><init>(Lcom/android/settings/wifi/WifiSettings;)V
 
@@ -89,7 +89,7 @@
     .end annotation
 
     .prologue
-    .line 2524
+    .line 2732
     .local p0, this:Lcom/android/settings/wifi/WifiSettings$Multimap;,"Lcom/android/settings/wifi/WifiSettings$Multimap<TK;TV;>;"
     .local p1, key:Ljava/lang/Object;,"TK;"
     iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$Multimap;->store:Ljava/util/HashMap;
@@ -100,7 +100,7 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 2525
+    .line 2733
     .local v0, values:Ljava/util/List;,"Ljava/util/List<TV;>;"
     if-eqz v0, :cond_0
 
@@ -128,7 +128,7 @@
     .end annotation
 
     .prologue
-    .line 2529
+    .line 2737
     .local p0, this:Lcom/android/settings/wifi/WifiSettings$Multimap;,"Lcom/android/settings/wifi/WifiSettings$Multimap<TK;TV;>;"
     .local p1, key:Ljava/lang/Object;,"TK;"
     .local p2, val:Ljava/lang/Object;,"TV;"
@@ -140,11 +140,11 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 2530
+    .line 2738
     .local v0, curVals:Ljava/util/List;,"Ljava/util/List<TV;>;"
     if-nez v0, :cond_0
 
-    .line 2531
+    .line 2739
     new-instance v0, Ljava/util/ArrayList;
 
     .end local v0           #curVals:Ljava/util/List;,"Ljava/util/List<TV;>;"
@@ -152,16 +152,16 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 2532
+    .line 2740
     .restart local v0       #curVals:Ljava/util/List;,"Ljava/util/List<TV;>;"
     iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$Multimap;->store:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2534
+    .line 2742
     :cond_0
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 2535
+    .line 2743
     return-void
 .end method

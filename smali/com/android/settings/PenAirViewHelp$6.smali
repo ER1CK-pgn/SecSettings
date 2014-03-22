@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 277
+    .line 279
     iput-object p1, p0, Lcom/android/settings/PenAirViewHelp$6;->this$0:Lcom/android/settings/PenAirViewHelp;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 279
+    .line 281
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp$6;->this$0:Lcom/android/settings/PenAirViewHelp;
 
     #getter for: Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
@@ -55,6 +55,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 280
+    .line 282
     return-void
 .end method

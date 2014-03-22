@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 182
+    .line 185
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionGuideHub$1;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "v"
 
     .prologue
-    .line 184
+    .line 187
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$1;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    invoke-virtual {v0}, Lcom/android/settings/motion2013/SMotionGuideHub;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -68,17 +68,17 @@
 
     if-nez v0, :cond_0
 
-    .line 185
+    .line 188
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$1;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
     #calls: Lcom/android/settings/motion2013/SMotionGuideHub;->showMotionDialog()V
     invoke-static {v0}, Lcom/android/settings/motion2013/SMotionGuideHub;->access$100(Lcom/android/settings/motion2013/SMotionGuideHub;)V
 
-    .line 189
+    .line 192
     :goto_0
     return-void
 
-    .line 187
+    .line 190
     :cond_0
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$1;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 

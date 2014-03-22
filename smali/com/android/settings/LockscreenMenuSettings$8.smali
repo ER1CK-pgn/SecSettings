@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1850
+    .line 2084
     iput-object p1, p0, Lcom/android/settings/LockscreenMenuSettings$8;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,40 +47,40 @@
 
     const/4 v7, 0x1
 
-    .line 1852
+    .line 2086
     const-string v0, "LockScreenMenu"
 
     const-string v1, "showSafetyZoneEnableDialog(), ok"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1853
+    .line 2087
     new-instance v2, Landroid/os/Bundle;
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    .line 1854
+    .line 2088
     const-string v0, "first_mode"
 
     invoke-virtual {v2, v0, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 1855
+    .line 2089
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings$8;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/LockscreenMenuSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity;
 
-    .line 1856
+    .line 2090
     const-class v1, Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    const v3, 0x7f090c0d
+    const v3, 0x7f090d1a
 
     const/4 v6, 0x0
 
@@ -88,10 +88,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 1857
+    .line 2091
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings$8;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/LockscreenMenuSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -99,6 +99,6 @@
 
     invoke-static {v0, v1, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1858
+    .line 2092
     return-void
 .end method

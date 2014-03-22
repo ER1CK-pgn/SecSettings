@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 205
+    .line 266
     iput-object p1, p0, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity$4;->this$0:Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,48 +43,48 @@
     .parameter "id"
 
     .prologue
-    .line 208
+    .line 269
     iget-object v1, p0, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity$4;->this$0:Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;
 
     #getter for: Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->mBluetoothReceiver:Landroid/content/BroadcastReceiver;
-    invoke-static {v1}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->access$300(Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;)Landroid/content/BroadcastReceiver;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->access$100(Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;)Landroid/content/BroadcastReceiver;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 211
+    .line 272
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity$4;->this$0:Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity$4;->this$0:Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;
 
     #getter for: Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->mBluetoothReceiver:Landroid/content/BroadcastReceiver;
-    invoke-static {v2}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->access$300(Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;)Landroid/content/BroadcastReceiver;
+    invoke-static {v2}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->access$100(Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;)Landroid/content/BroadcastReceiver;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v1, v2}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 217
+    .line 278
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity$4;->this$0:Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;
 
-    invoke-virtual {v1}, Lcom/android/settings/bluetooth/CheckBluetoothStateActivity;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 218
+    .line 279
     return-void
 
-    .line 212
+    .line 273
     :catch_0
     move-exception v0
 
-    .line 213
+    .line 274
     .local v0, e:Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

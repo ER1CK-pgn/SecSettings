@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1617
+    .line 1682
     iput-object p1, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "editable"
 
     .prologue
-    .line 1658
+    .line 1723
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/WifiConfigController;->enableSubmitIfAppropriate()V
 
-    .line 1659
+    .line 1724
     return-void
 .end method
 
@@ -59,7 +59,7 @@
     .parameter "after"
 
     .prologue
-    .line 1648
+    .line 1713
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->mAccessPointSecurity:I
@@ -71,10 +71,10 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 1649
+    .line 1714
     const/16 v0, 0xc8
 
-    .line 1653
+    .line 1718
     .local v0, maxPasswordLength:I
     :goto_0
     if-eqz p1, :cond_0
@@ -91,7 +91,7 @@
 
     if-gt v1, v0, :cond_0
 
-    .line 1654
+    .line 1719
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -100,11 +100,11 @@
 
     iput-object v2, v1, Lcom/android/settings/wifi/WifiConfigController;->mTempPassworld:Ljava/lang/String;
 
-    .line 1655
+    .line 1720
     :cond_0
     return-void
 
-    .line 1651
+    .line 1716
     .end local v0           #maxPasswordLength:I
     :cond_1
     const/16 v0, 0x40
@@ -129,7 +129,7 @@
 
     const/4 v7, 0x0
 
-    .line 1620
+    .line 1685
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->mAccessPointSecurity:I
@@ -139,10 +139,10 @@
 
     if-ne v2, v9, :cond_2
 
-    .line 1621
+    .line 1686
     const/16 v1, 0xc8
 
-    .line 1625
+    .line 1690
     .local v1, maxPasswordLength:I
     :goto_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -157,7 +157,7 @@
 
     if-le v2, v1, :cond_1
 
-    .line 1626
+    .line 1691
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     iget-object v2, v2, Lcom/android/settings/wifi/WifiConfigController;->mTempPassworld:Ljava/lang/String;
@@ -176,7 +176,7 @@
 
     if-gt v2, v1, :cond_3
 
-    .line 1627
+    .line 1692
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
@@ -190,7 +190,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1631
+    .line 1696
     :goto_1
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
@@ -201,7 +201,7 @@
 
     if-nez v2, :cond_6
 
-    .line 1632
+    .line 1697
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->mConfigUi:Lcom/android/settings/wifi/WifiConfigUiBase;
@@ -213,11 +213,11 @@
 
     move-result-object v0
 
-    .line 1633
+    .line 1698
     .local v0, context:Landroid/content/Context;
     iget-object v4, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
-    const v5, 0x7f09036c
+    const v5, 0x7f0903a3
 
     new-array v6, v8, [Ljava/lang/Object;
 
@@ -268,7 +268,7 @@
     #setter for: Lcom/android/settings/wifi/WifiConfigController;->pToast:Landroid/widget/Toast;
     invoke-static {v4, v2}, Lcom/android/settings/wifi/WifiConfigController;->access$502(Lcom/android/settings/wifi/WifiConfigController;Landroid/widget/Toast;)Landroid/widget/Toast;
 
-    .line 1638
+    .line 1703
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->pToast:Landroid/widget/Toast;
@@ -278,7 +278,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 1642
+    .line 1707
     .end local v0           #context:Landroid/content/Context;
     :cond_0
     :goto_4
@@ -306,11 +306,11 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 1644
+    .line 1709
     :cond_1
     return-void
 
-    .line 1623
+    .line 1688
     .end local v1           #maxPasswordLength:I
     :cond_2
     const/16 v1, 0x40
@@ -318,7 +318,7 @@
     .restart local v1       #maxPasswordLength:I
     goto/16 :goto_0
 
-    .line 1629
+    .line 1694
     :cond_3
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
@@ -337,7 +337,7 @@
     :cond_4
     move v2, v3
 
-    .line 1633
+    .line 1698
     goto :goto_2
 
     :cond_5
@@ -345,7 +345,7 @@
 
     goto :goto_3
 
-    .line 1639
+    .line 1704
     .end local v0           #context:Landroid/content/Context;
     :cond_6
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
@@ -374,7 +374,7 @@
 
     if-nez v2, :cond_0
 
-    .line 1640
+    .line 1705
     iget-object v2, p0, Lcom/android/settings/wifi/WifiConfigController$2;->this$0:Lcom/android/settings/wifi/WifiConfigController;
 
     #getter for: Lcom/android/settings/wifi/WifiConfigController;->pToast:Landroid/widget/Toast;

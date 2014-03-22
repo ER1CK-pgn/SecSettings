@@ -148,7 +148,7 @@
     .line 122
     iget-object v2, p0, Lcom/android/settings/homesync/FileOperationPaste$1;->this$0:Lcom/android/settings/homesync/FileOperationPaste;
 
-    invoke-virtual {v2}, Lcom/android/settings/homesync/FileOperationPaste;->cancel()V
+    invoke-virtual {v2}, Lcom/android/settings/homesync/FileOperation;->cancel()V
 
     .line 123
     iget-object v2, p0, Lcom/android/settings/homesync/FileOperationPaste$1;->this$0:Lcom/android/settings/homesync/FileOperationPaste;

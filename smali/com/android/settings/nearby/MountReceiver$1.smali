@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 91
+    .line 90
     iput-object p1, p0, Lcom/android/settings/nearby/MountReceiver$1;->this$0:Lcom/android/settings/nearby/MountReceiver;
 
     iput-object p3, p0, Lcom/android/settings/nearby/MountReceiver$1;->val$mContext:Landroid/content/Context;
@@ -51,7 +51,7 @@
 
     const/4 v7, 0x0
 
-    .line 93
+    .line 92
     const-string v3, "MountReceiver"
 
     const-string v4, "mPrefHandler"
@@ -78,7 +78,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 95
+    .line 94
     iget-object v3, p0, Lcom/android/settings/nearby/MountReceiver$1;->val$mContext:Landroid/content/Context;
 
     const-string v4, "pref_allshare"
@@ -87,27 +87,27 @@
 
     move-result-object v1
 
-    .line 97
+    .line 96
     .local v1, prefAllshare:Landroid/content/SharedPreferences;
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 99
+    .line 98
     .local v0, edit:Landroid/content/SharedPreferences$Editor;
     iget v3, p1, Landroid/os/Message;->what:I
 
     packed-switch v3, :pswitch_data_0
 
-    .line 137
+    .line 136
     :goto_0
     :pswitch_0
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 138
+    .line 137
     return-void
 
-    .line 101
+    .line 100
     :pswitch_1
     const-string v3, "allshare_download_to"
 
@@ -117,7 +117,7 @@
 
     goto :goto_0
 
-    .line 105
+    .line 104
     :pswitch_2
     const-string v3, "allshare_onoff"
 
@@ -125,7 +125,7 @@
 
     goto :goto_0
 
-    .line 109
+    .line 108
     :pswitch_3
     const-string v3, "allshare_onoff"
 
@@ -133,7 +133,7 @@
 
     goto :goto_0
 
-    .line 113
+    .line 112
     :pswitch_4
     const-string v3, "isShutdowned"
 
@@ -141,7 +141,7 @@
 
     goto :goto_0
 
-    .line 117
+    .line 116
     :pswitch_5
     const-string v3, "isShutdowned"
 
@@ -149,13 +149,13 @@
 
     goto :goto_0
 
-    .line 121
+    .line 120
     :pswitch_6
     const-string v3, "allshare_onoff"
 
     invoke-interface {v0, v3, v7}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 122
+    .line 121
     new-instance v2, Ljava/util/HashSet;
 
     const/4 v3, 0x3
@@ -182,49 +182,49 @@
 
     invoke-direct {v2, v3}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    .line 124
+    .line 123
     .local v2, sharedContents:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     const-string v3, "allshare_shared_contents"
 
     invoke-interface {v0, v3, v2}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 
-    .line 125
+    .line 124
     const-string v3, "allshare_device_name"
 
     invoke-interface {v0, v3, v9}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 126
+    .line 125
     const-string v3, "allshare_download_to"
 
     const-string v4, "0"
 
     invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 127
+    .line 126
     const-string v3, "allshare_download_from"
 
     const-string v4, "1"
 
     invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 128
+    .line 127
     const-string v3, "allshare_accept_device"
 
     invoke-interface {v0, v3, v9}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 
-    .line 129
+    .line 128
     const-string v3, "allshare_reject_device"
 
     invoke-interface {v0, v3, v9}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 
-    .line 130
+    .line 129
     const-string v3, "allshare_welcome_popup"
 
     invoke-interface {v0, v3, v7}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
     goto :goto_0
 
-    .line 99
+    .line 98
     :pswitch_data_0
     .packed-switch 0x1b59
         :pswitch_2

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 166
+    .line 171
     iput-object p1, p0, Lcom/android/settings/AirButtonHelp$2;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 168
+    .line 173
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp$2;->this$0:Lcom/android/settings/AirButtonHelp;
 
     #getter for: Lcom/android/settings/AirButtonHelp;->mActionBarSwitch:Landroid/widget/Switch;
@@ -55,6 +55,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 169
+    .line 174
     return-void
 .end method

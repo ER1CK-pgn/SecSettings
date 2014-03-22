@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1062
+    .line 1135
     iput-object p1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$6;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,11 +43,11 @@
     .parameter
 
     .prologue
-    .line 1064
+    .line 1137
     iget-object v0, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$6;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    #calls: Lcom/android/settings/wifi/AdvancedWifiSettings;->getContentResolver()Landroid/content/ContentResolver;
-    invoke-static {v0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->access$600(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->access$1000(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -57,10 +57,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1065
+    .line 1138
     iget-object v0, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$6;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$6;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -76,8 +76,8 @@
 
     invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 1066
+    .line 1139
     return-void
 .end method

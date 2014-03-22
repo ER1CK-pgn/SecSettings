@@ -50,10 +50,10 @@
     .parameter
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -64,7 +64,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     invoke-direct {p0, p1}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;-><init>(Lcom/android/settings/myplace/MyPlaceProfileSettings;)V
 
     return-void
@@ -75,7 +75,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mType:I
 
     return v0
@@ -86,7 +86,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiFrequency:I
 
     return v0
@@ -98,7 +98,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiFrequency:I
 
     return p1
@@ -110,7 +110,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mType:I
 
     return p1
@@ -121,7 +121,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiAutoConnect:I
 
     return v0
@@ -133,7 +133,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiAutoConnect:I
 
     return p1
@@ -144,7 +144,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mBtDeviceName:Ljava/lang/String;
 
     return-object v0
@@ -156,7 +156,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mBtDeviceName:Ljava/lang/String;
 
     return-object p1
@@ -167,7 +167,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mBtMacAddress:Ljava/lang/String;
 
     return-object v0
@@ -179,7 +179,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mBtMacAddress:Ljava/lang/String;
 
     return-object p1
@@ -190,7 +190,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mProfileName:Ljava/lang/String;
 
     return-object v0
@@ -202,7 +202,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mProfileName:Ljava/lang/String;
 
     return-object p1
@@ -214,7 +214,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mTimestamp:Ljava/lang/String;
 
     return-object p1
@@ -225,7 +225,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLocation:Ljava/lang/String;
 
     return-object v0
@@ -237,7 +237,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLocation:Ljava/lang/String;
 
     return-object p1
@@ -248,7 +248,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLatitude:I
 
     return v0
@@ -260,7 +260,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLatitude:I
 
     return p1
@@ -271,7 +271,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLongitude:I
 
     return v0
@@ -283,7 +283,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLongitude:I
 
     return p1
@@ -294,7 +294,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mByteMap:[B
 
     return-object v0
@@ -306,7 +306,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mByteMap:[B
 
     return-object p1
@@ -317,7 +317,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiApName:Ljava/lang/String;
 
     return-object v0
@@ -329,7 +329,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiApName:Ljava/lang/String;
 
     return-object p1
@@ -340,7 +340,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiApBSSID:Ljava/lang/String;
 
     return-object v0
@@ -352,7 +352,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mWifiApBSSID:Ljava/lang/String;
 
     return-object p1

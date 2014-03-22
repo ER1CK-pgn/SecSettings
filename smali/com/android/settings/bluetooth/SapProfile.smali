@@ -318,7 +318,7 @@
 
     .prologue
     .line 212
-    const v0, 0x7f020154
+    const v0, 0x7f020197
 
     return v0
 .end method
@@ -329,7 +329,7 @@
 
     .prologue
     .line 188
-    const v0, 0x7f090268
+    const v0, 0x7f09028d
 
     return v0
 .end method
@@ -360,7 +360,7 @@
     .parameter "device"
 
     .prologue
-    const v1, 0x7f090287
+    const v1, 0x7f0902af
 
     .line 193
     iget-object v2, p0, Lcom/android/settings/bluetooth/SapProfile;->mService:Lcom/broadcom/bt/service/sap/BluetoothSap;
@@ -387,7 +387,7 @@
 
     .line 203
     :pswitch_2
-    const v1, 0x7f09027b
+    const v1, 0x7f0902a2
 
     goto :goto_0
 

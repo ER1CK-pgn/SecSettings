@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="wifi_p2p_no_device_found">No devices found</string>
+    <string name="hovering_intormation_preview_msg">A preview of information, the full text, or zoomed-in image is shown on the screen</string>
+    <string name="no_devices_found">No devices found</string>
     <string name="flight_mode_enabled_toast">Unable to connect to mobile networks while Airplane mode is enabled. Disable Airplane mode and try again</string>
 </resources>

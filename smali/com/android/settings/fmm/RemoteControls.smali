@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -366,7 +366,7 @@
 
     .prologue
     .line 199
-    const v0, 0x7f04014b
+    const v0, 0x7f040181
 
     const/4 v1, 0x0
 
@@ -415,7 +415,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b01ff
+    const v4, 0x7f0b0237
 
     invoke-virtual {v3, v4}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -428,7 +428,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b03a4
+    const v4, 0x7f0b0400
 
     invoke-virtual {v3, v4}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -441,7 +441,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b03a5
+    const v4, 0x7f0b0401
 
     invoke-virtual {v3, v4}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -522,7 +522,7 @@
     .locals 9
 
     .prologue
-    const v8, 0x7f0b03a4
+    const v8, 0x7f0b0400
 
     const/4 v3, 0x1
 
@@ -801,7 +801,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0400e9
+    const v4, 0x7f04010e
 
     const/4 v5, 0x0
 
@@ -811,7 +811,7 @@
 
     .line 274
     .local v2, mDialogLayout:Landroid/view/View;
-    const v3, 0x7f0b026e
+    const v3, 0x7f0b02aa
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -836,7 +836,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f091167
+    const v4, 0x7f0912b1
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

@@ -30,7 +30,7 @@
     .line 53
     iput-object p1, p0, Lcom/android/settings/MediaFormatSd$1;->this$0:Lcom/android/settings/MediaFormatSd;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -70,7 +70,7 @@
     .line 62
     iget-object v2, p0, Lcom/android/settings/MediaFormatSd$1;->this$0:Lcom/android/settings/MediaFormatSd;
 
-    invoke-virtual {v2}, Lcom/android/settings/MediaFormatSd;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v2}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -91,12 +91,12 @@
     .line 65
     iget-object v2, p0, Lcom/android/settings/MediaFormatSd$1;->this$0:Lcom/android/settings/MediaFormatSd;
 
-    invoke-virtual {v2, v0}, Lcom/android/settings/MediaFormatSd;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v2, v0}, Landroid/content/ContextWrapper;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     .line 66
     iget-object v2, p0, Lcom/android/settings/MediaFormatSd$1;->this$0:Lcom/android/settings/MediaFormatSd;
 
-    invoke-virtual {v2}, Lcom/android/settings/MediaFormatSd;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method

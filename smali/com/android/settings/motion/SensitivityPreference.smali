@@ -62,9 +62,9 @@
     iput-object p1, p0, Lcom/android/settings/motion/SensitivityPreference;->mContext:Landroid/content/Context;
 
     .line 47
-    const v0, 0x7f040128
+    const v0, 0x7f040158
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/motion/SensitivityPreference;->setDialogLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/DialogPreference;->setDialogLayoutResource(I)V
 
     .line 48
     return-void
@@ -126,10 +126,10 @@
 
     const/16 v1, 0xa
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setMax(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsSeekBar;->setMax(I)V
 
     .line 68
-    const v0, 0x7f0b034d
+    const v0, 0x7f0b0397
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -150,7 +150,7 @@
 
     .prologue
     .line 109
-    invoke-super {p0, p1, p2}, Landroid/preference/SeekBarDialogPreference;->onClick(Landroid/content/DialogInterface;I)V
+    invoke-super {p0, p1, p2}, Landroid/preference/DialogPreference;->onClick(Landroid/content/DialogInterface;I)V
 
     .line 110
     const-string v0, "SensitivityPreference"
@@ -188,13 +188,13 @@
 
     .prologue
     .line 94
-    invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onDialogClosed(Z)V
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onDialogClosed(Z)V
 
     .line 96
     if-eqz p1, :cond_1
 
     .line 97
-    invoke-virtual {p0}, Lcom/android/settings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -206,7 +206,7 @@
 
     iget-object v2, p0, Lcom/android/settings/motion/SensitivityPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v2}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v2
 
@@ -253,7 +253,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -276,7 +276,7 @@
 
     .prologue
     .line 52
-    const v0, 0x7f090d37
+    const v0, 0x7f090e60
 
     new-instance v1, Lcom/android/settings/motion/SensitivityPreference$1;
 
@@ -328,7 +328,7 @@
 
     iget-object v2, p0, Lcom/android/settings/motion/SensitivityPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v2}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v2
 
@@ -343,7 +343,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 134
-    invoke-virtual {p0}, Lcom/android/settings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -355,7 +355,7 @@
 
     iget-object v2, p0, Lcom/android/settings/motion/SensitivityPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v2}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v2}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v2
 
@@ -458,7 +458,7 @@
     const/4 v4, 0x5
 
     .line 73
-    invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->showDialog(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->showDialog(Landroid/os/Bundle;)V
 
     .line 74
     const/4 v0, 0x0
@@ -482,7 +482,7 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 78
-    invoke-virtual {p0}, Lcom/android/settings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -505,11 +505,11 @@
 
     add-int/lit8 v2, v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     .line 88
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/motion/SensitivityPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -547,7 +547,7 @@
     .line 84
     iget-object v1, p0, Lcom/android/settings/motion/SensitivityPreference;->mSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {p0}, Lcom/android/settings/motion/SensitivityPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -563,7 +563,7 @@
 
     add-int/lit8 v2, v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     goto :goto_0
 .end method
@@ -634,7 +634,7 @@
     .line 158
     iget-object v1, p0, Lcom/android/settings/motion/SensitivityPreference;->mFragment:Lcom/android/settings/SettingsPreferenceFragment;
 
-    invoke-virtual {v1, v0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 177
     .end local v0           #intent:Landroid/content/Intent;
@@ -691,7 +691,7 @@
     .line 168
     iget-object v1, p0, Lcom/android/settings/motion/SensitivityPreference;->mFragment:Lcom/android/settings/SettingsPreferenceFragment;
 
-    invoke-virtual {v1, v0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -737,7 +737,7 @@
     .line 175
     iget-object v1, p0, Lcom/android/settings/motion/SensitivityPreference;->mFragment:Lcom/android/settings/SettingsPreferenceFragment;
 
-    invoke-virtual {v1, v0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 .end method

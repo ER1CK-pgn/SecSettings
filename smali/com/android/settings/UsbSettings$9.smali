@@ -30,7 +30,7 @@
     .line 279
     iput-object p1, p0, Lcom/android/settings/UsbSettings$9;->this$0:Lcom/android/settings/UsbSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,11 +46,11 @@
     .line 281
     iget-object v0, p0, Lcom/android/settings/UsbSettings$9;->this$0:Lcom/android/settings/UsbSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/UsbSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 

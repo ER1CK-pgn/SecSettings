@@ -67,7 +67,7 @@
     const/4 v2, 0x0
 
     .line 62
-    invoke-virtual {p1}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -80,11 +80,11 @@
     iput-object p1, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mFragment:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
     .line 64
-    invoke-virtual {p1}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -94,9 +94,9 @@
     iput-object p4, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mTsm:Landroid/view/textservice/TextServicesManager;
 
     .line 66
-    const v1, 0x7f040130
+    const v1, 0x7f040160
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 67
     iput-object p3, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSpellCheckerInfo:Landroid/view/textservice/SpellCheckerInfo;
@@ -288,17 +288,17 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSubtypeButton:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setEnabled(Z)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setEnabled(Z)V
 
     .line 210
     iget-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSubtypeButton:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setClickable(Z)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setClickable(Z)V
 
     .line 211
     iget-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSubtypeButton:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setFocusable(Z)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setFocusable(Z)V
 
     .line 212
     if-nez p1, :cond_1
@@ -306,7 +306,7 @@
     .line 213
     iget-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSubtypeButton:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     goto :goto_1
 .end method
@@ -347,7 +347,7 @@
 
     iget-object v3, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSettingsIntent:Landroid/content/Intent;
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v2, v3}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -364,7 +364,7 @@
     .local v0, e:Landroid/content/ActivityNotFoundException;
     iget-object v2, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mFragment:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    const v3, 0x7f0907ae
+    const v3, 0x7f090801
 
     new-array v4, v8, [Ljava/lang/Object;
 
@@ -374,11 +374,11 @@
 
     iget-object v7, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mFragment:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    invoke-virtual {v7}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v7}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
@@ -388,7 +388,7 @@
 
     aput-object v6, v4, v5
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v2, v3, v4}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -396,7 +396,7 @@
     .local v1, msg:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mFragment:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -423,7 +423,7 @@
 
     iget-object v8, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v8}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v8}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v8
 
@@ -432,7 +432,7 @@
     .line 134
     iget-object v8, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v8}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v8}, Landroid/app/Dialog;->dismiss()V
 
     .line 136
     :cond_0
@@ -440,7 +440,7 @@
 
     iget-object v8, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mFragment:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    invoke-virtual {v8}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v8}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -448,7 +448,7 @@
 
     .line 137
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v8, 0x7f0907a0
+    const v8, 0x7f0907f3
 
     invoke-virtual {v0, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -469,7 +469,7 @@
     .local v4, items:[Ljava/lang/CharSequence;
     iget-object v8, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mRes:Landroid/content/res/Resources;
 
-    const v9, 0x7f0907e8
+    const v9, 0x7f090839
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -495,7 +495,7 @@
     .local v7, subtype:Landroid/view/textservice/SpellCheckerSubtype;
     iget-object v8, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mFragment:Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
-    invoke-virtual {v8}, Lcom/android/settings/inputmethod/SpellCheckersSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v8}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -511,7 +511,7 @@
 
     move-result-object v10
 
-    iget-object v10, v10, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v10, v10, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {v7, v8, v9, v10}, Landroid/view/textservice/SpellCheckerSubtype;->getDisplayName(Landroid/content/Context;Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
@@ -586,7 +586,7 @@
     .line 177
     iget-object v8, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v8}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v8}, Landroid/app/Dialog;->show()V
 
     .line 178
     return-void
@@ -611,7 +611,7 @@
     .line 122
     iget-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mRadioButton:Landroid/widget/RadioButton;
 
-    invoke-virtual {v0, p1}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v0, p1}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 123
     invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->enableButtons(Z)V
@@ -642,7 +642,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 81
-    const v0, 0x7f0b0354
+    const v0, 0x7f0b039e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
     iput-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mPrefAll:Landroid/view/View;
 
     .line 82
-    const v0, 0x7f0b0356
+    const v0, 0x7f0b03a0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -662,7 +662,7 @@
     iput-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mRadioButton:Landroid/widget/RadioButton;
 
     .line 83
-    const v0, 0x7f0b0355
+    const v0, 0x7f0b039f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -702,7 +702,7 @@
     iput-object v0, p0, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;->mSummaryText:Landroid/widget/TextView;
 
     .line 93
-    const v0, 0x7f0b0359
+    const v0, 0x7f0b03a3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -719,10 +719,10 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/inputmethod/SingleSpellCheckerPreference$2;-><init>(Lcom/android/settings/inputmethod/SingleSpellCheckerPreference;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 101
-    const v0, 0x7f0b0357
+    const v0, 0x7f0b03a1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

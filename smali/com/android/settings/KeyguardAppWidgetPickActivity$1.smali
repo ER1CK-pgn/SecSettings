@@ -30,7 +30,7 @@
     .line 638
     iput-object p1, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity$1;->this$0:Lcom/android/settings/KeyguardAppWidgetPickActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .line 640
     iget-object v0, p0, Lcom/android/settings/KeyguardAppWidgetPickActivity$1;->this$0:Lcom/android/settings/KeyguardAppWidgetPickActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/KeyguardAppWidgetPickActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 641
     return-void

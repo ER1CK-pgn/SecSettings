@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 1241
+    .line 1249
     iput-object p1, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
     iput-object p2, p0, Lcom/android/settings/FeatureSettings$11;->val$setting_type:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     const/4 v1, 0x0
 
-    .line 1245
+    .line 1253
     const-string v2, "air_motion"
 
     iget-object v3, p0, Lcom/android/settings/FeatureSettings$11;->val$setting_type:Ljava/lang/String;
@@ -62,7 +62,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 1246
+    .line 1254
     iget-object v2, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mAirMotion:Landroid/preference/SwitchPreferenceScreen;
@@ -83,9 +83,9 @@
     if-ne v3, v0, :cond_1
 
     :goto_0
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 1260
+    .line 1268
     :cond_0
     :goto_1
     return-void
@@ -93,10 +93,10 @@
     :cond_1
     move v0, v1
 
-    .line 1246
+    .line 1254
     goto :goto_0
 
-    .line 1247
+    .line 1255
     :cond_2
     const-string v2, "air_view"
 
@@ -108,14 +108,14 @@
 
     if-eqz v2, :cond_6
 
-    .line 1248
+    .line 1256
     invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
 
     move-result v2
 
     if-eqz v2, :cond_4
 
-    .line 1249
+    .line 1257
     iget-object v2, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mAirView:Landroid/preference/SwitchPreferenceScreen;
@@ -136,7 +136,7 @@
     if-ne v3, v0, :cond_3
 
     :goto_2
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_1
 
@@ -145,7 +145,7 @@
 
     goto :goto_2
 
-    .line 1251
+    .line 1259
     :cond_4
     iget-object v2, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
@@ -167,7 +167,7 @@
     if-ne v3, v0, :cond_5
 
     :goto_3
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_1
 
@@ -176,7 +176,7 @@
 
     goto :goto_3
 
-    .line 1253
+    .line 1261
     :cond_6
     const-string v2, "smart_stay"
 
@@ -188,7 +188,7 @@
 
     if-eqz v2, :cond_8
 
-    .line 1254
+    .line 1262
     iget-object v2, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mSmartStay:Landroid/preference/SwitchPreferenceScreen;
@@ -209,7 +209,7 @@
     if-ne v3, v0, :cond_7
 
     :goto_4
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_1
 
@@ -218,7 +218,7 @@
 
     goto :goto_4
 
-    .line 1255
+    .line 1263
     :cond_8
     const-string v2, "smart_pause"
 
@@ -230,7 +230,7 @@
 
     if-eqz v2, :cond_a
 
-    .line 1256
+    .line 1264
     iget-object v2, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mSmartPause:Landroid/preference/SwitchPreferenceScreen;
@@ -251,7 +251,7 @@
     if-ne v3, v0, :cond_9
 
     :goto_5
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto/16 :goto_1
 
@@ -260,7 +260,7 @@
 
     goto :goto_5
 
-    .line 1257
+    .line 1265
     :cond_a
     const-string v2, "smart_scroll"
 
@@ -272,7 +272,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1258
+    .line 1266
     iget-object v2, p0, Lcom/android/settings/FeatureSettings$11;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
@@ -293,7 +293,7 @@
     if-ne v3, v0, :cond_b
 
     :goto_6
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto/16 :goto_1
 

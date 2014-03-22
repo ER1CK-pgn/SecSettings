@@ -39,26 +39,26 @@
     .parameter "p"
 
     .prologue
-    .line 394
+    .line 397
     iput-object p1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->this$0:Lcom/android/settings/autohaptic/AutoHapticSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 395
-    iput-object p2, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mName:Ljava/lang/String;
-
-    .line 396
-    iput-object p3, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mPackageName:Ljava/lang/String;
-
-    .line 397
-    iput-object p4, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mIcon:Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 398
-    iput-boolean p5, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mHasVibPerm:Z
+    iput-object p2, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mName:Ljava/lang/String;
 
     .line 399
-    iput-object p6, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mPackageInfo:Landroid/content/pm/PackageInfo;
+    iput-object p3, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mPackageName:Ljava/lang/String;
 
     .line 400
+    iput-object p4, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mIcon:Landroid/graphics/drawable/Drawable;
+
+    .line 401
+    iput-boolean p5, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mHasVibPerm:Z
+
+    .line 402
+    iput-object p6, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IncludedApps;->mPackageInfo:Landroid/content/pm/PackageInfo;
+
+    .line 403
     return-void
 .end method

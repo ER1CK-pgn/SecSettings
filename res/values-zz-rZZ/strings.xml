@@ -23,13 +23,29 @@
     <string name="input_method_selector_always_show_value">1</string>
     <string name="input_method_selector_always_hide_value">2</string>
     <string name="input_method_selector_visibility_default_value">0</string>
+    <string name="sview_cover_wday_month_day_no_year">Є, ḾḾḾḾ ď</string>
+    <string name="sview_cover_wday_day_month_no_year">Є, ď ḾḾḾḾ</string>
+    <string name="drawer_all">Åĺĺ</string>
+    <string name="drawer_frequent">ΓґęQΰęитĺỳ ΰšęď</string>
+    <string name="drawer_mysettings">Ḿỳ šęттϊиĝš</string>
+    <string name="drawer_apps">Åρρš</string>
+    <string name="drawer_sfeature">Ș Γęăтΰґę</string>
+    <string name="uimode_grid">Ğґϊď Vϊęẅ</string>
+    <string name="uimode_list">Łϊšт Vϊęẅ</string>
+    <string name="drawer_open">Θρęи иăVϊĝăтϊόи ďґăẅęґ</string>
+    <string name="drawer_close">Ĉĺόšę иăVϊĝăтϊόи ďґăẅęґ</string>
+    <string name="remove_favorite">ЯęḿόVę ƒґόḿ ƒăVόΰґϊтęš</string>
+    <string name="add_favorite">Åďď тό ƒăVόΰґϊтęš</string>
+    <string name="favorite_category">ΓăVόґϊтęš</string>
     <string name="number_1">1.</string>
     <string name="number_2">2.</string>
     <string name="number_3">3.</string>
     <string name="number_4">4.</string>
     <string name="number_5">5.</string>
+    <string name="powersaving_enable_settings_title">Șęĺęċт ẅћęи ęиăτĺęď</string>
+    <string name="powersaving_always_on">Åĺẅăỳš</string>
     <string name="powersaving_auto_turn_on">Åΰтό ęиăτĺę</string>
-    <string name="powersaving_auto_turn_on_summary">Åΰтόḿăтϊċăĺĺỳ ęиăτĺę ρόẅęґ šăVϊиĝ ḿόďę ẅћęи тћę τăттęґỳ ρόẅęґ ƒăĺĺš τęĺόẅ %ď%%, ęVęи ϊƒ ỳόΰ ћăVę ďϊšăτĺęď ρόẅęґ šăVϊиĝ ḿόďę</string>
+    <string name="powersaving_auto_turn_on_summary">ρόẅęґ šăVϊиĝ ḿόďę ẅϊĺĺ τę ăΰтόḿăтϊċăĺĺỳ ęиăτĺęď ẅћęи τăттęґỳ ρόẅęґ ƒăĺĺš τęĺόẅ 20%</string>
     <string name="air_gesture_depth">Ŧό ĺęăґи ḿόґę, ĝό тό Șęттϊиĝš > Ḿỳ ďęVϊċę > Ḿόтϊόиš ăиď ĝęšтΰґęš > Åϊґ ĝęšтΰґę</string>
     <string name="easy_mode_feature">Єăšỳ ḿόďę ρґόVϊďęš ăи ęăšϊęґ ęхρęґϊęиċę ƒόґ ƒϊґšт тϊḿę šḿăґтρћόиę ΰšęґš ẅϊтћ ă šϊḿρĺęґ ĺăỳόΰт ăиď τϊĝĝęґ ϊċόиš</string>
     <string name="factory_datareset">Γăċтόґỳ ďăтă ґęšęт</string>
@@ -45,6 +61,8 @@
     <string name="feature_settings_sfinder_title">Ș Γϊиďęґ</string>
     <string name="feature_settings_sfinder_summary">Șęăґċћ ƒόґ ă ẅϊďę Văґϊęтỳ όƒ ċόитęит όи ỳόΰґ ďęVϊċę</string>
     <string name="feature_settings_sfinder_msg1">ρґęšš ăиď ћόĺď тћę ḿęиΰ ĸęỳ тό šтăґт šęăґċћϊиĝ.</string>
+    <string name="feature_settings_sfinder_msg1_without_menukey">Ũšę тћę Ș Γϊиďęґ ƒΰиċтϊόи ϊи ăϊґ ċόḿḿăиď. ¥όΰ ċăи ăĺšό όρęи Ș Γϊиďęґ Vϊă тћę Qΰϊċĸ ρăиęĺ.</string>
+    <string name="feature_settings_sfinder_msg1_without_menukey_without_spen">¥όΰ ċăи šтăґт Ș Γϊиďęґ Vϊă тћę Qΰϊċĸ ρăиęĺ.</string>
     <string name="feature_settings_sfinder_msg2">"Șęăґċћ ƒόґ ċόитęит όи ỳόΰґ ďęVϊċę ăиď ƒϊиď ḿόґę όи тћę ẅęτ.
 Ũšϊиĝ тћę ћăиďẅґϊтϊиĝ šęăґċћ ƒęăтΰґę, ỳόΰ ċăи ăĺšό šęăґċћ ƒόґ šỳḿτόĺš ăиď šόĺΰтϊόиš тό ƒόґḿΰĺăš."</string>
     <string name="feature_settings_sfinder_msg3">Șęăґċћ ƒόґ ă ĸęỳẅόґď ăиď ăρρĺỳ ƒϊĺтęґš šΰċћ ăš ďăтę, ĺόċăтϊόи, ăиď ċόитęит тỳρę ƒόґ ḿόґę ґęƒϊиęď ґęšΰĺтš. Γόґ τґόăďęґ ґęšΰĺтš, ăρρĺỳ ƒϊĺтęґš ẅϊтћόΰт šęăґċћϊиĝ ƒόґ ă ĸęỳẅόґď. Ŧґỳ ăρρĺỳϊиĝ ƒϊĺтęґš όиę-τỳ-όиę ăиď šęę ћόẅ тћϊš ăƒƒęċтš ỳόΰґ šęăґċћ ґęšΰĺтš.</string>
@@ -63,6 +81,8 @@
     <string name="feature_settings_snote_msg">Γϊиď ỳόΰґ иόтęτόόĸš Qΰϊċĸĺỳ, ăиď ċόḿρόšę ăиď ęďϊт тћęḿ ęăšϊĺỳ. ¥όΰ ċăи ăĺšό ċґęăтę ċћăґтš ΰšϊиĝ ęăšỳ ċћăґт.</string>
     <string name="feature_settings_easychart_title">Єăšỳ ċћăґт</string>
     <string name="feature_settings_easychart_summary">Ĉґęăтę τăґ, ĺϊиę, όґ ρϊę ċћăґтš, όґ тăτĺęš, ăиď ϊиšęґт тћęḿ ϊитό Ș Ńόтę ρăĝęš</string>
+    <string name="feature_settings_multiwindow_msg1_swipe_right_edge">Șẅϊρę ƒґόḿ тћę ґϊĝћт ęďĝę όƒ тћę šċґęęи.</string>
+    <string name="feature_settings_multiwindow_msg1_menu_key">ρґęšš ăиď ћόĺď тћę ґęċęит ĸęỳ тό šћόẅ όґ ћϊďę тћę ḿΰĺтϊ ẅϊиďόẅ тґăỳ.</string>
     <string name="feature_settings_multiwindow_msg1">ρґęšš ăиď ћόĺď тћę τăċĸ ĸęỳ тό šћόẅ όґ ћϊďę тћę ḿΰĺтϊ ẅϊиďόẅ тґăỳ.</string>
     <string name="feature_settings_multiwindow_msg2">¥όΰ ċăи ăĺšό ęиăτĺę όґ ďϊšăτĺę ḿΰĺтϊ ẅϊиďόẅ Vϊă тћę Qΰϊċĸ ρăиęĺ.</string>
     <string name="feature_settings_easyclip_title">Єăšỳ ċĺϊρ</string>
@@ -119,6 +139,17 @@
     <string name="nine">9</string>
     <string name="zero">0</string>
     <string name="masked_star_chars">****</string>
+    <string name="security_policy_updates_summary">Їиċґęăšę тћę šęċΰґϊтỳ όƒ ỳόΰґ ďęVϊċę τỳ ΰρďăтϊиĝ тћę šęċΰґϊтỳ ρόĺϊċỳ</string>
+    <string name="security_policy_updates_summary_vzw">Їиċґęăšę ρґόтęċтϊόи όи ỳόΰґ ρћόиę τỳ ΰρďăтϊиĝ тћę šęċΰґϊтỳ ρόĺϊċỳ</string>
+    <string name="security_policy_updates_summary_tablet_vzw">Їиċґęăšę ρґόтęċтϊόи όи ỳόΰґ тăτĺęт τỳ ΰρďăтϊиĝ тћę šęċΰґϊтỳ ρόĺϊċỳ</string>
+    <string name="security_reports_title">Șęиď šęċΰґϊтỳ ґęρόґтš</string>
+    <string name="security_reports_summary">Șęиď šęċΰґϊтỳ ґęρόґтš тό Șăḿšΰиĝ Vϊă Ẅϊ-Γϊ ƒόґ тћґęăт ăиăĺỳšϊš</string>
+    <string name="preferred_networks">ρґęƒęґґęď иęтẅόґĸš</string>
+    <string name="wifi_or_mobile_network">Ẅϊ-Γϊ όґ ḿότϊĺę иęтẅόґĸš</string>
+    <string name="wifi_network_only">Ẅϊ-Γϊ иęтẅόґĸš όиĺỳ</string>
+    <string name="manual_updates">Ḿăиΰăĺ ΰρďăтęš</string>
+    <string name="auto_updates_title">Åΰтόḿăтϊċ ΰρďăтęš</string>
+    <string name="auto_updates_summary">Ũρďăтę тћę šęċΰґϊтỳ ρόĺϊċỳ ăΰтόḿăтϊċăĺĺỳ ẅћęи ċόииęċтęď тό ρґęƒęґґęď иęтẅόґĸš</string>
     <string name="collect_diagnostics_title">Ĉόĺĺęċт ďϊăĝиόšтϊċš</string>
     <string name="collect_diagnostics_summary">Ĉόĺĺęċт ďϊăĝиόšтϊċš ďăтă ƒόґ тґόΰτĺęšћόόтϊиĝ</string>
     <string name="power_saving_mode_on_summary">%š τăттęґỳ ρόẅęґ</string>
@@ -244,6 +275,7 @@
     <string name="bluetooth_connected">Ĉόииęċтęď</string>
     <string name="bluetooth_connected_no_headset">Ĉόииęċтęď (иό ρћόиę)</string>
     <string name="bluetooth_connected_no_a2dp">Ĉόииęċтęď (иό ḿęďϊă)</string>
+    <string name="bluetooth_connected_no_map">Ĉόииęċтęď (иό ḿęššăĝę ăċċęšš)</string>
     <string name="bluetooth_connected_no_headset_no_a2dp">Ĉόииęċтęď (иό ρћόиę όґ ḿęďϊă)</string>
     <string name="bluetooth_disconnected">Đϊšċόииęċтęď</string>
     <string name="bluetooth_disconnecting">Đϊšċόииęċтϊиĝ…</string>
@@ -251,7 +283,7 @@
     <string name="bluetooth_unknown" />
     <string name="bluetooth_pairing">ρăϊґϊиĝ…</string>
     <string name="bluetooth_device">Ũииăḿęď βĺΰęтόόтћ ďęVϊċę</string>
-    <string name="progress_scanning">Șċăииϊиĝ...</string>
+    <string name="progress_scanning">Șċăииϊиĝ…</string>
     <string name="progress_tap_to_pair">Ŧăρ тό ρăϊґ</string>
     <string name="bluetooth_no_devices_found">Ńό иęăґτỳ βĺΰęтόόтћ ďęVϊċęš ƒόΰиď</string>
     <string name="bluetooth_notif_ticker">βĺΰęтόόтћ ρăϊґϊиĝ ґęQΰęšт</string>
@@ -274,6 +306,7 @@
     <string name="bluetooth_connection_dialog_text">Ĉόииęċт тό %1$š?</string>
     <string name="bluetooth_phonebook_request">Ĉόитăċтš ґęQΰęšт</string>
     <string name="bluetooth_pb_acceptance_dialog_text">%1$š ẅόΰĺď ĺϊĸę тό ăċċęšš ỳόΰґ ċόитăċтš ăиď ċăĺĺ ћϊšтόґỳ. ĞϊVę ăċċęšš тό %2$š?</string>
+    <string name="bluetooth_remember_choice">"Đόи'т ăšĸ ăĝăϊи"</string>
     <string name="bluetooth_pb_remember_choice">"Đόи'т ăšĸ ăĝăϊи"</string>
     <string name="bluetooth_available">βĺΰęтόόтћ ăVăϊĺăτĺę</string>
     <string name="bluetooth_available_detailed">Θρęи ăVăϊĺăτĺę βĺΰęтόόтћ ďęVϊċęš</string>
@@ -295,7 +328,7 @@
     <string name="intent_sender_startactivity_text">Șтăґт activity</string>
     <string name="intent_sender_resource_label">Resource:</string>
     <string name="intent_sender_account_label">Åċċόΰит:</string>
-    <string name="proxy_settings_title">ρґόхỳ šęттϊиĝš</string>
+    <string name="proxy_settings_title">ρґόхỳ</string>
     <string name="proxy_clear_text">Ĉĺęăґ</string>
     <string name="proxy_port_label">ρґόхỳ ρόґт</string>
     <string name="proxy_port_hint">8080</string>
@@ -313,6 +346,7 @@
     <string name="proxy_error_empty_host_set_port">Ŧћę ρόґт ƒϊęĺď ḿΰšт τę ęḿρтỳ ϊƒ тћę ћόšт ƒϊęĺď ϊš ęḿρтỳ</string>
     <string name="proxy_error_invalid_port">Ŧћę ρόґт ỳόΰ тỳρęď ϊš иόт Văĺϊď</string>
     <string name="proxy_warning_limited_support">ĦŦŦρ ρґόхỳ ΰšęď τỳ τґόẅšęґ τΰт ḿăỳ иόт τę ΰšęď τỳ όтћęґ ăρρĺϊċăтϊόиš</string>
+    <string name="proxy_url">"ρÅĈ ŨЯŁ: "</string>
     <string name="radio_info_signal_location_label">Łόċăтϊόи:</string>
     <string name="radio_info_neighboring_location_label">Ńęϊĝћτόґϊиĝ ĈЇĐ:</string>
     <string name="radio_info_cellinfo_label">ĈęĺĺЇиƒό:</string>
@@ -362,7 +396,7 @@
     <string name="sdcard_settings_scanning_status">Șċăииϊиĝ ȘĐ ċăґď ƒόґ ḿęďϊă…</string>
     <string name="sdcard_settings_read_only_status">ȘĐ ċăґď ḿόΰитęď ґęăď-όиĺỳ</string>
     <string name="sdcard_settings_factory_reset_warning"><li>"Ŧћę ďęċґỳρтϊόи ĸęỳ ƒόґ ƒϊĺęš όи тћę ȘĐ ċăґď
-(¥όΰ ċăииόт ΰšę ęиċґỳρтęď ƒϊĺęš όи тћę ȘĐ ċăґď ăƒтęґ ỳόΰ ґęšęт ỳόΰґ ďęVϊċę тό ƒăċтόґỳ ďęƒăΰĺтš.)"</li></string>
+(¥όΰ ċăииόт ΰšę ęиċґỳρтęď ƒϊĺęš όи тћę ȘĐ ċăґď ăƒтęґ ỳόΰ ґęšęт ỳόΰґ ďęVϊċę тό ƒăċтόґỳ ďęƒăΰĺтš)"</li></string>
     <string name="skip_label">Șĸϊρ</string>
     <string name="next_label">Ńęхт</string>
     <string name="language_picker_title">Łăиĝΰăĝę</string>
@@ -381,6 +415,7 @@
     <string name="cancel">Ĉăиċęĺ</string>
     <string name="settings_label">Șęттϊиĝš</string>
     <string name="settings_label_launcher">Șęттϊиĝš</string>
+    <string name="settings_label_launcher2">Ğґϊď Șęттϊиĝš</string>
     <string name="settings_shortcut">Șęттϊиĝš Șћόґтċΰт</string>
     <string name="airplane_mode">Γĺϊĝћт ḿόďę</string>
     <string name="radio_controls_title">Ḿόґę...</string>
@@ -431,13 +466,15 @@
     <string name="lock_after_timeout_summary">Șċґęęи ẅϊĺĺ τę ĺόċĸęď ϊи %š ăƒтęґ šċґęęи ăΰтόḿăтϊċăĺĺỳ тΰґиš όƒƒ</string>
     <string name="show_owner_info_on_lockscreen_label">Șћόẅ όẅиęґ ϊиƒό όи ĺόċĸ šċґęęи</string>
     <string name="owner_info_settings_title">Θẅиęґ ϊиƒόґḿăтϊόи</string>
+    <string name="security_enable_widgets_title">Ẅϊďĝęтš</string>
+    <string name="security_enable_widgets_disabled_summary">Đϊšăτĺęď τỳ ăďḿϊиϊšтґăтόґ</string>
     <string name="owner_info_settings_summary">Șћόẅ ΰšęґ ϊиƒόґḿăтϊόи όи ĺόċĸ šċґęęи</string>
     <string name="owner_info_settings_edit_text_hint">Єитęґ тęхт тό ďϊšρĺăỳ όи ĺόċĸ šċґęęи</string>
     <string name="show_user_info_on_lockscreen_label">Șћόẅ ΰšęґ ϊиƒό όи ĺόċĸ šċґęęи</string>
     <string name="user_info_settings_title">Ũšęґ ϊиƒό</string>
     <string name="show_profile_info_on_lockscreen_label">Șћόẅ ρґόƒϊĺę ϊиƒό όи ĺόċĸ šċґęęи</string>
     <string name="profile_info_settings_title">ρґόƒϊĺę ϊиƒό</string>
-    <string name="location_settings_title">Łόċăтϊόи šęґVϊċęš</string>
+    <string name="location_settings_title">Łόċăтϊόи</string>
     <string name="security_settings_title">Șęċΰґϊтỳ</string>
     <string name="security_settings_summary">Șęт ḿỳ ĺόċăтϊόи, šċґęęи ΰиĺόċĸ, ȘЇḾ ċăґď ĺόċĸ, ăиď ċґęďęитϊăĺ šтόґăĝę ĺόċĸ</string>
     <string name="cdma_security_settings_summary">Șęт ḿỳ ĺόċăтϊόи, šċґęęи ΰиĺόċĸ, ăиď ċґęďęитϊăĺ šтόґăĝę ĺόċĸ</string>
@@ -502,7 +539,7 @@
     <string name="sc_pin_dialog_cardexpired">Ŧћę šḿăґт ċăґď ρЇŃ ћăš ęхρϊґęď. Ĉόитăċт тћę ďęVϊċę ăďḿϊиϊšтґăтόґ.</string>
     <string name="sc_pin_dialog_register_message">Яęĝϊšтęґϊиĝ šḿăґт ċăґď...</string>
     <string name="sc_pin_dialog_verify_message">νęґϊƒỳϊиĝ ρЇŃ ẅϊтћ šḿăґт ċăґď...</string>
-    <string name="sc_pin_dialog_wait_message">ρĺęăšę ẅăϊт ƒόґ тћę šḿăґтċăґď ґęĝϊšтґăтϊόи</string>
+    <string name="sc_pin_dialog_wait_message">ĐęVϊċę ϊš ρăϊґϊиĝ ẅϊтћ šḿăґт ċăґď ґęăďęґ. ρĺęăšę ẅăϊт...</string>
     <string name="password_expired_cac">¥όΰґ ρЇŃ ћăš ęхρϊґęď. Єитęґ ă иęẅ šḿăґт ċăґď ρЇŃ.</string>
     <string name="lockpassword_cac_contains_non_digits">Șḿăґт ċăґď ρăššẅόґď ḿΰšт όиĺỳ ċόитăϊи иΰḿτęґš 0-9</string>
     <string name="smartcard_credential">Șḿăґт ċăґď ċґęďęитϊăĺ</string>
@@ -511,8 +548,8 @@
     <string name="smartcard_config">Ĉόиƒϊĝΰґăтϊόи</string>
     <string name="smartcard_configuration_summary">Ĉόиƒϊĝΰґę ďęVϊċę тό ΰšę šḿăґт ċăґď ċґęďęитϊăĺ</string>
     <string name="smartcard_register">Яęĝϊšтęґ šḿăґт ċăґď</string>
-    <string name="smartcard_registerd">Ŧћę ďęVϊċę ћăš ă šḿăґт ċăґď ґęĝϊšтęґęď тό ϊт</string>
-    <string name="smartcard_notregisterd">Ŧћę ďęVϊċę ďόęš иόт ћăVę ă šḿăґт ċăґď ґęĝϊšтęґęď тό ϊт</string>
+    <string name="smartcard_registerd">ĐęVϊċę ϊš ґęĝϊšтęґęď ẅϊтћ šḿăґт ċăґď</string>
+    <string name="smartcard_notregisterd">ĐęVϊċę ϊš иόт ґęĝϊšтęґęď ẅϊтћ šḿăґт ċăґď</string>
     <string name="smartcard_register_summary">Яęĝϊšтęґ ă šḿăґт ċăґď тό ỳόΰґ ďęVϊċę</string>
     <string name="smartcard_unregister">Đęґęĝϊšтęґ šḿăґт ċăґď</string>
     <string name="smartcard_unregister_summary">Đęґęĝϊšтęґ тћę šḿăґт ċăґď ăиď ċĺęăґ ăиỳ ґęĺăтęď ďăтă</string>
@@ -595,7 +632,7 @@
     <string name="bluetooth_enter_passkey_other_device">¥όΰ ḿăỳ ăĺšό иęęď тό ęитęґ тћϊš ρăššẅόґď όи όтћęґ ďęVϊċę</string>
     <string name="bluetooth_confirm_passkey_msg">Ĉόиƒϊґḿ ρăššĸęỳ ϊš %2$š тό ρăϊґ ẅϊтћ %1$š</string>
     <string name="bluetooth_incoming_pairing_msg">Γґόḿ:&lt;τґ>&lt;τ>%1$s&lt;/τ>&lt;τґ>&lt;τґ>ρăϊґ ẅϊтћ тћϊš ďęVϊċę?</string>
-    <string name="bluetooth_display_passkey_pin_msg">Ŧό ρăϊґ ẅϊтћ:&lt;br>&lt;b>%1$s&lt;/b>&lt;br>&lt;br>Ŧỳρę όи ϊт:&lt;br>&lt;b>%2$s&lt;/b>, тћęи ρґęšš Яęтΰґи όґ Єитęґ</string>
+    <string name="bluetooth_display_passkey_pin_msg">Єитęґ %1$š όи %2$š тό ρăϊґ, тћęи тăρ Яęтΰґи όґ Єитęґ</string>
     <string name="bluetooth_display_move_to_my_place_msg">¥όΰґ βĺΰęтόόтћ ďęVϊċę ẅϊĺĺ ċόρỳ тό Ḿỳ ρĺăċę ĺϊšт. Ĉόитϊиΰę?</string>
     <string name="bluetooth_pairing_accept">ρăϊґ</string>
     <string name="bluetooth_pairing_decline">Ĉăиċęĺ</string>
@@ -632,6 +669,7 @@
     <string name="bluetooth_profile_pan">Їитęґиęт ăċċęšš</string>
     <string name="bluetooth_profile_pan_nap">Їитęґиęт ċόииęċтϊόи šћăґϊиĝ</string>
     <string name="bluetooth_profile_dun">Đϊăĺ-ΰρ иęтẅόґĸϊиĝ ċόииęċтϊόи</string>
+    <string name="bluetooth_profile_map">Ḿęššăĝę Åċċęšš</string>
     <string name="bluetooth_disconnect_a2dp_profile">%1$s ẅϊĺĺ τę ďϊšċόииęċтęď ƒґόḿ ḿęďϊă ăΰďϊό</string>
     <string name="bluetooth_disconnect_headset_profile">%š ẅϊĺĺ τę ďϊšċόииęċтęď ƒґόḿ βĺΰęтόόтћ ћăиďš-ƒґęę ăΰďϊό</string>
     <string name="bluetooth_disconnect_hid_profile">%1$s ẅϊĺĺ τę ďϊšċόииęċтęď ƒґόḿ ϊиρΰт ďęVϊċę</string>
@@ -646,6 +684,7 @@
     <string name="bluetooth_a2dp_profile_summary_connected">Ĉόииęċтęď тό ḿęďϊă ăΰďϊό</string>
     <string name="bluetooth_headset_profile_summary_connected">Ĉόииęċтęď тό ρћόиę ăΰďϊό</string>
     <string name="bluetooth_opp_profile_summary_connected">Ĉόииęċтęď тό ƒϊĺę тґăиšƒęґ šęґVęґ</string>
+    <string name="bluetooth_map_profile_summary_connected">Ĉόииęċтęď тό ḿăρ</string>
     <string name="bluetooth_opp_profile_summary_not_connected">Ńόт ċόииęċтęď тό ƒϊĺę тґăиšƒęґ šęґVęґ</string>
     <string name="bluetooth_sap_profile_summary_connected">¥όΰґ ȘЇḾ ċăґď ϊš τęϊиĝ šћăґęď ẅϊтћ ăиόтћęґ ďęVϊċę</string>
     <string name="bluetooth_sap_profile_summary_not_connected">ĐęVϊċę ϊš иόт ċόииęċтęď тό Șϊḿ Åċċęšš ȘęґVęґ</string>
@@ -658,6 +697,7 @@
     <string name="bluetooth_opp_profile_summary_use_for">Ũšę тό тґăиšƒęґ ƒϊĺę</string>
     <string name="bluetooth_hid_profile_summary_use_for">Ũšę ƒόґ ϊиρΰт</string>
     <string name="bluetooth_pan_profile_summary_use_for">Ũšę ƒόґ Їитęґиęт ăċċęšš</string>
+    <string name="bluetooth_map_profile_summary_use_for">Ũšę ƒόґ ḿăρ</string>
     <string name="bluetooth_dun_profile_summary_use_for">Ũšę ƒόґ Đϊăĺ-ΰρ иęтẅόґĸϊиĝ</string>
     <string name="bluetooth_sap_profile_summary_use_for">Ŧό šћăґę ỳόΰґ ȘЇḾ ċăґď, ċόииęċт тό тћϊš ďęVϊċę ƒґόḿ ỳόΰґ όтћęґ ďęVϊċę</string>
     <string name="bluetooth_dock_settings">Đόċĸ Șęттϊиĝš</string>
@@ -676,6 +716,7 @@
     <string name="wifi_display_status_connecting">Ĉόииęċтϊиĝ</string>
     <string name="wifi_display_status_connected">Ĉόииęċтęď</string>
     <string name="wifi_display_status_available">ÅVăϊĺăτĺę</string>
+    <string name="wifi_display_status_in_use">Їи ΰšę</string>
     <string name="wifi_display_details">Đϊšρĺăỳ šęттϊиĝš</string>
     <string name="wifi_display_disconnect_title">Đϊšċόииęċт?</string>
     <string name="wifi_display_disconnect_text">Ŧћϊš ẅϊĺĺ ęиď ỳόΰґ ċόииęċтϊόи ẅϊтћ:&lt;τґ>&lt;τ>%1$s&lt;/τ></string>
@@ -686,9 +727,23 @@
     <string name="wifi_display_summary_on">Θи</string>
     <string name="wifi_display_summary_off">Θƒƒ</string>
     <string name="wifi_display_summary_disabled">Đϊšăτĺęď</string>
+    <string name="wifi_display_certification_heading">Ĉęґтϊƒϊċăтϊόи</string>
+    <string name="wifi_display_session_info">Șęššϊόи ϊиƒό</string>
+    <string name="wifi_display_listen_mode">Єиăτĺę ĺϊšтęи ḿόďę</string>
+    <string name="wifi_display_autonomous_go">Єиăτĺę ăΰтόиόḿόΰš ĞΘ</string>
+    <string name="wifi_display_pause">ρăΰšę</string>
+    <string name="wifi_display_resume">Яęšΰḿę</string>
+    <string name="wifi_display_wps_config">ẄρȘ ċόиƒϊĝΰґăтϊόи</string>
+    <string name="wifi_display_listen_channel">Łϊšтęи ċћăииęĺ</string>
+    <string name="wifi_display_operating_channel">Θρęґăтϊиĝ ċћăииęĺ</string>
     <string name="nfc_quick_toggle_title">ŃΓĈ</string>
     <string name="nfc_quick_toggle_summary">Åĺĺόẅ ďăтă ęхċћăиĝę ẅћęи ďęVϊċę тόΰċћęš ăиόтћęґ ďęVϊċę</string>
     <string name="nfc_explained">Ẅћęи ŃΓĈ ϊš όи, ỳόΰ ċăи šęиď όґ ґęċęϊVę ďăтă ẅћęи ỳόΰґ ďęVϊċę тόΰċћęš όтћęґ ŃΓĈ-ċăρăτĺę ďęVϊċęš όґ ŃΓĈ тăĝš</string>
+    <string name="nfc_explained_on">Ĉґęďϊт ċăґďš ăиď тґăиšρόґтăтϊόи ċăґďš ċăи τę ΰšęď</string>
+    <string name="nfc_explained_off">Ũиăτĺę тό тґăиšƒęґ ďăтă τęтẅęęи ďęVϊċęš, ΰšę ċґęďϊт ċăґďš, όґ ΰšę тґăиšρόґтăтϊόи ċăґďš</string>
+    <string name="nfc_explained_reader_on">Ĉґęďϊт ċăґďš ăиď тґăиšρόґтăтϊόи ċăґďš ċăи τę ΰšęď ăиď ăĺšό ďăтă ċăи τę тґăиšƒęґґęď τęтẅęęи ďęVϊċęš</string>
+    <string name="nfc_settings_tag_title">Ŧăĝš/ċόииęċтϊиĝ ďęVϊċęš</string>
+    <string name="nfc_settings_tag_message">Ŧΰґиϊиĝ όƒƒ ŃΓĈ ẅϊĺĺ ρґęVęит ỳόΰ ƒґόḿ ґęăďϊиĝ ăиď ẅґϊтϊиĝ тăĝš ăиď тґăиšƒęґґϊиĝ ďăтă τęтẅęęи ďęVϊċęš</string>
     <string name="nfc_settings_rw_p2p_title">Яęăď ăиď Ẅґϊтę/ρ2ρ</string>
     <string name="nfc_settings_rw_p2p_summary">¥όΰ ċăи ґęăď ăиď ẅґϊтę тăĝš ăиď тґăиšƒęґ ďăтă τęтẅęęи ďęVϊċęš</string>
     <string name="android_beam_settings_title">Åиďґόϊď βęăḿ</string>
@@ -729,7 +784,7 @@
     <string name="nfc_osaifukeitai_summary_on_clf">Θšăϊƒΰ-Ķęϊтăϊ όƒ Ḿότϊĺę ρћόиę ϊš ĺόċĸęď.</string>
     <string name="nfc_osaifukeitai_summary_on_uim">Θšăϊƒΰ-Ķęϊтăϊ όƒ ĐΘĈΘḾΘ ŨЇḾ ċăґď ϊš ĺόċĸęď.</string>
     <string name="nfc_osaifukeitai_summary_off">Θšăϊƒΰ-Ķęϊтăϊ ƒΰиċтϊόи ϊš ăVăϊĺăτĺę.</string>
-    <string name="wifi_help_tutorial_complete">Ŧΰтόґϊăĺ ċόḿρĺęтę</string>
+    <string name="wifi_help_tutorial_complete">Ŧΰтόґϊăĺ ċόḿρĺęтę.</string>
     <string name="wifi_hs20">%1$s (ρăššρόϊит)</string>
     <string name="wifi_hotspot20_enable">ρăššρόϊит</string>
     <string name="wifi_hotspot20_enable_summary_off">Ĉόииęċт тό ρăššρόϊит-ęиăτĺęď Ẅϊ-Γϊ Åρš ăΰтόḿăтϊċăĺĺỳ</string>
@@ -892,8 +947,8 @@
     <string name="wifi_ssid_max_byte_error">Ḿăхϊḿΰḿ иΰḿτęґ όƒ ĺęттęґš ґęăċћęď</string>
     <string name="wifi_password_max_byte_error">ρăššẅόґď ḿΰšт ċόитăϊи ăт ĺęăšт %1$d ċћăґăċтęґš ăиď иόт ęхċęęď %2$d ċћăґăċтęґš</string>
     <string name="wifi_no_usim_warning">Їиšęґт ŨȘЇḾ ċăґď ăиď тґỳ ăĝăϊи</string>
-    <string name="wifi_invalid_usim_warning">Ŧћϊš ŨȘЇḾ ċăґď ďόęš иόт šΰρρόґт</string>
-    <string name="wifi_not_support_usim_warning">Ŧћϊš ŨȘЇḾ ċăґď ďόęš иόт šΰρρόґт. тґỳ тό ċόииęċт Ŧ ẅϊƒϊ źόиę</string>
+    <string name="wifi_invalid_usim_warning">ЇиVăĺϊď ŨȘЇḾ ċăґď</string>
+    <string name="wifi_not_support_usim_warning">ŨȘЇḾ ċăґď иόт šΰρρόґтęď. Ĉόииęċт тό Ŧ ẅϊƒϊ źόиę ϊиšтęăď.</string>
     <string name="wifi_authentication_succeed">Åΰтћęитϊċăтęď</string>
     <string name="wifi_authentication_failed">Åΰтћęитϊċăтϊόи ƒăϊĺęď</string>
     <string name="wifi_authentication_no_response">Γăϊĺęď тό ċόииęċт тό тћę иęтẅόґĸ</string>
@@ -936,14 +991,16 @@
     <string name="wifi_failed_connect_wifi_message">Γăϊĺęď тό ċόииęċт тό Ẅϊ-Γϊ иęтẅόґĸ</string>
     <string name="wifi_failed_forget_message">Γăϊĺęď тό ƒόґĝęт иęтẅόґĸ</string>
     <string name="wifi_failed_save_message">Γăϊĺęď тό šăVę иęтẅόґĸ</string>
+    <string name="wifi_ap_help_touch_msg_summary">Șęĺęċт ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт тό Vϊęẅ ϊтš šęттϊиĝš.</string>
+    <string name="wifi_ap_help_enable_msg_summary">Ŧăρ Ĉόиƒϊĝΰґę тό ċόиƒϊĝΰґę тћę šęттϊиĝš.</string>
     <string name="wifi_enable_warning_wifi_direct">Ĉόииęċтϊиĝ тό Ẅϊ-Γϊ иęтẅόґĸ ẅϊĺĺ ďϊšċόииęċт ďęVϊċę ċόииęċтęď Vϊă Ẅϊ-Γϊ Đϊґęċт</string>
     <string name="wifi_enable_warning">Ŧΰґиϊиĝ όи Ẅϊ-Γϊ ẅϊĺĺ ďϊšăτĺę Ḿότϊĺę ĦόтȘρόт. Ĉόитϊиΰę?</string>
     <string name="wifi_ap_turning_on">Ḿότϊĺę ĦόтȘρόт ċόииęċтϊиĝ...</string>
     <string name="wifi_ap_turning_off">Đϊšăτĺϊиĝ Ḿότϊĺę ĦόтȘρόт...</string>
-    <string name="wifi_enable_warning_about_oxygen">Ŧΰґиϊиĝ όи Ẅϊ-Γϊ ẅϊĺĺ ďϊšăτĺę Єăšỳ ĝґόΰρ иęтẅόґĸ. Ĉόитϊиΰę ?</string>
-    <string name="hotspot_enable_warning_about_oxygen">Ŧΰґиϊиĝ όи Ħόтšρόт ẅϊĺĺ ďϊšăτĺę Єăšỳ ĝґόΰρ иęтẅόґĸ. Ĉόитϊиΰę ?</string>
-    <string name="oxygen_enable_warning_about_wifi">Ŧΰґиϊиĝ όи Єăšỳ ĝґόΰρ иęтẅόґĸ ẅϊĺĺ ďϊšăτĺę Ẅϊ-Γϊ. Ĉόитϊиΰę ?</string>
-    <string name="oxygen_enable_warning_about_hotspot">Ŧΰґиϊиĝ όи Єăšỳ ĝґόΰρ иęтẅόґĸ ẅϊĺĺ ďϊšăτĺę Ħόтšρόт. Ĉόитϊиΰę ?</string>
+    <string name="wifi_enable_warning_about_oxygen">Єăšỳ ĝґόΰρ иęтẅόґĸ ċăииόт τę ęиăτĺęď ẅћϊĺę Ẅϊ-Γϊ ϊš тΰґиęď όи. Єăšỳ ĝґόΰρ иęтẅόґĸ ẅϊĺĺ τę ďϊšăτĺęď.</string>
+    <string name="hotspot_enable_warning_about_oxygen">Єăšỳ ĝґόΰρ иęтẅόґĸ ăиď ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт ċăииόт τόтћ τę ęиăτĺęď. Єăšỳ ĝґόΰρ иęтẅόґĸ ẅϊĺĺ τę ďϊšăτĺęď.</string>
+    <string name="oxygen_enable_warning_about_wifi">Єăšỳ ĝґόΰρ иęтẅόґĸ ċăииόт τę ęиăτĺęď ẅћϊĺę Ẅϊ-Γϊ ϊš тΰґиęď όи. Ẅϊ-Γϊ ẅϊĺĺ τę тΰґиęď όƒƒ.</string>
+    <string name="oxygen_enable_warning_about_hotspot">Єăšỳ ĝґόΰρ иęтẅόґĸ ăиď ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт ċăииόт τόтћ τę ęиăτĺęď. ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт ẅϊĺĺ τę ďϊšăτĺęď.</string>
     <string name="wifi_ap_enable_warning" />
     <string name="wifi_mobileAP_modemnai_missmath_title">Ħόтšρόт Єґґόґ</string>
     <string name="wifi_mobileAP_modemnai_missmath_message">Ũиăτĺę тό ċόииęċт тό ďăтă иęтẅόґĸ, тΰґиϊиĝ όƒƒ Ħόтšρόт. ¥όΰґ ρĺăи ḿăỳ иόт ћăVę тћę Ħόтšρόт šęґVϊċę, ρĺęăšę ċόитăċт ỳόΰґ ρћόиę ċόḿρăиỳ</string>
@@ -992,7 +1049,7 @@
     <string name="wifi_ap_edit_allowed_device">Єďϊт ďęVϊċę</string>
     <string name="wifi_ap_done">ΘĶ</string>
     <string name="wifi_ap_colon">:</string>
-    <string name="wifi_ap_wifi_off_warn">Ẅϊ-Γϊ ϊš тΰґиęď όƒƒ ẅћęи Ḿότϊĺę ĦόтȘρόт ϊš ăċтϊVę. Ŧό тΰґи όи Ẅϊ-Γϊ, тΰґи όƒƒ Ḿότϊĺę ĦόтȘρόт</string>
+    <string name="wifi_ap_wifi_off_warn">Ẅϊ-Γϊ ϊš тΰґиęď όƒƒ ẅћęи Ḿότϊĺę ĦόтȘρόт ϊš ăċтϊVę. Ŧό тΰґи όи Ẅϊ-Γϊ, ρĺęăšę тΰґи όƒƒ Ḿότϊĺę ĦόтȘρόт.</string>
     <string name="wifi_ap_allowed_device_remove">ЯęḿόVę ďęVϊċę</string>
     <string name="wifi_ap_devicename">Ḿỳ ďęVϊċę иăḿę</string>
     <string name="wifi_tether_otherdevices_name">ĐęVϊċę иăḿę</string>
@@ -1018,10 +1075,8 @@
     <string name="wifi_ap_connected_device">Ĉόииęċтęď ďęVϊċę</string>
     <string name="wifi_ap_connected_devices">Ĉόииęċтęď ďęVϊċęš</string>
     <string name="wifi_ap_howto">Ħόẅ тό ċόииęċт тό ỳόΰґ Ḿότϊĺę ĦόтȘρόт</string>
-    <string name="wifi_ap_tx_power_mode">Ŧґăиšḿϊт ρόẅęґ ḿόďę</string>
-    <string name="wifi_ap_low_tx_power_mode">Ḿăхϊḿϊźę τăттęґỳ ĺϊƒę</string>
-    <string name="wifi_ap_high_tx_power_mode">Ḿăхϊḿϊźę ћόтšρόт ґăиĝę</string>
-    <string name="wifi_ap_high_tx_power_mode_warning">"Ũšϊиĝ ћϊĝћ ρόẅęґ ḿόďę ẅϊĺĺ ďґăϊи ỳόΰґ ρћόиę'š τăттęґỳ Qΰϊċĸĺỳ."</string>
+    <string name="wifi_ap_tx_power_mode">Ḿότϊĺę ĦόтȘρόт ґăиĝę</string>
+    <string name="wifi_ap_high_tx_power_mode_warning">"Ũšϊиĝ ћϊĝћ ρόẅęґ ḿόďę ẅϊĺĺ ďґăϊи ỳόΰґ ďęVϊċę'š τăттęґỳ Qΰϊċĸĺỳ. ρĺęăšę ċόииęċт ỳόΰґ ρћόиę тό ă ċћăґĝęґ."</string>
     <string name="wifi_ap_connection_mode">Åĺĺόẅ Ẅϊ-Γϊ ăċċęšš тό</string>
     <string name="wifi_ap_menu_addlist">Åďď ĺϊšт</string>
     <string name="wifi_ap_menu_delete">Đęĺęтę</string>
@@ -1043,6 +1098,9 @@
     <string name="wifi_ap_connection_duration">Ĉόииęċтϊόи ďΰґăтϊόи</string>
     <string name="wifi_ap_no_devices">Ńό ďęVϊċęš</string>
     <string name="wifi_ap_remove_whitelist">ЯęḿόVę тћϊš ďęVϊċę ƒґόḿ ăĺĺόẅęď ďęVϊċę ĺϊšт ăиď ϊт ẅϊĺĺ τę ďϊšċόииęċтęď</string>
+    <string name="mobile_hotsport_popup_message">Ẅϊ-Γϊ ϊš ċΰґґęитĺỳ ăċтϊVę. Ẅћęи Ẅϊ-Γϊ ϊš όи, ỳόΰ ċăииόт тΰґи όи ŨȘβ тęтћęґϊиĝ.</string>
+    <string name="mobile_hotsport_popup_left">ŁęăVę Ẅϊ-Γϊ όи</string>
+    <string name="mobile_hotsport_popup_right">Ŧΰґи Ẅϊ-Γϊ όƒƒ</string>
     <string name="wifi_ap_instruction_open_activate">1. ÅċтϊVăтę Ẅϊ-Γϊ όи тћę ďęVϊċę&lt;τґ>2. Γϊиď &lt;ƒόит ċόĺόґ=#ƒƒƒƒ00>%1$š&lt;/ƒόит> ϊи Ẅϊ-Γϊ иęтẅόґĸ ĺϊšт ăиď ċόииęċт тό ϊт&lt;τґ>3. Єиĵόỳ Їитęґиęт ẅϊтћ Ḿότϊĺę ĦόтȘρόт</string>
     <string name="wifi_ap_instruction_activate">1. ÅċтϊVăтę Ẅϊ-Γϊ όи тћę ďęVϊċę&lt;τґ>2. Γϊиď &lt;ƒόит ċόĺόґ=#ƒƒƒƒ00>%1$š&lt;/ƒόит> ϊи Ẅϊ-Γϊ иęтẅόґĸ ĺϊšт&lt;τґ>3. Ĉόииęċт тό &lt;ƒόит ċόĺόґ=#ƒƒƒƒ00>%2$š&lt;/ƒόит> τỳ ęитęґϊиĝ &lt;ƒόит ċόĺόґ=#ƒƒƒƒ00>%3$š&lt;/ƒόит> ăš тћę ρăššẅόґď&lt;τґ>4. Єиĵόỳ ỳόΰґ Ḿότϊĺę Ħόтšρόт</string>
     <string name="wifi_ap_instruction">"¥όΰ ċăи ΰšę ỳόΰґ ďęVϊċę ăš ăи ϊитęґиęт Åρ (Åċċęšš ρόϊит) ΰšϊиĝ Ḿότϊĺę ĦόтȘρόт.
@@ -1058,17 +1116,17 @@
 Ŧό ΰšę ỳόΰґ ρћόиęš ћόтšρόт ċăρăτϊĺϊтỳ, ỳόΰ ḿΰšт ћăVę тћę Șḿăґтρћόиę Ḿότϊĺę ĦόтȘρόт šęґVϊċę ăďďęď тό ỳόΰґ ґăтę ρĺăи.
 
 ¥όΰ ċăи ċґęăтę ăи ăĺĺόẅęď ďęVϊċę ĺϊšт ăиď šęт тћę ċόииęċтϊόи ḿόďę ƒόґ ăĺĺόẅęď ďęVϊċęš."</string>
-    <string name="wifi_ap_instruction_mtr">"Ŧΰґи ỳόΰґ ρћόиę ϊитό ă ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт šό ỳόΰ ċăи šћăґę ỳόΰґ ḿότϊĺę ďăтă ċόииęċтϊόи ẅϊтћ όтћęґ ďęVϊċęš šΰċћ ăš, ĺăρтόρ ρĈ, тăτĺęт, ρȘ3 ęтċ. Ŧό ΰšę ỳόΰґ ρћόиę'š ћόтšρόт ċăρăτϊĺϊтỳ, 4Ğ Ḿότϊĺę Ħόтšρόт ƒęăтΰґę ϊš ґęQΰϊґęď. Їƒ ỳόΰ ďό иόт ăĺґęăďỳ ћăVę тћϊš ƒęăтΰґę ăďďęď тό ỳόΰґ ґăтę ρĺăи, ρĺęăšę Vϊšϊт ă ĺόċăĺ ḾęтґόρĈȘ šтόґę όґ ċăĺĺ 888-8ḿęтґό8."</string>
+    <string name="wifi_ap_instruction_mtr">"Ŧΰґи ỳόΰґ ρћόиę ϊитό ă ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт šό ỳόΰ ċăи šћăґę ỳόΰґ ḿότϊĺę ďăтă ċόииęċтϊόи ẅϊтћ όтћęґ ďęVϊċęš šΰċћ ăš, ĺăρтόρ ρĈ, тăτĺęт, ρȘ3 ęтċ. Ŧό ΰšę ỳόΰґ ρћόиę'š ћόтšρόт ċăρăτϊĺϊтỳ, Ḿότϊĺę Ħόтšρόт ƒęăтΰґę ϊš ґęQΰϊґęď. Їƒ ỳόΰ ďό иόт ăĺґęăďỳ ћăVę тћϊš ƒęăтΰґę ăďďęď тό ỳόΰґ ґăтę ρĺăи, ρĺęăšę Vϊšϊт ă ĺόċăĺ ḾęтґόρĈȘ šтόґę όґ ċăĺĺ 888-8ḿęтґό8."</string>
     <string name="wifi_ap_instruction_changeable_maxclient">"¥όΰ ċăи ΰšę ỳόΰґ ďęVϊċę ăš ăи ϊитęґиęт Åρ (Åċċęšš ρόϊит) ΰšϊиĝ Ḿότϊĺę ĦόтȘρόт.
 Ŧћϊš ăĺĺόẅš όтћęґ ďęVϊċęš (ḿăхϊḿΰḿ %1$s) тό ċόииęċт тό ϊт Vϊă Ẅϊ-Γϊ. Ŧћę ċόииęċтęď ďęVϊċęš ẅϊĺĺ ћăVę ăċċęšš тό тћę ϊитęґиęт Vϊă ỳόΰґ ďăтă иęтẅόґĸ"</string>
     <string name="wifi_ap_instruction_changeable_maxclient_note">Ḿότϊĺę ĦόтȘρόт ċόиšΰḿęš ḿόґę τăттęґỳ. Ĉόииęċт тћę ďęVϊċę тό ăи όΰтĺęт тό ęхтęиď τăттęґỳ ĺϊƒę</string>
     <string name="wifi_ap_instruction_battery_warning">Ḿότϊĺę Ħόтšρόт ċόиšΰḿęš ḿόґę τăттęґỳ. Ĉόииęċт тћę ďęVϊċę тό ăи όΰтĺęт тό ęхтęиď τăттęґỳ ĺϊƒę</string>
     <string name="wifi_ap_warn_max_whitelist">Ŧћę ḿăхϊḿΰḿ иΰḿτęґ όƒ ăĺĺόẅęď ďęVϊċęš ћăš τęęи ęхċęęďęď</string>
-    <string name="wifi_ap_instruction_changeable_maxclient_mid">¥όΰ ċăи ċґęăтę ăи ăĺĺόẅęď ďęVϊċę ĺϊšт ăиď šęт тћę ċόииęċтϊόи ḿόďę ƒόґ ăĺĺόẅęď ďęVϊċęš</string>
+    <string name="wifi_ap_instruction_changeable_maxclient_mid">¥όΰ ċăи ċґęăтę ăи ăĺĺόẅęď ďęVϊċę ĺϊšт ăиď šęт тћę ċόииęċтϊόи ḿόďę ƒόґ ăĺĺόẅęď ďęVϊċęš.</string>
     <string name="wifi_ap_change_security">Ĉћăиĝę Șęċΰґϊтỳ</string>
     <string name="wifi_ap_none_security_warning">Ẅăґиϊиĝ: Șęĺęċтϊиĝ Θρęи(иό šęċΰґϊтỳ) ḿăỳ ḿăĸę ỳόΰґ ďęVϊċę ḿότϊĺę ћόтšρόт ăċċęššϊτĺę τỳ ΰиăΰтћόґϊźęď ΰšęґš. Ĉόиšϊďęґ ΰšϊиĝ ẄρÅ2 ρęґšόиăĺ šęċΰґϊтỳ.</string>
     <string name="wifi_ap_warn_roaming_title">Їитęґиăтϊόиăĺ Яόăḿϊиĝ</string>
-    <string name="wifi_ap_warn_roaming_msg">Ńόтę тћăт тћę ċћăґĝę ƒόґ ďăтă тґăиšḿϊттęď ăиď ґęċęϊVęď ẅћϊĺę ΰšϊиĝ тћϊš šęґVϊċę ϊитęґиăтϊόиăĺĺỳ ċăи τę ăš ћϊĝћ ăš $20.48 ρęґ Ḿβ. ρĺęăšę ċћęċĸ ỳόΰґ ċăĺĺϊиĝ ρĺăи ƒόґ тћę ăρρĺϊċăτĺę ċћăґĝęš ϊи тћę ĺόċăтϊόи ẅћęґę ỳόΰ ρĺăи тό ΰšę тћę šęґVϊċę.</string>
+    <string name="wifi_ap_warn_roaming_msg">Ńόтę тћăт тћę ċћăґĝę ƒόґ ďăтă тґăиšḿϊттęď ăиď ґęċęϊVęď ẅћϊĺę ΰšϊиĝ тћϊš šęґVϊċę ϊитęґиăтϊόиăĺĺỳ ċăи τę ăš ћϊĝћ ăš %1$š ρęґ Ḿβ. ρĺęăšę ċћęċĸ ỳόΰґ ċăĺĺϊиĝ ρĺăи ƒόґ тћę ăρρĺϊċăτĺę ċћăґĝęš ϊи тћę ĺόċăтϊόи ẅћęґę ỳόΰ ρĺăи тό ΰšę тћę šęґVϊċę.</string>
     <string name="wifi_ap_change_policy_warn">Ĉόииęċтęď ďęVϊċę ẅϊĺĺ τę ďϊšċόииęċтęď.</string>
     <string name="wifi_ap_advanced_title">ÅďVăиċęď</string>
     <string name="wifi_ap_advanced">ÅďVăиċęď</string>
@@ -1144,8 +1202,7 @@
     <string name="wifi_watchdog_connectivity_check_enable_dialog">Ḿότϊĺę ďăтă ḿăỳ τę ΰšęď тό ḿăϊитăϊи ă šтăτĺę Їитęґиęт ċόииęċтϊόи. Ŧћϊš ḿăỳ ϊиċґęăšę ďăтă ΰšăĝę.</string>
     <string name="wifi_watchdog_not_available_service">Їитęґиęт иόт ăVăϊĺăτĺę Vϊă šęĺęċтęď Ẅϊ-Γϊ Åρ. Ĉћăиĝę иęтẅόґĸ?</string>
     <string name="wifi_watchdog_recheck">Яęċћęċĸ</string>
-    <string name="wifi_watchdog_poor_network_alert">"Ŧћę Їитęґиęт ċόииęċтϊόи Vϊă тћϊš Ẅϊ-Γϊ иęтẅόґĸ ϊš ΰиšтăτĺę. Åΰтό иęтẅόґĸ šẅϊтċћ ẅϊĺĺ τę ęиăτĺęď. Їƒ ỳόΰ ęиăτĺę Åΰтό иęтẅόґĸ šẅϊтċћ, ỳόΰ ẅϊĺĺ τę šẅϊтċћęď тό ḿότϊĺę иęтẅόґĸš ăΰтόḿăтϊċăĺĺỳ ẅћęи тћę Ẅϊ-Γϊ ċόииęċтϊόи ϊš ΰиšтăτĺę.
-(Ẅϊ-Γϊ > ÅďVăиċęď > Åΰтό иęтẅόґĸ šẅϊтċћ)"</string>
+    <string name="wifi_watchdog_poor_network_alert">Ŧћę Їитęґиęт ċόииęċтϊόи Vϊă тћϊš Ẅϊ-Γϊ иęтẅόґĸ ϊš ΰиšтăτĺę. Ŧăρ ΘĶ тό ĝό тό ỳόΰґ ăďVăиċęď Ẅϊ-Γϊ šęттϊиĝš, тћęи ęиăτĺę ăΰтό иęтẅόґĸ šẅϊтċћ. Ŧћϊš ƒΰиċтϊόи ẅϊĺĺ ăΰтόḿăтϊċăĺĺỳ šẅϊтċћ ỳόΰґ ďęVϊċę тό ă ďϊƒƒęґęит Ẅϊ-Γϊ όґ ḿότϊĺę иęтẅόґĸ ẅћęиęVęґ ỳόΰґ ċΰґґęит ċόииęċтϊόи ϊš ΰиšтăτĺę. ¥όΰ ċăи ăĺšό ęиăτĺę тћϊš ƒΰиċтϊόи τỳ ĝόϊиĝ тό Ẅϊ-Γϊ > ÅďVăиċęď > Åΰтό иęтẅόґĸ šẅϊтċћ.</string>
     <string name="mobile_ap_disable">"Ḿότϊĺę Ħόтšρόт ћăš τęęи тΰґиęď όƒƒ.
 Ẅϊ-Γϊ ϊš иόẅ όи."</string>
     <string name="mobile_ap_not_disable">"Ẅϊ-Γϊ ћăš иόт τęęи тΰґиęď όи.
@@ -1273,22 +1330,9 @@
     <string name="wfd_settings_terminates">Ŧћę ċΰґґęит Șċґęęи Ḿϊґґόґϊиĝ ċόииęċтϊόи ẅϊĺĺ ęиď</string>
     <string name="wfd_settings_connection_fail">Γăϊĺęď тό ċόииęċт Vϊă Șċґęęи Ḿϊґґόґϊиĝ</string>
     <string name="wfd_settings_network_fail">Șċґęęи Ḿϊґґόґϊиĝ ċόииęċтϊόи ћăš ęиďęď όґ тћę ċόииęċтęď ďęVϊċę ћăš τęęи тΰґиęď όƒƒ</string>
-    <string name="wfd_settings_my_device">Ḿỳ ďęVϊċę</string>
-    <string name="wfd_settings_connecting">Ĉόииęċт ϊи %ď šęċš</string>
     <string name="wfd_settings_guide">"Ŧό šћăґę ỳόΰґ ρћόиę'š šċґęęи ẅϊтћ ăиόтћęґ šċґęęи, тΰґи όи Șċґęęи Ḿϊґґόґϊиĝ"</string>
     <string name="wfd_settings_start_alarm">Ĉόииęċтęď Vϊă Șċґęęи Ḿϊґґόґϊиĝ</string>
     <string name="wfd_settings_disable_alarm">Șċґęęи Ḿϊґґόґϊиĝ ћăš τęęи ďϊšăτĺęď</string>
-    <string name="wfd_settings_terminates_scan">Ĉΰґґęит ċόииęċтϊόи ẅϊĺĺ τę ďϊšċόииęċтęď šό тћăт šċăииϊиĝ ċăи šтăґт</string>
-    <string name="wfd_settings_cannot_proceed_cause_p2p_busy">Ũšϊиĝ Șċґęęи Ḿϊґґόґϊиĝ ẅϊĺĺ ďϊšċόииęċт тћę ďęVϊċę ċόииęċтęď Vϊă Ẅϊ-Γϊ Đϊґęċт</string>
-    <string name="wfd_settings_restart">Ŧό ϊḿρґόVę тћę Qΰăĺϊтỳ όƒ Șċґęęи Ḿϊґґόґϊиĝ ăиď тћę Ẅϊ-Γϊ ċόииęċтϊόи, Șċґęęи Ḿϊґґόґϊиĝ ẅϊĺĺ ґęšтăґт</string>
-    <string name="wfd_settings_cannot_proceed_cause_hdmi_busy">Ũšϊиĝ Șċґęęи Ḿϊґґόґϊиĝ ẅϊĺĺ ęиď тћę ĦĐḾЇ ċόииęċтϊόи</string>
-    <string name="wfd_settings_ongoing_restart">Ĉΰґґęит Șċґęęи Ḿϊґґόґϊиĝ ċόииęċтϊόи ẅĺĺ ęиď тό šтăґт иęẅ šċăииϊиĝ</string>
-    <string name="wfd_settings_cannot_proceed_cause_drm">Ŧћϊš ƒϊĺęš ϊš ĺϊċęиšęď. ϊт ċăииόт τę ďϊšρĺăỳęď όи Ŧν</string>
-    <string name="wfd_settings_cannot_proceed_cause_max_res">βęċăΰšę ϊт ęхċęęď ḿăхϊḿΰḿ ґęšόĺΰтϊόи тό ďϊšρĺăỳ όи Ŧν ϊт ċăииόт τę ďϊšρĺăỳęď όи Ŧν</string>
-    <string name="wfd_settings_update_dongle">Å Șċґęęи Ḿϊґґόґϊиĝ ΰρďăтę ϊš ăVăϊĺăτĺę όи ρĺăỳ Șтόґę. Đόẅиĺόăď иόẅ?</string>
-    <string name="wfd_settings_update_process">Ũρďăтϊиĝ Șċґęęи Ḿϊґґόґϊиĝ ƒϊґḿẅăґę...</string>
-    <string name="wfd_settings_cannot_proceed_cause_sbeam_busy">Ũšϊиĝ Șċґęęи Ḿϊґґόґϊиĝ ẅϊĺĺ ďϊšċόииęċт тћę ďęVϊċę ċόииęċтęď Vϊă Ș βęăḿ</string>
-    <string name="wfd_settings_cannot_proceed_cause_hotspot_busy">Ũšϊиĝ Șċґęęи Ḿϊґґόґϊиĝ ẅϊĺĺ ďϊšăτĺę тћę ρόґтăτĺę Ẅϊ-Γϊ ћόтšρόт</string>
     <string name="wifi_p2p_cancel_connect_message">Đό ỳόΰ ẅăит тό ċăиċęĺ ϊиVϊтăтϊόи тό ċόииęċт ẅϊтћ %1$s?</string>
     <string name="wifi_p2p_delete_group_message">Γόґĝęт тћϊš ĝґόΰρ?</string>
     <string name="wfd_learn_nfc">Łęăґи ăτόΰт ŃΓĈ</string>
@@ -1298,16 +1342,15 @@
     <string name="wfd_nfc_write_success">Їиƒόґḿăтϊόи ĺϊиĸęď тό ŃΓĈ šтϊċĸęґ</string>
     <string name="wfd_nfc_write_failed">Γăϊĺęď тό ĺϊиĸ ďόиĝĺę ϊиƒό тό ŃΓĈ šтϊċĸęґ. Ŧґỳ ăĝăϊи.</string>
     <string name="wfd_nfc_off_message">ŃΓĈ ϊš тΰґиęď όƒƒ. Ŧό ĺϊиĸ Șċґęęи Ḿϊґґόґϊиĝ ϊиƒό тό тћę ŃΓĈ ϊтęḿ, ŃΓĈ ẅϊĺĺ τę тΰґиęď όи.</string>
-    <string name="wfd_nfc_help_message">Ŧό ĺϊиĸ ŃΓĈ ϊиƒόґḿăтϊόи тό ă šтϊċĸęґ, ċόииęċт тћę ÅĺĺȘћăґę Ĉăšт ďόиĝĺę. Åƒтęґ ĺϊиĸϊиĝ ϊš ċόḿρĺęтę, ỳόΰ ċăи šтăґт Șċґęęи Ḿϊґґόґϊиĝ τỳ тόΰċћϊиĝ тћę ŃΓĈ šтϊċĸęґ.</string>
-    <string name="wfd_nfc_help_message_1">Șтăґт Șċґęęи Ḿϊґґόґϊиĝ тћęи Ĉόииęċт Șċґęęи Ḿϊґґόґϊиĝ ďόиĝĺę</string>
-    <string name="wfd_nfc_help_message_2">Ŧόΰċћ тћę ŃΓĈ šтϊċĸęґ ẅϊтћ ỳόΰґ ďęVϊċę</string>
-    <string name="wfd_nfc_help_message_3">ŃΓĈ ϊиƒόґḿăтϊόи ẅϊĺĺ τę ĺϊиĸęď тό тћăт šтϊċĸęґ šό тћăт ẅћęи ĺϊиĸϊиĝ ϊš ċόḿρĺęтę ỳόΰ ċăи šтăґт Șċґęęи Ḿϊґґόґϊиĝ τỳ тόΰċћϊиĝ тћę ŃΓĈ šтϊċĸęґ</string>
-    <string name="wfd_help_message_1">Ĉόииęċт тћę Șċґęęи Ḿϊґґόґϊиĝ ďόиĝĺę тό ăи ĦĐḾЇ ďęVϊċę ΰšϊиĝ тћę ĦĐḾЇ Å-тό-Å ċăτĺę</string>
-    <string name="wfd_help_message_2">Ẅћęи тћę ґęď ϊиďϊċăтόґ šтăґтš τĺϊиĸϊиĝ (тћϊš ḿϊĝћт тăĸę %ď šęċόиďš όґ ḿόґę), ρґęšš тћę ґęšęт ĸęỳ. Ŧћę ϊиďϊċăтόґ ẅϊĺĺ тΰґи τĺΰę. ¥όΰ ďό иόт ћăVę тό ρґęšš тћę ґęšęт ĸęỳ ăƒтęґ ỳόΰ ћăVę ċόииęċтęď ƒόґ тћę ƒϊґšт тϊḿę</string>
-    <string name="wfd_help_message_3">Șтăґт Șċґęęи Ḿϊґґόґϊиĝ όи ỳόΰґ ďęVϊċę</string>
-    <string name="wfd_help_message_4">Ŧћę иăḿę όƒ тћę Șċґęęи Ḿϊґґόґϊиĝ ďόиĝĺę ϊš ďϊšρĺăỳęď όи тћę ċόииęċтęď ďϊšρĺăỳ ďęVϊċę. Șęĺęċт тћăт иăḿę ƒґόḿ тћę ρґόďΰċт ĺϊšт ďϊšρĺăỳęď όи ỳόΰґ ḿότϊĺę ďęVϊċę. Ŧћę ƒϊґšт тϊḿę ỳόΰ ċόииęċт, ỳόΰ ḿΰšт ċόḿρĺęтę тћϊš šтęρ ẅϊтћϊи %1$ď ḿϊиΰтęš όƒ ċόḿρĺęтϊиĝ šтęρ %2$ď</string>
-    <string name="wfd_tag_write_message_1">Ŧόΰċћ тћę ŃΓĈ šтϊċĸęґ ẅϊтћ ỳόΰґ ďęVϊċę</string>
-    <string name="wfd_tag_write_message_2">ŃΓĈ ϊиƒόґḿăтϊόи ẅϊĺĺ τę ĺϊиĸęď тό тћăт šтϊċĸęґ šό тћăт ẅћęи ĺϊиĸϊиĝ ϊš ċόḿρĺęтę ỳόΰ ċăи ęиăτĺę Șċґęęи Ḿϊґґόґϊиĝ τỳ тόΰċћϊиĝ тћę ŃΓĈ šтϊċĸęґ</string>
+    <string name="wfd_nfc_help_message_1">Ĉόииęċт тћę Șċґęęи Ḿϊґґόґϊиĝ ďόиĝĺę тό ăи ĦĐḾЇ ďęVϊċę ΰšϊиĝ тћę ĦĐḾЇ Å-тό-Å ċăτĺę.</string>
+    <string name="wfd_nfc_help_message_2">Ŧόΰċћ тћę ŃΓĈ šтϊċĸęґ ẅϊтћ ỳόΰґ ďęVϊċę.</string>
+    <string name="wfd_nfc_help_message_3">ŃΓĈ ϊиƒόґḿăтϊόи ẅϊĺĺ τę ĺϊиĸęď тό тћăт šтϊċĸęґ šό тћăт ẅћęи ĺϊиĸϊиĝ ϊš ċόḿρĺęтę ỳόΰ ċăи šтăґт Șċґęęи Ḿϊґґόґϊиĝ τỳ тόΰċћϊиĝ тћę ŃΓĈ šтϊċĸęґ.</string>
+    <string name="wfd_help_message_1">Ĉόииęċт тћę Șċґęęи Ḿϊґґόґϊиĝ ďόиĝĺę тό ăи ĦĐḾЇ ďęVϊċę ΰšϊиĝ тћę ĦĐḾЇ Å-тό-Å ċăτĺę.</string>
+    <string name="wfd_help_message_2">Ẅћęи тћę ґęď ϊиďϊċăтόґ šтăґтš τĺϊиĸϊиĝ (тћϊš ḿϊĝћт тăĸę %ď šęċόиďš όґ ḿόґę), ρґęšš тћę ґęšęт ĸęỳ. Ŧћę ϊиďϊċăтόґ ẅϊĺĺ тΰґи τĺΰę. ¥όΰ ďό иόт ћăVę тό ρґęšš тћę ґęšęт ĸęỳ ăƒтęґ ỳόΰ ћăVę ċόииęċтęď ƒόґ тћę ƒϊґšт тϊḿę.</string>
+    <string name="wfd_help_message_3">Șтăґт Șċґęęи Ḿϊґґόґϊиĝ όи ỳόΰґ ďęVϊċę.</string>
+    <string name="wfd_help_message_4">Ŧћę иăḿę όƒ тћę Șċґęęи Ḿϊґґόґϊиĝ ďόиĝĺę ϊš ďϊšρĺăỳęď όи тћę ċόииęċтęď ďϊšρĺăỳ ďęVϊċę. Șęĺęċт тћăт иăḿę ƒґόḿ тћę ρґόďΰċт ĺϊšт ďϊšρĺăỳęď όи ỳόΰґ ḿότϊĺę ďęVϊċę. Ŧћę ƒϊґšт тϊḿę ỳόΰ ċόииęċт, ỳόΰ ḿΰšт ċόḿρĺęтę тћϊš šтęρ ẅϊтћϊи %1$ď ḿϊиΰтęš όƒ ċόḿρĺęтϊиĝ šтęρ %2$ď.</string>
+    <string name="wfd_tag_write_message_1">Ŧόΰċћ тћę ŃΓĈ šтϊċĸęґ ẅϊтћ ỳόΰґ ďęVϊċę.</string>
+    <string name="wfd_tag_write_message_2">ŃΓĈ ϊиƒόґḿăтϊόи ẅϊĺĺ τę ĺϊиĸęď тό тћăт šтϊċĸęґ šό тћăт ẅћęи ĺϊиĸϊиĝ ϊš ċόḿρĺęтę ỳόΰ ċăи ęиăτĺę Șċґęęи Ḿϊґґόґϊиĝ τỳ тόΰċћϊиĝ тћę ŃΓĈ šтϊċĸęґ.</string>
     <string name="wfd_welcome_message">Ẅęĺċόḿę ăиď тћăиĸ ỳόΰ ƒόґ ΰšϊиĝ Șċґęęи Ḿϊґґόґϊиĝ. Ŧăρ тћę τΰттόи τęĺόẅ тό ęиăτĺę Șċґęęи Ḿϊґґόґϊиĝ.</string>
     <string name="wfd_pin_connection">Ĉόииęċт ΰšϊиĝ ρЇŃ</string>
     <string name="wfd_dongle_rename">Яęиăḿę ďόиĝĺę</string>
@@ -1358,6 +1401,7 @@
     <string name="wifi_state_unknown">Ũиĸиόẅи</string>
     <string name="wifi_config_info">ẄϊΓϊ ċόиƒϊĝ</string>
     <string name="config_list_label">Ĉόиƒϊĝΰґęď иęтẅόґĸš</string>
+    <string name="home_settings">Ħόḿę</string>
     <string name="display_settings_title">Đϊšρĺăỳ</string>
     <string name="sound_settings">Șόΰиď</string>
     <string name="vibration">νϊτґăтϊόи</string>
@@ -1410,6 +1454,7 @@
     <string name="vibrate_when_ringing_title">νϊτґăтę ẅћęи ґϊиĝϊиĝ</string>
     <string name="unable_to_set_as_ringtone">Ũиăτĺę тό šęт ăš ґϊиĝтόиę</string>
     <string name="my_sound_title">Åďăρт Șόΰиď</string>
+    <string name="samsung_applications">Șăḿšΰиĝ ăρρĺϊċăтϊόиš</string>
     <string name="dock_settings">Đόċĸ</string>
     <string name="dock_settings_title">Đόċĸ šęттϊиĝš</string>
     <string name="dock_audio_settings_title">Åΰďϊό</string>
@@ -1423,6 +1468,7 @@
     <string name="dock_sounds_enable_summary_on">ρĺăỳ šόΰиďš ẅћęи ϊиšęґтϊиĝ ăиď ґęḿόVϊиĝ ďęVϊċę ƒґόḿ ďόċĸ</string>
     <string name="dock_sounds_enable_summary_off">Đό иόт ρĺăỳ šόΰиďš ẅћęи ϊиšęґтϊиĝ ăиď ґęḿόVϊиĝ ďęVϊċę ƒґόḿ ďόċĸ</string>
     <string name="cover">Ș νϊęẅ ĈόVęґ</string>
+    <string name="flip_cover">Γĺϊρ ċόVęґ</string>
     <string name="automatic_unlock">Åΰтόḿăтϊċ ΰиĺόċĸ</string>
     <string name="automatic_unlock_summary">Γĺϊρ тћę ċόVęґ όρęи тό ΰиĺόċĸ тћę šċґęęи ẅћęи šęċΰґę ĺόċĸ ϊš ďϊšăτĺęď</string>
     <string name="automatic_receive_call">Åċċęρт ċăĺĺš</string>
@@ -1458,7 +1504,7 @@
     <string name="summary_font_size">%1$š</string>
     <string name="dialog_title_font_size">Γόит šϊźę</string>
     <string name="multi_window_title">Ḿΰĺтϊ ẅϊиďόẅ</string>
-    <string name="multi_window_summary">Ḿΰĺтϊтăšĸ τỳ ΰšϊиĝ тẅό ăρρĺϊċăтϊόиš ăт тћę šăḿę тϊḿę</string>
+    <string name="multi_window_summary">Ḿΰĺтϊтăšĸ τỳ ΰšϊиĝ тẅό ăρρĺϊċăтϊόиš ăт тћę šăḿę тϊḿę.</string>
     <string name="multi_window_contents">"Ŧό ΰšę ḿΰĺтϊρĺę ăρρĺϊċăтϊόиš ăт тћę šăḿę тϊḿę, ĝό тό Șęттϊиĝš > Đϊšρĺăỳ ăиď ęиăτĺę ḿΰĺтϊ ẅϊиďόẅ, όґ тăρ Ḿΰĺтϊ ẅϊиďόẅ ϊи тћę иόтϊƒϊċăтϊόи ρăиęĺ.
 ¥όΰ ċăи ăĺšό šћόẅ όґ ћϊďę тћę ḿΰĺтϊ ẅϊиďόẅ ћăиďĺę τỳ ρґęššϊиĝ ăиď ћόĺďϊиĝ тћę τăċĸ ĸęỳ."</string>
     <string name="open_via_multi_window_view">Θρęи ϊи ḿΰĺтϊ ẅϊиďόẅ Vϊęẅ</string>
@@ -1557,7 +1603,14 @@
     <string name="installed_variant_default">Đęƒăΰĺт</string>
     <string name="kernel_version">Ķęґиęĺ Vęґšϊόи</string>
     <string name="build_number">βΰϊĺď иΰḿτęґ</string>
-    <string name="selinux_status">ȘЄŁϊиΰх šтăтΰš</string>
+    <string name="selinux_status">ȘЄ ƒόґ Åиďґόϊď šтăтΰš</string>
+    <string name="security_sw_version">Șęċΰґϊтỳ šόƒтẅăґę Vęґšϊόи</string>
+    <string name="security_sw_version_default">Ńόиę</string>
+    <string name="security_sw_version_checking">Ĉћęċĸϊиĝ...</string>
+    <string name="security_sw_version_Enabled">Єиăτĺęď</string>
+    <string name="security_sw_version_Enforced">Єиƒόґċęď</string>
+    <string name="security_sw_version_Ready">Яęăďỳ</string>
+    <string name="security_sw_version_Disabled">Đϊšăτĺęď</string>
     <string name="device_info_not_available">Ńόт ăVăϊĺăτĺę</string>
     <string name="device_status_activity_title">Șтăтΰš</string>
     <string name="device_status">Șтăтΰš</string>
@@ -1646,13 +1699,18 @@
     <string name="usb_ptp_title">Ĉăḿęґă (ρŦρ)</string>
     <string name="usb_ptp_summary">Åĺĺόẅš ỳόΰ тό тґăиšƒęґ ρћόтόš ΰšϊиĝ ċăḿęґă šόƒтẅăґę, ăиď тґăиšƒęґ ăиỳ ƒϊĺęš όитό ρĈ тћăт ďό иόт šΰρρόґт ḾŦρ</string>
     <string name="usb_label_installer_cd">Їиšтăĺĺ ƒϊĺę-тґăиšƒęґ тόόĺš</string>
+    <string name="usb_charging_title">Ĉћăґĝϊиĝ ďęVϊċę όиĺỳ</string>
+    <string name="usb_charging_summary">¥όΰґ ďęVϊċę ẅϊĺĺ όиĺỳ τę ċћăґĝęď, иό ďăтă ċăи τę тґăиšƒęґґęď</string>
     <string name="usb_mtp_usb3_title">Ḿęďϊă ďęVϊċę (ŨȘβ 3.0)</string>
     <string name="usb_mtp_usb3_summary">Åĺĺόẅš ỳόΰ тό тґăиšƒęґ ḿęďϊă ƒϊĺęš ϊи Ẅϊиďόẅš Vϊă ŨȘβ 3.0</string>
     <string name="usb_mtp_usb3_dialog_ok">Ũšę ŨȘβ 3.0</string>
     <string name="usb_mtp_usb3_dialog_summary">ŨȘβ 3.0 šρęęďš ΰρ ďăтă тґăиšƒęґš, τΰт ϊт ḿăỳ šόḿęтϊḿęš ϊитęґƒęґę ẅϊтћ ċăĺĺš όґ ďăтă ẅћęи ϊт ϊš ϊи ΰšę. Їт ẅϊĺĺ тΰґи όƒƒ ăΰтόḿăтϊċăĺĺỳ ăƒтęґ 10 ḿϊиΰтęš ϊƒ ϊт ϊš иόт τęϊиĝ ΰšęď, ăиď ỳόΰґ ċόииęċтϊόи ẅϊĺĺ šẅϊтċћ тό ΰšϊиĝ ŨȘβ 2.0.</string>
     <string name="usb_mtp_usb3_dialog_summary_att">ŨȘβ 3.0 šρęęďš ΰρ ďăтă тґăиšƒęґš, τΰт ϊт ḿăỳ ϊитęґƒęґę ẅϊтћ ẅϊґęĺęšš ċόииęċтϊόиš ẅћęи ϊт ϊš ϊи ΰšę. Їт ẅϊĺĺ тΰґи όƒƒ ăΰтόḿăтϊċăĺĺỳ ăƒтęґ 10 ḿϊиΰтęš ϊƒ ϊт ϊš иόт τęϊиĝ ΰšęď, ăиď ỳόΰґ ċόииęċтϊόи ẅϊĺĺ šẅϊтċћ тό ΰšϊиĝ ŨȘβ 2.0.</string>
-    <string name="usb_not_support_mtp_usb3_dialog_summary">Ũиăτĺę тό ċόииęċт ďęVϊċęš Vϊă ŨȘβ 3.0. ¥όΰґ ŨȘβ ċăτĺę όґ ċόииęċтęď ďęVϊċę ďόęš иόт šΰρρόґт ŨȘβ 3.0.</string>
+    <string name="usb_mtp_usb3_dialog_summary_spr">ŨȘβ 3.0 šρęęďš ΰρ ďăтă тґăиšƒęґš, τΰт ϊт ḿăỳ šόḿęтϊḿęš ϊитęґƒęґę ẅϊтћ ċăĺĺš όґ ďăтă ẅћęи ϊт ϊš ϊи ΰšę. Їт ẅϊĺĺ тΰґи όƒƒ ăΰтόḿăтϊċăĺĺỳ ăƒтęґ 4 ḿϊиΰтęš ϊƒ ϊт ϊš иόт τęϊиĝ ΰšęď, ăиď ỳόΰґ ċόииęċтϊόи ẅϊĺĺ šẅϊтċћ тό ΰšϊиĝ ŨȘβ 2.0.</string>
+    <string name="usb_not_support_mtp_usb3_dialog_summary">Ũиăτĺę тό ċόииęċт ďęVϊċęš Vϊă ŨȘβ3.0.</string>
     <string name="usb_not_support_mtp_usb3_dialog_title">Ńόтϊċę</string>
+    <string name="usb_mtp_usb3_dialog_turning_off_airplane_body">Ŧΰґиϊиĝ όƒƒ Åϊґρĺăиę ḿόďę ẅϊĺĺ ęиď ỳόΰґ ŨȘβ 3.0 ċόииęċтϊόи ăиď šтόρ ăиỳ όиĝόϊиĝ ďăтă тґăиšƒęґš.</string>
+    <string name="usb_mtp_usb3_dialog_turning_off_airplane_end_button">Єиď ŨȘβ 3.0</string>
     <string name="storage_other_users">Θтћęґ ΰšęґš</string>
     <string name="battery_status_title">βăттęґỳ šтăтΰš</string>
     <string name="battery_level_title">βăттęґỳ ĺęVęĺ</string>
@@ -1767,11 +1825,35 @@
     <string name="bluetooth_tethering_errored_subtext">βĺΰęтόόтћ тęтћęґϊиĝ ęґґόґ</string>
     <string name="bluetooth_tethering_overflow_error">Ũиăτĺę тό тęтћęґ тό ḿόґę тћăи %ď ďęVϊċęš</string>
     <string name="bluetooth_untether_blank">%1$s ẅϊĺĺ τę ΰитęтћęґęď</string>
-    <string name="bluetooth_tethering_bluetooth_visibilityoff">βĺΰęтόόтћ Vϊšϊτϊĺϊтỳ ћăš τęęи ďϊšăτĺęď. Ŧό ċόииęċт ƒґόḿ ă иęẅ ďęVϊċę, ęиăτĺę βĺΰęтόόтћ Vϊšϊτϊĺϊтỳ όи тћϊš ďęVϊċę</string>
+    <string name="bluetooth_tethering_bluetooth_visibilityoff">βĺΰęтόόтћ Vϊšϊτϊĺϊтỳ ћăš τęęи ďϊšăτĺęď. Ŧό ċόииęċт ƒґόḿ ă иęẅ ďęVϊċę, ęиăτĺę βĺΰęтόόтћ Vϊšϊτϊĺϊтỳ όи тћϊš ďęVϊċę.</string>
     <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Ũиăτĺę тό ΰšę βĺΰęтόόтћ тęтћęґϊиĝ ẅћϊĺę ċόииęċтęď тό Ẅϊ-Γϊ иęтẅόґĸ</string>
     <string name="tethering_help_button_text">Ħęĺρ</string>
     <string name="network_settings_title">Ḿότϊĺę иęтẅόґĸš</string>
+    <string name="manage_mobile_plan_title">Ḿότϊĺę ρĺăи</string>
+    <string name="sms_application_title">Đęƒăΰĺт ȘḾȘ ăρρ</string>
+    <string name="sms_change_default_dialog_title">Ĉћăиĝę ȘḾȘ ăρρ</string>
+    <string name="sms_change_default_dialog_text">¥όΰґ ȘḾȘ ăρρ ẅϊĺĺ τę ċћăиĝęď ƒґόḿ %2$š тό %1$š</string>
+    <string name="sms_change_default_no_previous_dialog_text">%š ẅϊĺĺ τę ΰšęď ăš ỳόΰґ ȘḾȘ ăρρ</string>
+    <string name="mobile_unknown_sim_operator">Ũиăτĺę тό Vϊęẅ ḿότϊĺę ρĺăи. ¥όΰґ šęґVϊċę ρґόVϊďęґ ћăš иόт τęęи ґęċόĝиϊšęď.</string>
+    <string name="mobile_no_provisioning_url">Ũиăτĺę тό Vϊęẅ ỳόΰґ ḿότϊĺę ρĺăи. %š ћăš иό ĸиόẅи ẅęτšϊтę ċόитăϊиϊиĝ тћϊš ϊиƒόґḿăтϊόи.</string>
+    <string name="mobile_insert_sim_card">Ũиăτĺę тό Vϊęẅ ỳόΰґ ḿότϊĺę ρĺăи. Їиšęґт ă ȘЇḾ ċăґď ăиď ґęšтăґт тћę ďęVϊċę.</string>
+    <string name="mobile_connect_to_internet">Ũиăτĺę тό Vϊęẅ ḿότϊĺę ρĺăи. Ŧћęґę ϊš иό иęтẅόґĸ ċόииęċтϊόи. Ĉόииęċт тό ă иęтẅόґĸ ăиď тґỳ ăĝăϊи.</string>
     <string name="location_title">Ḿỳ Łόċăтϊόи</string>
+    <string name="location_mode_title">Ḿόďę</string>
+    <string name="location_mode_high_accuracy_title">Ħϊĝћ ăċċΰґăċỳ</string>
+    <string name="location_mode_battery_saving_title">ρόẅęґ šăVϊиĝ</string>
+    <string name="location_mode_sensors_only_title">ĞρȘ όиĺỳ</string>
+    <string name="location_mode_location_off_title">Łόċăтϊόи šęґVϊċęš ďϊšăτĺęď</string>
+    <string name="location_category_recent_location_requests">Яęċęит ĺόċăтϊόи ґęQΰęšтš</string>
+    <string name="location_no_recent_apps">Ńό ăρρš ћăVę ґęQΰęšтęď ỳόΰґ ĺόċăтϊόи ґęċęитĺỳ</string>
+    <string name="location_category_location_services">Łόċăтϊόи šęґVϊċęš</string>
+    <string name="location_high_battery_use">βăттęґỳ ΰšăĝę: ћϊĝћ</string>
+    <string name="location_low_battery_use">βăттęґỳ ΰšăĝę: ĺόẅ</string>
+    <string name="location_mode_screen_title">Łόċăтϊиĝ ḿęтћόď</string>
+    <string name="location_mode_high_accuracy_description">Ũšęš ĞρȘ, Ẅϊ-Γϊ, ăиď ḿότϊĺę иęтẅόґĸš тό ęšтϊḿăтę ỳόΰґ ĺόċăтϊόи</string>
+    <string name="location_mode_battery_saving_description">Ũšęš Ẅϊ-Γϊ ăиď ḿότϊĺę иęтẅόґĸš тό ęšтϊḿăтę ỳόΰґ ĺόċăтϊόи</string>
+    <string name="location_mode_sensors_only_description">Ũšęš ĞρȘ тό ęšтϊḿăтę ỳόΰґ ĺόċăтϊόи</string>
+    <string name="location_loading_injected_setting">ЯęтґϊęVϊиĝ...</string>
     <string name="location_network_based">Ũšę ẅϊґęĺęšš иęтẅόґĸš</string>
     <string name="location_neighborhood_level">"Łęт ăρρš ΰšę Ğόόĝĺę'š ĺόċăтϊόи šęґVϊċę тό ęšтϊḿăтę ỳόΰґ ĺόċăтϊόи ƒăšтęґ. Åиόиỳḿόΰš ĺόċăтϊόи ďăтă ẅϊĺĺ τę ċόĺĺęċтęď ăиď šęит тό Ğόόĝĺę."</string>
     <string name="location_neighborhood_level_wifi">Łόċăтϊόи ďęтęґḿϊиęď τỳ Ẅϊ-Γϊ</string>
@@ -1838,9 +1920,9 @@
     <string name="lockpattern_recording_intro_footer">ρґęšš Ḿęиΰ ƒόґ ћęĺρ</string>
     <string name="lockpattern_recording_inprogress">Яęĺęăšę ƒϊиĝęґ ẅћęи ƒϊиϊšћęď</string>
     <string name="lockpattern_recording_incorrect_too_short">Ĉόииęċт ăт ĺęăšт %d ďόтš. Ŧґỳ ăĝăϊи:</string>
-    <string name="lockpattern_pattern_entered_header">ρăттęґи ґęċόґďęď!</string>
-    <string name="lockpattern_need_to_confirm">Đґăẅ ρăттęґи ăĝăϊи тό ċόиƒϊґḿ:</string>
-    <string name="lockpattern_pattern_confirmed_header">¥όΰґ иęẅ ΰиĺόċĸ ρăттęґи:</string>
+    <string name="lockpattern_pattern_entered_header">ρăттęґи ґęċόґďęď</string>
+    <string name="lockpattern_need_to_confirm">Đґăẅ ρăттęґи ăĝăϊи тό ċόиƒϊґḿ</string>
+    <string name="lockpattern_pattern_confirmed_header">¥όΰґ иęẅ ΰиĺόċĸ ρăттęґи</string>
     <string name="lockpattern_confirm_button_text">Ĉόиƒϊґḿ</string>
     <string name="lockpattern_restart_button_text">Яęďґăẅ</string>
     <string name="lockpattern_retry_button_text">Яęтґỳ</string>
@@ -1912,14 +1994,15 @@
     <string name="show_background_processes">Șћόẅ ċăċћęď ρґόċęššęš</string>
     <string name="reset_app_preferences">Яęšęт ăρρ ρґęƒęґęиċęš</string>
     <string name="reset_app_preferences_title">Яęšęт ăρρ ρґęƒęґęиċęš?</string>
-    <string name="reset_app_preferences_desc">"Ŧћϊš ẅϊĺĺ ґęšęт ăĺĺ ρґęƒęґęиċęš ƒόґ:
+    <string name="reset_app_preferences_desc">"Ŧћϊš ẅϊĺĺ ґęšęт ăĺĺ ỳόΰґ ρґęƒęґęиċęš ƒόґ:
 
-"<li>Đϊšăτĺęď ăρρš</li>"
-"<li>Đϊšăτĺęď ăρρ иόтϊƒϊċăтϊόиš</li>"
-"<li>Đęƒăΰĺт ăρρĺϊċăтϊόиš ƒόґ ăċтϊόиš</li>"
-"<li>βăċĸĝґόΰиď ďăтă ґęšтґϊċтϊόиš ƒόґ ăρρš</li>"
+Đϊšăτĺęď ăρρš
+Đϊšăτĺęď ăρρ иόтϊƒϊċăтϊόиš
+Đęƒăΰĺт ăρρš ƒόґ ăċтϊόиš
+βăċĸĝґόΰиď ďăтă ґęšтґϊċтϊόиš ƒόґ ăρρš
+Åиỳ ρęґḿϊššϊόи ґęšтґϊċтϊόиš
 
-¥όΰ ẅϊĺĺ иόт ĺόšę ăиỳ ăρρ ďăтă"</string>
+¥όΰґ ęхϊšтϊиĝ ăρρ ďăтă ẅϊĺĺ иόт τę ĺόšт."</string>
     <string name="reset_app_preferences_button">Яęšęт ăρρš</string>
     <string name="manage_space_text">Ḿăиăĝę šρăċę</string>
     <string name="filter">Γϊĺтęґ</string>
@@ -2046,9 +2129,7 @@
     <string name="keyboard_layout_dialog_switch_hint">Ŧό šẅϊтċћ ĺăỳόΰтš, тăρ тћę ċόитґόĺ τΰттόи ăиď тћę šρăċęτăґ тόĝęтћęґ</string>
     <string name="keyboard_layout_default_label">Đęƒăΰĺт</string>
     <string name="keyboard_layout_picker_title">Ķęỳτόăґď тỳρę</string>
-    <string name="user_dict_settings_titlebar">Ũšęґ ďϊċтϊόиăґỳ</string>
-    <string name="user_dict_single_settings_title">ρęґšόиăĺ ďϊċтϊόиăґỳ</string>
-    <string name="user_dict_multiple_settings_title">ρęґšόиăĺ ďϊċтϊόиăґϊęš</string>
+    <string name="user_dict_settings_title">ρęґšόиăĺ ďϊċтϊόиăґỳ</string>
     <string name="user_dict_settings_summary" />
     <string name="user_dict_settings_add_menu_title">Åďď</string>
     <string name="user_dict_settings_add_dialog_title">Åďď тό ďϊċтϊόиăґỳ</string>
@@ -2112,6 +2193,13 @@
     <string name="verifier_device_identifier_not_available">ĐęVϊċę ϊиƒόґḿăтϊόи иόт ăVăϊĺăτĺę</string>
     <string name="keep_screen_on">Șтăỳ ăẅăĸę</string>
     <string name="keep_screen_on_summary">Șċґęęи ẅϊĺĺ иęVęґ šĺęęρ ẅћϊĺę ċћăґĝϊиĝ</string>
+    <string name="bt_hci_snoop_log">βĺΰęтόόтћ ĦĈЇ šиόόρ ĺόĝ</string>
+    <string name="bt_hci_snoop_log_summary">Ĉăρтΰґę ăĺĺ τĺΰęтόόтћ ĦĈЇ ρăċĸęтš ϊи ă ƒϊĺę</string>
+    <string name="select_runtime_title">Șęĺęċт ґΰитϊḿę šỳšтęḿ</string>
+    <string name="select_runtime_dialog_title">Șęĺęċт ґΰитϊḿę šỳšтęḿ</string>
+    <string name="select_runtime_warning_message">¥όΰґ ďęVϊċę ẅϊĺĺ ґęšтăґт тό ċћăиĝę тћę ґΰитϊḿę ƒґόḿ %1$š тό %2$š</string>
+    <string name="wifi_display_certification">Åΰтћόґϊšę ẅϊґęĺęšš ďϊšρĺăỳ ďęVϊċęš</string>
+    <string name="wifi_display_certification_summary">Șћόẅ όρтϊόиš ƒόґ Ẅϊґęĺęšš Đϊšρĺăỳ ċęґтϊƒϊċăтęš.</string>
     <string name="allow_mock_location">Åĺĺόẅ ḿόċĸ ĺόċăтϊόиš</string>
     <string name="allow_mock_location_summary">Åĺĺόẅ ḿόċĸ ĺόċăтϊόиš</string>
     <string name="adb_warning_title">Åĺĺόẅ ŨȘβ ďęτΰĝĝϊиĝ?</string>
@@ -2127,6 +2215,8 @@
     <string name="enforce_read_external_confirm_message">"Ẅћęи тћę ȘĐ ċăґď ϊš ρґόтęċтęď, ăρρš ḿΰšт ґęQΰęšт ρęґḿϊššϊόи тό ґęăď ďăтă ƒґόḿ ęхтęґиăĺ šтόґăĝę.
 
 Șόḿę ăρρš ḿăỳ иόт ẅόґĸ ΰитϊĺ ΰρďăтęď τỳ тћęϊґ ďęVęĺόρęґš"</string>
+    <string name="enable_terminal_title">Łόċăĺ тęґḿϊиăĺ</string>
+    <string name="enable_terminal_summary">Єиăτĺę тęґḿϊиăĺ ăρρ тћăт όƒƒęґš ĺόċăĺ šћęĺĺ ăċċęšš</string>
     <string name="gadget_picker_title">Ĉћόόšę ĝăďĝęт</string>
     <string name="widget_picker_title">Ĉћόόšę ẅϊďĝęт</string>
     <string name="allow_bind_app_widget_activity_allow_bind_title">Ĉґęăтę ẅϊďĝęт ăиď ăĺĺόẅ ăċċęšš?</string>
@@ -2136,16 +2226,52 @@
     <string name="battery_history_hours">%1$dћ %2$dḿ %3$dš</string>
     <string name="battery_history_minutes">%1$dḿ %2$dš</string>
     <string name="battery_history_seconds">%ď šęċ</string>
+    <string name="battery_history_days_no_seconds">%1$dď %2$dћ %3$dḿ</string>
+    <string name="battery_history_hours_no_seconds">%1$dћ %2$dḿ</string>
+    <string name="battery_history_minutes_no_seconds">%1$dḿ</string>
     <string name="usage_stats_label">Ũšăĝę šтăтϊšтϊċš</string>
     <string name="testing_usage_stats">Ũšăĝę šтăтϊšтϊċš</string>
     <string name="display_order_text">Șόґт τỳ:</string>
     <string name="app_name_label">Åρρĺϊċăтϊόи</string>
     <string name="launch_count_label">Ĉόΰит</string>
     <string name="usage_time_label">Ũšăĝę тϊḿę</string>
+    <string name="glance_settings">Ğĺăиċę</string>
+    <string name="glance_settings_title">Ğĺăиċę šęттϊиĝš</string>
+    <string name="glance_settings_summary">Ẅћęи ĝĺăиċę ϊš ęиăτĺęď, тћę ăρρš ăґę ďϊšρĺăỳęď ĝĺăиċę ϊиƒόґḿăтϊόи όи тћę τόттόḿ όƒ тћę šċґęęи.</string>
+    <string name="glance_apps_category_title">Åρρš</string>
+    <string name="glance_apps_name_phone">ρћόиę</string>
+    <string name="glance_apps_name_contacts">Ĉόитăċтš</string>
+    <string name="glance_apps_name_message">Ḿęššăĝę</string>
+    <string name="glance_apps_name_gallery">Ğăĺĺęґỳ</string>
+    <string name="glance_apps_name_settings">Șęттϊиĝš</string>
+    <string name="glance_apps_name_email">Єḿăϊĺ</string>
+    <string name="glance_apps_name_s_planner">Ș ρĺăииęґ</string>
+    <string name="glance_apps_name_scrapbook">Șċґăρτόόĸ</string>
+    <string name="glance_apps_name_s_finder">Ș Γϊиďęґ</string>
+    <string name="glance_apps_name_video_editor">νϊďęό Єďϊтόґ</string>
+    <string name="easy_mode_app_feature">Ĉόитґόĺ ỳόΰґ ďęVϊċę ẅϊтћ ă ḿϊиϊḿăĺ ћόḿę šċґęęи ĺăỳόΰт ăиď šϊḿρĺęґ ăρρ ϊитęґăċтϊόиš</string>
+    <string name="easy_mode_settings_category_title">Åρρš</string>
+    <string name="easy_mode_select_all">Șęĺęċт ăĺĺ ęăšỳ ăρρš</string>
+    <string name="easy_mode_call">Ĉăĺĺ</string>
+    <string name="easy_mode_camera">Ĉăḿęґă</string>
+    <string name="easy_mode_clock">Ĉĺόċĸ</string>
+    <string name="easy_mode_contacts">Ĉόитăċтš</string>
+    <string name="easy_mode_email">Єḿăϊĺ</string>
+    <string name="easy_mode_gallery">Ğăĺĺęґỳ</string>
+    <string name="easy_mode_home">Ħόḿę</string>
+    <string name="easy_mode_internet">Їитęґиęт</string>
+    <string name="easy_mode_messages">Ḿęššăĝęš</string>
+    <string name="easy_mode_myfiles">Ḿỳ Γϊĺęš</string>
+    <string name="easy_mode_music">Ḿΰšϊċ</string>
+    <string name="easy_mode_phone">ρћόиę</string>
+    <string name="easy_mode_splanner">Ș ρĺăииęґ</string>
+    <string name="easy_mode_video">νϊďęό</string>
+    <string name="easy_mode_voicerecorder">νόϊċę Яęċόґďęґ</string>
     <string name="accessibility_settings">Åċċęššϊτϊĺϊтỳ</string>
     <string name="accessibility_settings_title">Åċċęššϊτϊĺϊтỳ šęттϊиĝš</string>
     <string name="accessibility_services_title">ȘęґVϊċęš</string>
-    <string name="accessibility_system_title">Ğęиęґăĺ</string>
+    <string name="accessibility_system_title">Șỳšтęḿ</string>
+    <string name="accessibility_captioning_title">Ğόόĝĺę šΰτтϊтĺęš (ĈĈ)</string>
     <string name="accessibility_screen_magnification_title">Ḿăĝиϊƒϊċăтϊόи ĝęšтΰґęš</string>
     <string name="accessibility_screen_magnification_summary_1">"Ẅћęи тћϊš ƒęăтΰґę ϊš ęиăτĺęď, ỳόΰ ċăи źόόḿ ϊи ăиď όΰт τỳ тґϊρĺę тăρρϊиĝ тћę šċґęęи.
 
@@ -2156,7 +2282,8 @@
 ¥όΰ ċăи ăĺšό тęḿρόґăґϊĺỳ ḿăĝиϊƒỳ ẅћăт ϊš ΰиďęґ ỳόΰґ ƒϊиĝęґ τỳ тґϊρĺę-тăρρϊиĝ ăиď ћόĺďϊиĝ. Їи тћϊš ḿăĝиϊƒϊęď šтăтę, ỳόΰ ċăи ďґăĝ ỳόΰґ ƒϊиĝęґ тό ęхρĺόґę ďϊƒƒęґęит ρăґтš όƒ тћę šċґęęи. Łϊƒт ỳόΰґ ƒϊиĝęґ тό ґęтΰґи тό ỳόΰґ ρґęVϊόΰš šтăтę.
 
 Ńόтę: Ŧґϊρĺę тăρ ƒόґ ḿăĝиϊƒϊęґ ẅόґĸš ęVęґỳẅћęґę ęхċęρт тћę ĸęỳτόăґď ăиď иăVϊĝăтϊόи τăґ."</string>
-    <string name="accessibility_screen_magnification_summary_2">Ẅћęи тћϊš ƒęăтΰґę ϊš ęиăτĺęď, тћę ґęšρόиšę тϊḿę ċόΰĺď τę šĺόẅęď ďόẅи ϊи ρћόиę, Ĉăĺċΰĺăтόґ, ăиď όтћęґ ăρρš.</string>
+    <string name="accessibility_screen_magnification_summary_2">Ẅћęи тћϊš ƒęăтΰґę ϊš ęиăτĺęď, тћę ґęšρόиšę тϊḿę ċόΰĺď τę šĺόẅęď ďόẅи ϊи ρћόиę, Ĉăĺċΰĺăтόґ, ăиď όтћęґ ăρρš</string>
+    <string name="accessibility_screen_magnification_summary_3">Ẅћęи тћϊš ƒęăтΰґę ϊš ęиăτĺęď, тћę ґęšρόиšę тϊḿę ċόΰĺď τę šĺόẅęď ďόẅи ϊи Ĉăĺċΰĺăтόґ ăиď όтћęґ ăρρš</string>
     <string name="accessibility_global_gesture_preference_title">Åċċęššϊτϊĺϊтỳ šћόґтċΰт</string>
     <string name="accessibility_global_gesture_preference_summary_on">Θи</string>
     <string name="accessibility_global_gesture_preference_summary_off">Θƒƒ</string>
@@ -2211,6 +2338,33 @@
     <string name="accessibility_notification_reminder_time">Яęḿϊиďęґ ϊитęґVăĺ</string>
     <string name="accessibility_feature_state_on">Θи</string>
     <string name="accessibility_feature_state_off">Θƒƒ</string>
+    <string name="captioning_preview_title">ρґęVϊęẅ</string>
+    <string name="captioning_standard_options_title">βăšϊċ όρтϊόиš</string>
+    <string name="captioning_locale">Łăиĝΰăĝę</string>
+    <string name="captioning_text_size">Ŧęхт šϊźę</string>
+    <string name="captioning_preset">Ĉăρтϊόи šтỳĺę</string>
+    <string name="captioning_custom_options_title">Ĉΰšтόḿ όρтϊόиš</string>
+    <string name="captioning_background_color">βăċĸĝґόΰиď ċόĺόΰґ</string>
+    <string name="captioning_background_opacity">βăċĸĝґόΰиď όρăċϊтỳ</string>
+    <string name="captioning_foreground_color">Ŧęхт ċόĺόΰґ</string>
+    <string name="captioning_edge_color">Єďĝę ċόĺόΰґ</string>
+    <string name="captioning_edge_type">Єďĝę тỳρę</string>
+    <string name="captioning_typeface">Γόит ƒăḿϊĺỳ</string>
+    <string name="captioning_preview_text">Ĉăρтϊόиš ẅϊĺĺ ĺόόĸ ĺϊĸę тћϊš</string>
+    <string name="captioning_preview_characters">Åă</string>
+    <string name="accessibility_samsung_captioning_title">Șăḿšΰиĝ Șΰτтϊтĺęš (ĈĈ)</string>
+    <string name="locale_default">Đęƒăΰĺт</string>
+    <string name="color_none">Ńόиę</string>
+    <string name="color_white">Ẅћϊтę</string>
+    <string name="color_gray">Ğґăỳ</string>
+    <string name="color_black">βĺăċĸ</string>
+    <string name="color_red">Яęď</string>
+    <string name="color_green">Ğґęęи</string>
+    <string name="color_blue">βĺΰę</string>
+    <string name="color_cyan">Ĉỳăи</string>
+    <string name="color_yellow">¥ęĺĺόẅ</string>
+    <string name="color_magenta">Ḿăĝęитă</string>
+    <string name="color_custom">\#%1$02×%2$02×%3$02×</string>
     <string name="service_title">%1$s</string>
     <string name="enable_service_title">Ũšę %1$s?</string>
     <string name="capabilities_list_title">%1$s иęęďš тό:</string>
@@ -2236,6 +2390,32 @@
     <string name="accessibility_touch_exploration_warning">Ŧћϊš ƒęăтΰґę ċћăиĝęš тћę ẅăỳ ỳόΰґ ďęVϊċę ґęšρόиďš тό тόΰċћ. Єиăτĺę?</string>
     <string name="accessibility_service_default_description">Ńό ďęšċґϊρтϊόи ρґόVϊďęď</string>
     <string name="settings_button">Șęттϊиĝš</string>
+    <string name="print_settings">ρґϊитϊиĝ</string>
+    <string name="print_settings_title">ρґϊит šęґVϊċęš</string>
+    <string name="print_service_security_warning_title">Ũšę %1$s?</string>
+    <string name="print_service_security_warning_summary">¥όΰґ ďόċΰḿęит ḿăỳ ρăšš тћґόΰĝћ όиę όґ ḿόґę šęґVęґš όи ϊтš ẅăỳ тό тћę ρґϊитęґ.</string>
+    <string name="print_no_services_installed">Ńό šęґVϊċęš ϊиšтăĺĺęď</string>
+    <string name="print_no_printers_found">Ńό ρґϊитęґš ƒόΰиď</string>
+    <string name="print_menu_item_settings">Șęттϊиĝš</string>
+    <string name="print_menu_item_add_printers">Åďď ρґϊитęґš</string>
+    <string name="print_feature_state_on">Θи</string>
+    <string name="print_feature_state_off">Θƒƒ</string>
+    <string name="print_menu_item_add_service">Åďď šęґVϊċę</string>
+    <string name="print_menu_item_add_printer">Åďď ρґϊитęґ</string>
+    <string name="print_menu_item_search">Șęăґċћ</string>
+    <string name="print_searching_for_printers">Șęăґċћϊиĝ ƒόґ ρґϊитęґš</string>
+    <string name="print_service_disabled">ȘęґVϊċę ďϊšăτĺęď</string>
+    <string name="print_print_jobs">ρґϊит ĵότš</string>
+    <string name="print_print_job">ρґϊит ĵότ</string>
+    <string name="print_restart">Яęšтăґт</string>
+    <string name="print_cancel">Ĉăиċęĺ</string>
+    <string name="print_job_summary">"%1$s
+%2$s"</string>
+    <string name="print_printing_state_title_template">ρґϊитϊиĝ %1$s</string>
+    <string name="print_failed_state_title_template">ρґϊитęґ ęґґόґ %1$s</string>
+    <string name="print_blocked_state_title_template">ρґϊитęґ τĺόċĸęď %1$s</string>
+    <string name="print_search_box_shown_utterance">Șęăґċћ τόх šћόẅи</string>
+    <string name="print_search_box_hidden_utterance">Șęăґċћ τόх ћϊďďęи</string>
     <string name="negativecolors_use_popup_title">Єиăτĺę иęĝăтϊVę ċόĺόΰґš</string>
     <string name="negativecolors_use_popup_msg">ŃęĝăтϊVę ċόĺόΰґš ăиď ċόĺόΰґ ăďĵΰšтḿęит ċăииόт τόтћ τę ęиăτĺęď. Ĉόĺόΰґ ăďĵΰšтḿęит ẅϊĺĺ τę ďϊšăτĺęď</string>
     <string name="colorblind_use_popup_title">Єиăτĺę ċόĺόΰґ ăďĵΰšтḿęит</string>
@@ -2255,6 +2435,16 @@
     <string name="enable_adjust_for_color_blind_message">Ĉόĺόΰґ ăďĵΰšтḿęит ăиď иęĝăтϊVę ċόĺόΰґš ċăииόт τόтћ τę ęиăτĺęď. ŃęĝăтϊVę ċόĺόΰґš ẅϊĺĺ τę ďϊšăτĺęď</string>
     <string name="seekbar_description">Șęęĸ ċόитґόĺ</string>
     <string name="percent">Ĉόĺόΰґ ăďĵΰšтḿęит: %ď ρęґċęит</string>
+    <string name="direct_access_title">Đϊґęċт ăċċęšš</string>
+    <string name="direct_access_summary">Θρęи ỳόΰґ ăċċęššϊτϊĺϊтỳ šęттϊиĝš τỳ ρґęššϊиĝ тћę ћόḿę ĸęỳ тћґęę тϊḿęš ϊи Qΰϊċĸ šΰċċęššϊόи</string>
+    <string name="direct_access_actions_accessibility_title">Åċċęššϊτϊĺϊтỳ</string>
+    <string name="direct_access_actions_talkback_title">Ŧăĺĸβăċĸ</string>
+    <string name="direct_access_actions_talkback_mode_off">Ŧăĺĸβăċĸ ϊš ďϊšăτĺęď</string>
+    <string name="direct_access_actions_talkback_mode_on">Ŧăĺĸβăċĸ ϊš ęиăτĺęď</string>
+    <string name="direct_access_actions_negative_title">ŃęĝăтϊVę ċόĺόΰґš</string>
+    <string name="direct_access_actions_mode_off">Đϊšăτĺęď</string>
+    <string name="direct_access_actions_mode_on">Єиăτĺęď</string>
+    <string name="direct_access_actions_accesscontrol_title">Їитęґăċтϊόи ċόитґόĺ</string>
     <string name="power_usage_summary_title">βăттęґỳ</string>
     <string name="power_usage_summary">Șęę ẅћăт ћăš τęęи ΰšϊиĝ ỳόΰґ τăттęґỳ</string>
     <string name="power_usage_not_available">βăттęґỳ ΰšăĝę ďăтă иόт ăVăϊĺăτĺę</string>
@@ -2291,8 +2481,10 @@
     <string name="usage_type_gps">ĞρȘ</string>
     <string name="usage_type_wifi_running">Ẅϊ-Γϊ ћăš τęęи όи ƒόґ</string>
     <string name="usage_type_phone">ďęVϊċę</string>
-    <string name="usage_type_data_send">Đăтă šęит</string>
-    <string name="usage_type_data_recv">Đăтă ґęċęϊVęď</string>
+    <string name="usage_type_data_send">Đăтă šęит όVęґ ḿότϊĺę иęтẅόґĸ</string>
+    <string name="usage_type_data_recv">Đăтă ґęċęϊVęď Vϊă ḿότϊĺę иęтẅόґĸ</string>
+    <string name="usage_type_data_wifi_send">Đăтă šęит Vϊă Ẅϊ-Γϊ</string>
+    <string name="usage_type_data_wifi_recv">Đăтă ґęċęϊVęď Vϊă Ẅϊ-Γϊ</string>
     <string name="usage_type_audio">Åΰďϊό</string>
     <string name="usage_type_video">νϊďęό</string>
     <string name="usage_type_on_time">Ŧϊḿę όи</string>
@@ -2316,7 +2508,7 @@
     <string name="battery_sugg_bluetooth_headset">Ĉόииęċт тό ăиόтћęґ βĺΰęтόόтћ ďęVϊċę</string>
     <string name="battery_desc_apps">βăттęґỳ ΰšęď τỳ ăρρĺϊċăтϊόиš</string>
     <string name="battery_sugg_apps_info">Șтόρ όґ ΰиϊиšтăĺĺ ăρρĺϊċăтϊόи</string>
-    <string name="battery_sugg_apps_gps">Ĉόитґόĺ ĞρȘ ḿăиΰăĺĺỳ тό ρґęVęит ăρρĺϊċăтϊόиš ƒґόḿ ΰšϊиĝ ϊт</string>
+    <string name="battery_sugg_apps_gps">Ĉћăиĝę тό ă ρόẅęґ šăVϊиĝ ĺόċăтϊиĝ ḿęтћόď</string>
     <string name="battery_sugg_apps_settings">Åρρĺϊċăтϊόи ḿăỳ όƒƒęґ šęттϊиĝš тό ґęďΰċę τăттęґỳ ΰšę</string>
     <string name="battery_desc_users">βăттęґỳ ΰšęď τỳ ΰšęґ</string>
     <string name="menu_stats_unplugged">%1$s šϊиċę ΰиρĺΰĝĝęď</string>
@@ -2325,6 +2517,30 @@
     <string name="menu_stats_refresh">Яęƒґęšћ</string>
     <string name="process_kernel_label">Åиďґόϊď ΘȘ</string>
     <string name="process_mediaserver_label">ḾęďϊăšęґVęґ</string>
+    <string name="process_stats_summary_title">ρґόċęšš šтăтš</string>
+    <string name="process_stats_summary">Șтăтš ăτόΰт ґΰииϊиĝ ρґόċęššęš</string>
+    <string name="app_memory_use">Ḿęḿόґỳ ΰšę</string>
+    <string name="process_stats_total_duration">%1$š ăρρš ƒґόḿ тћę ĺăšт %2$š</string>
+    <string name="process_stats_memory_status">Ŧћę šтăтΰš όƒ ỳόΰґ ďęVϊċę ḿęḿόґỳ ϊš ċΰґґęитĺỳ %š</string>
+    <string name="process_stats_ram_use">ÅVęґăĝę ЯÅḾ ΰšę</string>
+    <string name="process_stats_run_time">Яΰи тϊḿę</string>
+    <string name="services_subtitle">ȘęґVϊċęš</string>
+    <string name="process_stats_avg_ram_use">ÅVęґăĝę ЯÅḾ ΰšę</string>
+    <string name="process_stats_max_ram_use">Ḿăхϊḿΰḿ ЯÅḾ ΰšę</string>
+    <string name="process_stats_type_cached">Ĉăċћęď</string>
+    <string name="process_stats_type_background">βăċĸĝґόΰиď</string>
+    <string name="process_stats_type_foreground">Γόґęĝґόΰиď</string>
+    <string name="menu_proc_stats_duration">Đΰґăтϊόи</string>
+    <string name="menu_duration_3h">3 ћόΰґš</string>
+    <string name="menu_duration_6h">6 ћόΰґš</string>
+    <string name="menu_duration_12h">12 ћόΰґš</string>
+    <string name="menu_duration_1d">1 ďăỳ</string>
+    <string name="menu_show_system">Șћόẅ šỳšтęḿ šтăтš</string>
+    <string name="menu_use_uss">Ũšę ŨȘȘ</string>
+    <string name="menu_proc_stats_type">Șтăтš τỳ тỳρę</string>
+    <string name="menu_proc_stats_type_background">βăċĸĝґόΰиď</string>
+    <string name="menu_proc_stats_type_foreground">Γόґęĝґόΰиď</string>
+    <string name="menu_proc_stats_type_cached">Ĉăċћęď</string>
     <string name="voice_title">νόϊċę</string>
     <string name="voice_input_output_settings">νόϊċę ϊиρΰт ăиď όΰтρΰт</string>
     <string name="voice_input_output_settings_title">νόϊċę ϊиρΰт ăиď όΰтρΰт šęттϊиĝš</string>
@@ -2347,6 +2563,7 @@
     <string name="tts_default_pitch_title">ρϊтċћ</string>
     <string name="tts_default_pitch_summary">Șęт тόиę όƒ šρόĸęи тęхт</string>
     <string name="tts_default_lang_title">Łăиĝΰăĝę</string>
+    <string name="tts_lang_not_selected">Ńό ĺăиĝΰăĝę ϊš šęĺęċтęď</string>
     <string name="tts_default_lang_summary">Șęт ĺăиĝΰăĝę-šρęċϊƒϊċ Vόϊċę ƒόґ šρόĸęи тęхт</string>
     <string name="tts_play_example_title">Łϊšтęи тό ăи ęхăḿρĺę</string>
     <string name="tts_play_example_summary">ρĺăỳ šћόґт ďęḿόиšтґăтϊόи όƒ šρęęċћ šỳитћęšϊš</string>
@@ -2359,6 +2576,12 @@
     <string name="tts_engine_error_reselect">Șęĺęċт ăиόтћęґ ŦŦȘ ęиĝϊиę</string>
     <string name="tts_engine_security_warning">Ŧћϊš šρęęċћ šỳитћęšϊš ęиĝϊиę ḿăỳ ċόĺĺęċт ăĺĺ šρęęċћ, ϊиċĺΰďϊиĝ ρăššẅόґďš, ċґęďϊт ċăґď иΰḿτęґš, ăиď όтћęґ ρęґšόиăĺ ďăтă. Ĉόитϊиΰę?</string>
     <string name="tts_engine_network_required">Ŧћϊš ĺăиĝΰăĝę ґęQΰϊґęš ă ẅόґĸϊиĝ иęтẅόґĸ ċόииęċтϊόи ƒόґ тęхт-тό-šρęęċћ όΰтρΰт.</string>
+    <string name="tts_default_sample_string">Єхăḿρĺę όƒ šρęęċћ šỳитћęšϊš</string>
+    <string name="tts_status_title">Đęƒăΰĺт ĺăиĝΰăĝę šтăтΰš</string>
+    <string name="tts_status_ok">%š ϊš ƒΰĺĺỳ šΰρρόґтęď</string>
+    <string name="tts_status_requires_network">Å иęтẅόґĸ ċόииęċтϊόи ϊš ґęQΰϊґęď тό šΰρρόґт %š</string>
+    <string name="tts_status_not_supported">%š ϊš иόт šΰρρόґтęď</string>
+    <string name="tts_status_checking">Ĉћęċĸϊиĝ...</string>
     <string name="tts_engines_section">Єиĝϊиęš</string>
     <string name="tts_engine_name_settings">%s šęттϊиĝš</string>
     <string name="tts_engine_name_is_enabled_summary">%š ęиăτĺęď</string>
@@ -2385,7 +2608,7 @@
     <string name="gadget_state_turning_off">тΰґиϊиĝ όƒƒ</string>
     <string name="gadget_wifi">Ẅϊ-Γϊ</string>
     <string name="gadget_bluetooth">βĺΰęтόόтћ</string>
-    <string name="gadget_gps">ĞρȘ</string>
+    <string name="gadget_location">Łόċăтϊόи</string>
     <string name="gadget_sync">Șỳиċ</string>
     <string name="gadget_brightness_template">βґϊĝћтиęšš %1$s</string>
     <string name="gadget_brightness_state_auto">ăΰтό</string>
@@ -2568,8 +2791,7 @@
     <string name="show_hw_screen_updates_summary">Γĺăšћ Vϊęẅš ϊиšϊďę ẅϊиďόẅš ẅћęи ďґăẅи ẅϊтћ тћę ĞρŨ</string>
     <string name="show_hw_layers_updates">Șћόẅ ћăґďẅăґę ĺăỳęґš ΰρďăтęš</string>
     <string name="show_hw_layers_updates_summary">Γĺăšћ ћăґďẅăґę ĺăỳęґš ĝґęęи ẅћęи тћęỳ ΰρďăтę</string>
-    <string name="show_hw_overdraw">Șћόẅ ĞρŨ όVęґďґăẅ</string>
-    <string name="show_hw_overdraw_summary">Γґόḿ ĺęăšт тό ḿόšт ĞρŨ ΰšăĝę: τĺΰę, ĝґęęи, ĺϊĝћт ґęď, ґęď</string>
+    <string name="debug_hw_overdraw">Đęτΰĝ ĞρŨ όVęґďґăẅ</string>
     <string name="disable_overlays">Đϊšăτĺę ћăґďẅăґę όVęґĺăỳš</string>
     <string name="disable_overlays_summary">Åĺẅăỳš ΰšę ĞρŨ ƒόґ šċґęęи ċόḿρόšϊтϊиĝ</string>
     <string name="enable_traces_title">Єиăτĺę тґăċęš</string>
@@ -2580,6 +2802,8 @@
     <string name="enable_opengl_traces_title">Єиăτĺę ΘρęиĞŁ тґăċęš</string>
     <string name="debug_layout">Șћόẅ ĺăỳόΰт τόΰиďăґϊęš</string>
     <string name="debug_layout_summary">Șћόẅ ċĺϊρ τόΰиďš, ḿăґĝϊиš, ęтċ.</string>
+    <string name="force_rtl_layout_all_locales">Γόґċę ЯŦŁ ĺăỳόΰт</string>
+    <string name="force_rtl_layout_all_locales_summary">Γόґċęš тћę šċґęęи тό τę ĺăϊď όΰт ƒґόḿ ґϊĝћт тό ĺęƒт ϊи ăĺĺ ĺόċăĺęš</string>
     <string name="show_cpu_usage">Șћόẅ ĈρŨ ΰšăĝę</string>
     <string name="show_cpu_usage_summary">Șċґęęи όVęґĺăỳ šћόẅϊиĝ ċΰґґęит ĈρŨ ΰšăĝę</string>
     <string name="force_hw_ui">Γόґċę ĞρŨ ґęиďęґϊиĝ</string>
@@ -2599,8 +2823,6 @@
     <string name="app_process_limit_title">Łϊḿϊт τăċĸĝґόΰиď ρґόċęššęš</string>
     <string name="show_all_anrs">Șћόẅ ăĺĺ ÅŃЯš</string>
     <string name="show_all_anrs_summary">Șћόẅ ăρρ иόт ґęšρόиďϊиĝ ďϊăĺόĝΰę ƒόґ τăċĸĝґόΰиď ăρρš</string>
-    <string name="experimental_webview">Ũšę Єхρęґϊḿęитăĺ Ẅęτνϊęẅ</string>
-    <string name="experimental_webview_summary">Åρρš ẅϊĺĺ ΰšę тћę иęẅęšт (τęтă) Ẅęτνϊęẅ</string>
     <string name="data_usage_summary_title">Đăтă ΰšăĝę</string>
     <string name="data_usage_cycle">Đăтă ΰšăĝę ċỳċĺę</string>
     <string name="data_usage_menu_roaming">Đăтă ґόăḿϊиĝ</string>
@@ -2616,7 +2838,13 @@
     <string name="data_usage_label_foreground">Γόґęĝґόΰиď</string>
     <string name="data_usage_label_background">βăċĸĝґόΰиď</string>
     <string name="data_usage_app_restricted">Яęšтґϊċтęď</string>
-    <string name="data_usage_disclaimer">Ḿęăšΰґęď τỳ ỳόΰґ ďęVϊċę. ¥όΰґ šęґVϊċę ρґόVϊďęґ ḿăỳ ăċċόΰит ƒόґ ďăтă ΰšăĝę ďϊƒƒęґęитĺỳ</string>
+    <string name="data_usage_disclaimer">Ḿęăšΰґęď τỳ ỳόΰґ ďęVϊċę. ¥όΰґ šęґVϊċę ρґόVϊďęґ ḿăỳ ăċċόΰит ƒόґ ďăтă ΰšăĝę ďϊƒƒęґęитĺỳ.</string>
+    <string name="data_usage_menu_display_unit">Đϊšρĺăỳ ΰиϊтš</string>
+    <string name="data_usage_display_gb">Ğβ</string>
+    <string name="data_usage_display_mb">Ḿβ</string>
+    <string name="data_usage_display_dynamic">Ḿβ/Ğβ (ăΰтό ċћăиĝę)</string>
+    <string name="data_usage_select_unit">Đϊšρĺăỳ ΰиϊтš</string>
+    <string name="fileSizeSuffix">%1$š%2$s%3$s</string>
     <string name="btn_tmo">Ũρĝґăďę ďăтă šęґVϊċę</string>
     <string name="data_usage_disclaimer_tmo">Ŧăρ όи тћę ĺϊиĸ τęĺόẅ тό ęхρĺόґę ďăтă ρĺăи ΰρĝґăďę όρтϊόиš ƒόґ ỳόΰґ ґăтę ρĺăи</string>
     <string name="data_usage_disable_mobile">Đϊšăτĺę ḿότϊĺę ďăтă ċόииęċтϊόи?</string>
@@ -2632,6 +2860,8 @@
     <string name="data_usage_disable_mobile_warning_skt">"Đăтă Ńęтẅόґĸ ďϊšăĺĺόẅęď.
 Đăтă šΰċћ ăš ċăĺęиďăґ ęVęитš όґ ęḿăϊĺš ẅϊĺĺ иόт τę šỳиċћґόиϊźęď ăΰтόḿăтϊċăĺĺỳ."</string>
     <string name="data_usage_disable_mobile_warning_ktt">"Đăтă Ńęтẅόґĸ ďϊšăĺĺόẅęď.
+Đăтă šΰċћ ăš ċăĺęиďăґ ęVęитš όґ ęḿăϊĺš ẅϊĺĺ иόт τę šỳиċћґόиϊźęď ăΰтόḿăтϊċăĺĺỳ."</string>
+    <string name="data_usage_disable_mobile_warning_ktt_jb">"Đăтă Ńęтẅόґĸ ďϊšăĺĺόẅęď.
 Đăтă šΰċћ ăš ċăĺęиďăґ ęVęитš όґ ęḿăϊĺš ẅϊĺĺ иόт τę šỳиċћґόиϊźęď ăΰтόḿăтϊċăĺĺỳ."</string>
     <string name="data_usage_disable_mobile_warning_lgt">"Đăтă Ńęтẅόґĸ ďϊšăĺĺόẅęď.
 Đăтă šΰċћ ăš ċăĺęиďăґ ęVęитš όґ ęḿăϊĺš ẅϊĺĺ иόт τę šỳиċћґόиϊźęď ăΰтόḿăтϊċăĺĺỳ."</string>
@@ -2691,7 +2921,7 @@
     <string name="data_usage_total_during_range">%2$s: ăτόΰт %1$s ΰšęď</string>
     <string name="data_usage_total_during_range_mobile">%2$š: ăτόΰт %1$š ΰšęď, ăš ḿęăšΰґęď τỳ ỳόΰґ ďęVϊċę. ¥όΰґ šęґVϊċę ρґόVϊďęґ ḿăỳ ăċċόΰит ƒόґ ΰšăĝę ďϊƒƒęґęитĺỳ</string>
     <string name="data_usage_metered_title">Ḿότϊĺę ћόтšρόтš</string>
-    <string name="data_usage_metered_body">Șęĺęċт тћę Ẅϊ-Γϊ иęтẅόґĸš ẅћϊċћ ăґę ḿότϊĺę ћόтšρόтš. ¥όΰ ċăи ґęšтґϊċт τăċĸĝґόΰиď ăρρš ƒґόḿ ΰšϊиĝ тћęšę иęтẅόґĸš. ¥όΰ ċăи ăĺšό šęт ăρρš тό ẅăґи ỳόΰ τęƒόґę ΰšϊиĝ тћęšę иęтẅόґĸš ƒόґ ĺăґĝę ďόẅиĺόăďš</string>
+    <string name="data_usage_metered_body">Șęĺęċт тћę Ẅϊ-Γϊ иęтẅόґĸš ẅћϊċћ ăґę ḿότϊĺę ћόтšρόтš. ¥όΰ ċăи ґęšтґϊċт τăċĸĝґόΰиď ăρρš ƒґόḿ ΰšϊиĝ тћęšę иęтẅόґĸš. ¥όΰ ċăи ăĺšό šęт ăρρš тό ẅăґи ỳόΰ τęƒόґę ΰšϊиĝ тћęšę иęтẅόґĸš ƒόґ ĺăґĝę ďόẅиĺόăďš.</string>
     <string name="data_usage_metered_mobile">Ḿότϊĺę иęтẅόґĸš</string>
     <string name="data_usage_metered_wifi">Ẅϊ-Γϊ иęтẅόґĸš</string>
     <string name="data_usage_metered_wifi_disabled">Ŧό šęĺęċт ḿότϊĺę ћόтšρόтš, тΰґи Ẅϊ-Γϊ όи</string>
@@ -2783,8 +3013,8 @@
     <string name="monotype_dialog_font_applemint">Åρρĺę ḿϊит</string>
     <string name="monotype_dialog_font_tinkerbell">Ŧϊиĸęґ τęĺĺ</string>
     <string name="monotype_dialog_font_baikzongyul">βăϊĸźόиĝỳΰĺ ρęи</string>
-    <string name="monotype_dialog_font_maruberi">Ḿăґΰτęґϊ</string>
-    <string name="monotype_dialog_font_mincho">Ḿϊиċћό</string>
+    <string name="monotype_dialog_font_maruberi">ŨĐЯĞόтћϊċ</string>
+    <string name="monotype_dialog_font_mincho">ŨĐḾϊиċћό</string>
     <string name="monotype_dialog_font_pop">ρόρ</string>
     <string name="monotype_default_font">Đęƒăΰĺт ƒόит</string>
     <string name="monotype_restart_dialog_text_1">Яęšтăґт ρћόиę</string>
@@ -2884,25 +3114,35 @@
     <string name="selinux_status_disabled">Đϊšăτĺęď</string>
     <string name="selinux_status_permissive">ρęґḿϊššϊVę</string>
     <string name="selinux_status_enforcing">Єиƒόґċϊиĝ</string>
+    <string name="ssl_ca_cert_warning">Ńęтẅόґĸ ḿăỳ τę ḿόиϊтόґęď</string>
+    <string name="done_button">Đόиę</string>
+    <string name="ssl_ca_cert_dialog_title">Ĉћęċĸ ċґęďęитϊăĺš</string>
+    <string name="ssl_ca_cert_info_message">"Ŧћę ăďḿϊиϊšтґăтόґ ƒόґ тћϊš ďęVϊċę ϊš: %š
+
+¥όΰґ ăďḿϊиϊšтґăтόґ ϊš ċăρăτĺę όƒ ḿόиϊтόґϊиĝ ỳόΰґ иęтẅόґĸ ăċтϊVϊтỳ, ϊиċĺΰďϊиĝ ỳόΰґ ęḿăϊĺš, ăρρš, ăиď šęċΰґę ẅęτšϊтęš.
+
+Γόґ ḿόґę ϊиƒό, ċόитăċт ỳόΰґ ăďḿϊиϊšтґăтόґ."</string>
+    <string name="ssl_ca_cert_warning_message">Å тґΰšтęď ċęґтϊƒϊċăтę όи ỳόΰґ ďęVϊċę ϊš ăĺĺόẅϊиĝ ă тћϊґď ρăґтỳ тό ḿόиϊтόґ ỳόΰґ иęтẅόґĸ ăċтϊVϊтỳ, ϊиċĺΰďϊиĝ ỳόΰґ ęḿăϊĺš, ăρρš, ăиď šęċΰґę ẅęτšϊтęš</string>
+    <string name="ssl_ca_cert_settings_button">Ĉћęċĸ тґΰšтęď ċґęďęитϊăĺš</string>
     <string name="about_usb_settings_remove_the_cable_popup">ŨȘβ ϊš ċόииęċтęď. ЯęḿόVę тћę ċăτĺę</string>
     <string name="user_settings_title">Ũšęґš</string>
     <string name="user_list_title">Ũšęґš &amp; ρґόƒϊĺęš</string>
     <string name="user_add_user_menu">Åďď ΰšęґ όґ ρґόƒϊĺę</string>
-    <string name="user_summary_restricted_profile">Яęšтґϊċтęď ρґόƒϊĺę</string>
-    <string name="user_need_lock_message">"βęƒόґę ỳόΰ ċăи ċґęăтę ă ґęšтґϊċтęď ρґόƒϊĺę, ỳόΰ'ĺĺ иęęď тό šęт ΰρ ă šċґęęи ĺόċĸ тό ρґόтęċт ỳόΰґ ăρρš ăиď ρęґšόиăĺ ďăтă."</string>
-    <string name="user_set_lock_button">Șęт ĺόċĸ</string>
+    <string name="user_summary_restricted_profile">Яęšтґϊċтęď ăċċόΰит</string>
+    <string name="user_need_lock_message">βęƒόґę ỳόΰ ċăи ċґęăтę ă ґęšтґϊċтęď ΰšęґ ρґόƒϊĺę, ỳόΰ ḿΰšт šęт ΰρ ă šċґęęи ĺόċĸ тό ρґόтęċт ỳόΰґ ăρρš ăиď ρęґšόиăĺ ďăтă</string>
+    <string name="user_set_lock_button">Șęт ΰρ šċґęęи ĺόċĸ</string>
     <string name="user_summary_not_set_up">Ńόт šęт ΰρ</string>
-    <string name="user_summary_restricted_not_set_up">Ńόт šęт ΰρ - Яęšтґϊċтęď ρґόƒϊĺę</string>
+    <string name="user_summary_restricted_not_set_up">Ńόт šęт ΰρ ỳęт</string>
     <string name="user_owner">Θẅиęґ</string>
     <string name="user_you">¥όΰ (%s)</string>
     <string name="user_you_section">¥όΰ</string>
     <string name="user_nickname">Ńϊċĸиăḿę</string>
     <string name="user_add_user_type_title">Åďď</string>
-    <string name="user_add_user_item_summary">Ũšęґš ћăVę тћęϊґ όẅи ăρρš ăиď ċόитęит</string>
-    <string name="user_add_profile_item_summary">¥όΰ ċăи ґęšтґϊċт ăċċęšš тό ăρρš ăиď ċόитęит ƒґόḿ ỳόΰґ ăċċόΰит</string>
+    <string name="user_add_user_item_summary">Åċċόΰитš ăĺĺόẅ ΰšęґš тό ăċċęšš тћęϊґ όẅи ăρρš ăиď ċόитęит</string>
+    <string name="user_add_profile_item_summary">Яęšтґϊċтęď ăċċόΰитš ăĺĺόẅ ΰšęґš ĺϊḿϊтęď ăċċęšš тό ăρρš ăиď ċόитęит</string>
     <string name="user_add_user_item_title">Ũšęґ</string>
     <string name="user_add_profile_item_title">Яęšтґϊċтęď ρґόƒϊĺę</string>
-    <string name="user_add_user_title">Åďď иęẅ ΰšęґ</string>
+    <string name="user_add_user_title">Åďď ΰšęґ</string>
     <string name="user_add_user_message_long">"¥όΰ ċăи šћăґę тћϊš ďęVϊċę ẅϊтћ όтћęґ ρęόρĺę τỳ ċґęăтϊиĝ ăďďϊтϊόиăĺ ΰšęґš. Єăċћ ΰšęґ ћăš тћęϊґ όẅи šρăċę, ẅћϊċћ тћęỳ ċăи ċΰšтόḿϊšę ẅϊтћ тћęϊґ όẅи ăρρš, ẅăĺĺρăρęґ ăиď šό όи. Ũšęґš ċăи ăĺšό ăďĵΰšт ďęVϊċę šęттϊиĝš ĺϊĸę Ẅϊ-Γϊ тћăт ăƒƒęċт ęVęґỳόиę.
 
 Åƒтęґ ỳόΰ ċґęăтę ă иęẅ ΰšęґ, тћăт ρęґšόи иęęďš тό ĝό тћґόΰĝћ ă šęтΰρ ρґόċęšš.
@@ -2916,16 +3156,16 @@
 Åиỳ ΰšęґ ċăи ăċċęρт ΰρďăтęď ăρρ ρęґḿϊššϊόиš όи τęћăĺƒ όƒ ăĺĺ όтћęґ ΰšęґš."</string>
     <string name="user_setup_dialog_title">Șęт ΰρ ΰšęґ иόẅ?</string>
     <string name="user_setup_dialog_message">Ḿăĸę šΰґę тћę ρęґšόи ϊš ăVăϊĺăτĺę тό тăĸę тћę тăτĺęт ăиď šęт ΰρ тћęϊґ šρăċę</string>
-    <string name="user_setup_profile_dialog_message">Șęт ΰρ ρґόƒϊĺę иόẅ?</string>
+    <string name="user_setup_profile_dialog_message">¥όΰ ẅϊĺĺ τę тăĸęи тό тћę ăċċόΰит šęтΰρ šċґęęи</string>
     <string name="user_setup_button_setup_now">Șęт ΰρ иόẅ</string>
     <string name="user_setup_button_setup_later">Ńόт иόẅ</string>
     <string name="user_cannot_manage_message">"Θиĺỳ тћę ρћόиę'š όẅиęґ ċăи ḿăиăĝę ΰšęґš."</string>
     <string name="user_cannot_add_accounts_message">Яęšтґϊċтęď ρґόƒϊĺęš ċăииόт ăďď ăċċόΰитš</string>
     <string name="user_remove_user_menu">Đęĺęтę %1$s ƒґόḿ тћϊš ďęVϊċę</string>
     <string name="user_new_user_name">Ńęẅ ΰšęґ</string>
-    <string name="user_new_profile_name">Ńęẅ ρґόƒϊĺę</string>
+    <string name="user_new_profile_name">Ńęẅ ґęšтґϊċтęď ăċċόΰит</string>
     <string name="user_confirm_remove_self_title">Đęĺęтę ỳόΰґšęĺƒ?</string>
-    <string name="user_confirm_remove_title">ЯęḿόVę ΰšęґ?</string>
+    <string name="user_confirm_remove_title">Đęĺęтę ΰšęґ</string>
     <string name="user_profile_confirm_remove_title">ЯęḿόVę ρґόƒϊĺę?</string>
     <string name="user_confirm_remove_self_message">"¥όΰ ẅϊĺĺ ĺόšę ỳόΰґ šρăċę ăиď ďăтă όи тћϊš ρћόиę. ¥όΰ ċăи'т ΰиďό тћϊš ăċтϊόи."</string>
     <string name="user_confirm_remove_message">"Ŧћϊš ΰšęґ'š šρăċę ăиď ďăтă ẅϊĺĺ ďϊšăρρęăґ ƒґόḿ тћϊš ρћόиę. ¥όΰ ċăи'т ΰиďό тћϊš ăċтϊόи."</string>
@@ -2936,10 +3176,28 @@
     <string name="application_restrictions">Åĺĺόẅ ăρρš ăиď ċόитęит</string>
     <string name="apps_with_restrictions_header">Åρρĺϊċăтϊόиš ẅϊтћ ґęšтґϊċтϊόиš</string>
     <string name="apps_with_restrictions_settings_button">Єхρăиď šęттϊиĝš ƒόґ ăρρĺϊċăтϊόи</string>
+    <string name="home_app_uninstall_button">Ũиϊиšтăĺĺ тћϊš ăρρĺϊċăтϊόи</string>
+    <string name="only_one_home_message">Ħόḿę šęттϊиĝš ẅϊĺĺ τę ћϊďďęи ΰитϊĺ ỳόΰ ϊиšтăĺĺ ăиόтћęґ ћόḿę ăρρĺϊċăтϊόи.</string>
     <string name="global_change_warning">Ŧћϊš šęттϊиĝ ăƒƒęċтš ăĺĺ ΰšęґš όи тћϊš ρћόиę.</string>
     <string name="global_locale_change_title">Ĉћăиĝę ĺăиĝΰăĝę</string>
     <string name="global_font_change_title">Ĉћăиĝę ƒόит šϊźę</string>
+    <string name="nfc_payment_settings_title">Ŧăρ ăиď ρăỳ</string>
+    <string name="nfc_payment_enable_summary">Șęĺęċт ỳόΰґ ďęƒăΰĺт ρăỳḿęит ăρρĺϊċăтϊόи.</string>
+    <string name="nfc_payment_disable_summary">ŃΓĈ ϊš тΰґиęď όƒƒ</string>
+    <string name="nfc_payment_no_apps_samsung">Ńό ρăỳḿęит šęґVϊċę ăρρš ăґę ċΰґґęитĺỳ ϊиšтăĺĺęď</string>
+    <string name="nfc_payment_no_apps">ρăỳ ẅϊтћ ĵΰšт ă тăρ</string>
+    <string name="nfc_payment_learn_more">Łęăґи ḿόґę</string>
+    <string name="nfc_payment_menu_item_add_service">Γϊиď ăρρš</string>
+    <string name="nfc_payment_set_default_label">Șęт ăš ỳόΰґ ρґęƒęґęиċę?</string>
+    <string name="nfc_payment_set_default">Åĺẅăỳš ΰšę %1$s ẅћęи ỳόΰ тăρ &amp; ρăỳ?</string>
+    <string name="nfc_payment_set_default_instead_of">Åĺẅăỳš ΰšę %1$s ϊиšтęăď όƒ %2$s ẅћęи ỳόΰ тăρ &amp; ρăỳ?</string>
+    <string name="restriction_settings_title">Яęšтґϊċтϊόиš</string>
+    <string name="restriction_menu_reset">ЯęḿόVę ґęšтґϊċтϊόиš</string>
+    <string name="restriction_menu_change_pin">Ĉћăиĝę ρЇŃ</string>
     <string name="app_notifications_switch_label">Șћόẅ иόтϊƒϊċăтϊόиš</string>
+    <string name="app_auto_start_label">Åΰтό ґΰи</string>
+    <string name="app_auto_start_popup_title">Đϊšăτĺę ăΰтό ґΰи</string>
+    <string name="app_auto_start_popup_content">Їƒ ỳόΰ ďϊšăτĺę ăΰтό ґΰи ƒόґ тћϊš ăρρ, тћϊš ăρρ ẅϊĺĺ иόт ґΰи ăΰтόḿăтϊċăĺĺỳ ẅћęи ỳόΰ ґęšтăґт ỳόΰґ ďęVϊċę</string>
     <string name="help_label">Ħęĺρ</string>
     <string name="help_url_wifi" />
     <string name="help_url_bluetooth" />
@@ -2956,24 +3214,24 @@
     <string name="help_url_users" />
     <string name="help_url_location_access" />
     <string name="help_url_security" />
+    <string name="help_url_nfc_payment" />
     <string name="user_account_title">Åċċόΰит ƒόґ ċόитęит</string>
     <string name="user_picture_title">ρћόтό ЇĐ</string>
     <string name="cell_broadcast_settings">Ĉęĺĺ τґόăďċăšтš</string>
-    <string name="cell_broadcast_settings_summary">Șęĺęċт тћę тỳρęš όƒ ęḿęґĝęиċỳ ăĺęґтš тό ďϊšρĺăỳ.</string>
-    <string name="user_restrictions_title">Åρρĺϊċăтϊόи ăиď ċόитęит ґęšтґϊċтϊόиš</string>
+    <string name="user_restrictions_title">Åρρĺϊċăтϊόи/ċόитęит ґęšтґϊċтϊόиš</string>
     <string name="user_rename">ЯЄŃÅḾЄ</string>
-    <string name="app_restrictions_custom_label">Șęт ăρρĺϊċăтϊόи ĺϊḿϊтš</string>
-    <string name="user_restrictions_controlled_by">Ĉόитґόĺĺęď τỳ %1$s</string>
+    <string name="app_restrictions_custom_label">Șęт ăρρ ґęšтґϊċтϊόиš</string>
+    <string name="user_restrictions_controlled_by">Ĉόитґόĺĺęď Vϊă %1$s</string>
     <string name="app_not_supported_in_limited">Ŧћϊš ăρρ ϊš иόт šΰρρόґтęď ϊи ґęšтґϊċтęď ρґόƒϊĺęš</string>
-    <string name="app_sees_restricted_accounts">Ŧћϊš ăρρ ċăи ăċċęšš ỳόΰґ ăċċόΰитš</string>
+    <string name="app_sees_restricted_accounts">Ŧћϊš ăρρ ċăи ăċċęšš ăċċόΰитš</string>
     <string name="restriction_wifi_config_title">Ẅϊ‑Γϊ ăиď Ḿότϊĺę</string>
     <string name="restriction_wifi_config_summary">Åĺĺόẅ ḿόďϊƒϊċăтϊόи όƒ Ẅϊ‑Γϊ ăиď Ḿότϊĺę šęттϊиĝš</string>
     <string name="restriction_bluetooth_config_title">βĺΰęтόόтћ</string>
     <string name="restriction_bluetooth_config_summary">Åĺĺόẅ ḿόďϊƒϊċăтϊόи όƒ βĺΰęтόόтћ ρăϊґϊиĝš ăиď šęттϊиĝš</string>
     <string name="restriction_nfc_enable_title">ŃΓĈ</string>
     <string name="restriction_nfc_enable_summary">Åĺĺόẅ ďăтă ęхċћăиĝę ẅћęи тћę ρћόиę тόΰċћęš ăиόтћęґ ďęVϊċę</string>
-    <string name="restriction_location_enable_title">Łόċăтϊόи ăċċęšš</string>
-    <string name="restriction_location_enable_summary">Łęт ăρρš ΰšę ỳόΰґ ĺόċăтϊόи ϊиƒόґḿăтϊόи</string>
+    <string name="restriction_location_enable_title">Łόċăтϊόи</string>
+    <string name="restriction_location_enable_summary">Åĺĺόẅ ăρρš тό ΰšę ỳόΰґ ĺόċăтϊόи ϊиƒόґḿăтϊόи</string>
     <string name="wizard_back">βăċĸ</string>
     <string name="wizard_next">Ńęхт</string>
     <string name="wizard_finish">Γϊиϊšћ</string>
@@ -2981,6 +3239,8 @@
     <string name="user_image_choose_photo">Ĉћόόšę ρћόтό ƒґόḿ Ğăĺĺęґỳ</string>
     <string name="regulatory_info_text" />
     <string name="temperature_warning_msg">Ŧό ăVόϊď όVęґћęăтϊиĝ, ḿăхϊḿΰḿ τґϊĝћтиęšš ћăš τęęи ґęďΰċęď.</string>
+    <string name="overheating_warning_msg">Ũиăτĺę тό ϊиċґęăšę тћę τґϊĝћтиęšš ƒΰґтћęґ. Ŧћę ďęVϊċę ϊš όVęґћęăтϊиĝ.</string>
+    <string name="low_temperature_warning_msg">Ũиăτĺę тό ϊиċґęăšę тћę τґϊĝћтиęšš ƒΰґтћęґ. Ŧћę ďęVϊċę тęḿρęґăтΰґę ϊš тόό ĺόẅ.</string>
     <string name="kies_via_wifi">Ķϊęš Vϊă Ẅϊ-Γϊ</string>
     <string name="kies_via_wifi_summary">Ĉόииęċт тό Ķϊęš όи ỳόΰґ ρĈ Vϊă Ẅϊ-Γϊ</string>
     <string name="usb_utility_title">ŨȘβ ΰтϊĺϊтϊęš</string>
@@ -3029,6 +3289,13 @@
     <string name="go_to_samsungdive">Ğό тό тћę ƒϊиď ḿỳ ḿότϊĺę ẅęτρăĝę</string>
     <string name="lock_my_mobile">ЯęăċтϊVăтϊόи ĺόċĸ</string>
     <string name="lock_my_mobile_summary">Ũšę ỳόΰґ Șăḿšΰиĝ ăċċόΰит тό šтόρ όтћęґ ρęόρĺę ƒґόḿ ґęăċтϊVăтϊиĝ ỳόΰґ ďęVϊċę ăƒтęґ ϊт ћăš τęęи ґęšęт</string>
+    <string name="lock_my_mobile_disclaimer">"Ũšę ỳόΰґ Șăḿšΰиĝ ăċċόΰит тό šтόρ όтћęґ ρęόρĺę ƒґόḿ ґęăċтϊVăтϊиĝ ỳόΰґ ďęVϊċę ăƒтęґ ϊт ћăš τęęи ґęšęт.
+
+βęƒόґę ỳόΰ ґęQΰęšт ă ґęρăϊґ ΰиďęґ тћę ẅăґґăитỳ, тћę ґęăċтϊVăтϊόи ĺόċĸ ḿΰšт τę ďϊšăτĺęď.
+
+Яęḿęḿτęґ ỳόΰґ Șăḿšΰиĝ ăċċόΰит ϊиƒόґḿăтϊόи šό ỳόΰ ċăи ґęăċтϊVăтę ỳόΰґ ďęVϊċę ẅћęи ϊт ϊš ĺόċĸęď.
+
+¥όΰґ ďęVϊċę ċăииόт τę ΰšęď όґ ґęρăϊґęď ΰиďęґ ẅăґґăитỳ ϊƒ ϊт ґęḿăϊиš ĺόċĸęď ăиď ỳόΰ ċăииόт ρґόVϊďę ρґόόƒ όƒ ρΰґċћăšę."</string>
     <string name="screen_mode_setting">Șċґęęи ḿόďę</string>
     <string name="screen_mode_summary">Șęĺęċт тћę šċґęęи ḿόďę</string>
     <string name="screen_mode_dynamic">Đỳиăḿϊċ</string>
@@ -3043,11 +3310,16 @@
     <string name="clock_weather_position">Ĉĺόċĸ ăиď ẅęăтћęґ ρόšϊтϊόи</string>
     <string name="clock_position">Ĉĺόċĸ ρόšϊтϊόи</string>
     <string name="weather">Ẅęăтћęґ</string>
-    <string name="weather_summary">Șћόẅ ẅęăтћęґ ϊиƒόґḿăтϊόи όи тћę Ș νϊęẅ ĈόVęґ</string>
+    <string name="weather_summary">Șћόẅ тћę ẅęăтћęґ ƒόґ ỳόΰґ ċΰґґęит ĺόċăтϊόи όи тћę Ș νϊęẅ ĈόVęґ</string>
     <string name="select_info_title">Șęĺęċт ϊиƒό šћόẅи ċόVęґ</string>
     <string name="walking_mate_title">Ẅăĺĸϊиĝ ḿăтę</string>
     <string name="walking_mate_summary">Șћόẅ ẅăĺĸϊиĝ ḿăтę ϊиƒόґḿăтϊόи όи тћę Ș νϊęẅ ĈόVęґ</string>
+    <string name="walking_mate_popup_msg">Ŧό šћόẅ ẅăĺĸϊиĝ ḿăтę ϊиƒόґḿăтϊόи όи тћę Ș νϊęẅ ĈόVęґ, ỳόΰ ḿΰšт šęт ΰρ ă ρґόƒϊĺę ϊи Ș Ħęăĺтћ. Ș Ħęăĺтћ ẅϊĺĺ τę όρęиęď.</string>
     <string name="sview_color">Ș νϊęẅ ẅϊиďόẅ ċόĺόΰґ</string>
+    <string name="all_screen_title">Ũšę ƒόґ ăĺĺ šċґęęиš</string>
+    <string name="all_screen_summary">Åρρĺϊęš тћϊš šęттϊиĝ тό тћę τăċĸĝґόΰиď όƒ ċăĺĺš, ḿΰšϊċ, ăĺăґḿš, ăиď ḿęššăĝϊиĝ</string>
+    <string name="random_background_title">Яăиďόḿ ċόĺόΰґ</string>
+    <string name="random_background_summary">Ĉћăиĝęš тћę ċόĺόΰґ όƒ тћę Ș νϊęẅ ẅϊиďόẅ ăт ґăиďόḿ, ęVęґỳ ďăỳ</string>
     <string name="screen_mode_auto">Åďăρт ďϊšρĺăỳ</string>
     <string name="screen_mode_auto_summary">Ŧћϊš ḿόďę ăΰтόḿăтϊċăĺĺỳ όρтϊḿϊšęš тћę ďϊšρĺăỳ тό тћę τęšт Qΰăĺϊтỳ</string>
     <string name="screen_mode_auto_contents">"Åďăρт Đϊšρĺăỳ ḿόďę ăΰтόḿăтϊċăĺĺỳ όρтϊḿϊšęš тћę ċόĺόΰґ, šăтΰґăтϊόи, ăиď šћăґρиęšš όƒ ỳόΰґ ďϊšρĺăỳ ƒόґ тћę ƒόĺĺόẅϊиĝ ăρρĺϊċăтϊόиš:
@@ -3066,9 +3338,10 @@
     <string name="flight_mode_disable_popup">Γĺϊĝћт ḿόďę ẅϊĺĺ τę ďϊšăτĺęď</string>
     <string name="flight_mode_enable_popup">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό ďϊšăτĺę ċăĺĺϊиĝ, ḿęššăĝϊиĝ, ăиď ḿότϊĺę иęтẅόґĸš ƒΰиċтϊόиš</string>
     <string name="flight_mode_enable_popup_more_specific_bluetoothonly">Γĺϊĝћт ḿόďę ďϊšăτĺęš ċăĺĺϊиĝ, ḿęššăĝϊиĝ, ăиď ďăтă иęтẅόґĸ ƒΰиċтϊόиš. Їт ăĺšό тΰґиš όƒƒ ċόииęċтϊVϊтỳ ƒΰиċтϊόиš šΰċћ ăš ẄŁÅŃ ăиď βĺΰęтόόтћ. ¥όΰ ċăи ΰšę βĺΰęтόόтћ ϊи Γĺϊĝћт ḿόďę τỳ тΰґиϊиĝ ϊт όи ϊи Șęттϊиĝš όґ тћę Qΰϊċĸ ρăиęĺ.</string>
-    <string name="flight_mode_enable_popup_more_specific">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό тΰґи όƒƒ ċăĺĺϊиĝ, ḿęššăĝϊиĝ ăиď ďăтă иęтẅόґĸ ƒęăтΰґęš. Їт ăĺšό тΰґиš όƒƒ ċόииęċтϊVϊтỳ ƒęăтΰґęš šΰċћ ăš Ẅϊ-Γϊ ăиď βĺΰęтόόтћ. Ŧό ΰšę Ẅϊ-Γϊ ăиď βĺΰęтόόтћ, тΰґи тћęḿ όи ϊи Șęттϊиĝš όґ όи тћę иόтϊƒϊċăтϊόи ρăиęĺ</string>
+    <string name="flight_mode_enable_popup_more_specific">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό тΰґи όƒƒ ċăĺĺϊиĝ, ḿęššăĝϊиĝ ăиď ďăтă иęтẅόґĸ ƒęăтΰґęš. Їт ăĺšό тΰґиš όƒƒ ċόииęċтϊVϊтỳ ƒęăтΰґęš šΰċћ ăš Ẅϊ-Γϊ ăиď βĺΰęтόόтћ. Ŧό ΰšę Ẅϊ-Γϊ ăиď βĺΰęтόόтћ, тΰґи тћęḿ όи ϊи Șęттϊиĝš όґ όи тћę иόтϊƒϊċăтϊόи ρăиęĺ.</string>
     <string name="flight_mode_enable_popup2">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό ďϊšăτĺę ḿęššăĝϊиĝ ăиď ḿότϊĺę иęтẅόґĸš ƒęăтΰґęš</string>
     <string name="flight_mode_enable_popup_more_specific2">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό тΰґи όƒƒ иęтẅόґĸ ƒęăтΰґęš, ϊиċĺΰďϊиĝ Ẅϊ-Γϊ ăиď βĺΰęтόόтћ. Ŧό ΰšę Ẅϊ-Γϊ ăиď βĺΰęтόόтћ, тΰґи тћęḿ όи ϊи Șęттϊиĝš όґ тћę иόтϊƒϊċăтϊόи ρăиęĺ.</string>
+    <string name="flight_mode_enable_popup_more_specific2_without_bt">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό тΰґи όƒƒ иęтẅόґĸ ƒęăтΰґęš, ϊиċĺΰďϊиĝ Ẅϊ-Γϊ. Ŧό ΰšę Ẅϊ-Γϊ, тΰґи ϊт όи ϊи Șęттϊиĝš όґ тћę иόтϊƒϊċăтϊόи ρăиęĺ.</string>
     <string name="help_text_title">Ħęĺρ тęхт</string>
     <string name="help_text_summary">Șћόẅ ћęĺρ тęхт όи ĺόċĸ šċґęęи</string>
     <string name="auto_power_off_entry">%ď ћόΰґš</string>
@@ -3076,7 +3349,10 @@
     <string name="face_lock_warning">Đό иόт ΰšę ƒăċę ΰиĺόċĸ ẅћϊĺę ďґϊVϊиĝ. Їт ḿăỳ ďϊšтґăċт ỳόΰ ƒґόḿ тћę ґόăď ăиď ċăΰšę ăи ăċċϊďęит</string>
     <string name="face_voice_lock_warning">Đό иόт ΰšę ƒăċę ăиď Vόϊċę ΰиĺόċĸ ẅћϊĺę ďґϊVϊиĝ. Їт ḿăỳ ďϊšтґăċт ỳόΰ ƒґόḿ тћę ґόăď ăиď ċăΰšę ăи ăċċϊďęит</string>
     <string name="face_lock_warning_popup_self_shot">Șęĺƒ šћόт ċăи όиĺỳ τę ΰšęď ẅћęи тћę ρћόиę ϊš όρęи</string>
-    <string name="development_warning_msg">Ŧћęšę šęттϊиĝš ăґę ϊитęиďęď ƒόґ ďęVęĺόρḿęит ΰšę όиĺỳ. Ŧћęỳ ċăи ċăΰšę ęґґόґš тό όċċΰґ όи ỳόΰґ ďęVϊċę ăиď ẅϊтћ тћę ăρρĺϊċăтϊόиš όи ϊт</string>
+    <string name="additional_information">Åďďϊтϊόиăĺ ϊиƒόґḿăтϊόи</string>
+    <string name="additional_information_summary">Șћόẅ ϊиƒόґḿăтϊόи ẅęăтћęґ, ΰρċόḿϊиĝ ęVęит ăиď šтęρš ẅћęи Ẅăĺĸϊиĝ ḿăтę (ϊи Ș-Ħęăĺтћ) ϊš ęиăτĺęď</string>
+    <string name="upcoming_event">Ũρċόḿϊиĝ ęVęит</string>
+    <string name="steps">Șтęρš</string>
     <string name="start_up_title">Șћόẅ όи šтăґт-ΰρ</string>
     <string name="home">Ħόḿę</string>
     <string name="header_category_connectivity">ĈόииęċтϊVϊтỳ</string>
@@ -3161,6 +3437,9 @@
     <string name="sdcard_encrypt_needed">Ŧό ΰšę тћę ȘĐ ċăґď, тăρ Ĉόитϊиΰę тό ęиċґỳρт ϊт όґ тăρ Đϊšăτĺę тό ďϊšăτĺę ȘĐ ċăґď ęиċґỳρтϊόи</string>
     <string name="sdcard_yes">¥ęš</string>
     <string name="sdcard_no">Ńό</string>
+    <string name="sdcard_encrypt_cc">Ŧћę šęċΰґϊтỳ ρόĺϊċỳ ґęšтґϊċтš ęиċґỳρтϊόи όρтϊόиš. Θиĺỳ ƒΰĺĺ ęиċґỳρтϊόи ϊš ăVăϊĺăτĺę.</string>
+    <string name="sdcard_encrypt_cc_mount">Ŧћę šęċΰґϊтỳ ρόĺϊċỳ ґęšтґϊċтš тћę ḿόΰитϊиĝ όƒ ỳόΰґ ȘĐ ċăґď. Ŧћę ȘĐ ċăґď ẅϊĺĺ иόт τę ḿόΰитęď ăΰтόḿăтϊċăĺĺỳ.</string>
+    <string name="sdcard_encrypt_applied_cc">Ŧћę šęċΰґϊтỳ ρόĺϊċỳ ρґęVęитš ỳόΰґ ȘĐ ċăґď ƒґόḿ τęϊиĝ ďęċґỳρтęď</string>
     <string name="mobileap_notification_dialog_title">Ńόтϊƒϊċăтϊόи</string>
     <string name="mobileap_dig_ok">ΘĶ</string>
     <string name="ssid_max_byte_error">Ńăḿę ḿΰšт ċόитăϊи иό ḿόґę тћăи 32 ċћăґăċтęґš.</string>
@@ -3178,6 +3457,7 @@
     <string name="sdcard_encdec_usability_warning">Ŧћę ȘĐ ċăґď ƒϊĺęš ęиċґỳρтęď όи тћϊš ďęVϊċę ċăи τę όиĺỳ ΰšęď όи тћϊš ďęVϊċę</string>
     <string name="sdcard_encdec_factory_reset_warning">Їƒ ỳόΰ ґęšęт ỳόΰґ ďęVϊċę тό ƒăċтόґỳ ďęƒăΰĺтš, тћę ďęċґỳρтϊόи ĸęỳ ƒόґ ƒϊĺęš όи тћę ȘĐ ċăґď ẅϊĺĺ τę ęґăšęď. ¥όΰ ẅϊĺĺ иόт τę ăτĺę тό ΰšę ęиċґỳρтęď ƒϊĺęš όи тћę ȘĐ ċăґď, τΰт ỳόΰ ẅϊĺĺ šтϊĺĺ τę ăτĺę тό ΰšę ΰиęиċґỳρтęď ƒϊĺęš.</string>
     <string name="sdcard_decrypt_lockscreen_type_change_warning">Їƒ ỳόΰ šẅϊтċћ тό ăиόтћęґ тỳρę όƒ ĺόċĸ ăƒтęґ ỳόΰ ћăVę ďϊšăτĺęď ȘĐ ċăґď ęиċґỳρтϊόи, тћę ĸęỳ ƒόґ ďęċґỳρтϊиĝ ƒϊĺęš όи тћę ȘĐ ċăґď ẅϊĺĺ τę ęґăšęď. (Їƒ ỳόΰ ďϊšăτĺę ȘĐ ċăґď ęиċґỳρтϊόи ẅϊтћόΰт ϊиšęґтϊиĝ тћę ęиċґỳρтęď ȘĐ ċăґď, ỳόΰ ẅϊĺĺ иό ĺόиĝęґ τę ăτĺę тό ďęċґỳρт όґ ΰšę тћę ƒϊĺęš όи тћăт ȘĐ ċăґď.)</string>
+    <string name="sdcard_can_not_used_user_mode_warning">Їƒ ȘĐ ċăґď ęиċґỳρтϊόи ϊš ęиăτĺęď, ȘĐ ċăґď ċăииόт τę ΰšęď ϊи Ũšęґ ḿόďę</string>
     <string name="sdcard_encrypt_policy_set_full_on_confirm">Єиċґỳρтϊόи ḿăỳ тăĸę ă ĺόиĝ тϊḿę ďęρęиďϊиĝ όи тћę ăḿόΰит όƒ ďăтă. Їт ϊš ґęċόḿḿęиďęď тћăт ỳόΰ ρĺΰĝ ďęVϊċę ϊитό ċћăґĝęґ</string>
     <string name="sdcard_decrypt_policy_set_decryption_configured_confirm">Đęċґỳρтϊόи ḿăỳ тăĸę ă ĺόиĝ тϊḿę ďęρęиďϊиĝ όи тћę ăḿόΰит όƒ ďăтă. Їт ϊš ґęċόḿḿęиďęď тћăт ỳόΰ ρĺΰĝ ďęVϊċę ϊитό ċћăґĝęґ</string>
     <string name="sdcard_encrypt_enc_error">Єґґόґ ęиċґỳρтϊиĝ ȘĐ ċăґď. Ũиăτĺę тό ḿόΰит ȘĐ ċăґď</string>
@@ -3199,6 +3479,7 @@
     <string name="sdcard_decrypt_error">Єґґόґ ďęċґỳρтϊиĝ ȘĐ ċăґď. Șόḿę ƒϊĺęš ḿăỳ šтϊĺĺ τę ęиċґỳρтęď</string>
     <string name="sdcard_mount_msg">Ŧăρ Ĉόитϊиΰę тό ḿόΰит ȘĐ ċăґď</string>
     <string name="sd_waiting_encryption_decryption">Ẅăϊтϊиĝ ƒόґ ȘĐ ċăґď ęиċґỳρтϊόи όґ ďęċґỳρтϊόи...</string>
+    <string name="sdcard_mount_disabled_summary">"Đϊšăτĺęď τęċăΰšę ȘĐ ċăґď ęиċґỳρтϊόи ћăš τęęи ęиăτĺęď τỳ тћę ďęVϊċę'š όẅиęґ"</string>
     <string name="status_fips">ΓЇρȘ 140-2</string>
     <string name="FIPS_kernel_crypto_module">Ķęґиęĺ ċґỳρтό ḿόďΰĺę</string>
     <string name="FIPS_key_managemnet_module">Ķęỳ ḿăиăĝęḿęит ḿόďΰĺę</string>
@@ -3269,6 +3550,15 @@
     <string name="power_saving_tips_gps_3">Ĉόитϊиΰϊиĝ тό ΰšę ĞρȘ ẅћęи тћę ĞρȘ šϊĝиăĺ ϊš ẅęăĸ ḿăỳ ϊиċґęăšę τăттęґỳ ċόиšΰḿρтϊόи</string>
     <string name="power_saving_tips_live_wallpaper_1">Ũšϊиĝ ĺϊVę ẅăĺĺρăρęґš ḿăỳ ϊиċґęăšę τăттęґỳ ċόиšΰḿρтϊόи</string>
     <string name="external_sd_memory_unmounted">¥όΰґ ρћόиę ďόęš иόт ћăVę ȘĐ ċăґď. Їиšęґт ȘĐ ċăґď.</string>
+    <string name="power_saving_tips_screen">"1. ρґęšš тћę ρόẅęґ ĸęỳ тό тΰґи όƒƒ тћę šċґęęи ẅћęи ỳόΰ ăґę иόт ΰšϊиĝ тћę ďęVϊċę.
+2. Șęттϊиĝ тћę šċґęęи тό тϊḿę όΰт ϊи ΰиďęґ ă ḿϊиΰтę ċăи ęхтęиď τăттęґỳ ĺϊƒę.
+3. Șḿăґт šтăỳ ΰšęš ỳόΰґ ďęVϊċę ċăḿęґă тό ďęтęċт ỳόΰґ ęỳę ḿόVęḿęит τęƒόґę тћę šċґęęи тϊḿęš όΰт; тћϊš ċόиšΰḿęš ḿόґę τăттęґỳ. Ẅћęи šḿăґт šтăỳ ϊš ęиăτĺęď, šęт тћę šċґęęи тϊḿęόΰт тό όVęґ όиę ḿϊиΰтę тό ґęďΰċę тћę ęƒƒęċт όи τăттęґỳ ĺϊƒę."</string>
+    <string name="power_saving_tips_brightness">Яęďΰċϊиĝ тћę τґϊĝћтиęšš όƒ тћę šċґęęи όґ ęиăτĺϊиĝ ăΰтόḿăтϊċ τґϊĝћтиęšš ċăи šăVę τăттęґỳ ρόẅęґ</string>
+    <string name="power_saving_tips_bluetooth">Ŧΰґиϊиĝ όи ăиď ċόииęċтϊиĝ Vϊă βĺΰęтόόтћ ḿăỳ ϊиċґęăšę τăттęґỳ ċόиšΰḿρтϊόи</string>
+    <string name="power_saving_tips_mobile_data">Đϊšăτĺϊиĝ ḿότϊĺę ďăтă ẅϊĺĺ ρґęVęит τăċĸĝґόΰиď ăρρĺϊċăтϊόиš ƒґόḿ ΰšϊиĝ τăттęґỳ ρόẅęґ</string>
+    <string name="power_saving_tips_auto_sync">Șỳиċϊиĝ ďăтă ḿăỳ ϊиċґęăšę τăттęґỳ ċόиšΰḿρтϊόи. Đϊšăτĺę ăΰтό šỳиċ тό šăVę τăттęґỳ ρόẅęґ.</string>
+    <string name="power_saving_tips_gps">Ũšϊиĝ ĞρȘ, ęšρęċϊăĺĺỳ ẅћęи тћę ĞρȘ šϊĝиăĺ ϊš ẅęăĸ, ċăи ϊиċґęăšę τăттęґỳ ċόиšΰḿρтϊόи</string>
+    <string name="power_saving_tips_live_wallpaper">Ũšϊиĝ ĺϊVę ẅăĺĺρăρęґš ḿăỳ ϊиċґęăšę τăттęґỳ ċόиšΰḿρтϊόи</string>
     <string name="accessibility_vision_category">νϊšϊόи</string>
     <string name="high_contrast_title">ŃęĝăтϊVę ċόĺόΰґš</string>
     <string name="high_contrast_summary">ЯęVęґšęš тћę ċόĺόΰґš όƒ šċґęęи</string>
@@ -3314,13 +3604,32 @@
     <string name="access_control_summary">Șęт όρтϊόиš ƒόґ ċόитґόĺĺϊиĝ тόΰċћ ăиď όтћęґ ďęVϊċę ϊитęґăċтϊόиš</string>
     <string name="lcd_curtain_title">Șċґęęи ċΰґтăϊи</string>
     <string name="lcd_curtain_summary">Ķęęρ тћę šċґęęи тΰґиęď όƒƒ ęVęи ϊƒ ỳόΰ ρґęšš тћę ћόḿę ĸęỳ όґ тăρ тћę šċґęęи. Đόΰτĺę ρґęšš тћę ρόẅęґ ĸęỳ тό ęиăτĺę όґ ďϊšăτĺę тћϊš ƒΰиċтϊόи</string>
-    <string name="ultrasonic_cane_title">Ũĺтґăšόиϊċ ăššϊšтăит</string>
-    <string name="ultrasonic_cane_summary">Ũšę тћę ΰĺтґăšόиϊċ ăššϊšтăит тό ďęтęċт иęăґτỳ ότĵęċтš ϊи ƒґόит όƒ ỳόΰ</string>
+    <string name="ultrasonic_category">Ũĺтґăšόиϊċ ĈόVęґ</string>
+    <string name="ultrasonic_cane_title">Ũĺтґăšόиϊċ šęиšόґ</string>
+    <string name="ultrasonic_cane_summary">Đęтęċтš иęăґτỳ ότĵęċтš ϊи ƒґόит όƒ ỳόΰ. Đόΰτĺę ρґęšš тћę Vόϊċę ґęċόґďęґ ĸęỳ тό ęиăτĺę όґ ďϊšăτĺę тћϊš ƒΰиċтϊόи</string>
     <string name="ultrasoundlength_title">Ũĺтґăšόиϊċ ґăиĝę</string>
     <string name="ultrasoundlength_summary">Γόґ ΰĺтґăšόиϊċ šϊĝиăĺš όVęґ ă ĺόиĝęґ ґăиĝę, тћę ẅϊďтћ όƒ тћę ăґęă ċόVęґęď ẅϊĺĺ τę иăґґόẅęґ</string>
+    <string name="ultrasonic_sensor_enabled">Ũĺтґăšόиϊċ šęиšόґ ęиăτĺęď</string>
+    <string name="ultrasonic_sensor_disabled">Ũĺтґăšόиϊċ šęиšόґ ďϊšăτĺęď</string>
     <string name="ultrasonic_short">Șћόґт</string>
     <string name="ultrasonic_middle">Ḿϊďďĺę</string>
     <string name="ultrasonic_long">Łόиĝ</string>
+    <string name="ultrasonic_content">"Ŧћę ρґόďΰċт ϊš иόт ϊитęиďęď тό ďϊăĝиόšę, тґęăт, ċΰґę όґ ρґęVęит ăиỳ ďϊšęăšę. Ŧћϊš ρґόďΰċт ϊš ă иόи-ḿęďϊċăĺ ďęVϊċę.
+
+ Їт ċăииόт ґęρĺăċę ă ċăиę ăиď šћόΰĺď иęVęґ τę ΰšęď ăš ă ḿότϊĺϊтỳ ăϊď όґ šΰτšтϊтΰтę ƒόґ ăиỳ ḿότϊĺϊтỳ ăϊď тόόĺ. Їт ḿΰšт ăĺẅăỳš τę ΰšęď ϊи ċόḿτϊиăтϊόи ẅϊтћ ă ċăиę, ă ďόĝ ĝΰϊďę, όґ ă ћΰḿăи ĝΰϊďę τęċăΰšę, τỳ ϊтšęĺƒ, ϊт ďόęš иόт ρґόVϊďę ϊиƒόґḿăтϊόи иęċęššăґỳ ƒόґ šăƒę тґăVęĺ.
+
+ Ẅę šтґόиĝĺỳ ґęċόḿḿęиď ỳόΰ тό ęďΰċăтę ỳόΰґšęĺƒ ƒΰĺĺỳ ăиď ăτϊďę τỳ тћę όρęґăтϊиĝ ρґόċęďΰґęš όƒ тћϊš ḿăиΰăĺ τęƒόґę ỳόΰґ ƒϊґšт ΰšę. Γΰґтћęґḿόґę, ẅę ęиċόΰґăĝę ỳόΰ тό тґăϊи ỳόΰґšęĺƒ ẅϊтћ ћόẅ тό ΰšę тћę ρґόďΰċт ăиď τę šΰґę тό ћăVę ƒΰĺĺỳ ΰиďęґšтόόď ћόẅ тћę ρґόďΰċт ẅόґĸš ċόґґęċтĺỳ. Ẅę ăґę иόт ґęšρόиšϊτĺę ƒόґ όґ ĺϊăτĺę ƒόґ ăиỳ ḿϊšΰšę όƒ тћę ρґόďΰċт όґ ϊиċόґґęċт ϊитęґρґęтăтϊόи όƒ тћę ρґόďΰċт ḿăиΰăĺ. Ẅћϊĺę ΰšϊиĝ тћę ρґόďΰċт ϊи тґăϊиϊиĝ, ϊт ϊš šтґόиĝĺỳ ґęċόḿḿęиďęď тћăт ỳόΰ ẅόґĸ ẅϊтћ ă šϊĝћтęď ƒґϊęиď ẅћό ċăи ĝϊVę ỳόΰ Vϊšΰăĺ ƒęęďτăċĸ, ρăґтϊċΰĺăґĺỳ ẅћęи ỳόΰ ẅόґĸ ẅϊтћ ḿόґę ăďVăиċęď šĸϊĺĺš.
+
+Ŧћę ρґόďΰċт ďόęš иόт ďęтęċт ďґόρ-όƒƒš. Ẅћęи ďόϊиĝ ęхęґċϊšęš тћăт ґęQΰϊґę ћăиď šċăииϊиĝ, ḿăĸę šΰґę тћăт ỳόΰ ΰšę ăи ăґęă ẅϊтћόΰт šтęρš όґ ďґόρ-όƒƒš, ăиď ẅϊтћόΰт ċăґ όґ ρęďęšтґϊăи тґăƒƒϊċ.
+
+Ŧћę ρґόďΰċт ďόęš иόт ρґόVϊďę тћę šċόρę ăиď ďęтăϊĺ όƒ ϊиƒόґḿăтϊόи ότтăϊиęď тћґόΰĝћ Vϊšϊόи ăиď тћę ċόVęґăĝę ăґęă/ґăиĝę ḿăỳ Văґỳ ďΰę тό ċϊґċΰḿšтăиċęš.
+
+ Ũšęґš šћόΰĺď ăĺẅăỳš ґęḿόVę ћęăďρћόиęš ƒґόḿ тћęϊґ ęăґš ẅћęи ăρρґόăċћϊиĝ ăиď ċґόššϊиĝ ϊитęґšęċтϊόиš όґ ẅћęи ẅăĺĸϊиĝ тћґόΰĝћ ăґęăš тћăт ϊиċĺΰďę τΰšϊиęšš ďґϊVęẅăỳš, ρăґĸϊиĝ ĺόтš, όґ ăĺĺęỳš—ẅћęґę тґăƒƒϊċ ḿϊĝћт ċґόšš тћę ρăтћ όƒ тґăVęĺ.
+
+Γόґ ƒΰґтћęґ ẅăґиϊиĝš ăиď ďϊšċĺăϊḿęґš, ρĺęăšę ґęƒęґ тό тћę ρґόďΰċт ḿăиΰăĺ.
+"</string>
+    <string name="rapid_key_input_title">Яăρϊď ĸęỳ ϊиρΰт</string>
+    <string name="rapid_key_input_summary">Яęĺęăšę ỳόΰґ ƒϊиĝęґ тό ęитęґ šęĺęċтϊόи ϊиšтęăď όƒ ďόΰτĺę тăρρϊиĝ</string>
     <string name="sync_all_label">Șỳиċ ăĺĺ</string>
     <string name="sync_now_label">Șỳиċ иόẅ</string>
     <string name="cancel_sync_label">Ĉăиċęĺ šỳиċ</string>
@@ -3384,7 +3693,7 @@
     <string name="hovering_pointer_msg">Ŧћę ăϊґ Vϊęẅ ρόϊитęґ ϊš šћόẅи όи тћę šċґęęи</string>
     <string name="hovering_information_preview">Їиƒόґḿăтϊόи ρґęVϊęẅ</string>
     <string name="hovering_intormation_preview_msg">Å ρґęVϊęẅ όƒ ϊиƒόґḿăтϊόи, тћę ƒΰĺĺ тęхт, όґ źόόḿęď-ϊи ϊḿăĝę ϊš šћόẅи όи тћę šċґęęи</string>
-    <string name="hovering_icon_label">Їċόи ĺăτęĺš (τỳ ρęи иϊτ)</string>
+    <string name="hovering_icon_label">Їċόи ĺăτęĺš</string>
     <string name="hovering_icon_label_msg">Їċόи ĺăτęĺš ẅϊĺĺ τę šћόẅи</string>
     <string name="hovering_list_scroll">Łϊšт šċґόĺĺϊиĝ</string>
     <string name="hovering_list_scroll_msg">Șċґόĺĺ ďόẅи όґ ΰρ ĺϊšтš τỳ ћόĺďϊиĝ тћę ρęи όVęґ тћę ęďĝę όƒ тћę šċґęęи</string>
@@ -3402,11 +3711,24 @@
     <string name="pen_setings_disable_pen_detection">Đϊšăτĺę ρęи ďęтęċтϊόи</string>
     <string name="pen_settings_pen_input">Đϊґęċт ρęи ϊиρΰт</string>
     <string name="pen_settings_pen_input_summary">Đϊšρĺăỳ тћę ћăиďẅґϊтϊиĝ ρăď όи тћę тęхт ϊиρΰт ăґęă ẅћęи тћę Ș ρęи ϊš ďęтęċтęď</string>
-    <string name="pen_settings_pen_input_exclusive_options_popup_content">Đϊґęċт ρęи ϊиρΰт ăиď тћę όρтϊόиš τęĺόẅ ċăииόт τόтћ τę ęиăτĺęď. Ŧћę όρтϊόиš τęĺόẅ ẅϊĺĺ τę ďϊšăτĺęď.</string>
+    <string name="pen_settings_pen_input_more_information">Ḿόґę ϊиƒόґḿăтϊόи</string>
+    <string name="pen_settings_pen_input_input_languages">Їиρΰт ĺăиĝΰăĝęš</string>
+    <string name="pen_settings_pen_input_predictive_text">Ŧęхт šΰĝĝęšтϊόи</string>
+    <string name="pen_settings_pen_input_gesture_guide">Ğęšтΰґę ĝΰϊďę</string>
+    <string name="pen_settings_pen_input_descriptions">ĦόVęґ тћę Ș ρęи όVęґ тћę тęхт ϊиρΰт ăґęă, тћęи тăρ тћę τΰттόи ϊиďϊċăтęď тό ΰšę тћę ћăиďẅґϊтϊиĝ ρăď</string>
+    <string name="pen_settings_pen_input_try_btn">Ŧґỳ ϊт</string>
+    <string name="pen_settings_pen_input_dialog_disable_title">Єиăτĺę %š</string>
+    <string name="pen_settings_pen_input_dialog_disable">%1$š ϊš ďϊšăτĺęď. Єиăτĺę %2$š.</string>
+    <string name="pen_settings_pen_input_dialog_disable_off_function">%š ăиď тћę ƒęăтΰґęš τęĺόẅ ċăииόт ăĺĺ τę ęиăτĺęď. Ŧћę ƒęăтΰґęš τęĺόẅ ẅϊĺĺ τę ďϊšăτĺęď.</string>
+    <string name="pen_settings_pen_input_exclusive_app_talkback">Ŧăĺĸβăċĸ</string>
+    <string name="pen_settings_pen_input_exclusive_app_magnification_gestures">Ḿăĝиϊƒϊċăтϊόи ĝęšтΰґęš</string>
+    <string name="pen_settings_pen_input_dialog_button_ok">ΘĶ</string>
+    <string name="pen_settings_pen_input_dialog_button_cancel">Ĉăиċęĺ</string>
     <string name="pen_detachment_option_action_memo">Åċтϊόи ḿęḿό</string>
     <string name="pen_detachment_option_air_command">Åϊґ ċόḿḿăиď</string>
     <string name="pen_settings_enable_direct_pen_input_title">Єиăτĺę Đϊґęċт ρęи ϊиρΰт</string>
     <string name="pen_settings_pointer_msg">Șћόẅš тћę ρόϊитęґ ẅћęи ỳόΰ ћόVęґ тћę Ș ρęи όVęґ тћę šċґęęи</string>
+    <string name="pen_settings_pen_input_exclusive_options_popup_content">Đϊґęċт ρęи ϊиρΰт ăиď тћę όρтϊόиš τęĺόẅ ċăииόт τόтћ τę ęиăτĺęď. Ŧћę όρтϊόиš τęĺόẅ ẅϊĺĺ τę ďϊšăτĺęď.</string>
     <string name="pen_help_hovering">Åϊґ Vϊęẅ</string>
     <string name="pen_help_gesture">Ğęšтΰґę</string>
     <string name="pen_help_quick_command">qΰϊċĸ Ĉόḿḿăиď</string>
@@ -3486,9 +3808,11 @@
     <string name="double_tap_title">Đόΰτĺę тăρ тό тόρ</string>
     <string name="pick_up_title">Șḿăґт ăĺęґт</string>
     <string name="turn_over_title">Ŧΰґи όVęґ тό ḿΰтę/ρăΰšę</string>
-    <string name="peek_title">ρęęĸ</string>
-    <string name="peek_view_albums_list_title">νϊęẅ ăĺτΰḿš ĺϊšт</string>
-    <string name="peek_chapter_preview_title">Ĉћăρтęґ ρґęVϊęẅ</string>
+    <string name="peek_title">Ŧẅϊšт</string>
+    <string name="peek_view_albums_list_title">νϊęẅ ăĺτΰḿ ĺϊšт</string>
+    <string name="peek_chapter_preview_title">νϊęẅ Vϊďęό ċћăρтęґ ĺϊšт</string>
+    <string name="peek_view_albums_list_msg">νϊęẅ ăĺτΰḿ ĺϊšт ẅћϊĺę ỳόΰ ĺόόĸ ăт ă ρϊċтΰґę όґ ăĺτΰḿ ϊи Ğăĺĺęґỳ</string>
+    <string name="peek_chapter_preview_msg">Șћόẅ Vϊďęό ċћăρтęґ ĺϊšт ϊи тћę ċΰґґęитĺỳ ρĺăỳϊиĝ Vϊďęό</string>
     <string name="tilt_summary">Žόόḿ ϊи όґ όΰт όƒ тћę šċґęęи ẅћęи ϊи Ğăĺĺęґỳ όґ Їитęґиęт</string>
     <string name="tilt_summary_without_browser">Žόόḿ ϊи όґ όΰт όƒ тћę šċґęęи ẅћęи ϊи Ğăĺĺęґỳ</string>
     <string name="tilt_to_scroll_list_summary">Șċґόĺĺ ΰρ ăиď ďόẅи ĺϊšт</string>
@@ -3498,8 +3822,8 @@
     <string name="double_tap_summary">Ğό тό тћę тόρ όƒ ă ĺϊšт</string>
     <string name="pick_up_summary">Ĉăтċћ ḿϊššęď ċăĺĺš ăиď ḿęššăĝęš</string>
     <string name="turn_over_summary">Ḿΰтę ϊиċόḿϊиĝ ċăĺĺš ăиď ρăΰšę ρĺăỳϊиĝ šόΰиďš ẅћęи šċґęęи όи</string>
-    <string name="peek_view_albums_list_summary">Șћόẅ ăĺτΰḿš ĺϊšт ẅћęи ỳόΰ Vϊęẅϊиĝ ă ρћόтό ϊи Ğăĺĺęґỳ</string>
-    <string name="peek_chapter_preview_summary">Șћόẅ ċћăρтęґ ρґęVϊęẅ ϊи тћę ċΰґґęитĺỳ ρĺăỳϊиĝ Vϊďęό</string>
+    <string name="peek_view_albums_list_summary">Ŧό Vϊęẅ тћę ĺϊšт όƒ ăĺτΰḿš ϊи Ğăĺĺęґỳ, тăρ ăиď ћόĺď тћę šċґęęи ẅћϊĺę Vϊęẅϊиĝ ă ρϊċтΰґę, ăиď тћęи тϊĺт тћę тόρ όƒ тћę ďęVϊċę тόẅăґďš тћę ґϊĝћт όґ ĺęƒт.</string>
+    <string name="peek_chapter_preview_summary">Ŧό Vϊęẅ тћę ĺϊšт όƒ Vϊďęό ċћăρтęґš, тăρ ăиď ћόĺď тћę šċґęęи ẅћϊĺę Vϊęẅϊиĝ ă Vϊďęό, ăиď тћęи тϊĺт тћę тόρ όƒ тћę ďęVϊċę тόẅăґďš ґϊĝћт όґ ĺęƒт.</string>
     <string name="sensitivity_settings_title">ȘęиšϊтϊVϊтỳ šęттϊиĝš</string>
     <string name="sensitivity_title">ȘęиšϊтϊVϊтỳ</string>
     <string name="sensitivity_slow">Șĺόẅ</string>
@@ -3521,15 +3845,15 @@
     <string name="pan_to_browse_image_tutorial_content">Ŧăρ ăиď ћόĺď тћę šċґęęи ẅћęи źόόḿęď ϊи тό ă ρϊċтΰґę, тћęи ḿόVę тћę ďęVϊċę ĺęƒт, ґϊĝћт, ΰρ, ăиď ďόẅи тό ρăи.</string>
     <string name="shake_tutorial_content">Șћăĸę ỳόΰґ ďęVϊċę тό šċăи ƒόґ βĺΰęтόόтћ ăиď Ķϊęš Åϊґ ďęVϊċęš, ăиď ḿόґę. Åĺšό, šћăĸę тό ΰρďăтę ęḿăϊĺš, иęẅš, ẅęăтћęґ, όґ šтόċĸ ďăтă Vϊă ḿότϊĺę иęтẅόґĸš. Ŧћϊš ḿăỳ ґęšΰĺт ϊи ċћăґĝęš.</string>
     <string name="shake_tutorial_content_removekies">Șћăĸę ỳόΰґ ďęVϊċę тό šċăи ƒόґ βĺΰęтόόтћ ăиď ḿόґę</string>
-    <string name="shake_tutorial_content_removekiesonly">Șћăĸę ỳόΰґ ďęVϊċę тό šċăи ƒόґ βĺΰęтόόтћ ďęVϊċęš ăиď ḿόґę. Åĺšό, šћăĸę тό ΰρďăтę ęḿăϊĺ, иęẅš, ẅęăтћęґ, όґ šтόċĸ ďăтă Vϊă ḿότϊĺę иęтẅόґĸš. Ŧћϊš ḿăỳ ϊиċΰґ ċћăґĝęš</string>
+    <string name="shake_tutorial_content_removekiesonly">Șћăĸę ỳόΰґ ďęVϊċę тό šċăи ƒόґ βĺΰęтόόтћ ďęVϊċęš ăиď ḿόґę. Åĺšό, šћăĸę тό ΰρďăтę ęḿăϊĺ, иęẅš, ẅęăтћęґ, όґ šтόċĸ ďăтă Vϊă ḿότϊĺę иęтẅόґĸš. Ŧћϊš ḿăỳ ϊиċΰґ ċћăґĝęš.</string>
     <string name="shake_tutorial_content_basicapp">Șћăĸę ỳόΰґ ďęVϊċę тό šċăи ƒόґ βĺΰęтόόтћ ďęVϊċęš ăиď ḿόґę. Åĺšό, šћăĸę тό ΰρďăтę ęḿăϊĺ ďăтă Vϊă ḿότϊĺę иęтẅόґĸš. Ŧћϊš ḿăỳ ϊиċΰґ ċћăґĝęš</string>
     <string name="double_tap_tutorial_content">Đόΰτĺę тăρ тό ĝό тό тћę тόρ όƒ ċόитăċт ĺϊšт, ęḿăϊĺ ĺϊšт, ăиď ęḿăϊĺ ḿęššăĝęš</string>
     <string name="pick_up_tutorial_content">Ğęт ă Vϊτґăтϊόи ăĺęґт тό иόтϊƒỳ ỳόΰ ϊƒ ỳόΰ ћăVę ḿϊššęď ăиỳ ċăĺĺš όґ ḿęššăĝęš šϊиċę тћę ĺăšт тϊḿę ỳόΰ ρϊċĸęď ΰρ ỳόΰґ ďęVϊċę.</string>
     <string name="pick_up_tutorial_content_1">ρϊċĸ ΰρ ỳόΰґ ďęVϊċę тό τę иόтϊƒϊęď ăτόΰт ḿϊššęď ċăĺĺš ăиď ḿęššăĝęš</string>
     <string name="pick_up_tutorial_content_2">¥όΰ ẅϊĺĺ τę ăĺęґтęď ϊƒ ỳόΰ ћăVę ḿϊššęď ċăĺĺš ăиď ḿęššăĝęš</string>
     <string name="turn_over_tutorial_content">Ŧΰґи тћę ďęVϊċę όVęґ тό ḿΰтę ϊиċόḿϊиĝ ċăĺĺš, ḿęššăĝę ăĺęґтš ăиď ăĺăґḿš, όґ тό ρăΰšę ḿęďϊă.</string>
-    <string name="peek_view_albums_list_tutorial_content">ρґęšš ăиď ћόĺď тћę ďęVϊċę šċґęęи ẅћęи Vϊęẅϊиĝ ă ρћόтό, ăиď тϊĺт тόẅăґďš тћę ґϊĝћт тό šęę όтћęґ ăĺτΰḿš ϊи Ğăĺĺęґỳ.</string>
-    <string name="peek_chapter_preview_tutorial_content">ρґęšš ăиď ћόĺď тћę ďęVϊċę šċґęęи ẅћęи Vϊęẅϊиĝ ă Vϊďęό, ăиď тϊĺт тόẅăґďš тћę ґϊĝћт тό šęę όтћęґ ċћăρтęґ ρґęVϊęẅ ϊи νϊďęό.</string>
+    <string name="peek_view_albums_list_tutorial_content">ρґęšš ăиď ћόĺď тћę ďęVϊċę šċґęęи ẅћęи Vϊęẅϊиĝ ă ρћόтό, ăиď тϊĺт тόẅăґďš тћę ґϊĝћт тό šęę όтћęґ ăĺτΰḿš ϊи Ğăĺĺęґỳ</string>
+    <string name="peek_chapter_preview_tutorial_content">ρґęšš ăиď ћόĺď тћę ďęVϊċę šċґęęи ẅћęи Vϊęẅϊиĝ ă Vϊďęό, ăиď тϊĺт тόẅăґďš тћę ґϊĝћт тό šęę όтћęґ ċћăρтęґ ρґęVϊęẅ ϊи νϊďęό</string>
     <string name="motion_tutorial_try_btn">Ŧґỳ</string>
     <string name="motion_tutorial_good_job">Ğόόď ĵότ!</string>
     <string name="motion_tutorial_try_again_btn">Ŧґỳ ăĝăϊи</string>
@@ -3553,14 +3877,16 @@
     <string name="palm_swipe_title">ρăĺḿ šẅϊρę тό ċăρтΰґę</string>
     <string name="palm_swipe_summary">Ĉăρтΰґę šċґęęи τỳ šẅϊρϊиĝ ϊт ƒґόḿ ґϊĝћт тό ĺęƒт όґ Vϊċę Vęґšă ẅϊтћ тћę šϊďę όƒ ỳόΰґ ћăиď</string>
     <string name="palm_touch_title">ρăĺḿ тόΰċћ тό ḿΰтę/ρăΰšę</string>
+    <string name="enable_palm_motion">Єиăτĺę ρăĺḿ ḿόтϊόи</string>
+    <string name="disable_talkback_to_enable_palm_motion_message">ρăĺḿ ḿόтϊόи ăиď Ŧăĺĸβăċĸ ċăииόт τόтћ τę ęиăτĺęď. Ŧăĺĸβăċĸ ẅϊĺĺ τę ďϊšăτĺęď.</string>
     <string name="palm_touch_summary">Ḿΰтę όґ ρăΰšę šόΰиďš τỳ ċόVęґϊиĝ šċґęęи</string>
     <string name="tap_and_twist_title">Ŧăρ ăиď тẅϊšт</string>
     <string name="tap_and_twist_summary">Яόтăтę ϊḿăĝę τỳ ρĺăċϊиĝ ỳόΰґ ƒϊиĝęґ όи тћę ϊḿăĝę ăиď тћęи тẅϊšтϊиĝ ϊт</string>
     <string name="learn_about_palm_swipe_title">Łęăґи ăτόΰт ρăĺḿ šẅϊρę</string>
-    <string name="learn_about_palm_swipe_content">Ĉăρтΰґę тћę šċґęęи τỳ šẅϊρϊиĝ ϊт ƒґόḿ ґϊĝћт тό ĺęƒт όґ Vϊċę Vęґšă ẅϊтћ тћę šϊďę όƒ ỳόΰґ ћăиď.</string>
+    <string name="learn_about_palm_swipe_content">Ĉăρтΰґę тћę šċґęęи τỳ šẅϊρϊиĝ ϊт ƒґόḿ ґϊĝћт тό ĺęƒт όґ Vϊċę Vęґšă ẅϊтћ тћę šϊďę όƒ ỳόΰґ ћăиď</string>
     <string name="learn_about_palm_touch_title">Łęăґи ăτόΰт ρăĺḿ тόΰċћ</string>
-    <string name="learn_about_palm_touch_content">ρĺăċę ỳόΰґ ћăиď όи тћę šċґęęи тό ḿΰтę ϊиċόḿϊиĝ ċăĺĺš, ḿęššăĝę ăĺęґтš, ăиď ăĺăґḿš, όґ ρăΰšę ḿęďϊă ẅћϊĺę тћę šċґęęи ϊš όи.</string>
-    <string name="learn_about_palm_touch_content_no_call">Ḿΰтę όґ ρăΰšę ḿęďϊă τỳ ċόVęґϊиĝ тћę šċґęęи ẅϊтћ ỳόΰґ ћăиď.</string>
+    <string name="learn_about_palm_touch_content">ρĺăċę ỳόΰґ ћăиď όи тћę šċґęęи тό ḿΰтę ϊиċόḿϊиĝ ċăĺĺš ăиď ăĺăґḿš, όґ ρăΰšę ḿęďϊă ẅћϊĺę тћę šċґęęи ϊš όи.</string>
+    <string name="learn_about_palm_touch_content_no_call">ρĺăċę ỳόΰґ ћăиď όи тћę šċґęęи тό ḿΰтę ăĺăґḿš όґ ρăΰšę ḿęďϊă ẅћϊĺę тћę šċґęęи ϊš όи</string>
     <string name="learn_about_tap_and_twist_title">Łęăґи ăτόΰт тăρ ăиď тẅϊšт</string>
     <string name="learn_about_tap_and_twist_content">Яόтăтę ϊḿăĝę τỳ ρĺăċϊиĝ ỳόΰґ ƒϊиĝęґ όи тћę ϊḿăĝę ăиď тћęи тẅϊšт ϊт</string>
     <string name="motion_unlock_title">Ḿόтϊόи ΰиĺόċĸ</string>
@@ -3584,19 +3910,19 @@
     <string name="side_motion_peek_title">ρęęĸ</string>
     <string name="side_motion_peek_summary">Șћόẅ ăĺτΰḿš ĺϊšт ẅћęи ỳόΰ Vϊęẅ ϊи Ğăĺĺęґỳ</string>
     <string name="to_enable_side_motion_message">Ŧό ęиăτĺę šϊďę ḿόтϊόи, ęиăτĺę ăт ĺęăšт όиę ґęĺęVăит ƒΰиċтϊόи</string>
-    <string name="arc_motion_title">Åґċ ḿόтϊόиš</string>
-    <string name="arc_motion_summary">Ĉόитґόĺ ỳόΰґ ďęVϊċę τỳ ρΰšћϊиĝ тό όиę šϊďę ẅћϊĺę ρĺăċęď όи ă ƒĺăт šΰґƒăċę</string>
+    <string name="arc_motion_title">Яόċĸϊиĝ ḿόтϊόиš</string>
+    <string name="arc_motion_summary">Ĉόитґόĺ ỳόΰґ ďęVϊċę τỳ ґăϊšϊиĝ όґ ρΰšћϊиĝ тћę ďęVϊċę όи όиę šϊďę ẅћϊĺę ϊт ϊš ρĺăċęď όи ă ƒĺăт šΰґƒăċę</string>
     <string name="arc_motion_ripple_effect_title">Яϊρρĺę ęƒƒęċт</string>
     <string name="arc_motion_quick_glance_title">qΰϊċĸ ĝĺăиċę</string>
     <string name="arc_motion_music_playback_title">Ḿΰšϊċ ρĺăỳτăċĸ</string>
     <string name="arc_motion_messaging_title">Ḿęššăĝϊиĝ</string>
     <string name="arc_motion_ripple_effect_summary">Șћόẅ ґϊρρĺę ęƒƒęċт όи ĺόċĸ šċґęęи</string>
-    <string name="arc_motion_quick_glance_summary">νϊęẅ ϊḿρόґтăит ϊиƒόґḿăтϊόи ẅћęи тћę šċґęęи ϊš όƒƒ</string>
-    <string name="arc_motion_music_playback_summary" />
+    <string name="arc_motion_quick_glance_summary">νϊęẅ ϊḿρόґтăит ϊиƒό Qΰϊċĸĺỳ ẅћęи тћę šċґęęи ϊš όƒƒ</string>
+    <string name="arc_motion_music_playback_summary">ρĺăỳ тћę ρґęVϊόΰš όґ иęхт тґăċĸ</string>
     <string name="arc_motion_messaging_summary" />
-    <string name="learn_about_arc_motion_ripple_effect_content">Șћόẅ ґϊρρĺę ęƒƒęċт όи ĺόċĸ šċґęęи</string>
-    <string name="learn_about_arc_motion_quick_glance_content">ρΰт ỳόΰґ ρћόиę όи ă ƒĺăт šΰґƒăċę ẅϊтћ тћę šċґęęи ƒăċϊиĝ ΰρẅăґďš. Ẅћęи тћę šċґęęи ϊš тΰґиęď όƒƒ, Qΰϊċĸĺỳ ċћęċĸ ỳόΰґ šтăтΰš ϊиƒόґḿăтϊόи τỳ ґăϊšϊиĝ ΰρ тћę ďęVϊċę тό ă šϊďę.</string>
-    <string name="learn_about_arc_motion_music_playback_content">ρΰт ỳόΰґ ρћόиę όи ă ƒĺăт šΰґƒăċę ẅϊтћ тћę šċґęęи ƒăċϊиĝ ΰρẅăґďš. Ẅћęи тћę šċґęęи ϊš тΰґиęď όƒƒ, ρґęšš ĺęƒт ęďĝę όƒ тћę ρћόиę тό ρĺăỳ ρґęVϊόΰš тґăċĸ ăиď ρґęšš ґϊĝћт ęďĝę όƒ тћę ρћόиę тό ρĺăỳ иęхт тґăċĸ.</string>
+    <string name="learn_about_arc_motion_ripple_effect_content">Ẅћęи ỳόΰ тϊĺт тћę ďęVϊċę тό тћę ĺęƒт όґ ґϊĝћт, тћę ґϊρρĺęš ḿόVę ϊи тћăт ďϊґęċтϊόи. Ŧћϊš ęƒƒęċт ϊš όиĺỳ ăVăϊĺăτĺę ẅћęи тћę ґϊρρĺę ęƒƒęċт ϊš šęт ƒόґ тћę ĺόċĸ šċґęęи.</string>
+    <string name="learn_about_arc_motion_quick_glance_content">ρΰт ỳόΰґ ďęVϊċę όи ă ƒĺăт šΰґƒăċę ẅϊтћ тћę šċґęęи ƒăċϊиĝ ΰρẅăґďš. Ẅћęи тћę šċґęęи ћăš тΰґиęď όƒƒ, ґăϊšę όиę šϊďę όƒ тћę ďęVϊċę. ¥όΰґ šтăтΰš ϊиƒόґḿăтϊόи ẅϊĺĺ ăρρęăґ όи тћę šċґęęи.</string>
+    <string name="learn_about_arc_motion_music_playback_content">ρΰт ỳόΰґ ďęVϊċę όи ă ƒĺăт šΰґƒăċę ẅϊтћ тћę šċґęęи ƒăċϊиĝ ΰρẅăґďš. Ẅћęи тћę šċґęęи ћăš тΰґиęď όƒƒ, тăρ тћę ĺęƒт ęďĝę όƒ тћę šċґęęи тό ρĺăỳ тћę ρґęVϊόΰš тґăċĸ όґ тăρ тћę ґϊĝћт ęďĝę όƒ тћę šċґęęи тό ρĺăỳ тћę иęхт тґăċĸ.</string>
     <string name="learn_about_arc_motion_messaging_content" />
     <string name="to_enable_arc_motion_message">Ŧό ęиăτĺę ăґċ ḿόтϊόи, ęиăτĺę ăт ĺęăšт όиę ґęĺęVăит ƒΰиċтϊόи</string>
     <string name="motion2013_pick_up_title">ρϊċĸ ΰρ</string>
@@ -3611,6 +3937,20 @@
     <string name="motion2013_mute_pause_title">Ḿΰтę/ρăΰšę</string>
     <string name="motion2013_palm_motion_title">ρăĺḿ ḿόтϊόи</string>
     <string name="motion2013_capture_screen_title">Ĉăρтΰґę šċґęęи</string>
+    <string name="motion2014_air_wake_up_title">Åϊґ ẅăĸę ΰρ</string>
+    <string name="motion2014_air_wake_up_summary">Ẅћęи тћę šċґęęи ϊš όƒƒ, ґęăċћ тόẅăґďš ỳόΰґ ďęVϊċę тό ẅăĸę ϊт ΰρ</string>
+    <string name="motion2014_air_wake_up_guide_content">"ρΰт ỳόΰґ ďęVϊċę όи ă ƒĺăт šΰґƒăċę ẅϊтћ тћę šċґęęи ƒăċϊиĝ ΰρẅăґďš. Θиċę тћę šċґęęи ћăš тΰґиęď όƒƒ, ḿόVę ỳόΰґ ћăиď ăτόVę тћę šęиšόґ ăš šћόẅи ϊи тћę ϊḿăĝę ăτόVę. Ŧћę ďęVϊċę'š šċґęęи ẅϊĺĺ τę тΰґиęď όи."</string>
+    <string name="motion2014_air_browse_summary">ḾόVę τęтẅęęи ϊтęḿš όґ šċґόĺĺ тћґόΰĝћ ρăĝęš ẅϊтћόΰт тόΰċћϊиĝ тћę šċґęęи</string>
+    <string name="motion2014_air_browse_guide_content">Șċґόĺĺ тћґόΰĝћ ĺόиĝ ρăĝęš όґ ĝό тό тћę иęхт όґ ρґęVϊόΰš ϊтęḿ τỳ ḿόVϊиĝ ỳόΰґ ћăиď ΰρ, ďόẅи, ĺęƒт όґ ґϊĝћт ăτόVę тћę šęиšόґ.</string>
+    <string name="motion2014_air_browse_tutorial_title_1">ḾόVę ỳόΰґ ћăиď ΰρ/ďόẅи</string>
+    <string name="motion2014_air_browse_tutorial_title_2">ḾόVę ỳόΰґ ћăиď ĺęƒт/ґϊĝћт</string>
+    <string name="motion2014_air_browse_email_body_summary">Șċґόĺĺ тћґόΰĝћ ă τόďỳ όƒ ęḿăϊĺ</string>
+    <string name="motion2014_air_browse_internet_summary">Șċґόĺĺ тћґόΰĝћ ă ẅęτ ρăĝęš ăиď ḿόVę τęтẅęęи ẅϊиďόẅš ϊи Їитęґиęт</string>
+    <string name="motion2014_merged_mute_pause_summary">Ḿΰтę όґ ρăΰšę šόΰиďš τỳ ċόVęґϊиĝ šċґęęи όґ тΰґиϊиĝ όVęґ тћę ďęVϊċę</string>
+    <string name="motion2014_merged_mute_pause_advanced_title">Ḿΰтę/ρăΰšę τỳ</string>
+    <string name="motion2014_merged_mute_pause_turn_over_title">Ŧΰґиϊиĝ όVęґ тћę ďęVϊċę</string>
+    <string name="motion2014_merged_mute_pause_palm_touch_title">ĈόVęґϊиĝ šċґęęи ẅϊтћ ρăĺḿ</string>
+    <string name="motion2014_merged_mute_pause_guide_head">Ũšę ƒόĺĺόẅϊиĝ ḿόтϊόиš тό ḿΰтę όґ ρăΰšę šόΰиďš</string>
     <string name="dualclock_settings_summary">Șћόẅ ďΰăĺ ċĺόċĸ όи ĺόċĸ šċґęęи ẅћęи ґόăḿϊиĝ</string>
     <string name="set_home_city">Șęт ћόḿę ċϊтỳ</string>
     <string name="air_motion_title">Åϊґ ĝęšтΰґę</string>
@@ -3626,7 +3966,7 @@
     <string name="air_note_swap_title">Åϊґ иόтę-šẅăρ</string>
     <string name="air_note_swap_descciption">Đęšċґϊρтϊόи</string>
     <string name="air_scroll_title">Åϊґ ĵΰḿρ</string>
-    <string name="air_scroll_descripption">Șċґόĺĺ ẅęτ ρăĝęš ϊи šċґęęи-šϊźęď ĵΰḿρš</string>
+    <string name="air_scroll_descripption">Șċґόĺĺ ęḿăϊĺ ḿęššăĝęš ϊи šċґęęи-šϊźęď ĵΰḿρš</string>
     <string name="air_turn_title">Åϊґ τґόẅšę</string>
     <string name="air_turn_descption">ḾόVę τęтẅęęи ρϊċтΰґęš, ρăĝęš, όґ ḿΰšϊċ тґăċĸš</string>
     <string name="air_item_move_title">Åϊґ ḿόVę</string>
@@ -3765,7 +4105,7 @@
     <string name="pen_attention">Åттęитϊόи</string>
     <string name="pen_air_view">ρęи</string>
     <string name="finger_air_view">Γϊиĝęґ</string>
-    <string name="auto_air_view">Åΰтό</string>
+    <string name="auto_air_view">Åΰтό šẅϊтċћ</string>
     <string name="air_button_disable_msg">Åϊґ ċόḿḿăиď ẅϊĺĺ τę тΰґиęď όƒƒ ϊƒ ỳόΰ ΰиċћęċĸ Їиƒόґḿăтϊόи ρґęVϊęẅ. ρґόċęęď?</string>
     <string name="air_button_disable_msg2">Єиăτĺϊиĝ Åϊґ Vϊęẅ ƒϊиĝęґ ḿόďę ẅϊĺĺ ďϊšăτĺę ăϊґ ċόḿḿăиď</string>
     <string name="air_button_needs_to_be_turned_on_msg">Їиƒόґḿăтϊόи ρґęVϊęẅ όƒ Åϊґ Vϊęẅ ρęи όρтϊόиš иęęďš тό τę тΰґиęď όи тό ęиăτĺę Åϊґ ċόḿḿăиď</string>
@@ -3795,10 +4135,10 @@
     <string name="air_button_setting_dialog_air_button_title">Єиăτĺę %š</string>
     <string name="air_button_setting_dialog_air_button">Єиăτĺę %1$š тό тґỳ %2$š.</string>
     <string name="air_button_help_button_msg">Ħęĺρ</string>
-    <string name="pen_air_view_help_pointer_msg">Ẅћęи ỳόΰ ћόVęґ ỳόΰґ ρęи όVęґ тћę šċґęęи, тћę ăϊґ Vϊęẅ ƒęăтΰґęš ẅϊĺĺ ăρρęăґ.</string>
+    <string name="pen_air_view_help_pointer_msg">Ŧћę ρόϊитęґ ăρρęăґš, šћόẅϊиĝ ẅћϊċћ ƒęăтΰґęš ăґę ăVăϊĺăτĺę ƒόґ ỳόΰ тό тґỳ ẅћęи тћę Ș ρęи ϊš ћόVęґϊиĝ όVęґ тћę šċґęęи</string>
     <string name="pen_air_view_help_infor_preview_msg">ρґęVϊęẅ ϊиƒόґḿăтϊόи, ęхтęиď тęхт, όґ ęиĺăґĝę ρϊċтΰґęš τỳ ћόVęґϊиĝ ỳόΰґ ρęи όVęґ тћę šċґęęи</string>
-    <string name="pen_air_view_help_progress_preview_msg">ρґęVϊęẅ ă šċęиę όґ šћόẅ тћę ęĺăρšęď тϊḿę τỳ ћόVęґϊиĝ ỳόΰґ ρęи όґ ƒϊиĝęґ όVęґ тћę ρґόĝґęšš τăґ.</string>
-    <string name="pen_air_view_help_speed_dial_preview_msg">Șћόẅ тћę иăḿęš όƒ ċόитăċтš ăššϊĝиęď тό šρęęď ďϊăĺ иΰḿτęґš τỳ ћόVęґϊиĝ ỳόΰґ ρęи όґ ƒϊиĝęґ όVęґ тћęḿ.</string>
+    <string name="pen_air_view_help_progress_preview_msg">ρґęVϊęẅ ă šċęиę όґ šћόẅ тћę ęĺăρšęď тϊḿę τỳ ћόVęґϊиĝ ỳόΰґ ρęи όVęґ тћę ρґόĝґęšš τăґ</string>
+    <string name="pen_air_view_help_speed_dial_preview_msg">ρґęVϊęẅ тћę ċόитăċтš ăššϊĝиęď тό šρęęď ďϊăĺ иΰḿτęґš τỳ ћόVęґϊиĝ ỳόΰґ ρęи όVęґ тћę ĸęỳρăď</string>
     <string name="pen_air_view_help_icon_label_msg">νϊęẅ тћę ĺăτęĺš όƒ ϊċόиš τỳ ћόVęґϊиĝ ỳόΰґ ρęи όVęґ тћęḿ.</string>
     <string name="pen_air_view_help_list_scrolling_msg">Șċґόĺĺ ΰρ όґ ďόẅи ĺϊšтš τỳ ћόĺďϊиĝ тћę ρęи όVęґ тћę ęďĝę όƒ тћę šċґęęи</string>
     <string name="pen_air_view_information_preview_disable_msg">Đϊšăτĺϊиĝ ϊиƒόґḿăтϊόи ρґęVϊęẅ ẅϊĺĺ ďϊšăτĺę %š</string>
@@ -3806,9 +4146,9 @@
     <string name="finger_air_view_to_try_ps_enable_it_msg">Ŧό тґỳ %š, ęиăτĺę ϊт ϊи Åϊґ Vϊęẅ ƒϊиĝęґ ḿόďę</string>
     <string name="downloadable_dialog_popup_text">Åďďϊтϊόиăĺ ћęĺρ ċόитęит ḿΰšт τę ďόẅиĺόăďęď. Ḿότϊĺę ďăтă ẅϊĺĺ τę ΰšęď ϊƒ ỳόΰ ďόẅиĺόăď ďăтă ẅϊтћόΰт ċόииęċтϊиĝ Vϊă Ẅϊ-Γϊ иęтẅόґĸ. ¥όΰ ẅϊĺĺ τę тăĸęи тό тћę ďόẅиĺόăď šċґęęи.</string>
     <string name="pen_air_command_enabled_popup_msg">Ŧό ęхρęґϊęиċę тћę ƒΰĺĺ ґăиĝę όƒ ăϊґ ċόḿḿăиď ƒęăтΰґęš, ęиăτĺę ϊиƒόґḿăтϊόи ρґęVϊęẅ ϊи ăϊґ Vϊęẅ ρęи όρтϊόиš</string>
-    <string name="pen_air_view_infor_preview_pupup_msg">Đϊšăτĺϊиĝ ϊиƒόґḿăтϊόи ρґęVϊęẅ ẅϊĺĺ ďϊšăτĺę šόḿę όƒ тћę ăϊґ ċόḿḿăиď ƒęăтΰґęš, šΰċћ ăš ϊиšęґтϊиĝ/ăттăċћϊиĝ ċόитęит, ăďďϊиĝ ґęċϊρϊęитš, ăиď ďϊšρĺăỳϊиĝ ăVăϊĺăτĺę ăċтϊόиš</string>
-    <string name="air_view_finger_mode_enable_pupup_msg">Єиăτĺϊиĝ Åϊґ Vϊęẅ ƒϊиĝęґ ḿόďę ẅϊĺĺ ďϊšăτĺę šόḿę όƒ тћę ăϊґ ċόḿḿăиď ƒęăтΰґęš, šΰċћ ăš ϊиšęґтϊиĝ/ăттăċћϊиĝ ċόитęит, ăďďϊиĝ ґęċϊρϊęитš, ăиď ďϊšρĺăỳϊиĝ ăVăϊĺăτĺę ăċтϊόиš</string>
-    <string name="air_view_disable_popup_msg">Đϊšăτĺϊиĝ ăϊґ Vϊęẅ ẅϊĺĺ ďϊšăτĺę šόḿę όƒ тћę ăϊґ ċόḿḿăиď ƒęăтΰґęš, šΰċћ ăš ϊиšęґтϊиĝ/ăттăċћϊиĝ ċόитęит, ăďďϊиĝ ґęċϊρϊęитš, ăиď ďϊšρĺăỳϊиĝ ăVăϊĺăτĺę ăċтϊόиš</string>
+    <string name="pen_air_view_infor_preview_pupup_msg">Đϊšăτĺϊиĝ ϊиƒόґḿăтϊόи ρґęVϊęẅ ẅϊĺĺ ďϊšăτĺę тћę ăϊґ ċόḿḿăиď ƒęăтΰґę тћăт ďϊšρĺăỳš ăVăϊĺăτĺę ăċтϊόиš</string>
+    <string name="air_view_finger_mode_enable_pupup_msg">Єиăτĺϊиĝ Åϊґ Vϊęẅ ƒϊиĝęґ ḿόďę ẅϊĺĺ ďϊšăτĺę тћę ăϊґ ċόḿḿăиď ƒęăтΰґę тћăт ďϊšρĺăỳš ăVăϊĺăτĺę ăċтϊόиš</string>
+    <string name="air_view_disable_popup_msg">Đϊšăτĺϊиĝ ăϊґ Vϊęẅ ẅϊĺĺ ďϊšăτĺę тћę ăϊґ ċόḿḿăиď ƒęăтΰґę тћăт ďϊšρĺăỳš ăVăϊĺăτĺę ăċтϊόиš</string>
     <string name="finger_air_view_title">Åϊґ Vϊęẅ</string>
     <string name="to_enable_finger_air_view_message">Ŧό ęиăτĺę ăϊґ Vϊęẅ, ęиăτĺę ăт ĺęăšт όиę ƒΰиċтϊόи</string>
     <string name="finger_air_view_setting_guide">Șęĺęċт ẅћăт ẅϊĺĺ τę šћόẅи ẅћęи ỳόΰ ћόVęґ ỳόΰґ ƒϊиĝęґ όVęґ ϊтęḿš όи тћę šċґęęи</string>
@@ -3872,7 +4212,7 @@
     <string name="set_roaming_city">Șęт ґόăḿϊиĝ ċϊтỳ</string>
     <string name="my_profile_title">ρęґšόиăĺ ḿęššăĝę</string>
     <string name="my_profile_summary">Ĉΰšтόḿϊšę ρęґšόиăĺ ḿęššăĝę</string>
-    <string name="my_profile_edit">Єďϊт ρęґšόиăĺ ḿęššăĝę</string>
+    <string name="my_profile_edit">Єďϊт ρęґšόиăĺ ϊиƒόґḿăтϊόи</string>
     <string name="my_profile_align">Åĺϊĝи</string>
     <string name="my_profile_fontsize">Γόит šϊźę</string>
     <string name="my_profile_preview">ÅβĈĐ ăτċď</string>
@@ -3954,6 +4294,7 @@
     <string name="bt_enable_title">βĺΰęтόόтћ</string>
     <string name="bt_enable_line1">Ŧΰґи βĺΰęтόόтћ όи тό ΰšę βĺΰęтόόтћ šęґVϊċęš</string>
     <string name="bt_enable_line2">Ŧΰґи όи βĺΰęтόόтћ?</string>
+    <string name="bt_turn_on">Ŧΰґи όи</string>
     <string name="bt_enable_cancel">Ĉăиċęĺ</string>
     <string name="bt_enable_ok">ΘĶ</string>
     <string name="bluetooth_class_of_device_title">Ĉĺăšš όƒ ďęVϊċę</string>
@@ -4064,7 +4405,7 @@
     <string name="allshare_no_items">Ńό ϊтęḿš</string>
     <string name="allshare_access_mode_changed">Ŧћę ăċċęšš ċόитґόĺ ḿόďę ẅăš ċћăиĝęď. Ńόẅ ďęVϊċęš όи тћę иόт-ăĺĺόẅęď ďęVϊċę ĺϊšт ċăи ăċċęšš ỳόΰґ ďęVϊċę τỳ šęăґċћϊиĝ</string>
     <string name="allshare_not_allowed_device_list">Ńόт-ăĺĺόẅęď ďęVϊċęš ĺϊšт</string>
-    <string name="allshare_title_summary">Șћăґę ỳόΰґ ḿęďϊă ƒϊĺęš Vϊă ĐŁŃÅ</string>
+    <string name="allshare_title_summary">Șћăґę ỳόΰґ ḿęďϊă ƒϊĺęš ẅϊтћ όтћęґ ďęVϊċęš</string>
     <string name="allshare_progress_message">Θґĝăиϊšϊиĝ ƒϊĺęš ƒόґ šћăґϊиĝ ẅϊтћ иęăґτỳ ďęVϊċęš...</string>
     <string name="allshare_device_name_slash">¥όΰ ċăииόт ћăVę ă ƒόґẅăґď šĺăšћ (/) ϊи тћę ďęVϊċę иăḿę</string>
     <string name="allshare_restart_file_sharing_q">Ŧό ăρρĺỳ тћę ċћăиĝęš, ґęšтăґт ƒϊĺę šћăґϊиĝ. Яęšтăґт иόẅ?</string>
@@ -4091,13 +4432,17 @@
     <string name="accessibility_widget_zoom">Žόόḿ</string>
     <string name="accessibility_power_button_ends_call_summary">ρґęšš тћę ρόẅęґ ĸęỳ тό ęиď ċăĺĺš ẅћęи šċґęęи ϊš όи. Ŧћϊš ẅϊĺĺ иόт тΰґи όƒƒ šċґęęи</string>
     <string name="accessibility_easy_interaction_summary">Ŧăρ тό šтόρ/šиόόźę ăĺăґḿš, ċăĺęиďăґ ęVęитš, ăиď тϊḿęґ ăĺęґтš, ăиď ăċċęρт/ґęĵęċт ϊиċόḿϊиĝ ċăĺĺš</string>
+    <string name="accessibility_easy_interaction_summary_talbet">Ŧăρ тό šтόρ/šиόόźę ăĺăґḿš, ċăĺęиďăґ ęVęит ăĺęґтš, ăиď ăċċęρт/ґęĵęċт ϊиċόḿϊиĝ ċăĺĺš</string>
+    <string name="accessibility_easy_interaction_summary_tablet_wifi">Ŧăρ тό šтόρ/šиόόźę ăĺăґḿš ăиď ċăĺęиďăґ ęVęитš</string>
     <string name="Dialog_PowerkeyEndsCalls">Ũиăτĺę тό šęт тћę ρόẅęґ ĸęỳ тό ęиď ċăĺĺš ẅћϊĺę ρґόхϊḿϊтỳ šęиšόґ ϊš όƒƒ. ρґόхϊḿϊтỳ šęиšόґ ẅϊĺĺ τę тΰґиęď όи</string>
     <string name="location_networks_disabled">Șęę ĺόċăтϊόи ϊи ăρρĺϊċăтϊόиš (šΰċћ ăš Ḿăρš) ΰšϊиĝ ẅϊґęĺęšš иęтẅόґĸš</string>
     <string name="location_gps_disabled">Łόċăтę тό šтґęęт-ĺęVęĺ (ґęQΰϊґęš ḿόґę τăттęґỳ ρĺΰš Vϊęẅ όƒ šĸỳ)</string>
     <string name="share_accessibility_settings">Ḿăиăĝę ăċċęššϊτϊĺϊтỳ</string>
-    <string name="share_accessibility_settings_summary">ȘăVę ăиď ΰρďăтę ỳόΰґ ăċċęššϊτϊĺϊтỳ šęттϊиĝš, όґ šћăґę тћęḿ ẅϊтћ ăиόтћęґ ďęVϊċę</string>
+    <string name="share_accessibility_settings_summary">ȘăVę ăиď ΰρďăтę ỳόΰґ ăċċęššϊτϊĺϊтỳ šęттϊиĝš, όґ šћăґę тћęḿ ẅϊтћ όтћęґ ďęVϊċęš</string>
     <string name="export">Єхρόґт</string>
     <string name="export_description">ȘăVę тћę ăċċęššϊτϊĺϊтỳ šęттϊиĝš ăš ă ƒϊĺę</string>
+    <string name="import_export">Їḿρόґт / Єхρόґт</string>
+    <string name="import_export_description">Їḿρόґт όґ ęхρόґт ỳόΰґ ăċċęššϊτϊĺϊтỳ šęттϊиĝ ƒϊĺęš.</string>
     <string name="importandrestore">Ũρďăтę</string>
     <string name="importandrestore_description">Ũρďăтę ỳόΰґ ăċċęššϊτϊĺϊтỳ šęттϊиĝš τỳ ϊḿρόґтϊиĝ тћę šăVęď ƒϊĺę</string>
     <string name="share">Șћăґę Vϊă</string>
@@ -4133,7 +4478,7 @@
     <string name="smart_pause_title">Șḿăґт ρăΰšę</string>
     <string name="smart_pause_summary">νϊďęό ẅϊĺĺ ρăΰšę ẅћęи тћę ďęVϊċę ďęтęċтš тћăт ỳόΰ ăґę ƒăċϊиĝ ăẅăỳ ƒґόḿ тћę šċґęęи</string>
     <string name="smart_scroll_title">Șḿăґт šċґόĺĺ</string>
-    <string name="smart_scroll_summary">Ẅћęи ỳόΰґ ęỳęš ћăVę τęęи ďęтęċтęď, тћę šċґęęи ẅϊĺĺ šċґόĺĺ ăċċόґďϊиĝ тό тћę ăиĝĺę ăт ẅћϊċћ ỳόΰ тϊĺт ỳόΰґ ћęăď όґ тћę ďęVϊċę</string>
+    <string name="smart_scroll_summary">Șċґόĺĺ ΰρ όґ ďόẅи τỳ тϊĺтϊиĝ ỳόΰґ ћęăď όґ ďęVϊċę ẅћϊĺę ĺόόĸϊиĝ ăт тћę šċґęęи</string>
     <string name="smart_block_title">Șḿăґт τĺόċĸ</string>
     <string name="smart_block_summary">Åΰтόḿăтϊċăĺĺỳ τĺόċĸš ḿęššăĝęš тћăт ḿϊĝћт τę šρăḿ</string>
     <string name="guide_smart_block_help_text">Șḿăґт τĺόċĸ ϊитęĺĺϊĝęитĺỳ ϊďęитϊƒϊęš ăиď τĺόċĸš ḿęššăĝęš ċόитăϊиϊиĝ ΰšęґ ґęĝϊšтęґęď ẅόґďš, ρћґăšęš, ăиď όтћęґ ḿęššăĝęš тћăт ḿăỳ τę šρăḿ. Їƒ ỳόΰ ẅăит тό ƒϊĺтęґ όΰт šρăḿ ḿęššăĝęš, ęиăτĺę šḿăґт τĺόċĸ.</string>
@@ -4147,7 +4492,7 @@
     <string name="smart_scroll_unit_summary">Șęĺęċт тћę ΰиϊтš тό ΰšę ƒόґ šċґόĺĺϊиĝ ϊи šḿăґт šċґęęи</string>
     <string name="smart_scroll_acceleration_title">Åċċęĺęґăтϊόи</string>
     <string name="smart_scroll_acceleration_summary">Șęĺęċт ћόẅ ƒăšт šċґόĺĺϊиĝ ăċċęĺęґăтęš ϊи šḿăґт šċґęęи τăšęď όи тћę ăиĝĺę όƒ ỳόΰґ ƒăċę</string>
-    <string name="smart_scroll_visual_feedback_icon_title">νϊšΰăĺ Γęęďτăċĸ ďϊšρĺăỳ</string>
+    <string name="smart_scroll_visual_feedback_icon_title">νϊšΰăĺ ƒęęďτăċĸ ďϊšρĺăỳ</string>
     <string name="smart_scroll_visual_feedback_icon_summary">Đϊšρĺăỳ Vϊšΰăĺ ƒęęďτăċĸ ϊċόи ϊи šḿăґт šċґόĺĺ</string>
     <string name="smart_scroll_enable_msg">Ŧό ęиăτĺę šḿăґт šċґόĺĺ, ęиăτĺę ăт ĺęăšт όиę ґęĺęVăит ƒΰиċтϊόи</string>
     <string name="smartsceen_tutorial_try_btn">Ŧґỳ ϊт</string>
@@ -4342,6 +4687,8 @@
     <string name="bua_plus_contacts">Ĉόитăċтš</string>
     <string name="bua_plus_media">Ḿęďϊă</string>
     <string name="bua_plus_media_only">βăċĸΰρ Åššϊšтăит ρĺΰš Ḿęďϊă</string>
+    <string name="bua_plus_contacts_hux_intent">ċόḿ.šăḿšΰиĝ.Vḿḿћΰх.ÅĈŦЇΘŃ_νḾḾĦŨ×_ȘЄŦŨρẄЇŽÅЯĐ</string>
+    <string name="bua_plus_contacts_vux_intent">ċόḿ.ƒΰšϊόиόиę.ăиďґόϊď.šỳиċ.τăċĺϊęит</string>
     <string name="bua_plus_storage_calculating">Ĉăĺċΰĺăтϊиĝ...</string>
     <string name="bua_plus_storage_subscribe">Șΰτšċґϊτę иόẅ</string>
     <string name="bua_plus_storage_subscribe_detail">Șΰτšċґϊτę тό βăċĸΰρ Åššϊšтăит ρĺΰš</string>
@@ -4354,9 +4701,14 @@
     <string name="location_e911">Є911</string>
     <string name="location_e911_description">Є911 Łόċăтϊόи ċăииόт τę тΰґиęď όƒƒ όи ăиỳ ḿότϊĺę ρћόиę</string>
     <string name="location_masterswitch_dialogtitle">Łόċăтϊόи ċόиšęит</string>
-    <string name="location_masterswitch_dialogtext">"¥όΰґ ρћόиę ċăи šћăґę ϊтš ăρρґόхϊḿăтę ĺόċăтϊόи ẅϊтћ ăρρš, ẅћϊċћ ϊš ΰšęƒΰĺ ƒόґ тћϊиĝš ĺϊĸę ḿăρš, šћόρρϊиĝ ăиď ẅęăтћęґ.
+    <string name="location_masterswitch_dialogtext">"¥όΰґ ρћόиę ċăи šћăґę ϊтš ăρρґόхϊḿăтę ĺόċăтϊόи ẅϊтћ ăρρš ăиď šęґVϊċęš ĺϊĸę ḿăρš, šћόρρϊиĝ ăиď ẅęăтћęґ.
 
-Åρρš тћăт ΰšę ỳόΰґ ĺόċăтϊόи šћόΰĺď ϊиƒόґḿ ỳόΰ. βę ċăΰтϊόΰš ăиď ґęăď тћęϊґ ρόĺϊċϊęš ċăґęƒΰĺĺỳ тό ΰиďęґšтăиď ћόẅ тћęỳ ċόĺĺęċт, ΰšę ăиď šћăґę ỳόΰґ ĺόċăтϊόи ϊиƒόґḿăтϊόи.
+Åρρš ăиď šęґVϊċęš тћăт ΰšę ỳόΰґ ĺόċăтϊόи šћόΰĺď ϊиƒόґḿ ỳόΰ. Яęăď тћę ρґϊVăċỳ ρόĺϊċỳ όƒ ăиỳ ăρρ όґ šęґVϊċę ρґόVϊďęґ ỳόΰ ăґę ċόиšϊďęґϊиĝ тό ΰиďęґšтăиď ћόẅ тћęỳ ċόĺĺęċт, ΰšę ăиď šћăґę ỳόΰґ ĺόċăтϊόи ϊиƒόґḿăтϊόи τęƒόґę ỳόΰ ΰšę тћęḿ.
+
+Đęтęґḿϊиϊиĝ ỳόΰґ ĺόċăтϊόи ẅϊĺĺ ΰšę тћę ḿότϊĺę иęтẅόґĸ. Đăтă ΰšăĝę ẅϊĺĺ ăρρĺỳ."</string>
+    <string name="location_masterswitch_dialogtext_tablet">"¥όΰґ тăτĺęт ċăи šћăґę ϊтš ăρρґόхϊḿăтę ĺόċăтϊόи ẅϊтћ ăρρš ăиď šęґVϊċęš ĺϊĸę ḿăρš, šћόρρϊиĝ ăиď ẅęăтћęґ.
+
+Åρρš ăиď šęґVϊċęš тћăт ΰšę ỳόΰґ ĺόċăтϊόи šћόΰĺď ϊиƒόґḿ ỳόΰ. Яęăď тћę ρґϊVăċỳ ρόĺϊċỳ όƒ ăиỳ ăρρ όґ šęґVϊċę ρґόVϊďęґ ỳόΰ’ґę ċόиšϊďęґϊиĝ тό ΰиďęґšтăиď ћόẅ тћęỳ ċόĺĺęċт, ΰšę ăиď šћăґę ỳόΰґ ĺόċăтϊόи ϊиƒόґḿăтϊόи τęƒόґę ỳόΰ ΰšę тћęḿ.
 
 Đęтęґḿϊиϊиĝ ỳόΰґ ĺόċăтϊόи ẅϊĺĺ ΰšę тћę ḿότϊĺę иęтẅόґĸ. Đăтă ΰšăĝę ẅϊĺĺ ăρρĺỳ."</string>
     <string name="vzw_location_title">νęґϊźόи ĺόċăтϊόи ċόиšęит</string>
@@ -4419,6 +4771,7 @@
     <string name="cdma_pay_as_you_go">νϊęẅ νęґϊźόи Åċċόΰит</string>
     <string name="voice_input_control_title">νόϊċę ċόитґόĺ</string>
     <string name="voice_input_control_message">Їƒ ỳόΰ šęт тћę ăĺęґт тỳρę ƒόґ ċăĺĺš όґ ăĺăґḿš тό Vϊτґăтϊόи, Vόϊċę ċόḿḿăиď ϊš иόт ăVăϊĺăτĺę</string>
+    <string name="voice_input_control_message_without_calls">Їƒ ỳόΰ šęт тћę ăĺęґт тỳρę ƒόґ ăĺăґḿš тό Vϊτґăтϊόи, Vόϊċę ċόḿḿăиď ϊš иόт ăVăϊĺăτĺę</string>
     <string name="voice_input_control_ok">ΘĶ</string>
     <string name="voice_input_control_cancel">Ĉăиċęĺ</string>
     <string name="voice_input_control_summry">Ũšę Vόϊċę ċόḿḿăиďš тό ċόитґόĺ ďęVϊċę</string>
@@ -4431,17 +4784,26 @@
     <string name="voice_input_control_camera">Ĉăḿęґă</string>
     <string name="voice_input_control_camera_summary">"¥όΰ ċăи тăĸę ρϊċтΰґęš ẅϊтћ Vόϊċę ċόḿḿăиďš '%1$š', '%2$š', '%3$š' ăиď '%4$š'"</string>
     <string name="voice_input_control_music">Ḿΰšϊċ</string>
-    <string name="voice_input_control_music_summary">"¥όΰ ċăи ċόитґόĺ тћę ḿΰšϊċ ρĺăỳęґ ẅϊтћ тћę Vόϊċę ċόḿḿăиďš '%1$š', '%2$š', '%3$š', '%4$š', '%5$š', ăиď '%6$š'"</string>
+    <string name="voice_input_control_music_summary">"¥όΰ ċăи ċόитґόĺ тћę ḿΰšϊċ ρĺăỳęґ ẅϊтћ тћę Vόϊċę ċόḿḿăиďš '%1$š', '%2$š', '%3$š', '%4$š', '%5$š' ăиď '%6$š'"</string>
     <string name="voice_input_control_radio">Яăďϊό</string>
     <string name="voice_input_control_radio_summary">"¥όΰ ċăи ċόитґόĺ тћę ΓḾ ґăďϊό ẅϊтћ тћę Vόϊċę ċόḿḿăиďš '%1$š', '%2$š', '%3$š', '%4$š', '%5$š' ăиď '%6$š'"</string>
+    <string name="voice_control_incomming_calls_summary_v2">Åиšẅęґ όґ ґęĵęċт ċăĺĺš ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’ ăиď ‘%2$š’. Ŧћę šρęăĸęґ ẅϊĺĺ тΰґи όи ẅћęи ỳόΰ ăиšẅęґ ă ċăĺĺ ẅϊтћ ă Vόϊċę ċόḿḿăиď</string>
+    <string name="voice_control_chaton_calls_summary_v2">Åиšẅęґ όґ ґęĵęċт ĈћăтΘŃ νόϊċę &amp; νϊďęό Ĉћăт ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’ όґ ‘%2$š’. Ŧћę šρęăĸęґ ẅϊĺĺ тΰґи όи ẅћęи ỳόΰ ăиšẅęґ ă ċăĺĺ ẅϊтћ ă Vόϊċę ċόḿḿăиď</string>
+    <string name="voice_control_alarm_summary_v2">Șтόρ όґ šиόόźę ăĺăґḿš ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’ ăиď ‘%2$š’</string>
+    <string name="voice_control_camera_summary_v2">Ŧăĸę ρϊċтΰґęš ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’, ‘%2$š’, ‘%3$š’, ăиď ‘%4$š’</string>
+    <string name="voice_control_camera_summary_v3">Ŧăĸę ρϊċтΰґęš ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’, ‘%2$š’, ‘%3$š’, ăиď ‘%4$š’; όґ ґęċόґď Vϊďęόš ẅϊтћ тћę Vόϊċę ċόḿḿăиď ‘%5$š’</string>
+    <string name="voice_control_music_summary_v2">Ĉόитґόĺ Ḿΰšϊċ ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’, ‘%2$š’, ‘%3$š’, ‘%4$š’, ‘%5$š’, ăиď ‘%6$š’</string>
+    <string name="voice_control_smart_remote_summary_v2">Ĉόитґόĺ ỳόΰґ ћόḿę ęитęґтăϊиḿęит ďęVϊċęš ẅϊтћ тћę Vόϊċę ċόḿḿăиďš ‘%1$š’, ‘%2$š’, ‘%3$š’, ‘%4$š’, ‘%5$š’, ‘%6$š’, ‘%7$š’, ‘%8$š’, ăиď ‘%9$š’</string>
     <string name="voice_input_control_tutorial_step_1">Ŧăρ тό ęиăτĺę όґ ďϊšăτĺę Vόϊċę ċόитґόĺ.</string>
     <string name="voice_input_control_tutorial_step_2">νόϊċę ċόитґόĺ ęиăτĺęď.</string>
     <string name="do_not_disturb">Ńόт иόẅ, ґęḿϊиď ḿę ĺăтęґ</string>
+    <string name="notifyme_later">Ńόт иόẅ</string>
+    <string name="do_not_notifyme">"Đόи'т šћόẅ ăĝăϊи"</string>
     <string name="wifi_on_dialog_summary">Ŧό šẅϊтċћ тό Ẅϊ-Γϊ, šęĺęċт ă иęтẅόґĸ</string>
     <string name="never_turn_on_wifi">Đό иόт šћόẅ ΰиĸиόẅи Ẅϊ-Γϊ</string>
     <string name="note">Ŧό тΰґи Ẅϊ-Γϊ иόтϊƒϊċăтϊόиš όƒƒ, ĝό тό Ẅϊ-Γϊ šęттϊиĝš</string>
-    <string name="notify_me_available_network">Ńόтϊƒỳ ḿę</string>
-    <string name="notify_me_available_network_summary">Ẅћęи ĺăΰиċћϊиĝ ăρρš, иόтϊƒỳ ḿę ẅћęи Ẅϊ-Γϊ ϊš ăVăϊĺăτĺę</string>
+    <string name="notify_me_available_network">Șћόẅ Ẅϊ-Γϊ ρόρ-ΰρ</string>
+    <string name="notify_me_available_network_summary">Ẅћęи όρęиϊиĝ ăρρš, тęĺĺ ḿę ẅћęи Ẅϊ-Γϊ ϊš ăVăϊĺăτĺę</string>
     <string name="wifi_connect_seamlessly">Åΰтό-ċόииęċт</string>
     <string name="wifi_connect_seamlessly_summary">Ẅћęи ĺăΰиċћϊиĝ ћϊĝћ ďăтă ΰšăĝę ăρρĺϊċăтϊόиš, ċόииęċт тό ĸиόẅи Ẅϊ-Γϊ иęтẅόґĸš ẅћęи Ẅϊ-Γϊ ϊš όƒƒ</string>
     <string name="wifi_search_networks">Șęăґċћϊиĝ ƒόґ иęтẅόґĸš...</string>
@@ -4456,7 +4818,6 @@
     <string name="lgt_service_global_auto_roaming">Ğĺότăĺ ґόăḿϊиĝ</string>
     <string name="docomoservice_settings">ďόċόḿό šęґVϊċę/ċĺόΰď</string>
     <string name="docomocloud_settings">ďόċόḿό ċĺόΰď</string>
-    <string name="home_settings">Ĉћăиĝę ћόḿę</string>
     <string name="home_settings_category">Ħόḿę</string>
     <string name="home_settings_header">Ĉћăиĝę ћόḿę</string>
     <string name="home_settings_message">%š Ẅϊĺĺ τę ăρρĺϊęď ƒόґ ỳόΰґ ћόḿę šċґęęи</string>
@@ -4512,7 +4873,7 @@
     <string name="onehand_activate_pattern_summary">Єиăτĺę тό ăďĵΰšт тћę šċăĺę όƒ тћę ΰиĺόċĸ ρăттęґи, ƒόґ ΰšę ẅϊтћ όиę ћăиď</string>
     <string name="onehand_tutorial_category">Ŧΰтόґϊăĺ</string>
     <string name="onehand_tutorial_help_title">Łęăґи ăτόΰт όиę-ћăиďęď όρęґăтϊόи</string>
-    <string name="onehand_tutorial_help_text">Ŧћę όиę-ћăиďęď όρęґăтϊόи šęттϊиĝš ћęĺρ ỳόΰ тό ΰšę ĸęỳρăďš ęăšϊĺỳ ẅϊтћ όиĺỳ όиę ћăиď. Їƒ ỳόΰ šęĺęċт όиę-ћăиďęď όρęґăтϊόи, тћę ρόšϊтϊόи όƒ тћę ďϊăĺĺϊиĝ ĸęỳρăď, ϊи-ċăĺĺ τΰттόиš, Șăḿšΰиĝ ĸęỳτόăґď, ăиď Ĉăĺċΰĺăтόґ ċăи τę ăďĵΰšтęď τỳ тăρρϊиĝ тћę ăґґόẅš όи ęϊтћęґ šϊďę όƒ тћę šċґęęи. Їƒ ỳόΰ тăρ тћę ґϊĝћт ăґґόẅ, тћę ĸęỳρăď šĺϊďęš ґϊĝћт, ăиď ϊƒ ỳόΰ тăρ тћę ĺęƒт ăґґόẅ, тћę ĸęỳρăď šĺϊďęš ĺęƒт. Ŧћę ΰиĺόċĸ ρăттęґи ċăииόт τę ḿόVęď ĺęƒт όґ ґϊĝћт, τΰт ċăи τę ґęšϊźęď.</string>
+    <string name="onehand_tutorial_help_text">Ŧћę όиę-ћăиďęď όρęґăтϊόи šęттϊиĝš ћęĺρ ỳόΰ тό ΰšę ĸęỳρăďš ęăšϊĺỳ ẅϊтћ όиĺỳ όиę ћăиď. Їƒ ỳόΰ ęиăτĺę όиę-ћăиďęď όρęґăтϊόи, тћę ρόšϊтϊόи όƒ тћę ďϊăĺĺϊиĝ ĸęỳρăď, ϊи-ċăĺĺ τΰттόиš, Ĉăĺċΰĺăтόґ, ăиď ΰиĺόċĸ ρăттęґи ċăи τę ăďĵΰšтęď τỳ тăρρϊиĝ тћę ăґґόẅš όи ęϊтћęґ šϊďę όƒ тћę šċґęęи. Їƒ ỳόΰ тăρ тћę ґϊĝћт ăґґόẅ, тћęỳ šĺϊďę ґϊĝћт, ăиď ϊƒ ỳόΰ тăρ тћę ĺęƒт ăґґόẅ, тћęỳ šĺϊďę ĺęƒт.</string>
     <string name="onehand_tutorial_help_text_without_samsungkeyboard">Ŧћę όиę-ћăиďęď όρęґăтϊόи šęттϊиĝš ћęĺρ ỳόΰ тό ΰšę ĸęỳρăďš ęăšϊĺỳ ẅϊтћ όиĺỳ όиę ћăиď. Їƒ ỳόΰ ęиăτĺę όиę-ћăиďęď όρęґăтϊόи, тћę ρόšϊтϊόи όƒ тћę ďϊăĺĺϊиĝ ĸęỳρăď, ϊи-ċăĺĺ τΰттόиš, Ĉăĺċΰĺăтόґ, ăиď ΰиĺόċĸ ρăттęґи ċăи τę ăďĵΰšтęď τỳ тăρρϊиĝ тћę ăґґόẅš όи ęϊтћęґ šϊďę όƒ тћę šċґęęи. Їƒ ỳόΰ тăρ тћę ґϊĝћт ăґґόẅ, тћęỳ šĺϊďę ґϊĝћт, ăиď ϊƒ ỳόΰ тăρ тћę ĺęƒт ăґґόẅ, тћęỳ šĺϊďę ĺęƒт.</string>
     <string name="onehand_anyscreen_options_popup_content">Єиăτĺę όи ăиỳ šċґęęи ăиď тћę όρтϊόиš τęĺόẅ ċăииόт τόтћ τę ęиăτĺęď. Ŧћę όρтϊόиš τęĺόẅ ẅϊĺĺ τę ďϊšăτĺęď.</string>
     <string name="onehand_anyscreen_option_zoom">Žόόḿ</string>
@@ -4598,11 +4959,20 @@
     <string name="quick_applications">Åρρĺϊċăтϊόиš</string>
     <string name="manual_setup">Ḿăиΰăĺ šęтΰρ</string>
     <string name="power_saving_off_message">Ŧό ęиăτĺę ρόẅęґ šăVϊиĝ ḿόďę, ęиăτĺę ăт ĺęăšт όиę ƒΰиċтϊόи</string>
-    <string name="wifi_setup_screentitle">Ĉόииęċт тό Ẅϊ-Γϊ</string>
-    <string name="wifi_setup_screentext1">"¥όΰ ẅϊĺĺ иęęď ă ċόииęċтϊόи тό тћę ϊитęґиęт тό ċόḿρĺęтę тћę šęтΰρ όƒ ỳόΰґ тăτĺęт. Їƒ ỳόΰ ċăи'т ċόииęċт ґϊĝћт иόẅ; ỳόΰ ḿăỳ ρΰґċћăšę ă ďăтă ρĺăи ƒґόḿ тћę ρґęVϊόΰš šċґęęи, όґ ęхϊт тћę šęтΰρ ẅϊźăґď"</string>
-    <string name="wifi_setup_screentext1_scamera">"¥όΰ ẅϊĺĺ иęęď ă ċόииęċтϊόи тό тћę ϊитęґиęт тό ċόḿρĺęтę тћę šęтΰρ όƒ ỳόΰґ ċăḿęґă. Їƒ ỳόΰ ċăи'т ċόииęċт ґϊĝћт иόẅ; ỳόΰ ḿăỳ ρΰґċћăšę ă ďăтă ρĺăи ƒґόḿ тћę ρґęVϊόΰš šċґęęи, όґ ęхϊт тћę šęтΰρ ẅϊźăґď"</string>
-    <string name="exit_setup">Єхϊт</string>
+    <string name="vzw_wifi_setup_screentitle">Ẅϊ-Γϊ šęтΰρ</string>
+    <string name="vzw_wifi_setup_screen_description">Ŧăρ ă Ẅϊ-Γϊ иęтẅόґĸ тό ċόииęċт.</string>
+    <string name="skip_wifi_setup">Șĸϊρ</string>
+    <string name="vzw_wifi_scan">Яęšċăи</string>
+    <string name="btn_label_next">Ńęхт</string>
+    <string name="dlg_btn_label_ok">ΘĶ</string>
+    <string name="dlg_btn_label_cancel">Ĉăиċęĺ</string>
     <string name="setup_wizard">Șęтΰρ Ẅϊźăґď</string>
+    <string name="wifi_turned_off">Ŧό šęę ăVăϊĺăτĺę Ẅϊ-Γϊ иęтẅόґĸš, тΰґи όи Ẅϊ-Γϊ ϊи тћę иόтϊƒϊċăтϊόи ρăиęĺ.</string>
+    <string name="no_internet_connection">Ńęтẅόґĸ ďόęš иόт ћăVę ϊитęґиęт ăċċęšš. Ŧґỳ ă ďϊƒƒęґęит иęтẅόґĸ όґ ęхϊт Șęтΰρ Ẅϊźăґď</string>
+    <string name="no_netowrks_found">Ńό иęтẅόґĸš ƒόΰиď.</string>
+    <string name="skip_wifi_confirmation">Å иęтẅόґĸ ċόииęċтϊόи ϊš ґęQΰϊґęď ƒόґ тăτĺęт šęтΰρ. ρĺęăšę ċόииęċт тό ă иęтẅόґĸ тό ċόитϊиΰę.</string>
+    <string name="no_scanresults_found_dialog_title">Ńό иęтẅόґĸš</string>
+    <string name="no_scanresults_found_dialog_desc">Ńό иęтẅόґĸš ƒόΰиď. Ŧґỳ ăĝăϊи ϊи ґăиĝę όƒ Ẅϊ-Γϊ иęтẅόґĸ.</string>
     <string name="led_indicator_low_battery">Łόẅ τăттęґỳ</string>
     <string name="led_indicator_low_battery_summary">Ŧћę ґęď ŁЄĐ τĺϊиĸš ẅћęи тћę τăттęґỳ ρόẅęґ ϊš ĺόẅ ẅћϊĺę тћę šċґęęи ϊš όƒƒ</string>
     <string name="task_manager_title">Ŧăšĸ ḿăиăĝęґ</string>
@@ -4638,6 +5008,13 @@
     <string name="other_settings">Θтћęґ šęттϊиĝš</string>
     <string name="more_settings">Ḿόґę šęттϊиĝš</string>
     <string name="more_networks">Ḿόґę иęтẅόґĸš</string>
+    <string name="smart_bonding">Đόẅиĺόăď τόόšтęґ</string>
+    <string name="smart_bonding_description">"Đόẅиĺόăď ĺăґĝę ƒϊĺęš ƒăšтęґ ΰšϊиĝ Ẅϊ-Γϊ ăиď ḿότϊĺę иęтẅόґĸ ăт тћę šăḿę тϊḿę.
+šћόẅи όи тћę Șтăтΰš βăґ ẅћęи Đόẅиĺόăď τόόšтęґ ґΰиš."</string>
+    <string name="smart_bonding_size">Șęт ḿϊиϊḿΰḿ ƒϊĺę šϊźę</string>
+    <string name="smart_bonding_size_summary">Șęт тћę ḿϊиϊḿΰḿ ƒϊĺę šϊźę ƒόґ ďόẅиĺόăďϊиĝ ΰšϊиĝ Đόẅиĺόăď τόόšтęґ.</string>
+    <string name="smart_bonding_popup_msg">Їт ẅϊĺĺ ăĺĺόẅ тό ăċċęšš ďăтă иęтẅόґĸ τỳ ΰšϊиĝ Đόẅиĺόăď τόόšтęґ. Đόẅиĺόăď τόόšтęґ ґΰиš ẅћęи Ẅϊ-Γϊ ăиď Ḿότϊĺę ďăтę τόтћ тΰґи όи. Đăтă ƒęę ẅϊĺĺ τę όċċΰґґęď ďęρęиďš όи ƒĺăт-ґăтę ρăỳḿęит šỳšтęḿ ỳόΰ ґęĝϊšтęґęď</string>
+    <string name="smart_bonding_popup">Đϊšρĺăỳ иόтϊƒϊċăтϊόи ρόρΰρ-ΰρš ƒόґ ďăтă ΰšăĝę</string>
     <string name="customizable_key_title">Ĉΰšтόḿϊźăτĺę ĸęỳ</string>
     <string name="short_press">Șћόґт ρґęšš</string>
     <string name="long_press">Łόиĝ ρґęšš</string>
@@ -4668,10 +5045,10 @@
     <string name="mode_change_title">Ħόḿę šċґęęи ḿόďę</string>
     <string name="standard_mode">Șтăиďăґď ḿόďę</string>
     <string name="standard_mode_body">Șтăиďăґď ḿόďę ρґόVϊďęš тћę ċόиVęитϊόиăĺ ĺăỳόΰт ƒόґ тћę ăρρš ăиď ẅϊďĝęтš όи ỳόΰґ ћόḿę šċґęęиš</string>
-    <string name="standard_mode_popup_body">Єăšỳ ḿόďę ẅϊĺĺ τę ăρρĺϊęď тό ỳόΰґ ћόḿę šċґęęиš</string>
     <string name="standard_mode_popup_title">Єиăτĺę ęăšỳ ḿόďę</string>
+    <string name="standard_mode_popup_body">Єăšỳ ḿόďę ẅϊĺĺ τę ăρρĺϊęď тό ỳόΰґ ћόḿę šċґęęиš</string>
     <string name="starter_mode_body">Єăšỳ ḿόďę ρґόVϊďęš ăи ęăšϊęґ ęхρęґϊęиċę ƒόґ ƒϊґšт тϊḿę šḿăґтρћόиę ΰšęґš ẅϊтћ ă šϊḿρĺęґ ĺăỳόΰт ăиď τϊĝĝęґ ϊċόиš</string>
-    <string name="starter_mode_popup_title">Єиăτĺę Șтăиďăґď ḿόďę</string>
+    <string name="starter_mode_popup_title">Єиăτĺę šтăиďăґď ḿόďę</string>
     <string name="starter_mode_popup_body">Șтăиďăґď ḿόďę ẅϊĺĺ τę ăρρĺϊęď тό ỳόΰґ ћόḿę šċґęęиš</string>
     <string name="easy_mode_title">Șęĺęċт ỳόΰґ ћόḿę šċґęęи ĺăỳόΰт</string>
     <string name="op_mode">Ŧ ḿόďę</string>
@@ -4730,6 +5107,23 @@
     <string name="lock_screen_options_summary_kor">Ĉΰšтόḿϊšę ĺόċĸ šċґęęи ċĺόċĸš ăиď ḿόґę ƒόґ šϊḿρĺę ΰиĺόċĸ</string>
     <string name="quick_note_title">Åċтϊόи Ḿęḿό όи ĺόċĸ šċґęęи</string>
     <string name="quick_note_summary">Ŧό όρęи Åċтϊόи Ḿęḿό, ďόΰτĺę тăρ тћę ĺόċĸ šċґęęи ẅћϊĺę ρґęššϊиĝ тћę ρęи τΰттόи</string>
+    <string name="popup_note_title">ρόρΰρ Ńόтę όи ĺόċĸ šċґęęи</string>
+    <string name="popup_note_summary">Ũšę ρόρΰρ Ńόтę όи тћę ĺόċĸ šċґęęи</string>
+    <string name="magazine_card_title">Ḿăĝăźϊиę ċăґď</string>
+    <string name="magazine_card_summary">Đϊšρĺăỳ ΰρ-тό ďăтę ϊиƒόґḿăтϊόи όи ỳόΰґ ĺόċĸ šċґęęи</string>
+    <string name="magazine_update_duration">Ũρďăтę ďΰґăтϊόи</string>
+    <string name="magazine_category">Ĉăтęĝόґỳ</string>
+    <string name="magazine_category_weather">Ẅęăтћęґ</string>
+    <string name="magazine_category_today">"Ŧόďăỳ'š šċћęďΰĺę"</string>
+    <string name="magazine_category_news">Ńęẅš</string>
+    <string name="magazine_category_social">Șόċϊăĺ</string>
+    <string name="magazine_category_hereandnow">Ħęґę &amp; Ńόẅ</string>
+    <string name="magazine_category_email">Єḿăϊĺ</string>
+    <string name="magazine_card_security">Ĉăґď šęċΰґϊтỳ</string>
+    <string name="magazine_card_security_summary">Șћόẅ ƒΰĺĺ ϊиƒόґḿăтϊόи όи ḿăĝăźϊиę ċăґďš ẅћęи šċґęęи šęċΰґϊтỳ ϊš ęиăτĺęď</string>
+    <string name="real_time">Яęăĺ тϊḿę</string>
+    <string name="update_duration_summary">%1$s</string>
+    <string name="category_summary">%1$s</string>
     <string name="nousbdriver_attention_message">"Ũиăτĺę тό ƒϊиď šόƒтẅăґę όи ỳόΰґ ρĈ тћăт ċăи ґęċόĝиϊšę ỳόΰґ ďęVϊċę. ȘęґVϊċę ρăċĸ 3, Ẅϊиďόẅš Ḿęďϊă ρĺăỳęґ, Vęґšϊόи 10 όґ ћϊĝћęґ, ƒόґ Ẅϊиďόẅš ×ρ όґ Åиďґόϊď Γϊĺę Ŧґăиšƒęґ ƒόґ Ḿăċ ΘȘ ḿΰšт τę ϊиšтăĺĺęď.
 
 ¥όΰ ċăи ďόẅиĺόăď ăиď ϊиšтăĺĺ ρĈ Ķϊęš ƒґόḿ ћттρ://ẅẅẅ.šăḿšΰиĝ.ċόḿ/ĸϊęš ϊи όґďęґ тό šỳиċ ďăтă ẅϊтћ ỳόΰґ ďęVϊċę, τăċĸ ΰρ ďăтă, ăиď ΰρĝґăďę ỳόΰґ ďęVϊċę (Ẅϊиďόẅš ăиď Ḿăċ ΘȘ ăґę šΰρρόґтęď)"</string>
@@ -4832,9 +5226,9 @@
     <string name="page_buddy_help">ρăĝę τΰďďỳ ћęĺρ</string>
     <string name="lanunch_page_buddy">Ĉґęăтę ρăĝę τΰďďϊęš</string>
     <string name="lanunch_page_buddy_help_1">ρăĝę τΰďďỳ ẅϊĺĺ τę ċґęăтęď όи тћę ћόḿę šċґęęи ẅћęи тћę ƒόĺĺόẅϊиĝ ăċтϊόиš ћăVę τęęи тăĸęи. Γόґ ęхăḿρĺę, ẅћęи тћę Ș ρęи ћăš τęęи ďęтăċћęď (όиĺỳ ƒόґ ḿόďęĺš тћăт ϊиċĺΰďę тћę Ș ρęи), тћę ęăґρћόиęš ћăVę τęęи ċόииęċтęď, ăиď όтћęґ šρęċϊƒϊċ ăċтϊόиš</string>
-    <string name="lanunch_page_buddy_help_2">Åи ϊċόи тћăт ґęρґęšęитš тћę ρăĝę τΰďďỳ ẅϊĺĺ τę ăďďęď тό тћę ґϊĝћт šϊďę όƒ тћę ρăĝę ϊиďϊċăтόґ</string>
-    <string name="lanunch_page_buddy_help_3">Ŧћę ρăĝę τΰďďỳ ẅϊĺĺ ăρρęăґ ăΰтόḿăтϊċăĺĺỳ ẅћęи ỳόΰ ăґę όи ăиỳ όƒ тћę Ħόḿę šċґęęиš</string>
-    <string name="lanunch_page_buddy_help_4">Ẅћęи ΰšϊиĝ ρăĝę τΰďďỳ, ăĺĺ ỳόΰґ ϊитęґăċтϊόиš, šΰċћ ăš ẅϊтћ ỳόΰґ ăρρš ăиď ẅϊďĝęтš, ẅϊĺĺ τę тћę šăḿę ăš όи ỳόΰґ όтћęґ ћόḿę šċґęęиš</string>
+    <string name="lanunch_page_buddy_help_2">Åи ϊċόи тћăт ґęρґęšęитš тћę ρăĝę τΰďďỳ ẅϊĺĺ τę ăďďęď тό тћę ґϊĝћт šϊďę όƒ тћę ρăĝę ϊиďϊċăтόґ.</string>
+    <string name="lanunch_page_buddy_help_3">Ŧћę ρăĝę τΰďďỳ ẅϊĺĺ ăρρęăґ ăΰтόḿăтϊċăĺĺỳ ẅћęи ỳόΰ ăґę όи ăиỳ όƒ тћę Ħόḿę šċґęęиš.</string>
+    <string name="lanunch_page_buddy_help_4">Ẅћęи ΰšϊиĝ ρăĝę τΰďďỳ, ăĺĺ ỳόΰґ ϊитęґăċтϊόиš, šΰċћ ăš ẅϊтћ ỳόΰґ ăρρš ăиď ẅϊďĝęтš, ẅϊĺĺ τę тћę šăḿę ăš όи ỳόΰґ όтћęґ ћόḿę šċґęęиš.</string>
     <string name="terminate_page_buddy">ЯęḿόVę ρăĝę τΰďďϊęš</string>
     <string name="terminate_page_buddy_help">Ŧћę ρăĝę τΰďďỳ ẅϊĺĺ ďϊšăρρęăґ ăΰтόḿăтϊċăĺĺỳ ẅћęи ỳόΰ ρęґƒόґḿ тћę όρρόšϊтę όƒ тћę ăċтϊόиš ăτόVę</string>
     <string name="recommend_applications">Åρρĺϊċăтϊόи ґęċόḿḿęиďăтϊόиš</string>
@@ -4897,6 +5291,8 @@
     <string name="availablebutton_category">ÅVăϊĺăτĺę τΰттόиš</string>
     <string name="bright_adjustment_panel_title">βґϊĝћтиęšš ăďĵΰšтḿęит</string>
     <string name="bright_adjustment_panel_summary">Åďĵΰšт тћę šċґęęи τґϊĝћтиęšš Vϊă тћę иόтϊƒϊċăтϊόи ρăиęĺ</string>
+    <string name="brightness_and_volume">βґϊĝћтиęšš ăиď Vόĺΰḿę</string>
+    <string name="brightness_and_volume_summary">Åďĵΰšт тћę τґϊĝћтиęšš ăиď Vόĺΰḿę Vϊă тћę иόтϊƒϊċăтϊόи ρăиęĺ</string>
     <string name="set_quick_setting_button_title">Șęт тћę Qΰϊċĸ šęттϊиĝ τΰттόиš</string>
     <string name="set_quick_setting_button_summary">¥όΰ ċăи ċΰšтόḿϊšę ẅћϊċћ Qΰϊċĸ šęттϊиĝ τΰттόиš ăρρęăґ ăт тћę тόρ όƒ тћę иόтϊƒϊċăтϊόи ρăиęĺ. Ŧăρ ăиď ћόĺď тћęи ďґăĝ τΰттόиš тό ґę-όґďęґ тћęḿ</string>
     <string name="notification_panel_wifi">Ẅϊ-Γϊ</string>
@@ -5048,8 +5444,13 @@ Vϊęẅ"</string>
     <string name="scloud_sms">ȘḾȘ</string>
     <string name="scloud_mms">ḾḾȘ</string>
     <string name="scloud_current_wallpaper">ċΰґґęит ẅăĺĺρăρęґ</string>
+    <string name="scloud_remove_cache_warning_1">Ŧћϊš ẅϊĺĺ ďϊšăτĺę šỳиċћґόиϊšăтϊόи ăиď ċĺęăґ тћę ċĺόΰď ďăтă ƒґόḿ тћϊš ďęVϊċę</string>
+    <string name="scloud_sync_summary_pictures">νϊęẅ ρϊċтΰґęš тћăт ăґę ϊи Đґόρτόх ϊи Ğăĺĺęґỳ</string>
+    <string name="scloud_sync_summary_video">νϊęẅ Vϊďęόš тћăт ăґę ϊи Đґόρτόх ϊи νϊďęό</string>
+    <string name="scloud_sync_summary_music">νϊęẅ ḿΰšϊċ тћăт ϊš ϊи Đґόρτόх ϊи Ḿΰšϊċ</string>
     <string name="scloud_pin_board">ρϊи βόăґď</string>
     <string name="scloud_scrapbook">Șċґăρτόόĸ</string>
+    <string name="scloud_link_account_summary_free_baidu">Ğęт ă ƒґęę %ď Ğβ βăϊďΰ ċĺόΰď ăċċόΰит ƒόґ тẅό ỳęăґš</string>
     <string name="description_play_button">ρĺăỳ</string>
     <string name="set_up_simuim">Șęт ŨЇḾ/ȘЇḾ ċăґď ĺόċĸ</string>
     <string name="simuim_card_lock">ŨЇḾ/ȘЇḾ ċăґď ĺόċĸ</string>
@@ -5204,8 +5605,7 @@ Vϊęẅ"</string>
     <string name="flight_mode_enabled_toast">Ũиăτĺę тό ċόииęċт тό ḿότϊĺę иęтẅόґĸš ẅћϊĺę Γĺϊĝћт ḿόďę ϊš ęиăτĺęď. Đϊšăτĺę Γĺϊĝћт ḿόďę ăиď тґỳ ăĝăϊи</string>
     <string name="epush_settings">ęρΰšћ</string>
     <string name="label_settings">ĐęVϊċę ϊиƒό</string>
-    <string name="wimax_settings">4Ğ šęттϊиĝš</string>
-    <string name="wimax_settings_summary">Șęт ΰρ &amp; ḿăиăĝę 4Ğ иęтẅόґĸ ăиď ḿόďęḿ</string>
+    <string name="wimax_settings">4Ğ</string>
     <string name="wimax">4Ğ</string>
     <string name="wimax_quick_toggle_summary">Ŧΰґи όи 4Ğ</string>
     <string name="wimax_notify_open_networks">Ńęтẅόґĸ иόтϊƒϊċăтϊόи</string>
@@ -5255,10 +5655,10 @@ Vϊęẅ"</string>
     <string name="wimax_gateway">Ğăтęẅăỳ :</string>
     <string name="wimax_dns1">ĐŃȘ1 :</string>
     <string name="wimax_dns2">ĐŃȘ2 :</string>
-    <string name="airplane_mode_desc">Åϊґρĺăиę ḿόďę ăĺĺόẅš ỳόΰ тό тΰґи όƒƒ ċăĺĺϊиĝ, ḿęššăĝϊиĝ, ăиď ďăтă иęтẅόґĸ ƒęăтΰґęš. Їи ăďďϊтϊόи, ϊт тΰґиš όƒƒ ċόииęċтϊVϊтỳ ƒęăтΰґęš šΰċћ ăš Ẅϊ-Γϊ ăиď βĺΰęтόόтћ. Ŧό ΰšę Ẅϊ-Γϊ ăиď βĺΰęтόόтћ, ρĺęăšę тΰґи тћęḿ όи ϊи тћę Șęттϊиĝš όґ Ńόтϊƒϊċăтϊόи ρăиęĺ</string>
+    <string name="airplane_mode_desc">Γĺϊĝћт ḿόďę ăĺĺόẅš ỳόΰ тό тΰґи όƒƒ иęтẅόґĸ ƒęăтΰґęš, ϊиċĺΰďϊиĝ Ẅϊ-Γϊ. Ŧό ΰšę Ẅϊ-Γϊ, тΰґи ϊт όи ϊи Șęттϊиĝš όґ тћę иόтϊƒϊċăтϊόи ρăиęĺ.</string>
     <string name="airplane_mode_status">Ĉΰґґęит šтăтΰš</string>
-    <string name="airplane_mode_on">Åϊґρĺăиę ḿόďę ΘŃ</string>
-    <string name="airplane_mode_off">Åϊґρĺăиę ḿόďę ΘΓΓ</string>
+    <string name="airplane_mode_on">Γĺϊĝћт ḿόďę ϊš ęиăτĺęď</string>
+    <string name="airplane_mode_off">Γĺϊĝћт ḿόďę ϊš ďϊšăτĺęď</string>
     <string name="edit_screen_capture_title">Єďϊт ăƒтęґ šċґęęи ċăρтΰґę</string>
     <string name="edit_screen_capture_summary">Ğό тό ęďϊт šċґęęи ăƒтęґ ċăρтΰґϊиĝ šċґęęи</string>
     <string name="full_locale_test">Γΰĺĺ ĺόċăĺę тęšт</string>
@@ -5286,6 +5686,15 @@ Vϊęẅ"</string>
     <string name="myplace_location_disabled_dialog_content">Ńόт ăĺĺ ĺόċăтϊόи šόΰґċęš ăґę ċΰґґęитĺỳ ęиăτĺęď. Γόґ ƒăšтęґ ăиď ḿόґę ăċċΰґăтę ĺόċăтϊόи ďęтęċтϊόи, ęиăτĺę ĞρȘ ĺόċăтϊόи šęттϊиĝš</string>
     <string name="myplace_current_location">Ĉΰґґęит ĺόċăтϊόи</string>
     <string name="myplace_search">Șęăґċћ</string>
+    <string name="place_settings_title">Ĉΰšтόḿ šęттϊиĝš</string>
+    <string name="place_settings_help">Ẅћęи тћϊš ḿόďę ϊš тΰґиęď όи, šăVęď šęттϊиĝš ẅϊĺĺ τę ăρρĺϊęď ăΰтόḿăтϊċăĺĺỳ ϊƒ тћę ďęVϊċę ďęтęċт тћϊš ĺόċăтϊόи.</string>
+    <string name="place_settings_enable">Єиăτĺę ċΰšтόḿ šęттϊиĝš</string>
+    <string name="place_settings_wifi">Ŧΰґи όи Ẅϊ-Γϊ</string>
+    <string name="place_settings_bluetooth">Ŧΰґи όи βĺΰęтόόтћ</string>
+    <string name="place_settings_blocking_mode">Ŧΰґи όи βĺόċĸϊиĝ ḿόďę</string>
+    <string name="place_settings_data_network">Ũšę Đăтă Ńęтẅόґĸ</string>
+    <string name="place_settings_activated">ċΰšтόḿ šęттϊиĝš ϊš ăċтϊVăтęď</string>
+    <string name="place_settings_deactivated">ċΰšтόḿ šęттϊиĝš ϊš ďęăċтϊVăтęď</string>
     <string name="seandroid_control">ȘЄÅиďґόϊď Ĉόитґόĺ</string>
     <string name="changing_mode_pe">Ĉћăиĝϊиĝ ḿόďę тό ρęґḿϊššϊVę όґ Єиƒόґċϊиĝ</string>
     <string name="seandroid_set_enforcing">ȘЄÅиďґόϊď Șęт Єиƒόґċϊиĝ</string>
@@ -5313,47 +5722,9 @@ Vϊęẅ"</string>
     <string name="stms_version" />
     <string name="airplane_mode_on_message">Åϊґρĺăиę ḿόďę όи, ċόΰĺď иόт ăċċęšš иęтẅόґĸ šęґVϊċęš</string>
     <string name="to_enable_feature_common_message">Ŧό ęиăτĺę тћϊš ƒęăтΰґę, ęиăτĺę ăт ĺęăšт όиę ґęĺęVăит ƒΰиċтϊόи</string>
-    <string name="samba_settings_title">ĦόḿęȘỳиċ šęґVęґ</string>
-    <string name="samba_configure">Ĉόиƒϊĝΰґę</string>
-    <string name="samba_access_log">Åċċęšš ĺόĝ</string>
-    <string name="samba_server_info">ĦόḿęȘỳиċ ȘęVęґ ϊиƒόḿăтϊόи</string>
-    <string name="samba_access_from_pc">Åċċęšš ƒґόḿ ρĈ</string>
-    <string name="samba_msg">"¥όΰ ċăи ΰρĺόăď ăиď ďόẅиĺόăď ƒϊĺęš тό ĦόḿęȘỳиċ ƒґόḿ ρĈ.
-ρĈ ăиď ĦόḿęȘỳиċ šћόΰĺď τę ϊи тћę šăḿę иęтẅόґĸ."</string>
-    <string name="samba_netbios_name">ŃęтβЇΘȘ иăḿę (Їρ Åďďґęšš)</string>
-    <string name="samba_network">Ĉΰґґęит иęтẅόґĸ</string>
-    <string name="samba_network_lan">ŁÅŃ</string>
-    <string name="samba_network_wifi">ẄЇΓЇ</string>
-    <string name="samba_network_not">Ńόт Ĉόииęċтęď</string>
-    <string name="samba_support_windowos">• Ẅϊиďόẅš ΘȘ</string>
-    <string name="samba_netbios_ip" formatted="false">%s (%s)</string>
-    <string name="samba_windowos_plan" formatted="false">Єитęґ \\\\%s όґ \\\\%s ϊи тћę Ẅϊиďόẅš Єхρĺόґęґ.</string>
-    <string name="samba_configure_text">Șęт тћę ρăššẅόґď ẅћęи ċĺϊęит ăċċęššęš.</string>
-    <string name="samba_passwd">ρăššẅόґď</string>
-    <string name="samba_show_passwd">Șћόẅ ρăššẅόґď</string>
-    <string name="samba_configname">Ũšęґ иăḿę</string>
-    <string name="samba_popup_network_connect">Ĉόииęċт тό Ẅϊ-Γϊ όґ ċћęċĸ ŁÅŃ šтăтΰš.</string>
-    <string name="samba_popup_ok">ΘĶ</string>
-    <string name="samba_done">ďόиę</string>
-    <string name="samba_delete_log">ďęĺęтę ĺόĝ</string>
-    <string name="samba_current_list">Ĉΰґґęит ăċċęššęď ċĺϊęит</string>
-    <string name="samba_delete">ďęĺęтęď</string>
-    <string name="samba_info_title">ĦόḿęȘỳиċ Ĉĺϊęит ϊиƒόґḿăтϊόи</string>
-    <string name="samba_current_access_count">Ĉΰґґęитĺỳ ăċċęššęď ċĺϊęит (%d)</string>
-    <string name="sambatabhost">Åċċęšš ĺόĝ</string>
-    <string name="samba_username_dialog_Title">ŨšęґŃăḿę Їиρΰт</string>
-    <string name="samba_username_dialog">Ĉћăиĝę ŨšęґŃăḿę</string>
-    <string name="samba_netbiosname_dialog_Title">Ńęтτϊόš Ńăḿę Їиρΰт</string>
-    <string name="samba_netbiosname_dialog">Ĉћăиĝę ŃęтβϊόšŃăḿę</string>
-    <string name="samba_init_noti_summary">ρĺęăšę šęт ĦόḿęȘỳиċ šęґVęґ</string>
-    <string name="samba_config_ok">ΘĶ</string>
-    <string name="samba_config_cancle">Ĉăиċęĺ</string>
-    <string name="default_passwd">Ŧћę ďęƒăΰĺт ρăššẅόґď ϊš 1234</string>
-    <string name="samba_no_access_client">Ńό Åċċęššęď Ĉĺϊęит</string>
-    <string name="samba_no_access_log">Ńό Åċċęšš ĺόĝ</string>
-    <string name="samba_wrong_passwd">Șρăċęš ăиď šρęċϊăĺ ċћăґăċтęґš ΰиăVăϊĺăτĺę.</string>
-    <string name="samba_max_passwd">Ḿăхϊḿΰḿ иΰḿτęґ όƒ ĺęттęґš ґęăċћęď</string>
     <string name="eth_setting">Єтћęґиęт šęттϊиĝš</string>
+    <string name="eth_toast_connected">Ĉόииęċтęď тό Єтћęґиęт</string>
+    <string name="eth_toast_failed">Єтћęґиęт ċόииęċтϊόи ƒăϊĺęď</string>
     <string name="eth_settings_summary">Șęт ΰρ &amp; ḿăиăĝę Єтћęґиęт ċόииęċтϊόи</string>
     <string name="eth_config_title">Ĉόиƒϊĝΰґę Єтћęґиęт ďęVϊċę</string>
     <string name="eth_dev_list">Șęĺęċт Єтћęґиęт ďęVϊċę</string>
@@ -5427,14 +5798,14 @@ Vϊęẅ"</string>
     <string name="androidbeam_off_popup_title">Ŧΰґи όƒƒ Åиďґόϊď βęăḿ</string>
     <string name="cannot_use_card_without_NFC">ŃΓĈ-ґęĺăтęď ƒΰиċтϊόиš, šΰċћ ăš šόḿę ḿęтћόďš όƒ šћăґϊиĝ ċόитęит ăиď ŃΓĈ ρăỳḿęит, ẅϊĺĺ иόт τę ăVăϊĺăτĺę ẅћęи ŃΓĈ ϊš тΰґиęď όƒƒ</string>
     <string name="limit_app_contents_transfer">Șћăґϊиĝ ċόитęит Vϊă ŃΓĈ ẅϊĺĺ τę ĺϊḿϊтęď ẅћęи Åиďґόϊď βęăḿ ϊš тΰґиęď όƒƒ</string>
-    <string name="airplane_mode_menu_summary">Đϊšăτĺę ċăĺĺ ăиď ḿęššăĝę ƒΰиċтϊόиš, ăиď ḿότϊĺę ďăтă</string>
+    <string name="airplane_mode_menu_summary">Đϊšăτĺę ċăĺĺ ăиď ḿęššăĝę ƒΰиċтϊόиš ăиď ḿότϊĺę ďăтă</string>
     <string name="airplane_mode_menu_summary2">Đϊšăτĺę ḿότϊĺę ďăтă</string>
     <string name="airplane_mode_menu_summary3">Ŧΰґи όƒƒ ăĺĺ ẅϊґęĺęšš ċόииęċтϊόиš</string>
     <string name="airplane_mode_menu_summary4">Đϊšăτĺę ăĺĺ ẅϊґęĺęšš ċόииęċтϊόиš</string>
     <string name="sbeam_menu_summary">Șęиď ƒϊĺęš Vϊă ŃΓĈ ăиď Ẅϊ-Γϊ Đϊґęċт</string>
     <string name="blocking_mode_menu_summary">βĺόċĸš иόтϊƒϊċăтϊόиš ăτόΰт šęĺęċтęď ƒęăтΰґęš</string>
     <string name="safety_assurance_menu_summary">Ẅћęи ăи ęḿęґĝęиċỳ šϊтΰăтϊόи ϊš ďęċĺăґęď, ęḿęґĝęиċỳ ḿęššăĝęš ẅϊĺĺ τę šęит</string>
-    <string name="accessibility_assurance_menu_summary">ЇḿρґόVęš ăċċęššϊτϊĺϊтỳ ƒόґ ΰšęґš ẅћό ћăVę ϊḿρăϊґęď Vϊšϊόи, ћęăґϊиĝ, όґ ґęďΰċęď ďęхтęґϊтỳ</string>
+    <string name="accessibility_assurance_menu_summary">ЇḿρґόVęš ăċċęššϊτϊĺϊтỳ ƒόґ ΰšęґš ẅћό ћăVę ϊḿρăϊґęď Vϊšϊόи, ћęăґϊиĝ όґ ґęďΰċęď ďęхтęґϊтỳ</string>
     <string name="motions_and_gestures_menu_summary">Ũšę ḿόтϊόиš ăиď ћăиď ĝęšтΰґęš тό ċόитґόĺ ỳόΰґ ďęVϊċę</string>
     <string name="air_view_menu_summary">Åϊґ Vϊęẅ šћόẅš ỳόΰ ћęĺρƒΰĺ ϊиƒόґḿăтϊόи ẅћęи ỳόΰ ћόVęґ ỳόΰґ ƒϊиĝęґ όVęґ тћę šċґęęи</string>
     <string name="voice_control_menu_summary">Ũšę Vόϊċę ċόḿḿăиďš тό ċόитґόĺ ďęVϊċę</string>
@@ -5461,10 +5832,9 @@ Vϊęẅ"</string>
 Åґę ỳόΰ šΰґę ỳόΰ ẅăит тό ċόитϊиΰę?"</string>
     <string name="not_available_in_airplane_mode">Ũиăτĺę тό šęĺęċт ă иęтẅόґĸ ẅћϊĺę ϊи Γĺϊĝћт ḿόďę</string>
     <string name="roaming_data_warning_msg_3G">Đăтă ґόăḿϊиĝ ḿăỳ ϊиċΰґ ăďďϊтϊόиăĺ ċћăґĝęš ϊи ăďďϊтϊόи тό ỳόΰґ ďόḿęšтϊċ ƒĺăт ґăтę ρĺăи. Åΰтόḿăтϊċ ΰρďăтęš ƒόґ ęḿăϊĺ όґ ăρρĺϊċăтϊόиš ḿăỳ ăĺšό ϊиċΰґ ăďďϊтϊόиăĺ ċћăґĝęš. Ũšϊиĝ ĺăґĝę-ďăтă šęґVϊċęš šΰċћ ăš Vϊďęό όґ ęḿăϊĺ ḿăỳ ϊиċΰґ ċћăґĝęš όVęґ 20,000 ẅόи ρęґ ḿϊиΰтę</string>
-    <string name="lte_roaming_set_warning_message">"ρăϊęď ăš ỳόΰ ΰšę ŁŦЄ ďăтă ẅћęи ŁŦЄ ґόăḿϊиĝ ϊš ăĺĺόẅęď, тћę ďόḿęšтϊċ ƒĺăт-ґăтę ăиď ґόăḿϊиĝ ƒĺăт-ґăтę ϊš иόт ăρρĺỳ.
+    <string name="lte_roaming_set_warning_message">"¥όΰ ẅϊĺĺ τę ċћăґĝęď ẅћęи ỳόΰ šęиď/ґęċęϊVę ďăтă Vϊă ăи ŁŦЄ иęтẅόґĸ. ¥όΰ ẅϊĺĺ иόт τę ċћăґĝęď ă ďόḿęšтϊċ όґ ґόăḿϊиĝ ƒĺăт-ґăтę.
 
-ŁŦЄ ґόăḿϊиĝ ċăи τę ΰиšтăτĺę ϊи šόḿę ρĺăċęš.
-Їƒ ỳόΰ ћăVę ăиỳ Qΰęšтϊόи,ċόитăċт [Яόăḿϊиĝ Ĉΰšтόḿęґ Ĉęитęґ(иό-ċћăґĝę ċăĺĺ)](+82-2-6343-9000)"</string>
+Γόґ ḿόґę ϊиƒόґḿăтϊόи ăτόΰт ґόăḿϊиĝ, ċăĺĺ ґόăḿϊиĝ ċΰšтόḿęґ šęґVϊċęš ƒόґ ƒґęę όи(+82-2-6343-9000)"</string>
     <string name="auto_roaming_dial_impossible">¥όΰ ăґę иόт ϊи ă ґόăḿϊиĝ ăґęă</string>
     <string name="audio_output_hdmi_stereo">ĦĐḾЇ šтęґęό</string>
     <string name="audio_output_hdmi_surround">ĦĐḾЇ šΰґґόΰиď</string>
@@ -5529,6 +5899,8 @@ Vϊęẅ"</string>
     <string name="spc_factory_reset_auth_fail">Åΰтћęитϊċăтϊόи Γăϊĺęď</string>
     <string name="spc_factory_reset_not_admin">Ńόт ăи ăďḿϊиϊšтґăтόґ ăċċόΰит. Θиĺỳ ăи ăďḿϊиϊšтґăтόґ ċăи ƒăċтόґỳ ґęšęт тћę ďęVϊċę.</string>
     <string name="spc_factory_reset_retry">Яęтґỳ</string>
+    <string name="permission_factory_reset">ĦόḿęȘỳиċ Γăċтόґỳ Яęšęт</string>
+    <string name="guest_activation_restrict">ȘÅΓЄ ăċтϊVăтϊόи ϊš иόт ăĺĺόẅęď ϊи ĝΰęšт ΰšęґ ăċċόΰит</string>
     <string name="reset">Яęšęт</string>
     <string name="reset_menu_message">Єďϊтęď ḿęиΰ ẅϊĺĺ τę ґęšęт. Ĉόитϊиΰę?</string>
     <string name="disable_talkBack">Đϊšăτĺę Ŧăĺĸβăċĸ</string>
@@ -5541,8 +5913,8 @@ Vϊęẅ"</string>
     <string name="save">ȘăVę</string>
     <string name="menu_edit_summary">Яęόґďęґ όґ ґęḿόVę ḿęиΰ</string>
     <string name="ok">ΘĶ</string>
-    <string name="left_handed">Łęƒт ћăиď</string>
-    <string name="right_handed">Яϊĝћт ћăиď</string>
+    <string name="left_handed">Łęƒт</string>
+    <string name="right_handed">Яϊĝћт</string>
     <string name="assistant_menu_title">Åššϊšтăит ḿęиΰ</string>
     <string name="dominant_hand">Đόḿϊиăит ћăиď</string>
     <string name="preference_dominant_hand_default">1</string>
@@ -5555,6 +5927,7 @@ Vϊęẅ"</string>
     <string name="screenRotate">Яόтăтę šċґęęи</string>
     <string name="zoom">Žόόḿ</string>
     <string name="volume">Șęт Vόĺΰḿę</string>
+    <string name="set_brightness">Șęт τґϊĝћтиęšš</string>
     <string name="quickPanel">Θρęи иόтϊƒϊċăтϊόи ρăиęĺ</string>
     <string name="quickSettings">Ğό тό Qΰϊċĸ šęттϊиĝš</string>
     <string name="notificationPanel">Ğό тό иόтϊƒϊċăтϊόи ρăиęĺ</string>
@@ -5587,6 +5960,10 @@ Vϊęẅ"</string>
     <string name="fingerprint_web">Ẅęτ ĺόĝϊи</string>
     <string name="fingerprint_web_summary">Ũšę ґęĝϊšтęґęď ƒϊиĝęґρґϊит тό šϊĝи ϊитό ẅęτšϊтęš</string>
     <string name="fingerprint_web_message">¥όΰ ċăи šϊĝи ϊитό ẅęτšϊтęš τỳ šẅϊρϊиĝ ỳόΰґ ґęĝϊšтęґęď ƒϊиĝęґρґϊит όVęґ тћę ћόḿę ĸęỳ ẅћęи тћę ƒϊиĝęґρґϊит ρăиęĺ ϊš šћόẅи</string>
+    <string name="fingerprint_samsung_account">Șăḿšΰиĝ Åċċόΰит</string>
+    <string name="fingerprint_samsung_account_summary">Ũšę ƒϊиĝęґρґϊит ăš ċόиƒϊґḿ ρăššẅόґď όи šăḿšΰиĝ Åċċόΰит</string>
+    <string name="fingerprint_samsung_account_message">¥όΰ ċăи ċόиƒϊґḿ ρăššẅόґď ΰšϊиĝ šăḿšΰиĝ ăċċόΰит τỳ šẅϊρϊиĝ ỳόΰґ ґęĝϊšтęґęď ƒϊиĝęґρґϊит όVęґ тћę ћόḿę ĸęỳ ẅћęи тћę ƒϊиĝęґρґϊит ρăиęĺ ϊš šћόẅи. Ĉόиƒϊґḿ ρăššẅόґď ϊš ΰšęď ƒόґ ρΰґċћăšϊиĝ ċόитęитš, Vęґϊƒỳϊиĝ ρăššẅόґď тћґόΰόĝћ Șăḿšΰиĝ šęґVϊċę</string>
+    <string name="fingerprint_not_samsung_account_message">Ŧό тΰґи όи тћϊš ƒęăтΰґęš, ґęĝϊšтęґ šăḿšΰиĝ ăċċόΰит όи šęттϊиĝš > Ũšęґ ăиď τăċĸΰρ > ăċċόΰитš</string>
     <string name="fingerprint_tutorial">Γόґ тћę τęšт ґęšΰĺтš:</string>
     <string name="fingerprint_tutorial_summary">Șẅϊρę тћę ęитϊґę ρăď όƒ ỳόΰґ ƒϊиĝęґ, ƒґόḿ τăšę тό тϊρ, ăċґόšš тћę ћόḿę ĸęỳ тό ґęĝϊšтęґ ỳόΰґ ƒϊиĝęґρґϊит ρґόρęґĺỳ</string>
     <string name="fingerprint_tutorial_summary_2">Ķęęρ ỳόΰґ ƒϊиĝęґ ƒĺăт ăĝăϊиšт тћę ћόḿę ĸęỳ ăиď šẅϊρę ăт ă ḿόďęґăтę šρęęď</string>
@@ -5595,15 +5972,20 @@ Vϊęẅ"</string>
     <string name="fingerprint_edit">Șęĺęċт ƒϊиĝęґš тό ęďϊт</string>
     <string name="fingerprint_right">Яϊĝћт</string>
     <string name="fingerprint_left">Łęƒт</string>
-    <string name="fingerprint_register_message">Șẅϊρę тћę ƒϊиĝęґ όVęґ тћę ċęитęґ όƒ тћę ћόḿę ĸęỳ ƒґόḿ тћę ƒϊґšт ĸиΰċĸĺę ΰитϊĺ тћę тϊρ</string>
-    <string name="fingerprint_register_message_again">Șẅϊρę тћę ƒϊиĝęґ όVęґ тћę ċęитęґ όƒ тћę ћόḿę ĸęỳ ƒґόḿ тћę ƒϊґšт ĸиΰċĸĺę ΰитϊĺ тћę тϊρ, ăĝăϊи</string>
+    <string name="fingerprint_register_guide">Șẅϊρę ỳόΰґ ƒϊиĝęґ όVęґ тћę ћόḿęĸęỳ ƒґόḿ ƒϊґšт ĸиΰċĸĺę тό тћę тϊρ</string>
+    <string name="fingerprint_register_message">ρĺăċę ỳόΰґ ƒϊиĝęґ όи тћę ăґęă</string>
+    <string name="fingerprint_register_message_move">ḾόVę ỳόΰґ ƒϊиĝęґ ϊитό тћę ăґęă</string>
+    <string name="fingerprint_register_message_again">Șẅϊρę ỳόΰґ ƒϊиĝęґ όVęґ тћę ћόḿęĸęỳ</string>
+    <string name="fingerprint_register_0">0%</string>
+    <string name="fingerprint_register_100">100%</string>
     <string name="fingerprint_delete">ЯęḿόVę ƒϊиĝęґρґϊит</string>
     <string name="fingerprint_delete_message">Ŧћϊš ƒϊиĝęґρґϊит ẅϊĺĺ τę ґęḿόVęď</string>
-    <string name="fingerprint_do_not_reset">Γϊиĝęґρґϊит ΰиĺόċĸ ęиăτĺęď. Åт ĺęăšт 1 ƒϊиĝęґρґϊит ḿΰšт ґęḿăϊи ґęĝϊšтęґęď</string>
+    <string name="fingerprint_do_not_reset">Łόċĸ šċґęęи ϊš šęċΰґęď τỳ ƒϊиĝęґρґϊит. Åƒтęґ ċћăиĝϊиĝ šċґęęи ĺόċĸ тỳρę, ґęḿόVę ƒϊиĝęґρґϊит</string>
     <string name="fingerprint_alternative_lock_message">Єитęґ ă ρăššẅόґď тό ΰšę ẅћęи ỳόΰ ăґę ΰиăτĺę тό ΰšę тћę ƒϊиĝęґρґϊит ƒΰиċтϊόи</string>
     <string name="fingerprint_alternative_lock_confirm_title">Єитęґ тћę ăĺтęґиăтϊVę ρăššẅόґď</string>
     <string name="fingerprint_alternative_lock_confirm">Єитęґ тћę ρăššẅόґď ΰšęď ăš ăи ăĺтęґиăтϊVę тό ƒϊиĝęґρґϊитš</string>
     <string name="fingerprint_alternative_lock_changed">ÅĺтęґиăтϊVę ρăššẅόґď ċћăиĝęď</string>
+    <string name="fingerprint_lock_off">Ŧό ċћăиĝę ăиόтћęґ šċґęęи ĺόċĸ тỳρęš,Vęґϊƒỳ ăĺтęґиăтϊVę ρăššẅόґď</string>
     <string name="fingerprint_unlock">Șċґęęи ĺόċĸ ẅϊĺĺ τę šęċΰґęď ẅϊтћ ƒϊиĝęґρґϊит</string>
     <string name="fingerprint_unlock2">Ŧό ΰиĺόċĸ тћę ďęVϊċę, šẅϊρę ỳόΰґ ґęĝϊšтęґęď ƒϊиĝęґ όVęґ тћę ћόḿę ĸęỳ ϊи ĺόċĸ šċґęęи</string>
     <string name="fingerprint_unlock_message">¥όΰґ ăVăϊĺăτĺę ƒϊиĝęґš ăґę ḿăґĸęď ϊи τĺΰę</string>
@@ -5614,7 +5996,7 @@ Vϊęẅ"</string>
     <string name="fingerprint_shortcut_is_not_available">Ŧћę šћόґтċΰт ăššϊĝиęď тό тћϊš ƒϊиĝęґρґϊит (%š) ẅϊĺĺ иό ĺόиĝęґ τę ăVăϊĺăτĺę</string>
     <string name="fingerprint_features_is_not_available">Їƒ иό ƒϊиĝęґρґϊитš ăґę ґęĝϊšтęґęď, %š ẅϊĺĺ иό ĺόиĝęґ τę ăVăϊĺăτĺę</string>
     <string name="fingerprint_attention">Åттęитϊόи</string>
-    <string name="fingerprint_selectfinger_message">Șęĺęċт ă ƒϊиĝęґρґϊит тό ґęĝϊšтęґ, ăḿόиĝ тћΰḿτ, ϊиďęх ăиď ḿϊďďĺę</string>
+    <string name="fingerprint_selectfinger_message">Șęĺęċт ă ƒϊиĝęґρґϊит тό ґęĝϊšтęґ</string>
     <string name="fingerprint_already_registered">Ŧћϊš ƒϊиĝęґρґϊит ћăš ăĺґęăďỳ τęęи ґęĝϊšтęґęď. Șẅϊρę ă ďϊƒƒęґęит ƒϊиĝęґ тό ґęĝϊšтęґ ă иęẅ ƒϊиĝęґρґϊит</string>
     <string name="fingerprint_error_message">Γăϊĺęď тό ґęċόĝиϊšę ƒϊиĝęґρґϊит. Șẅϊρę ỳόΰґ ƒϊиĝęґ ăš šћόẅи ϊи тћę ĝΰϊďę ăиϊḿăтϊόи</string>
     <string name="fingerprint_error_message_not_samefingers">Å ďϊƒƒęґęит ƒϊиĝęґρґϊит ћăš τęęи ґęċόĝиϊšęď. Șẅϊρę тћę šăḿę ƒϊиĝęґ тћґόΰĝћόΰт тћę ẅћόĺę όƒ тћę ґęĝϊšтґăтϊόи ρґόċęšš</string>
@@ -5719,6 +6101,8 @@ Vϊęẅ"</string>
     <string name="tap_to_delete_fingerprint">Ŧăρ тό ďęĺęтę ƒϊиĝęґρґϊит</string>
     <string name="tap_to_register_fingerprint">Ŧăρ тό ґęĝϊšтęґ ƒϊиĝęґρґϊит</string>
     <string name="tap_to_change_shortcut_to">Ŧăρ тό ċћăиĝę šћόґтċΰт тό %š</string>
+    <string name="wlan_permission_request">ρęґḿϊššϊόи ґęQΰęšт</string>
+    <string name="wlan_warning_popup_message">Åρρĺϊċăтϊόи ϊš тґỳϊиĝ тό ΰšę ẄŁÅŃ. Åĺĺόẅ тћϊš?</string>
     <string name="window_animation_3d_title">Åиϊḿăтϊόи Șтỳĺę</string>
     <string name="tab_category_display">Đϊšρĺăỳ</string>
     <string name="tab_category_device">ĐęVϊċę</string>
@@ -5735,7 +6119,7 @@ Vϊęẅ"</string>
     <string name="menu_header_category_accounts_and_backup">Åċċόΰитš ăиď τăċĸΰρ</string>
     <string name="book_cover">βόόĸ ċόVęґ</string>
     <string name="cover_note">Đăỳиόтę</string>
-    <string name="cover_note_summary">Đϊšρĺăỳš ă Qΰϊċĸ иόтę ρăď šћόẅϊиĝ тћę ďăтę, тϊḿę, ẅęăтћęґ, ăиď ỳόΰґ šċћęďΰĺę ϊиšтęăď όƒ тћę ĺόċĸ šċґęęи ẅћęи ỳόΰ όρęи тћę τόόĸ ċόVęґ</string>
+    <string name="cover_note_summary">Đϊšρĺăỳš ă Qΰϊċĸ иόтę ρăď šћόẅϊиĝ тћę ďăтę, тϊḿę, ẅęăтћęґ, ăиď ỳόΰґ šċћęďΰĺę ăиď ďґăẅϊиĝš ẅћęи ỳόΰ όρęи тћę τόόĸ ċόVęґ</string>
     <string name="cover_note_enable_popup_message">Đăỳиόтę ċăи όиĺỳ τę ęиăτĺęď ẅћęи тћę ĺόċĸ тỳρę ϊš šęт ăš šẅϊρę όґ иόиę. Ŧћę ĺόċĸ тỳρę ϊš ċΰґґęитĺỳ šęт ăš %š. ¥όΰ ẅϊĺĺ τę тăĸęи тό šęĺęċт ă ďϊƒƒęґęит ĺόċĸ тỳρę.</string>
     <string name="cover_note_disable_popup_title">Đϊšăτĺę Đăỳиόтę</string>
     <string name="cover_note_disable_popup_message">Đăỳиόтę ăиď %š ċăииόт τόтћ τę ęиăτĺęď. Đăỳиόтę ẅϊĺĺ τę ďϊšăτĺęď.</string>
@@ -5751,9 +6135,11 @@ Vϊęẅ"</string>
     <string name="enable_screen_help">Ŧћę όиę-ћăиďęď όρęґăтϊόи šęттϊиĝš ћęĺρ ỳόΰ тό ΰšę ęVęґỳ šċґęęи ęăšϊĺỳ ẅϊтћ όиĺỳ όиę ћăиď. Γґόḿ тћę ґϊĝћт-ћăиď ęďĝę όƒ тћę ďęVϊċę, šẅϊρę тό тћę ĺęƒт όитό тћę šċґęęи ăиď Qΰϊċĸĺỳ τăċĸ όƒƒ тћę šċґęęи тό тћę ґϊĝћт ϊи όиę ḿόVęḿęит. Ŧћϊš ẅϊĺĺ ċăΰšę ẅћăтęVęґ ϊš όи тћę šċґęęи тό ḿόVę тό тћę ґϊĝћт ăиď τęċόḿę šḿăĺĺęґ. Γґόḿ тћę ĺęƒт-ћăиď ęďĝę όƒ тћę ďęVϊċę, šẅϊρę тό тћę ґϊĝћт όитό тћę šċґęęи ăиď Qΰϊċĸĺỳ τăċĸ όƒƒ тћę šċґęęи тό тћę ĺęƒт ϊи όиę ḿόVęḿęит. Ŧћϊš ẅϊĺĺ ċăΰšę ẅћăтęVęґ ϊš όи тћę šċґęęи тό ḿόVę тό тћę ĺęƒт ăиď τęċόḿę šḿăĺĺęґ.</string>
     <string name="handwriting_recognition">Ħăиďẅґϊтϊиĝ ґęċόĝиϊтϊόи</string>
     <string name="handwriting_language_desc_select_eng">Ħăиďẅґϊтϊиĝ ċăи τę ґęċόĝиϊšęď ϊи Ș Ńόтę, Åċтϊόи Ḿęḿό, ρћόтό иόтę, ăиď ρћόтό ƒґăḿę ƒęăтΰґę. ¥όΰ ẅϊĺĺ τę ăτĺę тό šęăґċћ ƒόґ ћăиďẅґϊтϊиĝ ϊи тћę ĺăиĝΰăĝę ỳόΰ šęĺęċт τęĺόẅ. Åƒтęґ ỳόΰ šęĺęċт ă ĺăиĝΰăĝę тћę ďęVϊċę ẅϊĺĺ ґęċόĝиϊšę ћăиďẅґϊтϊиĝ ϊи тћăт ĺăиĝΰăĝę.</string>
-    <string name="handwriting_language_desc_select_kor_jpn">Ħăиďẅґϊтϊиĝ ċăи τę ґęċόĝиϊšęď ϊи Ș Ńόтę, Åċтϊόи Ḿęḿό, ρћόтό иόтęš, ăиď ρћόтό ƒґăḿę ƒęăтΰґę. ¥όΰ ẅϊĺĺ τę ăτĺę тό šęăґċћ ƒόґ ћăиďẅґϊтϊиĝ ϊи %1$š, %2$š, ăиď тћę ĺăиĝΰăĝę ỳόΰ šęĺęċт τęĺόẅ. Åƒтęґ ỳόΰ šęĺęċт ă ĺăиĝΰăĝę тћę ďęVϊċę ẅϊĺĺ ґęċόĝиϊšę ћăиďẅґϊтϊиĝ ϊи тћăт ĺăиĝΰăĝę.</string>
-    <string name="handwriting_language_desc_select_exception">Ħăиďẅґϊтϊиĝ ċăи τę ґęċόĝиϊšęď ϊи Ș Ńόтę, Åċтϊόи Ḿęḿό, ρћόтό иόтęš, ăиď ρћόтό ƒґăḿę ƒęăтΰґę. ¥όΰ ẅϊĺĺ τę ăτĺę тό šęăґċћ ƒόґ ћăиďẅґϊтϊиĝ ϊи τόтћ %š ăиď тћę ĺăиĝΰăĝę ỳόΰ šęĺęċт τęĺόẅ. Åƒтęґ ỳόΰ šęĺęċт ă ĺăиĝΰăĝę тћę ďęVϊċę ẅϊĺĺ ґęċόĝиϊšę ћăиďẅґϊтϊиĝ ϊи тћăт ĺăиĝΰăĝę.</string>
+    <string name="handwriting_language_desc_select_kor_jpn">Ħăиďẅґϊтϊиĝ ċăи τę ґęċόĝиϊšęď ϊи Ș Ńόтę, Åċтϊόи Ḿęḿό, ρћόтό иόтę, ăиď ρћόтό ƒґăḿę ƒęăтΰґę. ¥όΰ ẅϊĺĺ τę ăτĺę тό šęăґċћ ƒόґ ћăиďẅґϊтϊиĝ ϊи %1$š, %2$š, ăиď тћę ĺăиĝΰăĝę ỳόΰ šęĺęċт τęĺόẅ. Åƒтęґ ỳόΰ šęĺęċт ă ĺăиĝΰăĝę тћę ďęVϊċę ẅϊĺĺ ґęċόĝиϊšę ћăиďẅґϊтϊиĝ ϊи тћăт ĺăиĝΰăĝę.</string>
+    <string name="handwriting_language_desc_select_exception">Ħăиďẅґϊтϊиĝ ċăи τę ґęċόĝиϊšęď ϊи Ș Ńόтę, Åċтϊόи Ḿęḿό, ρћόтό иόтę, ăиď ρћόтό ƒґăḿę ƒęăтΰґę. ¥όΰ ẅϊĺĺ τę ăτĺę тό šęăґċћ ƒόґ ћăиďẅґϊтϊиĝ ϊи τόтћ %š ăиď тћę ĺăиĝΰăĝę ỳόΰ šęĺęċт τęĺόẅ. Åƒтęґ ỳόΰ šęĺęċт ă ĺăиĝΰăĝę тћę ďęVϊċę ẅϊĺĺ ґęċόĝиϊšę ћăиďẅґϊтϊиĝ ϊи тћăт ĺăиĝΰăĝę.</string>
+    <string name="handwriting_language_changed">Ħăиďẅґϊтϊиĝ ґęċόĝиϊтϊόи ĺăиĝΰăĝę ċћăиĝęď тό %š</string>
     <string name="perform_long_press_text">Ŧό ċΰšтόḿϊšę тћę тăρ ăиď ћόĺď ďęĺăỳ, тăρ ăиď ћόĺď тћę τόх τęĺόẅ, тћęи ґęĺęăšę ăƒтęґ тћę ďęšϊґęď ĺęиĝтћ όƒ тϊḿę. Ŧăρ ȘăVę тό ęиăτĺę ỳόΰґ ċΰšтόḿϊšęď тăρ ăиď ћόĺď ďęĺăỳ.</string>
+    <string name="perform_long_press_description">Ŧό ċΰšтόḿϊźę тћę тăρ ăиď ћόĺď ďęĺăỳ, тăρ ăиď ћόĺď тћę τόх τęĺόẅ, тћęи ґęĺęăšę ăƒтęґ тћę ďęšϊґęď ĺęиĝтћ όƒ тϊḿę.</string>
     <string name="longpress_cancel_text">Ĉăиċęĺ</string>
     <string name="longpress_save_text">ȘăVę</string>
     <string name="longpress_title">Ŧăρ ăиď ћόĺď ďęĺăỳ</string>
@@ -5761,7 +6147,7 @@ Vϊęẅ"</string>
     <string name="longpress_on_move_message">ρĺęăšę тґỳ тό ĸęęρ тћę ƒϊиĝęґ ăт όиę ρĺăċę тό ґęĝϊšтęґ Ŧăρ ăиď Ħόĺď Đęĺăỳ</string>
     <string name="longpress_on_move_ok">ΘĶ</string>
     <string name="auto_swipe_title">Åΰтό ƒăċтόґỳ ґęšęт</string>
-    <string name="auto_swipe_summary">Їƒ ỳόΰ ƒăϊĺęď (10) тϊḿęš тό ęитęґ тћę ρăššẅόґď,ỳόΰґ ρћόиę ẅϊĺĺ τę ăΰтόḿăтϊċăĺĺỳ ґęšęт тό ƒăċтόґỳ ďęƒăΰĺт ċόиďϊтϊόи. Ŧћę ăρρĺϊċăтϊόи ϊиšтăĺĺęď τęƒόґę тћę ĺόċăĺ ẅϊρę ẅϊĺĺ τę ґęḿόVęď тόό.</string>
+    <string name="auto_swipe_summary">Їƒ тћę ρăššẅόґď ϊš ęитęґęď ϊиċόґґęċтĺỳ 10 тϊḿęš тћę ďęVϊċę ẅϊĺĺ τę ґęšęт тό ƒăċтόґỳ šęттϊиĝš. Åĺĺ ďăтă, ϊиċĺΰďϊиĝ ƒϊĺęš ăиď ďόẅиĺόăďęď ăρρš, ẅϊĺĺ τę ďęĺęтęď</string>
     <string name="settings_reset_title">Яęšęт šęттϊиĝš</string>
     <string name="reset_settings_summary">Яęšęт šỳšтęḿ šęттϊиĝš τăċĸ тό тћę ďęƒăΰĺт</string>
     <string name="reset_settings_desc">Їƒ ỳόΰ ћăVę ċћăиĝęď ăиỳ όƒ тћę šỳšтęḿ šęттϊиĝš, Яęšęт šęттϊиĝš ґęтΰґиš ỳόΰґ ďęVϊċę τăċĸ тό тћę ẅăỳ ϊт όґϊĝϊиăĺĺỳ τęћăVęď.</string>
@@ -5771,6 +6157,7 @@ Vϊęẅ"</string>
 %š"</string>
     <string name="reset_soft_settings_button">Яęšęт šęттϊиĝš</string>
     <string name="warning_title">Ẅăґиϊиĝ</string>
+    <string name="settings_reset_boot_device">Яęšęттϊиĝ šęттϊиĝš. ρĺęăšę ẅăϊт ƒόґ ďęVϊċę тό ґęτόόт ...</string>
     <string name="warning_reset_message">"Șęĺęċтϊиĝ ΘĶ ẅϊĺĺ ċăΰšę ċћăиĝęš тό šόḿę όƒ тћę ċΰšтόḿϊźăтϊόиš ỳόΰ ћăVę ḿăďę. Șΰċћ ăš ґϊиĝтόиę ỳόΰ ћăVę šęĺęċтęď, тћę τґϊĝћтиęšš όƒ тћę šċґęęи, ăиď тћę τęћăVϊόґ όƒ тћę ĸęỳτόăґď.
 
 Яęšęт šỳšтęḿ šęттϊиĝš? ¥όΰ ċăи'т ґęVęґšę тћϊš ăċтϊόи."</string>
@@ -5783,13 +6170,16 @@ Vϊęẅ"</string>
     <string name="function_inner_screen_only">Ŧћϊš ƒΰиċтϊόи ċăи όиĺỳ τę ΰšęď Vϊă тћę ϊииęґ šċґęęи</string>
     <string name="function_inner_screen_only_open_folder">Ŧћϊš ƒΰиċтϊόи ċăи όиĺỳ τę ΰšęď Vϊă тћę ϊииęґ šċґęęи. Θρęи ƒόĺďęґ тό тґỳ ϊт.</string>
     <string name="folder_sounds">Γόĺďęґ όρęи/ċĺόšę šόΰиďš</string>
+    <string name="folder_sounds_summary">ρĺăỳ šόΰиďš ẅћęи όρęиϊиĝ ăиď ċĺόšϊиĝ ƒόĺďęґ</string>
+    <string name="sound_effects_enable_title_folder">Ŧόΰċћ ăиď ћăґďĸęỳ šόΰиďš</string>
+    <string name="sound_effects_enable_summary_folder">ρĺăỳ šόΰиď ẅћęи šęĺęċтϊиĝ ăи ϊтęḿ όи тћę šċґęęи</string>
     <string name="premium_watch_settings_title">ρґęḿϊΰḿ ẅăтċћ</string>
-    <string name="premiumwatch_summary">ρґęḿϊΰḿ ẅăтċћ ďϊšρĺăỳš ăи ăиăĺόĝΰę ẅăтċћ ƒăċę όи тћę όΰтęґ šċґęęи όƒ ỳόΰґ ƒĺϊρ ρћόиę. Ŧό ęиăτĺę ρґęḿϊΰḿ ẅăтċћ, ċĺόšę тћę ƒĺϊρ ρћόиę ăиď ρґęšš тћę ћόḿę ĸęỳ тẅϊċę.</string>
+    <string name="premiumwatch_summary">ρґęḿϊΰḿ ẅăтċћ ďϊšρĺăỳš ăи ăиăĺόĝΰę ẅăтċћ ƒăċę όи тћę όΰтęґ šċґęęи όƒ ỳόΰґ ƒĺϊρ ρћόиę. Ŧό ęиăτĺę ρґęḿϊΰḿ ẅăтċћ, ċĺόšę тћę ƒĺϊρ ρћόиę ăиď тăρ тћę ћόḿę ĸęỳ тẅϊċę.</string>
     <string name="watch_style_title">Ẅăтċћ šтỳĺę</string>
-    <string name="watch_style1">Șтỳĺę 1</string>
-    <string name="watch_style2">Șтỳĺę 2</string>
-    <string name="watch_style3">Șтỳĺę 3</string>
-    <string name="watch_style4">Șтỳĺę 4</string>
+    <string name="watch_style1">Ẅăтċћ 1</string>
+    <string name="watch_style2">Ẅăтċћ 2</string>
+    <string name="watch_style3">Ẅăтċћ 3</string>
+    <string name="watch_style4">Ẅăтċћ 4</string>
     <string name="premiumwatch_signature">Șϊĝиăтΰґę</string>
     <string name="premiumwatch_signature_enable">Șћόẅ šϊĝиăтΰґę</string>
     <string name="premiumwatch_signature_summary">Șћόẅ ỳόΰґ šϊĝиăтΰґę όи ρґęḿϊΰḿ ẅăтċћ</string>
@@ -5824,14 +6214,206 @@ Vϊęẅ"</string>
     <string name="use_wifi_only_summary">Θиĺỳ ΰρďăтę тћę šęċΰґϊтỳ ρόĺϊċỳ ăΰтόḿăтϊċăĺĺỳ ẅћęи ỳόΰґ ďęVϊċę ϊš ċόииęċтęď тό ă Ẅϊ-Γϊ иęтẅόґĸ</string>
     <string name="watercolor_effect">Ẅăтęґċόĺόΰґ</string>
     <string name="oil_paint">Θϊĺ ρăϊит</string>
-    <string name="toddler_mode_title">Ŧόďďĺęґ ḿόďę</string>
+    <string name="use_wifi_only_popup">Đόẅиĺόăďϊиĝ Vϊă ḿότϊĺę иęтẅόґĸš ḿăỳ ґęšΰĺт ϊи ăďďϊтϊόиăĺ ċћăґĝęš. Їƒ ρόššϊτĺę ďόẅиĺόăď Vϊă ă ẄЇ-ΓЇ иęтẅόґĸ.</string>
+    <string name="toddler_mode_title">Ńęтẅόґĸ ґęšтґϊċтϊόи ḿόďę</string>
     <string name="toddler_mode_summary">Đϊšăτĺę ăĺĺ ċόḿḿΰиϊċăтϊόи ḿęтћόďš ęхċęρт ƒόґ ϊиċόḿϊиĝ ċăĺĺš ăиď ȘḾȘ ḿęššăĝęš</string>
-    <string name="notification_panel_toddlermode">Ŧόďďĺęґ ḿόďę</string>
-    <string name="accessibility_toddler_mode_activate">Їи Ŧόďďĺęґ ḿόďę, ỳόΰ ċăи ΰšę ăĺĺ ỳόΰґ ăρρĺϊċăтϊόиš ẅϊтћόΰт ċόииęċтϊиĝ тό тћę иęтẅόґĸ. ¥όΰ ċăи ăĺšό ґęċęϊVę ċăĺĺš ăиď ȘḾȘ ḿęššăĝęš. Ŧόďďĺęґ ḿόďę ẅϊĺĺ τę ęиăτĺęď.</string>
-    <string name="accessibility_toddler_mode_deactivate">Ŧόďďĺęґ ḿόďę ẅϊĺĺ τę ďϊšăτĺęď</string>
+    <string name="notification_panel_toddlermode">Ńęтẅόґĸ ґęšтґϊċтϊόи</string>
+    <string name="accessibility_toddler_mode_activate">Ńęтẅόґĸ ґęšтґϊċтϊόи ḿόďę ϊš тό ґęšтґϊċт ḿăĸϊиĝ Vόϊċę ċăĺĺ ăиď иęтẅόґĸ ċόииęċтϊόи. βΰт ỳόΰ ċăи ґęċęϊVę ċăĺĺš ăиď ȘḾȘ ḿęššăĝęš. Ńęтẅόґĸ ґęšтґϊċтϊόи ḿόďę ẅϊĺĺ τę ęиăτĺęď.</string>
+    <string name="accessibility_toddler_mode_deactivate">Ńęтẅόґĸ ґęšтґϊċтϊόи ḿόďę ẅϊĺĺ τę ďϊšăτĺęď</string>
     <string name="item_will_be_removed">1 ϊтęḿ ẅϊĺĺ τę ďęĺęтęď</string>
     <string name="items_will_be_removed">%ď ϊтęḿš ẅϊĺĺ τę ďęĺęтęď</string>
     <string name="manual_setting">Ḿăиΰăĺ šęттϊиĝ</string>
+    <string name="reset_personal_data_summary">ρęґšόиăĺ ďăтă ẅϊĺĺ τę ęґăšęď ϊиċĺΰďϊиĝ ċόитăċтš, ċăĺĺ ґęċόґďš, ăċċόΰитš</string>
+    <string name="reset_erase_application">Єґăšę ăρρĺϊċăтϊόиš</string>
+    <string name="reset_erase_application_summary">Єґăšę ϊиšтăĺĺęď ăρρĺϊċăтϊόиš</string>
+    <string name="reset_erase_sd_card">Єґăšę ȘĐ ċăґď</string>
+    <string name="reset_erase_sd_card_summary">Єґăšę ăĺĺ ďăтă όи тћę ϊитęґиăĺ ȘĐ ċăґď, šΰċћ ăš ḿΰšϊċ όґ ρћόтό</string>
+    <string name="reset_personal_data_confirm">Єґăšę ăĺĺ ỳόΰґ ρęґšόиăĺ ϊиƒόґḿăтϊόи? Đăтă ċăииόт τę ґęċόVęґęď</string>
+    <string name="reset_erase_application_confirm">Єґăšę ăĺĺ ỳόΰґ ρęґšόиăĺ ϊиƒόґḿăтϊόи ăиď ďόẅиĺόăďęď ăρρš? Đăтă ċăииόт τę ґęċόVęґęď</string>
+    <string name="reset_erase_sd_card_confirm">Єґăšę ăĺĺ ỳόΰґ ρęґšόиăĺ ϊиƒόґḿăтϊόи ăиď ȘĐ ċăґď ďăтă?? Đăтă ċăииόт τę ґęċόVęґęď</string>
+    <string name="reset_erase_application_sd_card_confirm">Єґăšę ăĺĺ ỳόΰґ ρęґšόиăĺ ϊиƒόґḿăтϊόи, ďόẅиĺόăďęď ăρρš ăиď ? Đăтă ċăииόт τę ґęċόVęґęď</string>
+    <string name="none_package">Ĉΰґґęит ρґόƒϊĺę ċăи иόт ęхęċΰтę тћϊš ƒΰиċтϊόи</string>
+    <string name="ripple">Яϊρρĺę</string>
+    <string name="turn_off_all_sounds">Ŧΰґи όƒƒ ăĺĺ šόΰиďš</string>
+    <string name="turn_off_all_sounds1">Ŧΰґи όƒƒ ăĺĺ šόΰиďš ăиď ăиšẅęґϊиĝ ḿęššăĝę ċăииόт τόтћ τę ęиăτĺęď.</string>
+    <string name="turn_off_all_sounds2">Ŧΰґи όƒƒ ăĺĺ šόΰиďš ăиď ăиšẅęґϊиĝ ḿęššăĝę ċăииόт τόтћ τę ęиăτĺęď. Åиšẅęґϊиĝ ḿęššăĝę ẅϊĺĺ τę ďϊšăτĺęď.</string>
+    <string name="emergency_mode_title">Єḿęґĝęиċỳ ḿόďę</string>
+    <string name="roaming_lte_roaming_lgt_text_on">ŁŦЄ ďăтă ґόăḿϊиĝ ρĺăи ϊƒ ỳόΰ ďό иόт šΰτšċґϊτę тό, τϊĺĺϊиĝ ƒόґ ẅћăт ỳόΰ ΰšę, ăиď ďόęš иόт ăρρĺỳ тό ęхϊšтϊиĝ 3Ğ ґόăḿϊиĝ ρĺăиš. Ĉόитϊиΰę?</string>
+    <string name="roaming_lte_roaming_lgt_text_off">ŁŦЄ ρґęƒęґґęď ḿόďę ďϊšăτĺęď. 3Ğ иęтẅόґĸš ΰšę ďăтă ґόăḿϊиĝ.</string>
+    <string name="sound_mode">Șόΰиď ḿόďę</string>
+    <string name="accessibility_categories_title">Ĉăтęĝόґϊęš</string>
+    <string name="vision_title">νϊšϊόи</string>
+    <string name="accessibility_features_category">Γęăтΰґęš</string>
+    <string name="hearing_title">Ħęăґϊиĝ</string>
+    <string name="mobility_and_cognitive_title">Ḿότϊĺϊтỳ ăиď ċόĝиϊтϊόи</string>
+    <string name="cognitive_preference_title">Ĉόĝиϊтϊόи</string>
+    <string name="wifi_card_name">Șęт тћϊš ƒґęQΰęиċỳ</string>
+    <string name="wifi_card_summary">Ẅϊ-Γϊ ăĺĺόẅš тћę ďęVϊċę тό ċόииęċт тό тћę Їитęґиęт ẅϊґęĺęššĺỳ.</string>
+    <string name="need_this_setting">Ńęęď тћϊš šęттϊиĝ?</string>
+    <string name="flight_mode_card_summary">Đϊšăτĺę ăĺĺ ẅϊґęĺęšš ċόииęċтϊόиš</string>
+    <string name="mobile_network_card_summary">Șęт όρтϊόиš ƒόґ ḿότϊĺę иęтẅόґĸš</string>
+    <string name="card_display_order">Ĉăґď ďϊšρĺăỳ όґďęґ</string>
+    <string name="most_used_info_first">Ḿόšт ΰšęď ϊиƒό. ƒϊґšт</string>
+    <string name="resent_info_first">Яęšęит ϊиƒό. ƒϊґšт</string>
+    <string name="contextual_info_first">Ĉόитęхтΰăĺ ϊиƒό. ƒϊґšт</string>
+    <string name="suggestion_info_first">Șΰĝĝęšтϊόи ƒϊґšт</string>
+    <string name="random">Яăиďόḿ</string>
+    <string name="glance_card_category_title">Ğĺăиċę ċăґď</string>
+    <string name="guest_lounge_menu_title">Ğΰęšт ĺόΰиĝę</string>
+    <string name="guest_lounge_menu_summary">Ĉґęăтę šρăċę ƒόґ όтћęґš тό ΰšę ẅћęи ĺęиďϊиĝ ỳόΰґ ďęVϊċę τỳ šęĺęċтϊиĝ ċęґтăϊи ăρρš ăиď ċόитęитš</string>
+    <string name="guest_list_title">Ğΰęšт</string>
+    <string name="guest_add_menu">Åďď иęẅ ĝΰęšт</string>
+    <string name="guest_need_lock_message">"βęƒόґę ỳόΰ ċăи ċґęăтę ă иęẅ ĝΰęšт, ỳόΰ'ĺĺ иęęď тό šęт ΰρ ă šċґęęи ĺόċĸ тό ρґόтęċт ỳόΰґ ăρρš ăиď ρęґšόиăĺ ďăтă"</string>
+    <string name="guest_set_lock_button">Șęт ĺόċĸ</string>
+    <string name="guest_new_profile_name">Ńęẅ ĝΰęšт</string>
+    <string name="guest_profile_allowed_settings">Åĺĺόẅęď šęттϊиĝš</string>
+    <string name="guest_profile_allowed_apps">Åĺĺόẅęď ăρρĺϊċăтϊόиš</string>
+    <string name="guest_profile_applications_title">Åρρĺϊċăтϊόиš</string>
+    <string name="guest_profile_applications_summary">Șęĺęċт ăρρĺϊċăтϊόиš тό ăĺĺόẅ</string>
+    <string name="guest_profile_mobile_data_title">Ḿότϊĺę ďăтă</string>
+    <string name="guest_profile_mobile_data_summary">Єиăτĺę ďăтă ăċċęšš όVęґ ḿότϊĺę иęтẅόґĸ</string>
+    <string name="guest_profile_incoming_calls_title">Їиċόḿϊиĝ ċăĺĺš</string>
+    <string name="guest_profile_incoming_calls_summary">Åĺĺόẅ ĝΰęšтš тό тăĸę ϊиċόḿϊиĝ ċăĺĺš</string>
+    <string name="guest_profile_confirm_remove_title">ЯęḿόVę ĝΰęšт</string>
+    <string name="guest_profile_confirm_remove_message">"Ŧћϊš ĝΰęšт'š šρăċę ăиď ďăтă ẅϊĺĺ ďϊšăρρęăґ ƒґόḿ тћϊš ďęVϊċę. ¥όΰ ċăи'т ΰиďό тћϊš ăċтϊόи"</string>
+    <string name="guest_profile_disable_mobile_warning_title">Åттęитϊόи</string>
+    <string name="guest_profile_disable_mobile_warning">"Đăтă Ńęтẅόґĸ ďϊšăĺĺόẅęď.
+βę ăẅăґę όƒ όẅиęґ'š ďăтă иęтẅόґĸ ẅϊĺĺ τę όƒƒ ăš ẅęĺĺ. Ĉόииęċт Ẅϊ-ƒϊ тό ΰšę иęтẅόґĸ šęґVϊċęš"</string>
+    <string name="guest_profile_info_settings_title">Ğΰęšт ϊиƒό</string>
+    <string name="guest_profile_app_restriction_title">Åρρĺϊċăтϊόи ґęšтґϊċтϊόи</string>
+    <string name="safetycare_settings">Șăƒęтỳ</string>
+    <string name="safetycare_emergency_mode">Єḿęґĝęиċỳ ḿόďę</string>
+    <string name="safetycare_emergency_mode_disable">Đϊšăτĺę Єḿęґĝęиċỳ ḿόďę</string>
+    <string name="safetycare_emergency_mode_disable_msg">ĐęVϊċę ẅϊĺĺ ґęšтăґт тό ďϊšăτĺę Єḿęґĝęиċỳ ḿόďę</string>
+    <string name="safetycare_low_power_title">Łόẅęґ ρόẅęґ ћόḿęšċґęęи</string>
+    <string name="safetycare_low_power_summary">Їт šẅϊтċћ όVęґ тό ĺόẅęґ ċόиšΰḿϊиĝ τăттęґỳ</string>
+    <string name="safetycare_low_power_help_msg">"Ħόḿę šċґęęи ċћăиĝę тό τĺăċĸ тћęḿę тό ґęďΰċę ċόиšΰḿϊиĝ τăттęґỳ ăиď ĝϊVęи τăšϊċ ăρρĺϊċăтϊόи ƒόґ ęḿęґĝęиċỳ šϊтΰăтϊόи ăš Ḿęššăĝę ăиď ċόитăċт, šϊґęи.
+
+Їи όґďęґ ƒόґ [Єḿęґĝęиċỳ ḿόďę] тό ƒΰиċтϊόи ăš ϊитęиďęď, ϊт ϊš иęċęššăґỳ тό ћăVę тћę ƒΰиċтϊόи, όиċę ďęρĺόỳęď τỳ ỳόΰ, ăΰтόḿăтϊċăĺĺỳ тΰґи όƒƒ тћę ĞρȘ ăиď Ẅϊ-Γϊ ƒΰиċтϊόиš όƒ ỳόΰґ ďęVϊċę тό ґęďΰċę τăттęґỳ ċόиšΰḿρтϊόи."</string>
+    <string name="safetycare_disaster_category">Ńăтΰґăĺ ăиď ḿăи-ḿăďę ďϊšăšтęґš</string>
+    <string name="safetycare_disaster_alert_title">Đϊšăšтęґ ăĺęґт</string>
+    <string name="safetycare_disaster_alert_summary">ЯęċęϊVę ăĺęґт иόтϊƒϊċăтϊόиš ϊи ďϊšăšтęґ ăš ĺϊĸę ęăґтћQΰăĸę, ћΰґґϊċăиę, тỳρћόόи ęтċ, ẅϊтћ όρтϊόиš тό šẅϊтċћ тό Єḿęґĝęиċỳ ḿόďę ƒґόḿ тћę иόтϊƒϊċăтϊόи ρăиęĺ</string>
+    <string name="safetycare_disaster_alert_summary2">Їиƒόґḿăтϊόи ăиď ęḿęґĝęиċỳ šỳšтęḿ тό šęиď ḿęššăĝę όґ ďϊґęċт ċăĺĺ ẅϊĺĺ τę ĝϊVęи ẅϊтћ ďϊšăšтęґ ďăšћτόăґď</string>
+    <string name="safetycare_disaster_alert_enable_title">Єиăτĺę Đϊšăšтęґ ăĺęґт</string>
+    <string name="safetycare_disaster_alert_enable_desc">Єиăτĺę Đϊšăšтęґ ăĺęґт?</string>
+    <string name="safetycare_disaster_alert_magnitude">Ḿăĝиϊтΰďę</string>
+    <string name="safetycare_disaster_alert_magnitude_summary">Ḿ5.0+</string>
+    <string name="safetycare_disaster_alert_coverage">ĈόVęґăĝę</string>
+    <string name="safetycare_set_as_distance">Șęт ăš ďϊšтăиċę</string>
+    <string name="safetycare_heat_alarm_title">Ħęăт ăĺęґт</string>
+    <string name="safetycare_heat_alarm_summary">ЯęċęϊVę ăĺęґт иόтϊƒϊċăтϊόиš ăĺęґт ϊи ċăšę όƒ šΰďďęи ċћăиĝęš ϊи тęḿρęґăтΰґę. ¥όΰ ċăи ċăĺĺ ďϊґęċтĺỳ тό ęḿęґĝęиċỳ ċόитăċт ăиď šϊґęи ẅϊĺĺ τę ґϊиĝϊиĝ тό ăĺăґḿ ƒόґ όтћęґš тћăт ỳόΰ ăґę ϊи ęḿęґĝęиċỳ šϊтΰăтϊόи</string>
+    <string name="safetycare_heat_alarm_enable_title">Єиăτĺę Ħęăт ăĺęґт</string>
+    <string name="safetycare_heat_alarm_enable_desc">Єиăτĺę Ħęăт ăĺęґт?</string>
+    <string name="safetycare_quick_action_for_emergency_category">qΰϊċĸ ăċтϊόи ƒόґ ęḿęґĝęиċỳ</string>
+    <string name="safetycare_send_manually_title">Șęиď ḿăиΰăĺĺỳ</string>
+    <string name="safetycare_send_automatically_title">Șęиď ăΰтόḿăтϊċăĺĺỳ</string>
+    <string name="safetycare_send_automatically_summary">"Åΰтόḿăтϊċăĺĺỳ šęиď ăĺęґт ḿęššăĝęš ϊи ċґăšћęš, ƒăĺĺš ăиď όтћęґ ρћỳšϊċăĺ тґăΰḿăš ϊи ċăšę тΰґи όи [Ŧґăΰḿă ďęтęċтϊόи] όґ ΰšęґš ћăVęи'т ḿόVęď ăš ĺęăšт 24 ћόΰґš ẅћęи [Ńό ăċтϊVϊтỳ ďęтęċтϊόи] ϊš ęиăτĺęď"</string>
+    <string name="safetycare_send_automatically_enable_title">Єиăτĺę Șęиď ăΰтόḿăтϊċăĺĺỳ</string>
+    <string name="safetycare_send_automatically_enable_desc">Єиăτĺę Șęиď ăΰтόḿăтϊċăĺĺỳ?</string>
+    <string name="safetycare_emergency_message">Єḿęґĝęиċỳ ḿęššăĝę</string>
+    <string name="safetycare_emergency_edit_message">Єďϊт ęḿęґĝęиċỳ ḿęššăĝę</string>
+    <string name="safetycare_emergency_message_interval">Ḿęššăĝę ϊитęґVăĺ</string>
+    <string name="safetycare_emergency_contacts">Єḿęґĝęиċỳ ċόитăċтš</string>
+    <string name="safetycare_emergency_contacts_set">Șęт ęḿęґĝęиċỳ ċόитăċтš</string>
+    <string name="safetycare_emergency_contact_popup">Ńό ęḿęґĝęиċỳ ċόитăċтš ћăVę τęęи šęт. Ŧό ΰšę šăƒęтỳ ăššϊšтăиċę, šęт ęḿęґĝęиċỳ ċόитăċтš.</string>
+    <string name="safetycare_trauma_detection_title">Ŧґăΰḿă ďęтęċтϊόи</string>
+    <string name="safetycare_no_activity_detection_title">Ńό ăċтϊVϊтỳ ďęтęċтϊόи</string>
+    <string name="safetycare_emergency_default_message">Ŧћϊš ϊš ăи ęḿęґĝęиċỳ. ρĺęăšę ћęĺρ.</string>
+    <string name="safetycare_cannot_save_message">Ũиăτĺę тό šăVę. Ńό тęхт ћăš τęęи ęитęґęď.</string>
+    <string name="safetycare_exceed_message_size_limitation">Ḿęššăĝę šϊźę ĺϊḿϊт ґęăċћęď</string>
+    <string name="safetycare_maximum_characters_for_mms_message">Ḿăхϊḿΰḿ иΰḿτęґ όƒ ċћăґăċтęґš ґęăċћęď</string>
+    <string name="safetycare_edit_application">Єďϊт ăρρĺϊċăтϊόи</string>
+    <string name="safetycare_add_or_remove_application">Åďď όґ ґęḿόVę ăρρĺϊċăтϊόи</string>
+    <string name="safetycare_connectivity_and_sound">ĈόииęċтϊVϊтỳ &amp; šόΰиď</string>
+    <string name="safetycare_about">Åτόΰт</string>
+    <string name="safetycare_about_emergency_mode">Åτόΰт ęḿęґĝęиċỳ ḿόďę</string>
+    <string name="lock_screen_set_shortcuts_title">Șћόґтċΰтš</string>
+    <string name="lock_screen_set_shortcuts_option_camera">Ĉăḿęґă</string>
+    <string name="lock_screen_set_shortcuts_option_favorite">Ĉΰšтόḿ</string>
+    <string name="lock_screen_favorite_apps_title">Єďϊт šћόґтċΰтš</string>
+    <string name="lock_screen_favorite_apps_summary">Єďϊт тћę šћόґтċΰтš šћόẅи ăт тћę τόттόḿ όƒ тћę ĺόċĸ šċґęęи.</string>
+    <string name="glance_roaming">Яόăḿϊиĝ</string>
+    <string name="glance_roaming_summary">Ĉћęċĸ ΰšęƒΰĺ šęттϊиĝš ẅћęи ỳόΰ’ґę тґăVęĺĺϊиĝ ăτґόăď</string>
+    <string name="glance_low_memory">Łόẅ ḿęḿόґỳ</string>
+    <string name="glance_low_memory_summary">Ĉћęċĸ ΰšęƒΰĺ šęттϊиĝš ϊи ĺόẅ ḿęḿόґỳ</string>
+    <string name="glance_battery_low">βăттęґỳ ĺόẅ</string>
+    <string name="glance_battery_low_summary">Ĉћęċĸ ΰšęƒΰĺ šęттϊиĝš ϊи τăттęґỳ ĺόẅ</string>
+    <string name="clear">Ĉĺęăґ</string>
+    <string name="launch_application_settings">Đęƒăΰĺт ăρρĺϊċăтϊόиš</string>
+    <string name="set_defaults">Șęт ďęƒăΰĺтš</string>
+    <string name="clear_defaults">Ĉĺęăґ ďęƒăΰĺтš</string>
+    <string name="default_sms_warning">Șęттϊиĝ %š ăš ỳόΰґ ďęƒăΰĺт ḿęššăĝϊиĝ ăρρ ẅϊĺĺ ρґęVęит ỳόΰ ƒґόḿ ΰšϊиĝ šόḿę ḿęššăĝϊиĝ ƒęăтΰґęš όƒ Șăḿšΰиĝ ăρρĺϊċăтϊόиš</string>
+    <string name="default_sms_warning_title">%š</string>
+    <string name="msap_concierge">Ḿότϊĺę Ĉόиċϊęґĝę ȘęґVϊċę</string>
+    <string name="battery_low">βăттęґỳ ĺόẅ</string>
+    <string name="low_memory">Łόẅ ḿęḿόґỳ</string>
+    <string name="recommended_apps">Яęċόḿḿęиďęď ăρρš</string>
+    <string name="recommended_apps_summary">Яęċόḿḿęиďęď ăρρš ẅϊĺĺ τę ďϊšρĺăỳęď όи тћę иόтϊƒϊċăтϊόи ρăиęĺ όиċę тћę ƒόĺĺόẅϊиĝ ăċтϊόиš ћăVę τęęи тăĸęи. Γόґ ęхăḿρĺę, όиċę ęăґρћόиęš ћăVę τęęи ċόииęċтęď όґ ƒόĺĺόẅϊиĝ όтћęґ šρęċϊƒϊċ ăċтϊόиš</string>
+    <string name="recommended_automatically">Яęċόḿḿęиďęď ăΰтόḿăтϊċăĺĺỳ</string>
+    <string name="recommended_apps_maximum_num_msg">Ũиăτĺę тό ăďď ăρρĺϊċăтϊόи. Ḿăхϊḿΰḿ иΰḿτęґ όƒ ăρρĺϊċăтϊόиš (%ď) ґęăċћęď.</string>
+    <string name="recommended_apps_minimum_num_msg">Șęĺęċт ăт ĺęăšт όиę ăρρĺϊċăтϊόи</string>
+    <string name="docking">Đόċĸϊиĝ</string>
+    <string name="users_and_backup_category">Ũšęґ ăиď τăċĸΰρ</string>
+    <string name="most_used">Ḿόšт ΰšęď</string>
+    <string name="ask_to_use_bluetooth">Åšĸ тό ΰšę βĺΰęтόόтћ</string>
+    <string name="asks_your_permission_to_use">Åšĸš ỳόΰґ ρęґḿϊššϊόи тό ΰšę βĺΰęтόόтћ Vϊă ă ρόρ-ΰρ.</string>
+    <string name="application_function_control">Åρρĺϊċăтϊόи ρęґḿϊššϊόиš</string>
+    <string name="contextual_contents_settings_label">Ĉόитęхтΰăĺ Ĉόитęитš</string>
+    <string name="contextual_contents_settings_explained">Ĉόитęхтΰăĺ Ĉόитęитš:</string>
+    <string name="contextual_contents_settings_cat_apps_label">Åρρš</string>
+    <string name="contextual_contents_settings_message">Ḿęššăĝę</string>
+    <string name="contextual_contents_settings_email">Єḿăϊĺ</string>
+    <string name="contextual_contents_settings_browser">βґόẅšęґ</string>
+    <string name="knox_management_category">Șăḿšΰиĝ ĶŃΘ×</string>
+    <string name="knox_management_state_title">ĶŃΘ×</string>
+    <string name="knox_settings_app_name">ĶŃΘ×</string>
+    <string name="knox_settings_tap_create">Ŧăρ ћęґę тό ċґęăт ĶŃΘ×</string>
+    <string name="knox_uninstall">Ũиϊиšтăĺĺ</string>
+    <string name="action_knox_add">ăċтϊόи ĸиόх ăďď</string>
+    <string name="festival_effect_settings_title">ΓęšтϊVăĺ ęƒƒęċт</string>
+    <string name="festival_effect_help">ΓęšтϊVăĺ ęƒƒęċт šΰρρόґтš šρęċϊăĺ ăиϊḿăтϊόи ęƒƒęċт όи ăĺĺόẅęď ƒΰиċтϊόиš τęĺόẅ ďΰґϊиĝ 1 ďăỳ</string>
+    <string name="allowed_functions">Åĺĺόẅęď ƒΰиċтϊόиš</string>
+    <string name="home_lock_screen_title">Ħόḿę ăиď ĺόċĸ šċґęęи</string>
+    <string name="weather_widget_title">Ẅęăтћęґ ẅϊďĝęт</string>
+    <string name="learn_about_home_lock_screen_content">"Șρęċϊăĺ ăиϊḿăтęď ęƒƒęċтš ẅϊĺĺ ăρρęăґ όи тћę ћόḿę šċґęęи ƒόґ νăĺęитϊиę'š Đăỳ, Ĉћϊиęšę νăĺęитϊиę'š Đăỳ, ăиď ỳόΰґ τϊґтћďăỳ"</string>
+    <string name="learn_about_home_lock_screen_content2">¥όΰґ ċăи šęт ỳόΰґ τϊґтћďăỳ ϊи Ĉόитăċтš > Ḿę</string>
+    <string name="learn_about_home_lock_screen_content3">"Ŧћęḿęď ẅăĺĺρăρęґ ẅϊĺĺ ăρρęăґ όи Ńęẅ ¥ęăґ'š Đăỳ, тћę Șρґϊиĝ ΓęšтϊVăĺ, тћę Łăитęґи ΓęšтϊVăĺ, тћę Đґăĝόи βόăт ΓęšтϊVăĺ, тћę Ḿϊď-Åΰтΰḿи ΓęšтϊVăĺ, ăиď ăт Ĉћґϊšтḿăš"</string>
+    <string name="learn_about_notification_panel_content">"ЄVęит иόтϊƒϊċăтϊόи ăρρęăґš ăт Ńęẅ ¥ęăґ'š Đăỳ, Șρґϊиĝ ƒęšтϊVăĺ, Łăитęґи ƒęšтϊVăĺ, Đґăĝόи τόăт ƒęšтϊVăĺ, Ḿϊď-Åΰтΰḿи ΓęšтϊVăĺ, Ĉћґϊšтḿăš ăиď βϊґтћďăỳ"</string>
+    <string name="learn_about_notification_panel_content2">βϊґтћďăỳ τăšęď όи ґęĝϊšтęґęď ϊи Ĉόитăċтš</string>
+    <string name="learn_about_weather_widget_content">"Șρęċϊăĺ ẅęăтћęґ ẅϊďĝęт ăρρęăґš ăт Ńęẅ ỳęăґ'š ďăỳ, Șρґϊиĝ ƒęšтϊVăĺ, Łăитęґи ƒęšтϊVăĺ, Đґăĝόи τόăт ƒęšтϊVăĺ, Ḿϊď-Åΰтΰḿи ƒęšтϊVăĺ ăиď Ĉћґϊšтḿăš"</string>
+    <string name="show_in_call">Șћόẅ ϊи-ċăĺĺ šċґęęи</string>
+    <string name="show_in_call_summary">Ŧΰґиš όи ỳόΰґ šċґęęи ăΰтόḿăтϊċăĺĺỳ ẅћęи ỳόΰ ḿόVę ỳόΰґ ďęVϊċę ăẅăỳ ƒґόḿ ỳόΰґ ęăґ ďΰґϊиĝ ă ċăĺĺ</string>
+    <string name="cmcc_agps_header">Å-ĞρȘ Ḿęиΰ</string>
+    <string name="clock_sync">Șỳиċ ẅϊтћ ĞρȘ ċĺόċĸ</string>
+    <string name="clock_sync_enabled">Șỳиċ ďęVϊċę ċĺόċĸ ẅϊтћ ĞρȘ šăтęĺĺϊтę ċĺόċĸ</string>
+    <string name="clock_sync_disabled">Șỳиċ ďęVϊċę ċĺόċĸ ẅϊтћ ĞρȘ šăтęĺĺϊтę ċĺόċĸ</string>
+    <string name="assisted_gps_function_switch">Å-ĞρȘ</string>
+    <string name="assisted_gps_function_switch_summary">Șęт Å-ĞρȘ ƒόґ ћόḿę ăиď ƒόґęϊĝи иęтẅόґĸš</string>
+    <string name="satellite_view">ĞρȘ šăтęĺĺϊтę</string>
+    <string name="satellite_view_summary">Șћόẅ ĞρȘ šăтęĺĺϊтę ϊиƒόґḿăтϊόи</string>
+    <string name="agps_on_for_all_network">Å-ĞρȘ тΰґиęď όи ƒόґ ăĺĺ иęтẅόґĸš</string>
+    <string name="agps_off">Å-ĞρȘ тΰґиęď όƒƒ</string>
+    <string name="agps_on_for_home_network">Å-ĞρȘ тΰґиęď όи ƒόґ ћόḿę иęтẅόґĸ</string>
+    <string name="agps_note">Å-ĞρȘ ћęĺρ</string>
+    <string name="agps_international_roaming_note">Ńόтę: Å-ĞρȘ тΰґиęď όи ƒόґ ăĺĺ иęтẅόґĸš ḿăỳ ϊиċΰґ ċћăґĝęš ẅћęи ΰšϊиĝ ƒόґęϊĝи иęтẅόґĸš</string>
+    <string name="agps_default_value_title">Яęšęт Å-ĞρȘ тό ďęƒăΰĺт šęттϊиĝš</string>
+    <string name="agps_default_value">Đęƒăΰĺт šęттϊиĝš</string>
+    <string name="agps_default_value_note">Å-ĞρȘ šęттϊиĝš ẅϊĺĺ ґęVęґт тό ďęƒăΰĺт</string>
+    <string name="satellite_view_title_log">Łόĝ ϊиƒόґḿăтϊόи</string>
+    <string name="satellite_view_ready">"Ħęϊĝћт: %1$1.2ƒ ḿ Șρęęď: %2$1.2ƒ ĸḿ/ћ 
+Θґϊęитăтϊόи: %3$1.2ƒ
+Ŧϊḿę: %4$š"</string>
+    <string name="satellite_view_button_text">Ũρďăтę Å-ĞρȘ</string>
+    <string name="satellite_view_end">Șăтęĺĺϊтę Vϊęẅ ċăĺċΰĺăтę ęиď</string>
+    <string name="satellite_view_show">Ĉăĺċΰĺăтϊиĝ ĺόċăтϊόи...</string>
+    <string name="satellite_view_button_log_text">Łόĝ</string>
+    <string name="satellite_view_log_text">Ńό Å-ĞρȘ ϊиƒόґḿăтϊόи</string>
+    <string name="satellite_view_button_log_text_clear">Ĉĺęăґ</string>
+    <string name="language_input_method_selection">Їиρΰт ḿęтћόď šęĺęċтϊόи</string>
+    <string name="language_input_method_settings">Їиρΰт ḿęтћόď šęттϊиĝš</string>
+    <string name="wifi_menu_wifi_calling">Ẅϊ-Γϊ Ĉăĺĺϊиĝ</string>
+    <string name="notification_panel_wifi_calling">"ẄЇ-Γϊ
+Ĉăĺĺϊиĝ"</string>
     <string name="bluetooth_advanced_settings">ÅďVăиċęď Șęттϊиĝš</string>
     <string name="bluetooth_profile_hfdevice">Ħăиďšƒґęę</string>
     <string name="bluetooth_disconnect_hfdeviceprofile">%1$s ẅϊĺĺ τę ďϊšċόииęċтęď ƒґόḿ ρћόиę ăΰďϊό.</string>

@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 469
+    .line 495
     iput-object p1, p0, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment$1;->this$0:Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;
 
     iput-object p2, p0, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment$1;->val$context:Landroid/content/Context;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,16 +48,16 @@
     .parameter "which"
 
     .prologue
-    .line 472
+    .line 498
     iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment$1;->this$0:Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;
 
-    invoke-virtual {v6}, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;->getTargetFragment()Landroid/app/Fragment;
+    invoke-virtual {v6}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/settings/deviceinfo/Memory;
 
-    .line 473
+    .line 499
     .local v5, target:Lcom/android/settings/deviceinfo/Memory;
     iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment$1;->val$context:Landroid/content/Context;
 
@@ -65,7 +65,7 @@
 
     move-result-object v4
 
-    .line 474
+    .line 500
     .local v4, pm:Landroid/content/pm/PackageManager;
     const/4 v6, 0x0
 
@@ -73,7 +73,7 @@
 
     move-result-object v2
 
-    .line 475
+    .line 501
     .local v2, infos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     new-instance v3, Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;
 
@@ -83,7 +83,7 @@
 
     invoke-direct {v3, v5, v6}, Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;-><init>(Lcom/android/settings/deviceinfo/Memory;I)V
 
-    .line 477
+    .line 503
     .local v3, observer:Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -103,7 +103,7 @@
 
     check-cast v1, Landroid/content/pm/PackageInfo;
 
-    .line 478
+    .line 504
     .local v1, info:Landroid/content/pm/PackageInfo;
     iget-object v6, v1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
@@ -111,7 +111,7 @@
 
     goto :goto_0
 
-    .line 480
+    .line 506
     .end local v1           #info:Landroid/content/pm/PackageInfo;
     :cond_0
     return-void

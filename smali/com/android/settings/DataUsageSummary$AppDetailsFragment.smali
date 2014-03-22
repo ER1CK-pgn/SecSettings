@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 2099
+    .line 2355
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
     return-void
@@ -32,45 +32,45 @@
     .parameter "label"
 
     .prologue
-    .line 2103
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->isAdded()Z
+    .line 2359
+    invoke-virtual {p0}, Landroid/app/Fragment;->isAdded()Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 2116
+    .line 2372
     :goto_0
     return-void
 
-    .line 2105
+    .line 2361
     :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 2106
+    .line 2362
     .local v0, args:Landroid/os/Bundle;
     const-string v3, "app"
 
     invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 2108
+    .line 2364
     new-instance v1, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;
 
     invoke-direct {v1}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;-><init>()V
 
-    .line 2109
+    .line 2365
     .local v1, fragment:Lcom/android/settings/DataUsageSummary$AppDetailsFragment;
-    invoke-virtual {v1, v0}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {v1, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 2110
+    .line 2366
     const/4 v3, 0x0
 
-    invoke-virtual {v1, p0, v3}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->setTargetFragment(Landroid/app/Fragment;I)V
+    invoke-virtual {v1, p0, v3}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 2111
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+    .line 2367
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
 
@@ -78,21 +78,21 @@
 
     move-result-object v2
 
-    .line 2112
+    .line 2368
     .local v2, ft:Landroid/app/FragmentTransaction;
     const-string v3, "appDetails"
 
     invoke-virtual {v2, v1, v3}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 2113
+    .line 2369
     const-string v3, "appDetails"
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 2114
+    .line 2370
     invoke-virtual {v2, p2}, Landroid/app/FragmentTransaction;->setBreadCrumbTitle(Ljava/lang/CharSequence;)Landroid/app/FragmentTransaction;
 
-    .line 2115
+    .line 2371
     invoke-virtual {v2}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
     goto :goto_0
@@ -104,19 +104,19 @@
     .locals 3
 
     .prologue
-    .line 2120
+    .line 2376
     invoke-super {p0}, Landroid/app/Fragment;->onStart()V
 
-    .line 2121
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->getTargetFragment()Landroid/app/Fragment;
+    .line 2377
+    invoke-virtual {p0}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/DataUsageSummary;
 
-    .line 2122
+    .line 2378
     .local v0, target:Lcom/android/settings/DataUsageSummary;
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -129,13 +129,13 @@
     check-cast v1, Lcom/android/settings/DataUsageSummary$AppItem;
 
     #setter for: Lcom/android/settings/DataUsageSummary;->mCurrentApp:Lcom/android/settings/DataUsageSummary$AppItem;
-    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$3102(Lcom/android/settings/DataUsageSummary;Lcom/android/settings/DataUsageSummary$AppItem;)Lcom/android/settings/DataUsageSummary$AppItem;
+    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$3402(Lcom/android/settings/DataUsageSummary;Lcom/android/settings/DataUsageSummary$AppItem;)Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 2123
+    .line 2379
     #calls: Lcom/android/settings/DataUsageSummary;->updateBody()V
     invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$400(Lcom/android/settings/DataUsageSummary;)V
 
-    .line 2124
+    .line 2380
     return-void
 .end method
 
@@ -143,27 +143,27 @@
     .locals 2
 
     .prologue
-    .line 2128
+    .line 2384
     invoke-super {p0}, Landroid/app/Fragment;->onStop()V
 
-    .line 2129
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->getTargetFragment()Landroid/app/Fragment;
+    .line 2385
+    invoke-virtual {p0}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/DataUsageSummary;
 
-    .line 2130
+    .line 2386
     .local v0, target:Lcom/android/settings/DataUsageSummary;
     const/4 v1, 0x0
 
     #setter for: Lcom/android/settings/DataUsageSummary;->mCurrentApp:Lcom/android/settings/DataUsageSummary$AppItem;
-    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$3102(Lcom/android/settings/DataUsageSummary;Lcom/android/settings/DataUsageSummary$AppItem;)Lcom/android/settings/DataUsageSummary$AppItem;
+    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$3402(Lcom/android/settings/DataUsageSummary;Lcom/android/settings/DataUsageSummary$AppItem;)Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 2131
+    .line 2387
     #calls: Lcom/android/settings/DataUsageSummary;->updateBody()V
     invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$400(Lcom/android/settings/DataUsageSummary;)V
 
-    .line 2132
+    .line 2388
     return-void
 .end method

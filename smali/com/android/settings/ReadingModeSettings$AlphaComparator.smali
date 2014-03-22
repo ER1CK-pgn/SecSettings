@@ -39,12 +39,12 @@
     .parameter
 
     .prologue
-    .line 365
+    .line 370
     iput-object p1, p0, Lcom/android/settings/ReadingModeSettings$AlphaComparator;->this$0:Lcom/android/settings/ReadingModeSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 366
+    .line 371
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -62,7 +62,7 @@
     .parameter "b"
 
     .prologue
-    .line 371
+    .line 376
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings$AlphaComparator;->this$0:Lcom/android/settings/ReadingModeSettings;
@@ -72,7 +72,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {p1, v0}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -81,11 +81,11 @@
     :cond_0
     const/4 v0, -0x1
 
-    .line 374
+    .line 379
     :goto_0
     return v0
 
-    .line 372
+    .line 377
     :cond_1
     if-eqz p2, :cond_2
 
@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p2, v0}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {p2, v0}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -107,7 +107,7 @@
 
     goto :goto_0
 
-    .line 374
+    .line 379
     :cond_3
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings$AlphaComparator;->sCollator:Ljava/text/Collator;
 
@@ -118,7 +118,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1, v1}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {p1, v1}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
@@ -133,7 +133,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p2, v2}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {p2, v2}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -154,7 +154,7 @@
     .parameter "x1"
 
     .prologue
-    .line 365
+    .line 370
     check-cast p1, Landroid/content/pm/ActivityInfo;
 
     .end local p1

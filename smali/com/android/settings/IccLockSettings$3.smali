@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 412
+    .line 417
     iput-object p1, p0, Lcom/android/settings/IccLockSettings$3;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 414
+    .line 419
     iget-object v0, p0, Lcom/android/settings/IccLockSettings$3;->this$0:Lcom/android/settings/IccLockSettings;
 
     #getter for: Lcom/android/settings/IccLockSettings;->mPinDialog:Lcom/android/settings/EditPinPreference;
@@ -51,6 +51,6 @@
 
     invoke-virtual {v0}, Lcom/android/settings/EditPinPreference;->showPinDialog()V
 
-    .line 415
+    .line 420
     return-void
 .end method

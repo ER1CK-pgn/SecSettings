@@ -54,7 +54,7 @@
     const/4 v0, 0x0
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -76,11 +76,11 @@
     invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 102
     return-void
@@ -100,7 +100,7 @@
     const/4 v5, 0x0
 
     .line 55
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -138,11 +138,11 @@
 
     .line 61
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -152,7 +152,7 @@
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/settings/AssistiveHapticSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 64
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -181,7 +181,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090545
+    const v4, 0x7f090572
 
     invoke-virtual {v3, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -191,7 +191,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/AssistiveHapticSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 75
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
@@ -230,7 +230,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 81
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -266,14 +266,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 44
-    const v0, 0x7f070016
+    const v0, 0x7f07001d
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AssistiveHapticSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 46
     const-string v0, "extra_haptic_feedback"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AssistiveHapticSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -284,12 +284,12 @@
     .line 47
     iget-object v0, p0, Lcom/android/settings/AssistiveHapticSettings;->mExtraHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setPersistent(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setPersistent(Z)V
 
     .line 48
     iget-object v3, p0, Lcom/android/settings/AssistiveHapticSettings;->mExtraHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -304,7 +304,7 @@
     move v0, v1
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 51
     return-void
@@ -321,7 +321,7 @@
 
     .prologue
     .line 128
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
     .line 129
     return-void
@@ -332,7 +332,7 @@
 
     .prologue
     .line 106
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 108
     sget-object v0, Lcom/android/settings/AssistiveHapticSettings;->sSettingsObserver:Lcom/android/settings/AssistiveHapticSettings$SettingsObserver;
@@ -366,7 +366,7 @@
     if-ne p2, v0, :cond_0
 
     .line 119
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -374,7 +374,7 @@
 
     iget-object v0, p0, Lcom/android/settings/AssistiveHapticSettings;->mExtraHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -387,7 +387,7 @@
 
     .line 123
     :cond_0
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
@@ -422,11 +422,11 @@
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/settings/AssistiveHapticSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2
 

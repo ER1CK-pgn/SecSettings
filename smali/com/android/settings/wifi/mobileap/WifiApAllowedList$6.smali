@@ -30,7 +30,7 @@
     .line 202
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$6;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -101,11 +101,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0903ee
+    const v3, 0x7f090425
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

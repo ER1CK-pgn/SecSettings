@@ -134,7 +134,7 @@
     invoke-virtual {p0, v3, v1, v2}, Lcom/android/settings/widget/ChartNetworkSeriesView;->setChartColor(III)V
 
     .line 98
-    invoke-virtual {p0, v6}, Lcom/android/settings/widget/ChartNetworkSeriesView;->setWillNotDraw(Z)V
+    invoke-virtual {p0, v6}, Landroid/view/View;->setWillNotDraw(Z)V
 
     .line 100
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -247,13 +247,13 @@
 
     .line 182
     :cond_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
 
     move-result v23
 
     .line 183
     .local v23, width:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
 
     move-result v9
 
@@ -628,7 +628,7 @@
     iput-wide v0, v2, Lcom/android/settings/widget/ChartNetworkSeriesView;->mMax:J
 
     .line 290
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
 
     goto/16 :goto_0
 .end method
@@ -647,7 +647,7 @@
     invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->invalidatePath()V
 
     .line 140
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 141
     return-void
@@ -768,7 +768,7 @@
     iput-wide v0, p0, Lcom/android/settings/widget/ChartNetworkSeriesView;->mMax:J
 
     .line 161
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 162
     return-void
@@ -824,11 +824,11 @@
 
     .line 330
     .local v2, save:I
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v3
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v4
 
@@ -853,7 +853,7 @@
 
     .line 336
     .restart local v2       #save:I
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v3
 
@@ -877,13 +877,13 @@
     move-result v2
 
     .line 341
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v3
 
     int-to-float v3, v3
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v4
 
@@ -907,7 +907,7 @@
     move-result v2
 
     .line 346
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v3
 
@@ -973,7 +973,7 @@
 
     const/high16 v1, 0x4080
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -1136,7 +1136,7 @@
     iput-boolean v0, p0, Lcom/android/settings/widget/ChartNetworkSeriesView;->mEstimateVisible:Z
 
     .line 299
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 300
     return-void
@@ -1155,7 +1155,7 @@
     iput-wide p3, p0, Lcom/android/settings/widget/ChartNetworkSeriesView;->mPrimaryRight:J
 
     .line 155
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartNetworkSeriesView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 156
     return-void

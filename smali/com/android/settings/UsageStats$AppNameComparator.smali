@@ -59,7 +59,7 @@
     .prologue
     .line 65
     .local p1, appList:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/CharSequence;>;"
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
     iput-object p1, p0, Lcom/android/settings/UsageStats$AppNameComparator;->mAppLabelList:Ljava/util/Map;

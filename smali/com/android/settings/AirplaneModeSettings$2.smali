@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 60
     iput-object p1, p0, Lcom/android/settings/AirplaneModeSettings$2;->this$0:Lcom/android/settings/AirplaneModeSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,12 +40,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 59
+    .line 63
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSettings$2;->this$0:Lcom/android/settings/AirplaneModeSettings;
 
     #calls: Lcom/android/settings/AirplaneModeSettings;->onAirplaneModeChanged()V
     invoke-static {v0}, Lcom/android/settings/AirplaneModeSettings;->access$000(Lcom/android/settings/AirplaneModeSettings;)V
 
-    .line 60
+    .line 64
     return-void
 .end method

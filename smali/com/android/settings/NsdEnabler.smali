@@ -39,7 +39,7 @@
     .local v0, desiredState:Z
     iget-object v1, p0, Lcom/android/settings/NsdEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 71
     iget-object v1, p0, Lcom/android/settings/NsdEnabler;->mNsdManager:Landroid/net/nsd/NsdManager;
@@ -66,7 +66,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 65
     return-void
@@ -88,7 +88,7 @@
     .line 59
     iget-object v0, p0, Lcom/android/settings/NsdEnabler;->mCheckbox:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 60
     return-void

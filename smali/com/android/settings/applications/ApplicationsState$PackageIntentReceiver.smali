@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 302
+    .line 320
     iput-object p1, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 302
+    .line 320
     invoke-direct {p0, p1}, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;-><init>(Lcom/android/settings/applications/ApplicationsState;)V
 
     return-void
@@ -52,12 +52,12 @@
     .parameter "intent"
 
     .prologue
-    .line 320
+    .line 338
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 321
+    .line 339
     .local v0, actionStr:Ljava/lang/String;
     const-string v8, "android.intent.action.PACKAGE_ADDED"
 
@@ -67,31 +67,31 @@
 
     if-eqz v8, :cond_1
 
-    .line 322
+    .line 340
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v3
 
-    .line 323
+    .line 341
     .local v3, data:Landroid/net/Uri;
     invoke-virtual {v3}, Landroid/net/Uri;->getEncodedSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 324
+    .line 342
     .local v7, pkgName:Ljava/lang/String;
     iget-object v8, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
     invoke-virtual {v8, v7}, Lcom/android/settings/applications/ApplicationsState;->addPackage(Ljava/lang/String;)V
 
-    .line 353
+    .line 371
     .end local v3           #data:Landroid/net/Uri;
     .end local v7           #pkgName:Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 325
+    .line 343
     :cond_1
     const-string v8, "android.intent.action.PACKAGE_REMOVED"
 
@@ -101,18 +101,18 @@
 
     if-eqz v8, :cond_2
 
-    .line 326
+    .line 344
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v3
 
-    .line 327
+    .line 345
     .restart local v3       #data:Landroid/net/Uri;
     invoke-virtual {v3}, Landroid/net/Uri;->getEncodedSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 328
+    .line 346
     .restart local v7       #pkgName:Ljava/lang/String;
     iget-object v8, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
@@ -120,7 +120,7 @@
 
     goto :goto_0
 
-    .line 329
+    .line 347
     .end local v3           #data:Landroid/net/Uri;
     .end local v7           #pkgName:Ljava/lang/String;
     :cond_2
@@ -132,18 +132,18 @@
 
     if-eqz v8, :cond_3
 
-    .line 330
+    .line 348
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v3
 
-    .line 331
+    .line 349
     .restart local v3       #data:Landroid/net/Uri;
     invoke-virtual {v3}, Landroid/net/Uri;->getEncodedSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 332
+    .line 350
     .restart local v7       #pkgName:Ljava/lang/String;
     iget-object v8, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
@@ -151,7 +151,7 @@
 
     goto :goto_0
 
-    .line 333
+    .line 351
     .end local v3           #data:Landroid/net/Uri;
     .end local v7           #pkgName:Ljava/lang/String;
     :cond_3
@@ -171,7 +171,7 @@
 
     if-eqz v8, :cond_0
 
-    .line 341
+    .line 359
     :cond_4
     const-string v8, "android.intent.extra.changed_package_list"
 
@@ -179,7 +179,7 @@
 
     move-result-object v6
 
-    .line 342
+    .line 360
     .local v6, pkgList:[Ljava/lang/String;
     if-eqz v6, :cond_0
 
@@ -187,18 +187,18 @@
 
     if-eqz v8, :cond_0
 
-    .line 346
+    .line 364
     const-string v8, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
     invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    .line 347
+    .line 365
     .local v2, avail:Z
     if-eqz v2, :cond_0
 
-    .line 348
+    .line 366
     move-object v1, v6
 
     .local v1, arr$:[Ljava/lang/String;
@@ -213,13 +213,13 @@
 
     aget-object v7, v1, v4
 
-    .line 349
+    .line 367
     .restart local v7       #pkgName:Ljava/lang/String;
     iget-object v8, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
     invoke-virtual {v8, v7}, Lcom/android/settings/applications/ApplicationsState;->invalidatePackage(Ljava/lang/String;)V
 
-    .line 348
+    .line 366
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
@@ -229,60 +229,60 @@
     .locals 3
 
     .prologue
-    .line 304
+    .line 322
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v2, "android.intent.action.PACKAGE_ADDED"
 
     invoke-direct {v0, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 305
+    .line 323
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 306
+    .line 324
     const-string v2, "android.intent.action.PACKAGE_CHANGED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 307
+    .line 325
     const-string v2, "package"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
-    .line 308
+    .line 326
     iget-object v2, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
     iget-object v2, v2, Lcom/android/settings/applications/ApplicationsState;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 310
+    .line 328
     new-instance v1, Landroid/content/IntentFilter;
 
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 311
+    .line 329
     .local v1, sdFilter:Landroid/content/IntentFilter;
     const-string v2, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 312
+    .line 330
     const-string v2, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 313
+    .line 331
     iget-object v2, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
     iget-object v2, v2, Lcom/android/settings/applications/ApplicationsState;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, p0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 314
+    .line 332
     return-void
 .end method
 
@@ -290,13 +290,13 @@
     .locals 1
 
     .prologue
-    .line 316
+    .line 334
     iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$PackageIntentReceiver;->this$0:Lcom/android/settings/applications/ApplicationsState;
 
     iget-object v0, v0, Lcom/android/settings/applications/ApplicationsState;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 317
+    .line 335
     return-void
 .end method

@@ -43,7 +43,7 @@
 
     .prologue
     .line 49
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     const/4 v0, 0x0
@@ -106,7 +106,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
     .line 75
     const/4 v1, 0x0
@@ -162,7 +162,7 @@
 
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mActivityRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -188,7 +188,7 @@
 
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mFragmentRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -253,13 +253,13 @@
 
     .line 113
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
     .line 116
     .local v2, res:Landroid/content/res/Resources;
-    const v3, 0x7f0911ff
+    const v3, 0x7f091369
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -275,7 +275,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0911fe
+    const v4, 0x7f091368
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -285,7 +285,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0903cc
+    const v4, 0x7f090405
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

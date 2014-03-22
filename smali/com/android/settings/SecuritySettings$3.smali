@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 535
+    .line 564
     iput-object p1, p0, Lcom/android/settings/SecuritySettings$3;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,10 +44,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 537
+    .line 566
     iget-object v1, p0, Lcom/android/settings/SecuritySettings$3;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/SecuritySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -61,12 +61,12 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 538
+    .line 567
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 539
+    .line 568
     .local v0, mIntent:Landroid/content/Intent;
     const-string v1, "com.osp.app.signin"
 
@@ -74,26 +74,26 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 540
+    .line 569
     const-string v1, "MODE"
 
     const-string v2, "REMOTE_CONTROLS"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 541
+    .line 570
     iget-object v1, p0, Lcom/android/settings/SecuritySettings$3;->this$0:Lcom/android/settings/SecuritySettings;
 
     const/16 v2, 0x3ea
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/settings/SecuritySettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 545
+    .line 574
     .end local v0           #mIntent:Landroid/content/Intent;
     :goto_0
     return v3
 
-    .line 543
+    .line 572
     :cond_0
     iget-object v1, p0, Lcom/android/settings/SecuritySettings$3;->this$0:Lcom/android/settings/SecuritySettings;
 

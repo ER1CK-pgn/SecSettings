@@ -411,7 +411,7 @@
     .line 161
     sget-object v0, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200dc
+    const v1, 0x7f02011c
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -440,7 +440,7 @@
     .line 166
     sget-object v0, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200de
+    const v1, 0x7f02011e
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -917,7 +917,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0161
+    const v1, 0x7f0b0172
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -935,7 +935,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0164
+    const v1, 0x7f0b0175
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -961,7 +961,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04016e
+    const v3, 0x7f0401aa
 
     sget-object v4, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;->mListItem:[Ljava/lang/String;
 
@@ -1153,7 +1153,7 @@
     invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 120
-    const v0, 0x7f090173
+    const v0, 0x7f090195
 
     invoke-interface {p1, v1, v3, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1162,7 +1162,7 @@
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 121
-    const v0, 0x7f090991
+    const v0, 0x7f090a6f
 
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1199,7 +1199,7 @@
 
     .prologue
     .line 55
-    const v0, 0x7f04015a
+    const v0, 0x7f040191
 
     const/4 v1, 0x0
 
@@ -1284,7 +1284,7 @@
     .sparse-switch
         0x1 -> :sswitch_0
         0x2 -> :sswitch_1
-        0x7f0b05f7 -> :sswitch_0
+        0x7f0b0673 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -1313,7 +1313,7 @@
     .line 131
     sget-object v0, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;->mItem_cancel:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200d8
+    const v1, 0x7f020118
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1329,7 +1329,7 @@
     .line 133
     sget-object v0, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200dc
+    const v1, 0x7f02011c
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1341,7 +1341,7 @@
     :cond_0
     sget-object v0, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200de
+    const v1, 0x7f02011e
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

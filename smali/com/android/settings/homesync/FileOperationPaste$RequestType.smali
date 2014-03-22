@@ -134,7 +134,7 @@
     .line 67
     sget-object v0, Lcom/android/settings/homesync/FileOperationPaste$RequestType;->$VALUES:[Lcom/android/settings/homesync/FileOperationPaste$RequestType;
 
-    invoke-virtual {v0}, [Lcom/android/settings/homesync/FileOperationPaste$RequestType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

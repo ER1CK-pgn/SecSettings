@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 200
+    .line 206
     iput-object p1, p0, Lcom/android/settings/OneHandSettings$1;->this$0:Lcom/android/settings/OneHandSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 202
+    .line 208
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$1;->this$0:Lcom/android/settings/OneHandSettings;
 
     #getter for: Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
@@ -51,8 +51,8 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 203
+    .line 209
     return-void
 .end method

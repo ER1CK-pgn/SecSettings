@@ -47,7 +47,7 @@
     iput v0, p0, Lcom/android/settings/wfd/IndexedTextLayout;->mTextIndex:I
 
     .line 32
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/IndexedTextLayout;->setOrientation(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
     .line 33
     return-void
@@ -128,16 +128,16 @@
     invoke-virtual {v3, v4, v8}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
     .line 71
-    invoke-virtual {v1, v10}, Landroid/widget/TextView;->setId(I)V
+    invoke-virtual {v1, v10}, Landroid/view/View;->setId(I)V
 
     .line 72
-    invoke-virtual {v2, v1, v3}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 73
-    invoke-virtual {v2, v0}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 74
-    invoke-virtual {v0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
@@ -146,7 +146,7 @@
 
     .line 75
     .restart local v3       #lp:Landroid/widget/RelativeLayout$LayoutParams;
-    invoke-virtual {v1}, Landroid/widget/TextView;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v4
 
@@ -198,7 +198,7 @@
 
     .line 93
     :goto_0
-    invoke-virtual {p0, v2}, Lcom/android/settings/wfd/IndexedTextLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 94
     iget v4, p0, Lcom/android/settings/wfd/IndexedTextLayout;->mTextIndex:I
@@ -227,16 +227,16 @@
     invoke-virtual {v3, v4, v8}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
     .line 84
-    invoke-virtual {v1, v10}, Landroid/widget/TextView;->setId(I)V
+    invoke-virtual {v1, v10}, Landroid/view/View;->setId(I)V
 
     .line 85
-    invoke-virtual {v2, v1, v3}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 86
-    invoke-virtual {v2, v0}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 87
-    invoke-virtual {v0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
@@ -245,7 +245,7 @@
 
     .line 88
     .restart local v3       #lp:Landroid/widget/RelativeLayout$LayoutParams;
-    invoke-virtual {v1}, Landroid/widget/TextView;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v4
 
@@ -342,7 +342,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 51
-    invoke-virtual {p0}, Lcom/android/settings/wfd/IndexedTextLayout;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -355,7 +355,7 @@
     invoke-direct {p0, v0}, Lcom/android/settings/wfd/IndexedTextLayout;->setLayoutTextStyle(Ljava/lang/String;)Landroid/widget/TextView;
 
     .line 54
-    invoke-virtual {p0}, Lcom/android/settings/wfd/IndexedTextLayout;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 55
     return-void
@@ -377,7 +377,7 @@
     invoke-direct {p0, p1}, Lcom/android/settings/wfd/IndexedTextLayout;->setLayoutTextStyle(Ljava/lang/String;)Landroid/widget/TextView;
 
     .line 102
-    invoke-virtual {p0}, Lcom/android/settings/wfd/IndexedTextLayout;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 103
     return-void
@@ -401,7 +401,7 @@
 
     .prologue
     .line 36
-    invoke-virtual {p0}, Lcom/android/settings/wfd/IndexedTextLayout;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -430,16 +430,16 @@
     invoke-direct {p0, v0}, Lcom/android/settings/wfd/IndexedTextLayout;->setTextStyle(Landroid/widget/TextView;)V
 
     .line 41
-    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 42
-    invoke-virtual {p0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 43
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 45
-    invoke-virtual {p0}, Lcom/android/settings/wfd/IndexedTextLayout;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 46
     return-void

@@ -23,18 +23,18 @@
     .locals 0
 
     .prologue
-    .line 2790
+    .line 3060
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
 .end method
 
-.method static synthetic access$3700(Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;)Z
+.method static synthetic access$4000(Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 2790
+    .line 3060
     iget-boolean v0, p0, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->mEnabling:Z
 
     return v0
@@ -46,40 +46,40 @@
     .parameter "enabling"
 
     .prologue
-    .line 2795
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->isAdded()Z
+    .line 3065
+    invoke-virtual {p0}, Landroid/app/Fragment;->isAdded()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 2801
+    .line 3071
     :goto_0
     return-void
 
-    .line 2797
+    .line 3067
     :cond_0
     new-instance v0, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;
 
     invoke-direct {v0}, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;-><init>()V
 
-    .line 2798
+    .line 3068
     .local v0, dialog:Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;
     iput-boolean p1, v0, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->mEnabling:Z
 
-    .line 2799
+    .line 3069
     const/4 v1, 0x0
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->setTargetFragment(Landroid/app/Fragment;I)V
+    invoke-virtual {v0, p0, v1}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 2800
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
+    .line 3070
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
     const-string v2, "confirmAutoSyncChange"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -91,16 +91,16 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 2805
-    invoke-virtual {p0}, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->getActivity()Landroid/app/Activity;
+    .line 3075
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 2806
+    .line 3076
     .local v1, context:Landroid/content/Context;
     if-eqz p1, :cond_0
 
-    .line 2807
+    .line 3077
     const-string v2, "enabling"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -109,29 +109,29 @@
 
     iput-boolean v2, p0, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->mEnabling:Z
 
-    .line 2810
+    .line 3080
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2811
+    .line 3081
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     iget-boolean v2, p0, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->mEnabling:Z
 
     if-nez v2, :cond_1
 
-    .line 2812
-    const v2, 0x7f090a07
+    .line 3082
+    const v2, 0x7f090aeb
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2813
-    const v2, 0x7f090a08
+    .line 3083
+    const v2, 0x7f090aec
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2819
+    .line 3089
     :goto_0
     const v2, 0x104000a
 
@@ -141,28 +141,28 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2826
+    .line 3096
     const/high16 v2, 0x104
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 2828
+    .line 3098
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2
 
     return-object v2
 
-    .line 2815
+    .line 3085
     :cond_1
-    const v2, 0x7f090a05
+    const v2, 0x7f090ae9
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 2816
-    const v2, 0x7f090a06
+    .line 3086
+    const v2, 0x7f090aea
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -174,16 +174,16 @@
     .parameter "outState"
 
     .prologue
-    .line 2833
+    .line 3103
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 2834
+    .line 3104
     const-string v0, "enabling"
 
     iget-boolean v1, p0, Lcom/android/settings/DataUsageSummary$ConfirmAutoSyncChangeFragment;->mEnabling:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 2835
+    .line 3105
     return-void
 .end method

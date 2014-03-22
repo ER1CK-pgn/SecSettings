@@ -40,7 +40,7 @@
 
     iput-object p3, p0, Lcom/android/settings/wifi/WpsDialog$5;->val$msg:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -58,7 +58,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/WpsDialog$5;->val$state:Lcom/android/settings/wifi/WpsDialog$DialogState;
 
-    invoke-virtual {v1}, Lcom/android/settings/wifi/WpsDialog$DialogState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -113,13 +113,13 @@
 
     const/4 v1, -0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WpsDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v0
 
-    const v1, 0x7f09074c
+    const v1, 0x7f09079f
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 302
     iget-object v0, p0, Lcom/android/settings/wifi/WpsDialog$5;->this$0:Lcom/android/settings/wifi/WpsDialog;

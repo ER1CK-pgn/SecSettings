@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 260
+    .line 288
     new-instance v0, Lcom/android/settings/SecuritySettings$PWState;
 
     const-string v1, "CURRENT"
@@ -69,7 +69,7 @@
 
     sput-object v0, Lcom/android/settings/SecuritySettings$PWState;->CONFIRM:Lcom/android/settings/SecuritySettings$PWState;
 
-    .line 259
+    .line 287
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/settings/SecuritySettings$PWState;
@@ -102,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 259
+    .line 287
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -113,7 +113,7 @@
     .parameter
 
     .prologue
-    .line 259
+    .line 287
     const-class v0, Lcom/android/settings/SecuritySettings$PWState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -129,10 +129,10 @@
     .locals 1
 
     .prologue
-    .line 259
+    .line 287
     sget-object v0, Lcom/android/settings/SecuritySettings$PWState;->$VALUES:[Lcom/android/settings/SecuritySettings$PWState;
 
-    invoke-virtual {v0}, [Lcom/android/settings/SecuritySettings$PWState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

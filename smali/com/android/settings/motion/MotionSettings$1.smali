@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 489
+    .line 531
     iput-object p1, p0, Lcom/android/settings/motion/MotionSettings$1;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,10 +45,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 491
+    .line 533
     iget-object v0, p0, Lcom/android/settings/motion/MotionSettings$1;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    #calls: Lcom/android/settings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/settings/motion/MotionSettings;->access$000(Lcom/android/settings/motion/MotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -57,10 +57,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 492
+    .line 534
     iget-object v0, p0, Lcom/android/settings/motion/MotionSettings$1;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    #calls: Lcom/android/settings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/settings/motion/MotionSettings;->access$100(Lcom/android/settings/motion/MotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -69,10 +69,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 493
+    .line 535
     iget-object v0, p0, Lcom/android/settings/motion/MotionSettings$1;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    #calls: Lcom/android/settings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/settings/motion/MotionSettings;->access$200(Lcom/android/settings/motion/MotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -81,10 +81,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 494
+    .line 536
     iget-object v0, p0, Lcom/android/settings/motion/MotionSettings$1;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    #calls: Lcom/android/settings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/settings/motion/MotionSettings;->access$300(Lcom/android/settings/motion/MotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -93,12 +93,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 495
+    .line 537
     iget-object v0, p0, Lcom/android/settings/motion/MotionSettings$1;->this$0:Lcom/android/settings/motion/MotionSettings;
 
     #calls: Lcom/android/settings/motion/MotionSettings;->broadcastMotionChanged(Z)V
     invoke-static {v0, v2}, Lcom/android/settings/motion/MotionSettings;->access$400(Lcom/android/settings/motion/MotionSettings;Z)V
 
-    .line 496
+    .line 538
     return-void
 .end method

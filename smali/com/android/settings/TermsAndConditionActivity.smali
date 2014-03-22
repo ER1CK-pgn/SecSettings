@@ -373,7 +373,7 @@
 
     .line 82
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f040115
+    const v5, 0x7f04013e
 
     const/4 v6, 0x0
 
@@ -383,7 +383,7 @@
 
     .line 83
     .local v2, layout:Landroid/view/View;
-    const v5, 0x7f0b0315
+    const v5, 0x7f0b0355
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -398,7 +398,7 @@
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 85
-    const v5, 0x7f0b0138
+    const v5, 0x7f0b0147
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +429,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090027
+    const v6, 0x7f090037
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

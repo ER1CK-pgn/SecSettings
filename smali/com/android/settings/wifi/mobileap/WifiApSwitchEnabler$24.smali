@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 693
+    .line 741
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$24;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "dialog"
 
     .prologue
-    .line 695
+    .line 743
     const-string v0, "WifiApSwitchEnabler"
 
     const-string v1, "onCancel"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 696
+    .line 744
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$24;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -59,14 +59,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 697
+    .line 745
     const-string v0, "WifiApSwitchEnabler"
 
     const-string v1, "mDialogConfigure.dismiss()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 698
+    .line 746
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$24;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -74,23 +74,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiApDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 699
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$24;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V
-
-    .line 700
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$24;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
-
-    .line 702
+    .line 748
     :cond_0
     return-void
 .end method

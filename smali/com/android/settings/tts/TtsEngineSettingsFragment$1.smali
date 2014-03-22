@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 65
+    .line 72
     iput-object p1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment$1;->this$0:Lcom/android/settings/tts/TtsEngineSettingsFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,23 +42,23 @@
     .parameter "status"
 
     .prologue
-    .line 68
+    .line 75
     if-eqz p1, :cond_0
 
-    .line 69
+    .line 76
     iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment$1;->this$0:Lcom/android/settings/tts/TtsEngineSettingsFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->finishFragment()V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->finishFragment()V
 
-    .line 78
+    .line 85
     :goto_0
     return-void
 
-    .line 71
+    .line 78
     :cond_0
     iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment$1;->this$0:Lcom/android/settings/tts/TtsEngineSettingsFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

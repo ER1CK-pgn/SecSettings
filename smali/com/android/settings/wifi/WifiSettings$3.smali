@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 601
+    .line 618
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$3;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "reason"
 
     .prologue
-    .line 608
+    .line 625
     invoke-static {}, Lcom/android/settings/wifi/WifiSettings;->access$200()Z
 
     move-result v1
@@ -55,20 +55,20 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 609
+    .line 626
     :cond_0
     iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$3;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/wifi/WifiSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 610
+    .line 627
     .local v0, activity:Landroid/app/Activity;
     if-eqz v0, :cond_1
 
-    .line 611
-    const v1, 0x7f090397
+    .line 628
+    const v1, 0x7f0903ce
 
     const/4 v2, 0x0
 
@@ -78,7 +78,7 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 615
+    .line 632
     :cond_1
     return-void
 .end method
@@ -87,7 +87,7 @@
     .locals 2
 
     .prologue
-    .line 604
+    .line 621
     invoke-static {}, Lcom/android/settings/wifi/WifiSettings;->access$200()Z
 
     move-result v0
@@ -100,7 +100,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 605
+    .line 622
     :cond_0
     return-void
 .end method

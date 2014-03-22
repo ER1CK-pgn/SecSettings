@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 431
+    .line 444
     iput-object p1, p0, Lcom/android/settings/personalvibration/BackgroundView$UpdateTimeTask;->this$0:Lcom/android/settings/personalvibration/BackgroundView;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 434
+    .line 447
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView$UpdateTimeTask;->this$0:Lcom/android/settings/personalvibration/BackgroundView;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/BackgroundView;->handler:Landroid/os/Handler;
@@ -49,6 +49,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 439
+    .line 452
     return-void
 .end method

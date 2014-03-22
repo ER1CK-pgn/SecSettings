@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 583
+    .line 696
     iput-object p1, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,19 +43,19 @@
     .parameter "which"
 
     .prologue
-    .line 585
+    .line 698
     iget-object v0, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$9;->this$0:Lcom/android/settings/users/UserSettings;
 
     #getter for: Lcom/android/settings/users/UserSettings;->mAddedUserId:I
-    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$1200(Lcom/android/settings/users/UserSettings;)I
+    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$1600(Lcom/android/settings/users/UserSettings;)I
 
     move-result v1
 
     #calls: Lcom/android/settings/users/UserSettings;->switchUserNow(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/users/UserSettings;->access$1300(Lcom/android/settings/users/UserSettings;I)V
+    invoke-static {v0, v1}, Lcom/android/settings/users/UserSettings;->access$1700(Lcom/android/settings/users/UserSettings;I)V
 
-    .line 586
+    .line 699
     return-void
 .end method

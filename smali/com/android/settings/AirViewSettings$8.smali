@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 495
+    .line 496
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$8;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,10 +45,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 497
+    .line 498
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$8;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -56,10 +56,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 499
+    .line 500
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$8;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 500
+    .line 501
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$8;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
@@ -75,8 +75,8 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 501
+    .line 502
     return-void
 .end method

@@ -146,27 +146,27 @@
     .parameter "isEnable"
 
     .prologue
-    .line 336
+    .line 338
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.FINGER_AIR_VIEW_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 337
+    .line 339
     .local v0, finger_air_view_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 338
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    .line 340
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 339
+    .line 341
     return-void
 .end method
 
@@ -174,18 +174,18 @@
     .locals 4
 
     .prologue
-    .line 271
+    .line 273
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    const v3, 0x7f090e96
+    const v3, 0x7f090fcf
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -199,13 +199,13 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    const v3, 0x7f090e97
+    const v3, 0x7f090fd0
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -219,13 +219,13 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    const v3, 0x7f09081b
+    const v3, 0x7f090899
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -237,11 +237,11 @@
 
     move-result-object v0
 
-    .line 274
+    .line 276
     .local v0, message:Ljava/lang/String;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -251,7 +251,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090cb8
+    const v2, 0x7f090dd2
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -293,7 +293,7 @@
 
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 316
+    .line 318
     return-void
 .end method
 
@@ -307,14 +307,14 @@
 
     const/4 v8, 0x0
 
-    .line 320
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 322
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
     iput-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
-    .line 322
+    .line 324
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v10, "finger_air_view_magnifier"
@@ -323,7 +323,7 @@
 
     move-result v2
 
-    .line 323
+    .line 325
     .local v2, magnifier:I
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -333,7 +333,7 @@
 
     move-result v5
 
-    .line 324
+    .line 326
     .local v5, showUpIndicator:I
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -343,7 +343,7 @@
 
     move-result v1
 
-    .line 325
+    .line 327
     .local v1, informationPreview:I
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -353,7 +353,7 @@
 
     move-result v0
 
-    .line 326
+    .line 328
     .local v0, fullText:I
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -363,7 +363,7 @@
 
     move-result v3
 
-    .line 327
+    .line 329
     .local v3, pointer:I
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -373,7 +373,7 @@
 
     move-result v4
 
-    .line 328
+    .line 330
     .local v4, progressBarPreview:I
     iget-object v9, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -383,7 +383,7 @@
 
     move-result v6
 
-    .line 329
+    .line 331
     .local v6, speedDialTip:I
     or-int v9, v2, v5
 
@@ -418,11 +418,11 @@
 
     const/4 v2, 0x0
 
-    .line 208
+    .line 210
     if-eqz p2, :cond_2
 
-    .line 209
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    .line 211
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -432,7 +432,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -444,17 +444,17 @@
 
     if-ne v0, v3, :cond_1
 
-    .line 210
+    .line 212
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/FingerAirViewSettings;->makeTalkBackDisablePopup()V
 
-    .line 233
+    .line 235
     :goto_0
     return-void
 
-    .line 212
+    .line 214
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -462,8 +462,8 @@
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 213
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 215
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -471,46 +471,46 @@
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 214
+    .line 216
     invoke-direct {p0, p2}, Lcom/android/settings/FingerAirViewSettings;->broadcastFingerAirViewChanged(Z)V
 
-    .line 215
+    .line 217
     const-string v0, "FingerAirViewSettings"
 
     const-string v1, "switch is on"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
+    .line 218
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mMagnifier:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
-
-    .line 217
-    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
-
-    .line 218
-    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, p2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 219
-    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 220
+    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 221
+    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 222
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSpeedDialTip:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 223
+    .line 225
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -518,8 +518,8 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 224
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 226
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -527,40 +527,40 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 225
+    .line 227
     invoke-direct {p0, p2}, Lcom/android/settings/FingerAirViewSettings;->broadcastFingerAirViewChanged(Z)V
 
-    .line 226
+    .line 228
     const-string v0, "FingerAirViewSettings"
 
     const-string v1, "switch is off"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 227
+    .line 229
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mMagnifier:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
-
-    .line 228
-    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
-
-    .line 229
-    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v0, p2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 230
-    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 231
+    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 232
+    iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 233
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSpeedDialTip:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -580,17 +580,17 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 78
-    const v6, 0x7f070040
+    const v6, 0x7f070051
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 79
     const/4 v6, 0x1
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v6}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 81
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -599,7 +599,7 @@
     .line 83
     const-string v6, "setting_guide"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -607,7 +607,7 @@
 
     .line 84
     .local v1, mSettingsGuide:Lcom/android/settings/UnclickablePreference;
-    invoke-virtual {v1}, Lcom/android/settings/UnclickablePreference;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v6
 
@@ -617,11 +617,11 @@
 
     .line 85
     .local v2, original_title:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f090e6b
+    const v7, 0x7f090fa4
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -672,7 +672,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v1, v6}, Lcom/android/settings/UnclickablePreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v6}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 91
     :cond_0
@@ -721,11 +721,11 @@
     :cond_1
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f0f0019
+    const v7, 0x7f0f0034
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -735,7 +735,7 @@
     .local v3, padding:I
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, v8, v8, v3, v8}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v6, v8, v8, v3, v8}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 99
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mActivity:Landroid/app/Activity;
@@ -782,11 +782,11 @@
     :cond_2
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 110
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -795,7 +795,7 @@
     .line 111
     const-string v6, "magnifier"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -806,7 +806,7 @@
     .line 112
     const-string v6, "information_preview"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -817,7 +817,7 @@
     .line 113
     const-string v6, "sound_and_haptic_feedback"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -828,7 +828,7 @@
     .line 114
     const-string v6, "progress_bar_preview"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -839,7 +839,7 @@
     .line 115
     const-string v6, "speed_dial_tip"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/FingerAirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -850,22 +850,22 @@
     .line 116
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mMagnifier:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 117
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 118
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 119
     iget-object v6, p0, Lcom/android/settings/FingerAirViewSettings;->mSpeedDialTip:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 121
     return-void
@@ -882,8 +882,8 @@
     .line 183
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 185
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    .line 184
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -893,16 +893,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 186
+    .line 185
     const/4 v0, 0x1
 
-    const v1, 0x7f090e7f
+    const v1, 0x7f091291
 
     invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201db
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -910,7 +910,7 @@
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 188
+    .line 190
     :cond_0
     return-void
 .end method
@@ -920,22 +920,22 @@
     .parameter "item"
 
     .prologue
-    .line 193
+    .line 195
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 201
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .line 203
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
 
     :goto_0
     return v1
 
-    .line 195
+    .line 197
     :pswitch_0
     new-instance v0, Landroid/content/Intent;
 
@@ -943,7 +943,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 196
+    .line 198
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "helphub:section"
 
@@ -951,19 +951,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 197
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    .line 199
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 198
+    .line 200
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 193
+    .line 195
     nop
 
     :pswitch_data_0
@@ -979,7 +979,7 @@
     const/4 v2, 0x0
 
     .line 157
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 158
     iget-boolean v0, p0, Lcom/android/settings/FingerAirViewSettings;->isGoIntoMoreDepth:Z
@@ -993,7 +993,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1013,11 +1013,11 @@
     if-nez v0, :cond_0
 
     .line 161
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090e69
+    const v1, 0x7f090fa2
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1026,7 +1026,7 @@
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 162
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1035,7 +1035,7 @@
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 163
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1061,7 +1061,7 @@
 
     const/4 v2, 0x0
 
-    .line 237
+    .line 239
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -1073,15 +1073,15 @@
 
     move v0, v1
 
-    .line 238
+    .line 240
     .local v0, value:I
     :goto_0
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mMagnifier:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_3
 
-    .line 239
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 241
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1089,7 +1089,7 @@
 
     invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 249
+    .line 251
     :cond_0
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->isAllOptionDisabled()Z
@@ -1098,17 +1098,17 @@
 
     if-eqz v3, :cond_1
 
-    .line 250
+    .line 252
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     if-eqz v3, :cond_1
 
-    .line 251
+    .line 253
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v3, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 253
+    .line 255
     :cond_1
     return v1
 
@@ -1116,18 +1116,18 @@
     :cond_2
     move v0, v2
 
-    .line 237
+    .line 239
     goto :goto_0
 
-    .line 240
+    .line 242
     .restart local v0       #value:I
     :cond_3
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_4
 
-    .line 241
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 243
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1135,8 +1135,8 @@
 
     invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 242
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 244
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1146,14 +1146,14 @@
 
     goto :goto_1
 
-    .line 243
+    .line 245
     :cond_4
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_5
 
-    .line 244
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 246
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1163,14 +1163,14 @@
 
     goto :goto_1
 
-    .line 245
+    .line 247
     :cond_5
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mSpeedDialTip:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_0
 
-    .line 246
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 248
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1189,13 +1189,13 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 259
+    .line 261
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v0, :cond_1
 
-    .line 260
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 262
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -1203,7 +1203,7 @@
 
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1214,22 +1214,22 @@
     :goto_0
     invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 266
+    .line 268
     :goto_1
     return v1
 
-    .line 260
+    .line 262
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 263
+    .line 265
     :cond_1
     iput-boolean v1, p0, Lcom/android/settings/FingerAirViewSettings;->isGoIntoMoreDepth:Z
 
-    .line 266
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    .line 268
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
 
@@ -1268,7 +1268,7 @@
     invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 132
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1280,7 +1280,7 @@
 
     .line 135
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -1315,27 +1315,27 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mMagnifier:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 142
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 143
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 144
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 145
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mSpeedDialTip:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 146
     iget-object v4, p0, Lcom/android/settings/FingerAirViewSettings;->mMagnifier:Landroid/preference/SwitchPreferenceScreen;
@@ -1353,7 +1353,7 @@
     move v3, v1
 
     :goto_1
-    invoke-virtual {v4, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 147
     iget-object v4, p0, Lcom/android/settings/FingerAirViewSettings;->mInforamtionPreview:Landroid/preference/SwitchPreferenceScreen;
@@ -1371,7 +1371,7 @@
     move v3, v1
 
     :goto_2
-    invoke-virtual {v4, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 148
     iget-object v4, p0, Lcom/android/settings/FingerAirViewSettings;->mSoundAndHapticFeedback:Landroid/preference/CheckBoxPreference;
@@ -1389,7 +1389,7 @@
     move v3, v1
 
     :goto_3
-    invoke-virtual {v4, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 149
     iget-object v4, p0, Lcom/android/settings/FingerAirViewSettings;->mProgressBarPreview:Landroid/preference/SwitchPreferenceScreen;
@@ -1407,7 +1407,7 @@
     move v3, v1
 
     :goto_4
-    invoke-virtual {v4, v3}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 150
     iget-object v3, p0, Lcom/android/settings/FingerAirViewSettings;->mSpeedDialTip:Landroid/preference/SwitchPreferenceScreen;
@@ -1425,7 +1425,7 @@
     move v2, v1
 
     :cond_2
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 151
     iget-object v2, p0, Lcom/android/settings/FingerAirViewSettings;->mResolver:Landroid/content/ContentResolver;
@@ -1481,7 +1481,7 @@
 
     .prologue
     .line 173
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 174
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings;->mActionBarLayout:Landroid/view/View;
@@ -1496,7 +1496,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 176
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1510,7 +1510,7 @@
 
     .line 178
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 

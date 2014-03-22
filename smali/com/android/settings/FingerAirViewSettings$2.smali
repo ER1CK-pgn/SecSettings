@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 304
+    .line 306
     iput-object p1, p0, Lcom/android/settings/FingerAirViewSettings$2;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,10 +44,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 309
+    .line 311
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$2;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -61,7 +61,7 @@
 
     const/4 v0, 0x1
 
-    .line 311
+    .line 313
     .local v0, fingerAirViewState:Z
     :cond_0
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$2;->this$0:Lcom/android/settings/FingerAirViewSettings;
@@ -73,7 +73,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 312
+    .line 314
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$2;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
     #getter for: Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -83,7 +83,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 313
+    .line 315
     :cond_1
     return-void
 .end method

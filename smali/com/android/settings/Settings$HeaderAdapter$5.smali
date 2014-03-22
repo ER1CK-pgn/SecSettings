@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 2632
+    .line 3964
     iput-object p1, p0, Lcom/android/settings/Settings$HeaderAdapter$5;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,13 +38,27 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 0
-    .parameter "arg0"
+    .locals 2
+    .parameter "v"
 
     .prologue
-    .line 2635
-    invoke-static {}, Lcom/android/settings/Settings;->callSearchMenu()V
+    .line 3967
+    new-instance v0, Landroid/content/Intent;
 
-    .line 2636
+    const-string v1, "com.android.settings.MONITORING_CERT_INFO"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 3969
+    .local v0, intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/settings/Settings$HeaderAdapter$5;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
+
+    invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    .line 3970
     return-void
 .end method

@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1064
+    .line 1165
     iput-object p1, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     iput-object p2, p0, Lcom/android/settings/SecuritySettings$6;->val$mCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -48,9 +48,9 @@
     .parameter "which"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    .line 1066
+    .line 1167
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->val$mCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
@@ -59,7 +59,18 @@
 
     if-eqz v2, :cond_1
 
-    .line 1067
+    .line 1168
+    iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
+
+    invoke-virtual {v2}, Lcom/android/settings/SecuritySettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "one_time_operate"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 1169
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     invoke-virtual {v2}, Lcom/android/settings/SecuritySettings;->getActivity()Landroid/app/Activity;
@@ -74,7 +85,7 @@
 
     move-result-object v0
 
-    .line 1068
+    .line 1170
     .local v0, extras:Landroid/os/Bundle;
     const-string v2, "sec.android.intent.extra.INSTALL_INTENT"
 
@@ -84,20 +95,20 @@
 
     check-cast v1, Landroid/content/Intent;
 
-    .line 1069
+    .line 1171
     .local v1, installIntent:Landroid/content/Intent;
     const-string v2, "android.intent.extra.NOT_UNKNOWN_SOURCE"
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1070
+    .line 1172
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     const/16 v3, 0x3e8
 
     invoke-virtual {v2, v1, v3}, Lcom/android/settings/SecuritySettings;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 1071
+    .line 1173
     const-string v2, "SecuritySettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -122,26 +133,26 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1072
+    .line 1174
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     invoke-virtual {v2}, Lcom/android/settings/SecuritySettings;->finish()V
 
-    .line 1080
+    .line 1182
     .end local v0           #extras:Landroid/os/Bundle;
     .end local v1           #installIntent:Landroid/content/Intent;
     :cond_0
     :goto_0
     return-void
 
-    .line 1074
+    .line 1176
     :cond_1
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     #calls: Lcom/android/settings/SecuritySettings;->setNonMarketAppsAllowed(Z)V
-    invoke-static {v2, v3}, Lcom/android/settings/SecuritySettings;->access$100(Lcom/android/settings/SecuritySettings;Z)V
+    invoke-static {v2, v4}, Lcom/android/settings/SecuritySettings;->access$100(Lcom/android/settings/SecuritySettings;Z)V
 
-    .line 1075
+    .line 1177
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     #getter for: Lcom/android/settings/SecuritySettings;->mToggleAppInstallation:Landroid/preference/CheckBoxPreference;
@@ -151,7 +162,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1076
+    .line 1178
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     #getter for: Lcom/android/settings/SecuritySettings;->mToggleAppInstallation:Landroid/preference/CheckBoxPreference;
@@ -159,9 +170,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 1077
+    .line 1179
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$6;->this$0:Lcom/android/settings/SecuritySettings;
 
     invoke-virtual {v2}, Lcom/android/settings/SecuritySettings;->getContentResolver()Landroid/content/ContentResolver;

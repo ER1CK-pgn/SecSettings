@@ -35,7 +35,7 @@
 
     iput-object p2, p0, Lcom/android/settings/RadioPreference$2;->val$rb:Landroid/view/View;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    #calls: Lcom/android/settings/RadioPreference;->callChangeListener(Ljava/lang/Object;)Z
+    #calls: Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
     invoke-static {v1, v0}, Lcom/android/settings/RadioPreference;->access$100(Lcom/android/settings/RadioPreference;Ljava/lang/Object;)Z
 
     .line 80

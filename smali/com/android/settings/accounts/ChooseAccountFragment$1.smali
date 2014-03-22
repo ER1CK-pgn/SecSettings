@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 112
+    .line 119
     iput-object p1, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -61,11 +61,11 @@
     .end annotation
 
     .prologue
-    .line 114
+    .line 121
     .local p1, future:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     const/4 v2, 0x1
 
-    .line 116
+    .line 123
     .local v2, done:Z
     :try_start_0
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
@@ -74,7 +74,7 @@
 
     check-cast v1, Landroid/os/Bundle;
 
-    .line 118
+    .line 125
     .local v1, bundle:Landroid/os/Bundle;
     const-string v5, "intent"
 
@@ -84,19 +84,19 @@
 
     check-cast v4, Landroid/content/Intent;
 
-    .line 119
+    .line 126
     .local v4, intent:Landroid/content/Intent;
     if-eqz v4, :cond_6
 
-    .line 120
+    .line 127
     const/4 v2, 0x0
 
-    .line 121
+    .line 128
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 122
+    .line 129
     .local v0, addAccountOptions:Landroid/os/Bundle;
     const-string v5, "pendingIntent"
 
@@ -109,12 +109,12 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 123
+    .line 130
     const-string v5, "hasMultipleUsers"
 
     iget-object v6, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v6}, Lcom/android/settings/accounts/ChooseAccountFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v6}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -124,10 +124,10 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 125
+    .line 132
     invoke-virtual {v4, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 127
+    .line 134
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
     #getter for: Lcom/android/settings/accounts/ChooseAccountFragment;->mIsMultipaneFragment:Z
@@ -137,12 +137,12 @@
 
     if-nez v5, :cond_4
 
-    .line 128
+    .line 135
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5, v4}, Lcom/android/settings/accounts/ChooseAccountFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v5, v4}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 129
+    .line 136
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
     #getter for: Lcom/android/settings/accounts/ChooseAccountFragment;->mPendingIntent:Landroid/app/PendingIntent;
@@ -152,7 +152,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 130
+    .line 137
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
     #getter for: Lcom/android/settings/accounts/ChooseAccountFragment;->mPendingIntent:Landroid/app/PendingIntent;
@@ -162,7 +162,7 @@
 
     invoke-virtual {v5}, Landroid/app/PendingIntent;->cancel()V
 
-    .line 131
+    .line 138
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
     const/4 v6, 0x0
@@ -170,11 +170,11 @@
     #setter for: Lcom/android/settings/accounts/ChooseAccountFragment;->mPendingIntent:Landroid/app/PendingIntent;
     invoke-static {v5, v6}, Lcom/android/settings/accounts/ChooseAccountFragment;->access$002(Lcom/android/settings/accounts/ChooseAccountFragment;Landroid/app/PendingIntent;)Landroid/app/PendingIntent;
 
-    .line 133
+    .line 140
     :cond_0
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v5}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -182,12 +182,12 @@
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->setResult(I)V
 
-    .line 134
+    .line 141
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v5}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 146
+    .line 153
     .end local v0           #addAccountOptions:Landroid/os/Bundle;
     :cond_1
     :goto_0
@@ -229,7 +229,7 @@
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_3
 
-    .line 157
+    .line 164
     :cond_2
     if-eqz v2, :cond_3
 
@@ -242,19 +242,19 @@
 
     if-nez v5, :cond_3
 
-    .line 158
+    .line 165
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v5}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 162
+    .line 169
     .end local v1           #bundle:Landroid/os/Bundle;
     .end local v4           #intent:Landroid/content/Intent;
     :cond_3
     :goto_1
     return-void
 
-    .line 136
+    .line 143
     .restart local v0       #addAccountOptions:Landroid/os/Bundle;
     .restart local v1       #bundle:Landroid/os/Bundle;
     .restart local v4       #intent:Landroid/content/Intent;
@@ -264,7 +264,7 @@
 
     const/4 v6, 0x2
 
-    invoke-virtual {v5, v4, v6}, Lcom/android/settings/accounts/ChooseAccountFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v5, v4, v6}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/accounts/OperationCanceledException; {:try_start_1 .. :try_end_1} :catch_0
@@ -274,14 +274,14 @@
 
     goto :goto_0
 
-    .line 147
+    .line 154
     .end local v0           #addAccountOptions:Landroid/os/Bundle;
     .end local v1           #bundle:Landroid/os/Bundle;
     .end local v4           #intent:Landroid/content/Intent;
     :catch_0
     move-exception v3
 
-    .line 148
+    .line 155
     .local v3, e:Landroid/accounts/OperationCanceledException;
     :try_start_2
     const-string v5, "ChooseAccountFragment"
@@ -302,7 +302,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 157
+    .line 164
     :cond_5
     if-eqz v2, :cond_3
 
@@ -315,14 +315,14 @@
 
     if-nez v5, :cond_3
 
-    .line 158
+    .line 165
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v5}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_1
 
-    .line 140
+    .line 147
     .end local v3           #e:Landroid/accounts/OperationCanceledException;
     .restart local v1       #bundle:Landroid/os/Bundle;
     .restart local v4       #intent:Landroid/content/Intent;
@@ -337,7 +337,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 141
+    .line 148
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
     #getter for: Lcom/android/settings/accounts/ChooseAccountFragment;->mPendingIntent:Landroid/app/PendingIntent;
@@ -347,7 +347,7 @@
 
     invoke-virtual {v5}, Landroid/app/PendingIntent;->cancel()V
 
-    .line 142
+    .line 149
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
     const/4 v6, 0x0
@@ -363,13 +363,13 @@
 
     goto :goto_0
 
-    .line 149
+    .line 156
     .end local v1           #bundle:Landroid/os/Bundle;
     .end local v4           #intent:Landroid/content/Intent;
     :catch_1
     move-exception v3
 
-    .line 150
+    .line 157
     .local v3, e:Ljava/io/IOException;
     :try_start_4
     const-string v5, "ChooseAccountFragment"
@@ -406,7 +406,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 157
+    .line 164
     :cond_7
     if-eqz v2, :cond_3
 
@@ -419,19 +419,19 @@
 
     if-nez v5, :cond_3
 
-    .line 158
+    .line 165
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v5}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_1
 
-    .line 151
+    .line 158
     .end local v3           #e:Ljava/io/IOException;
     :catch_2
     move-exception v3
 
-    .line 152
+    .line 159
     .local v3, e:Landroid/accounts/AuthenticatorException;
     :try_start_5
     const-string v5, "ChooseAccountFragment"
@@ -468,7 +468,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 157
+    .line 164
     :cond_8
     if-eqz v2, :cond_3
 
@@ -481,23 +481,20 @@
 
     if-nez v5, :cond_3
 
-    .line 158
+    .line 165
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v5}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto/16 :goto_1
 
-    .line 153
+    .line 160
     .end local v3           #e:Landroid/accounts/AuthenticatorException;
     :catch_3
     move-exception v3
 
-    .line 154
+    .line 162
     .local v3, e:Ljava/lang/IllegalStateException;
-    const/4 v2, 0x1
-
-    .line 155
     :try_start_6
     const-string v5, "ChooseAccountFragment"
 
@@ -533,7 +530,7 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 157
+    .line 164
     :cond_9
     if-eqz v2, :cond_3
 
@@ -546,14 +543,14 @@
 
     if-nez v5, :cond_3
 
-    .line 158
+    .line 165
     iget-object v5, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v5}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto/16 :goto_1
 
-    .line 157
+    .line 164
     .end local v3           #e:Ljava/lang/IllegalStateException;
     :catchall_0
     move-exception v5
@@ -569,10 +566,10 @@
 
     if-nez v6, :cond_a
 
-    .line 158
+    .line 165
     iget-object v6, p0, Lcom/android/settings/accounts/ChooseAccountFragment$1;->this$0:Lcom/android/settings/accounts/ChooseAccountFragment;
 
-    invoke-virtual {v6}, Lcom/android/settings/accounts/ChooseAccountFragment;->finish()V
+    invoke-virtual {v6}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     :cond_a
     throw v5

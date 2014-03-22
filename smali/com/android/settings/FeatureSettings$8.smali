@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1060
+    .line 1068
     iput-object p1, p0, Lcom/android/settings/FeatureSettings$8;->this$0:Lcom/android/settings/FeatureSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 1062
+    .line 1070
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$8;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mMulti:Landroid/preference/SwitchPreferenceScreen;
@@ -51,8 +51,8 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 1063
+    .line 1071
     return-void
 .end method

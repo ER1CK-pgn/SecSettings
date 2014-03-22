@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 602
+    .line 604
     iput-object p1, p0, Lcom/android/settings/guide/BtSettingsGuider$4;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,6 +41,6 @@
     .locals 0
 
     .prologue
-    .line 610
+    .line 612
     return-void
 .end method

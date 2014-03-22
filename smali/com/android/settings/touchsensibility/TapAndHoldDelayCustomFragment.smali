@@ -123,7 +123,7 @@
 
     .prologue
     .line 84
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -167,7 +167,7 @@
     .line 80
     .end local v0           #longTouchTime:I
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     .line 81
     return-void
@@ -195,7 +195,7 @@
 
     .prologue
     .line 42
-    const v1, 0x7f040178
+    const v1, 0x7f0401b8
 
     const/4 v2, 0x0
 
@@ -205,7 +205,7 @@
 
     .line 43
     .local v0, view:Landroid/view/View;
-    const v1, 0x7f0b03fd
+    const v1, 0x7f0b0466
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -216,7 +216,7 @@
     iput-object v1, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->mTabAndHoldView:Lcom/android/settings/touchsensibility/TapAndHoldView;
 
     .line 45
-    const v1, 0x7f0b03ff
+    const v1, 0x7f0b0468
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -229,10 +229,10 @@
     .line 46
     iget-object v1, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->mcancelBttn:Landroid/widget/Button;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 47
-    const v1, 0x7f0b0400
+    const v1, 0x7f0b0469
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -245,7 +245,7 @@
     .line 48
     iget-object v1, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->mSaveBttn:Landroid/widget/Button;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 49
     iget-object v1, p0, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->mHandler:Landroid/os/Handler;
@@ -272,7 +272,7 @@
     sput-object v0, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->isInFront:Ljava/lang/Boolean;
 
     .line 71
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
     .line 72
     return-void
@@ -283,7 +283,7 @@
 
     .prologue
     .line 55
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -294,7 +294,7 @@
     if-nez v0, :cond_0
 
     .line 56
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -302,11 +302,11 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldDelayCustomFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f091594
+    const v2, 0x7f0916f8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

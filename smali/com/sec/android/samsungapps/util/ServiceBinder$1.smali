@@ -50,7 +50,7 @@
     :try_start_0
     sget-object v1, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->FAILED:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -64,7 +64,7 @@
     :try_start_1
     sget-object v1, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->IDLE:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -78,7 +78,7 @@
     :try_start_2
     sget-object v1, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->INIT:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -92,7 +92,7 @@
     :try_start_3
     sget-object v1, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->PREPARED:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -106,7 +106,7 @@
     :try_start_4
     sget-object v1, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->RELEASING:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -156,7 +156,7 @@
     iput-object p1, p0, Lcom/sec/android/samsungapps/util/ServiceBinder$1;->this$0:Lcom/sec/android/samsungapps/util/ServiceBinder;
 
     .line 75
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -178,7 +178,7 @@
 
     iget-object v1, v1, Lcom/sec/android/samsungapps/util/ServiceBinder;->_State:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -231,7 +231,7 @@
 
     iget-object v1, v1, Lcom/sec/android/samsungapps/util/ServiceBinder;->_State:Lcom/sec/android/samsungapps/util/ServiceBinder$State;
 
-    invoke-virtual {v1}, Lcom/sec/android/samsungapps/util/ServiceBinder$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

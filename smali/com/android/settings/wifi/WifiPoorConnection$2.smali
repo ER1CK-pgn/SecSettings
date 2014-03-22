@@ -43,64 +43,75 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 4
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v3, 0x1
+
+    .line 72
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.settings.WIFI_IP_SETTINGS"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 73
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
+    .local v0, intent:Landroid/content/Intent;
+    const-string v1, "advanced"
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiPoorConnection;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    move-result-object v0
+    .line 74
+    iget-object v1, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
 
-    const-string v1, "wifi_watchdog_poor_network_test_enabled"
+    new-instance v2, Landroid/content/Intent;
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-direct {v2, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/wifi/WifiPoorConnection;->startActivity(Landroid/content/Intent;)V
 
     .line 75
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->val$mCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    iget-object v1, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->val$mCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+    invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 76
     invoke-static {}, Lcom/android/settings/wifi/WifiPoorConnection;->access$000()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string v0, "WifiPoorConnection"
+    const-string v1, "WifiPoorConnection"
 
-    const-string v1, "ADVANCED BUTTON - CHECKBOX CHECKED"
+    const-string v2, "ADVANCED BUTTON - CHECKBOX CHECKED"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 77
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
+    iget-object v1, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiPoorConnection;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/wifi/WifiPoorConnection;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "wifi_poor_connection_warning"
+    const-string v2, "wifi_poor_connection_warning"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 81
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
+    iget-object v1, p0, Lcom/android/settings/wifi/WifiPoorConnection$2;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiPoorConnection;->finish()V
+    invoke-virtual {v1}, Lcom/android/settings/wifi/WifiPoorConnection;->finish()V
 
     .line 82
     return-void
@@ -109,15 +120,15 @@
     :cond_2
     invoke-static {}, Lcom/android/settings/wifi/WifiPoorConnection;->access$000()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    const-string v0, "WifiPoorConnection"
+    const-string v1, "WifiPoorConnection"
 
-    const-string v1, "ADVANCED BUTTON - CHECKBOX UNCHECKED"
+    const-string v2, "ADVANCED BUTTON - CHECKBOX UNCHECKED"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

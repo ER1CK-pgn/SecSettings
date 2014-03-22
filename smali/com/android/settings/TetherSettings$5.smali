@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 535
+    .line 610
     iput-object p1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 539
+    .line 614
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
     #getter for: Lcom/android/settings/TetherSettings;->mTetherChoice:I
@@ -55,7 +55,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 547
+    .line 622
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
     #getter for: Lcom/android/settings/TetherSettings;->mWifiApSwitchEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
@@ -65,7 +65,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 548
+    .line 623
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
     #getter for: Lcom/android/settings/TetherSettings;->mWifiApSwitchEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V
 
-    .line 549
+    .line 624
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
     #getter for: Lcom/android/settings/TetherSettings;->mWifiApSwitchEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
 
-    .line 552
+    .line 627
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
@@ -97,10 +97,10 @@
     #setter for: Lcom/android/settings/TetherSettings;->mTetherChoice:I
     invoke-static {v0, v1}, Lcom/android/settings/TetherSettings;->access$602(Lcom/android/settings/TetherSettings;I)I
 
-    .line 553
+    .line 628
     return-void
 
-    .line 541
+    .line 616
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
@@ -109,11 +109,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 544
+    .line 619
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
@@ -122,11 +122,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 539
+    .line 614
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

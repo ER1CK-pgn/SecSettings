@@ -22,8 +22,8 @@
     .locals 0
 
     .prologue
-    .line 501
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 521
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
     .parameter "filename"
 
     .prologue
-    .line 503
+    .line 523
     const-string v0, ".conf"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -61,11 +61,11 @@
 
     if-eqz v0, :cond_1
 
-    .line 505
+    .line 525
     :cond_0
     const/4 v0, 0x1
 
-    .line 508
+    .line 528
     :goto_0
     return v0
 

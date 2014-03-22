@@ -47,7 +47,7 @@
     .line 319
     iput-object p1, p0, Lcom/android/settings/AccountMenu$FragContainer;->this$0:Lcom/android/settings/AccountMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 320
     new-instance v0, Landroid/app/Fragment;

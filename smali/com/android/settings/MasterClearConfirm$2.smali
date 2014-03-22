@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 341
+    .line 343
     invoke-static {}, Lcom/android/settings/MasterClearConfirm$PWState;->values()[Lcom/android/settings/MasterClearConfirm$PWState;
 
     move-result-object v0
@@ -39,7 +39,7 @@
 
     sget-object v1, Lcom/android/settings/MasterClearConfirm$PWState;->NEW:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    invoke-virtual {v1}, Lcom/android/settings/MasterClearConfirm$PWState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Lcom/android/settings/MasterClearConfirm$PWState;->CONFIRM:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    invoke-virtual {v1}, Lcom/android/settings/MasterClearConfirm$PWState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

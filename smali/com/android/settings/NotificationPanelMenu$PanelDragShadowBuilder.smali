@@ -29,14 +29,14 @@
     .parameter "view"
 
     .prologue
-    .line 730
+    .line 814
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    .line 731
+    .line 815
     invoke-direct {p0, p2}, Landroid/view/View$DragShadowBuilder;-><init>(Landroid/view/View;)V
 
-    .line 732
-    const v0, 0x7f0b028a
+    .line 816
+    const v0, 0x7f0b02c6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -46,7 +46,7 @@
 
     iput-object v0, p0, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->mPanel:Landroid/widget/LinearLayout;
 
-    .line 733
+    .line 817
     return-void
 .end method
 
@@ -57,29 +57,29 @@
     .parameter "canvas"
 
     .prologue
-    .line 737
+    .line 821
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 739
-    invoke-virtual {p0}, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->getView()Landroid/view/View;
+    .line 823
+    invoke-virtual {p0}, Landroid/view/View$DragShadowBuilder;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    .line 740
+    .line 824
     .local v0, view:Landroid/view/View;
     if-eqz v0, :cond_0
 
-    .line 741
+    .line 825
     iget-object v1, p0, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->mPanel:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f0203af
+    const v2, 0x7f02042d
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 742
+    .line 826
     invoke-virtual {v0, p1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
-    .line 745
+    .line 829
     :cond_0
     return-void
 .end method
@@ -88,23 +88,23 @@
     .locals 3
 
     .prologue
-    .line 748
-    invoke-virtual {p0}, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->getView()Landroid/view/View;
+    .line 832
+    invoke-virtual {p0}, Landroid/view/View$DragShadowBuilder;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    .line 749
+    .line 833
     .local v0, view:Landroid/view/View;
     if-eqz v0, :cond_0
 
-    .line 750
+    .line 834
     iget-object v1, p0, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->mPanel:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f0203ac
+    const v2, 0x7f02042b
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 753
+    .line 837
     :cond_0
     if-eqz v0, :cond_1
 
@@ -112,12 +112,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 754
+    .line 838
     iget-object v1, p0, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;->mCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
-    .line 756
+    .line 840
     :cond_1
     return-void
 .end method

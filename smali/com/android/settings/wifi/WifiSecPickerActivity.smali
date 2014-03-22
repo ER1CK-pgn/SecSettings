@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 38
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
     return-void
@@ -20,16 +20,16 @@
     .locals 3
 
     .prologue
-    .line 52
+    .line 53
     new-instance v0, Landroid/content/Intent;
 
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+    invoke-super {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
-    .line 53
+    .line 54
     const-string v1, ":android:show_fragment"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -38,7 +38,7 @@
 
     if-nez v1, :cond_0
 
-    .line 54
+    .line 55
     const-string v1, ":android:show_fragment"
 
     const-class v2, Lcom/android/settings/wifi/WifiSettings;
@@ -49,7 +49,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 56
+    .line 57
     :cond_0
     const-string v1, ":android:no_headers"
 
@@ -57,8 +57,76 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 57
+    .line 58
     return-object v0
+.end method
+
+.method protected isValidFragment(Ljava/lang/String;)Z
+    .locals 1
+    .parameter
+
+    .prologue
+    .line 62
+    const-class v0, Lcom/android/settings/wifi/WifiSettings;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-class v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-class v0, Lcom/android/settings/wifi/AdvancedWifiSettings;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-class v0, Lcom/android/settings/wifi/WifiTimer;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 65
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 66
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
@@ -66,30 +134,30 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 62
+    .line 70
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 63
+    .line 71
     const-string v1, "WifiSecPickerActivity"
 
     const-string v2, "onCreate"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
-    const v1, 0x10202f8
+    .line 72
+    const v1, 0x10202e6
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiSecPickerActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 65
+    .line 73
     .local v0, buttonBar:Landroid/view/ViewGroup;
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    .line 66
+    .line 74
     return-void
 .end method
 
@@ -103,14 +171,14 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 76
+    .line 84
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.MAIN"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 77
+    .line 85
     .local v0, intent:Landroid/content/Intent;
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -118,27 +186,27 @@
 
     invoke-virtual {v0, p0, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 78
+    .line 86
     const-string v2, ":android:show_fragment"
 
     invoke-virtual {v0, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 79
+    .line 87
     const-string v2, ":android:show_fragment_args"
 
     invoke-virtual {v0, v2, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 80
+    .line 88
     const-string v2, ":android:no_headers"
 
     invoke-virtual {v0, v2, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 82
+    .line 90
     invoke-virtual {p0}, Lcom/android/settings/wifi/WifiSecPickerActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 83
+    .line 91
     .local v1, orgIntent:Landroid/content/Intent;
     const-string v2, "extra_prefs_show_button_bar"
 
@@ -148,7 +216,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 84
+    .line 92
     const-string v2, "extra_prefs_show_button_bar"
 
     const-string v3, "extra_prefs_show_button_bar"
@@ -161,7 +229,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 87
+    .line 95
     :cond_0
     const-string v2, "extra_prefs_set_next_text"
 
@@ -171,7 +239,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 88
+    .line 96
     const-string v2, "extra_prefs_set_next_text"
 
     const-string v3, "extra_prefs_set_next_text"
@@ -182,7 +250,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 91
+    .line 99
     :cond_1
     const-string v2, "extra_prefs_set_back_text"
 
@@ -192,7 +260,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 92
+    .line 100
     const-string v2, "extra_prefs_set_back_text"
 
     const-string v3, "extra_prefs_set_back_text"
@@ -203,7 +271,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 95
+    .line 103
     :cond_2
     const-string v2, "wifi_show_action_bar"
 
@@ -213,7 +281,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 96
+    .line 104
     const-string v2, "wifi_show_action_bar"
 
     const-string v3, "wifi_show_action_bar"
@@ -224,7 +292,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 99
+    .line 107
     :cond_3
     const-string v2, "wifi_show_menus"
 
@@ -234,7 +302,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 100
+    .line 108
     const-string v2, "wifi_show_menus"
 
     const-string v3, "wifi_show_menus"
@@ -245,18 +313,18 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 104
+    .line 112
     :cond_4
     if-nez p3, :cond_5
 
-    .line 105
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/WifiSecPickerActivity;->startActivity(Landroid/content/Intent;)V
+    .line 113
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 109
+    .line 117
     :goto_0
     return-void
 
-    .line 107
+    .line 115
     :cond_5
     invoke-virtual {p3, v0, p4}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 

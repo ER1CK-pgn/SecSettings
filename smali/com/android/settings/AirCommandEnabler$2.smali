@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 138
+    .line 143
     iput-object p1, p0, Lcom/android/settings/AirCommandEnabler$2;->this$0:Lcom/android/settings/AirCommandEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 140
+    .line 145
     iget-object v0, p0, Lcom/android/settings/AirCommandEnabler$2;->this$0:Lcom/android/settings/AirCommandEnabler;
 
     #getter for: Lcom/android/settings/AirCommandEnabler;->mSwitch:Landroid/widget/Switch;
@@ -55,6 +55,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 141
+    .line 146
     return-void
 .end method

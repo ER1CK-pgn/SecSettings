@@ -317,7 +317,7 @@
 
     .line 60
     .local v9, res:Landroid/content/res/Resources;
-    const v1, 0x7f0f0039
+    const v1, 0x7f0f0055
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -325,7 +325,7 @@
 
     .line 61
     .local v8, iconSize:F
-    const v1, 0x7f0f003a
+    const v1, 0x7f0f0056
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -333,7 +333,7 @@
 
     .line 62
     .local v4, strokeWidth:F
-    const v1, 0x7f0f003b
+    const v1, 0x7f0f0057
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -341,7 +341,7 @@
 
     .line 63
     .local v6, shadowRadius:F
-    const v1, 0x7f0d001f
+    const v1, 0x7f0d002a
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -349,7 +349,7 @@
 
     .line 64
     .local v3, frameColor:I
-    const v1, 0x7f0d0020
+    const v1, 0x7f0d002b
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -357,7 +357,7 @@
 
     .line 65
     .local v5, frameShadowColor:I
-    const v1, 0x7f0d0021
+    const v1, 0x7f0d002c
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getColor(I)I
 

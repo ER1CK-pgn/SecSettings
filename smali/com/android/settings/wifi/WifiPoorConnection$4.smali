@@ -30,7 +30,7 @@
     .line 100
     iput-object p1, p0, Lcom/android/settings/wifi/WifiPoorConnection$4;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -90,7 +90,7 @@
     .line 108
     iget-object v1, p0, Lcom/android/settings/wifi/WifiPoorConnection$4;->this$0:Lcom/android/settings/wifi/WifiPoorConnection;
 
-    invoke-virtual {v1}, Lcom/android/settings/wifi/WifiPoorConnection;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     .line 109
     return-void

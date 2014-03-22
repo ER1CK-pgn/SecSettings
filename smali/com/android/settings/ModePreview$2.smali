@@ -30,7 +30,7 @@
     .line 109
     iput-object p1, p0, Lcom/android/settings/ModePreview$2;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
     .line 111
     iget-object v0, p0, Lcom/android/settings/ModePreview$2;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-virtual {v0}, Lcom/android/settings/ModePreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCount()I
+    invoke-virtual {v0}, Landroid/widget/AdapterView;->getCount()I
 
     move-result v0
 
@@ -77,7 +77,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/settings/ModePreview$2;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-virtual {v0}, Lcom/android/settings/ModePreview;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 116
     return-void
@@ -86,7 +86,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ModePreview$2;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-virtual {v0}, Lcom/android/settings/ModePreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 

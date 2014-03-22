@@ -138,7 +138,7 @@
 
     .prologue
     .line 234
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -353,7 +353,7 @@
 
     aput-object v8, v6, v7
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/homesync/RestoreFragment$CalculateDirectorySizeTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v5, v6}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     .line 246
     add-int/lit8 v2, v2, 0x1
@@ -364,11 +364,11 @@
     :cond_1
     new-instance v5, Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    const v7, 0x7f04014f
+    const v7, 0x7f040185
 
     iget-object v8, p0, Lcom/android/settings/homesync/RestoreFragment;->list_info:Ljava/util/ArrayList;
 
@@ -525,7 +525,7 @@
     .line 397
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -533,7 +533,7 @@
 
     .line 398
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f09149a
+    const v1, 0x7f0915ee
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -543,7 +543,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090ad8
+    const v2, 0x7f090bbc
 
     new-instance v3, Lcom/android/settings/homesync/RestoreFragment$3;
 
@@ -589,7 +589,7 @@
     .line 108
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/homesync/RestoreFragment;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 110
     return-void
@@ -606,7 +606,7 @@
     const/4 v2, 0x0
 
     .line 177
-    const v1, 0x7f0914a8
+    const v1, 0x7f0915fc
 
     invoke-interface {p1, v2, v2, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -620,7 +620,7 @@
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     .line 181
-    const v1, 0x7f020232
+    const v1, 0x7f020283
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -645,14 +645,14 @@
     const/4 v9, 0x0
 
     .line 113
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v5
 
     if-eqz v5, :cond_0
 
     .line 114
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v5
 
@@ -666,7 +666,7 @@
 
     .line 116
     :cond_0
-    const v5, 0x7f04014e
+    const v5, 0x7f040184
 
     invoke-virtual {p1, v5, p2, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -675,7 +675,7 @@
     sput-object v5, Lcom/android/settings/homesync/RestoreFragment;->rootView:Landroid/view/View;
 
     .line 118
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -714,7 +714,7 @@
     :cond_1
     sget-object v5, Lcom/android/settings/homesync/RestoreFragment;->rootView:Landroid/view/View;
 
-    const v6, 0x7f0b03a9
+    const v6, 0x7f0b0405
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -742,7 +742,7 @@
 
     move-result-object v5
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -765,7 +765,7 @@
     .line 127
     sget-object v5, Lcom/android/settings/homesync/RestoreFragment;->rootView:Landroid/view/View;
 
-    const v6, 0x7f0b03ae
+    const v6, 0x7f0b040a
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -780,17 +780,17 @@
 
     iget-object v6, p0, Lcom/android/settings/homesync/RestoreFragment;->mNextButtonListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 129
     iget-object v5, p0, Lcom/android/settings/homesync/RestoreFragment;->startRestoreButton:Landroid/widget/Button;
 
-    invoke-virtual {v5, v9}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v5, v9}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 131
     sget-object v5, Lcom/android/settings/homesync/RestoreFragment;->rootView:Landroid/view/View;
 
-    const v6, 0x7f0b03ab
+    const v6, 0x7f0b0407
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -813,7 +813,7 @@
     .line 137
     sget-object v5, Lcom/android/settings/homesync/RestoreFragment;->rootView:Landroid/view/View;
 
-    const v6, 0x7f0b03ad
+    const v6, 0x7f0b0409
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -827,11 +827,11 @@
 
     new-array v1, v5, [Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v6, 0x7f091496
+    const v6, 0x7f0915ea
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -839,11 +839,11 @@
 
     aput-object v5, v1, v9
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v6, 0x7f091497
+    const v6, 0x7f0915eb
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -853,11 +853,11 @@
 
     const/4 v5, 0x2
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f091498
+    const v7, 0x7f0915ec
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -869,7 +869,7 @@
     .local v1, data:[Ljava/lang/String;
     new-instance v0, Landroid/widget/ArrayAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -882,14 +882,14 @@
     invoke-virtual {v2, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 145
-    invoke-virtual {v2, v9, v10}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v2, v9, v10}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 146
     new-instance v5, Lcom/android/settings/homesync/RestoreFragment$1;
 
     invoke-direct {v5, p0}, Lcom/android/settings/homesync/RestoreFragment$1;-><init>(Lcom/android/settings/homesync/RestoreFragment;)V
 
-    invoke-virtual {v2, v5}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v2, v5}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 154
     sget-object v5, Lcom/android/settings/homesync/RestoreFragment;->rootView:Landroid/view/View;
@@ -917,11 +917,11 @@
     if-ne v0, v2, :cond_0
 
     .line 190
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v2, 0x7f09149c
+    const v2, 0x7f0915f0
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -937,7 +937,7 @@
 
     .line 194
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -948,7 +948,7 @@
     if-lez v0, :cond_1
 
     .line 195
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -958,7 +958,7 @@
     :cond_1
     new-instance v2, Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -974,7 +974,7 @@
     invoke-virtual {v2, v0}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     .line 199
-    const v0, 0x7f09147e
+    const v0, 0x7f0915d2
 
     invoke-virtual {v2, v0}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -990,7 +990,7 @@
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 202
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1029,11 +1029,11 @@
     if-ne v0, v1, :cond_0
 
     .line 162
-    invoke-virtual {p0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f09149c
+    const v1, 0x7f0915f0
 
     const/4 v2, 0x1
 
@@ -1062,7 +1062,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 169
     :cond_1

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 107
+    .line 108
     iput-object p1, p0, Lcom/android/settings/FeatureSettings$1;->this$0:Lcom/android/settings/FeatureSettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -41,16 +41,16 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 109
+    .line 110
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 126
+    .line 127
     :goto_0
     return-void
 
-    .line 111
+    .line 112
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$1;->this$0:Lcom/android/settings/FeatureSettings;
 
@@ -59,11 +59,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 114
+    .line 115
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$1;->this$0:Lcom/android/settings/FeatureSettings;
 
@@ -72,11 +72,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 117
+    .line 118
     :pswitch_2
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$1;->this$0:Lcom/android/settings/FeatureSettings;
 
@@ -85,11 +85,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 120
+    .line 121
     :pswitch_3
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$1;->this$0:Lcom/android/settings/FeatureSettings;
 
@@ -98,11 +98,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 123
+    .line 124
     :pswitch_4
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$1;->this$0:Lcom/android/settings/FeatureSettings;
 
@@ -111,11 +111,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 109
+    .line 110
     nop
 
     :pswitch_data_0

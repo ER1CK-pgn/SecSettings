@@ -35,7 +35,7 @@
 
     iput-object p2, p0, Lcom/android/settings/DreamSettings$5;->val$onClick:Ljava/lang/Runnable;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

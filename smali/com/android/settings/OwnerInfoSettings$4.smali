@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 188
+    .line 184
     iput-object p1, p0, Lcom/android/settings/OwnerInfoSettings$4;->this$0:Lcom/android/settings/OwnerInfoSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,10 +41,10 @@
     .locals 3
 
     .prologue
-    .line 190
+    .line 186
     iget-object v1, p0, Lcom/android/settings/OwnerInfoSettings$4;->this$0:Lcom/android/settings/OwnerInfoSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/OwnerInfoSettings;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -52,7 +52,7 @@
 
     iget-object v1, p0, Lcom/android/settings/OwnerInfoSettings$4;->this$0:Lcom/android/settings/OwnerInfoSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/OwnerInfoSettings;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -62,16 +62,16 @@
 
     if-nez v1, :cond_1
 
-    .line 196
+    .line 192
     :cond_0
     :goto_0
     return-void
 
-    .line 193
+    .line 189
     :cond_1
     iget-object v1, p0, Lcom/android/settings/OwnerInfoSettings$4;->this$0:Lcom/android/settings/OwnerInfoSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/OwnerInfoSettings;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -83,10 +83,10 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 194
+    .line 190
     iget-object v1, p0, Lcom/android/settings/OwnerInfoSettings$4;->this$0:Lcom/android/settings/OwnerInfoSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/OwnerInfoSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -98,7 +98,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 195
+    .line 191
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v1, p0, Lcom/android/settings/OwnerInfoSettings$4;->this$0:Lcom/android/settings/OwnerInfoSettings;
 
@@ -107,7 +107,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 

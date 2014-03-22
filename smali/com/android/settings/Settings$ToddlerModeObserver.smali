@@ -24,17 +24,17 @@
     .parameter
 
     .prologue
-    .line 3748
+    .line 4774
     iput-object p1, p0, Lcom/android/settings/Settings$ToddlerModeObserver;->this$0:Lcom/android/settings/Settings;
 
-    .line 3749
+    .line 4775
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 3750
+    .line 4776
     return-void
 .end method
 
@@ -45,14 +45,14 @@
     .parameter "selfChange"
 
     .prologue
-    .line 3754
+    .line 4780
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 3755
+    .line 4781
     iget-object v0, p0, Lcom/android/settings/Settings$ToddlerModeObserver;->this$0:Lcom/android/settings/Settings;
 
-    invoke-virtual {v0}, Lcom/android/settings/Settings;->invalidateHeaders()V
+    invoke-virtual {v0}, Landroid/preference/PreferenceActivity;->invalidateHeaders()V
 
-    .line 3756
+    .line 4782
     return-void
 .end method

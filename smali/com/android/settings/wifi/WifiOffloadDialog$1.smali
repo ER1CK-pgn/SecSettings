@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 112
+    .line 70
     iput-object p1, p0, Lcom/android/settings/wifi/WifiOffloadDialog$1;->this$0:Lcom/android/settings/wifi/WifiOffloadDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,21 +38,52 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 3
     .parameter "v"
 
     .prologue
-    .line 116
+    const/4 v2, 0x1
+
+    .line 72
+    const-string v0, "WifiOffloadDialog"
+
+    const-string v1, "Selected do not disturb ---- > "
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 73
     iget-object v0, p0, Lcom/android/settings/wifi/WifiOffloadDialog$1;->this$0:Lcom/android/settings/wifi/WifiOffloadDialog;
 
-    #calls: Lcom/android/settings/wifi/WifiOffloadDialog;->disableHomePopup()V
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiOffloadDialog;->access$000(Lcom/android/settings/wifi/WifiOffloadDialog;)V
+    #setter for: Lcom/android/settings/wifi/WifiOffloadDialog;->userPress:I
+    invoke-static {v0, v2}, Lcom/android/settings/wifi/WifiOffloadDialog;->access$002(Lcom/android/settings/wifi/WifiOffloadDialog;I)I
 
-    .line 117
+    .line 74
     iget-object v0, p0, Lcom/android/settings/wifi/WifiOffloadDialog$1;->this$0:Lcom/android/settings/wifi/WifiOffloadDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiOffloadDialog;->finish()V
+    iget-object v0, v0, Lcom/android/settings/wifi/WifiOffloadDialog;->wifioffloadmgr:Landroid/net/wifi/WifiOffloadManager;
 
-    .line 118
+    if-eqz v0, :cond_0
+
+    .line 75
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiOffloadDialog$1;->this$0:Lcom/android/settings/wifi/WifiOffloadDialog;
+
+    iget-object v0, v0, Lcom/android/settings/wifi/WifiOffloadDialog;->wifioffloadmgr:Landroid/net/wifi/WifiOffloadManager;
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiOffloadManager;->startDontUseWiFiPressedTimer()V
+
+    .line 76
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiOffloadDialog$1;->this$0:Lcom/android/settings/wifi/WifiOffloadDialog;
+
+    iget-object v0, v0, Lcom/android/settings/wifi/WifiOffloadDialog;->wifioffloadmgr:Landroid/net/wifi/WifiOffloadManager;
+
+    invoke-virtual {v0, v2}, Landroid/net/wifi/WifiOffloadManager;->setDontuseWifiPressed(Z)V
+
+    .line 78
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiOffloadDialog$1;->this$0:Lcom/android/settings/wifi/WifiOffloadDialog;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    .line 79
     return-void
 .end method

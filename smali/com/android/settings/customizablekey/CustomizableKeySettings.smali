@@ -56,7 +56,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 172
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 174
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -85,10 +85,10 @@
     .locals 5
 
     .prologue
-    const v4, 0x7f0901d0
+    const v4, 0x7f0901f5
 
     .line 87
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -104,7 +104,7 @@
 
     .line 88
     .local v1, short_app:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -262,7 +262,7 @@
     .line 112
     .local v1, activity_name:Ljava/lang/String;
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
@@ -278,11 +278,11 @@
 
     .line 113
     .local v5, info:Landroid/content/pm/ActivityInfo;
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
-    invoke-virtual {v5, v8}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v8}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v8
 
@@ -329,14 +329,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 59
-    const v0, 0x7f070026
+    const v0, 0x7f070030
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 61
     const-string v0, "short_press_key"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -345,7 +345,7 @@
     .line 62
     const-string v0, "long_press_key"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -354,20 +354,20 @@
     .line 63
     const-string v0, "reset_key"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/customizablekey/CustomizableKeySettings;->mResetSettings:Landroid/preference/Preference;
 
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/customizablekey/CustomizableKeySettings;->mShortPress:Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 66
     return-void
@@ -381,15 +381,15 @@
     const/4 v2, 0x0
 
     .line 144
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     const-string v3, "layout_inflater"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -397,7 +397,7 @@
 
     .line 145
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f04011b
+    const v3, 0x7f040144
 
     invoke-virtual {v0, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -415,13 +415,13 @@
     :pswitch_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f091196
+    const v3, 0x7f0912ef
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -475,7 +475,7 @@
 
     .prologue
     .line 76
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 77
     const-string v0, "CustomizableKeySettings"
@@ -526,7 +526,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 126
-    invoke-virtual {p0, v0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     .line 138
     .end local v0           #intent:Landroid/content/Intent;
@@ -564,7 +564,7 @@
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 132
-    invoke-virtual {p0, v0}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
@@ -580,13 +580,13 @@
     if-eqz v2, :cond_2
 
     .line 135
-    invoke-virtual {p0, v1}, Lcom/android/settings/customizablekey/CustomizableKeySettings;->showDialog(I)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto :goto_0
 
     .line 138
     :cond_2
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
 
@@ -619,7 +619,7 @@
 
     .prologue
     .line 82
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 83
     const-string v0, "CustomizableKeySettings"

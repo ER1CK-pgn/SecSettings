@@ -83,7 +83,7 @@
     iput-object p0, p0, Lcom/android/settings/flipfont/FontListProgressActivity;->context:Landroid/content/Context;
 
     .line 28
-    invoke-virtual {p0}, Lcom/android/settings/flipfont/FontListProgressActivity;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
     .line 29
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListProgressActivity;->mFontListAdapter:Lcom/android/settings/flipfont/FontListAdapter;
@@ -101,7 +101,7 @@
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     .line 34
     :cond_0

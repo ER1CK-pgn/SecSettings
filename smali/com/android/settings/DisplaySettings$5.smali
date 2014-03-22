@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 303
+    .line 341
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$5;->this$0:Lcom/android/settings/DisplaySettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,14 +40,14 @@
     .parameter "selfChange"
 
     .prologue
-    .line 306
+    .line 344
     iget-object v1, p0, Lcom/android/settings/DisplaySettings$5;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/DisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 307
+    .line 345
     .local v0, resolver:Landroid/content/ContentResolver;
     iget-object v1, p0, Lcom/android/settings/DisplaySettings$5;->this$0:Lcom/android/settings/DisplaySettings;
 
@@ -70,6 +70,6 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    .line 308
+    .line 346
     return-void
 .end method

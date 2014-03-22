@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040080
+    const v2, 0x7f040087
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -315,7 +315,7 @@
     .line 106
     const v0, 0x7f0b0012
 
-    const v1, 0x7f090a85
+    const v1, 0x7f090b69
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -331,12 +331,12 @@
     if-eqz v0, :cond_0
 
     .line 109
-    const v0, 0x7f02009d
+    const v0, 0x7f0200a6
 
     invoke-virtual {p0, v2, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
     .line 110
-    const v0, 0x7f02009a
+    const v0, 0x7f0200a3
 
     invoke-virtual {p0, v3, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -353,12 +353,12 @@
 
     .line 114
     :cond_0
-    const v0, 0x7f02009c
+    const v0, 0x7f0200a5
 
     invoke-virtual {p0, v2, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
     .line 115
-    const v0, 0x7f020099
+    const v0, 0x7f0200a2
 
     invoke-virtual {p0, v3, v0}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 

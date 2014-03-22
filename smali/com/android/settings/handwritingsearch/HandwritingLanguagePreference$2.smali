@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 193
+    .line 181
     iput-object p1, p0, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$2;->this$0:Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .parameter "event"
 
     .prologue
-    .line 196
+    .line 184
     const/16 v1, 0x42
 
     if-ne p2, v1, :cond_0
@@ -55,7 +55,7 @@
 
     if-nez v1, :cond_0
 
-    .line 197
+    .line 185
     iget-object v1, p0, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$2;->this$0:Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;
 
     #getter for: Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;->mListView:Landroid/widget/ListView;
@@ -63,11 +63,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getSelectedItemPosition()I
+    invoke-virtual {v1}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
 
     move-result v0
 
-    .line 198
+    .line 186
     .local v0, position:I
     iget-object v1, p0, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$2;->this$0:Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;
 
@@ -78,9 +78,9 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v0, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v1, v0, v2}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
-    .line 200
+    .line 188
     .end local v0           #position:I
     :cond_0
     const/4 v1, 0x0

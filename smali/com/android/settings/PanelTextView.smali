@@ -74,7 +74,7 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 8
+    .locals 7
     .parameter "canvas"
 
     .prologue
@@ -82,145 +82,137 @@
     invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 75
-    invoke-virtual {p0}, Lcom/android/settings/PanelTextView;->getLineCount()I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getLineCount()I
 
     move-result v3
 
     .line 77
     .local v3, lineCount:I
-    iget-object v5, p0, Lcom/android/settings/PanelTextView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    .line 78
-    .local v4, r:Landroid/content/res/Resources;
     new-instance v1, Landroid/util/DisplayMetrics;
 
     invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 79
+    .line 78
     .local v1, displayMetrics:Landroid/util/DisplayMetrics;
-    iget-object v5, p0, Lcom/android/settings/PanelTextView;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/settings/PanelTextView;->mContext:Landroid/content/Context;
 
-    const-string v6, "window"
+    const-string v5, "window"
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/view/WindowManager;
+    check-cast v4, Landroid/view/WindowManager;
 
-    invoke-interface {v5}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-interface {v4}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+    invoke-virtual {v4, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+
+    .line 79
+    const/4 v4, 0x2
+
+    if-le v3, v4, :cond_0
 
     .line 80
-    const/4 v5, 0x2
+    const-string v4, "PanelTextView"
 
-    if-le v3, v5, :cond_0
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    .line 81
-    const-string v5, "PanelTextView"
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string v6, "onDraw() - lineCount: "
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "onDraw() - lineCount: "
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 83
-    invoke-virtual {p0}, Lcom/android/settings/PanelTextView;->getTextSize()F
+    .line 82
+    invoke-virtual {p0}, Landroid/widget/TextView;->getTextSize()F
 
     move-result v2
 
-    .line 84
+    .line 83
     .local v2, existingSize:F
-    const/high16 v5, 0x3f80
+    const/high16 v4, 0x3f80
 
-    iget v6, v1, Landroid/util/DisplayMetrics;->densityDpi:I
+    iget v5, v1, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    int-to-float v6, v6
+    int-to-float v5, v5
 
-    const/high16 v7, 0x4320
+    const/high16 v6, 0x4320
 
-    div-float/2addr v6, v7
+    div-float/2addr v5, v6
 
-    mul-float/2addr v5, v6
+    mul-float/2addr v4, v5
 
-    sub-float v0, v2, v5
+    sub-float v0, v2, v4
 
-    .line 85
+    .line 84
     .local v0, changedtSize:F
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p0, v5, v0}, Lcom/android/settings/PanelTextView;->setTextSize(IF)V
+    invoke-virtual {p0, v4, v0}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 87
-    const-string v5, "PanelTextView"
+    .line 86
+    const-string v4, "PanelTextView"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "onDraw() - name: "
+    const-string v6, "onDraw() - name: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {p0}, Lcom/android/settings/PanelTextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v6
 
-    const-string v7, " / existingSize: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    const-string v6, " / existingSize: "
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string v7, " / changedtSize: "
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    const-string v6, " / changedtSize: "
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 89
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 88
     .end local v0           #changedtSize:F
     .end local v2           #existingSize:F
     :cond_0
@@ -255,11 +247,11 @@
     .line 64
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/PanelTextView;->getId()I
+    invoke-virtual {p0}, Landroid/view/View;->getId()I
 
     move-result v2
 
-    const v3, 0x7f0b0293
+    const v3, 0x7f0b02cf
 
     if-ne v2, v3, :cond_1
 

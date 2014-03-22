@@ -30,7 +30,7 @@
     .line 210
     iput-object p1, p0, Lcom/android/settings/homesync/RestoreFragment$2;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/RestoreFragment$2;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-virtual {v1}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -71,14 +71,14 @@
     .line 216
     iget-object v0, p0, Lcom/android/settings/homesync/RestoreFragment$2;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    const v1, 0x7f09149e
+    const v1, 0x7f0915f2
 
     invoke-virtual {v0, v1}, Lcom/android/settings/homesync/RestoreFragment;->createAlertDialog(I)Landroid/app/AlertDialog;
 
     move-result-object v0
 
     .line 217
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 229
     :goto_0
@@ -90,7 +90,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homesync/RestoreFragment$2;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
     invoke-virtual {v1, v0}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     .line 223
-    const v0, 0x7f09147e
+    const v0, 0x7f0915d2
 
     invoke-virtual {v1, v0}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -172,7 +172,7 @@
     .line 228
     iget-object v0, p0, Lcom/android/settings/homesync/RestoreFragment$2;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

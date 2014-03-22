@@ -38,7 +38,7 @@
     .parameter "attrs"
 
     .prologue
-    const v2, 0x7f090f51
+    const v2, 0x7f09108b
 
     const/4 v1, 0x0
 
@@ -59,7 +59,7 @@
     .line 38
     iput-object v1, p0, Lcom/android/settings/nearby/DownloadListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    .line 118
+    .line 122
     new-instance v0, Lcom/android/settings/nearby/DownloadListPreference$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/nearby/DownloadListPreference$2;-><init>(Lcom/android/settings/nearby/DownloadListPreference;)V
@@ -72,23 +72,23 @@
     .line 43
     const-string v0, "allshare_download_to"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/nearby/DownloadListPreference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
     .line 44
-    invoke-virtual {p0, v2}, Lcom/android/settings/nearby/DownloadListPreference;->setTitle(I)V
+    invoke-virtual {p0, v2}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 45
-    invoke-virtual {p0, v2}, Lcom/android/settings/nearby/DownloadListPreference;->setDialogTitle(I)V
+    invoke-virtual {p0, v2}, Landroid/preference/DialogPreference;->setDialogTitle(I)V
 
     .line 46
-    const v0, 0x7f090f54
+    const v0, 0x7f09108e
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/nearby/DownloadListPreference;->setPositiveButtonText(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/DialogPreference;->setPositiveButtonText(I)V
 
     .line 47
-    const v0, 0x7f090f55
+    const v0, 0x7f09108f
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/nearby/DownloadListPreference;->setNegativeButtonText(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/DialogPreference;->setNegativeButtonText(I)V
 
     .line 48
     return-void
@@ -157,23 +157,23 @@
     .parameter "value"
 
     .prologue
-    .line 102
+    .line 106
     iput-boolean p1, p0, Lcom/android/settings/nearby/DownloadListPreference;->isExtarnalMounted:Z
 
-    .line 104
+    .line 108
     iget-object v0, p0, Lcom/android/settings/nearby/DownloadListPreference;->mDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/nearby/DownloadListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 105
+    .line 109
     const-string v0, "DownloadListPreference"
 
     const-string v1, "setIsExternalMounted"
@@ -212,12 +212,12 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 108
+    .line 112
     iget-object v0, p0, Lcom/android/settings/nearby/DownloadListPreference;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->cancel()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->cancel()V
 
-    .line 110
+    .line 114
     iget-object v0, p0, Lcom/android/settings/nearby/DownloadListPreference;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0xbb9
@@ -226,11 +226,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 116
+    .line 120
     :goto_0
     return-void
 
-    .line 113
+    .line 117
     :cond_0
     const-string v0, "DownloadListPreference"
 
@@ -293,20 +293,20 @@
 
     iget-object v2, v2, Lcom/android/settings/nearby/DownloadListPreference$DownloadListAdapter;->mEntries:[Ljava/lang/String;
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/nearby/DownloadListPreference;->setEntries([Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v2}, Landroid/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
     .line 68
     iget-object v2, p0, Lcom/android/settings/nearby/DownloadListPreference;->mAdapter:Lcom/android/settings/nearby/DownloadListPreference$DownloadListAdapter;
 
     iget-object v2, v2, Lcom/android/settings/nearby/DownloadListPreference$DownloadListAdapter;->mEntriesValues:[Ljava/lang/String;
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/nearby/DownloadListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v2}, Landroid/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
     .line 70
-    invoke-super {p0, p1}, Landroid/preference/ListPreference;->showDialog(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->showDialog(Landroid/os/Bundle;)V
 
     .line 72
-    invoke-virtual {p0}, Lcom/android/settings/nearby/DownloadListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
@@ -338,15 +338,15 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/nearby/DownloadListPreference$1;-><init>(Lcom/android/settings/nearby/DownloadListPreference;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 98
+    .line 102
     .end local v1           #listView:Landroid/widget/ListView;
     :cond_1
     :goto_0
     return-void
 
-    .line 92
+    .line 96
     .restart local v1       #listView:Landroid/widget/ListView;
     :cond_2
     const-string v2, "DownloadListPreference"
@@ -359,7 +359,7 @@
 
     goto :goto_0
 
-    .line 95
+    .line 99
     .end local v1           #listView:Landroid/widget/ListView;
     :cond_3
     const-string v2, "DownloadListPreference"

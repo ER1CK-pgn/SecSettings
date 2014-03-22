@@ -216,7 +216,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f090b4a
+    const v16, 0x7f090c48
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -438,7 +438,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f090b61
+    const v16, 0x7f090c5f
 
     const/16 v17, 0x0
 
@@ -616,7 +616,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f090b62
+    const v16, 0x7f090c60
 
     const/16 v17, 0x0
 
@@ -974,7 +974,7 @@
     .line 534
     iget-object v9, p0, Lcom/android/settings/fmm/SimChangeAlert;->mInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x7f0400c4
+    const v10, 0x7f0400e6
 
     iget-object v11, p0, Lcom/android/settings/fmm/SimChangeAlert;->mContent:Landroid/widget/LinearLayout;
 
@@ -1121,7 +1121,7 @@
     .locals 15
 
     .prologue
-    const v14, 0x7f0400c4
+    const v14, 0x7f0400e6
 
     const/4 v13, 0x0
 
@@ -1748,7 +1748,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1817,7 +1817,7 @@
     iput-object p1, p0, Lcom/android/settings/fmm/SimChangeAlert;->mOptionsMenu:Landroid/view/Menu;
 
     .line 548
-    const v0, 0x7f090a37
+    const v0, 0x7f090b1b
 
     invoke-interface {p1, v1, v1, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1845,7 +1845,7 @@
     iput-object p1, p0, Lcom/android/settings/fmm/SimChangeAlert;->mInflater:Landroid/view/LayoutInflater;
 
     .line 162
-    const v3, 0x7f04016c
+    const v3, 0x7f0401a8
 
     const/4 v4, 0x0
 
@@ -1855,7 +1855,7 @@
 
     .line 163
     .local v2, view:Landroid/view/View;
-    const v3, 0x7f0b03ed
+    const v3, 0x7f0b0454
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1936,7 +1936,7 @@
 
     .line 171
     :cond_0
-    const v3, 0x7f0b03e9
+    const v3, 0x7f0b0450
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1946,14 +1946,14 @@
 
     .line 172
     .local v1, textView:Landroid/widget/TextView;
-    const v3, 0x7f090b5d
+    const v3, 0x7f090c5b
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
     .line 175
     .end local v1           #textView:Landroid/widget/TextView;
     :cond_1
-    const v3, 0x7f0b03eb
+    const v3, 0x7f0b0452
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1973,7 +1973,7 @@
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 212
-    const v3, 0x7f0b03ec
+    const v3, 0x7f0b0453
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2029,7 +2029,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b03e8
+    const v4, 0x7f0b00d6
 
     invoke-virtual {v3, v4}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -2303,7 +2303,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0400e9
+    const v4, 0x7f04010e
 
     const/4 v5, 0x0
 
@@ -2313,7 +2313,7 @@
 
     .line 264
     .local v2, mDialogLayout:Landroid/view/View;
-    const v3, 0x7f0b026e
+    const v3, 0x7f0b02aa
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2338,7 +2338,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f091167
+    const v4, 0x7f0912b1
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

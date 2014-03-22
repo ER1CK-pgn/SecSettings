@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 126
+    .line 128
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$2;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 129
+    .line 131
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 130
+    .line 132
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.settings.DORMANTMODE_ACTIVITY_LAUNCH"
 
@@ -55,12 +55,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 131
+    .line 133
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$2;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->finish()V
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 132
+    .line 134
     :cond_0
     return-void
 .end method

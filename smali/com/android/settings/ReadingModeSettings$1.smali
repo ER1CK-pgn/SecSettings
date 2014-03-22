@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 219
+    .line 224
     iput-object p1, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -49,10 +49,10 @@
 
     const/4 v8, 0x0
 
-    .line 222
+    .line 227
     const/4 v2, 0x0
 
-    .line 224
+    .line 229
     .local v2, mCheckedApp:I
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
@@ -61,8 +61,8 @@
 
     move-result v2
 
-    .line 226
-    const v3, 0x7f0b036e
+    .line 231
+    const v3, 0x7f0b03b8
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -70,7 +70,7 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 227
+    .line 232
     .local v0, appCheck:Landroid/widget/CheckBox;
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -83,7 +83,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, p3}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v3, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -108,13 +108,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, p3}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v3, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/ActivityInfo;
 
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v3, v3, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -130,7 +130,7 @@
 
     move-result-object v1
 
-    .line 229
+    .line 234
     .local v1, mAppinfo:Ljava/lang/String;
     const-string v3, "ReadingModeSettings"
 
@@ -154,17 +154,17 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    .line 236
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 232
-    invoke-virtual {v0, v8}, Landroid/widget/CheckBox;->setChecked(Z)V
+    .line 237
+    invoke-virtual {v0, v8}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    .line 233
+    .line 238
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
     #getter for: Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
@@ -176,22 +176,22 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v1, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 243
+    .line 248
     :goto_0
     return-void
 
-    .line 235
+    .line 240
     :cond_0
     sget v3, Lcom/android/settings/ReadingModeSettings;->MAX_READINGMODE:I
 
     if-ge v2, v3, :cond_1
 
-    .line 236
-    invoke-virtual {v0, v6}, Landroid/widget/CheckBox;->setChecked(Z)V
+    .line 241
+    invoke-virtual {v0, v6}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    .line 237
+    .line 242
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
     #getter for: Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
@@ -203,9 +203,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v1, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 238
+    .line 243
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
     #getter for: Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
@@ -217,25 +217,25 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v1, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 240
+    .line 245
     :cond_1
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
-    invoke-virtual {v3}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v3}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/settings/ReadingModeSettings$1;->this$0:Lcom/android/settings/ReadingModeSettings;
 
-    const v5, 0x7f0914ad
+    const v5, 0x7f091601
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -247,7 +247,7 @@
 
     aput-object v7, v6, v8
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/settings/ReadingModeSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v4, v5, v6}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 

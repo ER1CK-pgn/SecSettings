@@ -114,14 +114,14 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 70
-    const v0, 0x7f0400ba
+    const v0, 0x7f0400d9
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 72
-    const v0, 0x7f0b01fd
+    const v0, 0x7f0b0235
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -134,7 +134,7 @@
 
     const-string v1, "android.intent.action.SYNC"
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 74
     iget-object v0, p0, Lcom/android/settings/DebugIntentSender;->mIntentField:Landroid/widget/EditText;
@@ -146,9 +146,9 @@
     invoke-static {v0}, Landroid/text/Selection;->selectAll(Landroid/text/Spannable;)V
 
     .line 76
-    const v0, 0x7f0b01fe
+    const v0, 0x7f0b0236
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -161,12 +161,12 @@
 
     const v1, 0x1080018
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 79
-    const v0, 0x7f0b01ff
+    const v0, 0x7f0b0237
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -175,9 +175,9 @@
     iput-object v0, p0, Lcom/android/settings/DebugIntentSender;->mAccountField:Landroid/widget/EditText;
 
     .line 80
-    const v0, 0x7f0b0200
+    const v0, 0x7f0b0238
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -186,9 +186,9 @@
     iput-object v0, p0, Lcom/android/settings/DebugIntentSender;->mResourceField:Landroid/widget/EditText;
 
     .line 82
-    const v0, 0x7f0b0201
+    const v0, 0x7f0b0239
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -201,12 +201,12 @@
 
     iget-object v1, p0, Lcom/android/settings/DebugIntentSender;->mClicked:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 85
-    const v0, 0x7f0b0202
+    const v0, 0x7f0b023a
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DebugIntentSender;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -219,7 +219,7 @@
 
     iget-object v1, p0, Lcom/android/settings/DebugIntentSender;->mClicked:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 87
     return-void

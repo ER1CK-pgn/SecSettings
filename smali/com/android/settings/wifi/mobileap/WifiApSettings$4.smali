@@ -1,14 +1,11 @@
 .class Lcom/android/settings/wifi/mobileap/WifiApSettings$4;
-.super Ljava/lang/Object;
+.super Landroid/telephony/PhoneStateListener;
 .source "WifiApSettings.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/mobileap/WifiApSettings;->onCreateDialog(I)Landroid/app/Dialog;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/wifi/mobileap/WifiApSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,22 +24,25 @@
     .parameter
 
     .prologue
-    .line 657
+    .line 452
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onDataConnectionStateChanged(II)V
     .locals 0
-    .parameter "dialog"
-    .parameter "which"
+    .parameter "state"
+    .parameter "networktype"
 
     .prologue
-    .line 659
+    .line 465
+    invoke-super {p0, p1, p2}, Landroid/telephony/PhoneStateListener;->onDataConnectionStateChanged(II)V
+
+    .line 467
     return-void
 .end method

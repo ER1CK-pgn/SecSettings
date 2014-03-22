@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 497
+    .line 496
     iput-object p1, p0, Lcom/android/settings/DateTimeSettingsSetupWizard$2;->this$0:Lcom/android/settings/DateTimeSettingsSetupWizard;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 500
+    .line 499
     iget-object v0, p0, Lcom/android/settings/DateTimeSettingsSetupWizard$2;->this$0:Lcom/android/settings/DateTimeSettingsSetupWizard;
 
     #calls: Lcom/android/settings/DateTimeSettingsSetupWizard;->updateTimeAndDateDisplay()V
     invoke-static {v0}, Lcom/android/settings/DateTimeSettingsSetupWizard;->access$000(Lcom/android/settings/DateTimeSettingsSetupWizard;)V
 
-    .line 501
+    .line 500
     return-void
 .end method

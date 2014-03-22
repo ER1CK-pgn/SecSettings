@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 463
+    .line 464
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 465
+    .line 466
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
@@ -63,7 +63,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 467
+    .line 468
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
@@ -73,7 +73,7 @@
 
     invoke-static {v0}, Lcom/android/settings/Utils;->turnOffTalkBack(Landroid/content/Context;)Z
 
-    .line 468
+    .line 469
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
@@ -91,17 +91,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 469
+    .line 470
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
     #calls: Lcom/android/settings/AirViewSettings;->showAllOptionDisabledDialog()V
     invoke-static {v0}, Lcom/android/settings/AirViewSettings;->access$700(Lcom/android/settings/AirViewSettings;)V
 
-    .line 477
+    .line 478
     :goto_0
     return-void
 
-    .line 471
+    .line 472
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
@@ -112,7 +112,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 474
+    .line 475
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
@@ -124,7 +124,7 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/Utils;->SetAirViewMasterValue(Landroid/content/Context;I)V
 
-    .line 475
+    .line 476
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$6;->this$0:Lcom/android/settings/AirViewSettings;
 
     #calls: Lcom/android/settings/AirViewSettings;->broadcastAirViewChanged(Z)V

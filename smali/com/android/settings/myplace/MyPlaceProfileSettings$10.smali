@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/myplace/MyPlaceProfileSettings;->showHelpStep3Dialog()V
+    value = Lcom/android/settings/myplace/MyPlaceProfileSettings;->showHelpStep4Dialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1184
+    .line 1242
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$10;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -39,28 +39,36 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
-    .parameter "arg0"
+    .parameter "v"
 
     .prologue
-    const/4 v1, 0x1
-
-    .line 1189
+    .line 1246
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$10;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    iget-object v0, v0, Lcom/android/settings/myplace/MyPlaceProfileSettings;->alert:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mHelpStep4Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    invoke-static {v0}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$2300(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1, v1}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 1190
+    .line 1247
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$10;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    #calls: Lcom/android/settings/myplace/MyPlaceProfileSettings;->showHelpStep4Dialog()V
-    invoke-static {v0}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$2200(Lcom/android/settings/myplace/MyPlaceProfileSettings;)V
+    const/4 v1, 0x0
 
-    .line 1191
+    #setter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mHelpStep4Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    invoke-static {v0, v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$2302(Lcom/android/settings/myplace/MyPlaceProfileSettings;Lcom/android/settings/helpdialog/TwHelpDialog;)Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    .line 1248
+    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$10;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    .line 1249
     return-void
 .end method

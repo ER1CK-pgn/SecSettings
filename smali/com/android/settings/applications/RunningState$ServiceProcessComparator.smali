@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 684
+    .line 696
     iput-object p1, p0, Lcom/android/settings/applications/RunningState$ServiceProcessComparator;->this$0:Lcom/android/settings/applications/RunningState;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -57,14 +57,14 @@
 
     const/4 v0, -0x1
 
-    .line 686
+    .line 698
     iget v2, p1, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
 
     iget v3, p2, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
 
     if-eq v2, v3, :cond_3
 
-    .line 687
+    .line 699
     iget v2, p1, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
 
     iget-object v3, p0, Lcom/android/settings/applications/RunningState$ServiceProcessComparator;->this$0:Lcom/android/settings/applications/RunningState;
@@ -73,12 +73,12 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 704
+    .line 716
     :cond_0
     :goto_0
     return v0
 
-    .line 688
+    .line 700
     :cond_1
     iget v2, p2, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
 
@@ -92,7 +92,7 @@
 
     goto :goto_0
 
-    .line 689
+    .line 701
     :cond_2
     iget v2, p1, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
 
@@ -104,7 +104,7 @@
 
     goto :goto_0
 
-    .line 691
+    .line 703
     :cond_3
     iget-boolean v2, p1, Lcom/android/settings/applications/RunningState$ProcessItem;->mIsStarted:Z
 
@@ -112,7 +112,7 @@
 
     if-eq v2, v3, :cond_4
 
-    .line 693
+    .line 705
     iget-boolean v2, p1, Lcom/android/settings/applications/RunningState$ProcessItem;->mIsStarted:Z
 
     if-nez v2, :cond_0
@@ -121,7 +121,7 @@
 
     goto :goto_0
 
-    .line 695
+    .line 707
     :cond_4
     iget-boolean v2, p1, Lcom/android/settings/applications/RunningState$ProcessItem;->mIsSystem:Z
 
@@ -129,7 +129,7 @@
 
     if-eq v2, v3, :cond_6
 
-    .line 697
+    .line 709
     iget-boolean v2, p1, Lcom/android/settings/applications/RunningState$ProcessItem;->mIsSystem:Z
 
     if-eqz v2, :cond_5
@@ -144,7 +144,7 @@
 
     goto :goto_1
 
-    .line 699
+    .line 711
     :cond_6
     iget-wide v2, p1, Lcom/android/settings/applications/RunningState$ProcessItem;->mActiveSince:J
 
@@ -154,7 +154,7 @@
 
     if-eqz v2, :cond_7
 
-    .line 702
+    .line 714
     iget-wide v2, p1, Lcom/android/settings/applications/RunningState$ProcessItem;->mActiveSince:J
 
     iget-wide v4, p2, Lcom/android/settings/applications/RunningState$ProcessItem;->mActiveSince:J
@@ -167,7 +167,7 @@
 
     goto :goto_0
 
-    .line 704
+    .line 716
     :cond_7
     const/4 v0, 0x0
 
@@ -180,7 +180,7 @@
     .parameter "x1"
 
     .prologue
-    .line 684
+    .line 696
     check-cast p1, Lcom/android/settings/applications/RunningState$ProcessItem;
 
     .end local p1

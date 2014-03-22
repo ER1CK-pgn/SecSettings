@@ -26,25 +26,25 @@
     .locals 2
 
     .prologue
-    .line 38
+    .line 37
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xe
 
     if-lt v0, v1, :cond_0
 
-    .line 39
+    .line 38
     new-instance v0, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectIcsImpl;
 
     invoke-direct {v0}, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectIcsImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
-    .line 43
+    .line 42
     :goto_0
     return-void
 
-    .line 41
+    .line 40
     :cond_0
     new-instance v0, Landroid/support/v4/widget/EdgeEffectCompat$BaseEdgeEffectImpl;
 
@@ -60,10 +60,10 @@
     .parameter "context"
 
     .prologue
-    .line 139
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 132
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 140
+    .line 133
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     invoke-interface {v0, p1}, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;->newEdgeEffect(Landroid/content/Context;)Ljava/lang/Object;
@@ -72,7 +72,7 @@
 
     iput-object v0, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
 
-    .line 141
+    .line 134
     return-void
 .end method
 
@@ -83,7 +83,7 @@
     .parameter "canvas"
 
     .prologue
-    .line 229
+    .line 218
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     iget-object v1, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
@@ -99,14 +99,14 @@
     .locals 2
 
     .prologue
-    .line 173
+    .line 162
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     iget-object v1, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
 
     invoke-interface {v0, v1}, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;->finish(Ljava/lang/Object;)V
 
-    .line 174
+    .line 163
     return-void
 .end method
 
@@ -114,7 +114,7 @@
     .locals 2
 
     .prologue
-    .line 165
+    .line 154
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     iget-object v1, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
@@ -131,7 +131,7 @@
     .parameter "deltaDistance"
 
     .prologue
-    .line 188
+    .line 177
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     iget-object v1, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
@@ -147,7 +147,7 @@
     .locals 2
 
     .prologue
-    .line 200
+    .line 189
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     iget-object v1, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
@@ -165,13 +165,13 @@
     .parameter "height"
 
     .prologue
-    .line 154
+    .line 143
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;
 
     iget-object v1, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Ljava/lang/Object;
 
     invoke-interface {v0, v1, p1, p2}, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectImpl;->setSize(Ljava/lang/Object;II)V
 
-    .line 155
+    .line 144
     return-void
 .end method

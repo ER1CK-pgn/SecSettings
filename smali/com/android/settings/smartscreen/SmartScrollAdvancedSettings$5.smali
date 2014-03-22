@@ -30,7 +30,7 @@
     .line 382
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .line 384
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -124,7 +124,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 395
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -134,7 +134,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 396
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -144,7 +144,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 397
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -154,7 +154,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 398
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -164,7 +164,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 399
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -174,7 +174,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 400
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -184,7 +184,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 402
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -194,7 +194,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/android/settings/RadioPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 403
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
@@ -204,7 +204,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/android/settings/RadioPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 405
     return-void

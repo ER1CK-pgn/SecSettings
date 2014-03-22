@@ -76,6 +76,65 @@
     return-object v0
 .end method
 
+.method static synthetic access$200(Lcom/android/settings/motion2013/HandMotionSettings;)Landroid/content/ContentResolver;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 40
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/settings/motion2013/HandMotionSettings;)Landroid/preference/SwitchPreferenceScreen;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 40
+    iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/settings/motion2013/HandMotionSettings;)Landroid/preference/SwitchPreferenceScreen;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 40
+    iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/android/settings/motion2013/HandMotionSettings;)Landroid/preference/SwitchPreferenceScreen;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 40
+    iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/settings/motion2013/HandMotionSettings;)Landroid/content/ContentResolver;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 40
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static isAllOptionDisabled(Landroid/content/ContentResolver;)Z
     .locals 6
     .parameter "cr"
@@ -85,19 +144,19 @@
 
     const/4 v4, 0x0
 
-    .line 257
+    .line 261
     const-string v5, "surface_tap_and_twist"
 
     invoke-static {p0, v5, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 258
+    .line 262
     const-string v5, "surface_palm_swipe"
 
     invoke-static {p0, v5, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 260
+    .line 264
     .local v0, palmSwipe:I
     const-string v5, "surface_palm_touch"
 
@@ -105,11 +164,11 @@
 
     move-result v1
 
-    .line 262
+    .line 266
     .local v1, palmTouch:I
     const/4 v2, 0x0
 
-    .line 265
+    .line 269
     .local v2, tapAndTwist:I
     or-int v5, v0, v1
 
@@ -126,6 +185,63 @@
     goto :goto_0
 .end method
 
+.method private makeTalkBackDisablePopup()V
+    .locals 3
+
+    .prologue
+    .line 286
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    const v1, 0x7f090e92
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x7f090e91
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x1010355
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x104000a
+
+    new-instance v2, Lcom/android/settings/motion2013/HandMotionSettings$3;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/motion2013/HandMotionSettings$3;-><init>(Lcom/android/settings/motion2013/HandMotionSettings;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const/high16 v1, 0x104
+
+    new-instance v2, Lcom/android/settings/motion2013/HandMotionSettings$2;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/motion2013/HandMotionSettings$2;-><init>(Lcom/android/settings/motion2013/HandMotionSettings;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+
+    .line 307
+    return-void
+.end method
+
 
 # virtual methods
 .method public isAllHandMotionDisabled()Z
@@ -136,21 +252,21 @@
 
     const/4 v4, 0x0
 
-    .line 269
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 273
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
-    .line 270
+    .line 274
     iget-object v5, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v6, "surface_tap_and_twist"
 
     invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 271
+    .line 275
     iget-object v5, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v6, "surface_palm_swipe"
@@ -159,7 +275,7 @@
 
     move-result v0
 
-    .line 273
+    .line 277
     .local v0, palmSwipe:I
     iget-object v5, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -169,11 +285,11 @@
 
     move-result v1
 
-    .line 275
+    .line 279
     .local v1, palmTouch:I
     const/4 v2, 0x0
 
-    .line 278
+    .line 282
     .local v2, tapAndTwist:I
     or-int v5, v0, v1
 
@@ -196,43 +312,63 @@
     .parameter "desiredState"
 
     .prologue
-    .line 249
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 250
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/Utils;->isTalkBackEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 251
+    invoke-direct {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->makeTalkBackDisablePopup()V
+
+    .line 258
+    :goto_0
+    return-void
+
+    .line 253
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
     const-string v2, "surface_motion_engine"
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_1
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 251
+    .line 254
     iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 252
+    .line 255
     iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 253
+    .line 256
     iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
-
-    .line 254
-    return-void
-
-    .line 249
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
+
+    .line 253
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
@@ -252,15 +388,15 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 72
-    invoke-virtual {p0, v5}, Lcom/android/settings/motion2013/HandMotionSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v5}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 74
-    const v6, 0x7f070045
+    const v6, 0x7f07005b
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/motion2013/HandMotionSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 76
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -289,6 +425,16 @@
 
     .line 80
     .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/settings/Utils;->isListUI(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
     invoke-virtual {v2}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
     move-result v6
@@ -305,11 +451,11 @@
     :cond_0
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v8, 0x7f0f0019
+    const v8, 0x7f0f0034
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -319,7 +465,7 @@
     .local v1, padding:I
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, v7, v7, v1, v7}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v6, v7, v7, v1, v7}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 84
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActivity:Landroid/app/Activity;
@@ -347,7 +493,7 @@
 
     invoke-virtual {v6, v8, v9}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 90
+    .line 91
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v6}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -360,18 +506,18 @@
 
     iput-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActionBarLayout:Landroid/view/View;
 
-    .line 93
+    .line 94
     .end local v1           #padding:I
     .end local v2           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_1
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 95
+    .line 96
     const-string v6, "palm_swipe"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/motion2013/HandMotionSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -379,10 +525,10 @@
 
     iput-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 96
+    .line 97
     const-string v6, "palm_touch"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/motion2013/HandMotionSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -390,10 +536,10 @@
 
     iput-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 97
+    .line 98
     const-string v6, "tap_and_twist"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/motion2013/HandMotionSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -401,51 +547,58 @@
 
     iput-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 99
+    .line 100
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
-
-    .line 100
-    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 101
+    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 102
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 103
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 104
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
-    .line 112
+    .line 113
     .local v3, ps:Landroid/preference/PreferenceScreen;
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v6}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 116
+    .line 117
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-nez v6, :cond_2
 
-    .line 117
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    .line 118
+    :cond_2
     iget-boolean v6, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     sget v6, Lcom/android/settings/motion2013/HandMotionSettings;->mSettingValue:I
 
     const/4 v8, -0x1
 
-    if-eq v6, v8, :cond_2
+    if-eq v6, v8, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -455,14 +608,14 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
-    .line 120
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getArguments()Landroid/os/Bundle;
+    .line 121
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 121
+    .line 122
     .local v0, extra_bundle:Landroid/os/Bundle;
     const-string v6, "extra_parent_preference_key"
 
@@ -470,13 +623,13 @@
 
     move-result-object v4
 
-    .line 122
+    .line 123
     .local v4, targetKey:Ljava/lang/String;
     sget v6, Lcom/android/settings/motion2013/HandMotionSettings;->mSettingValue:I
 
-    if-ne v6, v5, :cond_3
+    if-ne v6, v5, :cond_4
 
-    .line 123
+    .line 124
     .local v5, value:Z
     :goto_0
     const-string v6, "palm_swipe"
@@ -485,14 +638,14 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
-
-    .line 124
-    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v6, v5}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    if-eqz v6, :cond_5
 
     .line 125
+    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v6, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 126
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -501,39 +654,39 @@
 
     invoke-virtual {p0, v6, v7}, Lcom/android/settings/motion2013/HandMotionSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    .line 136
+    .line 137
     .end local v0           #extra_bundle:Landroid/os/Bundle;
     .end local v4           #targetKey:Ljava/lang/String;
     .end local v5           #value:Z
-    :cond_2
+    :cond_3
     :goto_1
     return-void
 
     .restart local v0       #extra_bundle:Landroid/os/Bundle;
     .restart local v4       #targetKey:Ljava/lang/String;
-    :cond_3
+    :cond_4
     move v5, v7
 
-    .line 122
+    .line 123
     goto :goto_0
 
-    .line 126
+    .line 127
     .restart local v5       #value:Z
-    :cond_4
+    :cond_5
     const-string v6, "palm_touch"
 
     invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
-
-    .line 127
-    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v6, v5}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    if-eqz v6, :cond_6
 
     .line 128
+    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v6, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 129
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -544,22 +697,22 @@
 
     goto :goto_1
 
-    .line 129
-    :cond_5
+    .line 130
+    :cond_6
     const-string v6, "tap_and_twist"
 
     invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
-
-    .line 130
-    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v6, v5}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    if-eqz v6, :cond_3
 
     .line 131
+    iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v6, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 132
     iget-object v6, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -579,11 +732,11 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 225
+    .line 226
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 227
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getActivity()Landroid/app/Activity;
+    .line 228
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -593,16 +746,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 228
+    .line 229
     const/4 v0, 0x1
 
-    const v1, 0x7f090b0f
+    const v1, 0x7f090c0b
 
     invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201db
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -610,7 +763,7 @@
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 232
+    .line 233
     :cond_0
     return-void
 .end method
@@ -620,22 +773,22 @@
     .parameter "item"
 
     .prologue
-    .line 236
+    .line 237
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 243
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .line 244
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
 
     :goto_0
     return v1
 
-    .line 238
+    .line 239
     :pswitch_0
     new-instance v0, Landroid/content/Intent;
 
@@ -643,7 +796,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 239
+    .line 240
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "helphub:section"
 
@@ -651,19 +804,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 240
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getActivity()Landroid/app/Activity;
+    .line 241
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 241
+    .line 242
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 236
+    .line 237
     nop
 
     :pswitch_data_0
@@ -679,10 +832,10 @@
     const/4 v2, 0x0
 
     .line 177
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 179
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -702,7 +855,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -715,11 +868,11 @@
     if-eqz v0, :cond_0
 
     .line 183
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090d62
+    const v1, 0x7f090e8b
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -728,7 +881,7 @@
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 184
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -786,7 +939,7 @@
     if-eqz v4, :cond_3
 
     .line 209
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -804,7 +957,7 @@
     if-eqz v4, :cond_1
 
     .line 217
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -817,7 +970,7 @@
 
     invoke-virtual {v4, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 220
+    .line 221
     :cond_1
     return v2
 
@@ -840,7 +993,7 @@
     if-eqz v4, :cond_4
 
     .line 211
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -861,7 +1014,7 @@
     if-eqz v4, :cond_0
 
     .line 213
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -884,7 +1037,7 @@
     iput-boolean v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->isGoIntoQuideHub:Z
 
     .line 202
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
@@ -899,10 +1052,10 @@
 
     const/4 v4, 0x0
 
-    .line 141
+    .line 142
     iget-boolean v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    .line 142
+    .line 143
     .local v1, super_mOpenDetailMenu:Z
     iput-boolean v4, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
@@ -913,7 +1066,7 @@
     iput-boolean v4, p0, Lcom/android/settings/motion2013/HandMotionSettings;->isGoIntoQuideHub:Z
 
     .line 148
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -938,7 +1091,7 @@
     invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 153
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -950,7 +1103,7 @@
 
     .line 156
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -972,7 +1125,7 @@
     move v2, v3
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 159
     iget-object v5, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
@@ -990,7 +1143,7 @@
     move v2, v3
 
     :goto_1
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 160
     iget-object v5, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
@@ -1008,7 +1161,7 @@
     move v2, v3
 
     :goto_2
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 162
     iget-object v2, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mResolver:Landroid/content/ContentResolver;
@@ -1033,17 +1186,17 @@
     .line 165
     iget-object v2, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmSwipe:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 166
     iget-object v2, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mPalmTouch:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 167
     iget-object v2, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mTapAndTwist:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 170
     iput-boolean v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
@@ -1085,7 +1238,7 @@
 
     .prologue
     .line 192
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 193
     iget-object v0, p0, Lcom/android/settings/motion2013/HandMotionSettings;->mActionBarLayout:Landroid/view/View;
@@ -1100,7 +1253,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 195
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

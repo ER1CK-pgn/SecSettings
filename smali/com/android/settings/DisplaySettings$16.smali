@@ -1,11 +1,14 @@
 .class Lcom/android/settings/DisplaySettings$16;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "DisplaySettings.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/DisplaySettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/DisplaySettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,56 +27,56 @@
     .parameter
 
     .prologue
-    .line 1521
+    .line 1660
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$16;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
-    .parameter "context"
-    .parameter "intent"
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 3
+    .parameter "arg0"
+    .parameter "arg1"
 
     .prologue
-    .line 1524
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "android.hardware.display.action.WIFI_DISPLAY_STATUS_CHANGED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 1525
-    iget-object v1, p0, Lcom/android/settings/DisplaySettings$16;->this$0:Lcom/android/settings/DisplaySettings;
-
-    const-string v0, "android.hardware.display.extra.WIFI_DISPLAY_STATUS"
-
-    invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/display/WifiDisplayStatus;
-
-    #setter for: Lcom/android/settings/DisplaySettings;->mWifiDisplayStatus:Landroid/hardware/display/WifiDisplayStatus;
-    invoke-static {v1, v0}, Lcom/android/settings/DisplaySettings;->access$902(Lcom/android/settings/DisplaySettings;Landroid/hardware/display/WifiDisplayStatus;)Landroid/hardware/display/WifiDisplayStatus;
-
-    .line 1527
+    .line 1663
     iget-object v0, p0, Lcom/android/settings/DisplaySettings$16;->this$0:Lcom/android/settings/DisplaySettings;
 
-    #calls: Lcom/android/settings/DisplaySettings;->updateWifiDisplaySummary()V
-    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$1000(Lcom/android/settings/DisplaySettings;)V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 1529
-    :cond_0
+    move-result-object v0
+
+    const-string v1, "desk_home_screen_display"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 1664
+    new-instance v0, Lcom/android/settings/DreamBackend;
+
+    iget-object v1, p0, Lcom/android/settings/DisplaySettings$16;->this$0:Lcom/android/settings/DisplaySettings;
+
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/android/settings/DreamBackend;-><init>(Landroid/content/Context;)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/DreamBackend;->setEnabled(Z)V
+
+    .line 1665
+    iget-object v0, p0, Lcom/android/settings/DisplaySettings$16;->this$0:Lcom/android/settings/DisplaySettings;
+
+    #calls: Lcom/android/settings/DisplaySettings;->updateScreenSaverSummary()V
+    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$1200(Lcom/android/settings/DisplaySettings;)V
+
+    .line 1666
     return-void
 .end method

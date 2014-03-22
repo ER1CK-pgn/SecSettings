@@ -30,7 +30,7 @@
     .line 356
     iput-object p1, p0, Lcom/android/settings/homesync/FileOperationProgress$4;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
     .line 358
     iget-object v0, p0, Lcom/android/settings/homesync/FileOperationProgress$4;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 

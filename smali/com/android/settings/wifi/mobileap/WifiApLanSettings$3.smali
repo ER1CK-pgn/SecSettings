@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 345
+    .line 689
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "whichButton"
 
     .prologue
-    .line 347
+    .line 693
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
@@ -58,9 +58,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 348
+    .line 695
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 350
+    .line 699
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
@@ -108,7 +108,7 @@
 
     if-nez v0, :cond_0
 
-    .line 351
+    .line 701
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
@@ -142,7 +142,7 @@
     #setter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->access$402(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 352
+    .line 703
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
@@ -157,9 +157,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 353
+    .line 705
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
@@ -176,7 +176,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 355
+    .line 709
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
@@ -208,7 +208,7 @@
 
     if-nez v0, :cond_1
 
-    .line 356
+    .line 711
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
@@ -242,7 +242,7 @@
     #setter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->access$902(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 357
+    .line 713
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
@@ -257,9 +257,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 358
+    .line 715
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
@@ -276,7 +276,7 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 361
+    .line 721
     :cond_1
     return-void
 .end method

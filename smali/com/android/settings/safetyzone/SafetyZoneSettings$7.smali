@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 588
+    .line 586
     iput-object p1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$7;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,30 +45,30 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 590
+    .line 588
     const-string v1, "SafetyZoneSettings"
 
     const-string v2, "showSafetyZoneEnableDialog(), ok is clicked. start wifi network picker"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 591
+    .line 589
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 592
+    .line 590
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$7;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    invoke-virtual {v1, v0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 593
+    .line 591
     iget-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$7;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    #calls: Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v1}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->access$800(Lcom/android/settings/safetyzone/SafetyZoneSettings;)Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -77,6 +77,6 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 594
+    .line 592
     return-void
 .end method

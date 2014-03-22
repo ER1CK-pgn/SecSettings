@@ -52,31 +52,31 @@
     .parameter "state"
 
     .prologue
-    .line 1842
+    .line 2031
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 1843
+    .line 2032
     #getter for: Lcom/android/settings/applications/InstalledAppDetails;->mPm:Landroid/content/pm/PackageManager;
-    invoke-static {p1}, Lcom/android/settings/applications/InstalledAppDetails;->access$1500(Lcom/android/settings/applications/InstalledAppDetails;)Landroid/content/pm/PackageManager;
+    invoke-static {p1}, Lcom/android/settings/applications/InstalledAppDetails;->access$1600(Lcom/android/settings/applications/InstalledAppDetails;)Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$DisableChanger;->mPm:Landroid/content/pm/PackageManager;
 
-    .line 1844
+    .line 2033
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$DisableChanger;->mActivity:Ljava/lang/ref/WeakReference;
 
-    .line 1845
+    .line 2034
     iput-object p2, p0, Lcom/android/settings/applications/InstalledAppDetails$DisableChanger;->mInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 1846
+    .line 2035
     iput p3, p0, Lcom/android/settings/applications/InstalledAppDetails$DisableChanger;->mState:I
 
-    .line 1847
+    .line 2036
     return-void
 .end method
 
@@ -87,7 +87,7 @@
     .parameter "params"
 
     .prologue
-    .line 1851
+    .line 2040
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$DisableChanger;->mPm:Landroid/content/pm/PackageManager;
 
     iget-object v1, p0, Lcom/android/settings/applications/InstalledAppDetails$DisableChanger;->mInfo:Landroid/content/pm/ApplicationInfo;
@@ -100,7 +100,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->setApplicationEnabledSetting(Ljava/lang/String;II)V
 
-    .line 1852
+    .line 2041
     const/4 v0, 0x0
 
     return-object v0

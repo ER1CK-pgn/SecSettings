@@ -36,7 +36,7 @@
     iput p2, p0, Lcom/sec/android/samsungapps/util/PreloadUpdate$3;->val$resultCode:I
 
     .line 72
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

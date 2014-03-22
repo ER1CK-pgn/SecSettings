@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1861
+    .line 2095
     iput-object p1, p0, Lcom/android/settings/LockscreenMenuSettings$7;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,14 @@
     .parameter "which"
 
     .prologue
-    .line 1863
+    .line 2097
     const-string v0, "LockScreenMenu"
 
     const-string v1, "showSafetyZoneEnableDialog(), cancel"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1864
+    .line 2098
     iget-object v0, p0, Lcom/android/settings/LockscreenMenuSettings$7;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
     #getter for: Lcom/android/settings/LockscreenMenuSettings;->mSafetyZone:Landroid/preference/SwitchPreferenceScreen;
@@ -60,8 +60,8 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 1865
+    .line 2099
     return-void
 .end method

@@ -3,7 +3,7 @@
 .source "WifiApSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # annotations
@@ -27,42 +27,53 @@
     .parameter
 
     .prologue
-    .line 652
+    .line 772
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$5;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
-    .parameter "dialog"
-    .parameter "which"
+    .parameter "parent"
+    .parameter "v"
+    .parameter "position"
+    .parameter "id"
 
     .prologue
-    .line 654
+    .line 774
+    const-string v0, "WifiApSettings"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onItemClick() "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 775
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$5;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$5;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
+    #setter for: Lcom/android/settings/wifi/mobileap/WifiApSettings;->mSelectedTimeoutValue:I
+    invoke-static {v0, p3}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$502(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)I
 
-    iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$5;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
-
-    #getter for: Lcom/android/settings/wifi/mobileap/WifiApSettings;->mSelectedTimeoutValue:I
-    invoke-static {v2}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$100(Lcom/android/settings/wifi/mobileap/WifiApSettings;)I
-
-    move-result v2
-
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApSettings;->getTimeoutValueFromIndex(I)I
-    invoke-static {v1, v2}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$200(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)I
-
-    move-result v1
-
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApSettings;->setTimeout(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$300(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
-
-    .line 655
+    .line 776
     return-void
 .end method

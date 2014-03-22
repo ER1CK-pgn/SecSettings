@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 104
+    .line 125
     iput-object p1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,7 +44,7 @@
 
     const/4 v4, 0x0
 
-    .line 107
+    .line 128
     const-string v1, "DockSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -71,7 +71,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 108
+    .line 129
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -84,18 +84,18 @@
 
     if-eqz v1, :cond_1
 
-    .line 109
+    .line 130
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
     #calls: Lcom/android/settings/DockSettings;->handleDockChange(Landroid/content/Intent;)V
     invoke-static {v1, p2}, Lcom/android/settings/DockSettings;->access$000(Lcom/android/settings/DockSettings;Landroid/content/Intent;)V
 
-    .line 124
+    .line 145
     :cond_0
     :goto_0
     return-void
 
-    .line 110
+    .line 131
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -109,14 +109,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 111
+    .line 132
     const-string v1, "state"
 
     invoke-virtual {p2, v1, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 112
+    .line 133
     .local v0, state:I
     const-string v1, "DockSettings"
 
@@ -140,10 +140,10 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 114
+    .line 135
     if-ne v0, v5, :cond_3
 
-    .line 115
+    .line 136
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
     #getter for: Lcom/android/settings/DockSettings;->mAudioOutput:Landroid/preference/ListPreference;
@@ -151,13 +151,13 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/ListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    .line 116
+    .line 137
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
     #getter for: Lcom/android/settings/DockSettings;->mAudioOutput:Landroid/preference/ListPreference;
@@ -165,13 +165,13 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/ListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 117
+    .line 138
     :cond_2
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
@@ -180,9 +180,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 118
+    .line 139
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
     #getter for: Lcom/android/settings/DockSettings;->mCradleEnable:Landroid/preference/CheckBoxPreference;
@@ -190,11 +190,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 120
+    .line 141
     :cond_3
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
@@ -203,9 +203,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 121
+    .line 142
     iget-object v1, p0, Lcom/android/settings/DockSettings$1;->this$0:Lcom/android/settings/DockSettings;
 
     #getter for: Lcom/android/settings/DockSettings;->mCradleEnable:Landroid/preference/CheckBoxPreference;
@@ -213,7 +213,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method

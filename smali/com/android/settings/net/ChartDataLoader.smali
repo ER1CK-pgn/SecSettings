@@ -368,10 +368,10 @@
 
     .prologue
     .line 124
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onReset()V
+    invoke-super {p0}, Landroid/content/Loader;->onReset()V
 
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/net/ChartDataLoader;->cancelLoad()Z
+    invoke-virtual {p0}, Landroid/content/Loader;->cancelLoad()Z
 
     .line 126
     return-void
@@ -382,10 +382,10 @@
 
     .prologue
     .line 67
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onStartLoading()V
+    invoke-super {p0}, Landroid/content/Loader;->onStartLoading()V
 
     .line 68
-    invoke-virtual {p0}, Lcom/android/settings/net/ChartDataLoader;->forceLoad()V
+    invoke-virtual {p0}, Landroid/content/Loader;->forceLoad()V
 
     .line 69
     return-void
@@ -396,10 +396,10 @@
 
     .prologue
     .line 118
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onStopLoading()V
+    invoke-super {p0}, Landroid/content/Loader;->onStopLoading()V
 
     .line 119
-    invoke-virtual {p0}, Lcom/android/settings/net/ChartDataLoader;->cancelLoad()Z
+    invoke-virtual {p0}, Landroid/content/Loader;->cancelLoad()Z
 
     .line 120
     return-void

@@ -692,7 +692,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/PenDetachmentOption;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v10
 
@@ -723,7 +723,7 @@
     if-ge v9, v0, :cond_5
 
     .line 468
-    const v21, 0x7f0400f7
+    const v21, 0x7f04011c
 
     const/16 v22, 0x0
 
@@ -737,7 +737,7 @@
 
     .line 469
     .local v19, panelView:Landroid/view/View;
-    const v21, 0x7f0b028a
+    const v21, 0x7f0b02c6
 
     move-object/from16 v0, v19
 
@@ -751,7 +751,7 @@
 
     .line 470
     .local v15, panel:Landroid/widget/LinearLayout;
-    const v21, 0x7f0b027c
+    const v21, 0x7f0b02b8
 
     move-object/from16 v0, v19
 
@@ -765,7 +765,7 @@
 
     .line 471
     .local v17, panelImageView:Landroid/widget/ImageView;
-    const v21, 0x7f0b027e
+    const v21, 0x7f0b02ba
 
     move-object/from16 v0, v19
 
@@ -779,7 +779,7 @@
 
     .line 473
     .local v18, panelTextView:Landroid/widget/TextView;
-    const v21, 0x7f0400f8
+    const v21, 0x7f04011d
 
     const/16 v22, 0x0
 
@@ -793,7 +793,7 @@
 
     .line 474
     .local v14, overlayedPanelView:Landroid/view/View;
-    const v21, 0x7f0b028c
+    const v21, 0x7f0b02c8
 
     move/from16 v0, v21
 
@@ -805,7 +805,7 @@
 
     .line 475
     .local v16, panelBar:Landroid/widget/ImageView;
-    const v21, 0x7f0b028d
+    const v21, 0x7f0b02c9
 
     move/from16 v0, v21
 
@@ -838,7 +838,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     .line 480
     add-int v21, v9, v8
@@ -996,11 +996,11 @@
 
     .line 530
     .local v3, container:Landroid/widget/FrameLayout;
-    const v21, 0x7f0b0377
+    const v21, 0x7f0b03c1
 
     move/from16 v0, v21
 
-    invoke-virtual {v3, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v13
 
@@ -1010,14 +1010,14 @@
     .local v13, notificationPanelLayout:Landroid/widget/LinearLayout;
     move-object/from16 v0, v19
 
-    invoke-virtual {v13, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v13, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 533
-    const v21, 0x7f0b0378
+    const v21, 0x7f0b03c2
 
     move/from16 v0, v21
 
-    invoke-virtual {v3, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v12
 
@@ -1025,7 +1025,7 @@
 
     .line 535
     .local v12, notificationPanelBarLayout:Landroid/widget/LinearLayout;
-    invoke-virtual {v12, v14}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v12, v14}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 537
     move-object/from16 v0, p5
@@ -1071,12 +1071,12 @@
     .restart local v18       #panelTextView:Landroid/widget/TextView;
     .restart local v19       #panelView:Landroid/view/View;
     :cond_2
-    const v21, 0x7f0203ac
+    const v21, 0x7f02042b
 
     :try_start_0
     move/from16 v0, v21
 
-    invoke-virtual {v15, v0}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
+    invoke-virtual {v15, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 495
     move-object/from16 v0, p7
@@ -1099,7 +1099,7 @@
 
     move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual/range {v21 .. v22}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v21
 
@@ -1130,7 +1130,7 @@
 
     move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v22}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual/range {v21 .. v22}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v21
 
@@ -1374,7 +1374,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 515
-    const v21, 0x7f090cb1
+    const v21, 0x7f090dcb
 
     move-object/from16 v0, v18
 
@@ -1418,11 +1418,11 @@
 
     .prologue
     .line 542
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
@@ -1466,7 +1466,7 @@
     .line 549
     const-string v7, "com.samsung.android.quickmemo.QuickMemo_Service"
 
-    iput-object v7, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iput-object v7, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     .line 551
     new-instance v5, Landroid/content/pm/ResolveInfo;
@@ -1497,7 +1497,7 @@
     .line 558
     const-string v7, "com.sec.android.pinmode.PinModeActivity"
 
-    iput-object v7, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iput-object v7, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     .line 560
     new-instance v5, Landroid/content/pm/ResolveInfo;
@@ -1516,7 +1516,7 @@
 
     .line 566
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
@@ -1550,11 +1550,11 @@
     invoke-interface {v7, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 572
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
-    invoke-virtual {v4, v7}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v4, v7}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -1679,7 +1679,7 @@
     invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
 
     .line 586
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1691,7 +1691,7 @@
 
     .line 588
     .local v3, penActiveApp:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1776,7 +1776,7 @@
 
     iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1910,7 +1910,7 @@
 
     iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1971,7 +1971,7 @@
     if-eqz v5, :cond_0
 
     .line 708
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
 
@@ -2010,7 +2010,7 @@
     :cond_0
     const-string v5, "layout_inflater"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/PenDetachmentOption;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -2018,7 +2018,7 @@
 
     .line 713
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f0400f9
+    const v5, 0x7f04011e
 
     invoke-virtual {v0, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2026,7 +2026,7 @@
 
     .line 714
     .local v2, penSettingView:Landroid/view/View;
-    const v5, 0x7f0b0292
+    const v5, 0x7f0b02ce
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2037,7 +2037,7 @@
     iput-object v5, p0, Lcom/android/settings/PenDetachmentOption;->mPenPanelArea:Landroid/widget/LinearLayout;
 
     .line 715
-    const v5, 0x7f0b0294
+    const v5, 0x7f0b02d0
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2048,7 +2048,7 @@
     iput-object v5, p0, Lcom/android/settings/PenDetachmentOption;->mAvailableBtnArea:Landroid/widget/LinearLayout;
 
     .line 716
-    const v5, 0x7f0b0295
+    const v5, 0x7f0b02d1
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2075,7 +2075,7 @@
 
     .line 722
     .local v4, tvTitle:Landroid/widget/TextView;
-    const v5, 0x7f09128a
+    const v5, 0x7f0913f6
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -2090,12 +2090,12 @@
 
     .line 726
     .local v3, tvSummary:Landroid/widget/TextView;
-    const v5, 0x7f09128b
+    const v5, 0x7f0913f7
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
     .line 727
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
 
@@ -2195,7 +2195,7 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 698
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -2206,7 +2206,7 @@
     invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 700
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -2414,7 +2414,7 @@
     .line 383
     iget-object v5, p0, Lcom/android/settings/PenDetachmentOption;->mPageIndicatorArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v5}, Landroid/widget/LinearLayout;->removeAllViews()V
+    invoke-virtual {v5}, Landroid/view/ViewGroup;->removeAllViews()V
 
     .line 384
     iget-object v5, p0, Lcom/android/settings/PenDetachmentOption;->mIndicatorLayoutList:Ljava/util/ArrayList;
@@ -2424,7 +2424,7 @@
     .line 386
     const-string v5, "layout_inflater"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/PenDetachmentOption;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -2432,7 +2432,7 @@
 
     .line 388
     .local v4, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f0400b5
+    const v5, 0x7f0400d4
 
     invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2449,7 +2449,7 @@
     .line 390
     iget-object v5, p0, Lcom/android/settings/PenDetachmentOption;->mPageIndicatorArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v5, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 392
     const/4 v2, 0x0
@@ -2463,7 +2463,7 @@
     if-ge v2, v5, :cond_1
 
     .line 393
-    const v5, 0x7f0400b6
+    const v5, 0x7f0400d5
 
     invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2471,9 +2471,9 @@
 
     .line 394
     .local v1, iconView:Landroid/view/View;
-    const v5, 0x7f0b01d6
+    const v5, 0x7f0b020d
 
-    invoke-virtual {v0, v5}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -2486,13 +2486,13 @@
     if-ne v2, v5, :cond_0
 
     .line 398
-    const v5, 0x7f020362
+    const v5, 0x7f0203cc
 
     invoke-virtual {v1, v5}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 400
     :cond_0
-    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v3, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 392
     add-int/lit8 v2, v2, 0x1
@@ -2515,7 +2515,7 @@
 
     iget-object v1, v0, Lcom/android/settings/PenDetachmentOption;->mPenPanelArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->removeAllViews()V
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->removeAllViews()V
 
     .line 407
     move-object/from16 v0, p0
@@ -2536,7 +2536,7 @@
 
     iget-object v1, v0, Lcom/android/settings/PenDetachmentOption;->mAvailableBtnArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->removeAllViews()V
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->removeAllViews()V
 
     .line 411
     move-object/from16 v0, p0
@@ -2649,7 +2649,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/PenDetachmentOption;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v15
 
@@ -2664,7 +2664,7 @@
     if-ge v14, v4, :cond_2
 
     .line 430
-    const v1, 0x7f040140
+    const v1, 0x7f040175
 
     const/4 v2, 0x0
 
@@ -2687,7 +2687,7 @@
 
     iget-object v1, v0, Lcom/android/settings/PenDetachmentOption;->mPenPanelArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v13}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 429
     add-int/lit8 v14, v14, 0x1
@@ -2795,7 +2795,7 @@
     if-ge v0, v8, :cond_4
 
     .line 447
-    const v1, 0x7f040140
+    const v1, 0x7f040175
 
     const/4 v2, 0x0
 
@@ -2818,7 +2818,7 @@
 
     iget-object v1, v0, Lcom/android/settings/PenDetachmentOption;->mAvailableBtnArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v13}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 446
     add-int/lit8 v16, v16, 0x1
@@ -2864,7 +2864,7 @@
 
     .prologue
     .line 254
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -2927,7 +2927,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 259
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getView()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
@@ -2953,7 +2953,7 @@
 
     .prologue
     .line 373
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     .line 375
     const-string v0, "PenDetachmentOption"
@@ -3023,7 +3023,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 215
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -3042,14 +3042,14 @@
     iput-boolean v1, p0, Lcom/android/settings/PenDetachmentOption;->mFromQuickPanel:Z
 
     .line 218
-    const v1, 0x7f070068
+    const v1, 0x7f070085
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PenDetachmentOption;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 220
     const-string v1, "pen_detach_option"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PenDetachmentOption;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -3060,7 +3060,7 @@
     .line 221
     iget-object v1, p0, Lcom/android/settings/PenDetachmentOption;->mPenDetachementOption:Landroid/preference/ListPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -3090,7 +3090,7 @@
     .line 224
     iget-object v1, p0, Lcom/android/settings/PenDetachmentOption;->mPenDetachementOption:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 225
     new-instance v1, Landroid/view/GestureDetector;
@@ -3303,7 +3303,7 @@
 
     .prologue
     .line 363
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 364
     return-void
@@ -3371,7 +3371,7 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 241
-    invoke-virtual {p0}, Lcom/android/settings/PenDetachmentOption;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -3432,7 +3432,7 @@
 
     .prologue
     .line 368
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 

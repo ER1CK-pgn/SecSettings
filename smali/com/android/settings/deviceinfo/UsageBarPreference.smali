@@ -40,9 +40,9 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/UsageBarPreference;->mEntries:Ljava/util/List;
 
     .line 45
-    const v0, 0x7f040127
+    const v0, 0x7f040157
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/UsageBarPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 46
     return-void
@@ -70,9 +70,9 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/UsageBarPreference;->mEntries:Ljava/util/List;
 
     .line 50
-    const v0, 0x7f040127
+    const v0, 0x7f040157
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/UsageBarPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 51
     return-void
@@ -101,9 +101,9 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/UsageBarPreference;->mEntries:Ljava/util/List;
 
     .line 40
-    const v0, 0x7f040127
+    const v0, 0x7f040157
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/UsageBarPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 41
     return-void
@@ -161,7 +161,7 @@
     .line 68
     iget-object v0, p0, Lcom/android/settings/deviceinfo/UsageBarPreference;->mChart:Lcom/android/settings/deviceinfo/PercentageBarChart;
 
-    invoke-virtual {v0}, Lcom/android/settings/deviceinfo/PercentageBarChart;->invalidate()V
+    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
     .line 70
     :cond_0
@@ -177,7 +177,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 62
-    const v0, 0x7f0b034c
+    const v0, 0x7f0b0396
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

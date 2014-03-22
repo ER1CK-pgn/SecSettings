@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 117
+    .line 120
     iput-object p1, p0, Lcom/android/settings/accounts/AccountPreferenceBase$1$1;->this$1:Lcom/android/settings/accounts/AccountPreferenceBase$1;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 119
+    .line 122
     iget-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceBase$1$1;->this$1:Lcom/android/settings/accounts/AccountPreferenceBase$1;
 
     iget-object v0, v0, Lcom/android/settings/accounts/AccountPreferenceBase$1;->this$0:Lcom/android/settings/accounts/AccountPreferenceBase;
 
     invoke-virtual {v0}, Lcom/android/settings/accounts/AccountPreferenceBase;->onSyncStateUpdated()V
 
-    .line 120
+    .line 123
     return-void
 .end method

@@ -30,7 +30,7 @@
     .line 64
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
 
-    .line 222
+    .line 226
     return-void
 .end method
 
@@ -88,29 +88,29 @@
     const/4 v2, 0x1
 
     .line 73
-    invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 74
-    invoke-virtual {p0, v2}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->setFinishOnTouchOutside(Z)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setFinishOnTouchOutside(Z)V
 
     .line 75
-    const v1, 0x7f090992
+    const v1, 0x7f090a70
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->setTitle(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setTitle(I)V
 
     .line 76
-    const v1, 0x7f090993
+    const v1, 0x7f090a71
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler;->mNumSelectedFormat:Ljava/lang/String;
 
     .line 77
-    const v1, 0x7f090994
+    const v1, 0x7f090a72
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -126,7 +126,7 @@
     .line 79
     const-string v1, "layout_inflater"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -135,12 +135,12 @@
     iput-object v1, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler;->mInflater:Landroid/view/LayoutInflater;
 
     .line 80
-    const v1, 0x7f040167
+    const v1, 0x7f0401a3
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->setContentView(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setContentView(I)V
 
     .line 81
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -151,19 +151,19 @@
     .line 83
     const/4 v1, 0x3
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setChoiceMode(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->setChoiceMode(I)V
 
     .line 84
     new-instance v1, Lcom/android/settings/deviceinfo/MiscFilesHandler$ModeCallback;
 
     invoke-direct {v1, p0, p0}, Lcom/android/settings/deviceinfo/MiscFilesHandler$ModeCallback;-><init>(Lcom/android/settings/deviceinfo/MiscFilesHandler;Landroid/content/Context;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setMultiChoiceModeListener(Landroid/widget/AbsListView$MultiChoiceModeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->setMultiChoiceModeListener(Landroid/widget/AbsListView$MultiChoiceModeListener;)V
 
     .line 85
     iget-object v1, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler;->mAdapter:Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/MiscFilesHandler;->setListAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {p0, v1}, Landroid/app/ListActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 86
     return-void

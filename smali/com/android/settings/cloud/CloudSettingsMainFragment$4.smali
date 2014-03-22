@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1201
+    .line 1229
     iput-object p1, p0, Lcom/android/settings/cloud/CloudSettingsMainFragment$4;->this$0:Lcom/android/settings/cloud/CloudSettingsMainFragment;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1203
+    .line 1231
     iget-object v0, p0, Lcom/android/settings/cloud/CloudSettingsMainFragment$4;->this$0:Lcom/android/settings/cloud/CloudSettingsMainFragment;
 
     const/4 v1, 0x1
@@ -54,7 +54,7 @@
     #setter for: Lcom/android/settings/cloud/CloudSettingsMainFragment;->dialogFragment:Landroid/app/DialogFragment;
     invoke-static {v0, v1}, Lcom/android/settings/cloud/CloudSettingsMainFragment;->access$1002(Lcom/android/settings/cloud/CloudSettingsMainFragment;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
 
-    .line 1204
+    .line 1232
     iget-object v0, p0, Lcom/android/settings/cloud/CloudSettingsMainFragment$4;->this$0:Lcom/android/settings/cloud/CloudSettingsMainFragment;
 
     #getter for: Lcom/android/settings/cloud/CloudSettingsMainFragment;->dialogFragment:Landroid/app/DialogFragment;
@@ -66,7 +66,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/DialogFragment;->setCancelable(Z)V
 
-    .line 1205
+    .line 1233
     iget-object v0, p0, Lcom/android/settings/cloud/CloudSettingsMainFragment$4;->this$0:Lcom/android/settings/cloud/CloudSettingsMainFragment;
 
     #getter for: Lcom/android/settings/cloud/CloudSettingsMainFragment;->dialogFragment:Landroid/app/DialogFragment;
@@ -76,7 +76,7 @@
 
     iget-object v1, p0, Lcom/android/settings/cloud/CloudSettingsMainFragment$4;->this$0:Lcom/android/settings/cloud/CloudSettingsMainFragment;
 
-    invoke-virtual {v1}, Lcom/android/settings/cloud/CloudSettingsMainFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
@@ -84,7 +84,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
-    .line 1206
+    .line 1234
     return-void
 .end method
 
@@ -93,6 +93,6 @@
     .parameter "millisUntilFinished"
 
     .prologue
-    .line 1210
+    .line 1238
     return-void
 .end method

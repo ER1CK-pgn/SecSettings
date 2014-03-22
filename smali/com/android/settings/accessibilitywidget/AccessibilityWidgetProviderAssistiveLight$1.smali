@@ -89,7 +89,7 @@
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 88
-    const v2, 0x7f090053
+    const v2, 0x7f090067
 
     const/4 v3, 0x0
 

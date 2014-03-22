@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 201
+    .line 241
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$1;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,26 +48,26 @@
 
     const/4 v2, 0x0
 
-    .line 204
+    .line 244
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v4
 
     if-ne v4, v3, :cond_0
 
-    .line 205
+    .line 245
     packed-switch p2, :pswitch_data_0
 
-    .line 219
+    .line 259
     :cond_0
     :goto_0
     return v2
 
-    .line 208
+    .line 248
     :pswitch_0
     iget-object v4, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$1;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    invoke-virtual {v4}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v4}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
@@ -77,11 +77,11 @@
 
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$1;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/smartscreen/SmartScreenSettings;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v5}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/widget/ListView;->getSelectedItemPosition()I
+    invoke-virtual {v5}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
 
     move-result v5
 
@@ -89,11 +89,11 @@
 
     move-result-object v0
 
-    .line 209
+    .line 249
     .local v0, item:Ljava/lang/Object;
     if-nez v0, :cond_1
 
-    .line 210
+    .line 250
     const-string v3, "SmartScreenSettings"
 
     const-string v4, "dispatchKeyEvent item is null"
@@ -102,7 +102,7 @@
 
     goto :goto_0
 
-    .line 213
+    .line 253
     :cond_1
     instance-of v4, v0, Landroid/preference/SwitchPreferenceScreen;
 
@@ -110,19 +110,19 @@
 
     move-object v1, v0
 
-    .line 214
+    .line 254
     check-cast v1, Landroid/preference/SwitchPreferenceScreen;
 
-    .line 215
+    .line 255
     .local v1, preference:Landroid/preference/SwitchPreferenceScreen;
     invoke-virtual {v1}, Landroid/preference/SwitchPreferenceScreen;->performClick()V
 
     move v2, v3
 
-    .line 216
+    .line 256
     goto :goto_0
 
-    .line 205
+    .line 245
     :pswitch_data_0
     .packed-switch 0x15
         :pswitch_0

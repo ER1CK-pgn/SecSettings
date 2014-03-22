@@ -1,14 +1,11 @@
 .class Lcom/android/settings/users/AppRestrictionsFragment$3;
-.super Ljava/lang/Object;
+.super Ljava/lang/Thread;
 .source "AppRestrictionsFragment.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/users/AppRestrictionsFragment;->onCreateDialog(I)Landroid/app/Dialog;
+    value = Lcom/android/settings/users/AppRestrictionsFragment;->onPause()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,28 +24,26 @@
     .parameter
 
     .prologue
-    .line 1076
+    .line 452
     iput-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$3;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public run()V
     .locals 1
-    .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    .line 1079
+    .line 454
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$3;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    #calls: Lcom/android/settings/users/AppRestrictionsFragment;->clearEditUserInfoDialog()V
-    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$1500(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    #calls: Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppsStates()V
+    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$100(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
-    .line 1080
+    .line 455
     return-void
 .end method

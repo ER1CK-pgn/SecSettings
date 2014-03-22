@@ -9,5 +9,6 @@
     <item android:icon="@drawable/tw_action_bar_icon_wifi_holo_dark" android:id="@id/data_usage_menu_show_wifi" android:title="@string/data_usage_menu_show_wifi" android:checkable="true" />
     <item android:id="@id/data_usage_menu_show_ethernet" android:title="@string/data_usage_menu_show_ethernet" android:checkable="true" />
     <item android:icon="@drawable/tw_action_bar_icon_hotspot_holo_dark" android:id="@id/data_usage_menu_metered" android:title="@string/data_usage_menu_metered" />
+    <item android:icon="@drawable/tw_action_bar_icon_displayunits_holo_light" android:id="@id/data_usage_display_unit" android:title="@string/data_usage_menu_display_unit" />
     <item android:id="@id/data_usage_menu_help" android:title="@string/help_label" />
 </menu>

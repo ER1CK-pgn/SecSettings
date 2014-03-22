@@ -19,10 +19,10 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 49
     invoke-direct {p0}, Lcom/android/internal/app/AlertActivity;-><init>()V
 
-    .line 48
+    .line 56
     new-instance v0, Lcom/android/settings/bluetooth/BluetoothEnableActivity$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity$1;-><init>(Lcom/android/settings/bluetooth/BluetoothEnableActivity;)V
@@ -36,12 +36,12 @@
     .locals 5
 
     .prologue
-    .line 76
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    .line 87
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f04003d
+    const v3, 0x7f040042
 
     const/4 v4, 0x0
 
@@ -49,9 +49,9 @@
 
     move-result-object v1
 
-    .line 77
+    .line 88
     .local v1, view:Landroid/view/View;
-    const v2, 0x7f0b00b3
+    const v2, 0x7f0b00c0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -59,45 +59,17 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 78
+    .line 89
     .local v0, contentView:Landroid/widget/TextView;
-    new-instance v2, Ljava/lang/StringBuilder;
+    const v2, 0x7f091030
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const v3, 0x7f090ef7
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "\n\n"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const v3, 0x7f090ef8
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 81
+    .line 91
     return-object v1
 .end method
 
@@ -109,14 +81,14 @@
     .parameter
 
     .prologue
-    .line 106
+    .line 122
     packed-switch p2, :pswitch_data_0
 
-    .line 121
+    .line 139
     :goto_0
     return-void
 
-    .line 108
+    .line 124
     :pswitch_0
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
@@ -128,10 +100,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 109
-    const v0, 0x7f090eff
+    .line 125
+    const v0, 0x7f091039
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -143,34 +115,34 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 111
+    .line 128
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 112
+    .line 129
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 113
-    invoke-virtual {p0, v0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->startActivity(Landroid/content/Intent;)V
+    .line 130
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 115
+    .line 132
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 118
+    .line 136
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 106
+    .line 122
     :pswitch_data_0
     .packed-switch -0x2
         :pswitch_1
@@ -183,13 +155,13 @@
     .parameter "newConfig"
 
     .prologue
-    .line 124
-    invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .line 143
+    invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 128
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->finish()V
+    .line 147
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 129
+    .line 148
     return-void
 .end method
 
@@ -198,57 +170,57 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 63
+    .line 72
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 65
-    iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    .line 75
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    .line 67
+    .line 77
     .local v0, p:Lcom/android/internal/app/AlertController$AlertParams;
-    const v1, 0x7f090ef6
+    const v1, 0x7f09102f
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 68
+    .line 78
     invoke-direct {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->createView()Landroid/view/View;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    .line 69
-    const v1, 0x7f090efa
+    .line 79
+    const v1, 0x7f091032
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    .line 70
+    .line 80
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    .line 71
-    const v1, 0x7f090ef9
+    .line 81
+    const v1, 0x7f091033
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    .line 72
+    .line 82
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    .line 73
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->setupAlert()V
+    .line 83
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
-    .line 74
+    .line 84
     return-void
 .end method
 
@@ -256,34 +228,34 @@
     .locals 2
 
     .prologue
-    .line 85
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onResume()V
+    .line 96
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 86
+    .line 98
     invoke-static {p0}, Lcom/android/settings/bluetooth/LocalBluetoothManager;->getInstance(Landroid/content/Context;)Lcom/android/settings/bluetooth/LocalBluetoothManager;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mLocalManager:Lcom/android/settings/bluetooth/LocalBluetoothManager;
 
-    .line 87
+    .line 99
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mLocalManager:Lcom/android/settings/bluetooth/LocalBluetoothManager;
 
     if-nez v0, :cond_1
 
-    .line 88
+    .line 100
     const-string v0, "BluetoothEnableActivity"
 
     const-string v1, "Bluetooth is not supported on this device"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 95
+    .line 108
     :cond_0
     :goto_0
     return-void
 
-    .line 91
+    .line 103
     :cond_1
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mLocalManager:Lcom/android/settings/bluetooth/LocalBluetoothManager;
 
@@ -293,7 +265,7 @@
 
     iput-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
 
-    .line 92
+    .line 105
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
@@ -304,8 +276,8 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 93
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->finish()V
+    .line 106
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method
@@ -314,23 +286,23 @@
     .locals 2
 
     .prologue
-    .line 97
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStart()V
+    .line 111
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
-    .line 98
+    .line 112
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "android.bluetooth.adapter.action.STATE_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 99
+    .line 113
     .local v0, filter:Landroid/content/IntentFilter;
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mBluetoothReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v1, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 100
+    .line 114
     return-void
 .end method
 
@@ -338,14 +310,14 @@
     .locals 1
 
     .prologue
-    .line 102
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStop()V
+    .line 117
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    .line 103
+    .line 118
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->mBluetoothReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 104
+    .line 119
     return-void
 .end method

@@ -1,14 +1,11 @@
 .class Lcom/android/settings/nfc/NfcSettings$1;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "NfcSettings.java"
-
-# interfaces
-.implements Lcom/android/settings/nfc/NfcEnabler$INfcHelpController;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/nfc/NfcSettings;->onCreate(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/nfc/NfcSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,111 +24,184 @@
     .parameter
 
     .prologue
-    .line 123
+    .line 100
     iput-object p1, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public dismiss()V
-    .locals 2
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 9
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    const/4 v1, 0x0
+    const v8, 0x7f0902d9
 
-    .line 137
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+    const v7, 0x7f0902d7
 
-    #getter for: Lcom/android/settings/nfc/NfcSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcSettings;->access$200(Lcom/android/settings/nfc/NfcSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
+    const/4 v6, 0x5
 
-    move-result-object v0
+    const/4 v5, 0x3
 
-    if-eqz v0, :cond_0
-
-    .line 138
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
-
-    #getter for: Lcom/android/settings/nfc/NfcSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcSettings;->access$200(Lcom/android/settings/nfc/NfcSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 103
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    .line 104
+    .local v0, action:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
 
-    .line 139
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+    #getter for: Lcom/android/settings/nfc/NfcSettings;->mActivity:Landroid/app/Activity;
+    invoke-static {v2}, Lcom/android/settings/nfc/NfcSettings;->access$000(Lcom/android/settings/nfc/NfcSettings;)Landroid/app/Activity;
 
-    #setter for: Lcom/android/settings/nfc/NfcSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
-    invoke-static {v0, v1}, Lcom/android/settings/nfc/NfcSettings;->access$202(Lcom/android/settings/nfc/NfcSettings;Lcom/android/settings/helpdialog/TwHelpDialog;)Lcom/android/settings/helpdialog/TwHelpDialog;
+    move-result-object v2
 
-    .line 142
+    invoke-static {v2}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
+
+    move-result-object v1
+
+    .line 105
+    .local v1, nfcAdapter:Landroid/nfc/NfcAdapter;
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+
+    iget-object v3, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+
+    const-string v4, "nfc_android_beam_help"
+
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v3
+
+    #setter for: Lcom/android/settings/nfc/NfcSettings;->mNfcHelpText:Landroid/preference/Preference;
+    invoke-static {v2, v3}, Lcom/android/settings/nfc/NfcSettings;->access$102(Lcom/android/settings/nfc/NfcSettings;Landroid/preference/Preference;)Landroid/preference/Preference;
+
+    .line 106
+    const-string v2, "android.nfc.action.ADAPTER_STATE_CHANGED"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 107
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v2
+
+    if-ne v2, v5, :cond_2
+
+    .line 108
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v2
+
+    if-ne v2, v6, :cond_1
+
+    .line 109
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+
+    #getter for: Lcom/android/settings/nfc/NfcSettings;->mNfcHelpText:Landroid/preference/Preference;
+    invoke-static {v2}, Lcom/android/settings/nfc/NfcSettings;->access$100(Lcom/android/settings/nfc/NfcSettings;)Landroid/preference/Preference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v8}, Landroid/preference/Preference;->setSummary(I)V
+
+    .line 123
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
-
-    #getter for: Lcom/android/settings/nfc/NfcSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcSettings;->access$300(Lcom/android/settings/nfc/NfcSettings;)Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    .line 143
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
-
-    #getter for: Lcom/android/settings/nfc/NfcSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcSettings;->access$300(Lcom/android/settings/nfc/NfcSettings;)Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
-
-    .line 144
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
-
-    #setter for: Lcom/android/settings/nfc/NfcSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-    invoke-static {v0, v1}, Lcom/android/settings/nfc/NfcSettings;->access$302(Lcom/android/settings/nfc/NfcSettings;Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;)Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    .line 146
-    :cond_1
-    return-void
-.end method
-
-.method public show(Z)V
-    .locals 2
-    .parameter "bOn"
-
-    .prologue
-    .line 126
-    if-eqz p1, :cond_0
-
-    .line 128
-    const-string v0, "NfcSettings"
-
-    const-string v1, "NfcAdapter.STATE_ON, createHelpStep2Dialog() "
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 129
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
-
-    #calls: Lcom/android/settings/nfc/NfcSettings;->createHelpStep2Dialog()V
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcSettings;->access$000(Lcom/android/settings/nfc/NfcSettings;)V
-
-    .line 134
     :goto_0
     return-void
 
-    .line 132
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+    .line 111
+    :cond_1
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
 
-    #calls: Lcom/android/settings/nfc/NfcSettings;->createHelpStep1Dialog()V
-    invoke-static {v0}, Lcom/android/settings/nfc/NfcSettings;->access$100(Lcom/android/settings/nfc/NfcSettings;)V
+    #getter for: Lcom/android/settings/nfc/NfcSettings;->mNfcHelpText:Landroid/preference/Preference;
+    invoke-static {v2}, Lcom/android/settings/nfc/NfcSettings;->access$100(Lcom/android/settings/nfc/NfcSettings;)Landroid/preference/Preference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Landroid/preference/Preference;->setSummary(I)V
+
+    goto :goto_0
+
+    .line 113
+    :cond_2
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    .line 114
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+
+    #getter for: Lcom/android/settings/nfc/NfcSettings;->mNfcHelpText:Landroid/preference/Preference;
+    invoke-static {v2}, Lcom/android/settings/nfc/NfcSettings;->access$100(Lcom/android/settings/nfc/NfcSettings;)Landroid/preference/Preference;
+
+    move-result-object v2
+
+    const v3, 0x7f0902d8
+
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(I)V
+
+    goto :goto_0
+
+    .line 116
+    :cond_3
+    const-string v2, "android.nfc.action.ADAPTER_STATE_CHANGE_READER"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 117
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v2
+
+    if-ne v2, v5, :cond_4
+
+    .line 118
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+
+    #getter for: Lcom/android/settings/nfc/NfcSettings;->mNfcHelpText:Landroid/preference/Preference;
+    invoke-static {v2}, Lcom/android/settings/nfc/NfcSettings;->access$100(Lcom/android/settings/nfc/NfcSettings;)Landroid/preference/Preference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v8}, Landroid/preference/Preference;->setSummary(I)V
+
+    goto :goto_0
+
+    .line 119
+    :cond_4
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v2
+
+    if-ne v2, v6, :cond_0
+
+    .line 120
+    iget-object v2, p0, Lcom/android/settings/nfc/NfcSettings$1;->this$0:Lcom/android/settings/nfc/NfcSettings;
+
+    #getter for: Lcom/android/settings/nfc/NfcSettings;->mNfcHelpText:Landroid/preference/Preference;
+    invoke-static {v2}, Lcom/android/settings/nfc/NfcSettings;->access$100(Lcom/android/settings/nfc/NfcSettings;)Landroid/preference/Preference;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Landroid/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 .end method

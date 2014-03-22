@@ -36,7 +36,7 @@
 
     .prologue
     .line 220
-    const v0, 0x10900f8
+    const v0, 0x10900c9
 
     invoke-direct {p0, p1, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
@@ -87,7 +87,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x109000f
+    const v3, 0x7f0401c5
 
     invoke-virtual {v2, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -108,7 +108,7 @@
 
     .line 258
     .local v0, headline:Landroid/widget/CheckedTextView;
-    invoke-virtual {v0, p3}, Landroid/widget/CheckedTextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 259
     invoke-virtual {v0, p4}, Landroid/widget/CheckedTextView;->setChecked(Z)V
@@ -143,7 +143,7 @@
     :cond_0
     iget-object v4, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x10900f8
+    const v5, 0x10900c9
 
     const/4 v6, 0x0
 
@@ -178,7 +178,7 @@
 
     .line 274
     .local v2, subText:Landroid/widget/TextView;
-    const v4, 0x10203e7
+    const v4, 0x1020346
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
     invoke-virtual {v2, p4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 278
-    invoke-virtual {v1, p5}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v1, p5}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 279
     return-object v3
@@ -252,7 +252,7 @@
 
     .prologue
     .line 230
-    invoke-virtual {p0, p1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -305,11 +305,11 @@
     .end local v4           #collection:Ljava/lang/String;
     .end local v5           #checked:Z
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/ArrayAdapter;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f0907b7
+    const v1, 0x7f09080a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

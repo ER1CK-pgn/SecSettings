@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 606
+    .line 616
     iput-object p1, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
 
     invoke-direct {p0}, Landroid/widget/Filter;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "constraint"
 
     .prologue
-    .line 609
+    .line 619
     iget-object v2, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
 
     iget-object v3, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
@@ -53,24 +53,24 @@
 
     move-result-object v0
 
-    .line 611
+    .line 621
     .local v0, entries:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/applications/ApplicationsState$AppEntry;>;"
     new-instance v1, Landroid/widget/Filter$FilterResults;
 
     invoke-direct {v1}, Landroid/widget/Filter$FilterResults;-><init>()V
 
-    .line 612
+    .line 622
     .local v1, fr:Landroid/widget/Filter$FilterResults;
     iput-object v0, v1, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
-    .line 613
+    .line 623
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     iput v2, v1, Landroid/widget/Filter$FilterResults;->count:I
 
-    .line 614
+    .line 624
     return-object v1
 .end method
 
@@ -80,12 +80,12 @@
     .parameter "results"
 
     .prologue
-    .line 619
+    .line 629
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
 
     iput-object p1, v0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->mCurFilterPrefix:Ljava/lang/CharSequence;
 
-    .line 620
+    .line 630
     iget-object v1, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
 
     iget-object v0, p2, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
@@ -95,12 +95,12 @@
     #setter for: Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->mEntries:Ljava/util/ArrayList;
     invoke-static {v1, v0}, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->access$602(Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
-    .line 621
+    .line 631
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
 
-    invoke-virtual {v0}, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 622
+    .line 632
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter$1;->this$0:Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;
 
     #getter for: Lcom/android/settings/applications/ManageApplications$ApplicationsAdapter;->mTab:Lcom/android/settings/applications/ManageApplications$TabInfo;
@@ -110,6 +110,6 @@
 
     invoke-virtual {v0}, Lcom/android/settings/applications/ManageApplications$TabInfo;->updateStorageUsage()V
 
-    .line 623
+    .line 633
     return-void
 .end method

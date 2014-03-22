@@ -435,7 +435,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b036e
+    const v2, 0x7f0b03b8
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1048,7 +1048,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040146
+    const v4, 0x7f04017b
 
     const/4 v5, 0x0
 
@@ -1275,7 +1275,7 @@
     invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 218
-    const v0, 0x7f120005
+    const v0, 0x7f120007
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -1289,7 +1289,7 @@
     if-nez v0, :cond_0
 
     .line 220
-    const v0, 0x7f0b05f8
+    const v0, 0x7f0b0674
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -1312,7 +1312,7 @@
 
     .prologue
     .line 64
-    const v0, 0x7f04013b
+    const v0, 0x7f04016c
 
     const/4 v1, 0x0
 
@@ -1371,7 +1371,7 @@
 
     .line 226
     :pswitch_data_0
-    .packed-switch 0x7f0b05f6
+    .packed-switch 0x7f0b0672
         :pswitch_1
         :pswitch_0
         :pswitch_2

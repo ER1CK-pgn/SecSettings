@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 993
+    .line 987
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleServerName;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 993
+    .line 987
     invoke-direct {p0, p1}, Lcom/android/settings/nearby/NearbyEnabler$HandleServerName;-><init>(Lcom/android/settings/nearby/NearbyEnabler;)V
 
     return-void
@@ -57,7 +57,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 996
+    .line 990
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleServerName;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -73,13 +73,13 @@
 
     if-nez v3, :cond_1
 
-    .line 1016
+    .line 1010
     .end local p2
     :cond_0
     :goto_0
     return v2
 
-    .line 1000
+    .line 994
     .restart local p2
     :cond_1
     :try_start_0
@@ -93,7 +93,7 @@
 
     move-result-object v0
 
-    .line 1001
+    .line 995
     .local v0, deviceName:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleServerName;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -104,7 +104,7 @@
 
     invoke-interface {v3, v0}, Lcom/android/settings/nearby/IMediaServer;->setMediaServerName(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 1003
+    .line 997
     const-string v3, "*#@&*#"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -113,7 +113,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 1004
+    .line 998
     const-string v3, "NearbyEnabler"
 
     const-string v4, "HandleServerName"
@@ -122,7 +122,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1005
+    .line 999
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleServerName;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -134,13 +134,13 @@
 
     invoke-interface {v3, v4}, Lcom/android/settings/nearby/IMediaServer;->setContentAccessAllowed(Ljava/lang/String;)V
 
-    .line 1016
+    .line 1010
     :goto_1
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 1007
+    .line 1001
     :cond_2
     const-string v3, "NearbyEnabler"
 
@@ -150,7 +150,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1008
+    .line 1002
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleServerName;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -166,12 +166,12 @@
 
     goto :goto_1
 
-    .line 1011
+    .line 1005
     .end local v0           #deviceName:Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 1012
+    .line 1006
     .local v1, e:Landroid/os/RemoteException;
     const-string v3, "NearbyEnabler"
 

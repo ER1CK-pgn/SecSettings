@@ -309,7 +309,7 @@
 
     .line 101
     .local v4, e:Ljava/security/NoSuchAlgorithmException;
-    invoke-virtual {v4}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -320,7 +320,7 @@
 
     .line 103
     .local v4, e:Ljava/io/UnsupportedEncodingException;
-    invoke-virtual {v4}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 .end method

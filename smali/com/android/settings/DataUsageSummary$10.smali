@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1524
+    .line 1656
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,88 +38,74 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 5
     .parameter "v"
 
     .prologue
-    const-wide/16 v2, -0x1
+    const/4 v1, 0x1
 
-    .line 1528
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
+    const/4 v2, 0x0
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1100(Lcom/android/settings/DataUsageSummary;)Landroid/app/enterprise/RestrictionPolicy;
+    .line 1659
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    move-result-object v1
+    #getter for: Lcom/android/settings/DataUsageSummary;->mConfirmAtBoot:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$1000(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    if-eqz v1, :cond_0
+    move-result-object v3
 
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
+    invoke-virtual {v3}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1100(Lcom/android/settings/DataUsageSummary;)Landroid/app/enterprise/RestrictionPolicy;
+    move-result v3
 
-    move-result-object v1
+    if-nez v3, :cond_0
 
-    invoke-virtual {v1}, Landroid/app/enterprise/RestrictionPolicy;->isUserMobileDataLimitAllowed()Z
+    move v0, v1
 
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 1529
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyLimitBytes(J)V
-    invoke-static {v1, v2, v3}, Lcom/android/settings/DataUsageSummary;->access$1200(Lcom/android/settings/DataUsageSummary;J)V
-
-    .line 1541
+    .line 1660
+    .local v0, confirmAtBoot:Z
     :goto_0
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-virtual {v3}, Lcom/android/settings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "mobile_data_question"
+
+    if-eqz v0, :cond_1
+
+    :goto_1
+    invoke-static {v3, v4, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 1666
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mConfirmAtBoot:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1000(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
+
+    .line 1667
     return-void
 
-    .line 1533
+    .end local v0           #confirmAtBoot:Z
     :cond_0
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
+    move v0, v2
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mDisableAtLimit:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1300(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    const/4 v0, 0x1
-
-    .line 1534
-    .local v0, disableAtLimit:Z
-    :goto_1
-    if-eqz v0, :cond_2
-
-    .line 1537
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment;->show(Lcom/android/settings/DataUsageSummary;)V
-
+    .line 1659
     goto :goto_0
 
-    .line 1533
-    .end local v0           #disableAtLimit:Z
+    .restart local v0       #confirmAtBoot:Z
     :cond_1
-    const/4 v0, 0x0
+    move v1, v2
 
+    .line 1660
     goto :goto_1
-
-    .line 1539
-    .restart local v0       #disableAtLimit:Z
-    :cond_2
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$10;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyLimitBytes(J)V
-    invoke-static {v1, v2, v3}, Lcom/android/settings/DataUsageSummary;->access$1200(Lcom/android/settings/DataUsageSummary;J)V
-
-    goto :goto_0
 .end method

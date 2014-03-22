@@ -72,7 +72,7 @@
 
     .prologue
     .line 103
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 104
     iput-object p2, p0, Lcom/android/settings/bluetooth/HeadsetProfile;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
@@ -403,7 +403,7 @@
 
     .prologue
     .line 229
-    const v0, 0x7f020158
+    const v0, 0x7f02019b
 
     return v0
 .end method
@@ -414,7 +414,7 @@
 
     .prologue
     .line 200
-    const v0, 0x7f090265
+    const v0, 0x7f09028a
 
     return v0
 .end method
@@ -460,9 +460,9 @@
     .parameter "device"
 
     .prologue
-    const v1, 0x7f090282
+    const v1, 0x7f0902a9
 
-    const v2, 0x7f090278
+    const v2, 0x7f09029e
 
     .line 205
     iget-object v3, p0, Lcom/android/settings/bluetooth/HeadsetProfile;->mService:Landroid/bluetooth/BluetoothHeadset;

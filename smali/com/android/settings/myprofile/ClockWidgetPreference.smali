@@ -57,7 +57,7 @@
 
     .prologue
     .line 35
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -80,7 +80,7 @@
 
     .prologue
     .line 74
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
@@ -89,18 +89,18 @@
     if-eqz v0, :cond_0
 
     .line 76
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 78
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     .line 79
-    const v1, 0x7f07005d
+    const v1, 0x7f07007a
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/ClockWidgetPreference;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 80
     return-object v0
@@ -119,14 +119,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 60
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->context:Landroid/content/Context;
 
     .line 62
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -153,7 +153,7 @@
     if-eqz v1, :cond_0
 
     .line 68
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -166,7 +166,7 @@
     invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
 
     .line 69
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -176,7 +176,7 @@
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 71
     :cond_0
@@ -240,7 +240,7 @@
     .line 176
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -248,12 +248,12 @@
 
     .line 177
     .local v2, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v5, 0x7f090ea1
+    const v5, 0x7f090fda
 
     invoke-virtual {v2, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 178
-    const v5, 0x7f091475
+    const v5, 0x7f0915c9
 
     invoke-virtual {v2, v5}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -298,7 +298,7 @@
     .line 189
     .local v3, value:I
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -329,7 +329,7 @@
     if-eqz v8, :cond_3
 
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v11
 
@@ -337,7 +337,7 @@
 
     iget-object v8, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v8}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v8}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v8
 
@@ -374,7 +374,7 @@
 
     .line 157
     .local v7, value:I
-    invoke-virtual {v6, v9}, Lcom/android/settings/myprofile/RadioButtonPreference;->setChecked(Z)V
+    invoke-virtual {v6, v9}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 159
     const/4 v0, 0x0
@@ -401,7 +401,7 @@
 
     check-cast v8, Lcom/android/settings/myprofile/RadioButtonPreference;
 
-    invoke-virtual {v8, v10}, Lcom/android/settings/myprofile/RadioButtonPreference;->setChecked(Z)V
+    invoke-virtual {v8, v10}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 159
     :cond_1
@@ -430,7 +430,7 @@
     if-eqz v8, :cond_4
 
     .line 127
-    const v8, 0x7f0901a4
+    const v8, 0x7f0901c7
 
     invoke-static {v8}, Lcom/android/settings/OwnerInfoSettings;->newInstance(I)Lcom/android/settings/OwnerInfoSettings;
 
@@ -438,7 +438,7 @@
 
     .line 128
     .local v4, newFragment:Landroid/app/DialogFragment;
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v8
 
@@ -491,7 +491,7 @@
     .line 132
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -499,12 +499,12 @@
 
     .line 133
     .local v3, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v8, 0x7f090ea1
+    const v8, 0x7f090fda
 
     invoke-virtual {v3, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 134
-    const v8, 0x7f091475
+    const v8, 0x7f0915c9
 
     invoke-virtual {v3, v8}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -560,7 +560,7 @@
 
     .line 149
     :cond_6
-    invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/ClockWidgetPreference;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_3
 
@@ -577,7 +577,7 @@
     if-eq v8, v5, :cond_8
 
     .line 164
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -595,7 +595,7 @@
     .end local v6           #pref:Lcom/android/settings/myprofile/RadioButtonPreference;
     .end local v7           #value:I
     :cond_9
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v9
 
@@ -617,7 +617,7 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->createPreferenceHierarchy()Landroid/preference/PreferenceScreen;
 
     .line 87
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
@@ -625,7 +625,7 @@
     .local v4, res:Landroid/content/res/Resources;
     const-string v6, "dualclock_settings"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/myprofile/ClockWidgetPreference;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -636,7 +636,7 @@
     .line 90
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 91
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
@@ -646,7 +646,7 @@
     .line 92
     iget-object v9, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -661,13 +661,13 @@
     move v6, v7
 
     :goto_0
-    invoke-virtual {v9, v6}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v9, v6}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 95
     :cond_0
     const-string v6, "clock_size_category"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/myprofile/ClockWidgetPreference;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -678,7 +678,7 @@
     .line 96
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mClockSizePrefCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v6}, Landroid/preference/PreferenceCategory;->removeAll()V
+    invoke-virtual {v6}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 97
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mRadioboxPref:Ljava/util/List;
@@ -686,7 +686,7 @@
     invoke-interface {v6}, Ljava/util/List;->clear()V
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -698,7 +698,7 @@
 
     .line 101
     .local v0, current:I
-    const v6, 0x7f0a0004
+    const v6, 0x7f0a0009
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -706,7 +706,7 @@
 
     .line 102
     .local v3, prefArray:[Ljava/lang/String;
-    const v6, 0x7f0a0005
+    const v6, 0x7f0a000a
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -748,17 +748,17 @@
     move v6, v7
 
     :goto_2
-    invoke-virtual {v2, v6}, Lcom/android/settings/myprofile/RadioButtonPreference;->setChecked(Z)V
+    invoke-virtual {v2, v6}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 106
     aget-object v6, v3, v1
 
-    invoke-virtual {v2, v6}, Lcom/android/settings/myprofile/RadioButtonPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v6}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 107
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mClockSizePrefCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v6, v2}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v6, v2}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     .line 108
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mRadioboxPref:Ljava/util/List;
@@ -766,7 +766,7 @@
     invoke-interface {v6, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 109
-    invoke-virtual {v2}, Lcom/android/settings/myprofile/RadioButtonPreference;->isChecked()Z
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v6
 
@@ -807,7 +807,7 @@
     :cond_4
     const-string v6, "lock_screen_date_and_year"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/myprofile/ClockWidgetPreference;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -823,7 +823,7 @@
     .line 114
     iget-object v6, p0, Lcom/android/settings/myprofile/ClockWidgetPreference;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -836,13 +836,13 @@
     if-eqz v9, :cond_6
 
     :goto_3
-    invoke-virtual {v6, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v6, v7}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 117
     :cond_5
     const-string v6, "owner_info_settings"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/myprofile/ClockWidgetPreference;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 

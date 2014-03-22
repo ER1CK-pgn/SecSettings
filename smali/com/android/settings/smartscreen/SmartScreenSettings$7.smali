@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 579
+    .line 631
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$7;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 582
+    .line 634
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$7;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #getter for: Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartStay:Landroid/preference/CheckBoxPreference;
@@ -70,9 +70,9 @@
     move v0, v1
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 583
+    .line 635
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$7;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #getter for: Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartRotation:Landroid/preference/CheckBoxPreference;
@@ -98,9 +98,9 @@
     move v0, v1
 
     :goto_1
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 584
+    .line 636
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$7;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #getter for: Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartPause:Landroid/preference/CheckBoxPreference;
@@ -126,9 +126,9 @@
     move v0, v1
 
     :goto_2
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 585
+    .line 637
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$7;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #getter for: Lcom/android/settings/smartscreen/SmartScreenSettings;->mSmartScroll:Landroid/preference/SwitchPreferenceScreen;
@@ -152,32 +152,32 @@
     if-eqz v3, :cond_3
 
     :goto_3
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 586
+    .line 638
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 582
+    .line 634
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 583
+    .line 635
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 584
+    .line 636
     goto :goto_2
 
     :cond_3
     move v1, v2
 
-    .line 585
+    .line 637
     goto :goto_3
 .end method

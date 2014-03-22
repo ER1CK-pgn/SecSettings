@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 549
+    .line 557
     iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionSettings$9;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 551
+    .line 559
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings$9;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     #calls: Lcom/android/settings/motion2013/AirMotionSettings;->stopAnimation()V
     invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionSettings;->access$1300(Lcom/android/settings/motion2013/AirMotionSettings;)V
 
-    .line 552
+    .line 560
     return-void
 .end method

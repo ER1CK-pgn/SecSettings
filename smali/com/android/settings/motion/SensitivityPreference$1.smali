@@ -30,7 +30,7 @@
     .line 52
     iput-object p1, p0, Lcom/android/settings/motion/SensitivityPreference$1;->this$0:Lcom/android/settings/motion/SensitivityPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -61,7 +61,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v1}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v1
 

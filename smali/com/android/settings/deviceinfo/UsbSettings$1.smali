@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 58
+    .line 63
     iput-object p1, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,12 +44,12 @@
 
     const/4 v5, 0x0
 
-    .line 61
+    .line 66
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 62
+    .line 67
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.hardware.usb.action.USB_STATE"
 
@@ -59,7 +59,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 63
+    .line 68
     iget-object v2, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     const-string v3, "accessory"
@@ -71,7 +71,7 @@
     #setter for: Lcom/android/settings/deviceinfo/UsbSettings;->mUsbAccessoryMode:Z
     invoke-static {v2, v3}, Lcom/android/settings/deviceinfo/UsbSettings;->access$002(Lcom/android/settings/deviceinfo/UsbSettings;Z)Z
 
-    .line 64
+    .line 69
     const-string v2, "UsbSettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -101,7 +101,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 67
+    .line 72
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -113,7 +113,7 @@
 
     move-result v1
 
-    .line 68
+    .line 73
     .local v1, configured:Z
     iget-object v2, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
@@ -126,13 +126,13 @@
 
     if-ne v1, v6, :cond_1
 
-    .line 69
+    .line 74
     iget-object v2, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     #setter for: Lcom/android/settings/deviceinfo/UsbSettings;->isTryMtpUsb30:Z
     invoke-static {v2, v5}, Lcom/android/settings/deviceinfo/UsbSettings;->access$102(Lcom/android/settings/deviceinfo/UsbSettings;Z)Z
 
-    .line 70
+    .line 75
     iget-object v2, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     #getter for: Lcom/android/settings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
@@ -146,12 +146,12 @@
 
     if-nez v2, :cond_1
 
-    .line 71
+    .line 76
     iget-object v2, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     invoke-virtual {v2}, Lcom/android/settings/deviceinfo/UsbSettings;->showNotSupportMtpUsb3Dialog()V
 
-    .line 73
+    .line 78
     :cond_1
     iget-object v2, p0, Lcom/android/settings/deviceinfo/UsbSettings$1;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
@@ -169,6 +169,6 @@
     #calls: Lcom/android/settings/deviceinfo/UsbSettings;->updateToggles(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/settings/deviceinfo/UsbSettings;->access$300(Lcom/android/settings/deviceinfo/UsbSettings;Ljava/lang/String;)V
 
-    .line 74
+    .line 79
     return-void
 .end method

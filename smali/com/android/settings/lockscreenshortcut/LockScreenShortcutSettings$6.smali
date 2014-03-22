@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1062
+    .line 1074
     iput-object p1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$6;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,14 @@
     .parameter "event"
 
     .prologue
-    const v2, 0x7f020560
+    const v2, 0x7f0205fc
 
-    .line 1065
+    .line 1077
     move-object v0, p1
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 1066
+    .line 1078
     .local v0, iv:Landroid/widget/ImageView;
     invoke-virtual {p2}, Landroid/view/DragEvent;->getAction()I
 
@@ -58,17 +58,17 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1086
+    .line 1098
     :goto_0
     const/4 v1, 0x1
 
     return v1
 
-    .line 1069
+    .line 1081
     :pswitch_0
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1070
+    .line 1082
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$6;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->changeShortCut(Landroid/widget/ImageView;)V
@@ -76,21 +76,21 @@
 
     goto :goto_0
 
-    .line 1075
+    .line 1087
     :pswitch_1
-    const v1, 0x7f0203ed
+    const v1, 0x7f02046c
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 1080
+    .line 1092
     :pswitch_2
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 1066
+    .line 1078
     nop
 
     :pswitch_data_0

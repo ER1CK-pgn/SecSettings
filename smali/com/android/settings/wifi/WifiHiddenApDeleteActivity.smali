@@ -297,7 +297,7 @@
     .local v3, index:I
     iget-object v6, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v6}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v6}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v6
 
@@ -309,7 +309,7 @@
 
     .line 232
     :cond_0
-    const v6, 0x7f091156
+    const v6, 0x7f0912a0
 
     const/4 v7, 0x1
 
@@ -317,7 +317,7 @@
 
     iget-object v8, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v8}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v8}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v8
 
@@ -327,7 +327,7 @@
 
     aput-object v8, v7, v9
 
-    invoke-virtual {p0, v6, v7}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v6, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -354,7 +354,7 @@
     .line 236
     iget-object v6, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v6, v3}, Landroid/widget/ListView;->isItemChecked(I)Z
+    invoke-virtual {v6, v3}, Landroid/widget/AbsListView;->isItemChecked(I)Z
 
     move-result v6
 
@@ -448,12 +448,12 @@
 
     check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v1, v6}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v1, v6}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 256
     const-string v6, "\r\n"
 
-    invoke-virtual {v1, v6}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v1, v6}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -465,7 +465,7 @@
     .line 259
     :cond_4
     :try_start_2
-    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v1}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -495,7 +495,7 @@
     move-exception v6
 
     :try_start_3
-    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v1}, Ljava/io/OutputStreamWriter;->close()V
 
     throw v6
     :try_end_3
@@ -515,9 +515,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 64
-    const v5, 0x7f0401cc
+    const v5, 0x7f040209
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->setContentView(I)V
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->setContentView(I)V
 
     .line 66
     invoke-static {p0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -534,7 +534,7 @@
     .line 71
     const-string v5, "layout_inflater"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -542,7 +542,7 @@
 
     .line 72
     .local v3, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f0401b5
+    const v5, 0x7f0401f0
 
     const/4 v6, 0x0
 
@@ -552,7 +552,7 @@
 
     .line 74
     .local v1, actionView:Landroid/view/View;
-    const v5, 0x7f0b04ac
+    const v5, 0x7f0b050a
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -563,7 +563,7 @@
     .line 75
     iget-object v5, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->mRemoveButton:Landroid/view/View;
 
-    const v6, 0x7f0b04ad
+    const v6, 0x7f0b050b
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -578,7 +578,7 @@
 
     iget v6, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->disableOpacity:F
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setAlpha(F)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setAlpha(F)V
 
     .line 77
     iget-object v5, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->mRemoveButton:Landroid/view/View;
@@ -597,7 +597,7 @@
     invoke-virtual {v5, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 87
-    const v5, 0x7f0b04aa
+    const v5, 0x7f0b0508
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -612,7 +612,7 @@
     invoke-virtual {v2, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 95
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
@@ -637,9 +637,9 @@
     .end local v2           #cancelButton:Landroid/view/View;
     .end local v3           #inflater:Landroid/view/LayoutInflater;
     :cond_0
-    const v5, 0x7f0b051e
+    const v5, 0x7f0b0580
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -647,9 +647,9 @@
 
     .line 105
     .local v4, selectAllLayout:Landroid/widget/LinearLayout;
-    const v5, 0x7f0b051f
+    const v5, 0x7f0b0581
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -660,12 +660,12 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity$3;-><init>(Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;)V
 
-    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 127
-    const v5, 0x7f0b03d5
+    const v5, 0x7f0b043d
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -678,7 +678,7 @@
 
     const/4 v6, 0x2
 
-    invoke-virtual {v5, v6}, Landroid/widget/ListView;->setChoiceMode(I)V
+    invoke-virtual {v5, v6}, Landroid/widget/AbsListView;->setChoiceMode(I)V
 
     .line 130
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->addListItems()V
@@ -686,7 +686,7 @@
     .line 131
     new-instance v5, Landroid/widget/ArrayAdapter;
 
-    const v6, 0x1090010
+    const v6, 0x7f0401ab
 
     iget-object v7, p0, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->mList:Ljava/util/ArrayList;
 
@@ -708,7 +708,7 @@
 
     invoke-direct {v6, p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity$4;-><init>(Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;)V
 
-    invoke-virtual {v5, v6}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v5, v6}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 151
     return-void
@@ -739,13 +739,13 @@
 
     .line 161
     :cond_0
-    const v0, 0x7f090991
+    const v0, 0x7f090a6f
 
     invoke-interface {p1, v3, v2, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200cb
+    const v1, 0x7f02010b
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -760,13 +760,13 @@
     .line 165
     const/4 v0, 0x2
 
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     invoke-interface {p1, v3, v0, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200ca
+    const v1, 0x7f02010a
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -811,19 +811,19 @@
     invoke-static {}, Lcom/android/settings/wifi/WifiSettings;->updateHiddenAccessPoint()V
 
     .line 179
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 183
     :sswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 187
     :sswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiHiddenApDeleteActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 

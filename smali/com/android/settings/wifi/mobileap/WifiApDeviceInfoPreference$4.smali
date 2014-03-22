@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 107
+    .line 116
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;
 
     iput p2, p0, Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$4;->val$current:I
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,21 +48,21 @@
     .parameter "which"
 
     .prologue
-    .line 109
+    .line 118
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 110
+    .line 119
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$4;->val$current:I
 
     if-eq v0, p2, :cond_0
 
-    .line 111
+    .line 120
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->checkConnectedDeviceOrChangeAllowPolicy()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;->access$100(Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;)V
 
-    .line 112
+    .line 121
     :cond_0
     return-void
 .end method

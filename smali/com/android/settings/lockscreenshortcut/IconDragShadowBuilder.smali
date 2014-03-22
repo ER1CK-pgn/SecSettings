@@ -156,7 +156,7 @@
     .line 45
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/IconDragShadowBuilder;->mView:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -189,7 +189,7 @@
     if-eqz v1, :cond_0
 
     .line 56
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     .line 59
     :cond_0

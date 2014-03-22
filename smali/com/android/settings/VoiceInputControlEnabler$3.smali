@@ -22,20 +22,25 @@
 
 .field final synthetic val$check:Landroid/widget/CheckBox;
 
+.field final synthetic val$voiceInputControl:Lcom/android/settings/VoiceInputControlSettings;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/VoiceInputControlEnabler;Landroid/widget/CheckBox;)V
+.method constructor <init>(Lcom/android/settings/VoiceInputControlEnabler;Landroid/widget/CheckBox;Lcom/android/settings/VoiceInputControlSettings;)V
     .locals 0
+    .parameter
     .parameter
     .parameter
 
     .prologue
-    .line 192
+    .line 207
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
     iput-object p2, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->val$check:Landroid/widget/CheckBox;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p3, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->val$voiceInputControl:Lcom/android/settings/VoiceInputControlSettings;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,16 +53,16 @@
     .parameter "arg1"
 
     .prologue
-    .line 195
+    .line 210
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->val$check:Landroid/widget/CheckBox;
 
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 211
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
     #getter for: Lcom/android/settings/VoiceInputControlEnabler;->mContext:Landroid/content/Context;
@@ -75,7 +80,32 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 197
+    .line 212
     :cond_0
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->val$voiceInputControl:Lcom/android/settings/VoiceInputControlSettings;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->val$voiceInputControl:Lcom/android/settings/VoiceInputControlSettings;
+
+    invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlSettings;->isFromHelpApp()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 213
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$3;->val$voiceInputControl:Lcom/android/settings/VoiceInputControlSettings;
+
+    invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlSettings;->getHelpHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    .line 215
+    :cond_1
     return-void
 .end method

@@ -22,11 +22,11 @@
 
     .prologue
     .line 57
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertDialogActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f04003d
+    const v3, 0x7f040042
 
     const/4 v4, 0x0
 
@@ -36,7 +36,7 @@
 
     .line 58
     .local v1, view:Landroid/view/View;
-    const v2, 0x7f0b00b3
+    const v2, 0x7f0b00c0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -46,9 +46,9 @@
 
     .line 59
     .local v0, contentView:Landroid/widget/TextView;
-    const v2, 0x7f09120b
+    const v2, 0x7f091375
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/PrivacyAlertDialogActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -90,17 +90,17 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 84
-    invoke-virtual {p0, v0}, Lcom/android/settings/PrivacyAlertDialogActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 85
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertDialogActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 90
     .end local v0           #intent:Landroid/content/Intent;
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertDialogActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -123,13 +123,13 @@
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 45
-    iget-object v0, p0, Lcom/android/settings/PrivacyAlertDialogActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 47
     .local v0, p:Lcom/android/internal/app/AlertController$AlertParams;
-    const v1, 0x7f09120a
+    const v1, 0x7f091374
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PrivacyAlertDialogActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -143,9 +143,9 @@
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
     .line 49
-    const v1, 0x7f09120c
+    const v1, 0x7f091376
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PrivacyAlertDialogActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -155,9 +155,9 @@
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 51
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PrivacyAlertDialogActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -167,7 +167,7 @@
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 53
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertDialogActivity;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
     .line 54
     return-void
@@ -178,7 +178,7 @@
 
     .prologue
     .line 66
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 68
     return-void
@@ -189,7 +189,7 @@
 
     .prologue
     .line 71
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStart()V
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
     .line 72
     return-void
@@ -200,7 +200,7 @@
 
     .prologue
     .line 75
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStop()V
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
     .line 76
     return-void

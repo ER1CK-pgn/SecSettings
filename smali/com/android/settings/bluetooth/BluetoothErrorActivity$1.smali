@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 43
+    .line 44
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothErrorActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothErrorActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,48 +35,77 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 46
+    const/high16 v4, -0x8000
+
+    .line 47
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 47
+    .line 48
     .local v0, action:Ljava/lang/String;
-    const-string v2, "android.bluetooth.adapter.action.STATE_CHANGED"
+    const-string v3, "android.bluetooth.adapter.action.STATE_CHANGED"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 49
+    const-string v3, "android.bluetooth.adapter.extra.STATE"
+
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    .line 50
+    .local v2, state:I
+    const/16 v3, 0xa
 
-    .line 48
-    const-string v2, "android.bluetooth.adapter.extra.STATE"
+    if-ne v2, v3, :cond_0
 
-    const/high16 v3, -0x8000
+    .line 51
+    iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothErrorActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothErrorActivity;
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v3}, Lcom/android/internal/app/AlertActivity;->dismiss()V
+
+    .line 54
+    .end local v2           #state:I
+    :cond_0
+    const-string v3, "android.bluetooth.device.action.BOND_STATE_CHANGED"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 55
+    const-string v3, "android.bluetooth.device.extra.BOND_STATE"
+
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 49
-    .local v1, state:I
-    const/16 v2, 0xa
+    .line 56
+    .local v1, bondState:I
+    const/16 v3, 0xc
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v3, :cond_1
 
-    .line 50
-    iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothErrorActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothErrorActivity;
+    .line 57
+    iget-object v3, p0, Lcom/android/settings/bluetooth/BluetoothErrorActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothErrorActivity;
 
-    invoke-virtual {v2}, Lcom/android/settings/bluetooth/BluetoothErrorActivity;->dismiss()V
+    invoke-virtual {v3}, Lcom/android/internal/app/AlertActivity;->dismiss()V
 
-    .line 53
-    .end local v1           #state:I
-    :cond_0
+    .line 60
+    .end local v1           #bondState:I
+    :cond_1
     return-void
 .end method

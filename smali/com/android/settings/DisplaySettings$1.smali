@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 245
+    .line 283
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$1;->this$0:Lcom/android/settings/DisplaySettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,12 +44,12 @@
 
     const/4 v5, 0x1
 
-    .line 248
+    .line 286
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 249
+    .line 287
     .local v0, action:Ljava/lang/String;
     const-string v2, "DisplaySettings"
 
@@ -83,7 +83,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 250
+    .line 288
     const-string v2, "android.intent.action.BATTERY_CHANGED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -92,7 +92,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 251
+    .line 289
     const-string v2, "level"
 
     invoke-virtual {p2, v2, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -103,20 +103,20 @@
 
     if-gt v2, v3, :cond_2
 
-    .line 252
+    .line 290
     const-string v2, "status"
 
     invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 253
+    .line 291
     .local v1, battStatus:I
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_1
 
-    .line 254
+    .line 292
     iget-object v2, p0, Lcom/android/settings/DisplaySettings$1;->this$0:Lcom/android/settings/DisplaySettings;
 
     #getter for: Lcom/android/settings/DisplaySettings;->mBrightnessPreference:Lcom/android/settings/BrightnessPreference;
@@ -126,13 +126,13 @@
 
     invoke-virtual {v2, v5}, Lcom/android/settings/BrightnessPreference;->setEnabled(Z)V
 
-    .line 261
+    .line 299
     .end local v1           #battStatus:I
     :cond_0
     :goto_0
     return-void
 
-    .line 256
+    .line 294
     .restart local v1       #battStatus:I
     :cond_1
     iget-object v2, p0, Lcom/android/settings/DisplaySettings$1;->this$0:Lcom/android/settings/DisplaySettings;
@@ -146,7 +146,7 @@
 
     goto :goto_0
 
-    .line 259
+    .line 297
     .end local v1           #battStatus:I
     :cond_2
     iget-object v2, p0, Lcom/android/settings/DisplaySettings$1;->this$0:Lcom/android/settings/DisplaySettings;

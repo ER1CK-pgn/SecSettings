@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 228
+    .line 239
     iput-object p1, p0, Lcom/android/settings/AirButtonHelp$4$1;->this$1:Lcom/android/settings/AirButtonHelp$4;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,13 +43,13 @@
     .parameter "arg1"
 
     .prologue
-    .line 232
+    .line 243
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp$4$1;->this$1:Lcom/android/settings/AirButtonHelp$4;
 
     iget-object v0, v0, Lcom/android/settings/AirButtonHelp$4;->this$0:Lcom/android/settings/AirButtonHelp;
 
     invoke-virtual {v0}, Lcom/android/settings/AirButtonHelp;->onClickEnableSettingsButtonCancel()V
 
-    .line 233
+    .line 244
     return-void
 .end method

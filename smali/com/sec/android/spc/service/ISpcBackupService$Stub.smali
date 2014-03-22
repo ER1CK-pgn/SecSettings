@@ -34,7 +34,7 @@
     .line 17
     const-string v0, "com.sec.android.spc.service.ISpcBackupService"
 
-    invoke-virtual {p0, p0, v0}, Lcom/sec/android/spc/service/ISpcBackupService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     .line 18
     return-void

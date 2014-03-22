@@ -573,7 +573,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v20
 
@@ -600,7 +600,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v20
 
@@ -614,7 +614,7 @@
 
     move/from16 v20, v0
 
-    invoke-virtual/range {v19 .. v20}, Landroid/text/TextPaint;->setCompatibilityScaling(F)V
+    invoke-virtual/range {v19 .. v20}, Landroid/graphics/Paint;->setCompatibilityScaling(F)V
 
     .line 208
     sget-object v19, Lcom/android/settings/R$styleable;->BatteryHistoryChart:[I
@@ -945,7 +945,7 @@
 
     move-result v20
 
-    invoke-virtual/range {v19 .. v20}, Landroid/text/TextPaint;->setColor(I)V
+    invoke-virtual/range {v19 .. v20}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 299
     move-object/from16 v0, p0
@@ -960,7 +960,7 @@
 
     move/from16 v20, v0
 
-    invoke-virtual/range {v19 .. v20}, Landroid/text/TextPaint;->setTextSize(F)V
+    invoke-virtual/range {v19 .. v20}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 301
     const/16 v17, 0x0
@@ -989,7 +989,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v0, v13, v9, v10, v14}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
+    invoke-virtual {v0, v13, v9, v10, v14}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     .line 321
     :cond_4
@@ -1064,10 +1064,10 @@
     .locals 1
 
     .prologue
-    .line 759
+    .line 766
     invoke-super {p0}, Landroid/view/View;->drawableStateChanged()V
 
-    .line 760
+    .line 767
     iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLargeMode:Z
 
     if-nez v0, :cond_0
@@ -1084,10 +1084,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 761
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->invalidate()V
+    .line 768
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    .line 763
+    .line 770
     :cond_0
     return-void
 .end method
@@ -1265,591 +1265,905 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 13
+    .locals 17
     .parameter "canvas"
 
     .prologue
-    const/4 v4, 0x0
-
-    const/4 v1, 0x0
-
     .line 663
-    invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-super/range {p0 .. p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 665
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
 
-    move-result v11
+    move-result v15
 
     .line 666
-    .local v11, width:I
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getHeight()I
-
-    move-result v7
-
-    .line 668
-    .local v7, height:I
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatLevelPath:Landroid/graphics/Path;
-
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryBackgroundPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    .line 670
-    iget-object v6, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    .line 671
-    .local v6, durationTextPaint:Landroid/text/TextPaint;
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
-
-    if-lt v0, v11, :cond_0
-
-    .line 672
-    new-instance v6, Landroid/text/TextPaint;
-
-    .end local v6           #durationTextPaint:Landroid/text/TextPaint;
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-direct {v6, v0}, Landroid/text/TextPaint;-><init>(Landroid/graphics/Paint;)V
-
-    .line 673
-    .restart local v6       #durationTextPaint:Landroid/text/TextPaint;
-    invoke-virtual {v6}, Landroid/text/TextPaint;->getTextSize()F
+    .local v15, width:I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
 
     move-result v9
 
-    .line 674
-    .local v9, textSize:F
+    .line 667
+    .local v9, height:I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->isLayoutRtl()Z
+
+    move-result v11
+
+    .line 668
+    .local v11, layoutRtl:Z
+    if-eqz v11, :cond_0
+
+    move v13, v15
+
+    .line 669
+    .local v13, textStartX:I
     :goto_0
-    const/high16 v0, 0x4170
+    move-object/from16 v0, p0
 
-    cmpl-float v0, v9, v0
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    if-lez v0, :cond_0
+    if-eqz v11, :cond_1
 
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
+    sget-object v1, Landroid/graphics/Paint$Align;->RIGHT:Landroid/graphics/Paint$Align;
 
-    if-lt v0, v11, :cond_0
+    :goto_1
+    invoke-virtual {v2, v1}, Landroid/graphics/Paint;->setTextAlign(Landroid/graphics/Paint$Align;)V
+
+    .line 671
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatLevelPath:Landroid/graphics/Path;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryBackgroundPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    .line 673
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    .line 674
+    .local v8, durationTextPaint:Landroid/text/TextPaint;
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
+
+    if-lt v1, v15, :cond_2
 
     .line 675
-    const/high16 v0, 0x3f80
+    new-instance v8, Landroid/text/TextPaint;
 
-    sub-float/2addr v9, v0
+    .end local v8           #durationTextPaint:Landroid/text/TextPaint;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v9}, Landroid/text/TextPaint;->setTextSize(F)V
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    invoke-direct {v8, v1}, Landroid/text/TextPaint;-><init>(Landroid/graphics/Paint;)V
 
     .line 676
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
+    .restart local v8       #durationTextPaint:Landroid/text/TextPaint;
+    invoke-virtual {v8}, Landroid/graphics/Paint;->getTextSize()F
 
-    invoke-virtual {v6, v0}, Landroid/text/TextPaint;->measureText(Ljava/lang/String;)F
+    move-result v12
 
-    move-result v0
+    .line 677
+    .local v12, textSize:F
+    :goto_2
+    const/high16 v1, 0x4170
 
-    float-to-int v0, v0
+    cmpl-float v1, v12, v1
 
-    iput v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
+    if-lez v1, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
+
+    if-lt v1, v15, :cond_2
+
+    .line 678
+    const/high16 v1, 0x3f80
+
+    sub-float/2addr v12, v1
+
+    invoke-virtual {v8, v12}, Landroid/graphics/Paint;->setTextSize(F)V
+
+    .line 679
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
+
+    invoke-virtual {v8, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    move-object/from16 v0, p0
+
+    iput v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
+
+    goto :goto_2
+
+    .line 668
+    .end local v8           #durationTextPaint:Landroid/text/TextPaint;
+    .end local v12           #textSize:F
+    .end local v13           #textStartX:I
+    :cond_0
+    const/4 v13, 0x0
 
     goto :goto_0
 
-    .line 680
-    .end local v9           #textSize:F
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLargeMode:Z
+    .line 669
+    .restart local v13       #textStartX:I
+    :cond_1
+    sget-object v1, Landroid/graphics/Paint$Align;->LEFT:Landroid/graphics/Paint$Align;
 
-    if-eqz v0, :cond_d
-
-    .line 681
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
-
-    neg-int v2, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLineWidth:I
-
-    div-int/lit8 v3, v3, 0x2
-
-    add-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    invoke-virtual {p1, v0, v1, v2, v6}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    goto :goto_1
 
     .line 683
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTotalDurationString:Ljava/lang/String;
+    .restart local v8       #durationTextPaint:Landroid/text/TextPaint;
+    :cond_2
+    move-object/from16 v0, p0
 
-    div-int/lit8 v2, v11, 0x2
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLargeMode:Z
 
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTotalDurationStringWidth:I
+    if-eqz v1, :cond_10
 
-    div-int/lit8 v3, v3, 0x2
+    .line 684
+    move-object/from16 v0, p0
 
-    sub-int/2addr v2, v3
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTotalDurationStringWidth:I
 
-    int-to-float v2, v2
+    div-int/lit8 v7, v1, 0x2
 
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+    .line 685
+    .local v7, durationHalfWidth:I
+    if-eqz v11, :cond_3
 
-    iget v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
+    neg-int v7, v7
 
-    sub-int/2addr v3, v4
+    .line 686
+    :cond_3
+    move-object/from16 v0, p0
 
-    iget v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
+
+    neg-int v3, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLineWidth:I
+
+    div-int/lit8 v4, v4, 0x2
 
     add-int/2addr v3, v4
 
     int-to-float v3, v3
 
-    iget-object v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+    move-object/from16 v0, p1
 
-    invoke-virtual {p1, v0, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v0, v1, v2, v3, v8}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    .line 693
-    :goto_1
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatGoodPath:Landroid/graphics/Path;
+    .line 688
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTotalDurationString:Ljava/lang/String;
 
-    move-result v0
+    div-int/lit8 v2, v15, 0x2
 
-    if-nez v0, :cond_1
+    sub-int/2addr v2, v7
 
-    .line 694
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatGoodPath:Landroid/graphics/Path;
+    int-to-float v2, v2
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryGoodPaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
 
-    .line 696
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatWarnPath:Landroid/graphics/Path;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
 
-    move-result v0
+    sub-int/2addr v3, v4
 
-    if-nez v0, :cond_2
+    move-object/from16 v0, p0
 
-    .line 697
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatWarnPath:Landroid/graphics/Path;
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryWarnPaint:Landroid/graphics/Paint;
+    add-int/2addr v3, v4
 
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    int-to-float v3, v3
 
-    .line 699
-    :cond_2
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatCriticalPath:Landroid/graphics/Path;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    move-result v0
+    move-object/from16 v0, p1
 
-    if-nez v0, :cond_3
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 700
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatCriticalPath:Landroid/graphics/Path;
+    :goto_3
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryCriticalPaint:Landroid/graphics/Paint;
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatGoodPath:Landroid/graphics/Path;
 
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
 
-    .line 702
-    :cond_3
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHavePhoneSignal:Z
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-nez v1, :cond_4
+
+    .line 701
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatGoodPath:Landroid/graphics/Path;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryGoodPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 703
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalOffset:I
+    :cond_4
+    move-object/from16 v0, p0
 
-    sub-int v0, v7, v0
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatWarnPath:Landroid/graphics/Path;
 
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLineWidth:I
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
 
-    div-int/lit8 v2, v2, 0x2
+    move-result v1
 
-    sub-int v10, v0, v2
+    if-nez v1, :cond_5
 
     .line 704
-    .local v10, top:I
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalChart:Lcom/android/settings/fuelgauge/BatteryHistoryChart$ChartData;
+    move-object/from16 v0, p0
 
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLineWidth:I
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatWarnPath:Landroid/graphics/Path;
 
-    invoke-virtual {v0, p1, v10, v2}, Lcom/android/settings/fuelgauge/BatteryHistoryChart$ChartData;->draw(Landroid/graphics/Canvas;II)V
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryWarnPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 706
-    .end local v10           #top:I
-    :cond_4
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnPath:Landroid/graphics/Path;
+    :cond_5
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatCriticalPath:Landroid/graphics/Path;
 
-    move-result v0
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
 
-    if-nez v0, :cond_5
+    move-result v1
+
+    if-nez v1, :cond_6
 
     .line 707
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnPath:Landroid/graphics/Path;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnPaint:Landroid/graphics/Paint;
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatCriticalPath:Landroid/graphics/Path;
 
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mBatteryCriticalPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     .line 709
-    :cond_5
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingPath:Landroid/graphics/Path;
+    :cond_6
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHavePhoneSignal:Z
 
-    move-result v0
-
-    if-nez v0, :cond_6
+    if-eqz v1, :cond_7
 
     .line 710
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingPath:Landroid/graphics/Path;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingPaint:Landroid/graphics/Paint;
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalOffset:I
 
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    sub-int v1, v9, v1
 
-    .line 712
-    :cond_6
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveGps:Z
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_7
-
-    .line 713
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnPath:Landroid/graphics/Path;
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    .line 714
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnPath:Landroid/graphics/Path;
-
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    .line 717
-    :cond_7
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveWifi:Z
-
-    if-eqz v0, :cond_8
-
-    .line 718
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningPath:Landroid/graphics/Path;
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_8
-
-    .line 719
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningPath:Landroid/graphics/Path;
-
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    .line 722
-    :cond_8
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockPath:Landroid/graphics/Path;
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_9
-
-    .line 723
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockPath:Landroid/graphics/Path;
-
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    .line 726
-    :cond_9
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLargeMode:Z
-
-    if-eqz v0, :cond_e
-
-    .line 727
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHavePhoneSignal:Z
-
-    if-eqz v0, :cond_a
-
-    .line 728
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalLabel:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalOffset:I
-
-    sub-int v2, v7, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
-
-    sub-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    .line 731
-    :cond_a
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveGps:Z
-
-    if-eqz v0, :cond_b
-
-    .line 732
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnLabel:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnOffset:I
-
-    sub-int v2, v7, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
-
-    sub-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    .line 735
-    :cond_b
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveWifi:Z
-
-    if-eqz v0, :cond_c
-
-    .line 736
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningLabel:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningOffset:I
-
-    sub-int v2, v7, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
-
-    sub-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    .line 739
-    :cond_c
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockLabel:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockOffset:I
-
-    sub-int v2, v7, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
-
-    sub-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    .line 741
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingLabel:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingOffset:I
-
-    sub-int v2, v7, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
-
-    sub-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    .line 743
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnLabel:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnOffset:I
-
-    sub-int v2, v7, v2
-
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
-
-    sub-int/2addr v2, v3
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    .line 745
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
-
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
+    iget v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLineWidth:I
 
     div-int/lit8 v2, v2, 0x2
 
-    add-int/2addr v0, v2
+    sub-int v14, v1, v2
 
-    int-to-float v2, v0
+    .line 711
+    .local v14, top:I
+    move-object/from16 v0, p0
 
-    int-to-float v3, v11
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalChart:Lcom/android/settings/fuelgauge/BatteryHistoryChart$ChartData;
 
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+    move-object/from16 v0, p0
 
-    iget v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
+    iget v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLineWidth:I
 
-    div-int/lit8 v4, v4, 0x2
+    move-object/from16 v0, p1
 
-    add-int/2addr v0, v4
+    invoke-virtual {v1, v0, v14, v2}, Lcom/android/settings/fuelgauge/BatteryHistoryChart$ChartData;->draw(Landroid/graphics/Canvas;II)V
 
-    int-to-float v4, v0
+    .line 713
+    .end local v14           #top:I
+    :cond_7
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnPath:Landroid/graphics/Path;
 
-    move-object v0, p1
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
 
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+    move-result v1
 
-    .line 747
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelTop:I
+    if-nez v1, :cond_8
 
-    int-to-float v2, v0
+    .line 714
+    move-object/from16 v0, p0
 
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnPath:Landroid/graphics/Path;
 
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    .line 716
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingPath:Landroid/graphics/Path;
+
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    .line 717
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingPath:Landroid/graphics/Path;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    .line 719
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveGps:Z
+
+    if-eqz v1, :cond_a
+
+    .line 720
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnPath:Landroid/graphics/Path;
+
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_a
+
+    .line 721
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnPath:Landroid/graphics/Path;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    .line 724
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveWifi:Z
+
+    if-eqz v1, :cond_b
+
+    .line 725
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningPath:Landroid/graphics/Path;
+
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_b
+
+    .line 726
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningPath:Landroid/graphics/Path;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    .line 729
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockPath:Landroid/graphics/Path;
+
+    invoke-virtual {v1}, Landroid/graphics/Path;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_c
+
+    .line 730
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockPath:Landroid/graphics/Path;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    .line 733
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLargeMode:Z
+
+    if-eqz v1, :cond_12
+
+    .line 734
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHavePhoneSignal:Z
+
+    if-eqz v1, :cond_d
+
+    .line 735
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalLabel:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mPhoneSignalOffset:I
+
+    sub-int v3, v9, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    sub-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 738
+    :cond_d
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveGps:Z
+
+    if-eqz v1, :cond_e
+
+    .line 739
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnLabel:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnOffset:I
+
+    sub-int v3, v9, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    sub-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 742
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveWifi:Z
+
+    if-eqz v1, :cond_f
+
+    .line 743
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningLabel:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningOffset:I
+
+    sub-int v3, v9, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    sub-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 746
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockLabel:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockOffset:I
+
+    sub-int v3, v9, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    sub-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 748
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingLabel:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingOffset:I
+
+    sub-int v3, v9, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    sub-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 750
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnLabel:Ljava/lang/String;
+
+    int-to-float v2, v13
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnOffset:I
+
+    sub-int v3, v9, v3
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    sub-int/2addr v3, v4
+
+    int-to-float v3, v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 752
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
 
     div-int/lit8 v3, v3, 0x2
 
-    add-int/2addr v0, v3
+    add-int/2addr v1, v3
 
-    int-to-float v4, v0
+    int-to-float v3, v1
 
-    iget-object v5, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+    int-to-float v4, v15
 
-    move-object v0, p1
+    move-object/from16 v0, p0
 
-    move v3, v1
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
 
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+    move-object/from16 v0, p0
 
-    .line 749
-    const/4 v8, 0x0
+    iget v5, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
 
-    .local v8, i:I
-    :goto_2
-    const/16 v0, 0xa
+    div-int/lit8 v5, v5, 0x2
 
-    if-ge v8, v0, :cond_e
+    add-int/2addr v1, v5
 
-    .line 750
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelTop:I
+    int-to-float v5, v1
 
-    iget v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+    move-object/from16 v0, p0
 
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelTop:I
+    iget-object v6, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v1, p1
+
+    invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+
+    .line 754
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelTop:I
+
+    int-to-float v3, v1
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
+
+    div-int/lit8 v5, v5, 0x2
+
+    add-int/2addr v1, v5
+
+    int-to-float v5, v1
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v1, p1
+
+    invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+
+    .line 756
+    const/4 v10, 0x0
+
+    .local v10, i:I
+    :goto_4
+    const/16 v1, 0xa
+
+    if-ge v10, v1, :cond_12
+
+    .line 757
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelTop:I
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelBottom:I
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mLevelTop:I
 
     sub-int/2addr v2, v3
 
-    mul-int/2addr v2, v8
+    mul-int/2addr v2, v10
 
     div-int/lit8 v2, v2, 0xa
 
-    add-int v12, v0, v2
+    add-int v16, v1, v2
 
-    .line 751
-    .local v12, y:I
-    int-to-float v2, v12
+    .line 758
+    .local v16, y:I
+    const/4 v2, 0x0
 
-    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
-
-    mul-int/lit8 v0, v0, 0x2
+    move/from16 v0, v16
 
     int-to-float v3, v0
 
-    int-to-float v4, v12
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mThinLineWidth:I
 
-    move-object v0, p1
+    mul-int/lit8 v1, v1, 0x2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+    int-to-float v4, v1
 
-    .line 749
-    add-int/lit8 v8, v8, 0x1
+    move/from16 v0, v16
 
-    goto :goto_2
+    int-to-float v5, v0
 
-    .line 687
-    .end local v8           #i:I
-    .end local v12           #y:I
-    :cond_d
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->textColor:Landroid/content/res/ColorStateList;
+    iget-object v6, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getDrawableState()[I
+    move-object/from16 v1, p1
+
+    invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+
+    .line 756
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_4
+
+    .line 692
+    .end local v7           #durationHalfWidth:I
+    .end local v10           #i:I
+    .end local v16           #y:I
+    :cond_10
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->textColor:Landroid/content/res/ColorStateList;
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getDrawableState()[I
 
     move-result-object v3
+
+    const/4 v4, 0x0
 
     invoke-virtual {v2, v3, v4}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Landroid/text/TextPaint;->setColor(I)V
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 688
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->textColor:Landroid/content/res/ColorStateList;
+    .line 693
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getDrawableState()[I
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->textColor:Landroid/content/res/ColorStateList;
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getDrawableState()[I
 
     move-result-object v2
 
-    invoke-virtual {v0, v2, v4}, Landroid/content/res/ColorStateList;->getColorForState([II)I
+    const/4 v3, 0x0
 
-    move-result v0
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
-    invoke-virtual {v6, v0}, Landroid/text/TextPaint;->setColor(I)V
+    move-result v1
 
-    .line 690
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
+    invoke-virtual {v8, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    div-int/lit8 v2, v11, 0x2
+    .line 695
+    move-object/from16 v0, p0
 
-    iget v3, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
+    iget v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationStringWidth:I
 
-    div-int/lit8 v3, v3, 0x2
+    div-int/lit8 v7, v1, 0x2
 
-    sub-int/2addr v2, v3
+    .line 696
+    .restart local v7       #durationHalfWidth:I
+    if-eqz v11, :cond_11
+
+    neg-int v7, v7
+
+    .line 697
+    :cond_11
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
+
+    div-int/lit8 v2, v15, 0x2
+
+    sub-int/2addr v2, v7
 
     int-to-float v2, v2
 
-    div-int/lit8 v3, v7, 0x2
+    div-int/lit8 v3, v9, 0x2
 
-    iget v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+    move-object/from16 v0, p0
 
-    iget v5, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextDescent:I
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
 
     sub-int/2addr v4, v5
 
@@ -1857,18 +2171,26 @@
 
     sub-int/2addr v3, v4
 
-    iget v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextAscent:I
 
     sub-int/2addr v3, v4
 
     int-to-float v3, v3
 
-    invoke-virtual {p1, v0, v2, v3, v6}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+    move-object/from16 v0, p0
 
-    goto/16 :goto_1
+    iget-object v4, v0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    .line 754
-    :cond_e
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    goto/16 :goto_3
+
+    .line 761
+    :cond_12
     return-void
 .end method
 
@@ -1886,7 +2208,7 @@
 
     iget-object v1, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->measureText(Ljava/lang/String;)F
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
 
     move-result v0
 
@@ -1899,7 +2221,7 @@
 
     iget-object v1, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTotalDurationString:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->measureText(Ljava/lang/String;)F
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
 
     move-result v0
 
@@ -1910,7 +2232,7 @@
     .line 400
     iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v0}, Landroid/text/TextPaint;->ascent()F
+    invoke-virtual {v0}, Landroid/graphics/Paint;->ascent()F
 
     move-result v0
 
@@ -1921,7 +2243,7 @@
     .line 401
     iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v0}, Landroid/text/TextPaint;->descent()F
+    invoke-virtual {v0}, Landroid/graphics/Paint;->descent()F
 
     move-result v0
 
@@ -1961,7 +2283,7 @@
 
     const/high16 v3, 0x4000
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
@@ -2121,7 +2443,7 @@
 
     int-to-float v3, v3
 
-    invoke-virtual {v2, v3}, Landroid/text/TextPaint;->setStrokeWidth(F)V
+    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     .line 471
     move-object/from16 v0, p0
@@ -3615,7 +3937,7 @@
     iput-wide v7, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mStatsPeriod:J
 
     .line 350
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
@@ -3627,17 +3949,19 @@
 
     long-to-double v10, v10
 
-    invoke-static {v9, v10, v11}, Lcom/android/settings/fuelgauge/Utils;->formatElapsedTime(Landroid/content/Context;D)Ljava/lang/String;
+    const/4 v12, 0x1
+
+    invoke-static {v9, v10, v11, v12}, Lcom/android/settings/fuelgauge/Utils;->formatElapsedTime(Landroid/content/Context;DZ)Ljava/lang/String;
 
     move-result-object v1
 
     .line 351
     .local v1, durationString:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f09087e
+    const v10, 0x7f09093b
 
     const/4 v11, 0x1
 
@@ -3654,11 +3978,11 @@
     iput-object v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mDurationString:Ljava/lang/String;
 
     .line 353
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f090880
+    const v10, 0x7f09093d
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3667,11 +3991,11 @@
     iput-object v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mChargingLabel:Ljava/lang/String;
 
     .line 354
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f090881
+    const v10, 0x7f09093e
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3680,11 +4004,11 @@
     iput-object v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mScreenOnLabel:Ljava/lang/String;
 
     .line 355
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f090882
+    const v10, 0x7f09093f
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3693,11 +4017,11 @@
     iput-object v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mGpsOnLabel:Ljava/lang/String;
 
     .line 356
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f090883
+    const v10, 0x7f090940
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3706,11 +4030,11 @@
     iput-object v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWifiRunningLabel:Ljava/lang/String;
 
     .line 357
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f090884
+    const v10, 0x7f090941
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3719,11 +4043,11 @@
     iput-object v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mWakeLockLabel:Ljava/lang/String;
 
     .line 358
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    const v10, 0x7f090885
+    const v10, 0x7f090942
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3864,7 +4188,7 @@
     iput-boolean v9, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mHaveWifi:Z
 
     .line 388
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
@@ -3899,7 +4223,7 @@
 
     .line 392
     :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
@@ -3911,7 +4235,9 @@
 
     long-to-double v10, v10
 
-    invoke-static {v9, v10, v11}, Lcom/android/settings/fuelgauge/Utils;->formatElapsedTime(Landroid/content/Context;D)Ljava/lang/String;
+    const/4 v12, 0x1
+
+    invoke-static {v9, v10, v11, v12}, Lcom/android/settings/fuelgauge/Utils;->formatElapsedTime(Landroid/content/Context;DZ)Ljava/lang/String;
 
     move-result-object v9
 
@@ -3958,7 +4284,7 @@
     :goto_0
     iget-object v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v4, p1}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    invoke-virtual {v4, p1}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 333
     if-eqz p1, :cond_2
@@ -3985,7 +4311,7 @@
     const/4 v2, 0x1
 
     :cond_0
-    invoke-virtual {v4, v2}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
+    invoke-virtual {v4, v2}, Landroid/graphics/Paint;->setFakeBoldText(Z)V
 
     .line 336
     iget-object v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
@@ -3997,7 +4323,7 @@
     const/high16 v2, -0x4180
 
     :goto_2
-    invoke-virtual {v4, v2}, Landroid/text/TextPaint;->setTextSkewX(F)V
+    invoke-virtual {v4, v2}, Landroid/graphics/Paint;->setTextSkewX(F)V
 
     .line 342
     .end local v0           #need:I
@@ -4033,17 +4359,17 @@
     :cond_4
     iget-object v4, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v4, v2}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
+    invoke-virtual {v4, v2}, Landroid/graphics/Paint;->setFakeBoldText(Z)V
 
     .line 339
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v2, v3}, Landroid/text/TextPaint;->setTextSkewX(F)V
+    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setTextSkewX(F)V
 
     .line 340
     iget-object v2, p0, Lcom/android/settings/fuelgauge/BatteryHistoryChart;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v2, p1}, Landroid/text/TextPaint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    invoke-virtual {v2, p1}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     goto :goto_3
 .end method

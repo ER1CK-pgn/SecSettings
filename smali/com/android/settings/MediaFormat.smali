@@ -81,7 +81,7 @@
     .line 118
     iget-object v0, p0, Lcom/android/settings/MediaFormat;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0400d9
+    const v1, 0x7f0400fd
 
     const/4 v2, 0x0
 
@@ -94,7 +94,7 @@
     .line 119
     iget-object v0, p0, Lcom/android/settings/MediaFormat;->mFinalView:Landroid/view/View;
 
-    const v1, 0x7f0b0249
+    const v1, 0x7f0b0285
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -109,13 +109,13 @@
 
     iget-object v1, p0, Lcom/android/settings/MediaFormat;->mFinalClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 124
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MediaFormat;->mFinalView:Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/MediaFormat;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
 
     .line 125
     return-void
@@ -133,7 +133,7 @@
     .line 141
     iget-object v0, p0, Lcom/android/settings/MediaFormat;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0400db
+    const v1, 0x7f0400ff
 
     const/4 v2, 0x0
 
@@ -146,7 +146,7 @@
     .line 142
     iget-object v0, p0, Lcom/android/settings/MediaFormat;->mInitialView:Landroid/view/View;
 
-    const v1, 0x7f0b024b
+    const v1, 0x7f0b0287
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -161,13 +161,13 @@
 
     iget-object v1, p0, Lcom/android/settings/MediaFormat;->mInitiateListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 147
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MediaFormat;->mInitialView:Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/MediaFormat;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
 
     .line 148
     return-void
@@ -183,15 +183,15 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;)V
 
-    const v1, 0x7f090687
+    const v1, 0x7f0906c2
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/MediaFormat;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x7f090688
+    const v2, 0x7f0906c3
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/MediaFormat;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -239,7 +239,7 @@
     if-nez p2, :cond_2
 
     .line 94
-    invoke-virtual {p0}, Lcom/android/settings/MediaFormat;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -288,7 +288,7 @@
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 169
-    invoke-virtual {p0}, Lcom/android/settings/MediaFormat;->isFinishing()Z
+    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v0
 

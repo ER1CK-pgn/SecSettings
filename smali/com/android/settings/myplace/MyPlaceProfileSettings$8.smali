@@ -3,12 +3,12 @@
 .source "MyPlaceProfileSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/myplace/MyPlaceProfileSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/myplace/MyPlaceProfileSettings;->showHelpStep2Dialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,58 +20,104 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-.field final synthetic val$position:I
+
+# direct methods
+.method constructor <init>(Lcom/android/settings/myplace/MyPlaceProfileSettings;)V
+    .locals 0
+    .parameter
+
+    .prologue
+    .line 1163
+    iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
-    .parameter "dialog"
-    .parameter "which"
+.method public onClick(Landroid/view/View;)V
+    .locals 5
+    .parameter "arg0"
 
     .prologue
-    .line 1089
-    const-string v0, "MyPlaceSettings"
+    const/4 v3, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 1168
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v2, v2, Lcom/android/settings/myplace/MyPlaceProfileSettings;->alert:Landroid/app/AlertDialog;
 
-    const-string v2, "delete criteria : "
+    invoke-virtual {v2}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
+
+    invoke-virtual {v2, v3, v3}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
+
+    .line 1169
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mIsFromHelp:Z
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1900(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 1170
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    const-string v3, "myplacehelp"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
-    iget v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->val$position:I
+    .line 1171
+    .local v1, pref:Landroid/content/SharedPreferences;
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    .line 1172
+    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    const-string v2, "value"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v3, 0x2
 
-    move-result-object v1
+    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    .line 1173
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1090
-    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    .line 1175
+    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v1           #pref:Landroid/content/SharedPreferences;
+    :cond_0
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->resetPlaceInfo()V
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$2100(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 1091
-    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    move-result-object v2
 
-    #calls: Lcom/android/settings/myplace/MyPlaceProfileSettings;->createPreferenceHierarchy()Landroid/preference/PreferenceScreen;
-    invoke-static {v0}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1700(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Landroid/preference/PreferenceScreen;
+    invoke-virtual {v2}, Landroid/app/Dialog;->dismiss()V
 
-    .line 1092
-    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    .line 1176
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$8;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    #calls: Lcom/android/settings/myplace/MyPlaceProfileSettings;->updateProfile()V
-    invoke-static {v0}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1800(Lcom/android/settings/myplace/MyPlaceProfileSettings;)V
+    const/4 v3, 0x0
 
-    .line 1093
+    #setter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+    invoke-static {v2, v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$2102(Lcom/android/settings/myplace/MyPlaceProfileSettings;Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;)Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    .line 1177
     return-void
 .end method

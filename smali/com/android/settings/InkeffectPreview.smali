@@ -86,46 +86,44 @@
 
     :array_0
     .array-data 0x4
-        0x80t 0x2t 0x2t 0x7ft
-        0x84t 0x2t 0x2t 0x7ft
-        0x82t 0x2t 0x2t 0x7ft
-        0x7at 0x2t 0x2t 0x7ft
-        0x76t 0x2t 0x2t 0x7ft
-        0x7et 0x2t 0x2t 0x7ft
-        0x86t 0x2t 0x2t 0x7ft
-        0x78t 0x2t 0x2t 0x7ft
-        0x7ct 0x2t 0x2t 0x7ft
+        0xe3t 0x2t 0x2t 0x7ft
+        0xe7t 0x2t 0x2t 0x7ft
+        0xe5t 0x2t 0x2t 0x7ft
+        0xddt 0x2t 0x2t 0x7ft
+        0xd9t 0x2t 0x2t 0x7ft
+        0xe1t 0x2t 0x2t 0x7ft
+        0xe9t 0x2t 0x2t 0x7ft
+        0xdbt 0x2t 0x2t 0x7ft
+        0xdft 0x2t 0x2t 0x7ft
     .end array-data
 
     .line 67
     :array_1
     .array-data 0x4
-        0x81t 0x2t 0x2t 0x7ft
-        0x85t 0x2t 0x2t 0x7ft
-        0x83t 0x2t 0x2t 0x7ft
-        0x7bt 0x2t 0x2t 0x7ft
-        0x77t 0x2t 0x2t 0x7ft
-        0x7ft 0x2t 0x2t 0x7ft
-        0x87t 0x2t 0x2t 0x7ft
-        0x79t 0x2t 0x2t 0x7ft
-        0x7dt 0x2t 0x2t 0x7ft
+        0xe4t 0x2t 0x2t 0x7ft
+        0xe8t 0x2t 0x2t 0x7ft
+        0xe6t 0x2t 0x2t 0x7ft
+        0xdet 0x2t 0x2t 0x7ft
+        0xdat 0x2t 0x2t 0x7ft
+        0xe2t 0x2t 0x2t 0x7ft
+        0xeat 0x2t 0x2t 0x7ft
+        0xdct 0x2t 0x2t 0x7ft
+        0xe0t 0x2t 0x2t 0x7ft
     .end array-data
 .end method
 
 .method private updateInkColorList()V
-    .locals 8
+    .locals 7
 
     .prologue
-    const/4 v7, 0x2
-
     const/4 v6, 0x0
 
     const/4 v5, 0x1
 
     .line 95
-    const v1, 0x7f0400b7
+    const v1, 0x7f0400d6
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/InkeffectPreview;->setContentView(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setContentView(I)V
 
     .line 97
     const/16 v1, 0x9
@@ -137,11 +135,11 @@
     .line 98
     sget-object v1, Lcom/android/settings/InkeffectPreview;->mInkcolorItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f091186
+    const v3, 0x7f0912d9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -152,11 +150,11 @@
     .line 99
     sget-object v1, Lcom/android/settings/InkeffectPreview;->mInkcolorItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f091187
+    const v3, 0x7f0912da
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -167,28 +165,30 @@
     .line 100
     sget-object v1, Lcom/android/settings/InkeffectPreview;->mInkcolorItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    const/4 v2, 0x2
 
-    move-result-object v2
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
-    const v3, 0x7f091189
+    move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v4, 0x7f0912dc
 
-    move-result-object v2
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    aput-object v2, v1, v7
+    move-result-object v3
+
+    aput-object v3, v1, v2
 
     .line 101
     sget-object v1, Lcom/android/settings/InkeffectPreview;->mInkcolorItem:[Ljava/lang/String;
 
     const/4 v2, 0x3
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f09118a
+    const v4, 0x7f0912dd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -201,11 +201,11 @@
 
     const/4 v2, 0x4
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f09118c
+    const v4, 0x7f0912df
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -218,11 +218,11 @@
 
     const/4 v2, 0x5
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f09118d
+    const v4, 0x7f0912e0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,11 +235,11 @@
 
     const/4 v2, 0x6
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f09118e
+    const v4, 0x7f0912e1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -252,11 +252,11 @@
 
     const/4 v2, 0x7
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f09118b
+    const v4, 0x7f0912de
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -269,11 +269,11 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f091190
+    const v4, 0x7f0912e3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -297,9 +297,9 @@
 
     .line 112
     :goto_0
-    const v1, 0x7f0b00be
+    const v1, 0x7f0b00cb
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/InkeffectPreview;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -308,7 +308,7 @@
     iput-object v1, p0, Lcom/android/settings/InkeffectPreview;->mImageView:Landroid/widget/ImageView;
 
     .line 114
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -329,13 +329,13 @@
 
     aget v2, v2, v3
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 119
     :goto_1
-    const v1, 0x7f0b01d9
+    const v1, 0x7f0b0210
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/InkeffectPreview;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -344,9 +344,9 @@
     iput-object v1, p0, Lcom/android/settings/InkeffectPreview;->mInkEffectHelptext:Landroid/widget/TextView;
 
     .line 121
-    const v1, 0x7f0b0148
+    const v1, 0x7f0b0157
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/InkeffectPreview;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -359,7 +359,7 @@
 
     new-instance v2, Landroid/widget/ArrayAdapter;
 
-    const v3, 0x7f0400b8
+    const v3, 0x7f0400d7
 
     sget-object v4, Lcom/android/settings/InkeffectPreview;->mInkcolorItem:[Ljava/lang/String;
 
@@ -386,18 +386,20 @@
 
     iget v2, p0, Lcom/android/settings/InkeffectPreview;->clickInkColor:I
 
-    invoke-virtual {v1, v2, v5}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v1, v2, v5}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 129
     :goto_2
     iget-object v1, p0, Lcom/android/settings/InkeffectPreview;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v1, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 130
     iget-object v1, p0, Lcom/android/settings/InkeffectPreview;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v1, v7}, Landroid/widget/ListView;->setOverScrollMode(I)V
+    iget v2, p0, Lcom/android/settings/InkeffectPreview;->mInkEffectColor:I
+
+    invoke-virtual {v1, v2}, Landroid/widget/ListView;->smoothScrollToPosition(I)V
 
     .line 132
     invoke-static {p0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -407,9 +409,9 @@
     if-eqz v1, :cond_0
 
     .line 133
-    const v1, 0x7f0b021a
+    const v1, 0x7f0b01f3
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/InkeffectPreview;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -417,7 +419,7 @@
 
     .line 134
     .local v0, layout:Landroid/widget/LinearLayout;
-    invoke-virtual {v0, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
 
     .line 136
     .end local v0           #layout:Landroid/widget/LinearLayout;
@@ -426,7 +428,7 @@
 
     .line 111
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -450,7 +452,7 @@
 
     aget v2, v2, v3
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_1
 
@@ -458,7 +460,7 @@
     :cond_3
     iget-object v1, p0, Lcom/android/settings/InkeffectPreview;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -468,7 +470,7 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2, v5}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v1, v2, v5}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     goto :goto_2
 .end method
@@ -516,7 +518,7 @@
 
     .prologue
     .line 164
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getMenuInflater()Landroid/view/MenuInflater;
+    invoke-virtual {p0}, Landroid/app/Activity;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
@@ -533,7 +535,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -544,7 +546,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09065f
+    const v2, 0x7f09069a
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -578,7 +580,7 @@
 
     .line 143
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -597,7 +599,7 @@
 
     aget v2, v2, p3
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 149
     :goto_0
@@ -644,7 +646,7 @@
 
     aget v2, v2, p3
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -704,13 +706,13 @@
 
     .line 177
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 181
     :pswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -718,20 +720,20 @@
 
     iget-object v3, p0, Lcom/android/settings/InkeffectPreview;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v3}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v3
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 182
-    invoke-virtual {p0}, Lcom/android/settings/InkeffectPreview;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 175
     :pswitch_data_0
-    .packed-switch 0x7f0b05f6
+    .packed-switch 0x7f0b0672
         :pswitch_1
         :pswitch_0
         :pswitch_2

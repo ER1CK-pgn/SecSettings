@@ -62,14 +62,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 52
-    const v0, 0x7f070017
+    const v0, 0x7f07001e
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PreloadAppUpdate;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 54
     const-string v0, "update_preaload"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PreloadAppUpdate;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -78,15 +78,15 @@
     iput-object v0, p0, Lcom/android/settings/PreloadAppUpdate;->mUpdatePrealod:Landroid/preference/PreferenceScreen;
 
     .line 56
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0a0001
+    const v1, 0x7f0a0006
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -97,7 +97,7 @@
     .line 57
     const-string v0, "auto_update_preload"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PreloadAppUpdate;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -108,7 +108,7 @@
     .line 58
     iget-object v0, p0, Lcom/android/settings/PreloadAppUpdate;->mAutoUpdatePreload:Landroid/preference/ListPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -129,7 +129,7 @@
 
     iget-object v1, p0, Lcom/android/settings/PreloadAppUpdate;->mSummary:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -146,12 +146,12 @@
     .line 60
     iget-object v0, p0, Lcom/android/settings/PreloadAppUpdate;->mAutoUpdatePreload:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 61
     const-string v0, "auto_update_preload_detail"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PreloadAppUpdate;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -162,7 +162,7 @@
     .line 62
     new-instance v0, Lcom/sec/android/samsungapps/util/PreloadUpdate;
 
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -216,7 +216,7 @@
 
     .line 122
     .local v1, value:I
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -238,7 +238,7 @@
 
     iget-object v3, p0, Lcom/android/settings/PreloadAppUpdate;->mSummary:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -255,7 +255,7 @@
     .line 125
     const-string v2, "PreloadAppUpdate"
 
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -297,7 +297,7 @@
     .line 76
     const-string v1, "connectivity"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PreloadAppUpdate;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -320,7 +320,7 @@
     .line 79
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -331,21 +331,21 @@
     .line 80
     iget-object v1, p0, Lcom/android/settings/PreloadAppUpdate;->builder:Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f091558
+    const v3, 0x7f0916b8
 
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 81
     iget-object v1, p0, Lcom/android/settings/PreloadAppUpdate;->builder:Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f09155e
+    const v3, 0x7f0916be
 
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     .line 82
     iget-object v1, p0, Lcom/android/settings/PreloadAppUpdate;->builder:Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0902e3
+    const v3, 0x7f09031a
 
     new-instance v4, Lcom/android/settings/PreloadAppUpdate$2;
 
@@ -356,7 +356,7 @@
     .line 89
     iget-object v1, p0, Lcom/android/settings/PreloadAppUpdate;->builder:Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f090a97
+    const v3, 0x7f090b7b
 
     new-instance v4, Lcom/android/settings/PreloadAppUpdate$3;
 
@@ -387,7 +387,7 @@
     .line 103
     iget-object v1, p0, Lcom/android/settings/PreloadAppUpdate;->alertDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     .line 116
     .end local v7           #cManager:Landroid/net/ConnectivityManager;
@@ -421,7 +421,7 @@
 
     .line 109
     .local v2, bundle:Landroid/os/Bundle;
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -430,7 +430,7 @@
     if-eqz v1, :cond_0
 
     .line 110
-    invoke-virtual {p0}, Lcom/android/settings/PreloadAppUpdate;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

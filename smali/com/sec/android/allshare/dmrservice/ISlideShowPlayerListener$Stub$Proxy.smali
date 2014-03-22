@@ -28,7 +28,7 @@
 
     .prologue
     .line 134
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 135
     iput-object p1, p0, Lcom/sec/android/allshare/dmrservice/ISlideShowPlayerListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;

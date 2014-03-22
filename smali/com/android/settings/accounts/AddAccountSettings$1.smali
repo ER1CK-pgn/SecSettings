@@ -40,7 +40,7 @@
     .line 85
     iput-object p1, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -128,7 +128,7 @@
 
     const/4 v6, 0x2
 
-    invoke-virtual {v5, v4, v6}, Lcom/android/settings/accounts/AddAccountSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v5, v4, v6}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 109
     .end local v0           #addAccountOptions:Landroid/os/Bundle;
@@ -178,7 +178,7 @@
     .line 118
     iget-object v5, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/AddAccountSettings;->finish()V
+    invoke-virtual {v5}, Landroid/app/Activity;->finish()V
 
     .line 121
     .end local v1           #bundle:Landroid/os/Bundle;
@@ -196,7 +196,7 @@
 
     const/4 v6, -0x1
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/accounts/AddAccountSettings;->setResult(I)V
+    invoke-virtual {v5, v6}, Landroid/app/Activity;->setResult(I)V
 
     .line 103
     iget-object v5, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
@@ -267,7 +267,7 @@
     .line 118
     iget-object v5, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/AddAccountSettings;->finish()V
+    invoke-virtual {v5}, Landroid/app/Activity;->finish()V
 
     goto :goto_1
 
@@ -320,7 +320,7 @@
     .line 118
     iget-object v5, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/AddAccountSettings;->finish()V
+    invoke-virtual {v5}, Landroid/app/Activity;->finish()V
 
     goto :goto_1
 
@@ -373,7 +373,7 @@
     .line 118
     iget-object v5, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/accounts/AddAccountSettings;->finish()V
+    invoke-virtual {v5}, Landroid/app/Activity;->finish()V
 
     goto/16 :goto_1
 
@@ -387,7 +387,7 @@
     .line 118
     iget-object v6, p0, Lcom/android/settings/accounts/AddAccountSettings$1;->this$0:Lcom/android/settings/accounts/AddAccountSettings;
 
-    invoke-virtual {v6}, Lcom/android/settings/accounts/AddAccountSettings;->finish()V
+    invoke-virtual {v6}, Landroid/app/Activity;->finish()V
 
     :cond_7
     throw v5

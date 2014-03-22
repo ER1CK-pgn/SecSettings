@@ -11,12 +11,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;,
         Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;,
         Lcom/android/settings/users/AppRestrictionsFragment$AppLabelComparator;,
         Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;,
         Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;,
-        Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+        Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;,
+        Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
     }
 .end annotation
 
@@ -26,9 +26,19 @@
 
 
 # instance fields
+.field private final KEY_INCOMING_CALLS:Ljava/lang/String;
+
+.field private final KEY_LOCATION_ACCESS:Ljava/lang/String;
+
+.field private final KEY_MOBILE_DATA:Ljava/lang/String;
+
+.field private final ORDER_FOR_FIRST_MENU:I
+
 .field private mAppList:Landroid/preference/PreferenceGroup;
 
 .field private mAppListChanged:Z
+
+.field private mAppLoadingTask:Landroid/os/AsyncTask;
 
 .field private mCustomRequestCode:I
 
@@ -44,19 +54,36 @@
     .end annotation
 .end field
 
-.field private mEditUserInfoDialog:Landroid/app/Dialog;
-
-.field private mEditUserPhotoController:Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
+.field private mExcludeAppInfoList:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mFirstTime:Z
 
-.field private mHeaderView:Landroid/view/View;
+.field protected mIPm:Landroid/content/pm/IPackageManager;
+
+.field private mIncomingCalls:Landroid/preference/CheckBoxPreference;
+
+.field private mLocationAccess:Landroid/preference/CheckBoxPreference;
+
+.field private mMobileData:Landroid/preference/CheckBoxPreference;
 
 .field private mNewUser:Z
 
-.field private mPackageManager:Landroid/content/pm/PackageManager;
+.field protected mPackageManager:Landroid/content/pm/PackageManager;
 
-.field private mSavedPhoto:Landroid/graphics/Bitmap;
+.field private mPackageObserver:Landroid/content/BroadcastReceiver;
+
+.field mRemovingUserId:I
+
+.field protected mRestrictedProfile:Z
 
 .field mSelectedPackages:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -70,7 +97,15 @@
     .end annotation
 .end field
 
-.field private mUser:Landroid/os/UserHandle;
+.field private final mSettingsDescs:[I
+
+.field private final mSettingsKeys:[Ljava/lang/String;
+
+.field private final mSettingsTitles:[I
+
+.field private mSysPackageInfo:Landroid/content/pm/PackageInfo;
+
+.field protected mUser:Landroid/os/UserHandle;
 
 .field private mUserApps:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -85,11 +120,9 @@
 
 .field private mUserBackgrounding:Landroid/content/BroadcastReceiver;
 
-.field private mUserIconView:Landroid/widget/ImageView;
+.field private final mUserLock:Ljava/lang/Object;
 
-.field private mUserManager:Landroid/os/UserManager;
-
-.field private mUserNameView:Landroid/widget/TextView;
+.field protected mUserManager:Landroid/os/UserManager;
 
 .field private mVisibleApps:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -108,7 +141,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 94
     const-class v0, Lcom/android/settings/users/AppRestrictionsFragment;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -121,40 +154,144 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 5
 
     .prologue
-    .line 99
+    const/4 v4, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x3
+
+    .line 91
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 129
+    .line 122
+    iput v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->ORDER_FOR_FIRST_MENU:I
+
+    .line 123
+    const-string v0, "key_mobile_data"
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->KEY_MOBILE_DATA:Ljava/lang/String;
+
+    .line 124
+    const-string v0, "key_location_access"
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->KEY_LOCATION_ACCESS:Ljava/lang/String;
+
+    .line 125
+    const-string v0, "key_incoming_calls"
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->KEY_INCOMING_CALLS:Ljava/lang/String;
+
+    .line 133
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    .line 135
+    new-array v0, v3, [Ljava/lang/String;
+
+    const-string v1, "key_mobile_data"
+
+    aput-object v1, v0, v2
+
+    const-string v1, "key_location_access"
+
+    aput-object v1, v0, v4
+
+    const/4 v1, 0x2
+
+    const-string v2, "key_incoming_calls"
+
+    aput-object v2, v0, v1
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSettingsKeys:[Ljava/lang/String;
+
+    .line 141
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_0
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSettingsTitles:[I
+
+    .line 147
+    new-array v0, v3, [I
+
+    fill-array-data v0, :array_1
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSettingsDescs:[I
+
+    .line 154
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    .line 130
-    const/4 v0, 0x1
+    .line 155
+    iput-boolean v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mFirstTime:Z
 
-    iput-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mFirstTime:Z
+    .line 161
+    const/16 v0, 0x3e8
 
-    .line 135
+    iput v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestCode:I
+
+    .line 163
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestMap:Ljava/util/HashMap;
 
-    .line 149
+    .line 172
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserLock:Ljava/lang/Object;
+
+    .line 173
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRemovingUserId:I
+
+    .line 175
     new-instance v0, Lcom/android/settings/users/AppRestrictionsFragment$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/users/AppRestrictionsFragment$1;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserBackgrounding:Landroid/content/BroadcastReceiver;
 
-    .line 1099
+    .line 189
+    new-instance v0, Lcom/android/settings/users/AppRestrictionsFragment$2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/users/AppRestrictionsFragment$2;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
+
+    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageObserver:Landroid/content/BroadcastReceiver;
+
+    .line 1073
     return-void
+
+    .line 141
+    nop
+
+    :array_0
+    .array-data 0x4
+        0x6dt 0x17t 0x9t 0x7ft
+        0x2bt 0xct 0x9t 0x7ft
+        0x6ft 0x17t 0x9t 0x7ft
+    .end array-data
+
+    .line 147
+    :array_1
+    .array-data 0x4
+        0x6et 0x17t 0x9t 0x7ft
+        0x2ct 0xct 0x9t 0x7ft
+        0x70t 0x17t 0x9t 0x7ft
+    .end array-data
 .end method
 
 .method static synthetic access$000(Lcom/android/settings/users/AppRestrictionsFragment;)Z
@@ -162,7 +299,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 91
     iget-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
 
     return v0
@@ -173,13 +310,13 @@
     .parameter "x0"
 
     .prologue
-    .line 99
-    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->updateUserAppList()V
+    .line 91
+    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppsStates()V
 
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
+.method static synthetic access$1200(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -187,32 +324,10 @@
     .parameter "x3"
 
     .prologue
-    .line 99
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/users/AppRestrictionsFragment;->onRestrictionsReceived(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
+    .line 91
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/users/AppRestrictionsFragment;->openRestrictionDetail(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
 
     return-void
-.end method
-
-.method static synthetic access$1100(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/os/UserHandle;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/os/UserManager;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
-
-    return-object v0
 .end method
 
 .method static synthetic access$1300(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
@@ -221,7 +336,7 @@
     .parameter "x1"
 
     .prologue
-    .line 99
+    .line 91
     invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->generateCustomActivityRequestCode(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
 
     move-result v0
@@ -229,91 +344,38 @@
     return v0
 .end method
 
-.method static synthetic access$1400(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/preference/PreferenceGroup;
+.method static synthetic access$1400(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/preference/CheckBoxPreference;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+    .line 91
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mMobileData:Landroid/preference/CheckBoxPreference;
 
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/settings/users/AppRestrictionsFragment;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->clearEditUserInfoDialog()V
-
-    return-void
-.end method
-
-.method static synthetic access$1600(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/widget/TextView;
+.method static synthetic access$1500(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/content/ContentResolver;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserNameView:Landroid/widget/TextView;
+    .line 91
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/view/View;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1800(Lcom/android/settings/users/AppRestrictionsFragment;)Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserPhotoController:Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/settings/users/AppRestrictionsFragment;)Landroid/widget/ImageView;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserIconView:Landroid/widget/ImageView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/settings/users/AppRestrictionsFragment;I)V
+.method static synthetic access$200(Lcom/android/settings/users/AppRestrictionsFragment;Landroid/content/Intent;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 99
-    invoke-virtual {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->removeDialog(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/settings/users/AppRestrictionsFragment;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 99
-    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->fetchAndMergeApps()V
+    .line 91
+    invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->onPackageChanged(Landroid/content/Intent;)V
 
     return-void
 .end method
@@ -323,14 +385,25 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 91
+    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->fetchAndMergeApps()V
+
+    return-void
+.end method
+
+.method static synthetic access$600(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 91
     invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->populateApps()V
 
     return-void
 .end method
 
 .method private addSystemApps(Ljava/util/List;Landroid/content/Intent;Ljava/util/Set;)V
-    .locals 7
+    .locals 11
     .parameter
     .parameter "intent"
     .parameter
@@ -350,149 +423,201 @@
     .end annotation
 
     .prologue
-    .line 451
+    .line 609
     .local p1, visibleApps:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;>;"
     .local p3, excludePackages:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v9
 
-    if-nez v6, :cond_1
+    if-nez v9, :cond_1
 
-    .line 475
+    .line 649
     :cond_0
     return-void
 
-    .line 452
+    .line 610
     :cond_1
-    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
+    iget-object v7, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    .line 453
-    .local v5, pm:Landroid/content/pm/PackageManager;
-    const/16 v6, 0x200
+    .line 611
+    .local v7, pm:Landroid/content/pm/PackageManager;
+    const/16 v9, 0x2200
 
-    invoke-virtual {v5, p2, v6}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+    invoke-virtual {v7, p2, v9}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v5
 
-    .line 455
-    .local v4, launchableApps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    .line 613
+    .local v5, launchableApps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
+    invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v3
 
-    .local v2, i$:Ljava/util/Iterator;
+    .local v3, i$:Ljava/util/Iterator;
     :cond_2
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v9
 
-    if-eqz v6, :cond_0
+    if-eqz v9, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/content/pm/ResolveInfo;
 
-    .line 456
+    .line 614
     .local v0, app:Landroid/content/pm/ResolveInfo;
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    if-eqz v6, :cond_2
+    if-eqz v9, :cond_2
 
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v9, v9, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v6, :cond_2
+    if-eqz v9, :cond_2
 
-    .line 457
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    .line 615
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v6, v9, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    iget v1, v6, Landroid/content/pm/ApplicationInfo;->flags:I
+    .line 616
+    .local v6, packageName:Ljava/lang/String;
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    .line 458
-    .local v1, flags:I
-    and-int/lit8 v6, v1, 0x1
+    iget-object v9, v9, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-nez v6, :cond_3
+    iget v2, v9, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int/lit16 v6, v1, 0x80
+    .line 617
+    .local v2, flags:I
+    and-int/lit8 v9, v2, 0x1
 
-    if-eqz v6, :cond_2
+    if-nez v9, :cond_3
 
-    .line 462
+    and-int/lit16 v9, v2, 0x80
+
+    if-eqz v9, :cond_2
+
+    .line 621
     :cond_3
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v6, v6, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
     invoke-interface {p3, v6}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v9
 
-    if-nez v6, :cond_2
+    if-nez v9, :cond_2
 
-    .line 464
-    new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+    .line 622
+    invoke-virtual {v7, v6}, Landroid/content/pm/PackageManager;->getApplicationEnabledSetting(Ljava/lang/String;)I
 
-    invoke-direct {v3}, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;-><init>()V
+    move-result v1
 
-    .line 465
-    .local v3, info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    .line 623
+    .local v1, enabled:I
+    const/4 v9, 0x4
 
-    iget-object v6, v6, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    if-eq v1, v9, :cond_4
 
-    iput-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
+    const/4 v9, 0x2
 
-    .line 466
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    if-ne v1, v9, :cond_5
 
-    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {v6, v5}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    iput-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
-
-    .line 467
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    invoke-virtual {v6, v5}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    iput-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
-
-    .line 468
-    iget-object v6, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    invoke-virtual {v6, v5}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    iput-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
-
-    .line 469
-    iget-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
-
-    if-nez v6, :cond_4
-
-    iget-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
-
-    iput-object v6, v3, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
-
-    .line 471
+    .line 626
     :cond_4
-    invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const/4 v9, 0x0
 
-    goto :goto_0
+    iget-object v10, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-direct {p0, v6, v9, v10}, Lcom/android/settings/users/AppRestrictionsFragment;->getAppInfoForUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v8
+
+    .line 628
+    .local v8, targetUserAppInfo:Landroid/content/pm/ApplicationInfo;
+    if-eqz v8, :cond_2
+
+    iget v9, v8, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    const/high16 v10, 0x80
+
+    and-int/2addr v9, v10
+
+    if-eqz v9, :cond_2
+
+    .line 633
+    .end local v8           #targetUserAppInfo:Landroid/content/pm/ApplicationInfo;
+    :cond_5
+    new-instance v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+
+    invoke-direct {v4}, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;-><init>()V
+
+    .line 634
+    .local v4, info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v9, v9, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+
+    iput-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
+
+    .line 635
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v9, v9, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v9, v7}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v9
+
+    iput-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
+
+    .line 636
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {v9, v7}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v9
+
+    iput-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
+
+    .line 637
+    iget-object v9, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {v9, v7}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v9
+
+    iput-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+
+    .line 638
+    iget-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+
+    if-nez v9, :cond_6
+
+    iget-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
+
+    iput-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+
+    .line 641
+    :cond_6
+    iget-object v9, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
+
+    iget-object v10, v4, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+
+    invoke-direct {p0, v9, v10}, Lcom/android/settings/users/AppRestrictionsFragment;->isExcludeApp(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_2
+
+    .line 645
+    invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
 .end method
 
 .method private addSystemImes(Ljava/util/Set;)V
@@ -509,21 +634,21 @@
     .end annotation
 
     .prologue
-    .line 427
+    .line 585
     .local p1, excludePackages:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 428
+    .line 586
     .local v0, context:Landroid/content/Context;
     if-nez v0, :cond_1
 
-    .line 441
+    .line 599
     :cond_0
     return-void
 
-    .line 429
+    .line 587
     :cond_1
     const-string v5, "input_method"
 
@@ -533,13 +658,13 @@
 
     check-cast v4, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 431
+    .line 589
     .local v4, imm:Landroid/view/inputmethod/InputMethodManager;
     invoke-virtual {v4}, Landroid/view/inputmethod/InputMethodManager;->getInputMethodList()Ljava/util/List;
 
     move-result-object v3
 
-    .line 432
+    .line 590
     .local v3, imis:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -560,7 +685,7 @@
 
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 434
+    .line 592
     .local v2, imi:Landroid/view/inputmethod/InputMethodInfo;
     :try_start_0
     invoke-virtual {v2, v0}, Landroid/view/inputmethod/InputMethodInfo;->isDefault(Landroid/content/Context;)Z
@@ -579,7 +704,7 @@
 
     if-eqz v5, :cond_2
 
-    .line 435
+    .line 593
     invoke-virtual {v2}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v5
@@ -590,87 +715,363 @@
 
     goto :goto_0
 
-    .line 437
+    .line 595
     :catch_0
     move-exception v5
 
     goto :goto_0
 .end method
 
-.method private appInfoListHasPackage(Ljava/util/List;Ljava/lang/String;)Z
-    .locals 3
-    .parameter
+.method private applyUserAppState(Ljava/lang/String;Z)V
+    .locals 6
     .parameter "packageName"
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Landroid/content/pm/ApplicationInfo;",
-            ">;",
-            "Ljava/lang/String;",
-            ")Z"
-        }
-    .end annotation
+    .parameter "enabled"
 
     .prologue
-    .line 691
-    .local p1, apps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    const/high16 v4, 0x80
+
+    .line 506
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v1
+
+    .line 507
+    .local v1, userId:I
+    if-eqz p2, :cond_3
+
+    .line 510
+    :try_start_0
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    const/16 v3, 0x2000
+
+    invoke-interface {v2, p1, v3, v1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
-    .local v0, i$:Ljava/util/Iterator;
-    :cond_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    .line 512
+    .local v0, info:Landroid/content/pm/ApplicationInfo;
+    if-eqz v0, :cond_0
 
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/ApplicationInfo;
-
-    .line 692
-    .local v1, info:Landroid/content/pm/ApplicationInfo;
-    iget-object v2, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
+    iget-boolean v2, v0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
     if-eqz v2, :cond_0
 
-    .line 693
-    const/4 v2, 0x1
+    iget v2, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    .line 696
-    .end local v1           #info:Landroid/content/pm/ApplicationInfo;
-    :goto_0
-    return v2
+    and-int/2addr v2, v4
 
+    if-nez v2, :cond_1
+
+    .line 514
+    :cond_0
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v3
+
+    invoke-interface {v2, p1, v3}, Landroid/content/pm/IPackageManager;->installExistingPackageAsUser(Ljava/lang/String;I)I
+
+    .line 519
     :cond_1
-    const/4 v2, 0x0
+    if-eqz v0, :cond_2
+
+    iget v2, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    const/high16 v3, 0x800
+
+    and-int/2addr v2, v3
+
+    if-eqz v2, :cond_2
+
+    iget v2, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/2addr v2, v4
+
+    if-eqz v2, :cond_2
+
+    .line 521
+    invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->disableUiForPackage(Ljava/lang/String;)V
+
+    .line 522
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, p1, v3, v1}, Landroid/content/pm/IPackageManager;->setApplicationBlockedSettingAsUser(Ljava/lang/String;ZI)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    .line 551
+    .end local v0           #info:Landroid/content/pm/ApplicationInfo;
+    :cond_2
+    :goto_0
+    return-void
+
+    .line 532
+    :cond_3
+    :try_start_1
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, p1, v3, v1}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    .line 533
+    .restart local v0       #info:Landroid/content/pm/ApplicationInfo;
+    if-eqz v0, :cond_2
+
+    .line 534
+    iget-boolean v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRestrictedProfile:Z
+
+    if-eqz v2, :cond_4
+
+    .line 535
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    const/4 v3, 0x0
+
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v4
+
+    const/4 v5, 0x4
+
+    invoke-interface {v2, p1, v3, v4, v5}, Landroid/content/pm/IPackageManager;->deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
+
+    goto :goto_0
+
+    .line 548
+    .end local v0           #info:Landroid/content/pm/ApplicationInfo;
+    :catch_0
+    move-exception v2
+
+    goto :goto_0
+
+    .line 541
+    .restart local v0       #info:Landroid/content/pm/ApplicationInfo;
+    :cond_4
+    invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->disableUiForPackage(Ljava/lang/String;)V
+
+    .line 542
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    const/4 v3, 0x1
+
+    invoke-interface {v2, p1, v3, v1}, Landroid/content/pm/IPackageManager;->setApplicationBlockedSettingAsUser(Ljava/lang/String;ZI)Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    .line 527
+    .end local v0           #info:Landroid/content/pm/ApplicationInfo;
+    :catch_1
+    move-exception v2
 
     goto :goto_0
 .end method
 
-.method private clearEditUserInfoDialog()V
-    .locals 1
+.method private applyUserAppsStates()V
+    .locals 7
 
     .prologue
-    const/4 v0, 0x0
+    .line 493
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    .line 1095
-    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
+    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
 
-    .line 1096
-    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSavedPhoto:Landroid/graphics/Bitmap;
+    move-result v4
 
-    .line 1097
+    .line 494
+    .local v4, userId:I
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {v5, v4}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/pm/UserInfo;->isRestricted()Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v5
+
+    if-eq v4, v5, :cond_1
+
+    .line 495
+    sget-object v5, Lcom/android/settings/users/AppRestrictionsFragment;->TAG:Ljava/lang/String;
+
+    const-string v6, "Cannot apply application restrictions on another user!"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 503
+    :cond_0
+    return-void
+
+    .line 498
+    :cond_1
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    invoke-virtual {v5}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    .local v2, i$:Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    .line 499
+    .local v1, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Boolean;>;"
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    .line 500
+    .local v3, packageName:Ljava/lang/String;
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Boolean;
+
+    invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    .line 501
+    .local v0, enabled:Z
+    invoke-direct {p0, v3, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppState(Ljava/lang/String;Z)V
+
+    goto :goto_0
+.end method
+
+.method private createDialog(I)V
+    .locals 3
+    .parameter
+
+    .prologue
+    .line 1268
+    const/4 v0, 0x3
+
+    if-ne p1, v0, :cond_0
+
+    .line 1269
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    const v1, 0x7f091773
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x7f091774
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x1010355
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x104000a
+
+    new-instance v2, Lcom/android/settings/users/AppRestrictionsFragment$5;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/users/AppRestrictionsFragment$5;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const/high16 v1, 0x104
+
+    new-instance v2, Lcom/android/settings/users/AppRestrictionsFragment$4;
+
+    invoke-direct {v2, p0}, Lcom/android/settings/users/AppRestrictionsFragment$4;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    .line 1286
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+
+    .line 1288
+    :cond_0
+    return-void
+.end method
+
+.method private disableUiForPackage(Ljava/lang/String;)V
+    .locals 2
+    .parameter "packageName"
+
+    .prologue
+    .line 554
+    invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->getKeyForPackage(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+
+    .line 556
+    .local v0, pref:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+    if-eqz v0, :cond_0
+
+    .line 557
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 559
+    :cond_0
     return-void
 .end method
 
@@ -678,7 +1079,7 @@
     .locals 21
 
     .prologue
-    .line 496
+    .line 680
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
@@ -689,7 +1090,7 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/preference/PreferenceGroup;->setOrderingAsAdded(Z)V
 
-    .line 497
+    .line 681
     new-instance v18, Ljava/util/ArrayList;
 
     invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
@@ -700,20 +1101,20 @@
 
     iput-object v0, v1, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
 
-    .line 498
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    .line 682
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    .line 499
+    .line 683
     .local v5, context:Landroid/content/Context;
     if-nez v5, :cond_1
 
-    .line 587
+    .line 781
     :cond_0
     return-void
 
-    .line 500
+    .line 684
     :cond_1
     move-object/from16 v0, p0
 
@@ -721,25 +1122,25 @@
 
     move-object/from16 v16, v0
 
-    .line 501
+    .line 685
     .local v16, pm:Landroid/content/pm/PackageManager;
-    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+    move-object/from16 v0, p0
 
-    move-result-object v12
+    iget-object v12, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
 
-    .line 503
+    .line 687
     .local v12, ipm:Landroid/content/pm/IPackageManager;
     new-instance v7, Ljava/util/HashSet;
 
     invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
 
-    .line 504
+    .line 688
     .local v7, excludePackages:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     move-object/from16 v0, p0
 
     invoke-direct {v0, v7}, Lcom/android/settings/users/AppRestrictionsFragment;->addSystemImes(Ljava/util/Set;)V
 
-    .line 507
+    .line 691
     new-instance v13, Landroid/content/Intent;
 
     const-string v18, "android.intent.action.MAIN"
@@ -748,7 +1149,7 @@
 
     invoke-direct {v13, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 508
+    .line 692
     .local v13, launcherIntent:Landroid/content/Intent;
     const-string v18, "android.intent.category.LAUNCHER"
 
@@ -756,7 +1157,7 @@
 
     invoke-virtual {v13, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 509
+    .line 693
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
@@ -769,14 +1170,14 @@
 
     invoke-direct {v0, v1, v13, v7}, Lcom/android/settings/users/AppRestrictionsFragment;->addSystemApps(Ljava/util/List;Landroid/content/Intent;Ljava/util/Set;)V
 
-    .line 512
+    .line 696
     new-instance v17, Landroid/content/Intent;
 
     const-string v18, "android.appwidget.action.APPWIDGET_UPDATE"
 
     invoke-direct/range {v17 .. v18}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 513
+    .line 697
     .local v17, widgetIntent:Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -792,8 +1193,8 @@
 
     invoke-direct {v0, v1, v2, v7}, Lcom/android/settings/users/AppRestrictionsFragment;->addSystemApps(Ljava/util/List;Landroid/content/Intent;Ljava/util/Set;)V
 
-    .line 515
-    const/16 v18, 0x0
+    .line 699
+    const/16 v18, 0x2000
 
     move-object/from16 v0, v16
 
@@ -803,7 +1204,7 @@
 
     move-result-object v11
 
-    .line 516
+    .line 701
     .local v11, installedApps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     invoke-interface {v11}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -824,8 +1225,19 @@
 
     check-cast v3, Landroid/content/pm/ApplicationInfo;
 
-    .line 517
+    .line 703
     .local v3, app:Landroid/content/pm/ApplicationInfo;
+    iget v0, v3, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    move/from16 v18, v0
+
+    const/high16 v19, 0x80
+
+    and-int v18, v18, v19
+
+    if-eqz v18, :cond_2
+
+    .line 705
     iget v0, v3, Landroid/content/pm/ApplicationInfo;->flags:I
 
     move/from16 v18, v0
@@ -846,12 +1258,12 @@
 
     if-nez v18, :cond_3
 
-    .line 520
+    .line 708
     new-instance v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
     invoke-direct {v10}, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;-><init>()V
 
-    .line 521
+    .line 709
     .local v10, info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     iget-object v0, v3, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
@@ -861,10 +1273,10 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
-    .line 522
+    .line 710
     move-object/from16 v0, v16
 
-    invoke-virtual {v3, v0}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v0}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v18
 
@@ -872,7 +1284,7 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
 
-    .line 523
+    .line 711
     iget-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
 
     move-object/from16 v18, v0
@@ -881,10 +1293,10 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
-    .line 524
+    .line 712
     move-object/from16 v0, v16
 
-    invoke-virtual {v3, v0}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v0}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v18
 
@@ -892,7 +1304,7 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
 
-    .line 525
+    .line 713
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
@@ -905,7 +1317,7 @@
 
     goto :goto_0
 
-    .line 528
+    .line 716
     .end local v10           #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     :cond_3
     :try_start_0
@@ -925,8 +1337,16 @@
 
     move-result-object v15
 
-    .line 532
+    .line 720
     .local v15, pi:Landroid/content/pm/PackageInfo;
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mRestrictedProfile:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_2
+
     iget-object v0, v15, Landroid/content/pm/PackageInfo;->requiredAccountType:Ljava/lang/String;
 
     move-object/from16 v18, v0
@@ -939,7 +1359,7 @@
 
     if-nez v18, :cond_2
 
-    .line 533
+    .line 722
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
@@ -962,14 +1382,14 @@
 
     goto/16 :goto_0
 
-    .line 535
+    .line 724
     .end local v15           #pi:Landroid/content/pm/PackageInfo;
     :catch_0
     move-exception v18
 
     goto/16 :goto_0
 
-    .line 540
+    .line 730
     .end local v3           #app:Landroid/content/pm/ApplicationInfo;
     :cond_4
     const/16 v18, 0x0
@@ -980,8 +1400,8 @@
 
     iput-object v0, v1, Lcom/android/settings/users/AppRestrictionsFragment;->mUserApps:Ljava/util/List;
 
-    .line 542
-    const/16 v18, 0x0
+    .line 732
+    const/16 v18, 0x2000
 
     :try_start_1
     move-object/from16 v0, p0
@@ -1014,7 +1434,7 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 547
+    .line 737
     :goto_1
     move-object/from16 v0, p0
 
@@ -1024,7 +1444,7 @@
 
     if-eqz v18, :cond_6
 
-    .line 548
+    .line 738
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserApps:Ljava/util/List;
@@ -1049,8 +1469,19 @@
 
     check-cast v3, Landroid/content/pm/ApplicationInfo;
 
-    .line 549
+    .line 739
     .restart local v3       #app:Landroid/content/pm/ApplicationInfo;
+    iget v0, v3, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    move/from16 v18, v0
+
+    const/high16 v19, 0x80
+
+    and-int v18, v18, v19
+
+    if-eqz v18, :cond_5
+
+    .line 741
     iget v0, v3, Landroid/content/pm/ApplicationInfo;->flags:I
 
     move/from16 v18, v0
@@ -1071,12 +1502,12 @@
 
     if-nez v18, :cond_5
 
-    .line 552
+    .line 744
     new-instance v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
     invoke-direct {v10}, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;-><init>()V
 
-    .line 553
+    .line 745
     .restart local v10       #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     iget-object v0, v3, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
@@ -1086,10 +1517,10 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
-    .line 554
+    .line 746
     move-object/from16 v0, v16
 
-    invoke-virtual {v3, v0}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v0}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v18
 
@@ -1097,7 +1528,7 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
 
-    .line 555
+    .line 747
     iget-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->appName:Ljava/lang/CharSequence;
 
     move-object/from16 v18, v0
@@ -1106,10 +1537,10 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
-    .line 556
+    .line 748
     move-object/from16 v0, v16
 
-    invoke-virtual {v3, v0}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v0}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v18
 
@@ -1117,7 +1548,7 @@
 
     iput-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
 
-    .line 557
+    .line 749
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
@@ -1130,7 +1561,7 @@
 
     goto :goto_2
 
-    .line 561
+    .line 755
     .end local v3           #app:Landroid/content/pm/ApplicationInfo;
     .end local v10           #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     :cond_6
@@ -1154,12 +1585,12 @@
 
     invoke-static/range {v18 .. v19}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 564
+    .line 758
     new-instance v6, Ljava/util/HashSet;
 
     invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
 
-    .line 565
+    .line 759
     .local v6, dedupPackageSet:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     move-object/from16 v0, p0
 
@@ -1177,7 +1608,7 @@
     :goto_3
     if-ltz v8, :cond_8
 
-    .line 566
+    .line 760
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
@@ -1192,7 +1623,7 @@
 
     check-cast v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
-    .line 568
+    .line 762
     .restart local v10       #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -1224,7 +1655,7 @@
 
     move-result-object v4
 
-    .line 569
+    .line 763
     .local v4, both:Ljava/lang/String;
     iget-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
@@ -1252,7 +1683,7 @@
 
     if-eqz v18, :cond_7
 
-    .line 572
+    .line 766
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
@@ -1263,19 +1694,19 @@
 
     invoke-interface {v0, v8}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 565
+    .line 759
     :goto_4
     add-int/lit8 v8, v8, -0x1
 
     goto :goto_3
 
-    .line 574
+    .line 768
     :cond_7
     invoke-interface {v6, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_4
 
-    .line 579
+    .line 773
     .end local v4           #both:Ljava/lang/String;
     .end local v10           #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     :cond_8
@@ -1283,7 +1714,7 @@
 
     invoke-direct {v14}, Ljava/util/HashMap;-><init>()V
 
-    .line 580
+    .line 774
     .local v14, packageMap:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;>;"
     move-object/from16 v0, p0
 
@@ -1308,7 +1739,7 @@
 
     check-cast v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
-    .line 581
+    .line 775
     .restart local v10       #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
     iget-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
@@ -1322,7 +1753,7 @@
 
     if-eqz v18, :cond_9
 
-    .line 582
+    .line 776
     iget-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v18, v0
@@ -1341,7 +1772,7 @@
 
     goto :goto_5
 
-    .line 584
+    .line 778
     :cond_9
     iget-object v0, v10, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
@@ -1353,7 +1784,7 @@
 
     goto :goto_5
 
-    .line 544
+    .line 734
     .end local v6           #dedupPackageSet:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     .end local v8           #i:I
     .end local v10           #info:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
@@ -1371,7 +1802,7 @@
     .parameter "selectedString"
 
     .prologue
-    .line 982
+    .line 1223
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -1380,7 +1811,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 983
+    .line 1224
     aget-object v1, p2, v0
 
     invoke-virtual {v1, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1389,15 +1820,15 @@
 
     if-eqz v1, :cond_1
 
-    .line 984
+    .line 1225
     aget-object p3, p1, v0
 
-    .line 987
+    .line 1228
     .end local p3
     :cond_0
     return-object p3
 
-    .line 982
+    .line 1223
     .restart local p3
     :cond_1
     add-int/lit8 v0, v0, 0x1
@@ -1410,14 +1841,14 @@
     .parameter "preference"
 
     .prologue
-    .line 940
+    .line 1187
     iget v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestCode:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestCode:I
 
-    .line 941
+    .line 1188
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestMap:Ljava/util/HashMap;
 
     iget v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestCode:I
@@ -1428,42 +1859,272 @@
 
     invoke-virtual {v0, v1, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 942
+    .line 1189
     iget v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestCode:I
 
     return v0
 .end method
 
-.method private getCircularUserIcon()Landroid/graphics/drawable/Drawable;
+.method private getAppInfoForUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/pm/ApplicationInfo;
     .locals 4
+    .parameter "packageName"
+    .parameter "flags"
+    .parameter "user"
 
     .prologue
-    .line 358
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+    .line 653
+    :try_start_0
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
 
-    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {p3}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
+    invoke-interface {v2, p1, p2, v3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    .line 359
-    .local v1, userIcon:Landroid/graphics/Bitmap;
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    .line 657
+    :goto_0
+    return-object v1
 
-    move-result-object v2
+    .line 656
+    :catch_0
+    move-exception v0
 
-    invoke-static {v2, v1}, Lcom/android/settings/users/CircleFramedDrawable;->getInstance(Landroid/content/Context;Landroid/graphics/Bitmap;)Lcom/android/settings/users/CircleFramedDrawable;
+    .line 657
+    .local v0, re:Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method private getKeyForPackage(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+    .parameter
+
+    .prologue
+    .line 903
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "pkg_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 361
-    .local v0, circularIcon:Lcom/android/settings/users/CircleFramedDrawable;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
     return-object v0
+.end method
+
+.method private getRestrictionEntry(Ljava/lang/String;)Landroid/content/RestrictionEntry;
+    .locals 6
+    .parameter "key"
+
+    .prologue
+    .line 1344
+    const/4 v3, 0x0
+
+    .line 1345
+    .local v3, result:Landroid/content/RestrictionEntry;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-static {v4, v5}, Lcom/android/settings/users/RestrictionUtils;->getRestrictions(Landroid/content/Context;Landroid/os/UserHandle;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    .line 1346
+    .local v2, restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .local v1, i$:Ljava/util/Iterator;
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/RestrictionEntry;
+
+    .line 1347
+    .local v0, entry:Landroid/content/RestrictionEntry;
+    invoke-virtual {v0}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 1348
+    move-object v3, v0
+
+    .line 1352
+    .end local v0           #entry:Landroid/content/RestrictionEntry;
+    :cond_1
+    return-object v3
+.end method
+
+.method private isAppEnabledForUser(Landroid/content/pm/PackageInfo;)Z
+    .locals 3
+    .parameter "pi"
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 789
+    if-nez p1, :cond_1
+
+    .line 792
+    :cond_0
+    :goto_0
+    return v1
+
+    .line 790
+    :cond_1
+    iget-object v2, p1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v0, v2, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    .line 792
+    .local v0, flags:I
+    const/high16 v2, 0x80
+
+    and-int/2addr v2, v0
+
+    if-eqz v2, :cond_0
+
+    const/high16 v2, 0x800
+
+    and-int/2addr v2, v0
+
+    if-nez v2, :cond_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+.end method
+
+.method private isExcludeApp(Ljava/lang/String;Ljava/lang/CharSequence;)Z
+    .locals 4
+    .parameter "packageName"
+    .parameter "activityName"
+
+    .prologue
+    .line 1411
+    const/4 v2, 0x0
+
+    .line 1413
+    .local v2, retVal:Z
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    .local v0, i$:Ljava/util/Iterator;
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+
+    .line 1414
+    .local v1, info:Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;->getActivityName()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 1416
+    const/4 v2, 0x1
+
+    .line 1422
+    .end local v1           #info:Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+    :cond_1
+    return v2
+.end method
+
+.method private isPlatformSigned(Landroid/content/pm/PackageInfo;)Z
+    .locals 3
+    .parameter "pi"
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 784
+    if-eqz p1, :cond_0
+
+    iget-object v1, p1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSysPackageInfo:Landroid/content/pm/PackageInfo;
+
+    iget-object v1, v1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    aget-object v1, v1, v0
+
+    iget-object v2, p1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    aget-object v2, v2, v0
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/Signature;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method private isSystemPackage(Ljava/lang/String;)Z
@@ -1473,7 +2134,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 405
+    .line 563
     :try_start_0
     iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -1483,19 +2144,19 @@
 
     move-result-object v1
 
-    .line 406
+    .line 564
     .local v1, pi:Landroid/content/pm/PackageInfo;
     iget-object v3, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     if-nez v3, :cond_1
 
-    .line 415
+    .line 573
     .end local v1           #pi:Landroid/content/pm/PackageInfo;
     :cond_0
     :goto_0
     return v2
 
-    .line 407
+    .line 565
     .restart local v1       #pi:Landroid/content/pm/PackageInfo;
     :cond_1
     iget-object v3, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -1504,7 +2165,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 408
+    .line 566
     .local v0, flags:I
     and-int/lit8 v3, v0, 0x1
 
@@ -1514,13 +2175,13 @@
 
     if-eqz v3, :cond_0
 
-    .line 410
+    .line 568
     :cond_2
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 412
+    .line 570
     .end local v0           #flags:I
     .end local v1           #pi:Landroid/content/pm/PackageInfo;
     :catch_0
@@ -1529,10 +2190,311 @@
     goto :goto_0
 .end method
 
-.method private onRestrictionsReceived(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 16
-    .parameter "preference"
-    .parameter "packageName"
+.method private makeExcludeAppInfos()V
+    .locals 6
+
+    .prologue
+    .line 1398
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    .line 1400
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1401
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    .line 1403
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+
+    const-string v4, "com.android.contacts"
+
+    const-string v5, "Phone"
+
+    invoke-direct {v3, p0, v4, v5}, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 1404
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+
+    const-string v4, "com.android.mms"
+
+    const-string v5, "Messages"
+
+    invoke-direct {v3, p0, v4, v5}, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 1405
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+
+    const v4, 0x7f090526
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, p0, v0, v4}, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 1406
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mExcludeAppInfoList:Ljava/util/ArrayList;
+
+    new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;
+
+    const v4, 0x7f0906cb
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v3, p0, v0, v1}, Lcom/android/settings/users/AppRestrictionsFragment$ExcludeAppInfo;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 1408
+    return-void
+.end method
+
+.method private onAppSettingsIconClicked(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+    .locals 3
+    .parameter
+
+    .prologue
+    .line 1034
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "pkg_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1035
+    invoke-virtual {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isPanelOpen()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 1036
+    invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->removeRestrictionsForApp(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+
+    .line 1051
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 1038
+    :cond_1
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "pkg_"
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1039
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 1041
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-static {v1, v2}, Lcom/android/settings/users/RestrictionUtils;->getRestrictions(Landroid/content/Context;Landroid/os/UserHandle;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    .line 1044
+    invoke-direct {p0, p1, v0, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->openRestrictionDetail(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    goto :goto_0
+
+    .line 1046
+    :cond_2
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, p1, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
+
+    goto :goto_0
+.end method
+
+.method private onPackageChanged(Landroid/content/Intent;)V
+    .locals 4
+    .parameter "intent"
+
+    .prologue
+    .line 461
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 462
+    .local v0, action:Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 464
+    .local v1, packageName:Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->getKeyForPackage(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+
+    .line 466
+    .local v2, pref:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+    if-nez v2, :cond_1
+
+    .line 472
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 468
+    :cond_1
+    const-string v3, "android.intent.action.PACKAGE_ADDED"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    :cond_2
+    const-string v3, "android.intent.action.PACKAGE_REMOVED"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 470
+    :cond_3
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    goto :goto_0
+.end method
+
+.method private onRemoveUserClicked(I)V
+    .locals 3
+    .parameter "userId"
+
+    .prologue
+    .line 414
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    .line 415
+    :try_start_0
+    iget v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRemovingUserId:I
+
+    const/4 v2, -0x1
+
+    if-ne v0, v2, :cond_0
+
+    .line 416
+    iput p1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRemovingUserId:I
+
+    .line 418
+    :cond_0
+    const/4 v0, 0x2
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
+
+    .line 419
+    monitor-exit v1
+
+    .line 420
+    return-void
+
+    .line 419
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+.end method
+
+.method private openRestrictionDetail(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
+    .locals 7
+    .parameter
+    .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1547,942 +2509,801 @@
     .end annotation
 
     .prologue
-    .line 871
-    .local p3, restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
-    invoke-virtual/range {p1 .. p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getContext()Landroid/content/Context;
+    const/4 v4, 0x0
 
-    move-result-object v3
+    const/4 v6, 0x0
 
-    .line 872
-    .local v3, context:Landroid/content/Context;
-    const/4 v4, 0x1
-
-    .line 873
-    .local v4, count:I
-    invoke-virtual/range {p3 .. p3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_0
-    :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/content/RestrictionEntry;
-
-    .line 874
-    .local v5, entry:Landroid/content/RestrictionEntry;
-    const/4 v9, 0x0
-
-    .line 875
-    .local v9, p:Landroid/preference/Preference;
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getType()I
-
-    move-result v13
-
-    packed-switch v13, :pswitch_data_0
-
-    .line 912
-    :goto_1
-    if-eqz v9, :cond_0
-
-    .line 913
-    const/4 v13, 0x0
-
-    invoke-virtual {v9, v13}, Landroid/preference/Preference;->setPersistent(Z)V
-
-    .line 914
-    invoke-virtual/range {p1 .. p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getOrder()I
-
-    move-result v13
-
-    add-int/2addr v13, v4
-
-    invoke-virtual {v9, v13}, Landroid/preference/Preference;->setOrder(I)V
-
-    .line 916
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v14
-
-    const-string v15, "pkg_"
-
-    invoke-virtual {v15}, Ljava/lang/String;->length()I
-
-    move-result v15
-
-    invoke-virtual {v14, v15}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ";"
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v9, v13}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
-
-    .line 918
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
-
-    invoke-virtual {v13, v9}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 919
-    move-object/from16 v0, p0
-
-    invoke-virtual {v9, v0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
-
-    .line 920
-    move-object/from16 v0, p1
-
-    iget-object v13, v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->childPreferences:Ljava/util/List;
-
-    invoke-interface {v13, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 921
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    .line 877
-    :pswitch_0
-    new-instance v9, Landroid/preference/CheckBoxPreference;
-
-    .end local v9           #p:Landroid/preference/Preference;
-    invoke-direct {v9, v3}, Landroid/preference/CheckBoxPreference;-><init>(Landroid/content/Context;)V
-
-    .line 878
-    .restart local v9       #p:Landroid/preference/Preference;
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v9, v13}, Landroid/preference/CheckBoxPreference;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 879
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getDescription()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v9, v13}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
-
-    move-object v13, v9
-
-    .line 880
-    check-cast v13, Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getSelectedState()Z
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    goto :goto_1
-
-    .line 884
-    :pswitch_1
-    new-instance v9, Landroid/preference/ListPreference;
-
-    .end local v9           #p:Landroid/preference/Preference;
-    invoke-direct {v9, v3}, Landroid/preference/ListPreference;-><init>(Landroid/content/Context;)V
-
-    .line 885
-    .restart local v9       #p:Landroid/preference/Preference;
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v9, v13}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 886
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getSelectedString()Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 887
-    .local v12, value:Ljava/lang/String;
-    if-nez v12, :cond_1
-
-    .line 888
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getDescription()Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 890
-    :cond_1
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceEntries()[Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceValues()[Ljava/lang/String;
-
-    move-result-object v14
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v13, v14, v12}, Lcom/android/settings/users/AppRestrictionsFragment;->findInArray([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v9, v13}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
-
-    move-object v13, v9
-
-    .line 892
-    check-cast v13, Landroid/preference/ListPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceValues()[Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
-
-    move-object v13, v9
-
-    .line 893
-    check-cast v13, Landroid/preference/ListPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceEntries()[Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
-
-    move-object v13, v9
-
-    .line 894
-    check-cast v13, Landroid/preference/ListPreference;
-
-    invoke-virtual {v13, v12}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
-
-    move-object v13, v9
-
-    .line 895
-    check-cast v13, Landroid/preference/ListPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/ListPreference;->setDialogTitle(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_1
-
-    .line 898
-    .end local v12           #value:Ljava/lang/String;
-    :pswitch_2
-    new-instance v9, Landroid/preference/MultiSelectListPreference;
-
-    .end local v9           #p:Landroid/preference/Preference;
-    invoke-direct {v9, v3}, Landroid/preference/MultiSelectListPreference;-><init>(Landroid/content/Context;)V
-
-    .line 899
-    .restart local v9       #p:Landroid/preference/Preference;
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v9, v13}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
-
-    move-object v13, v9
-
-    .line 900
-    check-cast v13, Landroid/preference/MultiSelectListPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceValues()[Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/MultiSelectListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
-
-    move-object v13, v9
-
-    .line 901
-    check-cast v13, Landroid/preference/MultiSelectListPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceEntries()[Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/MultiSelectListPreference;->setEntries([Ljava/lang/CharSequence;)V
-
-    .line 902
-    new-instance v11, Ljava/util/HashSet;
-
-    invoke-direct {v11}, Ljava/util/HashSet;-><init>()V
-
-    .line 903
-    .local v11, set:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getAllSelectedStrings()[Ljava/lang/String;
+    .line 1362
+    .line 1363
+    invoke-virtual {p3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, arr$:[Ljava/lang/String;
-    array-length v8, v2
+    move v1, v6
 
-    .local v8, len$:I
-    const/4 v7, 0x0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    .local v7, i$:I
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/RestrictionEntry;
+
+    .line 1364
+    invoke-virtual {v0}, Landroid/content/RestrictionEntry;->getType()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    move v0, v1
+
+    :goto_1
+    move v1, v0
+
+    .line 1370
+    goto :goto_0
+
+    .line 1369
+    :pswitch_0
+    const/4 v0, 0x1
+
+    goto :goto_1
+
+    .line 1374
+    :cond_0
+    sget-object v0, Lcom/android/settings/users/AppRestrictionsFragment;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "openRestrictionDetail() - isVisibleRestrcitions: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1376
+    if-nez v1, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isImmutable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 1380
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+
+    invoke-virtual {v0, p1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 1395
     :goto_2
-    if-ge v7, v8, :cond_2
+    return-void
 
-    aget-object v10, v2, v7
+    .line 1384
+    :cond_1
+    invoke-virtual {p1, p3}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setRestrictions(Ljava/util/ArrayList;)V
 
-    .line 904
-    .local v10, s:Ljava/lang/String;
-    invoke-virtual {v11, v10}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    .line 1386
+    new-instance v2, Landroid/os/Bundle;
 
-    .line 903
-    add-int/lit8 v7, v7, 0x1
+    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
+
+    .line 1387
+    const-string v0, "package_name"
+
+    invoke-virtual {v2, v0, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1388
+    const-string v0, "user_handle"
+
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 1389
+    const-string v0, "restriction_list"
+
+    invoke-virtual {v2, v0, p3}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    .line 1390
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/PreferenceActivity;
+
+    const-class v1, Lcom/android/settings/users/AppRestrictionsDetail;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const v3, 0x7f091776
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
     goto :goto_2
 
-    .end local v10           #s:Ljava/lang/String;
-    :cond_2
-    move-object v13, v9
-
-    .line 906
-    check-cast v13, Landroid/preference/MultiSelectListPreference;
-
-    invoke-virtual {v13, v11}, Landroid/preference/MultiSelectListPreference;->setValues(Ljava/util/Set;)V
-
-    move-object v13, v9
-
-    .line 907
-    check-cast v13, Landroid/preference/MultiSelectListPreference;
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Landroid/preference/MultiSelectListPreference;->setDialogTitle(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_1
-
-    .line 924
-    .end local v2           #arr$:[Ljava/lang/String;
-    .end local v5           #entry:Landroid/content/RestrictionEntry;
-    .end local v7           #i$:I
-    .end local v8           #len$:I
-    .end local v9           #p:Landroid/preference/Preference;
-    .end local v11           #set:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    :cond_3
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setRestrictions(Ljava/util/ArrayList;)V
-
-    .line 925
-    const/4 v13, 0x1
-
-    if-ne v4, v13, :cond_4
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isImmutable()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    .line 929
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v13, v0}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 931
-    :cond_4
-    return-void
-
-    .line 875
-    nop
-
+    .line 1364
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private populateApps()V
-    .locals 19
+    .locals 14
 
     .prologue
-    .line 590
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    .line 797
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v3
 
-    .line 591
-    .local v2, context:Landroid/content/Context;
-    if-nez v2, :cond_1
+    .line 798
+    if-nez v3, :cond_1
 
-    .line 669
+    .line 900
     :cond_0
     :goto_0
     return-void
 
-    .line 592
+    .line 799
     :cond_1
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    iget-object v11, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
+    .line 800
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
 
-    .line 593
-    .local v11, pm:Landroid/content/pm/PackageManager;
-    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+    .line 802
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
 
-    move-result-object v6
+    invoke-virtual {v1}, Landroid/preference/PreferenceGroup;->removeAll()V
 
-    .line 594
-    .local v6, ipm:Landroid/content/pm/IPackageManager;
-    move-object/from16 v0, p0
+    .line 811
+    new-instance v1, Landroid/content/Intent;
 
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+    const-string v2, "android.intent.action.GET_RESTRICTION_ENTRIES"
 
-    invoke-virtual {v15}, Landroid/preference/PreferenceGroup;->removeAll()V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 595
-    new-instance v14, Landroid/content/Intent;
+    .line 812
+    const/4 v2, 0x0
 
-    const-string v15, "android.intent.action.GET_RESTRICTION_ENTRIES"
-
-    invoke-direct {v14, v15}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 596
-    .local v14, restrictionsIntent:Landroid/content/Intent;
-    const/4 v15, 0x0
-
-    invoke-virtual {v11, v14, v15}, Landroid/content/pm/PackageManager;->queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
-
-    move-result-object v13
-
-    .line 597
-    .local v13, receivers:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    const/4 v4, 0x0
-
-    .line 598
-    .local v4, i:I
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
-
-    invoke-interface {v15}, Ljava/util/List;->size()I
-
-    move-result v15
-
-    if-lez v15, :cond_e
-
-    .line 599
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
-
-    invoke-interface {v15}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->queryBroadcastReceivers(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v5
 
-    .local v5, i$:Ljava/util/Iterator;
+    .line 813
+    const/4 v0, 0x0
+
+    .line 814
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_15
+
+    .line 815
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mVisibleApps:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    move v1, v0
+
     :cond_2
     :goto_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v15
+    move-result v0
 
-    if-eqz v15, :cond_e
+    if-eqz v0, :cond_15
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+    check-cast v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
-    .line 600
-    .local v1, app:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
-    iget-object v9, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
+    .line 816
+    iget-object v7, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->packageName:Ljava/lang/String;
 
-    .line 601
-    .local v9, packageName:Ljava/lang/String;
-    if-eqz v9, :cond_2
+    .line 817
+    if-eqz v7, :cond_2
 
-    .line 602
-    invoke-virtual {v2}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+    .line 818
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v2
 
-    invoke-virtual {v9, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    .line 603
-    .local v7, isSettingsApp:Z
-    new-instance v8, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+    .line 819
+    new-instance v9, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
-    move-object/from16 v0, p0
+    invoke-direct {v9, v3, p0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;-><init>(Landroid/content/Context;Landroid/view/View$OnClickListener;)V
 
-    invoke-direct {v8, v2, v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;-><init>(Landroid/content/Context;Landroid/view/View$OnClickListener;)V
+    .line 820
+    invoke-direct {p0, v5, v7}, Lcom/android/settings/users/AppRestrictionsFragment;->resolveInfoListHasPackage(Ljava/util/List;Ljava/lang/String;)Z
 
-    .line 604
-    .local v8, p:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    move-object/from16 v0, p0
+    move-result v10
 
-    invoke-direct {v0, v13, v9}, Lcom/android/settings/users/AppRestrictionsFragment;->resolveInfoListHasPackage(Ljava/util/List;Ljava/lang/String;)Z
+    .line 821
+    iget-object v2, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
 
-    move-result v3
+    if-eqz v2, :cond_c
 
-    .line 605
-    .local v3, hasSettings:Z
-    iget-object v15, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
+    iget-object v2, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v15, :cond_a
+    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    iget-object v15, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->icon:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v15}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v15
+    move-result-object v2
 
     :goto_2
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v9, v2}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 606
-    const/4 v15, 0x0
+    .line 822
+    const/4 v2, 0x0
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
+    invoke-virtual {v9, v2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
 
-    .line 607
-    iget-object v15, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+    .line 823
+    iget-object v2, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 608
-    iget-object v15, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->masterEntry:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+    .line 824
+    iget-object v2, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->masterEntry:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
-    if-eqz v15, :cond_3
+    if-eqz v2, :cond_3
 
-    .line 609
-    const v15, 0x7f090b26
+    .line 825
+    const v2, 0x7f090c22
 
-    const/16 v16, 0x1
+    const/4 v11, 0x1
 
-    move/from16 v0, v16
+    new-array v11, v11, [Ljava/lang/Object;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const/4 v12, 0x0
 
-    move-object/from16 v16, v0
+    iget-object v13, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->masterEntry:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
-    const/16 v17, 0x0
+    iget-object v13, v13, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
 
-    iget-object v0, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->masterEntry:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+    aput-object v13, v11, v12
 
-    move-object/from16 v18, v0
+    invoke-virtual {v3, v2, v11}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-object/from16 v0, v18
+    move-result-object v2
 
-    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->activityName:Ljava/lang/CharSequence;
+    invoke-virtual {v9, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    move-object/from16 v18, v0
-
-    aput-object v18, v16, v17
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v2, v15, v0}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setSummary(Ljava/lang/CharSequence;)V
-
-    .line 612
+    .line 828
     :cond_3
-    new-instance v15, Ljava/lang/StringBuilder;
+    invoke-direct {p0, v7}, Lcom/android/settings/users/AppRestrictionsFragment;->getKeyForPackage(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    const-string v16, "pkg_"
+    invoke-virtual {v9, v2}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 829
+    if-nez v10, :cond_4
 
-    move-result-object v15
-
-    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setKey(Ljava/lang/String;)V
-
-    .line 613
-    if-nez v3, :cond_4
-
-    if-eqz v7, :cond_b
+    if-eqz v8, :cond_d
 
     :cond_4
-    const/4 v15, 0x1
+    const/4 v2, 0x1
 
     :goto_3
     #calls: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setSettingsEnabled(Z)V
-    invoke-static {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$700(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
+    invoke-static {v9, v2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$800(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
 
-    .line 614
-    const/4 v15, 0x0
+    .line 830
+    const/4 v2, 0x0
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setPersistent(Z)V
+    invoke-virtual {v9, v2}, Landroid/preference/Preference;->setPersistent(Z)V
 
-    .line 615
-    move-object/from16 v0, p0
+    .line 831
+    invoke-virtual {v9, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    invoke-virtual {v8, v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    .line 832
+    invoke-virtual {v9, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
-    .line 616
-    move-object/from16 v0, p0
+    .line 833
+    const/4 v2, 0x0
 
-    invoke-virtual {v8, v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
-
-    .line 617
-    const/4 v10, 0x0
-
-    .line 619
-    .local v10, pi:Landroid/content/pm/PackageInfo;
-    const/4 v15, 0x0
+    .line 835
+    const/16 v11, 0x2040
 
     :try_start_0
-    invoke-virtual {v11, v9, v15}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    iget-object v12, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v12}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v12
+
+    invoke-interface {v4, v7, v11, v12}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
     :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v10
+    move-result-object v2
 
-    .line 626
+    .line 840
     :goto_4
-    if-eqz v10, :cond_c
+    if-eqz v2, :cond_e
 
-    iget-boolean v15, v10, Landroid/content/pm/PackageInfo;->requiredForAllUsers:Z
+    iget-boolean v11, v2, Landroid/content/pm/PackageInfo;->requiredForAllUsers:Z
 
-    if-eqz v15, :cond_c
+    if-nez v11, :cond_5
 
-    .line 627
-    const/4 v15, 0x1
+    invoke-direct {p0, v2}, Lcom/android/settings/users/AppRestrictionsFragment;->isPlatformSigned(Landroid/content/pm/PackageInfo;)Z
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
+    move-result v11
 
-    .line 628
-    const/4 v15, 0x1
+    if-eqz v11, :cond_e
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setImmutable(Z)V
-
-    .line 630
-    if-nez v3, :cond_5
-
-    if-eqz v7, :cond_2
-
-    .line 633
+    .line 841
     :cond_5
-    if-eqz v3, :cond_6
+    const/4 v11, 0x1
 
-    .line 634
-    move-object/from16 v0, p0
+    invoke-virtual {v9, v11}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
 
-    invoke-direct {v0, v9, v8}, Lcom/android/settings/users/AppRestrictionsFragment;->requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+    .line 842
+    const/4 v11, 0x1
 
-    .line 639
+    invoke-virtual {v9, v11}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setImmutable(Z)V
+
+    .line 844
+    if-nez v10, :cond_6
+
+    if-eqz v8, :cond_2
+
+    .line 848
     :cond_6
-    :goto_5
-    iget-object v15, v10, Landroid/content/pm/PackageInfo;->requiredAccountType:Ljava/lang/String;
+    if-eqz v10, :cond_7
 
-    if-eqz v15, :cond_7
+    .line 849
+    const/4 v10, 0x0
 
-    iget-object v15, v10, Landroid/content/pm/PackageInfo;->restrictedAccountType:Ljava/lang/String;
+    invoke-direct {p0, v7, v9, v10}, Lcom/android/settings/users/AppRestrictionsFragment;->requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
 
-    if-nez v15, :cond_7
-
-    .line 640
-    const/4 v15, 0x0
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
-
-    .line 641
-    const/4 v15, 0x1
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setImmutable(Z)V
-
-    .line 642
-    const v15, 0x7f090b27
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setSummary(I)V
-
-    .line 644
+    .line 854
     :cond_7
-    iget-object v15, v10, Landroid/content/pm/PackageInfo;->restrictedAccountType:Ljava/lang/String;
+    :goto_5
+    iget-boolean v10, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRestrictedProfile:Z
 
-    if-eqz v15, :cond_8
+    if-eqz v10, :cond_8
 
-    .line 645
-    const v15, 0x7f090b28
+    iget-object v10, v2, Landroid/content/pm/PackageInfo;->requiredAccountType:Ljava/lang/String;
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setSummary(I)V
+    if-eqz v10, :cond_8
 
-    .line 647
+    iget-object v10, v2, Landroid/content/pm/PackageInfo;->restrictedAccountType:Ljava/lang/String;
+
+    if-nez v10, :cond_8
+
+    .line 856
+    const/4 v10, 0x0
+
+    invoke-virtual {v9, v10}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
+
+    .line 857
+    const/4 v10, 0x1
+
+    invoke-virtual {v9, v10}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setImmutable(Z)V
+
+    .line 858
+    const v10, 0x7f090c23
+
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
+
+    .line 860
     :cond_8
-    iget-object v15, v1, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->masterEntry:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
+    iget-boolean v10, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRestrictedProfile:Z
 
-    if-eqz v15, :cond_9
+    if-eqz v10, :cond_9
 
-    .line 648
-    const/4 v15, 0x1
+    iget-object v2, v2, Landroid/content/pm/PackageInfo;->restrictedAccountType:Ljava/lang/String;
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setImmutable(Z)V
+    if-eqz v2, :cond_9
 
-    .line 649
-    move-object/from16 v0, p0
+    .line 861
+    const v2, 0x7f090c24
 
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+    invoke-virtual {v9, v2}, Landroid/preference/Preference;->setSummary(I)V
 
-    invoke-virtual {v15, v9}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Ljava/lang/Boolean;
-
-    invoke-virtual {v15}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v15
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
-
-    .line 651
+    .line 863
     :cond_9
-    move-object/from16 v0, p0
+    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;->masterEntry:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
 
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+    if-eqz v0, :cond_a
 
-    invoke-virtual {v15, v8}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+    .line 864
+    const/4 v0, 0x1
 
-    .line 652
-    if-eqz v7, :cond_d
+    invoke-virtual {v9, v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setImmutable(Z)V
 
-    .line 653
-    const/16 v15, 0x64
+    .line 865
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setOrder(I)V
+    invoke-virtual {v0, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 657
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    invoke-virtual {v9, v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
+
+    .line 867
+    :cond_a
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+
+    invoke-virtual {v0, v9}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+
+    .line 868
+    if-eqz v8, :cond_f
+
+    .line 869
+    const/16 v0, 0x64
+
+    invoke-virtual {v9, v0}, Landroid/preference/Preference;->setOrder(I)V
+
+    .line 873
     :goto_6
-    invoke-virtual {v8, v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setSelectableAppInfo(Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;)V
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    .line 658
-    move-object/from16 v0, p0
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+    move-result v2
 
-    invoke-virtual {v8}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result v16
+    move-result-object v2
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-virtual {v0, v7, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v16
+    .line 876
+    const-string v0, "com.sec.android.app.samsungapps"
 
-    move-object/from16 v0, v16
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v15, v9, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v0
 
-    .line 659
-    const/4 v15, 0x1
+    if-eqz v0, :cond_10
 
-    move-object/from16 v0, p0
+    .line 877
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    iput-boolean v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
+    const-string v2, "com.sec.android.widget.samsungapps"
 
-    .line 660
-    add-int/lit8 v4, v4, 0x1
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    .line 661
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v2, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 890
+    :cond_b
+    :goto_7
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
+
+    .line 891
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    .line 892
     goto/16 :goto_1
 
-    .line 605
-    .end local v10           #pi:Landroid/content/pm/PackageInfo;
-    :cond_a
-    const/4 v15, 0x0
+    .line 821
+    :cond_c
+    const/4 v2, 0x0
 
     goto/16 :goto_2
 
-    .line 613
-    :cond_b
-    const/4 v15, 0x0
+    .line 829
+    :cond_d
+    const/4 v2, 0x0
 
     goto/16 :goto_3
 
-    .line 620
-    .restart local v10       #pi:Landroid/content/pm/PackageInfo;
-    :catch_0
-    move-exception v12
+    .line 851
+    :cond_e
+    iget-boolean v10, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
 
-    .line 622
-    .local v12, re:Landroid/content/pm/PackageManager$NameNotFoundException;
-    const/4 v15, 0x0
+    if-nez v10, :cond_7
 
-    :try_start_1
-    move-object/from16 v0, p0
+    invoke-direct {p0, v2}, Lcom/android/settings/users/AppRestrictionsFragment;->isAppEnabledForUser(Landroid/content/pm/PackageInfo;)Z
 
-    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+    move-result v10
 
-    move-object/from16 v16, v0
+    if-eqz v10, :cond_7
 
-    invoke-virtual/range {v16 .. v16}, Landroid/os/UserHandle;->getIdentifier()I
+    .line 852
+    const/4 v10, 0x1
 
-    move-result v16
-
-    move/from16 v0, v16
-
-    invoke-interface {v6, v9, v15, v0}, Landroid/content/pm/IPackageManager;->getPackageInfo(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    move-result-object v10
-
-    goto/16 :goto_4
-
-    .line 636
-    .end local v12           #re:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :cond_c
-    move-object/from16 v0, p0
-
-    iget-boolean v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
-
-    if-nez v15, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserApps:Ljava/util/List;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v15, v9}, Lcom/android/settings/users/AppRestrictionsFragment;->appInfoListHasPackage(Ljava/util/List;Ljava/lang/String;)Z
-
-    move-result v15
-
-    if-eqz v15, :cond_6
-
-    .line 637
-    const/4 v15, 0x1
-
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
+    invoke-virtual {v9, v10}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
 
     goto/16 :goto_5
 
-    .line 655
-    :cond_d
-    add-int/lit8 v15, v4, 0x2
+    .line 871
+    :cond_f
+    add-int/lit8 v0, v1, 0x2
 
-    mul-int/lit8 v15, v15, 0x64
+    mul-int/lit8 v0, v0, 0x64
 
-    invoke-virtual {v8, v15}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setOrder(I)V
+    invoke-virtual {v9, v0}, Landroid/preference/Preference;->setOrder(I)V
 
     goto :goto_6
 
-    .line 665
-    .end local v1           #app:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
-    .end local v3           #hasSettings:Z
-    .end local v5           #i$:Ljava/util/Iterator;
-    .end local v7           #isSettingsApp:Z
-    .end local v8           #p:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    .end local v9           #packageName:Ljava/lang/String;
-    .end local v10           #pi:Landroid/content/pm/PackageInfo;
-    :cond_e
-    move-object/from16 v0, p0
+    .line 878
+    :cond_10
+    const-string v0, "com.sec.android.app.clockpackage"
 
-    iget-boolean v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v15, :cond_0
+    move-result v0
 
-    move-object/from16 v0, p0
+    if-eqz v0, :cond_11
 
-    iget-boolean v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mFirstTime:Z
+    .line 879
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    if-eqz v15, :cond_0
+    const-string v2, "com.sec.android.widgetapp.alarmwidget"
 
-    .line 666
-    const/4 v15, 0x0
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    move-object/from16 v0, p0
+    move-result v7
 
-    iput-boolean v15, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mFirstTime:Z
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    .line 667
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/users/AppRestrictionsFragment;->updateUserAppList()V
+    move-result-object v7
+
+    invoke-virtual {v0, v2, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_7
+
+    .line 880
+    :cond_11
+    const-string v0, "com.samsung.everglades.video"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_12
+
+    .line 881
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v2, "com.sec.android.app.videoplayer"
+
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v2, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_7
+
+    .line 882
+    :cond_12
+    const-string v0, "com.sec.android.quickmemo"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_13
+
+    .line 883
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v2, "com.sec.android.quickmemowidget"
+
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v2, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_7
+
+    .line 884
+    :cond_13
+    const-string v0, "com.android.calendar"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_14
+
+    .line 885
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v2, "com.sec.android.widgetapp.SPlannerAppWidget"
+
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v2, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto/16 :goto_7
+
+    .line 886
+    :cond_14
+    const-string v0, "com.samsung.android.app.episodes"
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    .line 887
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v2, "com.samsung.android.app.storyalbumwidget"
+
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v2, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto/16 :goto_7
+
+    .line 896
+    :cond_15
+    iget-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mFirstTime:Z
+
+    if-eqz v0, :cond_0
+
+    .line 897
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mFirstTime:Z
+
+    .line 898
+    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppsStates()V
 
     goto/16 :goto_0
 
-    .line 623
-    .restart local v1       #app:Lcom/android/settings/users/AppRestrictionsFragment$SelectableAppInfo;
-    .restart local v3       #hasSettings:Z
-    .restart local v5       #i$:Ljava/util/Iterator;
-    .restart local v7       #isSettingsApp:Z
-    .restart local v8       #p:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    .restart local v9       #packageName:Ljava/lang/String;
-    .restart local v10       #pi:Landroid/content/pm/PackageInfo;
-    .restart local v12       #re:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_1
-    move-exception v15
+    .line 838
+    :catch_0
+    move-exception v11
 
     goto/16 :goto_4
 .end method
 
-.method private requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+.method private removeRestrictionsForApp(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+    .locals 3
+    .parameter "preference"
+
+    .prologue
+    .line 1027
+    #getter for: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->mChildren:Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$1100(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    .local v0, i$:Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/Preference;
+
+    .line 1028
+    .local v1, p:Landroid/preference/Preference;
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+
+    invoke-virtual {v2, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    goto :goto_0
+
+    .line 1030
+    .end local v1           #p:Landroid/preference/Preference;
+    :cond_0
+    #getter for: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->mChildren:Ljava/util/List;
+    invoke-static {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$1100(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->clear()V
+
+    .line 1031
+    return-void
+.end method
+
+.method private requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
     .locals 8
+    .parameter
     .parameter
     .parameter
 
     .prologue
     const/4 v2, 0x0
 
-    .line 808
+    .line 1062
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
 
     iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
@@ -2491,34 +3312,34 @@
 
     move-result-object v0
 
-    .line 810
+    .line 1064
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.GET_RESTRICTION_ENTRIES"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 811
+    .line 1065
     invoke-virtual {v1, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 812
+    .line 1066
     const-string v3, "android.intent.extra.restrictions_bundle"
 
     invoke-virtual {v1, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 813
+    .line 1067
     const/16 v0, 0x20
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 814
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    .line 1068
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;
 
-    invoke-direct {v3, p0, p1, p2}, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+    invoke-direct {v3, p0, p1, p2, p3}, Lcom/android/settings/users/AppRestrictionsFragment$RestrictionsResultReceiver;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
 
     const/4 v5, -0x1
 
@@ -2528,9 +3349,9 @@
 
     move-object v7, v2
 
-    invoke-virtual/range {v0 .. v7}, Landroid/app/Activity;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual/range {v0 .. v7}, Landroid/content/ContextWrapper;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 817
+    .line 1071
     return-void
 .end method
 
@@ -2551,7 +3372,7 @@
     .end annotation
 
     .prologue
-    .line 682
+    .line 917
     .local p1, receivers:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -2571,7 +3392,7 @@
 
     check-cast v1, Landroid/content/pm/ResolveInfo;
 
-    .line 683
+    .line 918
     .local v1, info:Landroid/content/pm/ResolveInfo;
     iget-object v2, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -2583,10 +3404,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 684
+    .line 919
     const/4 v2, 0x1
 
-    .line 687
+    .line 922
     .end local v1           #info:Landroid/content/pm/ResolveInfo;
     :goto_0
     return v2
@@ -2597,143 +3418,31 @@
     goto :goto_0
 .end method
 
-.method private toggleAppPanel(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
-    .locals 6
-    .parameter "preference"
+.method private setRestrictionEntry(Landroid/content/RestrictionEntry;)V
+    .locals 3
+    .parameter "entry"
 
     .prologue
-    .line 785
-    invoke-virtual {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
+    .line 1356
+    new-instance v0, Ljava/util/ArrayList;
 
-    move-result-object v4
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const-string v5, "pkg_"
+    .line 1357
+    .local v0, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    .line 786
-    iget-boolean v4, p1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->panelOpen:Z
-
-    if-eqz v4, :cond_2
-
-    .line 787
-    iget-object v4, p1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->childPreferences:Ljava/util/List;
-
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    .local v0, i$:Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 1358
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    check-cast v1, Landroid/preference/Preference;
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    .line 788
-    .local v1, p:Landroid/preference/Preference;
-    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+    invoke-static {v1, v0, v2}, Lcom/android/settings/users/RestrictionUtils;->setRestrictions(Landroid/content/Context;Ljava/util/ArrayList;Landroid/os/UserHandle;)V
 
-    invoke-virtual {v4, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
-
-    goto :goto_0
-
-    .line 790
-    .end local v1           #p:Landroid/preference/Preference;
-    :cond_0
-    iget-object v4, p1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->childPreferences:Ljava/util/List;
-
-    invoke-interface {v4}, Ljava/util/List;->clear()V
-
-    .line 802
-    .end local v0           #i$:Ljava/util/Iterator;
-    :goto_1
-    iget-boolean v4, p1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->panelOpen:Z
-
-    if-nez v4, :cond_4
-
-    const/4 v4, 0x1
-
-    :goto_2
-    iput-boolean v4, p1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->panelOpen:Z
-
-    .line 804
-    :cond_1
+    .line 1359
     return-void
-
-    .line 792
-    :cond_2
-    invoke-virtual {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "pkg_"
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 793
-    .local v2, packageName:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    .line 795
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-static {v4, v5}, Lcom/android/settings/users/RestrictionUtils;->getRestrictions(Landroid/content/Context;Landroid/os/UserHandle;)Ljava/util/ArrayList;
-
-    move-result-object v3
-
-    .line 797
-    .local v3, restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
-    invoke-direct {p0, p1, v2, v3}, Lcom/android/settings/users/AppRestrictionsFragment;->onRestrictionsReceived(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    goto :goto_1
-
-    .line 799
-    .end local v3           #restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
-    :cond_3
-    invoke-direct {p0, v2, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
-
-    goto :goto_1
-
-    .line 802
-    .end local v2           #packageName:Ljava/lang/String;
-    :cond_4
-    const/4 v4, 0x0
-
-    goto :goto_2
 .end method
 
 .method private updateAllEntries(Ljava/lang/String;Z)V
@@ -2742,7 +3451,7 @@
     .parameter "checked"
 
     .prologue
-    .line 700
+    .line 926
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -2755,20 +3464,20 @@
 
     if-ge v0, v2, :cond_1
 
-    .line 701
+    .line 927
     iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
 
     invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->getPreference(I)Landroid/preference/Preference;
 
     move-result-object v1
 
-    .line 702
+    .line 928
     .local v1, pref:Landroid/preference/Preference;
     instance-of v2, v1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
     if-eqz v2, :cond_0
 
-    .line 703
+    .line 929
     invoke-virtual {v1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v2
@@ -2779,334 +3488,271 @@
 
     if-eqz v2, :cond_0
 
-    .line 704
+    .line 930
     check-cast v1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
     .end local v1           #pref:Landroid/preference/Preference;
     invoke-virtual {v1, p2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
 
-    .line 700
+    .line 926
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 708
+    .line 934
     :cond_1
     return-void
-.end method
-
-.method private updateUserAppList()V
-    .locals 10
-
-    .prologue
-    .line 365
-    const-string v6, "package"
-
-    invoke-static {v6}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v6
-
-    invoke-static {v6}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
-
-    move-result-object v3
-
-    .line 367
-    .local v3, ipm:Landroid/content/pm/IPackageManager;
-    iget-object v6, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v5
-
-    .line 368
-    .local v5, userId:I
-    iget-object v6, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
-
-    invoke-virtual {v6, v5}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/content/pm/UserInfo;->isRestricted()Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    .line 369
-    sget-object v6, Lcom/android/settings/users/AppRestrictionsFragment;->TAG:Ljava/lang/String;
-
-    const-string v7, "Cannot apply application restrictions on a regular user!"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 401
-    :cond_0
-    return-void
-
-    .line 372
-    :cond_1
-    iget-object v6, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
-
-    invoke-virtual {v6}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :cond_2
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    .line 373
-    .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Boolean;>;"
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    .line 374
-    .local v4, packageName:Ljava/lang/String;
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/Boolean;
-
-    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 377
-    const/4 v6, 0x0
-
-    :try_start_0
-    invoke-interface {v3, v4, v6, v5}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v2
-
-    .line 378
-    .local v2, info:Landroid/content/pm/ApplicationInfo;
-    if-eqz v2, :cond_3
-
-    iget-boolean v6, v2, Landroid/content/pm/ApplicationInfo;->enabled:Z
-
-    if-nez v6, :cond_2
-
-    .line 379
-    :cond_3
-    iget-object v6, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v6
-
-    invoke-interface {v3, v4, v6}, Landroid/content/pm/IPackageManager;->installExistingPackageAsUser(Ljava/lang/String;I)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 384
-    .end local v2           #info:Landroid/content/pm/ApplicationInfo;
-    :catch_0
-    move-exception v6
-
-    goto :goto_0
-
-    .line 389
-    :cond_4
-    const/4 v6, 0x0
-
-    :try_start_1
-    invoke-interface {v3, v4, v6, v5}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v2
-
-    .line 390
-    .restart local v2       #info:Landroid/content/pm/ApplicationInfo;
-    if-eqz v2, :cond_2
-
-    .line 391
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    const/4 v7, 0x0
-
-    iget-object v8, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-virtual {v8}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v8
-
-    const/4 v9, 0x4
-
-    invoke-interface {v3, v6, v7, v8, v9}, Landroid/content/pm/IPackageManager;->deletePackageAsUser(Ljava/lang/String;Landroid/content/pm/IPackageDeleteObserver;II)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_0
-
-    .line 397
-    .end local v2           #info:Landroid/content/pm/ApplicationInfo;
-    :catch_1
-    move-exception v6
-
-    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 3
-    .parameter "savedInstanceState"
+.method protected getAppPreferenceGroup()Landroid/preference/PreferenceGroup;
+    .locals 1
 
     .prologue
-    .line 307
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
-
-    if-nez v0, :cond_0
-
-    .line 308
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    .line 475
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    return-object v0
+.end method
 
-    move-result-object v0
+.method protected getCircularUserIcon()Landroid/graphics/drawable/Drawable;
+    .locals 4
 
-    const v1, 0x7f040193
+    .prologue
+    .line 479
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
 
-    const/4 v2, 0x0
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v3}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result-object v0
+    move-result v3
 
-    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
 
-    .line 310
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getListView()Landroid/widget/ListView;
+    move-result-object v1
 
-    move-result-object v0
+    .line 480
+    .local v1, userIcon:Landroid/graphics/Bitmap;
+    if-nez v1, :cond_0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getParent()Landroid/view/ViewParent;
+    .line 481
+    const/4 v0, 0x0
 
-    move-result-object v0
+    .line 485
+    :goto_0
+    return-object v0
 
-    check-cast v0, Landroid/view/ViewGroup;
-
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
-
-    .line 311
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
-
-    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 312
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
-
-    const v1, 0x1020006
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserIconView:Landroid/widget/ImageView;
-
-    .line 313
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
-
-    const v1, 0x1020016
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserNameView:Landroid/widget/TextView;
-
-    .line 314
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getListView()Landroid/widget/ListView;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setFastScrollEnabled(Z)V
-
-    .line 317
+    .line 483
     :cond_0
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    .line 318
+    move-result-object v2
+
+    invoke-static {v2, v1}, Lcom/android/settings/users/CircleFramedDrawable;->getInstance(Landroid/content/Context;Landroid/graphics/Bitmap;)Lcom/android/settings/users/CircleFramedDrawable;
+
+    move-result-object v0
+
+    .line 485
+    .local v0, circularIcon:Lcom/android/settings/users/CircleFramedDrawable;
+    goto :goto_0
+.end method
+
+.method protected init(Landroid/os/Bundle;)V
+    .locals 4
+    .parameter "icicle"
+
+    .prologue
+    .line 357
+    if-eqz p1, :cond_2
+
+    .line 358
+    new-instance v1, Landroid/os/UserHandle;
+
+    const-string v2, "user_id"
+
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Landroid/os/UserHandle;-><init>(I)V
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    .line 369
+    :cond_0
+    :goto_0
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    if-nez v1, :cond_1
+
+    .line 370
+    invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    .line 373
+    :cond_1
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    .line 374
+    const-string v1, "package"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIPm:Landroid/content/pm/IPackageManager;
+
+    .line 375
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    const-string v2, "user"
+
+    invoke-virtual {v1, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/UserManager;
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+
+    .line 376
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isRestricted()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRestrictedProfile:Z
+
+    .line 378
+    :try_start_0
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    const-string v2, "android"
+
+    const/16 v3, 0x40
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSysPackageInfo:Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 383
+    :goto_1
+    const v1, 0x7f070019
+
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
+
+    .line 384
+    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getAppPreferenceGroup()Landroid/preference/PreferenceGroup;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+
+    .line 386
     return-void
+
+    .line 360
+    :cond_2
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    .line 361
+    .local v0, args:Landroid/os/Bundle;
+    if-eqz v0, :cond_0
+
+    .line 362
+    const-string v1, "user_id"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 363
+    new-instance v1, Landroid/os/UserHandle;
+
+    const-string v2, "user_id"
+
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Landroid/os/UserHandle;-><init>(I)V
+
+    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    .line 365
+    :cond_3
+    const-string v1, "new_user"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
+
+    goto :goto_0
+
+    .line 380
+    .end local v0           #args:Landroid/os/Bundle;
+    :catch_0
+    move-exception v1
+
+    goto :goto_1
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 5
+    .locals 4
     .parameter
     .parameter
     .parameter
 
     .prologue
-    .line 947
+    .line 1194
     invoke-super {p0, p1, p2, p3}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 949
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserPhotoController:Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;->onActivityResult(IILandroid/content/Intent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 978
-    :goto_0
-    return-void
-
-    .line 954
-    :cond_0
+    .line 1196
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestMap:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3119,10 +3765,10 @@
 
     check-cast v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
-    .line 955
-    if-nez v0, :cond_1
+    .line 1197
+    if-nez v0, :cond_0
 
-    .line 956
+    .line 1198
     sget-object v0, Lcom/android/settings/users/AppRestrictionsFragment;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3145,16 +3791,18 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    .line 1219
+    :goto_0
+    return-void
 
-    .line 960
-    :cond_1
+    .line 1202
+    :cond_0
     const/4 v1, -0x1
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_1
 
-    .line 961
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
+    .line 1203
+    invoke-virtual {v0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v1
 
@@ -3168,44 +3816,40 @@
 
     move-result-object v1
 
-    .line 962
+    .line 1204
     const-string v2, "android.intent.extra.restrictions_list"
 
     invoke-virtual {p3, v2}, Landroid/content/Intent;->getParcelableArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    .line 964
+    .line 1206
     const-string v3, "android.intent.extra.restrictions_bundle"
 
     invoke-virtual {p3, v3}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v3
 
-    .line 965
-    if-eqz v2, :cond_4
+    .line 1207
+    if-eqz v2, :cond_2
 
-    .line 967
+    .line 1209
     invoke-virtual {v0, v2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setRestrictions(Ljava/util/ArrayList;)V
 
-    .line 968
-    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+    .line 1210
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
 
     invoke-static {v2}, Lcom/android/settings/users/RestrictionUtils;->restrictionsToBundle(Ljava/util/ArrayList;)Landroid/os/Bundle;
 
     move-result-object v2
 
-    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    invoke-virtual {v3, v1, v2, v4}, Landroid/os/UserManager;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/UserManager;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
 
-    .line 974
-    :cond_2
+    .line 1218
+    :cond_1
     :goto_1
-    invoke-direct {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->toggleAppPanel(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
-
-    .line 977
-    :cond_3
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mCustomRequestMap:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3216,96 +3860,86 @@
 
     goto :goto_0
 
-    .line 970
-    :cond_4
-    if-eqz v3, :cond_2
+    .line 1212
+    :cond_2
+    if-eqz v3, :cond_1
 
-    .line 972
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+    .line 1214
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
 
-    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    invoke-virtual {v2, v1, v3, v4}, Landroid/os/UserManager;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, v1, v3, v2}, Landroid/os/UserManager;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
 
     goto :goto_1
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 5
-    .parameter "v"
+    .locals 6
+    .parameter
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    .line 712
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
+    const/4 v3, 0x0
 
-    if-ne p1, v2, :cond_1
+    .line 938
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    .line 713
-    invoke-virtual {p0, v3}, Lcom/android/settings/users/AppRestrictionsFragment;->showDialog(I)V
+    move-result-object v0
 
-    .line 731
+    instance-of v0, v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+
+    if-eqz v0, :cond_0
+
+    .line 939
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+
+    .line 940
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+
+    move-result v1
+
+    const v4, 0x7f0b0339
+
+    if-ne v1, v4, :cond_1
+
+    .line 941
+    invoke-direct {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->onAppSettingsIconClicked(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
+
+    .line 975
     :cond_0
     :goto_0
     return-void
 
-    .line 714
+    .line 942
     :cond_1
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isImmutable()Z
 
-    move-result-object v2
+    move-result v1
 
-    instance-of v2, v2, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+    if-nez v1, :cond_0
 
-    if-eqz v2, :cond_0
+    .line 943
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    .line 715
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    move-result v1
 
-    move-result-object v1
+    if-nez v1, :cond_5
 
-    check-cast v1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-
-    .line 716
-    .local v1, pref:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v2
-
-    const v4, 0x7f0b02fc
-
-    if-ne v2, v4, :cond_2
-
-    .line 717
-    invoke-direct {p0, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->toggleAppPanel(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
-
-    goto :goto_0
-
-    .line 718
-    :cond_2
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isImmutable()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    .line 719
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    move v2, v3
+    move v1, v2
 
     :goto_1
-    invoke-virtual {v1, v2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
 
-    .line 720
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
+    .line 944
+    invoke-virtual {v0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     const-string v4, "pkg_"
 
@@ -3313,753 +3947,584 @@
 
     move-result v4
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 721
-    .local v0, packageName:Ljava/lang/String;
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+    .line 945
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v1, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 946
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    if-eqz v4, :cond_2
+
+    #getter for: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->hasSettings:Z
+    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$900(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    #getter for: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->restrictions:Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$1000(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)Ljava/util/ArrayList;
 
     move-result-object v4
 
-    invoke-virtual {v2, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    if-nez v4, :cond_2
 
-    .line 722
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
+    .line 949
+    invoke-direct {p0, v1, v0, v3}, Lcom/android/settings/users/AppRestrictionsFragment;->requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;Z)V
 
-    move-result v2
+    .line 953
+    :cond_2
+    const-string v3, "com.sec.android.app.samsungapps"
 
-    if-eqz v2, :cond_3
-
-    #getter for: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->hasSettings:Z
-    invoke-static {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$800(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    #getter for: Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->restrictions:Ljava/util/ArrayList;
-    invoke-static {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->access$900(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)Ljava/util/ArrayList;
-
-    move-result-object v2
-
-    if-nez v2, :cond_3
-
-    .line 725
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->requestRestrictionsForApp(Ljava/lang/String;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)V
-
-    .line 727
-    :cond_3
-    iput-boolean v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
-
-    .line 728
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    invoke-direct {p0, v2, v3}, Lcom/android/settings/users/AppRestrictionsFragment;->updateAllEntries(Ljava/lang/String;Z)V
+    if-eqz v3, :cond_6
 
-    goto :goto_0
+    .line 954
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    .line 719
-    .end local v0           #packageName:Ljava/lang/String;
-    :cond_4
-    const/4 v2, 0x0
+    const-string v4, "com.sec.android.widget.samsungapps"
 
-    goto :goto_1
-.end method
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-.method public onCreate(Landroid/os/Bundle;)V
-    .locals 3
-    .parameter "icicle"
+    move-result v5
 
-    .prologue
-    .line 285
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    .line 287
-    if-eqz p1, :cond_0
+    move-result-object v5
 
-    .line 288
-    new-instance v1, Landroid/os/UserHandle;
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "user_id"
+    .line 967
+    :cond_3
+    :goto_2
+    iput-boolean v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
 
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    .line 969
+    iget-boolean v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mRestrictedProfile:Z
+
+    if-nez v2, :cond_4
+
+    .line 970
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
-    invoke-direct {v1, v2}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {p0, v1, v2}, Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppState(Ljava/lang/String;Z)V
 
-    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    .line 289
-    const-string v1, "pending_photo"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    .line 972
+    :cond_4
+    invoke-virtual {v0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Landroid/graphics/Bitmap;
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSavedPhoto:Landroid/graphics/Bitmap;
+    move-result v0
 
-    .line 298
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    invoke-direct {p0, v1, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->updateAllEntries(Ljava/lang/String;Z)V
 
-    move-result-object v1
+    goto :goto_0
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    :cond_5
+    move v1, v3
 
-    move-result-object v1
+    .line 943
+    goto :goto_1
 
-    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageManager:Landroid/content/pm/PackageManager;
+    .line 955
+    :cond_6
+    const-string v3, "com.sec.android.app.clockpackage"
 
-    .line 299
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    move-result v3
 
-    const-string v2, "user"
+    if-eqz v3, :cond_7
 
-    invoke-virtual {v1, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 956
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    move-result-object v1
+    const-string v4, "com.sec.android.widgetapp.alarmwidget"
 
-    check-cast v1, Landroid/os/UserManager;
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+    move-result v5
 
-    .line 300
-    const v1, 0x7f070012
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->addPreferencesFromResource(I)V
+    move-result-object v5
 
-    .line 301
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    goto :goto_2
 
-    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+    .line 957
+    :cond_7
+    const-string v3, "com.samsung.everglades.video"
 
-    .line 302
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    .line 958
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v4, "com.sec.android.app.videoplayer"
+
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_2
+
+    .line 959
+    :cond_8
+    const-string v3, "com.sec.android.quickmemo"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    .line 960
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v4, "com.sec.android.quickmemowidget"
+
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_2
+
+    .line 961
+    :cond_9
+    const-string v3, "com.android.calendar"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    .line 962
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v4, "com.sec.android.widgetapp.SPlannerAppWidget"
+
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_2
+
+    .line 963
+    :cond_a
+    const-string v3, "com.samsung.android.app.episodes"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 964
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
+
+    const-string v4, "com.samsung.android.app.storyalbumwidget"
+
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto/16 :goto_2
+.end method
+
+.method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
+    .locals 4
+    .parameter "menu"
+    .parameter "inflater"
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 396
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/users/AppRestrictionsFragment;->setHasOptionsMenu(Z)V
+    const v2, 0x7f090bea
 
-    .line 303
-    return-void
-
-    .line 291
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getArguments()Landroid/os/Bundle;
+    invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 293
-    .local v0, args:Landroid/os/Bundle;
-    const-string v1, "user_id"
+    .line 397
+    .local v0, removeThisUser:Landroid/view/MenuItem;
+    const v1, 0x7f020124
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    move-result v1
+    .line 398
+    const/4 v1, 0x5
 
-    if-eqz v1, :cond_1
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 294
-    new-instance v1, Landroid/os/UserHandle;
+    .line 400
+    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    const-string v2, "user_id"
+    .line 401
+    return-void
+.end method
 
-    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+.method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .locals 3
+    .parameter "item"
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 404
+    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result v0
+
+    .line 405
+    .local v0, itemId:I
+    if-ne v0, v1, :cond_0
+
+    .line 406
+    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v2
 
-    invoke-direct {v1, v2}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {p0, v2}, Lcom/android/settings/users/AppRestrictionsFragment;->onRemoveUserClicked(I)V
 
-    iput-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+    .line 410
+    :goto_0
+    return v1
 
-    .line 296
-    :cond_1
-    const-string v1, "new_user"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    :cond_0
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
-
-    iput-boolean v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
 
     goto :goto_0
-.end method
-
-.method public onCreateDialog(I)Landroid/app/Dialog;
-    .locals 7
-    .parameter
-
-    .prologue
-    const/4 v0, 0x0
-
-    const/4 v6, 0x1
-
-    .line 1007
-    if-ne p1, v6, :cond_0
-
-    .line 1008
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    if-eqz v1, :cond_1
-
-    .line 1009
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    .line 1091
-    :cond_0
-    :goto_0
-    return-object v0
-
-    .line 1012
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v1
-
-    .line 1013
-    const v2, 0x7f040084
-
-    invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v3
-
-    .line 1015
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
-
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-virtual {v1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v1
-
-    .line 1017
-    const v0, 0x7f0b016e
-
-    invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
-
-    .line 1018
-    iget-object v1, v1, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 1020
-    const v1, 0x7f0b016d
-
-    invoke-virtual {v3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ImageView;
-
-    .line 1022
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSavedPhoto:Landroid/graphics/Bitmap;
-
-    if-eqz v2, :cond_3
-
-    .line 1023
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSavedPhoto:Landroid/graphics/Bitmap;
-
-    invoke-static {v2, v4}, Lcom/android/settings/users/CircleFramedDrawable;->getInstance(Landroid/content/Context;Landroid/graphics/Bitmap;)Lcom/android/settings/users/CircleFramedDrawable;
-
-    move-result-object v2
-
-    .line 1030
-    :cond_2
-    :goto_1
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 1032
-    new-instance v4, Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-
-    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSavedPhoto:Landroid/graphics/Bitmap;
-
-    invoke-direct {v4, p0, v1, v5, v2}, Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;-><init>(Landroid/app/Fragment;Landroid/widget/ImageView;Landroid/graphics/Bitmap;Landroid/graphics/drawable/Drawable;)V
-
-    iput-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserPhotoController:Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-
-    .line 1035
-    new-instance v1, Landroid/app/AlertDialog$Builder;
-
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const v2, 0x7f0901aa
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    const v2, 0x7f0201f3
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    const v2, 0x104000a
-
-    new-instance v3, Lcom/android/settings/users/AppRestrictionsFragment$4;
-
-    invoke-direct {v3, p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment$4;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Landroid/widget/EditText;)V
-
-    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const/high16 v1, 0x104
-
-    new-instance v2, Lcom/android/settings/users/AppRestrictionsFragment$3;
-
-    invoke-direct {v2, p0}, Lcom/android/settings/users/AppRestrictionsFragment$3;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    .line 1085
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
-
-    .line 1088
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    goto/16 :goto_0
-
-    .line 1025
-    :cond_3
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserIconView:Landroid/widget/ImageView;
-
-    invoke-virtual {v2}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    .line 1026
-    if-nez v2, :cond_2
-
-    .line 1027
-    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getCircularUserIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    goto :goto_1
 .end method
 
 .method public onPause()V
     .locals 2
 
     .prologue
-    .line 345
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 447
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 346
+    .line 448
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mNewUser:Z
 
-    .line 347
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    .line 449
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserBackgrounding:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 348
+    .line 450
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageObserver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    .line 451
     iget-boolean v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
 
     if-eqz v0, :cond_0
 
-    .line 349
-    new-instance v0, Lcom/android/settings/users/AppRestrictionsFragment$2;
+    .line 452
+    new-instance v0, Lcom/android/settings/users/AppRestrictionsFragment$3;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/users/AppRestrictionsFragment$2;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/users/AppRestrictionsFragment$3;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$2;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 355
+    .line 458
     :cond_0
     return-void
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    .locals 20
-    .parameter "preference"
-    .parameter "newValue"
+    .locals 6
+    .parameter
+    .parameter
 
     .prologue
-    .line 735
-    invoke-virtual/range {p1 .. p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+    .line 979
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v0
 
-    .line 736
-    .local v7, key:Ljava/lang/String;
-    if-eqz v7, :cond_1
+    .line 980
+    if-eqz v0, :cond_1
 
-    const-string v17, ";"
+    const-string v1, ";"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v1
 
-    move-result v17
+    if-eqz v1, :cond_1
 
-    if-eqz v17, :cond_1
+    .line 981
+    new-instance v1, Ljava/util/StringTokenizer;
 
-    .line 737
-    new-instance v16, Ljava/util/StringTokenizer;
+    const-string v2, ";"
 
-    const-string v17, ";"
+    invoke-direct {v1, v0, v2}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v0, v16
+    .line 982
+    invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-object/from16 v1, v17
+    move-result-object v2
 
-    invoke-direct {v0, v7, v1}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    .line 983
+    invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    .line 738
-    .local v16, st:Ljava/util/StringTokenizer;
-    invoke-virtual/range {v16 .. v16}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v10
+    .line 984
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
 
-    .line 739
-    .local v10, packageName:Ljava/lang/String;
-    invoke-virtual/range {v16 .. v16}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 740
-    .local v12, restrictionKey:Ljava/lang/String;
-    move-object/from16 v0, p0
+    const-string v4, "pkg_"
 
-    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppList:Landroid/preference/PreferenceGroup;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v17, v0
+    move-result-object v3
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v3
 
-    const-string v19, "pkg_"
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v18
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-object/from16 v0, v18
+    move-result-object v0
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    check-cast v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
 
-    move-result-object v18
+    .line 986
+    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getRestrictions()Ljava/util/ArrayList;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v18
+    .line 987
+    if-eqz v3, :cond_1
 
-    invoke-virtual/range {v17 .. v18}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    .line 988
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-
-    .line 742
-    .local v4, appPref:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    invoke-virtual {v4}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getRestrictions()Ljava/util/ArrayList;
-
-    move-result-object v13
-
-    .line 743
-    .local v13, restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
-    if-eqz v13, :cond_1
-
-    .line 744
-    invoke-virtual {v13}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    .local v6, i$:Ljava/util/Iterator;
     :cond_0
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v17
+    move-result v0
 
-    if-eqz v17, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/RestrictionEntry;
+
+    .line 989
+    invoke-virtual {v0}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
     move-result-object v5
 
-    check-cast v5, Landroid/content/RestrictionEntry;
+    invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 745
-    .local v5, entry:Landroid/content/RestrictionEntry;
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
+    move-result v5
 
-    move-result-object v17
+    if-eqz v5, :cond_0
 
-    move-object/from16 v0, v17
+    .line 990
+    invoke-virtual {v0}, Landroid/content/RestrictionEntry;->getType()I
 
-    invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v5
 
-    move-result v17
-
-    if-eqz v17, :cond_0
-
-    .line 746
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getType()I
-
-    move-result v17
-
-    packed-switch v17, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     goto :goto_0
 
-    .line 748
+    .line 992
     :pswitch_0
     check-cast p2, Ljava/lang/Boolean;
 
-    .end local p2
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v17
+    move-result v1
 
-    move/from16 v0, v17
+    invoke-virtual {v0, v1}, Landroid/content/RestrictionEntry;->setSelectedState(Z)V
 
-    invoke-virtual {v5, v0}, Landroid/content/RestrictionEntry;->setSelectedState(Z)V
-
-    .line 769
+    .line 1011
     :goto_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v17
+    move-result-object v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v0
 
-    move-object/from16 v0, v17
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v17
+    if-eqz v0, :cond_2
 
-    if-eqz v17, :cond_2
+    .line 1012
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    .line 770
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
+    move-result-object v0
 
-    move-result-object v17
+    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    move-object/from16 v0, p0
+    invoke-static {v0, v3, v1}, Lcom/android/settings/users/RestrictionUtils;->setRestrictions(Landroid/content/Context;Ljava/util/ArrayList;Landroid/os/UserHandle;)V
 
-    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-static {v0, v13, v1}, Lcom/android/settings/users/RestrictionUtils;->setRestrictions(Landroid/content/Context;Ljava/util/ArrayList;Landroid/os/UserHandle;)V
-
-    .line 781
-    .end local v4           #appPref:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    .end local v5           #entry:Landroid/content/RestrictionEntry;
-    .end local v6           #i$:Ljava/util/Iterator;
-    .end local v10           #packageName:Ljava/lang/String;
-    .end local v12           #restrictionKey:Ljava/lang/String;
-    .end local v13           #restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
-    .end local v16           #st:Ljava/util/StringTokenizer;
+    .line 1023
     :cond_1
     :goto_2
-    const/16 v17, 0x1
+    const/4 v0, 0x1
 
-    return v17
+    return v0
 
-    .restart local v4       #appPref:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    .restart local v5       #entry:Landroid/content/RestrictionEntry;
-    .restart local v6       #i$:Ljava/util/Iterator;
-    .restart local v10       #packageName:Ljava/lang/String;
-    .restart local v12       #restrictionKey:Ljava/lang/String;
-    .restart local v13       #restrictions:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/RestrictionEntry;>;"
-    .restart local v16       #st:Ljava/util/StringTokenizer;
-    .restart local p2
+    .line 996
     :pswitch_1
-    move-object/from16 v8, p1
+    check-cast p1, Landroid/preference/ListPreference;
 
-    .line 752
-    check-cast v8, Landroid/preference/ListPreference;
+    move-object v1, p2
 
-    .local v8, listPref:Landroid/preference/ListPreference;
-    move-object/from16 v17, p2
+    .line 997
+    check-cast v1, Ljava/lang/String;
 
-    .line 753
-    check-cast v17, Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/content/RestrictionEntry;->setSelectedString(Ljava/lang/String;)V
 
-    move-object/from16 v0, v17
+    .line 998
+    invoke-virtual {v0}, Landroid/content/RestrictionEntry;->getChoiceEntries()[Ljava/lang/String;
 
-    invoke-virtual {v5, v0}, Landroid/content/RestrictionEntry;->setSelectedString(Ljava/lang/String;)V
+    move-result-object v1
 
-    .line 754
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceEntries()[Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/RestrictionEntry;->getChoiceValues()[Ljava/lang/String;
 
-    move-result-object v17
-
-    invoke-virtual {v5}, Landroid/content/RestrictionEntry;->getChoiceValues()[Ljava/lang/String;
-
-    move-result-object v18
+    move-result-object v0
 
     check-cast p2, Ljava/lang/String;
 
-    .end local p2
-    move-object/from16 v0, p0
+    invoke-direct {p0, v1, v0, p2}, Lcom/android/settings/users/AppRestrictionsFragment;->findInArray([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v1, v17
+    move-result-object v0
 
-    move-object/from16 v2, v18
-
-    move-object/from16 v3, p2
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/settings/users/AppRestrictionsFragment;->findInArray([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    .line 756
-    .local v11, readable:Ljava/lang/String;
-    invoke-virtual {v8, v11}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 1000
+    invoke-virtual {p1, v0}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 
-    .end local v8           #listPref:Landroid/preference/ListPreference;
-    .end local v11           #readable:Ljava/lang/String;
-    .restart local p2
+    .line 1003
     :pswitch_2
-    move-object/from16 v9, p1
+    check-cast p2, Ljava/util/Set;
 
-    .line 759
-    check-cast v9, Landroid/preference/MultiSelectListPreference;
+    .line 1004
+    invoke-interface {p2}, Ljava/util/Set;->size()I
 
-    .local v9, msListPref:Landroid/preference/MultiSelectListPreference;
-    move-object/from16 v15, p2
+    move-result v1
 
-    .line 761
-    check-cast v15, Ljava/util/Set;
+    new-array v1, v1, [Ljava/lang/String;
 
-    .line 762
-    .local v15, set:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
-    invoke-interface {v15}, Ljava/util/Set;->size()I
+    .line 1005
+    invoke-interface {p2, v1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result v17
-
-    move/from16 v0, v17
-
-    new-array v14, v0, [Ljava/lang/String;
-
-    .line 763
-    .local v14, selectedValues:[Ljava/lang/String;
-    invoke-interface {v15, v14}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    .line 764
-    invoke-virtual {v5, v14}, Landroid/content/RestrictionEntry;->setAllSelectedStrings([Ljava/lang/String;)V
+    .line 1006
+    invoke-virtual {v0, v1}, Landroid/content/RestrictionEntry;->setAllSelectedStrings([Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 772
-    .end local v9           #msListPref:Landroid/preference/MultiSelectListPreference;
-    .end local v14           #selectedValues:[Ljava/lang/String;
-    .end local v15           #set:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
-    .end local p2
+    .line 1014
     :cond_2
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
 
-    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+    invoke-static {v3}, Lcom/android/settings/users/RestrictionUtils;->restrictionsToBundle(Ljava/util/ArrayList;)Landroid/os/Bundle;
 
-    move-object/from16 v17, v0
+    move-result-object v1
 
-    invoke-static {v13}, Lcom/android/settings/users/RestrictionUtils;->restrictionsToBundle(Ljava/util/ArrayList;)Landroid/os/Bundle;
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
 
-    move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    move-object/from16 v19, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move-object/from16 v2, v19
-
-    invoke-virtual {v0, v10, v1, v2}, Landroid/os/UserManager;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, v2, v1, v3}, Landroid/os/UserManager;->setApplicationRestrictions(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/UserHandle;)V
 
     goto :goto_2
 
-    .line 746
+    .line 990
     nop
 
     :pswitch_data_0
@@ -4072,190 +4537,364 @@
 .end method
 
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .locals 5
-    .parameter "preference"
+    .locals 6
+    .parameter
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    .line 992
+    .line 1233
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    const-string v4, "pkg_"
+    .line 1234
+    sget-object v3, Lcom/android/settings/users/AppRestrictionsFragment;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "key: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1235
+    const-string v3, "key_mobile_data"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
-    move-object v0, p1
+    .line 1236
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mMobileData:Landroid/preference/CheckBoxPreference;
 
-    .line 993
-    check-cast v0, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    .line 994
-    .local v0, arp:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isImmutable()Z
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 1237
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v3, "user_dependent_mobile_settings"
+
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v4
+
+    invoke-static {v0, v3, v1, v4}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    .line 1251
+    :cond_0
+    :goto_0
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v3, "pkg_"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    .line 1252
+    check-cast p1, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
+
+    .line 1253
+    invoke-virtual {p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isImmutable()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 1254
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v3, "pkg_"
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1255
+    invoke-virtual {p1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 995
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
+    move v2, v1
 
-    move-result v3
+    .line 1256
+    :cond_1
+    invoke-virtual {p1, v2}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
 
-    if-nez v3, :cond_0
+    .line 1257
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
 
-    move v1, v2
-
-    :cond_0
-    invoke-virtual {v0, v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->setChecked(Z)V
-
-    .line 996
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mSelectedPackages:Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "pkg_"
-
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
 
-    invoke-virtual {v1, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 997
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->getKey()Ljava/lang/String;
+    .line 1258
+    invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0}, Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;->isChecked()Z
+    invoke-direct {p0, v3, v2}, Lcom/android/settings/users/AppRestrictionsFragment;->updateAllEntries(Ljava/lang/String;Z)V
+
+    .line 1259
+    iput-boolean v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
+
+    .line 1260
+    invoke-direct {p0, v0, v2}, Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppState(Ljava/lang/String;Z)V
+
+    .line 1264
+    :cond_2
+    :goto_1
+    return v1
+
+    .line 1239
+    :cond_3
+    const/4 v0, 0x3
+
+    invoke-direct {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->createDialog(I)V
+
+    goto :goto_0
+
+    .line 1241
+    :cond_4
+    const-string v3, "key_location_access"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    invoke-direct {p0, v1, v3}, Lcom/android/settings/users/AppRestrictionsFragment;->updateAllEntries(Ljava/lang/String;Z)V
+    if-eqz v3, :cond_5
 
-    .line 998
-    iput-boolean v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
+    .line 1242
+    const-string v0, "no_share_location"
 
-    .line 1002
-    .end local v0           #arp:Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;
-    :cond_1
-    :goto_0
-    return v2
-
-    :cond_2
-    move v2, v1
-
-    goto :goto_0
-.end method
-
-.method public onResume()V
-    .locals 6
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 332
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
-
-    .line 333
-    invoke-virtual {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserBackgrounding:Landroid/content/BroadcastReceiver;
-
-    new-instance v4, Landroid/content/IntentFilter;
-
-    const-string v5, "android.intent.action.USER_BACKGROUND"
-
-    invoke-direct {v4, v5}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v3, v4}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    .line 335
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
-
-    .line 336
-    new-instance v2, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;
-
-    invoke-direct {v2, p0, v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$1;)V
-
-    check-cast v1, [Ljava/lang/Void;
-
-    invoke-virtual {v2, v1}, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
-
-    .line 338
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
-
-    iget-object v2, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
-
-    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-direct {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->getRestrictionEntry(Ljava/lang/String;)Landroid/content/RestrictionEntry;
 
     move-result-object v0
 
-    .line 339
-    .local v0, info:Landroid/content/pm/UserInfo;
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
+    .line 1243
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mLocationAccess:Landroid/preference/CheckBoxPreference;
 
-    const v2, 0x1020016
+    invoke-virtual {v3}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result v3
 
-    move-result-object v1
+    invoke-virtual {v0, v3}, Landroid/content/RestrictionEntry;->setSelectedState(Z)V
 
-    check-cast v1, Landroid/widget/TextView;
+    .line 1244
+    invoke-direct {p0, v0}, Lcom/android/settings/users/AppRestrictionsFragment;->setRestrictionEntry(Landroid/content/RestrictionEntry;)V
 
-    iget-object v2, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
+    goto :goto_0
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    .line 1245
+    :cond_5
+    const-string v3, "key_incoming_calls"
 
-    .line 340
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mHeaderView:Landroid/view/View;
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const v2, 0x1020006
+    move-result v0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
+    .line 1246
+    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mIncomingCalls:Landroid/preference/CheckBoxPreference;
 
-    check-cast v1, Landroid/widget/ImageView;
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
-    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->getCircularUserIcon()Landroid/graphics/drawable/Drawable;
+    move-result v0
 
-    move-result-object v2
+    .line 1247
+    if-eqz v0, :cond_6
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    move v0, v1
 
-    .line 342
+    .line 1248
+    :goto_2
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "guest_incoming_call_enabled"
+
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v5
+
+    invoke-static {v3, v4, v0, v5}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
+    goto/16 :goto_0
+
+    :cond_6
+    move v0, v2
+
+    .line 1247
+    goto :goto_2
+
+    :cond_7
+    move v1, v2
+
+    .line 1264
+    goto :goto_1
+.end method
+
+.method public onResume()V
+    .locals 8
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 424
+    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
+
+    .line 426
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserBackgrounding:Landroid/content/BroadcastReceiver;
+
+    new-instance v6, Landroid/content/IntentFilter;
+
+    const-string v7, "android.intent.action.USER_BACKGROUND"
+
+    invoke-direct {v6, v7}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 428
+    new-instance v2, Landroid/content/IntentFilter;
+
+    invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
+
+    .line 429
+    .local v2, packageFilter:Landroid/content/IntentFilter;
+    const-string v4, "android.intent.action.PACKAGE_ADDED"
+
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 430
+    const-string v4, "android.intent.action.PACKAGE_REMOVED"
+
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 431
+    const-string v4, "package"
+
+    invoke-virtual {v2, v4}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+
+    .line 432
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mPackageObserver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v4, v5, v2}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 434
+    invoke-direct {p0}, Lcom/android/settings/users/AppRestrictionsFragment;->makeExcludeAppInfos()V
+
+    .line 436
+    const/4 v4, 0x0
+
+    iput-boolean v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
+
+    .line 437
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppLoadingTask:Landroid/os/AsyncTask;
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppLoadingTask:Landroid/os/AsyncTask;
+
+    invoke-virtual {v4}, Landroid/os/AsyncTask;->getStatus()Landroid/os/AsyncTask$Status;
+
+    move-result-object v4
+
+    sget-object v5, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
+
+    if-ne v4, v5, :cond_1
+
+    .line 438
+    :cond_0
+    new-instance v4, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;
+
+    invoke-direct {v4, p0, v3}, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$1;)V
+
+    check-cast v3, [Ljava/lang/Void;
+
+    invoke-virtual {v4, v3}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mAppLoadingTask:Landroid/os/AsyncTask;
+
+    .line 441
+    :cond_1
+    iget-object v3, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUserManager:Landroid/os/UserManager;
+
+    iget-object v4, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
+
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    .line 442
+    .local v0, bitmap:Landroid/graphics/Bitmap;
+    new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-direct {v1, v3, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    .line 443
+    .local v1, d:Landroid/graphics/drawable/Drawable;
     return-void
 .end method
 
@@ -4264,10 +4903,10 @@
     .parameter "outState"
 
     .prologue
-    .line 322
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+    .line 390
+    invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 323
+    .line 391
     const-string v0, "user_id"
 
     iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mUser:Landroid/os/UserHandle;
@@ -4278,35 +4917,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 324
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserInfoDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserPhotoController:Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-
-    if-eqz v0, :cond_0
-
-    .line 326
-    const-string v0, "pending_photo"
-
-    iget-object v1, p0, Lcom/android/settings/users/AppRestrictionsFragment;->mEditUserPhotoController:Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;
-
-    invoke-virtual {v1}, Lcom/android/settings/users/AppRestrictionsFragment$EditUserPhotoController;->getNewUserPhotoBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 329
-    :cond_0
+    .line 392
     return-void
 .end method

@@ -172,7 +172,7 @@
     .local v0, enabled:Z
     iget-object v3, p0, Lcom/android/settings/OwnerInfoSettings;->mView:Landroid/view/View;
 
-    const v4, 0x7f0b0284
+    const v4, 0x7f0b02c0
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -185,7 +185,7 @@
     .line 131
     iget-object v3, p0, Lcom/android/settings/OwnerInfoSettings;->mView:Landroid/view/View;
 
-    const v4, 0x7f0b0283
+    const v4, 0x7f0b02bf
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -252,7 +252,7 @@
     .line 139
     iget-object v3, p0, Lcom/android/settings/OwnerInfoSettings;->mView:Landroid/view/View;
 
-    const v4, 0x7f0b0280
+    const v4, 0x7f0b02bc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -305,7 +305,7 @@
     .line 149
     iget-object v3, p0, Lcom/android/settings/OwnerInfoSettings;->mCheckbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    const v4, 0x7f0901a9
+    const v4, 0x7f0901ce
 
     invoke-virtual {v3, v4}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setText(I)V
 
@@ -357,7 +357,7 @@
     :cond_5
     iget-object v3, p0, Lcom/android/settings/OwnerInfoSettings;->mCheckbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    const v4, 0x7f0901a7
+    const v4, 0x7f0901cc
 
     invoke-virtual {v3, v4}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setText(I)V
 
@@ -422,11 +422,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/widget/EditText;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 199
+    .line 195
     :goto_0
     return-void
 
-    .line 188
+    .line 184
     :cond_0
     iget-object v0, p0, Lcom/android/settings/OwnerInfoSettings;->mOwnerInfo:Landroid/widget/EditText;
 
@@ -529,7 +529,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400f4
+    const v2, 0x7f040119
 
     invoke-virtual {v1, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -580,7 +580,7 @@
     if-eqz v1, :cond_0
 
     .line 106
-    const v0, 0x7f0901a8
+    const v0, 0x7f0901cd
 
     .line 108
     :cond_0
@@ -649,7 +649,7 @@
     .locals 3
 
     .prologue
-    .line 227
+    .line 223
     invoke-virtual {p0}, Lcom/android/settings/OwnerInfoSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -662,7 +662,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 228
+    .line 224
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v1, p0, Lcom/android/settings/OwnerInfoSettings;->mOwnerInfo:Landroid/widget/EditText;
 
@@ -674,10 +674,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 229
+    .line 225
     invoke-super {p0}, Landroid/app/DialogFragment;->onDestroyView()V
 
-    .line 230
+    .line 226
     return-void
 .end method
 
@@ -685,10 +685,10 @@
     .locals 0
 
     .prologue
-    .line 203
+    .line 199
     invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V
 
-    .line 205
+    .line 201
     return-void
 .end method
 
@@ -698,10 +698,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 209
+    .line 205
     invoke-super {p0}, Landroid/app/DialogFragment;->onResume()V
 
-    .line 211
+    .line 207
     invoke-direct {p0}, Lcom/android/settings/OwnerInfoSettings;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v0
@@ -720,21 +720,21 @@
 
     if-eqz v0, :cond_0
 
-    .line 213
+    .line 209
     iget-object v0, p0, Lcom/android/settings/OwnerInfoSettings;->mOwnerInfo:Landroid/widget/EditText;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setEnabled(Z)V
 
-    .line 214
+    .line 210
     iget-object v0, p0, Lcom/android/settings/OwnerInfoSettings;->mCheckbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setEnabled(Z)V
 
-    .line 222
+    .line 218
     :goto_0
     return-void
 
-    .line 219
+    .line 215
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/OwnerInfoSettings;->showInputMethod()V
 
@@ -745,7 +745,7 @@
     .locals 7
 
     .prologue
-    .line 234
+    .line 230
     invoke-virtual {p0}, Lcom/android/settings/OwnerInfoSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -754,7 +754,7 @@
 
     move-result-object v3
 
-    .line 235
+    .line 231
     .local v3, res:Landroid/content/ContentResolver;
     iget-object v4, p0, Lcom/android/settings/OwnerInfoSettings;->mOwnerInfo:Landroid/widget/EditText;
 
@@ -766,7 +766,7 @@
 
     move-result-object v0
 
-    .line 236
+    .line 232
     .local v0, info:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/settings/OwnerInfoSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -774,12 +774,12 @@
 
     invoke-virtual {v4, v0, v5}, Lcom/android/internal/widget/LockPatternUtils;->setOwnerInfo(Ljava/lang/String;I)V
 
-    .line 237
+    .line 233
     iget-boolean v4, p0, Lcom/android/settings/OwnerInfoSettings;->mShowNickname:Z
 
     if-eqz v4, :cond_0
 
-    .line 238
+    .line 234
     invoke-virtual {p0}, Lcom/android/settings/OwnerInfoSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -792,7 +792,7 @@
 
     move-result-object v2
 
-    .line 239
+    .line 235
     .local v2, oldName:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/settings/OwnerInfoSettings;->mNickname:Landroid/widget/EditText;
 
@@ -800,7 +800,7 @@
 
     move-result-object v1
 
-    .line 240
+    .line 236
     .local v1, newName:Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -814,7 +814,7 @@
 
     if-nez v4, :cond_0
 
-    .line 241
+    .line 237
     invoke-virtual {p0}, Lcom/android/settings/OwnerInfoSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -833,7 +833,7 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/os/UserManager;->setUserName(ILjava/lang/String;)V
 
-    .line 245
+    .line 241
     .end local v1           #newName:Ljava/lang/CharSequence;
     .end local v2           #oldName:Ljava/lang/String;
     :cond_0

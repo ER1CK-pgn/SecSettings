@@ -30,7 +30,7 @@
     .line 266
     iput-object p1, p0, Lcom/android/settings/myprofile/ClockActivity$5;->this$0:Lcom/android/settings/myprofile/ClockActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -63,7 +63,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -75,17 +75,17 @@
     .end local p1
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity$5;->this$0:Lcom/android/settings/myprofile/ClockActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203b7
+    const v1, 0x7f020438
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     .line 281
     :cond_0
@@ -106,7 +106,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -118,17 +118,17 @@
     .end local p1
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity$5;->this$0:Lcom/android/settings/myprofile/ClockActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203bb
+    const v1, 0x7f02043c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
@@ -146,7 +146,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getId()I
+    invoke-virtual {v1}, Landroid/view/View;->getId()I
 
     move-result v1
 
@@ -158,17 +158,17 @@
     .end local p1
     iget-object v0, p0, Lcom/android/settings/myprofile/ClockActivity$5;->this$0:Lcom/android/settings/myprofile/ClockActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/myprofile/ClockActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203b3
+    const v1, 0x7f020434
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 626
+    .line 652
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 629
+    .line 655
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$4;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->connectFromMultiView()Z
@@ -51,12 +51,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 630
+    .line 656
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$1702(Z)Z
 
-    .line 632
+    .line 658
     :cond_0
     return-void
 .end method

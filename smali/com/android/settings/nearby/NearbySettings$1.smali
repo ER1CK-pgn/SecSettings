@@ -95,7 +95,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_5
+    if-eqz v20, :cond_7
 
     .line 374
     :cond_0
@@ -124,11 +124,53 @@
     move-result-object v22
 
     invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 376
+    invoke-virtual/range {p0 .. p0}, Landroid/content/BroadcastReceiver;->isInitialStickyBroadcast()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_2
+
+    .line 377
+    const-string v20, "NearbySettings"
+
+    const-string v21, "BroadcastReceiver"
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v23, "isInitialStickyBroadcast: "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+
+    .line 497
+    .end local v3           #action:Ljava/lang/String;
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 382
+    .restart local v3       #action:Ljava/lang/String;
+    :cond_2
     :try_start_1
     move-object/from16 v0, p0
 
@@ -140,9 +182,9 @@
 
     move-result v20
 
-    if-nez v20, :cond_4
+    if-nez v20, :cond_6
 
-    .line 379
+    .line 385
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -154,7 +196,7 @@
 
     move-result-object v20
 
-    invoke-virtual/range {v20 .. v20}, Lcom/android/settings/nearby/DownloadListPreference;->getValue()Ljava/lang/String;
+    invoke-virtual/range {v20 .. v20}, Landroid/preference/ListPreference;->getValue()Ljava/lang/String;
 
     move-result-object v20
 
@@ -164,9 +206,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_1
+    if-eqz v20, :cond_3
 
-    .line 380
+    .line 386
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -180,9 +222,9 @@
 
     const-string v21, "0"
 
-    invoke-virtual/range {v20 .. v21}, Lcom/android/settings/nearby/DownloadListPreference;->setValue(Ljava/lang/String;)V
+    invoke-virtual/range {v20 .. v21}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    .line 381
+    .line 387
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -194,9 +236,9 @@
 
     move-result-object v20
 
-    if-eqz v20, :cond_1
+    if-eqz v20, :cond_3
 
-    .line 382
+    .line 388
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -223,8 +265,8 @@
 
     invoke-virtual/range {v20 .. v22}, Lcom/android/settings/nearby/NearbyEnabler;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    .line 385
-    :cond_1
+    .line 391
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -240,20 +282,27 @@
 
     invoke-virtual/range {v20 .. v21}, Lcom/android/settings/nearby/DownloadListPreference;->setIsExternalMounted(Z)V
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 480
-    :cond_2
-    :goto_0
+    .line 486
+    :cond_4
+    :goto_1
     :try_start_2
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v20
 
-    if-eqz v20, :cond_3
+    if-nez v20, :cond_5
 
-    .line 481
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_1
+
+    .line 487
+    :cond_5
     const-string v20, "com.android.settings.connected_mediaServer"
 
     move-object/from16 v0, v20
@@ -262,30 +311,62 @@
 
     move-result v20
 
-    if-eqz v20, :cond_3
+    if-eqz v20, :cond_1
 
-    .line 482
+    .line 488
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
 
     move-object/from16 v20, v0
 
-    #calls: Lcom/android/settings/nearby/NearbySettings;->openSearchDetailMenu()V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->openSearchDetailMenu()V
     invoke-static/range {v20 .. v20}, Lcom/android/settings/nearby/NearbySettings;->access$600(Lcom/android/settings/nearby/NearbySettings;)V
     :try_end_2
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    goto/16 :goto_0
 
     .line 491
     .end local v3           #action:Ljava/lang/String;
-    :cond_3
-    :goto_1
-    return-void
+    :catch_0
+    move-exception v8
 
-    .line 387
+    .line 492
+    .local v8, e:Landroid/content/res/Resources$NotFoundException;
+    const-string v20, "NearbySettings"
+
+    const-string v21, "BroadcastReceiver"
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v23, "NotFoundException: "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 393
+    .end local v8           #e:Landroid/content/res/Resources$NotFoundException;
     .restart local v3       #action:Ljava/lang/String;
-    :cond_4
+    :cond_6
     :try_start_3
     move-object/from16 v0, p0
 
@@ -297,9 +378,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_2
+    if-eqz v20, :cond_4
 
-    .line 390
+    .line 396
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -315,16 +396,16 @@
 
     invoke-virtual/range {v20 .. v21}, Lcom/android/settings/nearby/DownloadListPreference;->setIsExternalMounted(Z)V
     :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 392
-    :catch_0
+    .line 398
+    :catch_1
     move-exception v8
 
-    .line 393
+    .line 399
     .local v8, e:Ljava/lang/Exception;
     :try_start_4
     const-string v20, "NearbySettings"
@@ -353,22 +434,22 @@
 
     invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 394
-    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+    .line 400
+    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_4
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 485
+    .line 493
     .end local v3           #action:Ljava/lang/String;
     .end local v8           #e:Ljava/lang/Exception;
-    :catch_1
-    move-exception v8
+    :catch_2
+    move-exception v9
 
-    .line 486
-    .local v8, e:Landroid/content/res/Resources$NotFoundException;
+    .line 494
+    .local v9, e1:Ljava/lang/Exception;
     const-string v20, "NearbySettings"
 
     const-string v21, "BroadcastReceiver"
@@ -377,7 +458,7 @@
 
     invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v23, "NotFoundException: "
+    const-string v23, "Exception: "
 
     invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -385,7 +466,7 @@
 
     move-object/from16 v0, v22
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v22
 
@@ -395,12 +476,12 @@
 
     invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    .line 396
-    .end local v8           #e:Landroid/content/res/Resources$NotFoundException;
+    .line 402
+    .end local v9           #e1:Ljava/lang/Exception;
     .restart local v3       #action:Ljava/lang/String;
-    :cond_5
+    :cond_7
     :try_start_5
     const-string v20, "com.android.settings.allshare.UPDATE_LIST"
 
@@ -410,9 +491,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_8
+    if-eqz v20, :cond_a
 
-    .line 397
+    .line 403
     const-string v20, "NearbySettings"
 
     const-string v21, "BroadcastReceiver"
@@ -451,7 +532,7 @@
 
     invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 399
+    .line 405
     const-string v20, "ACCEPTLIST"
 
     const/16 v21, 0x1
@@ -466,7 +547,7 @@
 
     move-result v13
 
-    .line 400
+    .line 406
     .local v13, isAcceptList:Z
     const-string v20, "INDEX"
 
@@ -478,11 +559,11 @@
 
     move-result-object v12
 
-    .line 404
+    .line 410
     .local v12, index:[I
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_8
 
-    .line 405
+    .line 411
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -494,20 +575,20 @@
 
     move-result-object v19
 
-    .line 410
+    .line 416
     .local v19, preference:Landroid/preference/MultiSelectListPreference;
     :goto_2
     invoke-virtual/range {v19 .. v19}, Landroid/preference/MultiSelectListPreference;->getEntryValues()[Ljava/lang/CharSequence;
 
     move-result-object v10
 
-    .line 411
+    .line 417
     .local v10, entry:[Ljava/lang/CharSequence;
     new-instance v16, Ljava/util/HashSet;
 
     invoke-direct/range {v16 .. v16}, Ljava/util/HashSet;-><init>()V
 
-    .line 412
+    .line 418
     .local v16, newValue:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     const/4 v11, 0x0
 
@@ -519,9 +600,9 @@
 
     move/from16 v0, v20
 
-    if-ge v11, v0, :cond_7
+    if-ge v11, v0, :cond_9
 
-    .line 413
+    .line 419
     const-string v20, "NearbySettings"
 
     const-string v21, "BroadcastReceiver"
@@ -556,7 +637,7 @@
 
     invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 415
+    .line 421
     aget v20, v12, v11
 
     aget-object v20, v10, v20
@@ -569,17 +650,17 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 412
+    .line 418
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_3
 
-    .line 407
+    .line 413
     .end local v10           #entry:[Ljava/lang/CharSequence;
     .end local v11           #i:I
     .end local v16           #newValue:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     .end local v19           #preference:Landroid/preference/MultiSelectListPreference;
-    :cond_6
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -594,11 +675,11 @@
     .restart local v19       #preference:Landroid/preference/MultiSelectListPreference;
     goto :goto_2
 
-    .line 417
+    .line 423
     .restart local v10       #entry:[Ljava/lang/CharSequence;
     .restart local v11       #i:I
     .restart local v16       #newValue:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    :cond_7
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -617,58 +698,17 @@
     move-object/from16 v2, v16
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/nearby/NearbyEnabler;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-    :try_end_5
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 487
-    .end local v3           #action:Ljava/lang/String;
+    .line 426
     .end local v10           #entry:[Ljava/lang/CharSequence;
     .end local v11           #i:I
     .end local v12           #index:[I
     .end local v13           #isAcceptList:Z
     .end local v16           #newValue:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     .end local v19           #preference:Landroid/preference/MultiSelectListPreference;
-    :catch_2
-    move-exception v9
-
-    .line 488
-    .local v9, e1:Ljava/lang/Exception;
-    const-string v20, "NearbySettings"
-
-    const-string v21, "BroadcastReceiver"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v23, "Exception: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_1
-
-    .line 420
-    .end local v9           #e1:Ljava/lang/Exception;
-    .restart local v3       #action:Ljava/lang/String;
-    :cond_8
-    :try_start_6
+    :cond_a
     const-string v20, "com.sec.android.nearby.mediaserver.REFRESH_DEVICE_LIST"
 
     move-object/from16 v0, v20
@@ -677,9 +717,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_a
+    if-eqz v20, :cond_c
 
-    .line 421
+    .line 427
     const-string v20, "NearbySettings"
 
     const-string v21, "BroadcastReceiver"
@@ -718,7 +758,7 @@
 
     invoke-static/range {v20 .. v22}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 423
+    .line 429
     const-string v20, "LIST"
 
     const/16 v21, 0x1
@@ -733,11 +773,11 @@
 
     move-result v4
 
-    .line 425
+    .line 431
     .local v4, bIsAcceptedList:Z
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_b
 
-    .line 426
+    .line 432
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -753,9 +793,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_2
+    if-eqz v20, :cond_4
 
-    .line 427
+    .line 433
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -767,17 +807,17 @@
 
     move-result-object v20
 
-    invoke-virtual/range {v20 .. v20}, Lcom/android/settings/nearby/AcceptListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual/range {v20 .. v20}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v7
 
     check-cast v7, Landroid/app/AlertDialog;
 
-    .line 429
+    .line 435
     .local v7, dialog:Landroid/app/AlertDialog;
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4
 
-    .line 430
+    .line 436
     const/16 v20, -0x1
 
     move/from16 v0, v20
@@ -786,7 +826,7 @@
 
     move-result-object v18
 
-    .line 431
+    .line 437
     .local v18, positiveButton:Landroid/widget/Button;
     const/16 v20, 0x0
 
@@ -794,29 +834,29 @@
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 433
+    .line 439
     invoke-virtual {v7}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v15
 
-    .line 435
+    .line 441
     .local v15, listView:Landroid/widget/ListView;
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_4
 
-    .line 436
+    .line 442
     new-instance v14, Lcom/android/settings/nearby/ListItemListener;
 
     move-object/from16 v0, v18
 
     invoke-direct {v14, v0}, Lcom/android/settings/nearby/ListItemListener;-><init>(Landroid/widget/Button;)V
 
-    .line 438
+    .line 444
     .local v14, listItemListener:Lcom/android/settings/nearby/ListItemListener;
-    invoke-virtual {v15, v14}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v15, v14}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 440
+    .line 446
     new-instance v6, Lcom/android/settings/nearby/DeleteButtonListener;
 
     move-object/from16 v0, p0
@@ -838,21 +878,21 @@
 
     invoke-direct {v6, v14, v7, v0, v1}, Lcom/android/settings/nearby/DeleteButtonListener;-><init>(Lcom/android/settings/nearby/ListItemListener;Landroid/app/Dialog;Landroid/content/Context;Z)V
 
-    .line 442
+    .line 448
     .local v6, deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 447
+    .line 453
     .end local v6           #deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
     .end local v7           #dialog:Landroid/app/AlertDialog;
     .end local v14           #listItemListener:Lcom/android/settings/nearby/ListItemListener;
     .end local v15           #listView:Landroid/widget/ListView;
     .end local v18           #positiveButton:Landroid/widget/Button;
-    :cond_9
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -868,9 +908,9 @@
 
     move-result v20
 
-    if-eqz v20, :cond_2
+    if-eqz v20, :cond_4
 
-    .line 448
+    .line 454
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -882,17 +922,17 @@
 
     move-result-object v20
 
-    invoke-virtual/range {v20 .. v20}, Lcom/android/settings/nearby/RejectListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual/range {v20 .. v20}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v7
 
     check-cast v7, Landroid/app/AlertDialog;
 
-    .line 450
+    .line 456
     .restart local v7       #dialog:Landroid/app/AlertDialog;
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_4
 
-    .line 451
+    .line 457
     const/16 v20, -0x1
 
     move/from16 v0, v20
@@ -901,7 +941,7 @@
 
     move-result-object v18
 
-    .line 452
+    .line 458
     .restart local v18       #positiveButton:Landroid/widget/Button;
     const/16 v20, 0x0
 
@@ -909,29 +949,29 @@
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 454
+    .line 460
     invoke-virtual {v7}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v15
 
-    .line 456
+    .line 462
     .restart local v15       #listView:Landroid/widget/ListView;
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_4
 
-    .line 457
+    .line 463
     new-instance v14, Lcom/android/settings/nearby/ListItemListener;
 
     move-object/from16 v0, v18
 
     invoke-direct {v14, v0}, Lcom/android/settings/nearby/ListItemListener;-><init>(Landroid/widget/Button;)V
 
-    .line 459
+    .line 465
     .restart local v14       #listItemListener:Lcom/android/settings/nearby/ListItemListener;
-    invoke-virtual {v15, v14}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v15, v14}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 461
+    .line 467
     new-instance v6, Lcom/android/settings/nearby/DeleteButtonListener;
 
     move-object/from16 v0, p0
@@ -953,22 +993,22 @@
 
     invoke-direct {v6, v14, v7, v0, v1}, Lcom/android/settings/nearby/DeleteButtonListener;-><init>(Lcom/android/settings/nearby/ListItemListener;Landroid/app/Dialog;Landroid/content/Context;Z)V
 
-    .line 463
+    .line 469
     .restart local v6       #deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 471
+    .line 477
     .end local v4           #bIsAcceptedList:Z
     .end local v6           #deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
     .end local v7           #dialog:Landroid/app/AlertDialog;
     .end local v14           #listItemListener:Lcom/android/settings/nearby/ListItemListener;
     .end local v15           #listView:Landroid/widget/ListView;
     .end local v18           #positiveButton:Landroid/widget/Button;
-    :cond_a
+    :cond_c
     const-string v20, "com.android.settings.allshare.ACTIVITY_START"
 
     move-object/from16 v0, v20
@@ -977,16 +1017,16 @@
 
     move-result v20
 
-    if-eqz v20, :cond_2
+    if-eqz v20, :cond_4
 
-    .line 472
+    .line 478
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v20 .. v20}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {v20 .. v20}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v20
 
@@ -998,7 +1038,7 @@
 
     move-result v5
 
-    .line 473
+    .line 479
     .local v5, currentFlag:I
     const-string v20, "FLAG"
 
@@ -1014,13 +1054,13 @@
 
     move-result v17
 
-    .line 475
+    .line 481
     .local v17, otherFlag:I
     move/from16 v0, v17
 
-    if-eq v5, v0, :cond_2
+    if-eq v5, v0, :cond_4
 
-    .line 476
+    .line 482
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/nearby/NearbySettings$1;->this$0:Lcom/android/settings/nearby/NearbySettings;
@@ -1035,9 +1075,9 @@
     const/16 v21, 0xbbb
 
     invoke-virtual/range {v20 .. v21}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_6
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_6 .. :try_end_6} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
+    :try_end_5
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method

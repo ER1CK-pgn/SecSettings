@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 529
+    .line 537
     iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionSettings$8;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     iput-object p2, p0, Lcom/android/settings/motion2013/AirMotionSettings$8;->val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -48,7 +48,7 @@
     .parameter "which"
 
     .prologue
-    .line 531
+    .line 539
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$8;->val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
@@ -57,7 +57,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 532
+    .line 540
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings$8;->this$0:Lcom/android/settings/motion2013/AirMotionSettings;
 
     invoke-virtual {v2}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
@@ -68,13 +68,13 @@
 
     move-result-object v1
 
-    .line 533
+    .line 541
     .local v1, sharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 534
+    .line 542
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v2, "pref_air_motion_sensor_noti"
 
@@ -82,10 +82,10 @@
 
     invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 535
+    .line 543
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 537
+    .line 545
     .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
     .end local v1           #sharedPreferences:Landroid/content/SharedPreferences;
     :cond_0

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->showConnectingDevices(Landroid/net/wifi/p2p/WifiP2pDeviceList;)V
+    value = Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->setScanTimer(ZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1307
+    .line 1220
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$12;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "reason"
 
     .prologue
-    .line 1312
+    .line 1226
     const-string v0, "WifiP2pDevicePicker"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, " remove group fail "
+    const-string v2, " discover fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -65,7 +65,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1313
+    .line 1227
+    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$12;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
+
+    const/4 v1, 0x3
+
+    #calls: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$1000(Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;I)V
+
+    .line 1228
     return-void
 .end method
 
@@ -73,13 +81,21 @@
     .locals 2
 
     .prologue
-    .line 1309
+    .line 1222
     const-string v0, "WifiP2pDevicePicker"
 
-    const-string v1, " remove group success"
+    const-string v1, " discover success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1310
+    .line 1223
+    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$12;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
+
+    const/4 v1, 0x3
+
+    #calls: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$1000(Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;I)V
+
+    .line 1224
     return-void
 .end method

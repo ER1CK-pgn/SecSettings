@@ -161,7 +161,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v0, v8}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v8}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -246,7 +246,7 @@
     .line 214
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/UsageStats$UsageStatsAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
     .line 215
     return-void
@@ -346,7 +346,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04018e
+    const v4, 0x7f0401cc
 
     const/4 v5, 0x0
 
@@ -361,7 +361,7 @@
 
     .line 172
     .local v0, holder:Lcom/android/settings/UsageStats$AppViewHolder;
-    const v3, 0x7f0b041f
+    const v3, 0x7f0b0488
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -372,7 +372,7 @@
     iput-object v3, v0, Lcom/android/settings/UsageStats$AppViewHolder;->pkgName:Landroid/widget/TextView;
 
     .line 173
-    const v3, 0x7f0b0420
+    const v3, 0x7f0b0489
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +383,7 @@
     iput-object v3, v0, Lcom/android/settings/UsageStats$AppViewHolder;->launchCount:Landroid/widget/TextView;
 
     .line 174
-    const v3, 0x7f0b0421
+    const v3, 0x7f0b048a
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

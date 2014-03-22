@@ -25,20 +25,20 @@
     .locals 1
 
     .prologue
-    .line 1502
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1960
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1503
+    .line 1961
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/settings/Utils$ApInfo;->SSID:Ljava/lang/String;
 
-    .line 1504
+    .line 1962
     const-string v0, "NONE"
 
     iput-object v0, p0, Lcom/android/settings/Utils$ApInfo;->securityType:Ljava/lang/String;
 
-    .line 1505
+    .line 1963
     return-void
 .end method
 
@@ -48,16 +48,16 @@
     .parameter "secure"
 
     .prologue
-    .line 1507
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 1965
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1508
+    .line 1966
     iput-object p1, p0, Lcom/android/settings/Utils$ApInfo;->SSID:Ljava/lang/String;
 
-    .line 1509
+    .line 1967
     iput-object p2, p0, Lcom/android/settings/Utils$ApInfo;->securityType:Ljava/lang/String;
 
-    .line 1510
+    .line 1968
     return-void
 .end method
 
@@ -67,7 +67,7 @@
     .locals 1
 
     .prologue
-    .line 1513
+    .line 1971
     iget-object v0, p0, Lcom/android/settings/Utils$ApInfo;->SSID:Ljava/lang/String;
 
     return-object v0
@@ -77,7 +77,7 @@
     .locals 1
 
     .prologue
-    .line 1517
+    .line 1975
     iget-object v0, p0, Lcom/android/settings/Utils$ApInfo;->securityType:Ljava/lang/String;
 
     return-object v0

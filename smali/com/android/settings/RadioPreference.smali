@@ -50,9 +50,9 @@
     iput-object v0, p0, Lcom/android/settings/RadioPreference;->mRadioChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
     .line 51
-    const v0, 0x7f04012d
+    const v0, 0x7f04015d
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/RadioPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 52
     return-void
@@ -65,7 +65,7 @@
 
     .prologue
     .line 36
-    invoke-virtual {p0, p1}, Lcom/android/settings/RadioPreference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -79,7 +79,7 @@
 
     .prologue
     .line 36
-    invoke-virtual {p0, p1}, Lcom/android/settings/RadioPreference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -97,7 +97,7 @@
     invoke-super {p0, p1}, Landroid/preference/CheckBoxPreference;->onBindView(Landroid/view/View;)V
 
     .line 61
-    const v4, 0x7f0b008b
+    const v4, 0x7f0b0094
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -107,20 +107,20 @@
 
     .line 62
     .local v3, title:Landroid/widget/TextView;
-    invoke-virtual {p0}, Lcom/android/settings/RadioPreference;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 67
-    invoke-virtual {p0}, Lcom/android/settings/RadioPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
     .line 68
     .local v0, checked:Z
-    const v4, 0x7f0b0352
+    const v4, 0x7f0b039c
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -148,7 +148,7 @@
 
     iget-object v5, p0, Lcom/android/settings/RadioPreference;->mRadioChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {v4, v5}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v4, v5}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     :cond_0
     move-object v4, v2
@@ -159,7 +159,7 @@
     iput-object v4, p0, Lcom/android/settings/RadioPreference;->mRadioButton:Landroid/widget/RadioButton;
 
     .line 75
-    const v4, 0x7f0b0351
+    const v4, 0x7f0b039b
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

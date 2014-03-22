@@ -40,7 +40,7 @@
 
     .prologue
     .line 23
-    const v0, 0x7f0400c2
+    const v0, 0x7f0400e3
 
     const/4 v1, 0x0
 

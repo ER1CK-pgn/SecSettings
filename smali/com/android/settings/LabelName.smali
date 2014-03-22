@@ -25,9 +25,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 12
-    const v0, 0x7f0400c1
+    const v0, 0x7f0400e2
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/LabelName;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 14
     return-void

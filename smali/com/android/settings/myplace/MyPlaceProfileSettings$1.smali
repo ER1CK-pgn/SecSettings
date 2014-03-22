@@ -3,12 +3,12 @@
 .source "MyPlaceProfileSettings.java"
 
 # interfaces
-.implements Landroid/view/View$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnKeyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/myplace/MyPlaceProfileSettings;->onActivityCreated(Landroid/os/Bundle;)V
+    value = Lcom/android/settings/myplace/MyPlaceProfileSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,69 +27,70 @@
     .parameter
 
     .prologue
-    .line 155
+    .line 812
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$1;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 3
-    .parameter "v"
-    .parameter "keyCode"
+.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
+    .locals 2
+    .parameter "dialog"
+    .parameter "keycode"
     .parameter "event"
 
     .prologue
-    .line 158
+    .line 816
+    const/16 v0, 0x42
+
+    if-eq p2, v0, :cond_0
+
+    const/16 v0, 0x17
+
+    if-ne p2, v0, :cond_1
+
+    .line 818
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$1;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    check-cast p1, Landroid/app/AlertDialog;
+
+    .end local p1
+    iput-object p1, v0, Lcom/android/settings/myplace/MyPlaceProfileSettings;->alert:Landroid/app/AlertDialog;
+
+    .line 819
+    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$1;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
     iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$1;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->getActivity()Landroid/app/Activity;
+    iget-object v1, v1, Lcom/android/settings/myplace/MyPlaceProfileSettings;->alert:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getCurrentFocus()Landroid/view/View;
+    invoke-virtual {v1}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
-    move-result-object v0
+    move-result v1
 
-    .line 159
-    .local v0, focused:Landroid/view/View;
-    const/16 v1, 0x13
+    #setter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mOlderPosition:I
+    invoke-static {v0, v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1402(Lcom/android/settings/myplace/MyPlaceProfileSettings;I)I
 
-    if-ne p2, v1, :cond_1
+    .line 821
+    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$1;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    .line 160
-    const v1, 0x7f0b024f
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    if-eq v0, v1, :cond_0
-
-    .line 161
-    const-string v1, "MyPlaceSettings"
-
-    const-string v2, "clearFocus"
-
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 162
-    invoke-virtual {v0}, Landroid/view/View;->clearFocus()V
-
-    .line 164
-    :cond_0
     const/4 v1, 0x1
 
-    .line 166
-    :goto_0
-    return v1
+    #setter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mFlag:Z
+    invoke-static {v0, v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1502(Lcom/android/settings/myplace/MyPlaceProfileSettings;Z)Z
 
+    .line 823
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    goto :goto_0
+    return v0
 .end method

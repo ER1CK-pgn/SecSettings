@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1068
+    .line 1141
     iput-object p1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$5;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,23 +43,23 @@
     .parameter "id"
 
     .prologue
-    .line 1070
+    .line 1143
     iget-object v1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$5;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
     const-string v2, "wifi_connection_priority_mode"
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/wifi/AdvancedWifiSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 1071
+    .line 1144
     .local v0, connMonitoringPref:Landroid/preference/CheckBoxPreference;
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 1072
+    .line 1145
     return-void
 .end method

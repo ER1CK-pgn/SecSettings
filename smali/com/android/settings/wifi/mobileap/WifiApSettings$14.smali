@@ -3,12 +3,12 @@
 .source "WifiApSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/wifi/mobileap/WifiApSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/wifi/mobileap/WifiApSettings;->showNoHotspotModeWarningDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,55 +27,62 @@
     .parameter
 
     .prologue
-    .line 820
+    .line 928
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$14;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 3
-    .parameter "dialog"
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
+    .parameter "arg0"
+    .parameter "arg1"
 
     .prologue
-    .line 822
-    const-string v0, "WifiApSettings"
+    .line 930
+    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$14;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string v2, "onDismiss configuration dialog, user selects open?  "
+    invoke-virtual {v0}, Landroid/app/FragmentManager;->getBackStackEntryCount()I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
 
-    move-result-object v1
+    if-nez v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$14;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
+    .line 931
+    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$14;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    #getter for: Lcom/android/settings/wifi/mobileap/WifiApSettings;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
-    invoke-static {v2}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$1500(Lcom/android/settings/wifi/mobileap/WifiApSettings;)Lcom/android/settings/wifi/WifiApDialog;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/android/settings/wifi/WifiApDialog;->getOpenWarningFlag()Z
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    move-result v2
+    .line 933
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$14;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/app/FragmentManager;->popBackStack()V
 
-    move-result-object v1
+    .line 934
+    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$14;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v1, 0x0
 
-    .line 827
+    #setter for: Lcom/android/settings/wifi/mobileap/WifiApSettings;->isNoHotSpotModeWarningShown:Z
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$2802(Lcom/android/settings/wifi/mobileap/WifiApSettings;Z)Z
+
+    .line 935
     return-void
 .end method

@@ -32,7 +32,7 @@
 
     .prologue
     .line 18
-    invoke-super {p0}, Landroid/preference/SwitchPreference;->onClick()V
+    invoke-super {p0}, Landroid/preference/TwoStatePreference;->onClick()V
 
     .line 19
     return-void

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 546
+    .line 545
     iput-object p1, p0, Lcom/android/settings/PenSettingsMenu$1;->this$0:Lcom/android/settings/PenSettingsMenu;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 548
+    .line 547
     iget-object v0, p0, Lcom/android/settings/PenSettingsMenu$1;->this$0:Lcom/android/settings/PenSettingsMenu;
 
     #getter for: Lcom/android/settings/PenSettingsMenu;->mPenHovering:Landroid/preference/SwitchPreferenceScreen;
@@ -49,8 +49,8 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 549
+    .line 548
     return-void
 .end method

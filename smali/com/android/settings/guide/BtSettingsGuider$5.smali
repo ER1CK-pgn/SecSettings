@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 626
+    .line 628
     iput-object p1, p0, Lcom/android/settings/guide/BtSettingsGuider$5;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 630
+    .line 632
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 632
+    .line 634
     .local v0, action:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider$5;->this$0:Lcom/android/settings/guide/BtSettingsGuider;
 
@@ -56,6 +56,6 @@
     #calls: Lcom/android/settings/guide/BtSettingsGuider;->onReceive(Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;Landroid/content/Intent;)V
     invoke-static {v1, v2, p2}, Lcom/android/settings/guide/BtSettingsGuider;->access$100(Lcom/android/settings/guide/BtSettingsGuider;Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;Landroid/content/Intent;)V
 
-    .line 634
+    .line 636
     return-void
 .end method

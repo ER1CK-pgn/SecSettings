@@ -66,7 +66,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/DrivingModeSettings;->mTouchEvent:Z
 
-    .line 529
+    .line 533
     return-void
 .end method
 
@@ -680,7 +680,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -880,7 +880,7 @@
     iput-object v3, p0, Lcom/android/settings/DrivingModeSettings;->mContext:Landroid/content/Context;
 
     .line 101
-    const v3, 0x7f070037
+    const v3, 0x7f070044
 
     invoke-virtual {p0, v3}, Lcom/android/settings/DrivingModeSettings;->addPreferencesFromResource(I)V
 
@@ -1080,7 +1080,7 @@
     .line 129
     iget-object v3, p0, Lcom/android/settings/DrivingModeSettings;->mUnlockScreenContents:Landroid/preference/CheckBoxPreference;
 
-    const v4, 0x7f090acb
+    const v4, 0x7f090baf
 
     invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
@@ -1117,7 +1117,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090a89
+    const v6, 0x7f090b6d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1141,7 +1141,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0915a8
+    const v6, 0x7f09170d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1419,7 +1419,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090a8a
+    const v1, 0x7f090b6e
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1476,24 +1476,31 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
 
     .line 358
+    :cond_0
     iget-boolean v5, p0, Lcom/android/settings/DrivingModeSettings;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 359
     sget v5, Lcom/android/settings/DrivingModeSettings;->mSettingValue:I
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_1
 
     .line 360
     sget v5, Lcom/android/settings/DrivingModeSettings;->mSettingValue:I
 
-    if-ne v5, v3, :cond_2
+    if-ne v5, v3, :cond_3
 
     move v2, v3
 
@@ -1516,7 +1523,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     .line 364
     invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
@@ -1524,7 +1531,7 @@
     .line 373
     .end local v0           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v2           #value:Z
-    :cond_0
+    :cond_1
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/DrivingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1538,7 +1545,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
     .line 376
     const-string v6, "driving_mode_incoming_call_notification"
@@ -1549,7 +1556,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6
 
     move v5, v3
 
@@ -1557,13 +1564,13 @@
     invoke-static {v1, v6, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 405
-    :cond_1
+    :cond_2
     :goto_3
     invoke-static {v1}, Lcom/android/settings/DrivingModeSettings;->areAllDrivingModeOptionsDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_16
+    if-eqz v5, :cond_17
 
     .line 406
     iget-object v3, p0, Lcom/android/settings/DrivingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -1575,7 +1582,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f090a8a
+    const v5, 0x7f090b6e
 
     invoke-static {v3, v5, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1592,7 +1599,7 @@
     return v3
 
     .end local v1           #cr:Landroid/content/ContentResolver;
-    :cond_2
+    :cond_3
     move v2, v4
 
     .line 360
@@ -1601,8 +1608,8 @@
     .line 366
     .restart local v0       #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .restart local v2       #value:Z
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_4
+    if-nez v2, :cond_5
 
     move v5, v3
 
@@ -1611,7 +1618,7 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     move v5, v4
 
     goto :goto_5
@@ -1619,21 +1626,21 @@
     .end local v0           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v2           #value:Z
     .restart local v1       #cr:Landroid/content/ContentResolver;
-    :cond_5
+    :cond_6
     move v5, v4
 
     .line 376
     goto :goto_2
 
     .line 378
-    :cond_6
+    :cond_7
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mChatonNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9
 
     .line 379
     const-string v6, "driving_mode_chaton_call_notification"
@@ -1644,7 +1651,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     move v5, v3
 
@@ -1653,20 +1660,20 @@
 
     goto :goto_3
 
-    :cond_7
+    :cond_8
     move v5, v4
 
     goto :goto_6
 
     .line 381
-    :cond_8
+    :cond_9
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mAirCallAccept:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     .line 382
     const-string v6, "driving_mode_air_call_accept"
@@ -1677,7 +1684,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     move v5, v3
 
@@ -1695,21 +1702,21 @@
 
     goto :goto_3
 
-    :cond_9
+    :cond_a
     move v5, v4
 
     .line 382
     goto :goto_7
 
     .line 385
-    :cond_a
+    :cond_b
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mMessageNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d
 
     .line 386
     const-string v6, "driving_mode_message_notification"
@@ -1720,7 +1727,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_c
 
     move v5, v3
 
@@ -1729,20 +1736,20 @@
 
     goto :goto_3
 
-    :cond_b
+    :cond_c
     move v5, v4
 
     goto :goto_8
 
     .line 388
-    :cond_c
+    :cond_d
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mEmailNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     .line 389
     const-string v6, "driving_mode_email_notification"
@@ -1753,7 +1760,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_e
 
     move v5, v3
 
@@ -1762,20 +1769,20 @@
 
     goto/16 :goto_3
 
-    :cond_d
+    :cond_e
     move v5, v4
 
     goto :goto_9
 
     .line 391
-    :cond_e
+    :cond_f
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mVoiceMailNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_11
 
     .line 392
     const-string v6, "driving_mode_voice_mail_notification"
@@ -1786,7 +1793,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10
 
     move v5, v3
 
@@ -1795,20 +1802,20 @@
 
     goto/16 :goto_3
 
-    :cond_f
+    :cond_10
     move v5, v4
 
     goto :goto_a
 
     .line 394
-    :cond_10
+    :cond_11
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mAlarmNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_13
 
     .line 395
     const-string v6, "driving_mode_alarm_notification"
@@ -1819,7 +1826,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_12
 
     move v5, v3
 
@@ -1828,20 +1835,20 @@
 
     goto/16 :goto_3
 
-    :cond_11
+    :cond_12
     move v5, v4
 
     goto :goto_b
 
     .line 397
-    :cond_12
+    :cond_13
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mScheduleNotification:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_15
 
     .line 398
     const-string v6, "driving_mode_schedule_notification"
@@ -1852,7 +1859,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_14
 
     move v5, v3
 
@@ -1861,20 +1868,20 @@
 
     goto/16 :goto_3
 
-    :cond_13
+    :cond_14
     move v5, v4
 
     goto :goto_c
 
     .line 400
-    :cond_14
+    :cond_15
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mUnlockScreenContents:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     .line 401
     const-string v6, "driving_mode_unlock_screen_contents"
@@ -1885,7 +1892,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_16
 
     move v5, v3
 
@@ -1894,13 +1901,13 @@
 
     goto/16 :goto_3
 
-    :cond_15
+    :cond_16
     move v5, v4
 
     goto :goto_d
 
     .line 409
-    :cond_16
+    :cond_17
     iget-object v4, p0, Lcom/android/settings/DrivingModeSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v4, v3}, Landroid/widget/Switch;->setEnabled(Z)V
@@ -2316,7 +2323,7 @@
 
     .line 508
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f04006b
+    const v5, 0x7f040070
 
     invoke-virtual {v1, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2324,7 +2331,7 @@
 
     .line 509
     .local v2, layout:Landroid/view/View;
-    const v5, 0x7f0b013e
+    const v5, 0x7f0b014d
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2334,7 +2341,14 @@
 
     .line 510
     .local v0, checkBox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    const v5, 0x7f0b013d
+    new-instance v5, Lcom/android/settings/DrivingModeSettings$2;
+
+    invoke-direct {v5, p0}, Lcom/android/settings/DrivingModeSettings$2;-><init>(Lcom/android/settings/DrivingModeSettings;)V
+
+    invoke-virtual {v0, v5}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 514
+    const v5, 0x7f0b014c
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2342,7 +2356,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 511
+    .line 515
     .local v3, message:Landroid/widget/TextView;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -2350,7 +2364,7 @@
 
     iget-object v6, p0, Lcom/android/settings/DrivingModeSettings;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090a8c
+    const v7, 0x7f090b70
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2368,7 +2382,7 @@
 
     iget-object v6, p0, Lcom/android/settings/DrivingModeSettings;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090a8d
+    const v7, 0x7f090b71
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2382,18 +2396,18 @@
 
     move-result-object v4
 
-    .line 512
+    .line 516
     .local v4, messageString:Ljava/lang/String;
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 514
+    .line 518
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
     iget-object v6, p0, Lcom/android/settings/DrivingModeSettings;->mContext:Landroid/content/Context;
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f090a85
+    const v6, 0x7f090b69
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2415,31 +2429,20 @@
 
     iput-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
 
-    .line 516
-    iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v5}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v5
-
-    const/16 v6, 0x7d3
-
-    invoke-virtual {v5, v6}, Landroid/view/Window;->setType(I)V
-
-    .line 517
+    .line 521
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v5}, Landroid/app/AlertDialog;->show()V
 
-    .line 518
+    .line 522
     iget-object v5, p0, Lcom/android/settings/DrivingModeSettings;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
 
-    new-instance v6, Lcom/android/settings/DrivingModeSettings$2;
+    new-instance v6, Lcom/android/settings/DrivingModeSettings$3;
 
-    invoke-direct {v6, p0, v0}, Lcom/android/settings/DrivingModeSettings$2;-><init>(Lcom/android/settings/DrivingModeSettings;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
+    invoke-direct {v6, p0, v0}, Lcom/android/settings/DrivingModeSettings$3;-><init>(Lcom/android/settings/DrivingModeSettings;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 526
+    .line 530
     return-void
 .end method

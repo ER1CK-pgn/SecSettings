@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 657
+    .line 666
     iput-object p1, p0, Lcom/android/settings/myprofile/MyProfileActivity$4;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 660
+    .line 669
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -60,11 +60,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 664
+    .line 673
     :goto_0
     return v2
 
-    .line 663
+    .line 672
     :cond_0
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$4;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 

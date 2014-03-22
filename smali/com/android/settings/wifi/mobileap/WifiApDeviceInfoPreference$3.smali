@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 114
+    .line 123
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference$3;->this$0:Lcom/android/settings/wifi/mobileap/WifiApDeviceInfoPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "which"
 
     .prologue
-    .line 116
+    .line 125
     return-void
 .end method

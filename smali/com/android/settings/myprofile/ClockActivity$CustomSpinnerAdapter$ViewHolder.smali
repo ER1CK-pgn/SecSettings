@@ -29,7 +29,7 @@
     .line 257
     iput-object p1, p0, Lcom/android/settings/myprofile/ClockActivity$CustomSpinnerAdapter$ViewHolder;->this$1:Lcom/android/settings/myprofile/ClockActivity$CustomSpinnerAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

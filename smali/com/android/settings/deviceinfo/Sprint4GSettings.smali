@@ -181,7 +181,7 @@
     .line 94
     const-string v5, "connectivity"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -215,7 +215,7 @@
     .line 103
     const-string v5, "phone"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -255,14 +255,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 42
-    const v0, 0x7f0700a1
+    const v0, 0x7f0700c5
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 43
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Sprint4GSettings;->KEY_4G_NETWORK_PROVIDER:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -273,7 +273,7 @@
     .line 44
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Sprint4GSettings;->KEY_4G_IP_ADDRESS:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -309,15 +309,15 @@
 
     const-string v1, "Unknown"
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 52
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -344,17 +344,17 @@
 
     const-string v1, "0.0.0.0"
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 57
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Sprint4GSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setOrderingAsAdded(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->setOrderingAsAdded(Z)V
 
     .line 58
     return-void
@@ -365,7 +365,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/Sprint4GSettings;->networkProvider:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
@@ -375,7 +375,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/Sprint4GSettings;->ipAddress:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 .end method
@@ -385,7 +385,7 @@
 
     .prologue
     .line 85
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
     .line 86
     return-void
@@ -396,7 +396,7 @@
 
     .prologue
     .line 79
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 80
     return-void

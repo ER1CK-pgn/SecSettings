@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 552
+    .line 543
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$19;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 554
+    .line 545
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$19;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWarning;->afterAttentionDialog()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$1300(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
-    .line 555
+    .line 546
     return-void
 .end method

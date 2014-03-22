@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 281
+    .line 283
     iput-object p1, p0, Lcom/android/settings/search/SearchListAdapter$2;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "view"
 
     .prologue
-    .line 284
+    .line 286
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
 
-    .line 285
+    .line 287
     .local v1, position:I
     iget-object v3, p0, Lcom/android/settings/search/SearchListAdapter$2;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
@@ -57,7 +57,7 @@
 
     iget v2, v3, Lcom/android/settings/search/SearchItem;->rowId:I
 
-    .line 287
+    .line 289
     .local v2, rowId:I
     new-instance v0, Landroid/content/Intent;
 
@@ -65,13 +65,13 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 288
+    .line 290
     .local v0, intent:Landroid/content/Intent;
     const-string v3, "rowId"
 
     invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 290
+    .line 292
     iget-object v3, p0, Lcom/android/settings/search/SearchListAdapter$2;->this$0:Lcom/android/settings/search/SearchListAdapter;
 
     #getter for: Lcom/android/settings/search/SearchListAdapter;->mContext:Landroid/content/Context;
@@ -81,6 +81,6 @@
 
     invoke-virtual {v3, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 291
+    .line 293
     return-void
 .end method

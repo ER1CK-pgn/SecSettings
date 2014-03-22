@@ -202,13 +202,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090a8a
+    const v1, 0x7f090b6e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090a85
+    const v1, 0x7f090b69
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -897,19 +897,6 @@
     goto :goto_1
 .end method
 
-.method public setSwitchOnOff()V
-    .locals 1
-
-    .prologue
-    .line 258
-    iget-object v0, p0, Lcom/android/settings/DrivingModeEnabler;->mSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v0}, Landroid/widget/Switch;->toggle()V
-
-    .line 259
-    return-void
-.end method
-
 .method public showDrivingModeOnDialog()V
     .locals 9
 
@@ -943,7 +930,7 @@
 
     .line 269
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f04006b
+    const v5, 0x7f040070
 
     invoke-virtual {v1, v5, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -951,7 +938,7 @@
 
     .line 270
     .local v2, layout:Landroid/view/View;
-    const v5, 0x7f0b013e
+    const v5, 0x7f0b014d
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -961,7 +948,14 @@
 
     .line 271
     .local v0, checkBox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    const v5, 0x7f0b013d
+    new-instance v5, Lcom/android/settings/DrivingModeEnabler$3;
+
+    invoke-direct {v5, p0}, Lcom/android/settings/DrivingModeEnabler$3;-><init>(Lcom/android/settings/DrivingModeEnabler;)V
+
+    invoke-virtual {v0, v5}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 275
+    const v5, 0x7f0b014c
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -969,7 +963,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 272
+    .line 276
     .local v3, message:Landroid/widget/TextView;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -977,7 +971,7 @@
 
     iget-object v6, p0, Lcom/android/settings/DrivingModeEnabler;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090a8c
+    const v7, 0x7f090b70
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -995,7 +989,7 @@
 
     iget-object v6, p0, Lcom/android/settings/DrivingModeEnabler;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f090a8d
+    const v7, 0x7f090b71
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1009,18 +1003,18 @@
 
     move-result-object v4
 
-    .line 273
+    .line 277
     .local v4, messageString:Ljava/lang/String;
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 275
+    .line 279
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
     iget-object v6, p0, Lcom/android/settings/DrivingModeEnabler;->mContext:Landroid/content/Context;
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f090a85
+    const v6, 0x7f090b69
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1042,32 +1036,21 @@
 
     iput-object v5, p0, Lcom/android/settings/DrivingModeEnabler;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
 
-    .line 277
-    iget-object v5, p0, Lcom/android/settings/DrivingModeEnabler;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v5}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v5
-
-    const/16 v6, 0x7d3
-
-    invoke-virtual {v5, v6}, Landroid/view/Window;->setType(I)V
-
-    .line 278
+    .line 282
     iget-object v5, p0, Lcom/android/settings/DrivingModeEnabler;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v5}, Landroid/app/AlertDialog;->show()V
 
-    .line 279
+    .line 283
     iget-object v5, p0, Lcom/android/settings/DrivingModeEnabler;->mDrivingModeOnDialog:Landroid/app/AlertDialog;
 
-    new-instance v6, Lcom/android/settings/DrivingModeEnabler$3;
+    new-instance v6, Lcom/android/settings/DrivingModeEnabler$4;
 
-    invoke-direct {v6, p0, v0}, Lcom/android/settings/DrivingModeEnabler$3;-><init>(Lcom/android/settings/DrivingModeEnabler;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
+    invoke-direct {v6, p0, v0}, Lcom/android/settings/DrivingModeEnabler$4;-><init>(Lcom/android/settings/DrivingModeEnabler;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 287
+    .line 291
     return-void
 .end method
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 503
+    .line 504
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$7;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 505
+    .line 506
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$7;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
@@ -53,8 +53,8 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 506
+    .line 507
     return-void
 .end method

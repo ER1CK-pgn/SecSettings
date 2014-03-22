@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 2220
+    .line 2479
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment$1;->this$0:Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment;
 
     iput-wide p2, p0, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment$1;->val$limitBytes:J
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,26 +48,26 @@
     .parameter "which"
 
     .prologue
-    .line 2223
+    .line 2482
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment$1;->this$0:Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment;
 
-    invoke-virtual {v1}, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment;->getTargetFragment()Landroid/app/Fragment;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/DataUsageSummary;
 
-    .line 2224
+    .line 2483
     .local v0, target:Lcom/android/settings/DataUsageSummary;
     if-eqz v0, :cond_0
 
-    .line 2225
+    .line 2484
     iget-wide v1, p0, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment$1;->val$limitBytes:J
 
     #calls: Lcom/android/settings/DataUsageSummary;->setPolicyLimitBytes(J)V
     invoke-static {v0, v1, v2}, Lcom/android/settings/DataUsageSummary;->access$1200(Lcom/android/settings/DataUsageSummary;J)V
 
-    .line 2227
+    .line 2486
     :cond_0
     return-void
 .end method

@@ -32,7 +32,7 @@
     const/4 v1, 0x0
 
     .line 60
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 46
     iput-object v1, p0, Lcom/android/settings/motion/MotionEnabler;->mSwitch:Landroid/widget/Switch;
@@ -133,30 +133,30 @@
     .parameter "isEnable"
 
     .prologue
-    .line 219
+    .line 227
     iget-object v1, p0, Lcom/android/settings/motion/MotionEnabler;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, p1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 220
+    .line 228
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 221
+    .line 229
     .local v0, motion_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 222
+    .line 230
     iget-object v1, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 223
+    .line 231
     return-void
 .end method
 
@@ -164,22 +164,22 @@
     .locals 1
 
     .prologue
-    .line 226
+    .line 234
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 227
+    .line 235
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 228
+    .line 236
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 230
+    .line 238
     :cond_0
     return-void
 .end method
@@ -188,23 +188,23 @@
     .locals 3
 
     .prologue
-    .line 160
+    .line 162
     invoke-direct {p0}, Lcom/android/settings/motion/MotionEnabler;->dismissAllDialog()V
 
-    .line 161
+    .line 163
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0913e4
+    const v1, 0x7f09155d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -232,12 +232,12 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 186
+    .line 194
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 187
+    .line 195
     return-void
 .end method
 
@@ -248,20 +248,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 191
+    .line 199
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mMotionUnlockDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 192
+    .line 200
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mMotionUnlockDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 193
+    .line 201
     iput-object v3, p0, Lcom/android/settings/motion/MotionEnabler;->mMotionUnlockDialog:Landroid/app/AlertDialog;
 
-    .line 196
+    .line 204
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -273,7 +273,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090d1a
+    const v1, 0x7f090e41
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -285,7 +285,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09074c
+    const v1, 0x7f09079f
 
     new-instance v2, Lcom/android/settings/motion/MotionEnabler$3;
 
@@ -295,7 +295,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -307,16 +307,16 @@
 
     iput-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mMotionUnlockDialog:Landroid/app/AlertDialog;
 
-    .line 211
+    .line 219
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mMotionUnlockDialog:Landroid/app/AlertDialog;
 
     new-instance v1, Lcom/android/settings/motion/MotionEnabler$4;
 
     invoke-direct {v1, p0}, Lcom/android/settings/motion/MotionEnabler$4;-><init>(Lcom/android/settings/motion/MotionEnabler;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 216
+    .line 224
     return-void
 .end method
 
@@ -409,11 +409,11 @@
     if-eqz v0, :cond_3
 
     .line 122
-    const v5, 0x7f090d78
+    const v5, 0x7f090ea3
 
     invoke-direct {p0, v5}, Lcom/android/settings/motion/MotionEnabler;->showMotionUnlockDialog(I)V
 
-    .line 157
+    .line 159
     .end local v0           #camera_short_cut:Z
     .end local v1           #lockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
     .end local v3           #motion_unlock:Z
@@ -431,7 +431,7 @@
     if-eqz v0, :cond_4
 
     .line 124
-    const v5, 0x7f090d77
+    const v5, 0x7f090ea2
 
     invoke-direct {p0, v5}, Lcom/android/settings/motion/MotionEnabler;->showMotionUnlockDialog(I)V
 
@@ -444,7 +444,7 @@
     if-nez v0, :cond_5
 
     .line 126
-    const v5, 0x7f090d76
+    const v5, 0x7f090ea1
 
     invoke-direct {p0, v5}, Lcom/android/settings/motion/MotionEnabler;->showMotionUnlockDialog(I)V
 
@@ -536,6 +536,20 @@
 
     if-nez v5, :cond_a
 
+    iget-object v5, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v8, "master_motion"
+
+    invoke-static {v5, v8, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-nez v5, :cond_a
+
     .line 138
     :cond_9
     invoke-direct {p0}, Lcom/android/settings/motion/MotionEnabler;->showAllOptionDisabledDialog()V
@@ -565,10 +579,31 @@
 
     goto :goto_0
 
-    .line 152
+    .line 151
     .end local v2           #motionState:I
     .end local v4           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_b
+    iget-object v5, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    iget-object v8, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
+
+    invoke-static {v5, v8}, Lcom/android/settings/motion/MotionSettings;->isAllOptionDisabled(Landroid/content/ContentResolver;Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    .line 152
+    invoke-direct {p0}, Lcom/android/settings/motion/MotionEnabler;->showAllOptionDisabledDialog()V
+
+    goto/16 :goto_0
+
+    .line 154
+    :cond_c
     iget-object v5, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -577,14 +612,14 @@
 
     const-string v9, "master_motion"
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_d
 
     move v5, v6
 
     :goto_3
     invoke-static {v8, v9, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 153
+    .line 155
     iget-object v5, p0, Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -593,26 +628,26 @@
 
     const-string v8, "motion_engine"
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_e
 
     :goto_4
     invoke-static {v5, v8, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 154
+    .line 156
     invoke-direct {p0, p2}, Lcom/android/settings/motion/MotionEnabler;->broadcastMotionChanged(Z)V
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_d
     move v5, v7
 
-    .line 152
+    .line 154
     goto :goto_3
 
-    :cond_d
+    :cond_e
     move v6, v7
 
-    .line 153
+    .line 155
     goto :goto_4
 .end method
 
@@ -639,7 +674,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 82
     return-void
@@ -671,7 +706,7 @@
     .line 74
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 75
     return-void
@@ -717,7 +752,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 89
     iput-object p1, p0, Lcom/android/settings/motion/MotionEnabler;->mSwitch:Landroid/widget/Switch;
@@ -748,7 +783,7 @@
     :goto_1
     iget-object v1, p0, Lcom/android/settings/motion/MotionEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 

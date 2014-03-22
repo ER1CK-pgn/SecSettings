@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 821
+    .line 777
     iput-object p1, p0, Lcom/android/settings/DateTimeSettings$3;->this$0:Lcom/android/settings/DateTimeSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,23 +40,23 @@
     .parameter "intent"
 
     .prologue
-    .line 824
+    .line 780
     iget-object v1, p0, Lcom/android/settings/DateTimeSettings$3;->this$0:Lcom/android/settings/DateTimeSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/DateTimeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 825
+    .line 781
     .local v0, activity:Landroid/app/Activity;
     if-eqz v0, :cond_0
 
-    .line 826
+    .line 782
     iget-object v1, p0, Lcom/android/settings/DateTimeSettings$3;->this$0:Lcom/android/settings/DateTimeSettings;
 
     invoke-virtual {v1, v0}, Lcom/android/settings/DateTimeSettings;->updateTimeAndDateDisplay(Landroid/content/Context;)V
 
-    .line 828
+    .line 784
     :cond_0
     return-void
 .end method

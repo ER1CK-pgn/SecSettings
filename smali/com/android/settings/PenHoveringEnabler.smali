@@ -46,7 +46,7 @@
 
     .prologue
     .line 71
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     new-instance v0, Lcom/android/settings/PenHoveringEnabler$1;
@@ -191,7 +191,7 @@
 
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090cb9
+    const v2, 0x7f090dd3
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -203,7 +203,7 @@
 
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090cb8
+    const v2, 0x7f090dd2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -564,7 +564,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 104
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mContext:Landroid/content/Context;
@@ -618,7 +618,7 @@
     .line 83
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 84
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mSwitch:Landroid/widget/Switch;
@@ -636,7 +636,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 90
     iget-object v1, p0, Lcom/android/settings/PenHoveringEnabler;->mContext:Landroid/content/Context;

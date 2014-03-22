@@ -7,6 +7,8 @@
 
 
 # instance fields
+.field private final mAccessControlObserver:Landroid/database/ContentObserver;
+
 .field private mActionBarLayout:Landroid/view/View;
 
 .field private mActionBarSwitch:Landroid/widget/Switch;
@@ -25,10 +27,10 @@
     .locals 2
 
     .prologue
-    .line 21
+    .line 24
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 39
+    .line 42
     new-instance v0, Lcom/android/settings/MultiWindowSettings$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -39,6 +41,17 @@
 
     iput-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowObserver:Landroid/database/ContentObserver;
 
+    .line 50
+    new-instance v0, Lcom/android/settings/MultiWindowSettings$2;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/MultiWindowSettings$2;-><init>(Lcom/android/settings/MultiWindowSettings;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mAccessControlObserver:Landroid/database/ContentObserver;
+
     return-void
 .end method
 
@@ -47,7 +60,7 @@
     .parameter "x0"
 
     .prologue
-    .line 21
+    .line 24
     iget-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     return-object v0
@@ -58,7 +71,7 @@
     .parameter "x0"
 
     .prologue
-    .line 21
+    .line 24
     iget-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
 
     return-object v0
@@ -77,12 +90,12 @@
 
     const/4 v5, 0x0
 
-    .line 60
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getActivity()Landroid/app/Activity;
+    .line 77
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 61
+    .line 78
     .local v0, activity:Landroid/app/Activity;
     new-instance v3, Landroid/widget/Switch;
 
@@ -90,17 +103,17 @@
 
     iput-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 63
+    .line 80
     instance-of v3, v0, Landroid/preference/PreferenceActivity;
 
     if-eqz v3, :cond_1
 
     move-object v2, v0
 
-    .line 64
+    .line 81
     check-cast v2, Landroid/preference/PreferenceActivity;
 
-    .line 65
+    .line 82
     .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
     invoke-virtual {v2}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
@@ -114,32 +127,32 @@
 
     if-nez v3, :cond_1
 
-    .line 66
+    .line 83
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 68
+    .line 85
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 69
+    .line 86
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3, v6, v6}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 71
+    .line 88
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -154,7 +167,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 76
+    .line 93
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -165,15 +178,15 @@
 
     iput-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
 
-    .line 80
+    .line 97
     .end local v1           #padding:I
     .end local v2           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_1
     iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 82
+    .line 99
     new-instance v3, Lcom/android/settings/MultiWindowEnabler;
 
     iget-object v4, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -182,10 +195,10 @@
 
     iput-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowEnable:Lcom/android/settings/MultiWindowEnabler;
 
-    .line 83
+    .line 100
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 85
+    .line 102
     return-void
 .end method
 
@@ -195,7 +208,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 124
+    .line 146
     return-void
 .end method
 
@@ -204,25 +217,25 @@
     .parameter "icicle"
 
     .prologue
-    .line 49
+    .line 66
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 51
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getActivity()Landroid/app/Activity;
+    .line 68
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mContext:Landroid/content/Context;
 
-    .line 53
-    const v0, 0x7f07005c
+    .line 70
+    const v0, 0x7f070079
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/MultiWindowSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 55
+    .line 72
     const-string v0, "open_multi_window_view"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/MultiWindowSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -230,7 +243,7 @@
 
     iput-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
 
-    .line 56
+    .line 73
     return-void
 .end method
 
@@ -238,13 +251,13 @@
     .locals 2
 
     .prologue
-    .line 115
+    .line 136
     iget-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowEnable:Lcom/android/settings/MultiWindowEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/MultiWindowEnabler;->pause()V
 
-    .line 116
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 137
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -252,10 +265,19 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 117
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 138
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 118
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/MultiWindowSettings;->mAccessControlObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    .line 139
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
+
+    .line 140
     return-void
 .end method
 
@@ -269,29 +291,36 @@
 
     const/4 v2, 0x1
 
-    .line 130
+    .line 152
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_0
 
-    .line 131
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 153
+    :cond_0
     iget-boolean v4, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 132
+    .line 154
     sget v4, Lcom/android/settings/MultiWindowSettings;->mSettingValue:I
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_1
 
-    .line 133
+    .line 155
     sget v4, Lcom/android/settings/MultiWindowSettings;->mSettingValue:I
 
-    if-ne v4, v2, :cond_2
+    if-ne v4, v2, :cond_3
 
     move v1, v2
 
@@ -299,27 +328,27 @@
     :goto_0
     move-object v0, p2
 
-    .line 134
+    .line 156
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 135
+    .line 157
     .local v0, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 141
+    .line 163
     .end local v0           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v1           #value:Z
-    :cond_0
+    :cond_1
     iget-object v4, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    .line 142
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 164
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -327,144 +356,185 @@
 
     iget-object v6, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v6}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v6}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     :goto_1
     invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 146
-    :cond_1
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    .line 168
+    :cond_2
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v2
 
     return v2
 
-    :cond_2
+    :cond_3
     move v1, v3
 
-    .line 133
+    .line 155
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v2, v3
 
-    .line 142
+    .line 164
     goto :goto_1
 .end method
 
 .method public onResume()V
-    .locals 5
+    .locals 6
 
     .prologue
     const/4 v1, 0x1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    .line 89
+    .line 106
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 90
-    iget-object v2, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowEnable:Lcom/android/settings/MultiWindowEnabler;
+    .line 107
+    iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowEnable:Lcom/android/settings/MultiWindowEnabler;
 
-    invoke-virtual {v2}, Lcom/android/settings/MultiWindowEnabler;->resume()V
+    invoke-virtual {v3}, Lcom/android/settings/MultiWindowEnabler;->resume()V
 
-    .line 91
-    iget-object v2, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
+    .line 108
+    iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 92
-    iget-object v2, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
+    .line 109
+    iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
 
-    invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 93
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getActivity()Landroid/app/Activity;
+    .line 110
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {v3}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
+    invoke-virtual {v3, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 95
+    .line 112
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "open_multi_window_view"
+    const-string v4, "open_multi_window_view"
 
-    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    move v0, v1
-
-    .line 96
-    .local v0, checked:Z
-    :cond_1
-    iget-object v2, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v2, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 97
-    iget-object v2, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
-
-    iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v3}, Landroid/widget/Switch;->isChecked()Z
+    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v3, :cond_2
 
-    .line 99
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getContentResolver()Landroid/content/ContentResolver;
+    move v0, v1
 
-    move-result-object v2
+    .line 113
+    .local v0, checked:Z
+    :goto_0
+    iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
 
-    const-string v3, "multi_window_enabled"
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 114
+    iget-object v3, p0, Lcom/android/settings/MultiWindowSettings;->mOpenMultiWindowVIew:Landroid/preference/CheckBoxPreference;
+
+    iget-object v4, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v4}, Landroid/widget/CompoundButton;->isChecked()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 116
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "multi_window_enabled"
+
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v3, v4, v1, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    .line 117
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v3, "access_control_enabled"
 
     invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/settings/MultiWindowSettings;->mMultiWindowObserver:Landroid/database/ContentObserver;
+    iget-object v4, p0, Lcom/android/settings/MultiWindowSettings;->mAccessControlObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {v2, v3, v1, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v1, v3, v2, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 102
+    .line 119
+    iget-object v1, p0, Lcom/android/settings/MultiWindowSettings;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/app/enterprise/kioskmode/KioskMode;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/kioskmode/KioskMode;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/enterprise/kioskmode/KioskMode;->isMultiWindowModeAllowed()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 120
+    iget-object v1, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 123
+    :cond_1
     return-void
+
+    .end local v0           #checked:Z
+    :cond_2
+    move v0, v2
+
+    .line 112
+    goto :goto_0
 .end method
 
 .method public onStop()V
     .locals 2
 
     .prologue
-    .line 106
+    .line 127
     iget-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 107
+    .line 128
     iget-object v0, p0, Lcom/android/settings/MultiWindowSettings;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 108
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowSettings;->getActivity()Landroid/app/Activity;
+    .line 129
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -476,10 +546,10 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 110
+    .line 131
     :cond_0
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
-    .line 111
+    .line 132
     return-void
 .end method

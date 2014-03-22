@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1638
+    .line 1805
     iput-object p1, p0, Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment$3;->this$0:Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1641
+    .line 1808
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment$3;->this$0:Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment;->getOwner()Lcom/android/settings/applications/InstalledAppDetails;
@@ -53,8 +53,8 @@
     move-result-object v0
 
     #calls: Lcom/android/settings/applications/InstalledAppDetails;->setIntentAndFinish(ZZ)V
-    invoke-static {v0, v1, v1}, Lcom/android/settings/applications/InstalledAppDetails;->access$900(Lcom/android/settings/applications/InstalledAppDetails;ZZ)V
+    invoke-static {v0, v1, v1}, Lcom/android/settings/applications/InstalledAppDetails;->access$1000(Lcom/android/settings/applications/InstalledAppDetails;ZZ)V
 
-    .line 1642
+    .line 1809
     return-void
 .end method

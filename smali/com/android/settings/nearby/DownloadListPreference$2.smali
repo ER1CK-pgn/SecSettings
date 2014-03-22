@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 118
+    .line 122
     iput-object p1, p0, Lcom/android/settings/nearby/DownloadListPreference$2;->this$0:Lcom/android/settings/nearby/DownloadListPreference;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 120
+    .line 124
     const-string v1, "DownloadListPreference"
 
     const-string v2, "Handler"
@@ -66,13 +66,13 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 123
+    .line 127
     :try_start_0
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 129
+    .line 133
     const-string v1, "DownloadListPreference"
 
     const-string v2, "Handler"
@@ -99,11 +99,11 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 136
+    .line 140
     :goto_0
     return-void
 
-    .line 125
+    .line 129
     :pswitch_0
     iget-object v1, p0, Lcom/android/settings/nearby/DownloadListPreference$2;->this$0:Lcom/android/settings/nearby/DownloadListPreference;
 
@@ -115,11 +115,11 @@
 
     goto :goto_0
 
-    .line 132
+    .line 136
     :catch_0
     move-exception v0
 
-    .line 133
+    .line 137
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "DownloadListPreference"
 
@@ -145,12 +145,12 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 134
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 138
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
-    .line 123
+    .line 127
     :pswitch_data_0
     .packed-switch 0xbb9
         :pswitch_0

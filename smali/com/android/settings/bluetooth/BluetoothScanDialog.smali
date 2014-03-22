@@ -47,9 +47,9 @@
     .line 92
     sget-object v0, Lcom/android/settings/bluetooth/BluetoothScanDialog;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0900e4
+    const v1, 0x7f090103
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 97
     :cond_0
@@ -60,9 +60,9 @@
     :cond_1
     sget-object v0, Lcom/android/settings/bluetooth/BluetoothScanDialog;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f090790
+    const v1, 0x7f0907e3
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_0
 .end method
@@ -109,19 +109,19 @@
 
     .line 44
     .local v1, alertDialogBuilder:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f090236
+    const v4, 0x7f09025b
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 45
-    const v4, 0x7f0900e4
+    const v4, 0x7f090103
 
     const/4 v5, 0x0
 
     invoke-virtual {v1, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 46
-    const v4, 0x7f090173
+    const v4, 0x7f090195
 
     new-instance v5, Lcom/android/settings/bluetooth/BluetoothScanDialog$1;
 
@@ -130,15 +130,15 @@
     invoke-virtual {v1, v4, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 53
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothScanDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v3
 
     .line 54
     .local v3, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f04002f
+    const v5, 0x7f040033
 
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/BluetoothScanDialog;->getCurrentFocus()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Activity;->getCurrentFocus()Landroid/view/View;
 
     move-result-object v4
 
@@ -163,17 +163,17 @@
 
     invoke-direct {v4, p0, v0}, Lcom/android/settings/bluetooth/BluetoothScanDialog$2;-><init>(Lcom/android/settings/bluetooth/BluetoothScanDialog;Landroid/app/AlertDialog;)V
 
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {v0, v4}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
     .line 78
     new-instance v4, Lcom/android/settings/bluetooth/BluetoothScanDialog$3;
 
     invoke-direct {v4, p0, v0}, Lcom/android/settings/bluetooth/BluetoothScanDialog$3;-><init>(Lcom/android/settings/bluetooth/BluetoothScanDialog;Landroid/app/AlertDialog;)V
 
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+    invoke-virtual {v0, v4}, Landroid/app/Dialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
     .line 85
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 86
     return-void
@@ -296,7 +296,7 @@
     :cond_0
     const-string v1, "statusbar"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothScanDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 

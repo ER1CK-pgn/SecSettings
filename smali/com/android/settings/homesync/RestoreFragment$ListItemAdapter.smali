@@ -146,7 +146,7 @@
     .line 274
     iget-object v6, p0, Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-virtual {v6}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v6}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -160,7 +160,7 @@
 
     .line 275
     .local v5, vi:Landroid/view/LayoutInflater;
-    const v6, 0x7f04014f
+    const v6, 0x7f040185
 
     const/4 v7, 0x0
 
@@ -190,7 +190,7 @@
 
     .line 281
     .local v1, holder:Lcom/android/settings/homesync/RestoreFragment$ViewHolder;
-    const v6, 0x7f0b00ec
+    const v6, 0x7f0b00fc
 
     invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -200,7 +200,7 @@
 
     .line 282
     .local v0, dt:Landroid/widget/TextView;
-    const v6, 0x7f0b01cf
+    const v6, 0x7f0b0206
 
     invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,7 +210,7 @@
 
     .line 283
     .local v3, st:Landroid/widget/TextView;
-    const v6, 0x7f0b006a
+    const v6, 0x7f0b0073
 
     invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -255,7 +255,7 @@
     .line 295
     iget-object v6, v1, Lcom/android/settings/homesync/RestoreFragment$ViewHolder;->radioButton:Landroid/widget/RadioButton;
 
-    invoke-virtual {v6, v2}, Landroid/widget/RadioButton;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v6, v2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     .line 296
     iget-object v6, v1, Lcom/android/settings/homesync/RestoreFragment$ViewHolder;->radioButton:Landroid/widget/RadioButton;
@@ -264,7 +264,7 @@
 
     invoke-direct {v7, p0, p1}, Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter$1;-><init>(Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter;I)V
 
-    invoke-virtual {v6, v7}, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 325
     iget-wide v6, p0, Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter;->isSelected:J
@@ -280,7 +280,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {v6, v7}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v6, v7}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 334
     .end local v0           #dt:Landroid/widget/TextView;
@@ -299,7 +299,7 @@
 
     const/4 v7, 0x1
 
-    invoke-virtual {v6, v7}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v6, v7}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 330
     iget-object v6, p0, Lcom/android/settings/homesync/RestoreFragment$ListItemAdapter;->tmpRadioBtn:Landroid/widget/RadioButton;

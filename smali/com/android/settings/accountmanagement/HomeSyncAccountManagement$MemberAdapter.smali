@@ -168,7 +168,7 @@
 
     .line 469
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v7, 0x7f0400b3
+    const v7, 0x7f0400d2
 
     const/4 v8, 0x0
 
@@ -183,7 +183,7 @@
 
     .line 471
     .local v1, holder:Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;
-    const v7, 0x7f0b0132
+    const v7, 0x7f0b0141
 
     invoke-virtual {p2, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
     iput-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->name:Landroid/widget/TextView;
 
     .line 472
-    const v7, 0x7f0b01cb
+    const v7, 0x7f0b0202
 
     invoke-virtual {p2, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -205,7 +205,7 @@
     iput-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->email:Landroid/widget/TextView;
 
     .line 473
-    const v7, 0x7f0b01cd
+    const v7, 0x7f0b0204
 
     invoke-virtual {p2, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -216,7 +216,7 @@
     iput-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->is_register:Landroid/widget/TextView;
 
     .line 474
-    const v7, 0x7f0b01cf
+    const v7, 0x7f0b0206
 
     invoke-virtual {p2, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
     iput-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->size:Landroid/widget/TextView;
 
     .line 475
-    const v7, 0x7f0b01ce
+    const v7, 0x7f0b0205
 
     invoke-virtual {p2, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +251,7 @@
 
     iget-object v9, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter;->context:Landroid/content/Context;
 
-    const v10, 0x7f091431
+    const v10, 0x7f091585
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -310,7 +310,7 @@
     .line 483
     iget-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->is_register:Landroid/widget/TextView;
 
-    const v8, 0x7f091433
+    const v8, 0x7f091587
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -323,7 +323,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0d0030
+    const v9, 0x7f0d003b
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -481,7 +481,7 @@
     :cond_2
     iget-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->is_register:Landroid/widget/TextView;
 
-    const v8, 0x7f091434
+    const v8, 0x7f091588
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
@@ -497,7 +497,7 @@
 
     const/4 v8, 0x4
 
-    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v7, v8}, Landroid/view/View;->setVisibility(I)V
 
     .line 498
     iget-object v7, v1, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->image_size:Landroid/widget/ImageView;

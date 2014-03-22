@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 341
+    .line 374
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$3;->this$0:Lcom/android/settings/DataUsageSummary;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,19 +40,19 @@
     .parameter "intent"
 
     .prologue
-    .line 343
+    .line 376
     const-string v0, "DataUsage"
 
     const-string v1, "mBackgroundTrafficReceiver"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 344
+    .line 377
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$3;->this$0:Lcom/android/settings/DataUsageSummary;
 
     #calls: Lcom/android/settings/DataUsageSummary;->updateView()V
     invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$200(Lcom/android/settings/DataUsageSummary;)V
 
-    .line 345
+    .line 378
     return-void
 .end method

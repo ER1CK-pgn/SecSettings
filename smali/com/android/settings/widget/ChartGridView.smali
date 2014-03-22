@@ -66,7 +66,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 66
-    invoke-virtual {p0, v2}, Lcom/android/settings/widget/ChartGridView;->setWillNotDraw(Z)V
+    invoke-virtual {p0, v2}, Landroid/view/View;->setWillNotDraw(Z)V
 
     .line 68
     sget-object v1, Lcom/android/settings/R$styleable;->ChartGridView:[I
@@ -127,7 +127,7 @@
     const/4 v7, 0x1
 
     .line 150
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartGridView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
 
@@ -154,12 +154,12 @@
 
     iget v0, v0, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
-    invoke-virtual {v2, v0}, Landroid/text/TextPaint;->setCompatibilityScaling(F)V
+    invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setCompatibilityScaling(F)V
 
     .line 154
     iget v0, p0, Lcom/android/settings/widget/ChartGridView;->mLabelColor:I
 
-    invoke-virtual {v2, v0}, Landroid/text/TextPaint;->setColor(I)V
+    invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 155
     const/4 v0, 0x2
@@ -174,7 +174,7 @@
 
     move-result v0
 
-    invoke-virtual {v2, v0}, Landroid/text/TextPaint;->setTextSize(F)V
+    invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setTextSize(F)V
 
     .line 158
     new-instance v0, Landroid/text/StaticLayout;
@@ -244,13 +244,13 @@
 
     .prologue
     .line 103
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/ChartGridView;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
 
     move-result v20
 
     .line 104
     .local v20, width:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/ChartGridView;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
 
     move-result v7
 
@@ -635,7 +635,7 @@
 
     .prologue
     .line 85
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartGridView;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -663,7 +663,7 @@
     iput-object v1, p0, Lcom/android/settings/widget/ChartGridView;->mLayoutEnd:Landroid/text/Layout;
 
     .line 88
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartGridView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 89
     return-void

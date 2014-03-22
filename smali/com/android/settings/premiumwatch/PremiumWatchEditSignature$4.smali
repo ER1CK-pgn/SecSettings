@@ -30,7 +30,7 @@
     .line 171
     iput-object p1, p0, Lcom/android/settings/premiumwatch/PremiumWatchEditSignature$4;->this$0:Lcom/android/settings/premiumwatch/PremiumWatchEditSignature;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/settings/premiumwatch/PremiumWatchEditSignature$4;->this$0:Lcom/android/settings/premiumwatch/PremiumWatchEditSignature;
 
-    invoke-virtual {v2}, Lcom/android/settings/premiumwatch/PremiumWatchEditSignature;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -66,7 +66,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v2}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v2
 

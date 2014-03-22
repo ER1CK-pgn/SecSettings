@@ -10,6 +10,6 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-        <com.google.android.maps.MapView android:enabled="true" android:id="@id/mapview_select" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:apiKey="platform_settings" />
+        <com.google.android.maps.MapView android:enabled="true" android:id="@id/mapview_select" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:apiKey="AIzaSyAL5y2GVRCYhyMbJJqT_fWqNmMRk6y7y64" />
     </LinearLayout>
 </LinearLayout>

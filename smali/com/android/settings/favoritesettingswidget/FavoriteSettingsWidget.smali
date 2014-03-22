@@ -57,7 +57,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04008a
+    const v2, 0x7f040098
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -69,9 +69,9 @@
     if-nez v1, :cond_0
 
     .line 70
-    const v1, 0x7f0b0188
+    const v1, 0x7f0b01a2
 
-    const v2, 0x7f091358
+    const v2, 0x7f0914c9
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
     move-result-object v1
 
     .line 78
-    const v2, 0x7f0b0186
+    const v2, 0x7f0b01a0
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -132,7 +132,7 @@
     move-result-object v1
 
     .line 85
-    const v2, 0x7f0b0189
+    const v2, 0x7f0b01a3
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -161,7 +161,7 @@
     move-result-object v1
 
     .line 92
-    const v2, 0x7f0b018c
+    const v2, 0x7f0b01a6
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -190,7 +190,7 @@
     move-result-object v1
 
     .line 99
-    const v2, 0x7f0b0190
+    const v2, 0x7f0b01aa
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -223,7 +223,7 @@
     move-result-object v1
 
     .line 107
-    const v2, 0x7f0b0193
+    const v2, 0x7f0b01ad
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -245,12 +245,12 @@
     move-result-object v1
 
     .line 113
-    const v2, 0x7f0b0196
+    const v2, 0x7f0b01b0
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
     .line 116
-    const v1, 0x7f0b019a
+    const v1, 0x7f0b01b4
 
     invoke-static {p0, v5, v6}, Lcom/android/settings/favoritesettingswidget/FavoriteSettingsWidget;->getLaunchPendingIntent(Landroid/content/Context;II)Landroid/app/PendingIntent;
 
@@ -276,7 +276,7 @@
     move-result-object v1
 
     .line 122
-    const v2, 0x7f0b019d
+    const v2, 0x7f0b01b7
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -293,7 +293,7 @@
     move-result-object v1
 
     .line 127
-    const v2, 0x7f0b01a0
+    const v2, 0x7f0b01ba
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -505,7 +505,7 @@
 
     .line 179
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v1, v2
 
@@ -544,7 +544,7 @@
 
     .line 179
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -575,7 +575,7 @@
 
     .line 179
     .restart local v0       #e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -740,7 +740,7 @@
 
     .line 214
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v1, v2
 
@@ -779,7 +779,7 @@
 
     .line 214
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -809,7 +809,7 @@
 
     .line 214
     .restart local v0       #e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -918,7 +918,7 @@
     if-nez v0, :cond_1
 
     .line 228
-    const v0, 0x7f091173
+    const v0, 0x7f0912c6
 
     const/4 v1, 0x0
 

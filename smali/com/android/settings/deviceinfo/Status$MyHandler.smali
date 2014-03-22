@@ -33,17 +33,17 @@
     .parameter "activity"
 
     .prologue
-    .line 259
+    .line 262
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 260
+    .line 263
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/Status$MyHandler;->mStatus:Ljava/lang/ref/WeakReference;
 
-    .line 261
+    .line 264
     return-void
 .end method
 
@@ -54,24 +54,24 @@
     .parameter "msg"
 
     .prologue
-    .line 265
+    .line 268
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Status$MyHandler;->mStatus:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/settings/deviceinfo/Status;
 
-    .line 266
+    .line 269
     .local v1, status:Lcom/android/settings/deviceinfo/Status;
     if-nez v1, :cond_0
 
-    .line 285
+    .line 288
     :goto_0
     return-void
 
-    .line 270
+    .line 273
     :cond_0
     iget v2, p1, Landroid/os/Message;->what:I
 
@@ -79,13 +79,13 @@
 
     goto :goto_0
 
-    .line 272
+    .line 275
     :sswitch_0
     invoke-virtual {v1}, Lcom/android/settings/deviceinfo/Status;->updateSignalStrength()V
 
     goto :goto_0
 
-    .line 276
+    .line 279
     :sswitch_1
     #getter for: Lcom/android/settings/deviceinfo/Status;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
     invoke-static {v1}, Lcom/android/settings/deviceinfo/Status;->access$000(Lcom/android/settings/deviceinfo/Status;)Lcom/android/internal/telephony/PhoneStateIntentReceiver;
@@ -96,28 +96,28 @@
 
     move-result-object v0
 
-    .line 277
+    .line 280
     .local v0, serviceState:Landroid/telephony/ServiceState;
     #calls: Lcom/android/settings/deviceinfo/Status;->updateServiceState(Landroid/telephony/ServiceState;)V
     invoke-static {v1, v0}, Lcom/android/settings/deviceinfo/Status;->access$100(Lcom/android/settings/deviceinfo/Status;Landroid/telephony/ServiceState;)V
 
     goto :goto_0
 
-    .line 281
+    .line 284
     .end local v0           #serviceState:Landroid/telephony/ServiceState;
     :sswitch_2
     invoke-virtual {v1}, Lcom/android/settings/deviceinfo/Status;->updateTimes()V
 
-    .line 282
+    .line 285
     const/16 v2, 0x1f4
 
     const-wide/16 v3, 0x3e8
 
-    invoke-virtual {p0, v2, v3, v4}, Lcom/android/settings/deviceinfo/Status$MyHandler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v2, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
 
-    .line 270
+    .line 273
     :sswitch_data_0
     .sparse-switch
         0xc8 -> :sswitch_0

@@ -79,35 +79,35 @@
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     .line 206
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v4}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 207
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->buttonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 208
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButtonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     .line 209
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -124,7 +124,7 @@
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     .line 216
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
@@ -133,17 +133,17 @@
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
-    invoke-virtual {v1}, Lcom/android/settings/personalvibration/PersonalVibration;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020371
+    const v2, 0x7f0203db
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 217
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
@@ -152,17 +152,17 @@
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
-    invoke-virtual {v1}, Lcom/android/settings/personalvibration/PersonalVibration;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0912eb
+    const v2, 0x7f09145c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 219
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
@@ -184,7 +184,7 @@
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 224
     :goto_1
@@ -192,21 +192,21 @@
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 227
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->buttonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     .line 228
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButtonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 
@@ -216,7 +216,7 @@
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_1
 
@@ -233,7 +233,7 @@
 
     iget-object v0, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 

@@ -3,12 +3,12 @@
 .source "SPenSettingsMenu.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/SPenSettingsMenu;->showAllOptionDisabledDialog()V
+    value = Lcom/android/settings/SPenSettingsMenu;->showPenKeeperNotiDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,71 +20,85 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/SPenSettingsMenu;
 
+.field final synthetic val$layout:Landroid/view/View;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/SPenSettingsMenu;)V
+.method constructor <init>(Lcom/android/settings/SPenSettingsMenu;Landroid/view/View;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 569
+    .line 565
     iput-object p1, p0, Lcom/android/settings/SPenSettingsMenu$5;->this$0:Lcom/android/settings/SPenSettingsMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/settings/SPenSettingsMenu$5;->val$layout:Landroid/view/View;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 7
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 6
     .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v5, 0x1
 
-    .line 571
-    iget-object v1, p0, Lcom/android/settings/SPenSettingsMenu$5;->this$0:Lcom/android/settings/SPenSettingsMenu;
+    .line 567
+    iget-object v3, p0, Lcom/android/settings/SPenSettingsMenu$5;->val$layout:Landroid/view/View;
 
-    invoke-virtual {v1}, Lcom/android/settings/SPenSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    const v4, 0x7f0b0155
 
-    move-result-object v1
-
-    const-string v3, "pen_hovering"
-
-    const/4 v4, 0x1
-
-    invoke-static {v1, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 572
-    iget-object v1, p0, Lcom/android/settings/SPenSettingsMenu$5;->this$0:Lcom/android/settings/SPenSettingsMenu;
-
-    invoke-virtual {v1}, Lcom/android/settings/SPenSettingsMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/preference/PreferenceActivity;
+    check-cast v0, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 574
-    .local v0, preferenceActivity:Landroid/preference/PreferenceActivity;
-    const-class v1, Lcom/android/settings/PenAirViewSettingsMenu;
+    .line 569
+    .local v0, check:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 570
+    iget-object v3, p0, Lcom/android/settings/SPenSettingsMenu$5;->this$0:Lcom/android/settings/SPenSettingsMenu;
+
+    invoke-virtual {v3}, Lcom/android/settings/SPenSettingsMenu;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    const-string v4, "com.android.settings_pen_keeper_noti_pref"
+
+    invoke-virtual {v3, v4, v5}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v2
+
+    .line 572
+    .local v2, sp:Landroid/content/SharedPreferences;
+    invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    const v3, 0x7f090e25
+    .line 573
+    .local v1, ed:Landroid/content/SharedPreferences$Editor;
+    const-string v3, "PenKeeperDoNotShowDialog"
 
-    const/4 v6, 0x0
+    invoke-interface {v1, v3, v5}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-object v4, v2
+    .line 574
+    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    move-object v5, v2
-
-    invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
-
-    .line 577
+    .line 576
+    .end local v1           #ed:Landroid/content/SharedPreferences$Editor;
+    .end local v2           #sp:Landroid/content/SharedPreferences;
+    :cond_0
     return-void
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 773
+    .line 798
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 777
+    .line 802
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 778
+    .line 803
     .local v0, action:Ljava/lang/String;
     const-string v3, "NearbyEnabler"
 
@@ -73,7 +73,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 780
+    .line 805
     const-string v3, "com.android.settings.allshare.SERVER_STATE_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -82,7 +82,7 @@
 
     if-eqz v3, :cond_4
 
-    .line 781
+    .line 806
     const-string v3, "START"
 
     const/4 v4, 0x0
@@ -91,7 +91,7 @@
 
     move-result v2
 
-    .line 783
+    .line 808
     .local v2, isServerStarted:Z
     const-string v3, "NearbyEnabler"
 
@@ -117,7 +117,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 785
+    .line 810
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mNearbySwitch:Landroid/widget/Switch;
@@ -127,7 +127,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 786
+    .line 811
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mNearbySwitch:Landroid/widget/Switch;
@@ -135,13 +135,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v3}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v3
 
     if-eq v3, v2, :cond_0
 
-    .line 787
+    .line 812
     const-string v3, "NearbyEnabler"
 
     const-string v4, "mBroadcastReceiver"
@@ -166,7 +166,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 789
+    .line 814
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mNearbySwitch:Landroid/widget/Switch;
@@ -176,7 +176,7 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 791
+    .line 816
     :cond_0
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -185,9 +185,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v7}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v3, v7}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 794
+    .line 819
     :cond_1
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -198,7 +198,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 795
+    .line 820
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mNearbySwitchPref:Landroid/preference/SwitchPreferenceScreen;
@@ -206,13 +206,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v3}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v3
 
     if-eq v3, v2, :cond_2
 
-    .line 796
+    .line 821
     const-string v3, "NearbyEnabler"
 
     const-string v4, "mBroadcastReceiver"
@@ -237,7 +237,7 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 798
+    .line 823
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mNearbySwitchPref:Landroid/preference/SwitchPreferenceScreen;
@@ -245,9 +245,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 800
+    .line 825
     :cond_2
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -256,15 +256,15 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v7}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 813
+    .line 838
     .end local v2           #isServerStarted:Z
     :cond_3
     :goto_0
     return-void
 
-    .line 804
+    .line 829
     :cond_4
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -278,7 +278,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 805
+    .line 830
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
@@ -303,7 +303,7 @@
 
     move-result-object v1
 
-    .line 808
+    .line 833
     .local v1, deviceName:Ljava/lang/String;
     if-eqz v1, :cond_3
 
@@ -316,7 +316,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 809
+    .line 834
     iget-object v3, p0, Lcom/android/settings/nearby/NearbyEnabler$4;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mNearbyDeviceName:Landroid/preference/PreferenceScreen;
@@ -324,7 +324,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v1}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method

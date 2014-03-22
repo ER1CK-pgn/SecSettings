@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1448
+    .line 1597
     iput-object p1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$1;->this$0:Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .parameter "event"
 
     .prologue
-    .line 1451
+    .line 1600
     const/16 v0, 0x42
 
     if-ne p2, v0, :cond_0
@@ -55,10 +55,10 @@
 
     if-nez v0, :cond_0
 
-    .line 1452
+    .line 1601
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->callSearchMenu()V
 
-    .line 1454
+    .line 1603
     :cond_0
     const/4 v0, 0x0
 

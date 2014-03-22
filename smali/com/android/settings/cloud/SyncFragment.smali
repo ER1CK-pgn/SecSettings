@@ -40,7 +40,7 @@
 
     .prologue
     .line 227
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -73,7 +73,7 @@
 
     .prologue
     .line 149
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -121,7 +121,7 @@
     .line 202
     iget-object v2, p0, Lcom/android/settings/cloud/SyncFragment;->dialogFragment:Landroid/app/DialogFragment;
 
-    invoke-virtual {v2}, Landroid/app/DialogFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -163,7 +163,7 @@
     :pswitch_1
     iget-object v2, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 212
     invoke-virtual {p0, v3}, Lcom/android/settings/cloud/SyncFragment;->updateScreen(I)V
@@ -207,13 +207,13 @@
     invoke-virtual {p0, v2}, Lcom/android/settings/cloud/SyncFragment;->updateScreen(I)V
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v2, 0x7f0912c9
+    const v2, 0x7f091435
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/cloud/SyncFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -250,9 +250,9 @@
     :cond_2
     const/4 v0, 0x2
 
-    const v1, 0x7f0912ca
+    const v1, 0x7f091455
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/cloud/SyncFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -270,7 +270,7 @@
     .line 112
     iget-object v0, p0, Lcom/android/settings/cloud/SyncFragment;->dialogFragment:Landroid/app/DialogFragment;
 
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
@@ -297,7 +297,7 @@
     .line 180
     iget-object v2, p0, Lcom/android/settings/cloud/SyncFragment;->dialogFragment:Landroid/app/DialogFragment;
 
-    invoke-virtual {v2}, Landroid/app/DialogFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -369,7 +369,7 @@
 
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -378,19 +378,19 @@
     move v1, v2
 
     :goto_0
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 122
     invoke-virtual {p0, v2}, Lcom/android/settings/cloud/SyncFragment;->updateScreen(I)V
 
     .line 123
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v4, 0x7f0912c9
+    const v4, 0x7f091435
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/cloud/SyncFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -423,7 +423,7 @@
     .line 129
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -450,9 +450,9 @@
     :cond_3
     const/4 v1, 0x3
 
-    const v4, 0x7f0912d1
+    const v4, 0x7f09143d
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/cloud/SyncFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -470,7 +470,7 @@
     .line 137
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->dialogFragment:Landroid/app/DialogFragment;
 
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
 
@@ -492,10 +492,10 @@
     const/4 v4, 0x0
 
     .line 57
-    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 58
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -513,11 +513,11 @@
     if-eqz v2, :cond_0
 
     .line 63
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0f0019
+    const v3, 0x7f0f0034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -527,7 +527,7 @@
     .local v1, padding:I
     iget-object v2, p0, Lcom/android/settings/cloud/SyncFragment;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 66
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -562,7 +562,7 @@
 
     .prologue
     .line 220
-    invoke-virtual {p0}, Lcom/android/settings/cloud/SyncFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -642,7 +642,7 @@
     .line 167
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 
@@ -659,7 +659,7 @@
     .line 169
     iget-object v1, p0, Lcom/android/settings/cloud/SyncFragment;->mPrefWifiOnly:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 

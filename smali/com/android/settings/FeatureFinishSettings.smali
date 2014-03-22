@@ -19,8 +19,6 @@
 
 .field private mDirectPen:Landroid/preference/PreferenceScreen;
 
-.field private mEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
 .field private mGuideDialog:Landroid/app/AlertDialog;
 
 .field private mMagazine:Landroid/preference/PreferenceScreen;
@@ -106,9 +104,6 @@
     .line 64
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 81
-    iput-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
     .line 83
     iput-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
@@ -136,9 +131,9 @@
     .line 126
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mDirectPen:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f090036
+    const v1, 0x7f090048
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -148,9 +143,9 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f090cd1
+    const v4, 0x7f090deb
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -160,10 +155,10 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 127
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -172,44 +167,44 @@
     .line 128
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mMagazine:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 129
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mActionMeo:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 130
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mAirCommand:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 131
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mDirectPen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 132
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mScrapbook:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 133
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mSfinder:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 134
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mSnote:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 135
     iget-object v0, p0, Lcom/android/settings/FeatureFinishSettings;->mMultiWindow:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
-    .line 154
+    .line 162
     return-void
 .end method
 
@@ -221,14 +216,14 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 218
+    .line 226
     const/4 v3, 0x0
 
-    .line 219
+    .line 227
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
     const/4 v6, 0x0
 
@@ -236,8 +231,8 @@
 
     move-result-object v3
 
-    .line 220
-    const v4, 0x7f0b01ad
+    .line 228
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -245,17 +240,17 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 222
+    .line 230
     .local v1, helpContent:Landroid/widget/LinearLayout;
-    const v4, 0x7f090038
+    const v4, 0x7f09004a
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 224
+    .line 232
     .local v2, s:Ljava/lang/String;
     new-instance v0, Lcom/android/settings/HelpItem;
 
@@ -263,40 +258,60 @@
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 225
+    .line 233
     .local v0, first:Lcom/android/settings/HelpItem;
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 226
+    .line 234
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 227
+    .line 235
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 228
-    const v4, 0x7f02028a
+    .line 236
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 237
+    const v4, 0x7f0202ee
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 229
+    .line 241
+    :goto_0
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 231
+    .line 243
     return-object v3
+
+    .line 239
+    :cond_0
+    const v4, 0x7f0202ed
+
+    invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
+
+    goto :goto_0
 .end method
 
 .method public makeAirCommandLayout()Landroid/view/View;
     .locals 22
 
     .prologue
-    .line 236
+    .line 248
     const/16 v18, 0x0
 
-    .line 237
+    .line 249
     .local v18, view:Landroid/view/View;
     move-object/from16 v0, p0
 
@@ -304,7 +319,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f04008e
+    const v20, 0x7f04009e
 
     const/16 v21, 0x0
 
@@ -312,8 +327,8 @@
 
     move-result-object v18
 
-    .line 238
-    const v19, 0x7f0b01ad
+    .line 250
+    const v19, 0x7f0b01cc
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -321,7 +336,7 @@
 
     check-cast v6, Landroid/widget/LinearLayout;
 
-    .line 240
+    .line 252
     .local v6, helpContent:Landroid/widget/LinearLayout;
     const-string v19, "ATT"
 
@@ -335,7 +350,7 @@
 
     if-eqz v19, :cond_0
 
-    .line 241
+    .line 253
     new-instance v2, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -348,7 +363,7 @@
 
     invoke-direct {v2, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 242
+    .line 254
     .local v2, ATTfirst:Lcom/android/settings/HelpItem;
     const/16 v19, 0x8
 
@@ -356,37 +371,37 @@
 
     invoke-virtual {v2, v0}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 243
+    .line 255
     const/16 v19, 0x8
 
     move/from16 v0, v19
 
     invoke-virtual {v2, v0}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 244
-    const v19, 0x7f090e4f
+    .line 256
+    const v19, 0x7f090f88
 
     move/from16 v0, v19
 
     invoke-virtual {v2, v0}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 245
-    const v19, 0x7f02028c
+    .line 257
+    const v19, 0x7f0202f0
 
     move/from16 v0, v19
 
     invoke-virtual {v2, v0}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 246
+    .line 258
     invoke-virtual {v2}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 248
+    .line 260
     new-instance v14, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -399,19 +414,19 @@
 
     invoke-direct {v14, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 249
+    .line 261
     .local v14, second:Lcom/android/settings/HelpItem;
     new-instance v19, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v20, 0x7f090017
+    const v20, 0x7f090025
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -425,13 +440,13 @@
 
     move-result-object v19
 
-    const v20, 0x7f090e42
+    const v20, 0x7f090f7b
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -443,27 +458,27 @@
 
     move-result-object v10
 
-    .line 250
+    .line 262
     .local v10, mSecondTitle:Ljava/lang/String;
     invoke-virtual {v14, v10}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(Ljava/lang/String;)V
 
-    .line 251
-    const v19, 0x7f090e50
+    .line 263
+    const v19, 0x7f090f89
 
     move/from16 v0, v19
 
     invoke-virtual {v14, v0}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 252
+    .line 264
     invoke-virtual {v14}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 254
+    .line 266
     new-instance v17, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -478,19 +493,19 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 255
+    .line 267
     .local v17, third:Lcom/android/settings/HelpItem;
     new-instance v19, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v20, 0x7f090018
+    const v20, 0x7f090026
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -504,13 +519,13 @@
 
     move-result-object v19
 
-    const v20, 0x7f090e43
+    const v20, 0x7f090f7c
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -522,14 +537,14 @@
 
     move-result-object v12
 
-    .line 256
+    .line 268
     .local v12, mThirdTitle:Ljava/lang/String;
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v12}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(Ljava/lang/String;)V
 
-    .line 257
-    const v19, 0x7f090e51
+    .line 269
+    const v19, 0x7f090f8a
 
     move-object/from16 v0, v17
 
@@ -537,16 +552,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 258
+    .line 270
     invoke-virtual/range {v17 .. v17}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 260
+    .line 272
     new-instance v5, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -559,19 +574,19 @@
 
     invoke-direct {v5, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 261
+    .line 273
     .local v5, fourth:Lcom/android/settings/HelpItem;
     new-instance v19, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v20, 0x7f090019
+    const v20, 0x7f090027
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -585,13 +600,13 @@
 
     move-result-object v19
 
-    const v20, 0x7f090e44
+    const v20, 0x7f090f7d
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -603,27 +618,27 @@
 
     move-result-object v9
 
-    .line 262
+    .line 274
     .local v9, mFourthTitle:Ljava/lang/String;
     invoke-virtual {v5, v9}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(Ljava/lang/String;)V
 
-    .line 263
-    const v19, 0x7f090e52
+    .line 275
+    const v19, 0x7f090f8b
 
     move/from16 v0, v19
 
     invoke-virtual {v5, v0}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 264
+    .line 276
     invoke-virtual {v5}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 266
+    .line 278
     new-instance v3, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -636,19 +651,19 @@
 
     invoke-direct {v3, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 267
+    .line 279
     .local v3, fifth:Lcom/android/settings/HelpItem;
     new-instance v19, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v20, 0x7f09001a
+    const v20, 0x7f090028
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -662,13 +677,13 @@
 
     move-result-object v19
 
-    const v20, 0x7f090e45
+    const v20, 0x7f090f7e
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -680,27 +695,27 @@
 
     move-result-object v8
 
-    .line 268
+    .line 280
     .local v8, mFifthTitle:Ljava/lang/String;
     invoke-virtual {v3, v8}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(Ljava/lang/String;)V
 
-    .line 269
-    const v19, 0x7f090e53
+    .line 281
+    const v19, 0x7f090f8c
 
     move/from16 v0, v19
 
     invoke-virtual {v3, v0}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 270
+    .line 282
     invoke-virtual {v3}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 272
+    .line 284
     new-instance v16, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -715,19 +730,19 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 273
+    .line 285
     .local v16, sixth:Lcom/android/settings/HelpItem;
     new-instance v19, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v20, 0x7f09001b
+    const v20, 0x7f090029
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -741,13 +756,13 @@
 
     move-result-object v19
 
-    const v20, 0x7f090e46
+    const v20, 0x7f090f7f
 
     move-object/from16 v0, p0
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v20
 
@@ -759,14 +774,14 @@
 
     move-result-object v11
 
-    .line 274
+    .line 286
     .local v11, mSixthTitle:Ljava/lang/String;
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v11}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(Ljava/lang/String;)V
 
-    .line 275
-    const v19, 0x7f090e54
+    .line 287
+    const v19, 0x7f090f8d
 
     move-object/from16 v0, v16
 
@@ -774,16 +789,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 276
+    .line 288
     invoke-virtual/range {v16 .. v16}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 278
+    .line 290
     new-instance v15, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -796,31 +811,31 @@
 
     invoke-direct {v15, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 279
+    .line 291
     .local v15, seventh:Lcom/android/settings/HelpItem;
-    const v19, 0x7f090e55
+    const v19, 0x7f090f8e
 
     move/from16 v0, v19
 
     invoke-virtual {v15, v0}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(I)V
 
-    .line 280
-    const v19, 0x7f090e56
+    .line 292
+    const v19, 0x7f090f8f
 
     move/from16 v0, v19
 
     invoke-virtual {v15, v0}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 281
+    .line 293
     invoke-virtual {v15}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 283
+    .line 295
     new-instance v7, Lcom/android/settings/HelpItem;
 
     move-object/from16 v0, p0
@@ -833,7 +848,7 @@
 
     invoke-direct {v7, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 284
+    .line 296
     .local v7, image:Lcom/android/settings/HelpItem;
     const/16 v19, 0x8
 
@@ -841,30 +856,30 @@
 
     invoke-virtual {v7, v0}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 285
+    .line 297
     const/16 v19, 0x8
 
     move/from16 v0, v19
 
     invoke-virtual {v7, v0}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 286
-    const v19, 0x7f02028d
+    .line 298
+    const v19, 0x7f0202f1
 
     move/from16 v0, v19
 
     invoke-virtual {v7, v0}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 287
+    .line 299
     invoke-virtual {v7}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 300
+    .line 312
     .end local v2           #ATTfirst:Lcom/android/settings/HelpItem;
     .end local v3           #fifth:Lcom/android/settings/HelpItem;
     .end local v5           #fourth:Lcom/android/settings/HelpItem;
@@ -881,21 +896,21 @@
     :goto_0
     return-object v18
 
-    .line 291
+    .line 303
     :cond_0
-    const v19, 0x7f090e40
+    const v19, 0x7f090f79
 
     move-object/from16 v0, p0
 
     move/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v13
 
     check-cast v13, Ljava/lang/String;
 
-    .line 293
+    .line 305
     .local v13, s:Ljava/lang/String;
     new-instance v4, Lcom/android/settings/HelpItem;
 
@@ -909,7 +924,7 @@
 
     invoke-direct {v4, v0}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 294
+    .line 306
     .local v4, first:Lcom/android/settings/HelpItem;
     const/16 v19, 0x8
 
@@ -917,31 +932,31 @@
 
     invoke-virtual {v4, v0}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 295
+    .line 307
     const/16 v19, 0x8
 
     move/from16 v0, v19
 
     invoke-virtual {v4, v0}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 296
+    .line 308
     invoke-virtual {v4, v13}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 297
-    const v19, 0x7f02028b
+    .line 309
+    const v19, 0x7f0202ef
 
     move/from16 v0, v19
 
     invoke-virtual {v4, v0}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 298
+    .line 310
     invoke-virtual {v4}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v19
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto :goto_0
 .end method
@@ -952,14 +967,14 @@
     .prologue
     const/16 v8, 0x8
 
-    .line 305
+    .line 317
     const/4 v3, 0x0
 
-    .line 306
+    .line 318
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
     const/4 v6, 0x0
 
@@ -967,8 +982,8 @@
 
     move-result-object v3
 
-    .line 307
-    const v4, 0x7f0b01ad
+    .line 319
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -976,11 +991,11 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 309
+    .line 321
     .local v1, helpContent:Landroid/widget/LinearLayout;
-    const v4, 0x7f090036
+    const v4, 0x7f090048
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -990,9 +1005,9 @@
 
     const/4 v6, 0x0
 
-    const v7, 0x7f090cd1
+    const v7, 0x7f090deb
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/FeatureFinishSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -1002,7 +1017,7 @@
 
     move-result-object v2
 
-    .line 311
+    .line 323
     .local v2, s:Ljava/lang/String;
     new-instance v0, Lcom/android/settings/HelpItem;
 
@@ -1010,29 +1025,29 @@
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 312
+    .line 324
     .local v0, first:Lcom/android/settings/HelpItem;
     invoke-virtual {v0, v8}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 313
+    .line 325
     invoke-virtual {v0, v8}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 314
+    .line 326
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 315
-    const v4, 0x7f02028e
+    .line 327
+    const v4, 0x7f0202f2
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 316
+    .line 328
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 318
+    .line 330
     return-object v3
 .end method
 
@@ -1040,25 +1055,25 @@
     .locals 8
 
     .prologue
-    const/16 v7, 0x8
+    const/4 v7, 0x0
 
-    .line 359
+    const/16 v6, 0x8
+
+    .line 377
     const/4 v3, 0x0
 
-    .line 360
+    .line 378
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v4, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v3
 
-    .line 361
-    const v4, 0x7f0b01ad
+    .line 379
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1066,33 +1081,15 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 363
+    .line 381
     .local v1, helpContent:Landroid/widget/LinearLayout;
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f090586
+    const v4, 0x7f0905b5
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, "\n"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const v4, 0x7f09003e
-
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -1106,11 +1103,95 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 382
+    .local v2, s:Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 383
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v5
 
-    const v4, 0x7f09003f
+    const v4, 0x7f090050
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "\n"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 384
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const v4, 0x7f090051
+
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "\n"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 388
+    :goto_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const v4, 0x7f090053
+
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -1124,38 +1205,72 @@
 
     move-result-object v2
 
-    .line 367
-    .local v2, s:Ljava/lang/String;
+    .line 390
     new-instance v0, Lcom/android/settings/HelpItem;
 
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 368
+    .line 391
     .local v0, first:Lcom/android/settings/HelpItem;
-    invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
+    invoke-virtual {v0, v6}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 369
-    invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
+    .line 392
+    invoke-virtual {v0, v6}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 370
+    .line 393
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 371
-    const v4, 0x7f020290
+    .line 394
+    const v4, 0x7f0202f4
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 372
+    .line 395
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 374
+    .line 397
     return-object v3
+
+    .line 386
+    .end local v0           #first:Lcom/android/settings/HelpItem;
+    :cond_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const v4, 0x7f090052
+
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "\n"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
 .end method
 
 .method public makeMyMagazineLayout()Landroid/view/View;
@@ -1164,14 +1279,14 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 199
+    .line 207
     const/4 v3, 0x0
 
-    .line 200
+    .line 208
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
     const/4 v6, 0x0
 
@@ -1179,8 +1294,8 @@
 
     move-result-object v3
 
-    .line 201
-    const v4, 0x7f0b01ad
+    .line 209
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1188,17 +1303,17 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 203
+    .line 211
     .local v1, helpContent:Landroid/widget/LinearLayout;
-    const v4, 0x7f090035
+    const v4, 0x7f090047
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 205
+    .line 213
     .local v2, s:Ljava/lang/String;
     new-instance v0, Lcom/android/settings/HelpItem;
 
@@ -1206,29 +1321,29 @@
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 206
+    .line 214
     .local v0, first:Lcom/android/settings/HelpItem;
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 207
+    .line 215
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 208
+    .line 216
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 209
-    const v4, 0x7f02028f
+    .line 217
+    const v4, 0x7f0202f3
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 210
+    .line 218
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 212
+    .line 220
     return-object v3
 .end method
 
@@ -1238,14 +1353,14 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 379
+    .line 402
     const/4 v3, 0x0
 
-    .line 380
+    .line 403
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
     const/4 v6, 0x0
 
@@ -1253,8 +1368,8 @@
 
     move-result-object v3
 
-    .line 381
-    const v4, 0x7f0b01ad
+    .line 404
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1262,33 +1377,15 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 383
+    .line 408
     .local v1, helpContent:Landroid/widget/LinearLayout;
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f09002c
+    const v4, 0x7f09003d
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string v5, "\n\n"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const v4, 0x7f09002d
-
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -1302,11 +1399,56 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 413
+    .local v2, s:Ljava/lang/String;
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v5
 
-    const v4, 0x7f09002e
+    const v4, 0x7f09003f
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, "\n\n"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 414
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const v4, 0x7f090040
+
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -1320,37 +1462,36 @@
 
     move-result-object v2
 
-    .line 387
-    .local v2, s:Ljava/lang/String;
+    .line 416
     new-instance v0, Lcom/android/settings/HelpItem;
 
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 388
+    .line 417
     .local v0, first:Lcom/android/settings/HelpItem;
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 389
+    .line 418
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 390
+    .line 419
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 391
-    const v4, 0x7f020292
+    .line 420
+    const v4, 0x7f0202f6
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 392
+    .line 421
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 394
+    .line 423
     return-object v3
 .end method
 
@@ -1360,14 +1501,14 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 323
+    .line 335
     const/4 v3, 0x0
 
-    .line 324
+    .line 336
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
     const/4 v6, 0x0
 
@@ -1375,8 +1516,8 @@
 
     move-result-object v3
 
-    .line 325
-    const v4, 0x7f0b01ad
+    .line 337
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1384,17 +1525,17 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 327
+    .line 339
     .local v1, helpContent:Landroid/widget/LinearLayout;
-    const v4, 0x7f090032
+    const v4, 0x7f090044
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 329
+    .line 341
     .local v2, s:Ljava/lang/String;
     new-instance v0, Lcom/android/settings/HelpItem;
 
@@ -1402,29 +1543,29 @@
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 330
+    .line 342
     .local v0, first:Lcom/android/settings/HelpItem;
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 331
+    .line 343
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 332
+    .line 344
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 333
-    const v4, 0x7f020291
+    .line 345
+    const v4, 0x7f0202f5
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 334
+    .line 346
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 336
+    .line 348
     return-object v3
 .end method
 
@@ -1434,14 +1575,14 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 341
+    .line 353
     const/4 v3, 0x0
 
-    .line 342
+    .line 354
     .local v3, view:Landroid/view/View;
     iget-object v4, p0, Lcom/android/settings/FeatureFinishSettings;->inflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f04008e
+    const v5, 0x7f04009e
 
     const/4 v6, 0x0
 
@@ -1449,8 +1590,8 @@
 
     move-result-object v3
 
-    .line 343
-    const v4, 0x7f0b01ad
+    .line 355
+    const v4, 0x7f0b01cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1458,17 +1599,17 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 345
+    .line 362
     .local v1, helpContent:Landroid/widget/LinearLayout;
-    const v4, 0x7f09003b
+    const v4, 0x7f09004d
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/FeatureFinishSettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 347
+    .line 365
     .local v2, s:Ljava/lang/String;
     new-instance v0, Lcom/android/settings/HelpItem;
 
@@ -1476,29 +1617,29 @@
 
     invoke-direct {v0, v4}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 348
+    .line 366
     .local v0, first:Lcom/android/settings/HelpItem;
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 349
+    .line 367
     invoke-virtual {v0, v7}, Lcom/android/settings/HelpItem;->setTitle2Visibility(I)V
 
-    .line 350
+    .line 368
     invoke-virtual {v0, v2}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 351
-    const v4, 0x7f020293
+    .line 369
+    const v4, 0x7f0202f7
 
     invoke-virtual {v0, v4}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 352
+    .line 370
     invoke-virtual {v0}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 354
+    .line 372
     return-object v3
 .end method
 
@@ -1511,7 +1652,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1529,7 +1670,7 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 103
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1547,7 +1688,7 @@
 
     .line 104
     .local v0, mDisableExclusiveOptionsFlag:I
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1556,14 +1697,14 @@
     .line 107
     .end local v0           #mDisableExclusiveOptionsFlag:I
     :cond_0
-    const v1, 0x7f07003e
+    const v1, 0x7f07004c
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 109
     const-string v1, "mymagazine"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1574,7 +1715,7 @@
     .line 110
     const-string v1, "action_memo"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1585,7 +1726,7 @@
     .line 111
     const-string v1, "air_command"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1596,7 +1737,7 @@
     .line 112
     const-string v1, "direct_pen"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1607,7 +1748,7 @@
     .line 113
     const-string v1, "scrapbook"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1618,7 +1759,7 @@
     .line 114
     const-string v1, "sfinder"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1629,7 +1770,7 @@
     .line 115
     const-string v1, "snote"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1640,7 +1781,7 @@
     .line 116
     const-string v1, "multi_window"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FeatureFinishSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1649,18 +1790,18 @@
     iput-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mMultiWindow:Landroid/preference/PreferenceScreen;
 
     .line 118
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mPm:Landroid/content/pm/PackageManager;
 
     .line 120
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1678,10 +1819,10 @@
     .locals 0
 
     .prologue
-    .line 165
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 173
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 167
+    .line 175
     return-void
 .end method
 
@@ -1690,7 +1831,7 @@
     .parameter "preference"
 
     .prologue
-    .line 421
+    .line 450
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mMagazine:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -1699,18 +1840,18 @@
 
     if-eqz v1, :cond_1
 
-    .line 422
+    .line 451
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeMyMagazineLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 423
+    .line 452
     .local v0, layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090033
+    const v2, 0x7f090045
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1718,7 +1859,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/FeatureFinishSettings;->showGuideDialog(Landroid/view/View;Ljava/lang/String;)V
 
-    .line 446
+    .line 475
     .end local v0           #layout:Landroid/view/View;
     :cond_0
     :goto_0
@@ -1726,7 +1867,7 @@
 
     return v1
 
-    .line 424
+    .line 453
     :cond_1
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mActionMeo:Landroid/preference/PreferenceScreen;
 
@@ -1736,18 +1877,18 @@
 
     if-eqz v1, :cond_2
 
-    .line 425
+    .line 454
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeActionMemoLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 426
+    .line 455
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090cd4
+    const v2, 0x7f090dfa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1757,7 +1898,7 @@
 
     goto :goto_0
 
-    .line 427
+    .line 456
     .end local v0           #layout:Landroid/view/View;
     :cond_2
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mAirCommand:Landroid/preference/PreferenceScreen;
@@ -1768,18 +1909,18 @@
 
     if-eqz v1, :cond_3
 
-    .line 428
+    .line 457
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeAirCommandLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 429
+    .line 458
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090cd5
+    const v2, 0x7f090dfb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1789,7 +1930,7 @@
 
     goto :goto_0
 
-    .line 430
+    .line 459
     .end local v0           #layout:Landroid/view/View;
     :cond_3
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mDirectPen:Landroid/preference/PreferenceScreen;
@@ -1800,18 +1941,18 @@
 
     if-eqz v1, :cond_4
 
-    .line 431
+    .line 460
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeDirectPeninputLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 432
+    .line 461
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090cd1
+    const v2, 0x7f090deb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1821,7 +1962,7 @@
 
     goto :goto_0
 
-    .line 433
+    .line 462
     .end local v0           #layout:Landroid/view/View;
     :cond_4
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mScrapbook:Landroid/preference/PreferenceScreen;
@@ -1832,18 +1973,18 @@
 
     if-eqz v1, :cond_5
 
-    .line 434
+    .line 463
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeScrapbookLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 435
+    .line 464
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09002f
+    const v2, 0x7f090041
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1853,7 +1994,7 @@
 
     goto :goto_0
 
-    .line 436
+    .line 465
     .end local v0           #layout:Landroid/view/View;
     :cond_5
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mSfinder:Landroid/preference/PreferenceScreen;
@@ -1864,18 +2005,18 @@
 
     if-eqz v1, :cond_6
 
-    .line 437
+    .line 466
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeSFinderLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 438
+    .line 467
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09002a
+    const v2, 0x7f09003a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1885,7 +2026,7 @@
 
     goto/16 :goto_0
 
-    .line 439
+    .line 468
     .end local v0           #layout:Landroid/view/View;
     :cond_6
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mSnote:Landroid/preference/PreferenceScreen;
@@ -1896,18 +2037,18 @@
 
     if-eqz v1, :cond_7
 
-    .line 440
+    .line 469
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeSnoteLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 441
+    .line 470
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090e1e
+    const v2, 0x7f090f57
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1917,7 +2058,7 @@
 
     goto/16 :goto_0
 
-    .line 442
+    .line 471
     .end local v0           #layout:Landroid/view/View;
     :cond_7
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mMultiWindow:Landroid/preference/PreferenceScreen;
@@ -1928,18 +2069,18 @@
 
     if-eqz v1, :cond_0
 
-    .line 443
+    .line 472
     invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->makeMultiwindowLayout()Landroid/view/View;
 
     move-result-object v0
 
-    .line 444
+    .line 473
     .restart local v0       #layout:Landroid/view/View;
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090585
+    const v2, 0x7f0905b4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1954,13 +2095,13 @@
     .locals 0
 
     .prologue
-    .line 158
+    .line 166
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 160
+    .line 168
     invoke-direct {p0}, Lcom/android/settings/FeatureFinishSettings;->initUI()V
 
-    .line 161
+    .line 169
     return-void
 .end method
 
@@ -1972,51 +2113,51 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 172
+    .line 180
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/FeatureFinishSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 174
+    .line 182
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     if-eqz v1, :cond_0
 
-    .line 175
+    .line 183
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 176
+    .line 184
     iput-object v2, p0, Lcom/android/settings/FeatureFinishSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 179
+    .line 187
     :cond_0
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v1, :cond_1
 
-    .line 180
+    .line 188
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 181
+    .line 189
     iput-object v2, p0, Lcom/android/settings/FeatureFinishSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    .line 184
+    .line 192
     :cond_1
     invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 185
+    .line 193
     invoke-virtual {v0, p2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 187
+    .line 195
     const v1, 0x104000a
 
     new-instance v2, Lcom/android/settings/FeatureFinishSettings$1;
@@ -2025,18 +2166,18 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 193
+    .line 201
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 194
+    .line 202
     iget-object v1, p0, Lcom/android/settings/FeatureFinishSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
-    .line 195
+    .line 203
     return-void
 .end method

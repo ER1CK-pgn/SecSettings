@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 220
+    .line 241
     iput-object p1, p0, Lcom/android/settings/MasterClear$2;->this$0:Lcom/android/settings/MasterClear;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,16 +42,16 @@
     .parameter "v"
 
     .prologue
-    .line 224
+    .line 245
     iget-object v0, p0, Lcom/android/settings/MasterClear$2;->this$0:Lcom/android/settings/MasterClear;
 
     #getter for: Lcom/android/settings/MasterClear;->mExternalStorage:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v0}, Lcom/android/settings/MasterClear;->access$200(Lcom/android/settings/MasterClear;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v0}, Lcom/android/settings/MasterClear;->access$400(Lcom/android/settings/MasterClear;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->toggle()V
 
-    .line 225
+    .line 246
     return-void
 .end method

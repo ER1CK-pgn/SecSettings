@@ -42,7 +42,7 @@
     .parameter
 
     .prologue
-    const v3, 0x7f090b50
+    const v3, 0x7f090c4e
 
     const/4 v1, 0x1
 

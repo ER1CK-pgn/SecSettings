@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 1223
+    .line 1231
     iput-object p1, p0, Lcom/android/settings/FeatureSettings$9;->this$0:Lcom/android/settings/FeatureSettings;
 
     iput-object p2, p0, Lcom/android/settings/FeatureSettings$9;->val$setting_type:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -50,7 +50,7 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 1225
+    .line 1233
     const-string v0, "air_motion"
 
     iget-object v1, p0, Lcom/android/settings/FeatureSettings$9;->val$setting_type:Ljava/lang/String;
@@ -61,7 +61,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1226
+    .line 1234
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$9;->this$0:Lcom/android/settings/FeatureSettings;
 
     iget-object v0, v0, Lcom/android/settings/FeatureSettings;->mSwitchUncheckHandler:Landroid/os/Handler;
@@ -70,12 +70,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 1236
+    .line 1244
     :cond_0
     :goto_0
     return-void
 
-    .line 1227
+    .line 1235
     :cond_1
     const-string v0, "air_view"
 
@@ -87,7 +87,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 1228
+    .line 1236
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$9;->this$0:Lcom/android/settings/FeatureSettings;
 
     iget-object v0, v0, Lcom/android/settings/FeatureSettings;->mSwitchUncheckHandler:Landroid/os/Handler;
@@ -98,7 +98,7 @@
 
     goto :goto_0
 
-    .line 1229
+    .line 1237
     :cond_2
     const-string v0, "smart_stay"
 
@@ -110,7 +110,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 1230
+    .line 1238
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$9;->this$0:Lcom/android/settings/FeatureSettings;
 
     iget-object v0, v0, Lcom/android/settings/FeatureSettings;->mSwitchUncheckHandler:Landroid/os/Handler;
@@ -121,7 +121,7 @@
 
     goto :goto_0
 
-    .line 1231
+    .line 1239
     :cond_3
     const-string v0, "smart_pause"
 
@@ -133,7 +133,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 1232
+    .line 1240
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$9;->this$0:Lcom/android/settings/FeatureSettings;
 
     iget-object v0, v0, Lcom/android/settings/FeatureSettings;->mSwitchUncheckHandler:Landroid/os/Handler;
@@ -144,7 +144,7 @@
 
     goto :goto_0
 
-    .line 1233
+    .line 1241
     :cond_4
     const-string v0, "smart_scroll"
 
@@ -156,7 +156,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1234
+    .line 1242
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$9;->this$0:Lcom/android/settings/FeatureSettings;
 
     iget-object v0, v0, Lcom/android/settings/FeatureSettings;->mSwitchUncheckHandler:Landroid/os/Handler;

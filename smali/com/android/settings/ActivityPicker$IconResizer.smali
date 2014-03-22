@@ -34,24 +34,24 @@
     .parameter "metrics"
 
     .prologue
-    .line 367
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 369
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 364
+    .line 366
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/ActivityPicker$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
-    .line 365
+    .line 367
     new-instance v0, Landroid/graphics/Canvas;
 
     invoke-direct {v0}, Landroid/graphics/Canvas;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/ActivityPicker$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 368
+    .line 370
     iget-object v0, p0, Lcom/android/settings/ActivityPicker$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
     new-instance v1, Landroid/graphics/PaintFlagsDrawFilter;
@@ -64,16 +64,16 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
 
-    .line 371
+    .line 373
     iput-object p3, p0, Lcom/android/settings/ActivityPicker$IconResizer;->mMetrics:Landroid/util/DisplayMetrics;
 
-    .line 372
+    .line 374
     iput p1, p0, Lcom/android/settings/ActivityPicker$IconResizer;->mIconWidth:I
 
-    .line 373
+    .line 375
     iput p2, p0, Lcom/android/settings/ActivityPicker$IconResizer;->mIconHeight:I
 
-    .line 374
+    .line 376
     return-void
 .end method
 
@@ -84,24 +84,24 @@
     .parameter "icon"
 
     .prologue
-    .line 389
+    .line 391
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mIconWidth:I
 
     move/from16 v17, v0
 
-    .line 390
+    .line 392
     .local v17, width:I
     move-object/from16 v0, p0
 
     iget v9, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mIconHeight:I
 
-    .line 392
+    .line 394
     .local v9, height:I
     if-nez p1, :cond_0
 
-    .line 393
+    .line 395
     new-instance v20, Lcom/android/settings/ActivityPicker$EmptyDrawable;
 
     move-object/from16 v0, v20
@@ -110,11 +110,11 @@
 
     invoke-direct {v0, v1, v9}, Lcom/android/settings/ActivityPicker$EmptyDrawable;-><init>(II)V
 
-    .line 464
+    .line 466
     :goto_0
     return-object v20
 
-    .line 397
+    .line 399
     :cond_0
     :try_start_0
     move-object/from16 v0, p1
@@ -125,23 +125,23 @@
 
     if-eqz v20, :cond_5
 
-    .line 398
+    .line 400
     move-object/from16 v0, p1
 
     check-cast v0, Landroid/graphics/drawable/PaintDrawable;
 
     move-object v13, v0
 
-    .line 399
+    .line 401
     .local v13, painter:Landroid/graphics/drawable/PaintDrawable;
     move/from16 v0, v17
 
-    invoke-virtual {v13, v0}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicWidth(I)V
+    invoke-virtual {v13, v0}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicWidth(I)V
 
-    .line 400
-    invoke-virtual {v13, v9}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicHeight(I)V
+    .line 402
+    invoke-virtual {v13, v9}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicHeight(I)V
 
-    .line 409
+    .line 411
     .end local v13           #painter:Landroid/graphics/drawable/PaintDrawable;
     :cond_1
     :goto_1
@@ -149,26 +149,26 @@
 
     move-result v12
 
-    .line 410
+    .line 412
     .local v12, iconWidth:I
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v11
 
-    .line 412
+    .line 414
     .local v11, iconHeight:I
     if-lez v12, :cond_4
 
     if-lez v11, :cond_4
 
-    .line 413
+    .line 415
     move/from16 v0, v17
 
     if-lt v0, v12, :cond_2
 
     if-ge v9, v11, :cond_8
 
-    .line 414
+    .line 416
     :cond_2
     int-to-float v0, v12
 
@@ -180,11 +180,11 @@
 
     div-float v14, v20, v21
 
-    .line 416
+    .line 418
     .local v14, ratio:F
     if-le v12, v11, :cond_6
 
-    .line 417
+    .line 419
     move/from16 v0, v17
 
     int-to-float v0, v0
@@ -197,7 +197,7 @@
 
     float-to-int v9, v0
 
-    .line 422
+    .line 424
     :cond_3
     :goto_2
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getOpacity()I
@@ -214,7 +214,7 @@
 
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 424
+    .line 426
     .local v7, c:Landroid/graphics/Bitmap$Config;
     :goto_3
     move-object/from16 v0, p0
@@ -237,19 +237,19 @@
 
     move-result-object v16
 
-    .line 425
+    .line 427
     .local v16, thumb:Landroid/graphics/Bitmap;
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 426
+    .line 428
     .local v8, canvas:Landroid/graphics/Canvas;
     move-object/from16 v0, v16
 
     invoke-virtual {v8, v0}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 432
+    .line 434
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mOldBounds:Landroid/graphics/Rect;
@@ -262,7 +262,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 433
+    .line 435
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mIconWidth:I
@@ -273,7 +273,7 @@
 
     div-int/lit8 v18, v20, 0x2
 
-    .line 434
+    .line 436
     .local v18, x:I
     move-object/from16 v0, p0
 
@@ -285,7 +285,7 @@
 
     div-int/lit8 v19, v20, 0x2
 
-    .line 435
+    .line 437
     .local v19, y:I
     add-int v20, v18, v17
 
@@ -303,12 +303,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 436
+    .line 438
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 437
+    .line 439
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mOldBounds:Landroid/graphics/Rect;
@@ -321,7 +321,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 439
+    .line 441
     new-instance v10, Landroid/graphics/drawable/BitmapDrawable;
 
     move-object/from16 v0, v16
@@ -330,7 +330,7 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 440
+    .line 442
     .end local p1
     .local v10, icon:Landroid/graphics/drawable/Drawable;
     :try_start_1
@@ -348,7 +348,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/graphics/drawable/BitmapDrawable;->setTargetDensity(Landroid/util/DisplayMetrics;)V
 
-    .line 441
+    .line 443
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
@@ -373,10 +373,10 @@
     :goto_4
     move-object/from16 v20, p1
 
-    .line 464
+    .line 466
     goto/16 :goto_0
 
-    .line 401
+    .line 403
     :cond_5
     :try_start_2
     move-object/from16 v0, p1
@@ -387,20 +387,20 @@
 
     if-eqz v20, :cond_1
 
-    .line 403
+    .line 405
     move-object/from16 v0, p1
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
 
     move-object v6, v0
 
-    .line 404
+    .line 406
     .local v6, bitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     invoke-virtual {v6}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
 
-    .line 405
+    .line 407
     .local v5, bitmap:Landroid/graphics/Bitmap;
     invoke-virtual {v5}, Landroid/graphics/Bitmap;->getDensity()I
 
@@ -408,7 +408,7 @@
 
     if-nez v20, :cond_1
 
-    .line 406
+    .line 408
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mMetrics:Landroid/util/DisplayMetrics;
@@ -423,13 +423,13 @@
 
     goto/16 :goto_1
 
-    .line 460
+    .line 462
     .end local v5           #bitmap:Landroid/graphics/Bitmap;
     .end local v6           #bitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     :catch_0
     move-exception v15
 
-    .line 461
+    .line 463
     .local v15, t:Ljava/lang/Throwable;
     :goto_5
     new-instance p1, Lcom/android/settings/ActivityPicker$EmptyDrawable;
@@ -444,7 +444,7 @@
     .restart local p1
     goto :goto_4
 
-    .line 418
+    .line 420
     .end local v15           #t:Ljava/lang/Throwable;
     .restart local v11       #iconHeight:I
     .restart local v12       #iconWidth:I
@@ -452,7 +452,7 @@
     :cond_6
     if-le v11, v12, :cond_3
 
-    .line 419
+    .line 421
     int-to-float v0, v9
 
     move/from16 v20, v0
@@ -467,14 +467,14 @@
 
     goto/16 :goto_2
 
-    .line 422
+    .line 424
     :cond_7
     :try_start_3
     sget-object v7, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
     goto/16 :goto_3
 
-    .line 442
+    .line 444
     .end local v14           #ratio:F
     :cond_8
     move/from16 v0, v17
@@ -483,10 +483,10 @@
 
     if-ge v11, v9, :cond_4
 
-    .line 443
+    .line 445
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 444
+    .line 446
     .restart local v7       #c:Landroid/graphics/Bitmap$Config;
     move-object/from16 v0, p0
 
@@ -508,19 +508,19 @@
 
     move-result-object v16
 
-    .line 445
+    .line 447
     .restart local v16       #thumb:Landroid/graphics/Bitmap;
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 446
+    .line 448
     .restart local v8       #canvas:Landroid/graphics/Canvas;
     move-object/from16 v0, v16
 
     invoke-virtual {v8, v0}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 447
+    .line 449
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mOldBounds:Landroid/graphics/Rect;
@@ -533,18 +533,18 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 448
+    .line 450
     sub-int v20, v17, v12
 
     div-int/lit8 v18, v20, 0x2
 
-    .line 449
+    .line 451
     .restart local v18       #x:I
     sub-int v20, v9, v11
 
     div-int/lit8 v19, v20, 0x2
 
-    .line 450
+    .line 452
     .restart local v19       #y:I
     add-int v20, v18, v12
 
@@ -562,12 +562,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 451
+    .line 453
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 452
+    .line 454
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/ActivityPicker$IconResizer;->mOldBounds:Landroid/graphics/Rect;
@@ -580,7 +580,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 454
+    .line 456
     new-instance v10, Landroid/graphics/drawable/BitmapDrawable;
 
     move-object/from16 v0, v16
@@ -589,7 +589,7 @@
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 455
+    .line 457
     .end local p1
     .restart local v10       #icon:Landroid/graphics/drawable/Drawable;
     :try_start_4
@@ -607,7 +607,7 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/graphics/drawable/BitmapDrawable;->setTargetDensity(Landroid/util/DisplayMetrics;)V
 
-    .line 456
+    .line 458
     const/16 v20, 0x0
 
     move-object/from16 v0, v20
@@ -622,7 +622,7 @@
     .restart local p1
     goto/16 :goto_4
 
-    .line 460
+    .line 462
     .end local p1
     .restart local v10       #icon:Landroid/graphics/drawable/Drawable;
     :catch_1

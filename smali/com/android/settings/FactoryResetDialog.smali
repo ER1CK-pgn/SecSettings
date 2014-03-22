@@ -45,7 +45,7 @@
     .line 54
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/FactoryResetDialog;->requestWindowFeature(I)Z
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
     .line 55
     const-string v0, "FactoryResetDialog: "
@@ -55,7 +55,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 56
-    invoke-virtual {p0}, Lcom/android/settings/FactoryResetDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
     iput-object v0, p0, Lcom/android/settings/FactoryResetDialog;->mMessage:Ljava/lang/String;
 
     .line 57
-    invoke-virtual {p0}, Lcom/android/settings/FactoryResetDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -83,7 +83,7 @@
     iput v0, p0, Lcom/android/settings/FactoryResetDialog;->mDialogType:I
 
     .line 59
-    invoke-virtual {p0}, Lcom/android/settings/FactoryResetDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -154,7 +154,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0914b0
+    const v2, 0x7f091604
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -166,7 +166,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0914b4
+    const v2, 0x7f091608
 
     new-instance v3, Lcom/android/settings/FactoryResetDialog$4;
 
@@ -176,7 +176,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090078
+    const v2, 0x7f090097
 
     new-instance v3, Lcom/android/settings/FactoryResetDialog$3;
 
@@ -246,7 +246,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0914b0
+    const v2, 0x7f091604
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -258,7 +258,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900ae
+    const v2, 0x7f0900cd
 
     new-instance v3, Lcom/android/settings/FactoryResetDialog$7;
 
@@ -448,7 +448,7 @@
     :try_start_0
     iget v1, p0, Lcom/android/settings/FactoryResetDialog;->mDialogType:I
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FactoryResetDialog;->showDialog(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->showDialog(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -486,10 +486,10 @@
     .line 200
     iget v1, p0, Lcom/android/settings/FactoryResetDialog;->mDialogType:I
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/FactoryResetDialog;->removeDialog(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->removeDialog(I)V
 
     .line 201
-    invoke-virtual {p0}, Lcom/android/settings/FactoryResetDialog;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

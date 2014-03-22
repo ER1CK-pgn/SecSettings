@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 244
+    .line 239
     iput-object p1, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter$1;->this$0:Lcom/android/settings/UserDictionarySettings$MyAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,15 +48,15 @@
 
     const/4 v2, 0x0
 
-    .line 247
+    .line 243
     if-ne p3, v1, :cond_1
 
-    .line 248
+    .line 244
     invoke-interface {p2, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 249
+    .line 245
     .local v0, shortcut:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -64,19 +64,19 @@
 
     if-eqz v1, :cond_0
 
-    .line 250
+    .line 246
     const/16 v1, 0x8
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 255
+    .line 251
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->invalidate()V
 
-    .line 256
+    .line 252
     const/4 v1, 0x1
 
-    .line 259
+    .line 255
     .end local v0           #shortcut:Ljava/lang/String;
     :goto_1
     return v1
@@ -85,12 +85,12 @@
     :cond_0
     move-object v1, p1
 
-    .line 252
+    .line 248
     check-cast v1, Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 253
+    .line 249
     invoke-virtual {p1, v2}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
@@ -99,6 +99,6 @@
     :cond_1
     move v1, v2
 
-    .line 259
+    .line 255
     goto :goto_1
 .end method

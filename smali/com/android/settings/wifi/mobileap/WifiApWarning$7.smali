@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 356
+    .line 347
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
     const/4 v3, 0x0
 
-    .line 358
+    .line 349
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->extra_type:I
@@ -59,7 +59,7 @@
 
     if-ne v1, v4, :cond_1
 
-    .line 359
+    .line 350
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     const/16 v2, 0xb
@@ -67,7 +67,7 @@
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWarning;->showProgressDialog(I)V
     invoke-static {v1, v2}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$700(Lcom/android/settings/wifi/mobileap/WifiApWarning;I)V
 
-    .line 360
+    .line 351
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -77,7 +77,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 361
+    .line 352
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -89,12 +89,12 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 387
+    .line 378
     :cond_0
     :goto_0
     return-void
 
-    .line 362
+    .line 353
     :cond_1
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
@@ -114,7 +114,7 @@
 
     if-ne v1, v2, :cond_4
 
-    .line 363
+    .line 354
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -124,7 +124,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 364
+    .line 355
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -134,7 +134,7 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/WifiManager;->setWifiIBSSEnabled(Z)Z
 
-    .line 366
+    .line 357
     :cond_2
     const-wide/16 v1, 0x258
 
@@ -143,7 +143,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 370
+    .line 361
     :goto_1
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
@@ -154,7 +154,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 371
+    .line 362
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -164,25 +164,25 @@
 
     invoke-virtual {v1, v4}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 372
+    .line 363
     :cond_3
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-virtual {v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 367
+    .line 358
     :catch_0
     move-exception v0
 
-    .line 368
+    .line 359
     .local v0, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
-    .line 374
+    .line 365
     .end local v0           #e:Ljava/lang/InterruptedException;
     :cond_4
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
@@ -203,7 +203,7 @@
 
     if-nez v1, :cond_0
 
-    .line 375
+    .line 366
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -213,7 +213,7 @@
 
     if-eqz v1, :cond_5
 
-    .line 376
+    .line 367
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -223,7 +223,7 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 378
+    .line 369
     :cond_5
     const-wide/16 v1, 0x258
 
@@ -232,7 +232,7 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 382
+    .line 373
     :goto_2
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
@@ -243,7 +243,7 @@
 
     if-eqz v1, :cond_6
 
-    .line 383
+    .line 374
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -253,21 +253,21 @@
 
     invoke-virtual {v1, v4}, Landroid/net/wifi/WifiManager;->setWifiIBSSEnabled(Z)Z
 
-    .line 384
+    .line 375
     :cond_6
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-virtual {v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 379
+    .line 370
     :catch_1
     move-exception v0
 
-    .line 380
+    .line 371
     .restart local v0       #e:Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 .end method

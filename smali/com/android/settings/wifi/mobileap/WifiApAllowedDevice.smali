@@ -29,9 +29,9 @@
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     .line 39
-    const v0, 0x7f040137
+    const v0, 0x7f040168
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 40
     invoke-virtual {p2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
@@ -68,7 +68,7 @@
     .line 70
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->dialog:Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
@@ -156,7 +156,7 @@
     .line 47
     new-instance v0, Lcom/android/settings/wifi/mobileap/WifiApWhitelistDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -175,15 +175,15 @@
     .line 48
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->mName:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 49
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->mMac:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 51
-    const v0, 0x7f0b0367
+    const v0, 0x7f0b03b1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -195,7 +195,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice$1;-><init>(Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 57
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
@@ -393,7 +393,7 @@
     .line 97
     :cond_2
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->notifyHierarchyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyHierarchyChanged()V
 
     .line 98
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedDevice;->mFragment:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;

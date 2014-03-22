@@ -3,12 +3,12 @@
 .source "DisplaySettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/DisplaySettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+    value = Lcom/android/settings/DisplaySettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,28 +27,32 @@
     .parameter
 
     .prologue
-    .line 1495
+    .line 1494
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$15;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-    .parameter "dialog"
-    .parameter "which"
+.method public run()V
+    .locals 2
 
     .prologue
-    .line 1498
+    .line 1496
     iget-object v0, p0, Lcom/android/settings/DisplaySettings$15;->this$0:Lcom/android/settings/DisplaySettings;
 
-    #calls: Lcom/android/settings/DisplaySettings;->updateScreenSaverSummary()V
-    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$800(Lcom/android/settings/DisplaySettings;)V
+    #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
+    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$400(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
 
-    .line 1499
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 1497
     return-void
 .end method

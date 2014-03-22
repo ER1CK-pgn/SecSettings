@@ -84,10 +84,10 @@
     if-ne v0, v1, :cond_2
 
     .line 317
-    const v6, 0x7f0914a1
+    const v6, 0x7f0915f5
 
     .line 318
-    const v2, 0x7f0914aa
+    const v2, 0x7f0915fe
 
     .line 332
     :goto_0
@@ -114,7 +114,7 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 336
     const-wide/16 v0, 0x7d0
@@ -125,7 +125,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/homesync/FileOperationProgress$3;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -134,7 +134,7 @@
     .line 339
     iget-object v0, p0, Lcom/android/settings/homesync/FileOperationProgress$3;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -152,7 +152,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/FileOperationPaste;->context:Landroid/app/Activity;
 
-    const v3, 0x7f020098
+    const v3, 0x7f0200a0
 
     invoke-static {}, Lcom/android/settings/homesync/FileOperationProgress;->access$000()Lcom/android/settings/homesync/FileOperationPaste;
 
@@ -184,16 +184,16 @@
     .line 320
     iget-object v0, p0, Lcom/android/settings/homesync/FileOperationProgress$3;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    const v1, 0x7f0914a9
+    const v1, 0x7f0915fd
 
     invoke-virtual {v0, v1}, Lcom/android/settings/homesync/FileOperationProgress;->createDialog(I)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 321
-    const v2, 0x7f0914aa
+    const v2, 0x7f0915fe
 
     goto :goto_0
 
@@ -210,7 +210,7 @@
     if-ne v0, v1, :cond_4
 
     .line 323
-    const v6, 0x7f0914a5
+    const v6, 0x7f0915f9
 
     goto :goto_0
 
@@ -227,19 +227,19 @@
     if-ne v0, v1, :cond_5
 
     .line 325
-    const v6, 0x7f0914aa
+    const v6, 0x7f0915fe
 
     .line 326
-    const v2, 0x7f0914aa
+    const v2, 0x7f0915fe
 
     goto :goto_0
 
     .line 328
     :cond_5
-    const v6, 0x7f0914a3
+    const v6, 0x7f0915f7
 
     .line 329
-    const v2, 0x7f0914a3
+    const v2, 0x7f0915f7
 
     goto/16 :goto_0
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 643
+    .line 660
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$5;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,19 +42,19 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 645
+    .line 662
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 654
+    .line 671
     :cond_0
     :goto_0
     return-void
 
-    .line 647
+    .line 664
     :pswitch_0
     iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$5;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
@@ -69,7 +69,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 648
+    .line 665
     iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$5;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
     const-string v2, "power"
@@ -81,7 +81,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 649
+    .line 666
     .local v0, pm:Landroid/os/PowerManager;
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -91,7 +91,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/PowerManager;->userActivity(JZ)V
 
-    .line 650
+    .line 667
     iget-object v1, p0, Lcom/android/settings/wifi/WifiSettings$5;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
     #getter for: Lcom/android/settings/wifi/WifiSettings;->mScanner:Lcom/android/settings/wifi/WifiSettings$Scanner;
@@ -103,7 +103,7 @@
 
     goto :goto_0
 
-    .line 645
+    .line 662
     :pswitch_data_0
     .packed-switch 0x23
         :pswitch_0

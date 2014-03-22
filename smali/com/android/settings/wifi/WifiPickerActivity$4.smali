@@ -1,11 +1,14 @@
 .class Lcom/android/settings/wifi/WifiPickerActivity$4;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "WifiPickerActivity.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/wifi/WifiPickerActivity;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/wifi/WifiPickerActivity;->onCreate(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,28 +27,33 @@
     .parameter
 
     .prologue
-    .line 237
+    .line 158
     iput-object p1, p0, Lcom/android/settings/wifi/WifiPickerActivity$4;->this$0:Lcom/android/settings/wifi/WifiPickerActivity;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
-    .parameter "context"
-    .parameter "intent"
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+    .parameter "v"
 
     .prologue
-    .line 240
+    .line 161
     iget-object v0, p0, Lcom/android/settings/wifi/WifiPickerActivity$4;->this$0:Lcom/android/settings/wifi/WifiPickerActivity;
 
-    #calls: Lcom/android/settings/wifi/WifiPickerActivity;->handleEvent(Landroid/content/Context;Landroid/content/Intent;)V
-    invoke-static {v0, p1, p2}, Lcom/android/settings/wifi/WifiPickerActivity;->access$000(Lcom/android/settings/wifi/WifiPickerActivity;Landroid/content/Context;Landroid/content/Intent;)V
+    const/4 v1, 0x1
 
-    .line 241
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->setResult(I)V
+
+    .line 162
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiPickerActivity$4;->this$0:Lcom/android/settings/wifi/WifiPickerActivity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    .line 163
     return-void
 .end method

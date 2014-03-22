@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 339
+    .line 343
     iput-object p1, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter$3;->this$1:Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter;
 
     iput-object p2, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter$3;->val$listView:Landroid/widget/ListView;
@@ -45,7 +45,7 @@
 
     iput-object p4, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter$3;->val$view:Lcom/android/settings/deviceinfo/FileItemInfoLayout;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -57,16 +57,16 @@
     .parameter "v"
 
     .prologue
-    .line 342
+    .line 346
     iget-object v0, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter$3;->val$listView:Landroid/widget/ListView;
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v0
 
     if-ltz v0, :cond_0
 
-    .line 343
+    .line 347
     iget-object v1, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter$3;->val$listView:Landroid/widget/ListView;
 
     iget v2, p0, Lcom/android/settings/deviceinfo/MiscFilesHandler$MemoryMearurementAdapter$3;->val$listPosition:I
@@ -82,13 +82,13 @@
     const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v1, v2, v0}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v1, v2, v0}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
-    .line 345
+    .line 349
     :cond_0
     return-void
 
-    .line 343
+    .line 347
     :cond_1
     const/4 v0, 0x0
 

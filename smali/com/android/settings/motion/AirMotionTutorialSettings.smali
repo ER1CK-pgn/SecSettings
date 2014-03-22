@@ -45,7 +45,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 60
-    invoke-virtual {p0}, Lcom/android/settings/motion/AirMotionTutorialSettings;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -64,14 +64,14 @@
     .line 63
     .local v1, isMotionTutorial:Z
     :cond_0
-    const v3, 0x7f07000a
+    const v3, 0x7f07000f
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 65
     const-string v3, "category_air_motion"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -82,7 +82,7 @@
     .line 66
     const-string v3, "air_motion_glance_view"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -91,7 +91,7 @@
     .line 67
     const-string v3, "air_motion_web_navigate"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -100,7 +100,7 @@
     .line 68
     const-string v3, "air_motion_note_swap"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -109,7 +109,7 @@
     .line 69
     const-string v3, "air_motion_scroll"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -118,7 +118,7 @@
     .line 70
     const-string v3, "air_motion_item_move"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -127,7 +127,7 @@
     .line 71
     const-string v3, "air_motion_clip"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -136,14 +136,14 @@
     .line 72
     const-string v3, "air_call_accept"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/motion/AirMotionTutorialSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/settings/motion/AirMotionTutorialSettings;->mAirCallAccept:Landroid/preference/Preference;
 
     .line 74
-    invoke-virtual {p0}, Lcom/android/settings/motion/AirMotionTutorialSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 

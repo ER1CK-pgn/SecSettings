@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 163
+    .line 166
     iput-object p1, p0, Lcom/android/settings/accounts/AccountPreferenceBase$2;->this$0:Lcom/android/settings/accounts/AccountPreferenceBase;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "preference"
 
     .prologue
-    .line 167
+    .line 170
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 168
+    .line 171
     .local v0, mIntent:Landroid/content/Intent;
     new-instance v1, Landroid/content/ComponentName;
 
@@ -59,12 +59,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 169
+    .line 172
     iget-object v1, p0, Lcom/android/settings/accounts/AccountPreferenceBase$2;->this$0:Lcom/android/settings/accounts/AccountPreferenceBase;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/accounts/AccountPreferenceBase;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 170
+    .line 173
     const/4 v1, 0x0
 
     return v1

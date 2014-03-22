@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 530
+    .line 605
     iput-object p1, p0, Lcom/android/settings/TetherSettings$6;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 532
+    .line 607
     iget-object v0, p0, Lcom/android/settings/TetherSettings$6;->this$0:Lcom/android/settings/TetherSettings;
 
     #calls: Lcom/android/settings/TetherSettings;->startTethering()V
     invoke-static {v0}, Lcom/android/settings/TetherSettings;->access$800(Lcom/android/settings/TetherSettings;)V
 
-    .line 533
+    .line 608
     return-void
 .end method

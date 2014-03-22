@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 319
+    .line 335
     iput-object p1, p0, Lcom/android/settings/guide/WifiSettingsGuider$3;->this$0:Lcom/android/settings/guide/WifiSettingsGuider;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,12 +41,12 @@
     .locals 4
 
     .prologue
-    .line 323
+    .line 339
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider$3;->this$0:Lcom/android/settings/guide/WifiSettingsGuider;
 
     invoke-virtual {v0}, Lcom/android/settings/guide/WifiSettingsGuider;->showCompleteDialog()V
 
-    .line 324
+    .line 340
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider$3;->this$0:Lcom/android/settings/guide/WifiSettingsGuider;
 
     iget-object v0, v0, Lcom/android/settings/guide/WifiSettingsGuider;->mHandler:Landroid/os/Handler;
@@ -57,6 +57,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 325
+    .line 341
     return-void
 .end method

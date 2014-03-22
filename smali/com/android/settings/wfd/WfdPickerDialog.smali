@@ -17,23 +17,23 @@
 
 .field private mButtonOK:Landroid/widget/Button;
 
-.field private mButtonStop:Landroid/widget/Button;
+.field private mButtonScan:Landroid/widget/Button;
+
+.field private mDisplayManager:Landroid/hardware/display/DisplayManager;
 
 .field mFragmentLayout:Landroid/widget/LinearLayout;
 
 .field private mMasterStreamVolume:I
+
+.field private mNfcConnectedEnable:Z
+
+.field private mNotNfcEntry:Z
 
 .field private mRingerMode:I
 
 .field private mShowMainDlg:Z
 
 .field private mShowWelcomeDlg:Z
-
-.field mWelcomeLayout:Landroid/widget/LinearLayout;
-
-.field private mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-.field mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
 
 .field private mWriteIfSuccess:Z
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 41
     const/4 v0, -0x1
 
     sput v0, Lcom/android/settings/wfd/WfdPickerDialog;->mConfirmSoundID:I
@@ -52,29 +52,35 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 3
 
     .prologue
-    const/4 v0, 0x1
+    const/4 v2, 0x0
 
-    .line 30
+    const/4 v1, 0x1
+
+    .line 29
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
+    .line 45
+    iput-boolean v1, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWriteIfSuccess:Z
+
+    .line 46
+    iput-boolean v1, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowMainDlg:Z
+
+    .line 47
+    iput-boolean v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowWelcomeDlg:Z
+
+    .line 48
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
     .line 49
-    iput-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWriteIfSuccess:Z
+    iput-boolean v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNfcConnectedEnable:Z
 
     .line 50
-    iput-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowMainDlg:Z
-
-    .line 51
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowWelcomeDlg:Z
-
-    .line 52
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdManager:Lcom/samsung/wfd/WfdManager;
+    iput-boolean v1, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNotNfcEntry:Z
 
     return-void
 .end method
@@ -83,28 +89,11 @@
     .locals 8
 
     .prologue
+    const/4 v4, 0x1
+
     const/high16 v2, 0x3f80
 
-    .line 167
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getFragmentManager()Landroid/app/FragmentManager;
-
-    move-result-object v0
-
-    const v1, 0x7f0b0477
-
-    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/wfd/WfdPickerActivity;
-
-    iput-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    .line 170
-    const/16 v7, 0xb
-
-    .line 171
-    .local v7, DIALOG_AUTO_CONNECT:I
+    .line 147
     iget v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mMasterStreamVolume:I
 
     if-eqz v0, :cond_0
@@ -113,9 +102,9 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_3
 
-    .line 172
+    .line 148
     :cond_0
     const-string v0, "WfdPickerDialog"
 
@@ -123,43 +112,82 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 178
+    .line 157
     :cond_1
     :goto_0
-    const v0, 0x7f0400d0
+    new-instance v7, Landroid/content/Intent;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdPickerDialog;->setContentView(I)V
+    const-string v0, "com.samsung.wfd.LAUNCH_WFD_POPUP"
 
-    .line 179
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
+    invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Lcom/android/settings/wfd/WfdPickerActivity;->setWfdEnabled()V
+    .line 158
+    .local v7, intent:Landroid/content/Intent;
+    const/high16 v0, 0x1080
 
-    .line 180
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
+    invoke-virtual {v7, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0}, Lcom/android/settings/wfd/WfdPickerActivity;->setAutoConnStarted()V
+    .line 160
+    const-string v0, "cause"
 
-    .line 181
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
+    sget v1, Landroid/hardware/display/DisplayManager;->POPUP_CAUSE_SCANNING_BYNFC:I
 
-    invoke-virtual {v0, v7}, Lcom/android/settings/wfd/WfdPickerActivity;->showDialogp(I)V
+    invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 182
+    .line 161
+    invoke-virtual {p0, v7}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    .line 163
+    iget-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNotNfcEntry:Z
+
+    if-nez v0, :cond_2
+
+    .line 164
+    iput-boolean v4, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNfcConnectedEnable:Z
+
+    .line 165
+    :cond_2
+    const-string v0, "WfdPickerDialog"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "connWithoutMainDlg mNfcConnectedEnable="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNfcConnectedEnable:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 166
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    .line 167
     return-void
 
-    .line 174
-    :cond_2
+    .line 150
+    .end local v7           #intent:Landroid/content/Intent;
+    :cond_3
     sget-object v0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonSoundPool:Landroid/media/SoundPool;
 
     if-eqz v0, :cond_1
 
-    .line 175
+    .line 151
     sget-object v0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonSoundPool:Landroid/media/SoundPool;
 
     sget v1, Lcom/android/settings/wfd/WfdPickerDialog;->mConfirmSoundID:I
-
-    const/4 v4, 0x1
 
     const/4 v5, 0x0
 
@@ -173,170 +201,186 @@
 .end method
 
 .method private initWfdPickerDialog()V
-    .locals 4
-
-    .prologue
-    const/16 v3, 0x8
-
-    const/4 v2, 0x0
-
-    .line 185
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getFragmentManager()Landroid/app/FragmentManager;
-
-    move-result-object v0
-
-    const v1, 0x7f0b0477
-
-    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/wfd/WfdPickerActivity;
-
-    iput-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    .line 188
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    invoke-virtual {v0}, Lcom/android/settings/wfd/WfdPickerActivity;->setWfdEnabled()V
-
-    .line 189
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWelcomeLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    .line 190
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonOK:Landroid/widget/Button;
-
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
-
-    .line 191
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonCancel:Landroid/widget/Button;
-
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
-
-    .line 192
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
-
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
-
-    .line 193
-    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mFragmentLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    .line 194
-    return-void
-.end method
-
-.method private isWfdConnected()Z
     .locals 3
 
     .prologue
-    .line 266
-    const-string v1, "wfd"
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wfd/WfdPickerDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 170
+    invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->setWfdEnabled()V
 
-    move-result-object v0
+    .line 171
+    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonOK:Landroid/widget/Button;
 
-    check-cast v0, Lcom/samsung/wfd/WfdManager;
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 172
+    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonCancel:Landroid/widget/Button;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 173
+    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 174
+    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mFragmentLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 175
+    return-void
+.end method
+
+.method private isSideSyncRunning()Z
+    .locals 5
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 263
+    const/4 v0, -0x1
+
+    .line 264
+    .local v0, isSideSync:I
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "PSS_SERVICE_CONNECTED"
+
+    const/4 v4, -0x1
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 265
+    if-ne v0, v1, :cond_0
 
     .line 268
-    .local v0, wfdManager:Lcom/samsung/wfd/WfdManager;
-    if-eqz v0, :cond_0
-
-    .line 270
-    invoke-virtual {v0}, Lcom/samsung/wfd/WfdManager;->getWfdState()I
-
-    move-result v1
-
-    packed-switch v1, :pswitch_data_0
-
-    .line 278
-    :cond_0
-    const/4 v1, 0x0
-
     :goto_0
     return v1
 
-    .line 274
-    :pswitch_0
-    const-string v1, "WfdPickerDialog"
-
-    const-string v2, "isWfdConnected >> true"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 275
-    const/4 v1, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
+.end method
 
-    .line 270
-    :pswitch_data_0
-    .packed-switch 0x3
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
+.method private isWfdConnected()Z
+    .locals 2
+
+    .prologue
+    .line 256
+    iget-object v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    invoke-virtual {v0}, Landroid/hardware/display/DisplayManager;->getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/hardware/display/WifiDisplayStatus;->getActiveDisplayState()I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    .line 257
+    const/4 v0, 0x1
+
+    .line 259
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private setWfdEnabled()V
+    .locals 3
+
+    .prologue
+    .line 246
+    const-string v0, "WfdPickerDialog"
+
+    const-string v1, "setWfdEnabled"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 247
+    invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->isSideSyncRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 248
+    const-string v0, "WfdPickerDialog"
+
+    const-string v1, "side sync is running"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 253
+    :goto_0
+    return-void
+
+    .line 251
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "wifi_display_on"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public cancelConnect()V
-    .locals 1
-
-    .prologue
-    .line 217
-    iget-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWriteIfSuccess:Z
-
-    if-nez v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowMainDlg:Z
-
-    if-nez v0, :cond_0
-
-    .line 218
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->finish()V
-
-    .line 220
-    :cond_0
-    return-void
-.end method
-
 .method changeToScan()V
     .locals 4
 
     .prologue
-    .line 198
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getResources()Landroid/content/res/Resources;
+    .line 218
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09049c
+    const v3, 0x7f0904d6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 199
+    .line 219
     .local v0, mScanString:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f090790
+    const v3, 0x7f0907e3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 200
+    .line 220
     .local v1, mStopString:Ljava/lang/String;
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    invoke-virtual {v2}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -346,12 +390,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 202
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    .line 222
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    invoke-virtual {v2, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 204
+    .line 224
     :cond_0
     return-void
 .end method
@@ -360,34 +404,34 @@
     .locals 4
 
     .prologue
-    .line 208
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getResources()Landroid/content/res/Resources;
+    .line 227
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09049c
+    const v3, 0x7f0904d6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 209
+    .line 228
     .local v0, mScanString:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f090790
+    const v3, 0x7f0907e3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 210
+    .line 229
     .local v1, mStopString:Ljava/lang/String;
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    invoke-virtual {v2}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -397,13 +441,60 @@
 
     if-eqz v2, :cond_0
 
-    .line 212
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    .line 231
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    invoke-virtual {v2, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 233
+    :cond_0
+    return-void
+.end method
+
+.method public onBackPressed()V
+    .locals 3
+
+    .prologue
+    .line 210
+    iget-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNfcConnectedEnable:Z
+
+    if-eqz v0, :cond_0
+
+    .line 211
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNfcConnectedEnable:Z
+
+    .line 213
+    :cond_0
+    const-string v0, "WfdPickerDialog"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onBackPressed mNfcConnectedEnable="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNfcConnectedEnable:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 214
-    :cond_0
+    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
+
+    .line 215
     return-void
 .end method
 
@@ -412,75 +503,86 @@
     .parameter "view"
 
     .prologue
-    .line 124
+    .line 111
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v2
 
     packed-switch v2, :pswitch_data_0
 
-    .line 151
+    .line 134
     :cond_0
     :goto_0
     return-void
 
-    .line 127
+    .line 114
     :pswitch_0
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    if-eqz v2, :cond_0
-
-    .line 128
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    invoke-virtual {v2}, Lcom/android/settings/wfd/WfdPickerActivity;->finishWfdPickerDialog()V
-
-    .line 129
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    if-eqz v2, :cond_0
-
-    .line 130
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    invoke-virtual {v2}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 135
+    .line 117
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09049c
+    const v3, 0x7f0904d6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 136
+    .line 118
     .local v0, mScanString:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f090790
+    const v3, 0x7f0907e3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 138
+    .line 120
     .local v1, mStopString:Ljava/lang/String;
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    if-eqz v2, :cond_0
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    .line 139
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 121
+    const-string v2, "WfdPickerDialog"
+
+    const-string v3, "startScanningWfdPickerDialog"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 122
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    invoke-virtual {v2}, Landroid/hardware/display/DisplayManager;->scanWifiDisplays()V
+
+    .line 123
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 125
+    :cond_1
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -488,36 +590,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    .line 140
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
+    .line 126
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    const/4 v3, 0x0
+    invoke-virtual {v2}, Landroid/hardware/display/DisplayManager;->stopScanWifiDisplays()V
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/wfd/WfdPickerActivity;->stopScanningWfdPickerDialog(Z)V
+    .line 127
+    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    .line 141
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
-
-    invoke-virtual {v2, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 143
-    :cond_1
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    invoke-virtual {v2}, Lcom/android/settings/wfd/WfdPickerActivity;->startScanningWfdPickerDialog()V
-
-    .line 144
-    iget-object v2, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
-
-    invoke-virtual {v2, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 148
+    .line 131
     .end local v0           #mScanString:Ljava/lang/String;
     .end local v1           #mStopString:Ljava/lang/String;
     :pswitch_2
@@ -525,9 +612,11 @@
 
     goto :goto_0
 
-    .line 124
+    .line 111
+    nop
+
     :pswitch_data_0
-    .packed-switch 0x7f0b047c
+    .packed-switch 0x7f0b04e1
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -543,19 +632,30 @@
 
     const/4 v6, 0x0
 
-    .line 56
+    .line 53
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    .line 54
+    const-string v3, "display"
+
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/display/DisplayManager;
+
+    iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    .line 55
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->setDefaultKeyMode(I)V
+
+    .line 56
+    const v3, 0x7f0401e5
+
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
+
     .line 58
-    invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WfdPickerDialog;->setDefaultKeyMode(I)V
-
-    .line 60
-    const v3, 0x7f0401a8
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->setContentView(I)V
-
-    .line 62
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -563,29 +663,18 @@
 
     move-result-object v0
 
-    .line 64
+    .line 59
     .local v0, action:Ljava/lang/String;
-    const-string v3, "wfd"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/samsung/wfd/WfdManager;
-
-    iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdManager:Lcom/samsung/wfd/WfdManager;
-
-    .line 66
     const-string v3, "com.samsung.wfd.LAUNCH_WFD_PICKER_DLG"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    .line 67
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    .line 60
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -597,8 +686,8 @@
 
     if-eqz v3, :cond_0
 
-    .line 68
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    .line 61
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -610,9 +699,9 @@
 
     iput-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWriteIfSuccess:Z
 
-    .line 71
+    .line 63
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -624,8 +713,8 @@
 
     if-eqz v3, :cond_1
 
-    .line 72
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    .line 64
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -637,9 +726,9 @@
 
     iput-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowMainDlg:Z
 
-    .line 75
+    .line 66
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -651,8 +740,8 @@
 
     if-eqz v3, :cond_2
 
-    .line 76
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    .line 67
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -664,16 +753,33 @@
 
     iput-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowWelcomeDlg:Z
 
-    .line 80
+    .line 69
     :cond_2
-    const v3, 0x7f0904c8
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->setTitle(I)V
+    move-result-object v3
 
-    .line 82
-    const v3, 0x7f0b047c
+    const-string v4, "android.nfc.extra.NDEF_MESSAGES"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v3, v4}, Landroid/content/Intent;->getParcelableArrayExtra(Ljava/lang/String;)[Landroid/os/Parcelable;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_3
+
+    .line 70
+    iput-boolean v6, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mNotNfcEntry:Z
+
+    .line 73
+    :cond_3
+    const v3, 0x7f090502
+
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setTitle(I)V
+
+    .line 74
+    const v3, 0x7f0b04e1
+
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -681,21 +787,21 @@
 
     iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonCancel:Landroid/widget/Button;
 
-    .line 83
-    const v3, 0x7f0b047d
+    .line 75
+    const v3, 0x7f0b04e2
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/Button;
 
-    iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    .line 84
-    const v3, 0x7f0b047e
+    .line 76
+    const v3, 0x7f0b04e3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -703,21 +809,10 @@
 
     iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonOK:Landroid/widget/Button;
 
-    .line 86
-    const v3, 0x7f0b0478
+    .line 77
+    const v3, 0x7f0b04de
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/LinearLayout;
-
-    iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWelcomeLayout:Landroid/widget/LinearLayout;
-
-    .line 87
-    const v3, 0x7f0b0475
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -725,27 +820,27 @@
 
     iput-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mFragmentLayout:Landroid/widget/LinearLayout;
 
-    .line 90
+    .line 79
     iget-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonCancel:Landroid/widget/Button;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 91
-    iget-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonStop:Landroid/widget/Button;
+    .line 80
+    iget-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonScan:Landroid/widget/Button;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 92
+    .line 81
     iget-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonOK:Landroid/widget/Button;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 94
+    .line 83
     sget-object v3, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonSoundPool:Landroid/media/SoundPool;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_4
 
-    .line 95
+    .line 84
     new-instance v3, Landroid/media/SoundPool;
 
     const/4 v4, 0x4
@@ -756,8 +851,8 @@
 
     sput-object v3, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonSoundPool:Landroid/media/SoundPool;
 
-    .line 97
-    :cond_3
+    .line 86
+    :cond_4
     sget-object v3, Lcom/android/settings/wfd/WfdPickerDialog;->mButtonSoundPool:Landroid/media/SoundPool;
 
     const/high16 v4, 0x7f08
@@ -768,16 +863,16 @@
 
     sput v3, Lcom/android/settings/wfd/WfdPickerDialog;->mConfirmSoundID:I
 
-    .line 100
+    .line 89
     const-string v3, "audio"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/media/AudioManager;
 
-    .line 101
+    .line 90
     .local v2, mAudioManager:Landroid/media/AudioManager;
     invoke-virtual {v2}, Landroid/media/AudioManager;->getRingerMode()I
 
@@ -785,14 +880,14 @@
 
     iput v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mRingerMode:I
 
-    .line 102
+    .line 91
     invoke-virtual {v2, v7}, Landroid/media/AudioManager;->getStreamVolume(I)I
 
     move-result v3
 
     iput v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mMasterStreamVolume:I
 
-    .line 104
+    .line 93
     const-string v3, "WfdPickerDialog"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -817,7 +912,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 105
+    .line 94
     const-string v3, "WfdPickerDialog"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -842,7 +937,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 106
+    .line 95
     const-string v3, "WfdPickerDialog"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -867,55 +962,55 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 107
+    .line 96
     iget-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWriteIfSuccess:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
-    .line 108
+    .line 97
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->initWfdPickerDialog()V
 
-    .line 119
+    .line 107
     :goto_0
     return-void
 
-    .line 109
-    :cond_4
-    iget-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowWelcomeDlg:Z
-
-    if-nez v3, :cond_5
-
-    iget-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowMainDlg:Z
-
-    if-nez v3, :cond_5
-
-    .line 110
-    invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->connWithoutMainDlg()V
-
-    goto :goto_0
-
-    .line 111
+    .line 98
     :cond_5
     iget-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowWelcomeDlg:Z
 
     if-nez v3, :cond_6
 
-    .line 112
+    iget-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowMainDlg:Z
+
+    if-nez v3, :cond_6
+
+    .line 99
+    invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->connWithoutMainDlg()V
+
+    goto :goto_0
+
+    .line 100
+    :cond_6
+    iget-boolean v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mShowWelcomeDlg:Z
+
+    if-nez v3, :cond_7
+
+    .line 101
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->initWfdPickerDialog()V
 
     goto :goto_0
 
-    .line 115
-    :cond_6
+    .line 104
+    :cond_7
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.WIFI_DISPLAY_ENABLED"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 116
+    .line 105
     .local v1, actionIntent:Landroid/content/Intent;
-    invoke-virtual {p0, v1}, Lcom/android/settings/wfd/WfdPickerDialog;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -924,10 +1019,10 @@
     .locals 4
 
     .prologue
-    .line 251
+    .line 189
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 253
+    .line 191
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->isWfdConnected()Z
 
     move-result v1
@@ -938,28 +1033,28 @@
 
     if-eqz v1, :cond_1
 
-    .line 254
+    .line 192
     const-string v1, "WfdPickerDialog"
 
     const-string v2, "going to ACTION_WRITE_TAG"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 255
+    .line 193
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.wfd.WRITE_NFC"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 256
+    .line 194
     .local v0, intentToPicker:Landroid/content/Intent;
     const/high16 v1, 0x400
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 257
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    .line 195
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -971,7 +1066,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -985,21 +1080,21 @@
 
     if-eqz v1, :cond_0
 
-    .line 258
+    .line 196
     const-string v1, "called_by_nfc"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 260
+    .line 198
     :cond_0
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdPickerDialog;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 261
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdPickerDialog;->finish()V
+    .line 199
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 263
+    .line 201
     .end local v0           #intentToPicker:Landroid/content/Intent;
     :cond_1
     return-void
@@ -1011,12 +1106,12 @@
     .parameter "event"
 
     .prologue
-    .line 155
+    .line 138
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    .line 159
+    .line 140
     .local v0, handled:Z
     const/16 v1, 0x52
 
@@ -1028,112 +1123,33 @@
 
     if-eqz v1, :cond_0
 
-    .line 160
+    .line 141
     const/4 v0, 0x1
 
-    .line 163
+    .line 143
     .end local v0           #handled:Z
     :cond_0
     return v0
 .end method
 
 .method protected onPause()V
-    .locals 5
+    .locals 0
 
     .prologue
-    .line 224
-    const-string v3, "activity"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdPickerDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/ActivityManager;
-
-    .line 225
-    .local v0, activityManager:Landroid/app/ActivityManager;
-    const v3, 0x7fffffff
-
-    invoke-virtual {v0, v3}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
-
-    move-result-object v1
-
-    .line 226
-    .local v1, runningTaskList:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
-    if-eqz v1, :cond_0
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-lez v3, :cond_0
-
-    .line 227
-    const/4 v3, 0x0
-
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/app/ActivityManager$RunningTaskInfo;
-
-    .line 228
-    .local v2, taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
-    const-string v3, "com.samsung.groupcast.start.StartActivity"
-
-    iget-object v4, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 229
-    iget-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    if-eqz v3, :cond_0
-
-    .line 230
-    iget-object v3, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWfdPickerFragment:Lcom/android/settings/wfd/WfdPickerActivity;
-
-    invoke-virtual {v3}, Lcom/android/settings/wfd/WfdPickerActivity;->finishWfdPickerDialog()V
-
-    .line 233
-    .end local v2           #taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
-    :cond_0
+    .line 179
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 234
+    .line 180
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 1
+    .locals 0
 
     .prologue
-    .line 238
+    .line 184
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 240
-    iget-boolean v0, p0, Lcom/android/settings/wfd/WfdPickerDialog;->mWriteIfSuccess:Z
-
-    if-nez v0, :cond_0
-
-    .line 243
-    const-string v0, "statusbar"
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdPickerDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/StatusBarManager;
-
-    .line 247
-    :cond_0
+    .line 185
     return-void
 .end method

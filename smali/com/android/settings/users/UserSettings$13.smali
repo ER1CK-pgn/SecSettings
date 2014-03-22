@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 666
+    .line 805
     iput-object p1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     iput p2, p0, Lcom/android/settings/users/UserSettings$13;->val$userType:I
@@ -43,78 +43,80 @@
     .locals 7
 
     .prologue
+    const/4 v5, 0x3
+
     const/4 v2, 0x0
 
     const/4 v4, 0x1
 
-    .line 668
+    .line 807
     const/4 v0, 0x0
 
-    .line 670
+    .line 809
     .local v0, user:Landroid/content/pm/UserInfo;
     iget v1, p0, Lcom/android/settings/users/UserSettings$13;->val$userType:I
 
     if-ne v1, v4, :cond_0
 
-    .line 671
+    .line 810
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #calls: Lcom/android/settings/users/UserSettings;->createTrustedUser()Landroid/content/pm/UserInfo;
-    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$1700(Lcom/android/settings/users/UserSettings;)Landroid/content/pm/UserInfo;
+    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$2100(Lcom/android/settings/users/UserSettings;)Landroid/content/pm/UserInfo;
 
     move-result-object v0
 
-    .line 677
+    .line 816
     :goto_0
     if-nez v0, :cond_1
 
-    .line 679
+    .line 818
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #setter for: Lcom/android/settings/users/UserSettings;->mAddingUser:Z
-    invoke-static {v1, v2}, Lcom/android/settings/users/UserSettings;->access$1902(Lcom/android/settings/users/UserSettings;Z)Z
+    invoke-static {v1, v2}, Lcom/android/settings/users/UserSettings;->access$2302(Lcom/android/settings/users/UserSettings;Z)Z
 
-    .line 694
+    .line 844
     :goto_1
     return-void
 
-    .line 673
+    .line 812
     :cond_0
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #calls: Lcom/android/settings/users/UserSettings;->createLimitedUser()Landroid/content/pm/UserInfo;
-    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$1800(Lcom/android/settings/users/UserSettings;)Landroid/content/pm/UserInfo;
+    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$2200(Lcom/android/settings/users/UserSettings;)Landroid/content/pm/UserInfo;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 683
+    .line 830
     :cond_1
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #getter for: Lcom/android/settings/users/UserSettings;->mUserLock:Ljava/lang/Object;
-    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$1600(Lcom/android/settings/users/UserSettings;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$2000(Lcom/android/settings/users/UserSettings;)Ljava/lang/Object;
 
     move-result-object v2
 
     monitor-enter v2
 
-    .line 684
+    .line 831
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     const/4 v3, 0x0
 
     #setter for: Lcom/android/settings/users/UserSettings;->mAddingUser:Z
-    invoke-static {v1, v3}, Lcom/android/settings/users/UserSettings;->access$1902(Lcom/android/settings/users/UserSettings;Z)Z
+    invoke-static {v1, v3}, Lcom/android/settings/users/UserSettings;->access$2302(Lcom/android/settings/users/UserSettings;Z)Z
 
-    .line 685
+    .line 832
     iget v1, p0, Lcom/android/settings/users/UserSettings$13;->val$userType:I
 
     if-ne v1, v4, :cond_2
 
-    .line 686
+    .line 833
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #getter for: Lcom/android/settings/users/UserSettings;->mHandler:Landroid/os/Handler;
@@ -126,7 +128,7 @@
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 687
+    .line 834
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #getter for: Lcom/android/settings/users/UserSettings;->mHandler:Landroid/os/Handler;
@@ -153,7 +155,7 @@
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 693
+    .line 843
     :goto_2
     monitor-exit v2
 
@@ -168,9 +170,44 @@
 
     throw v1
 
-    .line 690
+    .line 836
     :cond_2
     :try_start_1
+    iget v1, p0, Lcom/android/settings/users/UserSettings$13;->val$userType:I
+
+    if-ne v1, v5, :cond_3
+
+    .line 837
+    iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
+
+    #getter for: Lcom/android/settings/users/UserSettings;->mHandler:Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/settings/users/UserSettings;->access$500(Lcom/android/settings/users/UserSettings;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
+
+    #getter for: Lcom/android/settings/users/UserSettings;->mHandler:Landroid/os/Handler;
+    invoke-static {v3}, Lcom/android/settings/users/UserSettings;->access$500(Lcom/android/settings/users/UserSettings;)Landroid/os/Handler;
+
+    move-result-object v3
+
+    const/4 v4, 0x4
+
+    iget v5, v0, Landroid/content/pm/UserInfo;->id:I
+
+    iget v6, v0, Landroid/content/pm/UserInfo;->serialNumber:I
+
+    invoke-virtual {v3, v4, v5, v6}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_2
+
+    .line 840
+    :cond_3
     iget-object v1, p0, Lcom/android/settings/users/UserSettings$13;->this$0:Lcom/android/settings/users/UserSettings;
 
     #getter for: Lcom/android/settings/users/UserSettings;->mHandler:Landroid/os/Handler;

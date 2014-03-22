@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    const v3, 0x7f040099
+    const v3, 0x7f0400b4
 
     .line 113
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -97,7 +97,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$1;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    invoke-virtual {v1}, Lcom/android/settings/bluetooth/DevicePickerActivity;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     .line 128
     :cond_1
@@ -136,7 +136,7 @@
     .line 120
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$1;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    const v2, 0x7f091205
+    const v2, 0x7f09136f
 
     invoke-virtual {v1, v2, v3}, Lcom/android/settings/bluetooth/DevicePickerActivity;->showHelpDialog(II)V
 
@@ -174,7 +174,7 @@
     .line 125
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$1;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    const v2, 0x7f091203
+    const v2, 0x7f09136d
 
     invoke-virtual {v1, v2, v3}, Lcom/android/settings/bluetooth/DevicePickerActivity;->showHelpDialog(II)V
 

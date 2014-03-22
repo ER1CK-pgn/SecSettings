@@ -50,7 +50,7 @@
     .line 33
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Lcom/android/settings/quicklaunch/ShortcutPreference;->sStaticVarsLock:Ljava/lang/Object;
 
@@ -78,7 +78,7 @@
     if-nez v1, :cond_0
 
     .line 56
-    const v1, 0x7f0907d4
+    const v1, 0x7f090825
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -87,7 +87,7 @@
     sput-object v1, Lcom/android/settings/quicklaunch/ShortcutPreference;->STRING_ASSIGN_APPLICATION:Ljava/lang/String;
 
     .line 57
-    const v1, 0x7f0907d5
+    const v1, 0x7f090826
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -136,9 +136,9 @@
     iput-char p2, p0, Lcom/android/settings/quicklaunch/ShortcutPreference;->mShortcut:C
 
     .line 67
-    const v1, 0x7f040134
+    const v1, 0x7f040165
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/quicklaunch/ShortcutPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 68
     return-void
@@ -322,7 +322,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 106
-    const v4, 0x7f0b0362
+    const v4, 0x7f0b03ac
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -521,7 +521,7 @@
     iput-boolean p1, p0, Lcom/android/settings/quicklaunch/ShortcutPreference;->mHasBookmark:Z
 
     .line 88
-    invoke-virtual {p0}, Lcom/android/settings/quicklaunch/ShortcutPreference;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 90
     :cond_0

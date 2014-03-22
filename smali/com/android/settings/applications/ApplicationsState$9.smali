@@ -22,8 +22,8 @@
     .locals 0
 
     .prologue
-    .line 263
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 268
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -35,15 +35,15 @@
     .parameter "info"
 
     .prologue
-    .line 269
+    .line 274
     iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 270
+    .line 275
     const/4 v0, 0x1
 
-    .line 272
+    .line 277
     :goto_0
     return v0
 
@@ -57,6 +57,6 @@
     .locals 0
 
     .prologue
-    .line 265
+    .line 270
     return-void
 .end method

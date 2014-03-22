@@ -37,7 +37,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 24
-    const v2, 0x7f0b03fb
+    const v2, 0x7f0b0464
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,11 +53,11 @@
     if-eqz v2, :cond_0
 
     .line 26
-    invoke-virtual {p0}, Lcom/android/settings/cloud/VideosSyncDescriptionPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    const v3, 0x7f0912b0
+    const v3, 0x7f09141c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -65,11 +65,11 @@
 
     .line 27
     .local v1, vendorName:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/cloud/VideosSyncDescriptionPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    const v3, 0x7f0912c0
+    const v3, 0x7f09142c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

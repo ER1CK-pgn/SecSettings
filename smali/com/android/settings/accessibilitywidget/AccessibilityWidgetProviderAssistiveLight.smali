@@ -517,7 +517,7 @@
     .line 320
     iget-object v7, p0, Lcom/android/settings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
-    const v8, 0x7f020412
+    const v8, 0x7f020491
 
     iput v8, v7, Landroid/app/Notification;->icon:I
 
@@ -538,7 +538,7 @@
     .line 323
     iget-object v7, p0, Lcom/android/settings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
-    const v8, 0x7f090c60
+    const v8, 0x7f090d74
 
     invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -568,13 +568,13 @@
     .local v5, pi:Landroid/app/PendingIntent;
     iget-object v7, p0, Lcom/android/settings/accessibilitywidget/AccessibilityWidgetProviderAssistiveLight;->mAssistiveNotification:Landroid/app/Notification;
 
-    const v8, 0x7f090c60
+    const v8, 0x7f090d74
 
     invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    const v9, 0x7f090c61
+    const v9, 0x7f090d75
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -733,7 +733,7 @@
 
     .line 354
     .restart local v4       #notificationManager:Landroid/app/NotificationManager;
-    const v7, 0x7f020412
+    const v7, 0x7f020491
 
     invoke-virtual {v4, v7}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -788,7 +788,7 @@
     .parameter "context"
 
     .prologue
-    const v8, 0x7f090c5c
+    const v8, 0x7f090d70
 
     const/4 v7, 0x1
 
@@ -802,7 +802,7 @@
     invoke-virtual {p0, v6, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 195
-    const v2, 0x7f090f79
+    const v2, 0x7f0910b3
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -820,7 +820,7 @@
     .line 198
     const v2, 0x7f0b0013
 
-    const v3, 0x7f020004
+    const v3, 0x7f020006
 
     invoke-virtual {p0, v2, v3}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -829,7 +829,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f01a7
+    const v3, 0x7f0f01ee
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -844,7 +844,7 @@
     invoke-virtual {p0, v4, v2}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
     .line 202
-    const v2, 0x7f090c62
+    const v2, 0x7f090d76
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -883,7 +883,7 @@
     :cond_0
     const v2, 0x7f0b0013
 
-    const v3, 0x7f020003
+    const v3, 0x7f020005
 
     invoke-virtual {p0, v2, v3}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -892,7 +892,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f01a8
+    const v3, 0x7f0f01ef
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -914,7 +914,7 @@
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 213
-    const v2, 0x7f090c63
+    const v2, 0x7f090d77
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1039,7 +1039,7 @@
 
     .line 133
     .local v1, notificationManager:Landroid/app/NotificationManager;
-    const v2, 0x7f020412
+    const v2, 0x7f020491
 
     invoke-virtual {v1, v2}, Landroid/app/NotificationManager;->cancel(I)V
     :try_end_0
@@ -1114,9 +1114,9 @@
     .parameter "intent"
 
     .prologue
-    const v10, 0x7f090c60
+    const v10, 0x7f090d74
 
-    const v8, 0x7f020412
+    const v8, 0x7f020491
 
     const/4 v9, 0x0
 
@@ -1276,7 +1276,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090c61
+    const v8, 0x7f090d75
 
     invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

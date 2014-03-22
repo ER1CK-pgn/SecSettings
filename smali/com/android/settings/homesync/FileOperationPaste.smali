@@ -175,7 +175,7 @@
 
     const/4 v3, 0x1
 
-    invoke-virtual {p1, v0, v2, v3}, Landroid/app/Activity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    invoke-virtual {p1, v0, v2, v3}, Landroid/content/ContextWrapper;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     .line 140
     .end local v0           #intent:Landroid/content/Intent;
@@ -512,7 +512,7 @@
 
     move-object/from16 v3, p0
 
-    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 464
     :cond_a
@@ -521,7 +521,7 @@
 
     move-object/from16 v1, v28
 
-    invoke-virtual {v0, v1}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {v0, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v29
 
@@ -767,7 +767,7 @@
 
     move-object/from16 v3, p0
 
-    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 491
     .end local v14           #notification:Z
@@ -854,11 +854,11 @@
 
     move-object/from16 v15, p0
 
-    invoke-virtual/range {v15 .. v26}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v15 .. v26}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 503
     :cond_14
-    invoke-virtual/range {v38 .. v38}, Ljava/io/FileOutputStream;->flush()V
+    invoke-virtual/range {v38 .. v38}, Ljava/io/OutputStream;->flush()V
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_6
 
@@ -1204,7 +1204,7 @@
 
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v11}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v0 .. v11}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 611
     const/4 v0, 0x1
@@ -1225,7 +1225,7 @@
     iput-object v0, p0, Lcom/android/settings/homesync/FileOperation;->mOperationStopReason:Lcom/android/settings/homesync/FileOperation$OperationStopReason;
 
     .line 603
-    invoke-virtual {v12}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -1353,7 +1353,7 @@
 
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v11}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v0 .. v11}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 582
     const/4 v0, 0x1
@@ -1374,7 +1374,7 @@
     iput-object v0, p0, Lcom/android/settings/homesync/FileOperation;->mOperationStopReason:Lcom/android/settings/homesync/FileOperation$OperationStopReason;
 
     .line 574
-    invoke-virtual {v12}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -1506,7 +1506,7 @@
 
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v11}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v0 .. v11}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 549
     const/4 v0, 0x1
@@ -1527,7 +1527,7 @@
     iput-object v0, p0, Lcom/android/settings/homesync/FileOperation;->mOperationStopReason:Lcom/android/settings/homesync/FileOperation$OperationStopReason;
 
     .line 542
-    invoke-virtual {v12}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -1602,7 +1602,7 @@
     iput-object v3, p0, Lcom/android/settings/homesync/FileOperation;->mOperationStopReason:Lcom/android/settings/homesync/FileOperation$OperationStopReason;
 
     .line 641
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -2048,7 +2048,7 @@
 
     .line 198
     .local v6, e:Landroid/os/RemoteException;
-    invoke-virtual {v6}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 199
     iput-object v6, p0, Lcom/android/settings/homesync/FileOperation;->operationException:Ljava/lang/Exception;
@@ -2114,13 +2114,13 @@
 
     .line 166
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f091485
+    const v1, 0x7f0915d9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f090ad8
+    const v2, 0x7f090bbc
 
     new-instance v3, Lcom/android/settings/homesync/FileOperationPaste$4;
 
@@ -2130,7 +2130,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     new-instance v3, Lcom/android/settings/homesync/FileOperationPaste$3;
 
@@ -2309,7 +2309,7 @@
 
     invoke-direct {v4, v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {v3, v4}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v3, v4}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 320
     .end local v21           #oneInfo:Lcom/android/settings/homesync/FileOperationPaste$PasteInfo;
@@ -2391,7 +2391,7 @@
 
     iget-object v4, v0, Lcom/android/settings/homesync/FileOperationPaste;->mConnection:Landroid/content/ServiceConnection;
 
-    invoke-virtual {v3, v4}, Landroid/app/Activity;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v3, v4}, Landroid/content/ContextWrapper;->unbindService(Landroid/content/ServiceConnection;)V
 
     .line 337
     const/4 v3, 0x0
@@ -2466,7 +2466,7 @@
     if-ne v3, v4, :cond_a
 
     .line 256
-    const v22, 0x7f09149b
+    const v22, 0x7f0915ef
 
     .line 260
     :goto_3
@@ -2474,7 +2474,7 @@
 
     iget-object v3, v0, Lcom/android/settings/homesync/FileOperationPaste;->context:Landroid/app/Activity;
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -2544,7 +2544,7 @@
 
     move-object/from16 v3, p0
 
-    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     .line 266
     move-object/from16 v0, p0
@@ -2618,7 +2618,7 @@
 
     .line 258
     :cond_a
-    const v22, 0x7f09149c
+    const v22, 0x7f0915f0
 
     goto/16 :goto_3
 
@@ -2779,7 +2779,7 @@
     iput-object v3, v0, Lcom/android/settings/homesync/FileOperation;->mOperationStopReason:Lcom/android/settings/homesync/FileOperation$OperationStopReason;
 
     .line 290
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_5
 
@@ -2851,7 +2851,7 @@
 
     move-object/from16 v3, p0
 
-    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperationPaste;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
+    invoke-virtual/range {v3 .. v14}, Lcom/android/settings/homesync/FileOperation;->publish(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIJJZ)V
 
     goto :goto_5
 
@@ -2886,7 +2886,7 @@
     iput-object v0, v1, Lcom/android/settings/homesync/FileOperation;->operationException:Ljava/lang/Exception;
 
     .line 328
-    invoke-virtual/range {v18 .. v18}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_2
 .end method

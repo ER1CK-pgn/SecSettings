@@ -30,7 +30,7 @@
     .line 155
     iput-object p1, p0, Lcom/android/settings/homesync/FileOperationPaste$2;->this$0:Lcom/android/settings/homesync/FileOperationPaste;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -58,7 +58,7 @@
 
     .line 160
     .local v0, dialog:Landroid/app/AlertDialog;
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 161
     return-void

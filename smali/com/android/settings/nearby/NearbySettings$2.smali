@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 494
+    .line 500
     iput-object p1, p0, Lcom/android/settings/nearby/NearbySettings$2;->this$0:Lcom/android/settings/nearby/NearbySettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 496
+    .line 502
     const-string v1, "NearbySettings"
 
     const-string v2, "Handler"
@@ -66,13 +66,13 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 499
+    .line 505
     :try_start_0
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 507
+    .line 513
     const-string v1, "NearbySettings"
 
     const-string v2, ""
@@ -99,11 +99,11 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 514
+    .line 520
     :goto_0
     return-void
 
-    .line 501
+    .line 507
     :pswitch_0
     const-string v1, "NearbySettings"
 
@@ -113,16 +113,16 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 502
+    .line 508
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings$2;->this$0:Lcom/android/settings/nearby/NearbySettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 503
+    .line 509
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings$2;->this$0:Lcom/android/settings/nearby/NearbySettings;
 
     const/4 v2, 0x1
@@ -134,11 +134,11 @@
 
     goto :goto_0
 
-    .line 510
+    .line 516
     :catch_0
     move-exception v0
 
-    .line 511
+    .line 517
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "NearbySettings"
 
@@ -164,12 +164,12 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 512
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 518
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
-    .line 499
+    .line 505
     :pswitch_data_0
     .packed-switch 0xbbb
         :pswitch_0

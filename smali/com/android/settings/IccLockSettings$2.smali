@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 192
+    .line 194
     iput-object p1, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 195
+    .line 197
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 196
+    .line 198
     .local v1, action:Ljava/lang/String;
     const-string v2, "android.intent.action.AIRPLANE_MODE"
 
@@ -55,7 +55,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 197
+    .line 199
     const-string v2, "state"
 
     const/4 v3, 0x0
@@ -66,17 +66,17 @@
 
     if-eqz v2, :cond_0
 
-    .line 198
+    .line 200
     iget-object v2, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/IccLockSettings;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
-    .line 221
+    .line 223
     :cond_0
     :goto_0
     return-void
 
-    .line 200
+    .line 202
     :cond_1
     const-string v2, "android.intent.action.SIM_STATE_CHANGED"
 
@@ -86,14 +86,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 201
+    .line 203
     const-string v2, "ss"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 202
+    .line 204
     .local v0, SIMstate:Ljava/lang/String;
     const-string v2, "IccLockSettings"
 
@@ -117,7 +117,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 203
+    .line 205
     const-string v2, "IccLockSettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -155,14 +155,14 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 207
+    .line 209
     const-string v2, "IccLockSettings"
 
     const-string v3, "onReceive(), SIMstate : LOCKED"
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 208
+    .line 210
     iget-object v2, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
     #getter for: Lcom/android/settings/IccLockSettings;->mPinToggle:Landroid/preference/CheckBoxPreference;
@@ -185,9 +185,9 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 209
+    .line 211
     iget-object v2, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
     #getter for: Lcom/android/settings/IccLockSettings;->mPinDialog:Lcom/android/settings/EditPinPreference;
@@ -202,13 +202,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v3}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/EditPinPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 211
+    .line 213
     const-string v2, "READY"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -217,7 +217,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 212
+    .line 214
     iget-object v2, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
     #getter for: Lcom/android/settings/IccLockSettings;->mDialogState:I
@@ -227,7 +227,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 213
+    .line 215
     iget-object v2, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
     #calls: Lcom/android/settings/IccLockSettings;->showPinDialog()V
@@ -235,7 +235,7 @@
 
     goto/16 :goto_0
 
-    .line 216
+    .line 218
     :cond_2
     const-string v2, "IccLockSettings"
 
@@ -243,7 +243,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
+    .line 219
     iget-object v2, p0, Lcom/android/settings/IccLockSettings$2;->this$0:Lcom/android/settings/IccLockSettings;
 
     #calls: Lcom/android/settings/IccLockSettings;->resetDialogState()V

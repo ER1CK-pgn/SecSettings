@@ -40,6 +40,8 @@
 
 .field mAccountTabView:Landroid/view/View;
 
+.field private mActiveAppListObserver:Landroid/database/ContentObserver;
+
 .field private mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
 .field mConnectionTabView:Landroid/view/View;
@@ -102,25 +104,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 204
+    .line 224
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
 
-    .line 212
+    .line 232
     sput-boolean v2, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
 
-    .line 214
+    .line 234
     const-wide/16 v0, -0x1
 
     sput-wide v0, Lcom/android/settings/SettingsTabActivity;->mSearchHeaderID:J
 
-    .line 215
+    .line 235
     const/4 v0, -0x1
 
     sput v0, Lcom/android/settings/SettingsTabActivity;->mSearchSettingValue:I
 
-    .line 219
+    .line 239
     sput-boolean v2, Lcom/android/settings/SettingsTabActivity;->mDirectSettingEnabler:Z
 
     return-void
@@ -134,11 +136,11 @@
 
     const/4 v1, 0x0
 
-    .line 148
+    .line 165
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
-    .line 162
-    const/16 v0, 0x16
+    .line 179
+    const/16 v0, 0x17
 
     new-array v0, v0, [I
 
@@ -146,133 +148,145 @@
 
     iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->SETTINGS_FOR_RESTRICTED:[I
 
-    .line 192
+    .line 212
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap:Ljava/util/HashMap;
 
-    .line 193
+    .line 213
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap2:Ljava/util/HashMap;
 
-    .line 198
+    .line 218
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->filter:Landroid/content/IntentFilter;
 
-    .line 201
+    .line 221
     iput v1, p0, Lcom/android/settings/SettingsTabActivity;->MHS_REQUEST:I
 
-    .line 202
+    .line 222
     iput v1, p0, Lcom/android/settings/SettingsTabActivity;->mTetheredData:I
 
-    .line 213
+    .line 233
     iput-boolean v1, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
-    .line 216
+    .line 236
     iput-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
-    .line 217
+    .line 237
     iput-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
-    .line 218
+    .line 238
     iput v1, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
-    .line 221
+    .line 241
     iput-boolean v1, p0, Lcom/android/settings/SettingsTabActivity;->mDualFoldertype:Z
 
-    .line 2016
+    .line 2159
     new-instance v0, Lcom/android/settings/SettingsTabActivity$3;
 
     invoke-direct {v0, p0}, Lcom/android/settings/SettingsTabActivity$3;-><init>(Lcom/android/settings/SettingsTabActivity;)V
 
     iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 2206
+    new-instance v0, Lcom/android/settings/SettingsTabActivity$4;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/SettingsTabActivity$4;-><init>(Lcom/android/settings/SettingsTabActivity;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mActiveAppListObserver:Landroid/database/ContentObserver;
+
     return-void
 
-    .line 162
+    .line 179
     nop
 
     :array_0
     .array-data 0x4
-        0x78t 0x5t 0xbt 0x7ft
-        0x79t 0x5t 0xbt 0x7ft
-        0x7bt 0x5t 0xbt 0x7ft
-        0x80t 0x5t 0xbt 0x7ft
-        0x86t 0x5t 0xbt 0x7ft
+        0xdet 0x5t 0xbt 0x7ft
         0xe0t 0x5t 0xbt 0x7ft
-        0x96t 0x5t 0xbt 0x7ft
-        0x93t 0x5t 0xbt 0x7ft
-        0xbet 0x5t 0xbt 0x7ft
-        0xbat 0x5t 0xbt 0x7ft
-        0xbct 0x5t 0xbt 0x7ft
-        0xe3t 0x5t 0xbt 0x7ft
-        0x81t 0x5t 0xbt 0x7ft
-        0xbft 0x5t 0xbt 0x7ft
-        0xa6t 0x5t 0xbt 0x7ft
-        0xbbt 0x5t 0xbt 0x7ft
-        0x73t 0x5t 0xbt 0x7ft
-        0x74t 0x5t 0xbt 0x7ft
-        0xe7t 0x5t 0xbt 0x7ft
-        0xb8t 0x5t 0xbt 0x7ft
-        0xc3t 0x5t 0xbt 0x7ft
-        0xa2t 0x5t 0xbt 0x7ft
+        0xdft 0x5t 0xbt 0x7ft
+        0xe2t 0x5t 0xbt 0x7ft
+        0xe8t 0x5t 0xbt 0x7ft
+        0xeet 0x5t 0xbt 0x7ft
+        0x5at 0x6t 0xbt 0x7ft
+        0xfet 0x5t 0xbt 0x7ft
+        0xfbt 0x5t 0xbt 0x7ft
+        0x2et 0x6t 0xbt 0x7ft
+        0x28t 0x6t 0xbt 0x7ft
+        0x2ct 0x6t 0xbt 0x7ft
+        0x5et 0x6t 0xbt 0x7ft
+        0xe9t 0x5t 0xbt 0x7ft
+        0x2ft 0x6t 0xbt 0x7ft
+        0xet 0x6t 0xbt 0x7ft
+        0x2bt 0x6t 0xbt 0x7ft
+        0xd9t 0x5t 0xbt 0x7ft
+        0xdat 0x5t 0xbt 0x7ft
+        0x44t 0x6t 0xbt 0x7ft
+        0x25t 0x6t 0xbt 0x7ft
+        0x33t 0x6t 0xbt 0x7ft
+        0xat 0x6t 0xbt 0x7ft
     .end array-data
 .end method
 
-.method static synthetic access$300()Ljava/lang/String;
+.method static synthetic access$300()Z
     .locals 1
 
     .prologue
-    .line 148
-    sget-object v0, Lcom/android/settings/SettingsTabActivity;->sSalesCode:Ljava/lang/String;
+    .line 165
+    sget-boolean v0, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
 
-    return-object v0
+    return v0
 .end method
 
 .method static synthetic access$400()Z
     .locals 1
 
     .prologue
-    .line 148
-    sget-boolean v0, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
-
-    return v0
-.end method
-
-.method static synthetic access$500()Z
-    .locals 1
-
-    .prologue
-    .line 148
+    .line 165
     sget-boolean v0, Lcom/android/settings/SettingsTabActivity;->mDirectSettingEnabler:Z
 
     return v0
 .end method
 
-.method static synthetic access$502(Z)Z
+.method static synthetic access$402(Z)Z
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 148
+    .line 165
     sput-boolean p0, Lcom/android/settings/SettingsTabActivity;->mDirectSettingEnabler:Z
 
     return p0
+.end method
+
+.method static synthetic access$500()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 165
+    sget-object v0, Lcom/android/settings/SettingsTabActivity;->sSalesCode:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method static synthetic access$600()I
     .locals 1
 
     .prologue
-    .line 148
+    .line 165
     sget v0, Lcom/android/settings/SettingsTabActivity;->mSearchSettingValue:I
 
     return v0
@@ -282,7 +296,7 @@
     .locals 2
 
     .prologue
-    .line 148
+    .line 165
     sget-wide v0, Lcom/android/settings/SettingsTabActivity;->mSearchHeaderID:J
 
     return-wide v0
@@ -292,7 +306,7 @@
     .locals 1
 
     .prologue
-    .line 148
+    .line 165
     sget v0, Lcom/android/settings/SettingsTabActivity;->mWifiSummaryId:I
 
     return v0
@@ -303,7 +317,7 @@
     .parameter "x0"
 
     .prologue
-    .line 148
+    .line 165
     sput p0, Lcom/android/settings/SettingsTabActivity;->mWifiSummaryId:I
 
     return p0
@@ -315,14 +329,14 @@
     .prologue
     const v3, 0x10008000
 
-    .line 2050
+    .line 2193
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 2051
+    .line 2194
     new-instance v0, Landroid/content/Intent;
 
     sget-object v1, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
@@ -331,20 +345,20 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 2052
+    .line 2195
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 2053
+    .line 2196
     sget-object v1, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 2060
+    .line 2203
     :cond_0
     :goto_0
     return-void
 
-    .line 2054
+    .line 2197
     :cond_1
     invoke-static {}, Lcom/android/settings/Utils;->isJOnlySearchEnable()Z
 
@@ -352,22 +366,22 @@
 
     if-eqz v0, :cond_0
 
-    .line 2055
+    .line 2198
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 2056
+    .line 2199
     const-string v1, "com.android.settings"
 
     const-string v2, "com.android.settings.settingssearch.SettingsSearchActivity"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2057
+    .line 2200
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 2058
+    .line 2201
     sget-object v1, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
@@ -384,25 +398,25 @@
 
     const/4 v3, 0x0
 
-    .line 1033
+    .line 1159
     iget-object v2, p1, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    .line 1034
+    .line 1160
     .local v2, voice_control_intent:Landroid/content/Intent;
     if-eqz v2, :cond_0
 
-    .line 1035
+    .line 1161
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 1036
+    .line 1162
     .local v1, pm:Landroid/content/pm/PackageManager;
     invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v0
 
-    .line 1037
+    .line 1163
     .local v0, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -410,7 +424,7 @@
 
     if-ge v5, v4, :cond_0
 
-    .line 1041
+    .line 1167
     .end local v0           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     .end local v1           #pm:Landroid/content/pm/PackageManager;
     :goto_0
@@ -437,27 +451,27 @@
     .end annotation
 
     .prologue
-    const v12, 0x7f090966
+    const v12, 0x7f090a44
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 1072
+    .line 1199
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-virtual {v0}, Lcom/android/settings/accounts/AuthenticatorHelper;->getEnabledAccountTypes()[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 1073
+    .line 1200
     new-instance v6, Ljava/util/ArrayList;
 
     array-length v0, v5
 
     invoke-direct {v6, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 1074
+    .line 1201
     array-length v7, v5
 
     move v4, v2
@@ -467,14 +481,14 @@
 
     aget-object v8, v5, v4
 
-    .line 1075
+    .line 1202
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-virtual {v0, p0, v8}, Lcom/android/settings/accounts/AuthenticatorHelper;->getLabelForType(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    .line 1078
+    .line 1205
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -491,7 +505,7 @@
 
     if-nez v0, :cond_0
 
-    .line 1079
+    .line 1206
     const-string v0, "com.android.tmo_myphonebook"
 
     invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -500,7 +514,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1080
+    .line 1207
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -511,11 +525,11 @@
 
     move-result-object v3
 
-    .line 1085
+    .line 1212
     :cond_0
     if-nez v3, :cond_2
 
-    .line 1074
+    .line 1201
     :cond_1
     :goto_1
     add-int/lit8 v0, v4, 0x1
@@ -524,7 +538,7 @@
 
     goto :goto_0
 
-    .line 1089
+    .line 1216
     :cond_2
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
@@ -534,7 +548,7 @@
 
     move-result-object v9
 
-    .line 1090
+    .line 1217
     array-length v0, v9
 
     if-ne v0, v1, :cond_9
@@ -549,7 +563,7 @@
 
     move v0, v1
 
-    .line 1094
+    .line 1221
     :goto_2
     array-length v10, v9
 
@@ -559,7 +573,7 @@
 
     if-eqz v10, :cond_4
 
-    .line 1095
+    .line 1222
     sget-object v10, Lcom/android/settings/accounts/AccountCommon;->facebookSSOAccountType:Ljava/lang/String;
 
     aget-object v11, v9, v2
@@ -572,7 +586,7 @@
 
     if-eqz v10, :cond_a
 
-    .line 1096
+    .line 1223
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v0
@@ -583,7 +597,7 @@
 
     move-result-object v0
 
-    .line 1097
+    .line 1224
     if-eqz v0, :cond_3
 
     array-length v0, v0
@@ -593,7 +607,7 @@
     :cond_3
     move v0, v2
 
-    .line 1108
+    .line 1235
     :cond_4
     :goto_3
     array-length v10, v9
@@ -604,7 +618,7 @@
 
     if-eqz v10, :cond_6
 
-    .line 1109
+    .line 1236
     sget-object v10, Lcom/android/settings/accounts/AccountCommon;->twitterSSOAccountType:Ljava/lang/String;
 
     aget-object v11, v9, v2
@@ -617,7 +631,7 @@
 
     if-eqz v10, :cond_b
 
-    .line 1110
+    .line 1237
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v0
@@ -628,7 +642,7 @@
 
     move-result-object v0
 
-    .line 1111
+    .line 1238
     if-eqz v0, :cond_5
 
     array-length v0, v0
@@ -638,39 +652,39 @@
     :cond_5
     move v0, v2
 
-    .line 1121
+    .line 1248
     :cond_6
     :goto_4
     new-instance v10, Landroid/preference/PreferenceActivity$Header;
 
     invoke-direct {v10}, Landroid/preference/PreferenceActivity$Header;-><init>()V
 
-    .line 1122
+    .line 1249
     iput-object v3, v10, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
-    .line 1123
+    .line 1250
     iget-object v11, v10, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
     if-nez v11, :cond_7
 
-    .line 1124
+    .line 1251
     new-instance v11, Landroid/os/Bundle;
 
     invoke-direct {v11}, Landroid/os/Bundle;-><init>()V
 
     iput-object v11, v10, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
-    .line 1126
+    .line 1253
     :cond_7
     if-eqz v0, :cond_c
 
-    .line 1127
+    .line 1254
     iput v12, v10, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitleRes:I
 
-    .line 1128
+    .line 1255
     iput v12, v10, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitleRes:I
 
-    .line 1129
+    .line 1256
     const-class v0, Lcom/android/settings/accounts/AccountSyncSettings;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -679,21 +693,21 @@
 
     iput-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
-    .line 1130
+    .line 1257
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
-    .line 1132
+    .line 1259
     iget-object v0, v10, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
     const-string v3, "account_type"
 
     invoke-virtual {v0, v3, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1133
+    .line 1260
     iget-object v0, v10, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
     const-string v3, "account"
@@ -702,7 +716,7 @@
 
     invoke-virtual {v0, v3, v8}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1134
+    .line 1261
     iget-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
     const-string v3, "account"
@@ -711,7 +725,7 @@
 
     invoke-virtual {v0, v3, v8}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 1149
+    .line 1276
     :cond_8
     :goto_5
     invoke-interface {v6, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -721,10 +735,10 @@
     :cond_9
     move v0, v2
 
-    .line 1090
+    .line 1217
     goto/16 :goto_2
 
-    .line 1102
+    .line 1229
     :cond_a
     const-string v10, "com.sec.android.app.sns3.facebook"
 
@@ -738,12 +752,12 @@
 
     if-eqz v10, :cond_4
 
-    .line 1103
+    .line 1230
     sget-object v3, Lcom/android/settings/accounts/AccountCommon;->facebookSSOAccountLabel:Ljava/lang/String;
 
     goto :goto_3
 
-    .line 1116
+    .line 1243
     :cond_b
     const-string v10, "com.sec.android.app.sns3.twitter"
 
@@ -757,19 +771,19 @@
 
     if-eqz v10, :cond_6
 
-    .line 1117
+    .line 1244
     sget-object v3, Lcom/android/settings/accounts/AccountCommon;->twitterSSOAccountLabel:Ljava/lang/String;
 
     goto :goto_4
 
-    .line 1137
+    .line 1264
     :cond_c
     iput-object v3, v10, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitle:Ljava/lang/CharSequence;
 
-    .line 1138
+    .line 1265
     iput-object v3, v10, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitle:Ljava/lang/CharSequence;
 
-    .line 1139
+    .line 1266
     const-class v0, Lcom/android/settings/accounts/ManageAccountsSettings;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -778,35 +792,35 @@
 
     iput-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
-    .line 1140
+    .line 1267
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
-    .line 1141
+    .line 1268
     iget-object v0, v10, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
     const-string v9, "account_type"
 
     invoke-virtual {v0, v9, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1142
+    .line 1269
     iget-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
     const-string v9, "account_type"
 
     invoke-virtual {v0, v9, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1144
+    .line 1271
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->isMultiPane()Z
 
     move-result v0
 
     if-nez v0, :cond_8
 
-    .line 1145
+    .line 1272
     iget-object v0, v10, Landroid/preference/PreferenceActivity$Header;->fragmentArguments:Landroid/os/Bundle;
 
     const-string v8, "account_label"
@@ -819,7 +833,7 @@
 
     goto :goto_5
 
-    .line 1153
+    .line 1280
     :cond_d
     new-instance v0, Lcom/android/settings/SettingsTabActivity$2;
 
@@ -827,7 +841,7 @@
 
     invoke-static {v6, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 1160
+    .line 1287
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -845,7 +859,7 @@
 
     check-cast v0, Landroid/preference/PreferenceActivity$Header;
 
-    .line 1161
+    .line 1288
     add-int/lit8 v2, p2, 0x1
 
     invoke-interface {p1, p2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
@@ -854,13 +868,13 @@
 
     goto :goto_6
 
-    .line 1163
+    .line 1290
     :cond_e
     iget-boolean v0, p0, Lcom/android/settings/SettingsTabActivity;->mListeningToAccountUpdates:Z
 
     if-nez v0, :cond_f
 
-    .line 1164
+    .line 1291
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v0
@@ -869,10 +883,10 @@
 
     invoke-virtual {v0, p0, v2, v1}, Landroid/accounts/AccountManager;->addOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;Z)V
 
-    .line 1165
+    .line 1292
     iput-boolean v1, p0, Lcom/android/settings/SettingsTabActivity;->mListeningToAccountUpdates:Z
 
-    .line 1167
+    .line 1294
     :cond_f
     return p2
 .end method
@@ -883,15 +897,15 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1054
+    .line 1181
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 1056
+    .line 1183
     if-eqz v1, :cond_1
 
-    .line 1057
+    .line 1184
     :try_start_0
     const-string v2, "com.nttdocomo.android.docomoset"
 
@@ -899,7 +913,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    .line 1059
+    .line 1186
     const-string v2, "com.nttdocomo.android.docomoset"
 
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getApplicationEnabledSetting(Ljava/lang/String;)I
@@ -922,16 +936,16 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 1068
+    .line 1195
     :cond_0
     :goto_0
     return v0
 
-    .line 1065
+    .line 1192
     :catch_0
     move-exception v0
 
-    .line 1068
+    .line 1195
     :cond_1
     const/4 v0, 0x0
 
@@ -939,40 +953,20 @@
 .end method
 
 .method private isVoiceControlEnabled()Z
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 1045
-    new-instance v0, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
+    .line 1177
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;-><init>()V
-
-    .line 1046
-    .local v0, mBargeInRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
-    if-eqz v0, :cond_0
-
-    iget-boolean v1, v0, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;->isEnableBargeIn:Z
-
-    if-eqz v1, :cond_0
-
-    .line 1047
-    const/4 v1, 0x1
-
-    .line 1049
-    :goto_0
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
+    return v0
 .end method
 
 .method private needsDockSettings()Z
     .locals 2
 
     .prologue
-    .line 1171
+    .line 1298
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -1014,1002 +1008,1067 @@
 
     const/4 v4, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    .line 626
+    .line 658
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferences:Landroid/content/SharedPreferences;
 
     const-string v1, "show"
 
-    sget-object v3, Landroid/os/Build;->TYPE:Ljava/lang/String;
+    sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
     const-string v5, "eng"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v5
 
-    .line 631
+    .line 663
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    .line 632
+    .line 664
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap2:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    move v1, v2
+    move v2, v3
 
-    .line 633
+    .line 665
     :goto_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-ge v1, v0, :cond_42
+    if-ge v2, v0, :cond_4d
 
-    .line 634
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    .line 666
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity$Header;
 
-    .line 636
+    .line 668
     iget-wide v6, v0, Landroid/preference/PreferenceActivity$Header;->id:J
 
     long-to-int v6, v6
 
-    .line 637
-    const v3, 0x7f0b0592
+    .line 669
+    const v1, 0x7f0b05fa
 
-    if-ne v6, v3, :cond_3
+    if-ne v6, v1, :cond_4
 
-    .line 638
+    .line 670
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "shopdemo"
 
-    invoke-static {v3, v7, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v7, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v7
 
-    .line 639
-    if-ne v3, v4, :cond_0
+    .line 674
+    sget-object v1, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
 
-    .line 640
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    const-string v8, "enterprise_policy"
 
-    .line 1009
-    :cond_0
+    invoke-virtual {v1, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    .line 675
+    if-eqz v1, :cond_50
+
+    invoke-virtual {v1}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Landroid/app/enterprise/RestrictionPolicy;->isLockScreenEnabled(Z)Z
+
+    move-result v1
+
+    if-nez v1, :cond_50
+
+    move v1, v3
+
+    .line 678
     :goto_1
+    const-string v8, "SettingsTabActivity"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "updateHeaderList : isLockScreenEnabled = "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 680
+    if-eq v7, v4, :cond_0
+
+    if-nez v1, :cond_1
+
+    .line 681
+    :cond_0
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 1135
+    :cond_1
+    :goto_2
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
-    if-ge v1, v3, :cond_1
+    if-ge v2, v1, :cond_2
 
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-ne v3, v0, :cond_1
+    if-ne v1, v0, :cond_2
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_2
 
-    iget-object v3, p0, Lcom/android/settings/SettingsTabActivity;->SETTINGS_FOR_RESTRICTED:[I
+    iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->SETTINGS_FOR_RESTRICTED:[I
 
-    invoke-static {v3, v6}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
+    invoke-static {v1, v6}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_1
+    if-nez v1, :cond_2
 
-    .line 1013
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1139
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 1017
-    :cond_1
+    .line 1143
+    :cond_2
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
-    if-ge v1, v3, :cond_43
+    if-ge v2, v1, :cond_4e
 
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-ne v3, v0, :cond_43
+    if-ne v1, v0, :cond_4e
 
-    .line 1020
-    iget-object v3, p0, Lcom/android/settings/SettingsTabActivity;->mFirstHeader:Landroid/preference/PreferenceActivity$Header;
+    .line 1146
+    iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mFirstHeader:Landroid/preference/PreferenceActivity$Header;
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_3
 
     invoke-static {v0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_3
 
     iget-wide v7, v0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v9, 0x7f0b0572
+    const-wide/32 v9, 0x7f0b05d8
 
-    cmp-long v3, v7, v9
+    cmp-long v1, v7, v9
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_3
 
-    .line 1023
+    .line 1149
     iput-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mFirstHeader:Landroid/preference/PreferenceActivity$Header;
 
-    .line 1025
-    :cond_2
+    .line 1151
+    :cond_3
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap:Ljava/util/HashMap;
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
-    invoke-virtual {v0, v3, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1026
+    .line 1152
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap2:Ljava/util/HashMap;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
-    invoke-virtual {v0, v3, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1027
-    add-int/lit8 v1, v1, 0x1
+    .line 1153
+    add-int/lit8 v2, v2, 0x1
 
-    move v0, v1
+    move v0, v2
 
-    :goto_2
-    move v1, v0
+    :goto_3
+    move v2, v0
 
-    .line 1029
-    goto :goto_0
-
-    .line 641
-    :cond_3
-    const v3, 0x7f0b0572
-
-    if-ne v6, v3, :cond_4
-
-    .line 642
-    invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 643
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto :goto_1
-
-    .line 645
-    :cond_4
-    const v3, 0x7f0b05a1
-
-    if-ne v6, v3, :cond_5
-
-    .line 646
-    invoke-direct {p0}, Lcom/android/settings/SettingsTabActivity;->needsDockSettings()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 647
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto :goto_1
-
-    .line 648
-    :cond_5
-    const v3, 0x7f0b05dc
-
-    if-eq v6, v3, :cond_6
-
-    const v3, 0x7f0b05e2
-
-    if-ne v6, v3, :cond_7
-
-    .line 649
-    :cond_6
-    invoke-static {p0, p1, v0}, Lcom/android/settings/Utils;->updateHeaderToSpecificActivityFromMetaDataOrRemove(Landroid/content/Context;Ljava/util/List;Landroid/preference/PreferenceActivity$Header;)Z
-
-    goto/16 :goto_1
-
-    .line 650
-    :cond_7
-    const v3, 0x7f0b0579
-
-    if-ne v6, v3, :cond_8
-
-    .line 652
-    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    const-string v7, "android.hardware.wifi"
-
-    invoke-virtual {v3, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 653
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 655
-    :cond_8
-    const v3, 0x7f0b057a
-
-    if-ne v6, v3, :cond_9
-
-    .line 669
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 671
-    :cond_9
-    const v3, 0x7f0b057b
-
-    if-ne v6, v3, :cond_a
-
-    .line 673
-    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    const-string v7, "android.hardware.bluetooth"
-
-    invoke-virtual {v3, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 674
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 676
-    :cond_a
-    const v3, 0x7f0b0580
-
-    if-ne v6, v3, :cond_b
-
-    .line 678
-    const-string v3, "network_management"
-
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
-
-    move-result-object v3
-
-    .line 681
-    :try_start_0
-    invoke-interface {v3}, Landroid/os/INetworkManagementService;->isBandwidthControlEnabled()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
+    .line 1155
+    goto/16 :goto_0
 
     .line 682
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :cond_4
+    const v1, 0x7f0b05d8
 
-    goto/16 :goto_1
+    if-ne v6, v1, :cond_5
 
-    .line 684
-    :catch_0
-    move-exception v3
-
-    goto/16 :goto_1
-
-    .line 687
-    :cond_b
-    const v3, 0x7f0b0583
-
-    if-ne v6, v3, :cond_d
-
-    .line 689
-    const-string v3, "LGT"
-
-    const-string v7, "ro.csc.sales_code"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_c
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 691
-    :cond_c
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 693
-    :cond_d
-    const v3, 0x7f0b0584
-
-    if-ne v6, v3, :cond_f
-
-    .line 695
-    const-string v3, "SKT"
-
-    const-string v7, "ro.csc.sales_code"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_e
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 697
-    :cond_e
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 699
-    :cond_f
-    const v3, 0x7f0b0585
-
-    if-ne v6, v3, :cond_10
-
-    .line 700
-    const-string v3, "CTC"
-
-    const-string v7, "ro.csc.sales_code"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 701
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 703
-    :cond_10
-    const v3, 0x7f0b05a8
-
-    if-ne v6, v3, :cond_11
-
-    .line 705
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 707
-    :cond_11
-    const v3, 0x7f0b05a9
-
-    if-eq v6, v3, :cond_0
-
-    .line 714
-    const v3, 0x7f0b05ab
-
-    if-ne v6, v3, :cond_12
-
-    .line 716
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 718
-    :cond_12
-    const v3, 0x7f0b05ac
-
-    if-eq v6, v3, :cond_0
-
-    .line 722
-    const v3, 0x7f0b05aa
-
-    if-eq v6, v3, :cond_0
-
-    .line 727
-    const v3, 0x7f0b0595
-
-    if-ne v6, v3, :cond_13
-
-    .line 728
-    invoke-static {v11}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 729
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 731
-    :cond_13
-    const v3, 0x7f0b0597
-
-    if-ne v6, v3, :cond_14
-
-    .line 732
-    const-string v3, "SKT"
-
-    const-string v7, "ro.csc.sales_code"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 733
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 735
-    :cond_14
-    const v3, 0x7f0b05b5
-
-    if-ne v6, v3, :cond_15
-
-    .line 736
-    const-string v3, "SKT"
-
-    const-string v7, "ro.csc.sales_code"
-
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    .line 737
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 739
-    :cond_15
-    const v3, 0x7f0b05a0
-
-    if-eq v6, v3, :cond_0
-
-    .line 743
-    const v3, 0x7f0b05bd
-
-    if-ne v6, v3, :cond_16
-
-    .line 745
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 747
-    :cond_16
-    const v3, 0x7f0b0571
-
-    if-ne v6, v3, :cond_17
-
-    .line 754
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 774
-    :cond_17
-    const v3, 0x7f0b0573
-
-    if-ne v6, v3, :cond_18
-
-    .line 776
-    add-int/lit8 v1, v1, 0x1
-
-    .line 777
-    invoke-direct {p0, p1, v1}, Lcom/android/settings/SettingsTabActivity;->insertAccountsHeaders(Ljava/util/List;I)I
+    .line 683
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v1
 
-    goto/16 :goto_1
+    if-nez v1, :cond_1
+
+    .line 684
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto :goto_2
+
+    .line 686
+    :cond_5
+    const v1, 0x7f0b0609
+
+    if-ne v6, v1, :cond_6
+
+    .line 687
+    invoke-direct {p0}, Lcom/android/settings/SettingsTabActivity;->needsDockSettings()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 688
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto :goto_2
+
+    .line 689
+    :cond_6
+    const v1, 0x7f0b0657
+
+    if-eq v6, v1, :cond_7
+
+    const v1, 0x7f0b065d
+
+    if-ne v6, v1, :cond_8
+
+    .line 690
+    :cond_7
+    invoke-static {p0, p1, v0}, Lcom/android/settings/Utils;->updateHeaderToSpecificActivityFromMetaDataOrRemove(Landroid/content/Context;Ljava/util/List;Landroid/preference/PreferenceActivity$Header;)Z
+
+    goto/16 :goto_2
+
+    .line 691
+    :cond_8
+    const v1, 0x7f0b05e0
+
+    if-ne v6, v1, :cond_9
+
+    .line 693
+    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v7, "android.hardware.wifi"
+
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 694
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 697
+    :cond_9
+    const v1, 0x7f0b05df
+
+    if-ne v6, v1, :cond_a
+
+    .line 699
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 712
+    :cond_a
+    const v1, 0x7f0b05e1
+
+    if-ne v6, v1, :cond_b
+
+    .line 726
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 728
+    :cond_b
+    const v1, 0x7f0b05e2
+
+    if-ne v6, v1, :cond_c
+
+    .line 730
+    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v7, "android.hardware.bluetooth"
+
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 731
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 733
+    :cond_c
+    const v1, 0x7f0b05e8
+
+    if-ne v6, v1, :cond_d
+
+    .line 735
+    const-string v1, "network_management"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
+
+    move-result-object v1
+
+    .line 738
+    :try_start_0
+    invoke-interface {v1}, Landroid/os/INetworkManagementService;->isBandwidthControlEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 739
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto/16 :goto_2
+
+    .line 741
+    :catch_0
+    move-exception v1
+
+    goto/16 :goto_2
+
+    .line 744
+    :cond_d
+    const v1, 0x7f0b05eb
+
+    if-ne v6, v1, :cond_f
+
+    .line 746
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticLGTModel()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_e
+
+    invoke-static {p0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 748
+    :cond_e
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 750
+    :cond_f
+    const v1, 0x7f0b05ec
+
+    if-ne v6, v1, :cond_11
+
+    .line 752
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_10
+
+    invoke-static {p0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 754
+    :cond_10
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 756
+    :cond_11
+    const v1, 0x7f0b05ed
+
+    if-ne v6, v1, :cond_12
+
+    .line 757
+    const-string v1, "CTC"
+
+    const-string v7, "ro.csc.sales_code"
+
+    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 758
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 760
+    :cond_12
+    const v1, 0x7f0b0610
+
+    if-ne v6, v1, :cond_13
+
+    .line 762
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 764
+    :cond_13
+    const v1, 0x7f0b0611
+
+    if-eq v6, v1, :cond_1
+
+    .line 771
+    const v1, 0x7f0b0613
+
+    if-ne v6, v1, :cond_14
+
+    .line 773
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 775
+    :cond_14
+    const v1, 0x7f0b0614
+
+    if-eq v6, v1, :cond_1
 
     .line 779
-    :cond_18
-    const v3, 0x7f0b05ae
+    const v1, 0x7f0b0612
 
-    if-eq v6, v3, :cond_0
+    if-eq v6, v1, :cond_1
 
-    .line 783
-    const v3, 0x7f0b05a5
+    .line 784
+    const v1, 0x7f0b05fd
 
-    if-eq v6, v3, :cond_0
+    if-ne v6, v1, :cond_15
 
-    .line 787
-    const v3, 0x7f0b05bb
+    .line 785
+    invoke-static {v11}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
-    if-ne v6, v3, :cond_1a
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 786
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
 
     .line 788
+    :cond_15
+    const v1, 0x7f0b0620
+
+    if-ne v6, v1, :cond_16
+
+    .line 789
+    invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 791
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 793
+    :cond_16
+    const v1, 0x7f0b0621
+
+    if-ne v6, v1, :cond_18
+
+    .line 794
+    invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_17
+
+    .line 796
+    :cond_17
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 798
+    :cond_18
+    const v1, 0x7f0b05ff
+
+    if-ne v6, v1, :cond_19
+
+    .line 799
+    invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 801
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 803
+    :cond_19
+    const v1, 0x7f0b0608
+
+    if-eq v6, v1, :cond_1
+
+    .line 807
+    const v1, 0x7f0b062d
+
+    if-ne v6, v1, :cond_1a
+
+    .line 809
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 811
+    :cond_1a
+    const v1, 0x7f0b05d7
+
+    if-ne v6, v1, :cond_1b
+
+    .line 818
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 838
+    :cond_1b
+    const v1, 0x7f0b05d9
+
+    if-ne v6, v1, :cond_1c
+
+    .line 840
+    add-int/lit8 v1, v2, 0x1
+
+    .line 841
+    invoke-direct {p0, p1, v1}, Lcom/android/settings/SettingsTabActivity;->insertAccountsHeaders(Ljava/util/List;I)I
+
+    move-result v2
+
+    goto/16 :goto_2
+
+    .line 843
+    :cond_1c
+    const v1, 0x7f0b0616
+
+    if-eq v6, v1, :cond_1
+
+    .line 847
+    const v1, 0x7f0b060d
+
+    if-eq v6, v1, :cond_1
+
+    .line 851
+    const v1, 0x7f0b062b
+
+    if-ne v6, v1, :cond_1e
+
+    .line 854
+    sget-object v1, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/app/enterprise/multiuser/MultiUserManager;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Landroid/app/enterprise/multiuser/MultiUserManager;->multipleUsersAllowed(Z)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4f
+
+    move v1, v3
+
+    .line 858
+    :goto_4
     invoke-static {}, Landroid/os/UserManager;->supportsMultipleUsers()Z
 
-    move-result v3
+    move-result v7
 
-    if-eqz v3, :cond_19
+    if-eqz v7, :cond_1d
 
     invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
 
-    move-result v3
+    move-result v7
 
-    if-eqz v3, :cond_0
+    if-nez v7, :cond_1d
 
-    .line 791
-    :cond_19
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    if-nez v1, :cond_1
 
-    goto/16 :goto_1
+    .line 861
+    :cond_1d
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 793
-    :cond_1a
-    const v3, 0x7f0b0576
+    goto/16 :goto_2
 
-    if-ne v6, v3, :cond_1c
+    .line 863
+    :cond_1e
+    const v1, 0x7f0b05dc
 
-    .line 794
+    if-ne v6, v1, :cond_20
+
+    .line 864
     invoke-static {}, Lcom/android/settings/Utils;->DisableCloud()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1b
+    if-eqz v1, :cond_1f
 
-    .line 795
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 865
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 798
-    :cond_1b
+    .line 868
+    :cond_1f
     :try_start_1
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.sec.android.cloudagent"
 
     const/4 v8, 0x5
 
-    invoke-virtual {v3, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 799
+    .line 869
     :catch_1
-    move-exception v3
+    move-exception v1
 
-    .line 800
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 870
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 803
-    :cond_1c
-    const v3, 0x7f0b05c0
+    .line 873
+    :cond_20
+    const v1, 0x7f0b0630
 
-    if-ne v6, v3, :cond_1d
+    if-ne v6, v1, :cond_21
 
-    .line 804
-    if-nez v5, :cond_0
+    .line 874
+    if-nez v5, :cond_1
 
-    .line 805
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 875
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 807
-    :cond_1d
-    const v3, 0x7f0b05c2
+    .line 877
+    :cond_21
+    const v1, 0x7f0b0632
 
-    if-ne v6, v3, :cond_1f
+    if-ne v6, v1, :cond_23
 
-    .line 808
-    const-string v3, "ro.csc.sales_code"
+    .line 878
+    const-string v1, "ro.csc.sales_code"
 
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 810
+    .line 880
     const-string v7, "SPR"
 
-    invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_1e
+    if-nez v7, :cond_22
 
     const-string v7, "BST"
 
-    invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_1e
+    if-nez v1, :cond_22
 
-    .line 812
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 882
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 817
-    :cond_1e
-    const-string v3, "SettingsTabActivity"
+    .line 887
+    :cond_22
+    const-string v1, "SettingsTabActivity"
 
     const-string v7, "Samsung non-FOTA devices"
 
-    invoke-static {v3, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 818
-    new-instance v3, Landroid/content/Intent;
+    .line 888
+    new-instance v1, Landroid/content/Intent;
 
-    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 819
+    .line 889
     const-string v7, "android.intent.action.OMADM.SPRINTUPDATE"
 
-    invoke-virtual {v3, v7}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, v7}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 820
+    .line 890
     const/high16 v7, 0x1020
 
-    invoke-virtual {v3, v7}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v7}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 821
-    iput-object v3, v0, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
+    .line 891
+    iput-object v1, v0, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 823
-    :cond_1f
-    const v3, 0x7f0b05c1
+    .line 893
+    :cond_23
+    const v1, 0x7f0b0631
 
-    if-ne v6, v3, :cond_20
+    if-ne v6, v1, :cond_24
 
-    .line 826
+    .line 896
     :try_start_2
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.sprint.dsa"
 
     const/4 v8, 0x0
 
-    invoke-virtual {v3, v7, v8}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
     :try_end_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_2
 
-    move v3, v4
+    move v1, v4
 
-    .line 832
-    :goto_3
-    if-nez v3, :cond_0
+    .line 902
+    :goto_5
+    if-nez v1, :cond_1
 
-    .line 833
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 903
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 827
+    .line 897
     :catch_2
-    move-exception v3
+    move-exception v1
 
-    move v3, v2
+    move v1, v3
 
-    .line 828
-    goto :goto_3
+    .line 898
+    goto :goto_5
 
-    .line 835
-    :cond_20
-    const v3, 0x7f0b059a
+    .line 905
+    :cond_24
+    const v1, 0x7f0b0602
 
-    if-eq v6, v3, :cond_0
+    if-eq v6, v1, :cond_1
 
-    .line 839
-    const v3, 0x7f0b059b
+    .line 909
+    const v1, 0x7f0b0603
 
-    if-ne v6, v3, :cond_21
+    if-ne v6, v1, :cond_25
 
-    .line 849
+    .line 919
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v1
 
-    const v7, 0x7f090a87
+    const v7, 0x7f090b6b
 
-    invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, v0, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
+    iput-object v1, v0, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
 
-    .line 850
-    iput v2, v0, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
+    .line 920
+    iput v3, v0, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 852
-    :cond_21
-    const v3, 0x7f0b0598
+    .line 922
+    :cond_25
+    const v1, 0x7f0b0600
 
-    if-ne v6, v3, :cond_22
+    if-ne v6, v1, :cond_26
 
-    .line 853
-    const-string v3, "ro.product.name"
+    .line 924
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    goto/16 :goto_2
 
-    move-result-object v3
+    .line 926
+    :cond_26
+    const v1, 0x7f0b0601
 
-    const-string v7, "mproject"
+    if-eq v6, v1, :cond_1
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    .line 930
+    const v1, 0x7f0b0606
 
-    move-result v3
+    if-ne v6, v1, :cond_27
 
-    if-nez v3, :cond_0
-
-    .line 854
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 856
-    :cond_22
-    const v3, 0x7f0b0599
-
-    if-eq v6, v3, :cond_0
-
-    .line 860
-    const v3, 0x7f0b059e
-
-    if-ne v6, v3, :cond_23
-
-    .line 862
+    .line 935
     :try_start_3
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.sec.android.app.safetyassurance"
 
     const/4 v8, 0x1
 
-    invoke-virtual {v3, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_3
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_3
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 863
+    .line 936
     :catch_3
-    move-exception v3
+    move-exception v1
 
-    .line 864
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 937
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 866
-    :cond_23
-    const v3, 0x7f0b0588
+    .line 940
+    :cond_27
+    const v1, 0x7f0b0627
 
-    if-ne v6, v3, :cond_26
+    if-ne v6, v1, :cond_28
 
-    .line 869
+    .line 942
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 944
+    :cond_28
+    const v1, 0x7f0b05f0
+
+    if-ne v6, v1, :cond_2b
+
+    .line 947
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "android.hardware.nfc"
 
-    invoke-virtual {v3, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_24
+    if-eqz v1, :cond_29
 
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "CscFeature_FeliCa_EnableFeliCa"
 
-    invoke-virtual {v3, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v1, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_25
+    if-eqz v1, :cond_2a
 
-    .line 871
-    :cond_24
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 949
+    :cond_29
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 875
-    :cond_25
+    .line 953
+    :cond_2a
     :try_start_4
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.android.settings.nfcsummary"
 
-    invoke-virtual {v3, v7}, Landroid/content/pm/PackageManager;->getCSCPackageItemText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->getCSCPackageItemText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 876
-    if-eqz v3, :cond_0
+    .line 954
+    if-eqz v1, :cond_1
 
-    .line 877
-    iput-object v3, v0, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
+    .line 955
+    iput-object v1, v0, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
 
-    .line 878
-    const/4 v3, 0x0
+    .line 956
+    const/4 v1, 0x0
 
-    iput v3, v0, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
+    iput v1, v0, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
     :try_end_4
     .catch Ljava/lang/NullPointerException; {:try_start_4 .. :try_end_4} :catch_4
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 880
+    .line 958
     :catch_4
-    move-exception v3
+    move-exception v1
 
-    .line 881
-    const-string v3, "CSCAppRes"
+    .line 959
+    const-string v1, "CSCAppRes"
 
     const-string v7, "No data for CSCAppResourceUri"
 
-    invoke-static {v3, v7}, Landroid/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v7}, Landroid/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 884
-    :cond_26
-    const v3, 0x7f0b058a
+    .line 962
+    :cond_2b
+    const v1, 0x7f0b05f2
 
-    if-ne v6, v3, :cond_28
+    if-ne v6, v1, :cond_2d
 
-    .line 886
+    .line 964
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "android.hardware.nfc"
 
-    invoke-virtual {v3, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_27
+    if-eqz v1, :cond_2c
 
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "CscFeature_FeliCa_EnableFeliCa"
 
-    invoke-virtual {v3, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v1, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 890
-    :cond_27
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 968
+    :cond_2c
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 892
-    :cond_28
-    const v3, 0x7f0b058c
+    .line 970
+    :cond_2d
+    const v1, 0x7f0b05f4
 
-    if-eq v6, v3, :cond_0
+    if-ne v6, v1, :cond_2e
 
-    .line 897
-    const v3, 0x7f0b058d
+    .line 973
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    if-ne v6, v3, :cond_29
+    goto/16 :goto_2
 
-    .line 900
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 975
+    :cond_2e
+    const v1, 0x7f0b05f5
 
-    goto/16 :goto_1
+    if-eq v6, v1, :cond_1
 
-    .line 902
-    :cond_29
-    const v3, 0x7f0b0590
+    .line 980
+    const v1, 0x7f0b05f8
 
-    if-ne v6, v3, :cond_2c
+    if-ne v6, v1, :cond_31
 
-    .line 903
-    const-string v3, "DCM"
+    .line 981
+    const-string v1, "DCM"
 
     const-string v7, "ro.csc.sales_code"
 
@@ -2017,363 +2076,431 @@
 
     move-result-object v7
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2a
+    if-eqz v1, :cond_2f
 
     invoke-direct {p0}, Lcom/android/settings/SettingsTabActivity;->isDocomoSettingsDisabled()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2b
+    if-eqz v1, :cond_30
 
-    .line 904
-    :cond_2a
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 982
+    :cond_2f
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 908
-    :cond_2b
+    .line 986
+    :cond_30
     :try_start_5
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.nttdocomo.android.docomoset"
 
     const/4 v8, 0x1
 
-    invoke-virtual {v3, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_5
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_5
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 909
+    .line 987
     :catch_5
-    move-exception v3
+    move-exception v1
 
-    .line 910
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 988
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 915
-    :cond_2c
-    const v3, 0x7f0b057d
+    .line 993
+    :cond_31
+    const v1, 0x7f0b05e4
 
-    if-ne v6, v3, :cond_2d
+    if-ne v6, v1, :cond_32
 
-    .line 916
-    const-string v3, "VZW"
+    .line 994
+    const-string v1, "VZW"
 
     sget-object v7, Lcom/android/settings/SettingsTabActivity;->sSalesCode:Ljava/lang/String;
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 917
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 995
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 921
-    :cond_2d
-    const v3, 0x7f0b057e
+    .line 999
+    :cond_32
+    const v1, 0x7f0b05e5
 
-    if-ne v6, v3, :cond_2e
+    if-ne v6, v1, :cond_33
 
-    .line 923
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1001
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 925
-    :cond_2e
-    const v3, 0x7f0b057f
+    .line 1003
+    :cond_33
+    const v1, 0x7f0b05e6
 
-    if-ne v6, v3, :cond_2f
+    if-ne v6, v1, :cond_34
 
-    .line 926
+    .line 1004
     invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 927
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1005
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 930
-    :cond_2f
-    const v3, 0x7f0b057c
-
-    if-ne v6, v3, :cond_30
-
-    .line 932
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 935
-    :cond_30
-    const v3, 0x7f0b0591
-
-    if-ne v6, v3, :cond_31
-
-    .line 938
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 940
-    :cond_31
-    const v3, 0x7f0b05d9
-
-    if-ne v6, v3, :cond_32
-
-    .line 943
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 945
-    :cond_32
-    const v3, 0x7f0b059f
-
-    if-ne v6, v3, :cond_33
-
-    .line 947
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 949
-    :cond_33
-    const v3, 0x7f0b0582
-
-    if-ne v6, v3, :cond_34
-
-    .line 952
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 954
+    .line 1008
     :cond_34
-    const v3, 0x7f0b059d
+    const v1, 0x7f0b05e3
 
-    if-ne v6, v3, :cond_35
+    if-ne v6, v1, :cond_35
 
-    .line 955
+    .line 1010
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1013
+    :cond_35
+    const v1, 0x7f0b05f9
+
+    if-ne v6, v1, :cond_36
+
+    .line 1016
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1018
+    :cond_36
+    const v1, 0x7f0b0654
+
+    if-ne v6, v1, :cond_37
+
+    .line 1021
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1023
+    :cond_37
+    const v1, 0x7f0b0607
+
+    if-ne v6, v1, :cond_38
+
+    .line 1025
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1027
+    :cond_38
+    const v1, 0x7f0b05ea
+
+    if-ne v6, v1, :cond_39
+
+    .line 1030
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1032
+    :cond_39
+    const v1, 0x7f0b0605
+
+    if-ne v6, v1, :cond_3a
+
+    .line 1033
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "CscFeature_Setting_EnableMenuBlockCallMsg"
 
-    invoke-virtual {v3, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v1, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 957
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1035
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 959
-    :cond_35
-    const v3, 0x7f0b059c
+    .line 1037
+    :cond_3a
+    const v1, 0x7f0b0604
 
-    if-ne v6, v3, :cond_36
+    if-ne v6, v1, :cond_3b
 
-    .line 962
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1040
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 964
-    :cond_36
-    const v3, 0x7f0b05ad
+    .line 1042
+    :cond_3b
+    const v1, 0x7f0b0615
 
-    if-ne v6, v3, :cond_38
+    if-ne v6, v1, :cond_3d
 
-    .line 965
+    .line 1043
     invoke-direct {p0, v0}, Lcom/android/settings/SettingsTabActivity;->getVoiceControlIntent(Landroid/preference/PreferenceActivity$Header;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_37
+    if-eqz v1, :cond_3c
 
     invoke-direct {p0}, Lcom/android/settings/SettingsTabActivity;->isVoiceControlEnabled()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 966
-    :cond_37
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1044
+    :cond_3c
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 968
-    :cond_38
-    const v3, 0x7f0b05e1
+    .line 1046
+    :cond_3d
+    const v1, 0x7f0b065b
 
-    if-ne v6, v3, :cond_39
+    if-ne v6, v1, :cond_3e
 
-    .line 969
+    .line 1047
     invoke-static {v11}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 970
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1048
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 972
-    :cond_39
-    const v3, 0x7f0b058b
+    .line 1050
+    :cond_3e
+    const v1, 0x7f0b05f3
 
-    if-ne v6, v3, :cond_3a
+    if-ne v6, v1, :cond_3f
 
-    .line 973
-    const-string v3, "ALL"
+    .line 1051
+    const-string v1, "ALL"
 
     const-string v7, "ALL"
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 974
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1052
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 976
-    :cond_3a
-    const v3, 0x7f0b0589
+    .line 1054
+    :cond_3f
+    const v1, 0x7f0b0629
 
-    if-ne v6, v3, :cond_3c
+    if-ne v6, v1, :cond_41
 
-    .line 978
+    .line 1055
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v1
+
+    const-string v7, "CscFeature_Common_ConfigLocalSecurityPolicy"
+
+    invoke-virtual {v1, v7}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1056
+    if-eqz v1, :cond_40
+
+    const-string v7, "ChinaNalSecurity"
+
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 1057
+    :cond_40
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1059
+    :cond_41
+    const v1, 0x7f0b05f1
+
+    if-ne v6, v1, :cond_43
+
+    .line 1061
     :try_start_6
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.sequent.controlpanel"
 
     const/4 v8, 0x0
 
-    invoke-virtual {v3, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 979
-    if-eqz v3, :cond_3b
+    .line 1062
+    if-eqz v1, :cond_42
 
-    iget v7, v3, Landroid/content/pm/PackageInfo;->versionCode:I
+    iget v7, v1, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    if-le v7, v4, :cond_3b
+    if-le v7, v4, :cond_42
 
-    iget-object v3, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v1, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-boolean v3, v3, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    iget-boolean v1, v1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 980
-    :cond_3b
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1063
+    :cond_42
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
     :try_end_6
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_6 .. :try_end_6} :catch_6
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 982
+    .line 1065
     :catch_6
-    move-exception v3
+    move-exception v1
 
-    .line 983
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1066
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 984
-    const-string v3, "SettingsTabActivity"
+    goto/16 :goto_2
 
-    const-string v7, "Sprint Touch is not found"
+    .line 1069
+    :cond_43
+    const v1, 0x7f0b060f
 
-    invoke-static {v3, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    if-ne v6, v1, :cond_44
 
-    goto/16 :goto_1
-
-    .line 986
-    :cond_3c
-    const v3, 0x7f0b05a7
-
-    if-ne v6, v3, :cond_3d
-
-    .line 987
+    .line 1070
     invoke-static {p0}, Lcom/android/settings/Utils;->hasFingerprintFeature(Landroid/content/Context;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 988
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1071
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 990
-    :cond_3d
-    const v3, 0x7f0b05a3
+    .line 1073
+    :cond_44
+    const v1, 0x7f0b060b
 
-    if-ne v6, v3, :cond_3e
+    if-ne v6, v1, :cond_46
 
-    .line 991
+    .line 1075
+    :try_start_7
+    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v7, "com.skyfire.browser.toolbar.att"
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v1
+
+    .line 1077
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v3
+    move-result-object v7
 
-    const-string v7, "CscFeature_Setting_EnableBrowserBar"
+    const-string v8, "CscFeature_Setting_EnableBrowserBar"
 
-    invoke-virtual {v3, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v7, v8}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v7
 
-    if-eq v3, v4, :cond_0
+    if-ne v7, v4, :cond_45
 
-    .line 992
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    if-eqz v1, :cond_45
 
-    goto/16 :goto_1
+    iget-object v1, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 994
-    :cond_3e
-    const v3, 0x7f0b0594
+    iget-boolean v1, v1, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-ne v6, v3, :cond_40
+    if-nez v1, :cond_1
 
-    .line 995
-    const-string v3, "CTC"
+    .line 1078
+    :cond_45
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    :try_end_7
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_7
+
+    goto/16 :goto_2
+
+    .line 1080
+    :catch_7
+    move-exception v1
+
+    .line 1081
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 1082
+    const-string v1, "SettingsTabActivity"
+
+    const-string v7, "Browser Bar is not found"
+
+    invoke-static {v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
+
+    .line 1084
+    :cond_46
+    const v1, 0x7f0b05fc
+
+    if-ne v6, v1, :cond_48
+
+    .line 1085
+    const-string v1, "CTC"
 
     const-string v7, "ro.csc.sales_code"
 
@@ -2381,89 +2508,191 @@
 
     move-result-object v7
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_3f
+    if-eqz v1, :cond_47
 
-    iget-boolean v3, p0, Lcom/android/settings/SettingsTabActivity;->mDualFoldertype:Z
+    iget-boolean v1, p0, Lcom/android/settings/SettingsTabActivity;->mDualFoldertype:Z
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 996
-    :cond_3f
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1086
+    :cond_47
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 998
-    :cond_40
-    const v3, 0x7f0b0581
+    .line 1088
+    :cond_48
+    const v1, 0x7f0b05e9
 
-    if-ne v6, v3, :cond_41
+    if-ne v6, v1, :cond_49
 
-    .line 999
+    .line 1089
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getActionBar()Landroid/app/ActionBar;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Landroid/app/ActionBar;->getSelectedNavigationIndex()I
+    invoke-virtual {v1}, Landroid/app/ActionBar;->getSelectedNavigationIndex()I
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_1
 
-    .line 1000
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    .line 1090
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    .line 1001
-    :cond_41
-    const v3, 0x7f0b058e
+    .line 1091
+    :cond_49
+    const v1, 0x7f0b05f6
 
-    if-ne v6, v3, :cond_0
+    if-ne v6, v1, :cond_4a
 
-    .line 1003
-    :try_start_7
+    .line 1093
+    :try_start_8
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v1
 
     const-string v7, "com.sec.android.app.kieswifi"
 
     const/4 v8, 0x1
 
-    invoke-virtual {v3, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_7
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_7
-
-    goto/16 :goto_1
-
-    .line 1004
-    :catch_7
-    move-exception v3
-
-    .line 1005
-    invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_1
-
-    .line 1030
-    :cond_42
-    return-void
-
-    :cond_43
-    move v0, v1
+    invoke-virtual {v1, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_8
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_8 .. :try_end_8} :catch_8
 
     goto/16 :goto_2
+
+    .line 1094
+    :catch_8
+    move-exception v1
+
+    .line 1095
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 1097
+    add-int/lit8 v1, v2, -0x1
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/preference/PreferenceActivity$Header;
+
+    iget-wide v7, v1, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v9, 0x7f0b05ef
+
+    cmp-long v1, v7, v9
+
+    if-nez v1, :cond_1
+
+    .line 1098
+    add-int/lit8 v2, v2, -0x1
+
+    .line 1099
+    invoke-interface {p1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_2
+
+    .line 1102
+    :cond_4a
+    const v1, 0x7f0b05ef
+
+    if-ne v6, v1, :cond_1
+
+    .line 1104
+    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v7, "android.hardware.nfc"
+
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4b
+
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v1
+
+    const-string v7, "CscFeature_FeliCa_EnableFeliCa"
+
+    invoke-virtual {v1, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_4b
+    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v7, "android.hardware.nfc"
+
+    invoke-virtual {v1, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4c
+
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v1
+
+    const-string v7, "CscFeature_FeliCa_EnableFeliCa"
+
+    invoke-virtual {v1, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_4c
+    const-string v1, "ALL"
+
+    const-string v7, "ALL"
+
+    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    goto/16 :goto_2
+
+    .line 1156
+    :cond_4d
+    return-void
+
+    :cond_4e
+    move v0, v2
+
+    goto/16 :goto_3
+
+    :cond_4f
+    move v1, v4
+
+    goto/16 :goto_4
+
+    :cond_50
+    move v1, v4
+
+    goto/16 :goto_1
 .end method
 
 
@@ -2473,14 +2702,14 @@
     .parameter
 
     .prologue
-    .line 1880
+    .line 2044
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 1882
+    .line 2046
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
@@ -2493,10 +2722,10 @@
 
     check-cast v0, Lcom/android/settings/guide/GuideFragmentCallback;
 
-    .line 1885
+    .line 2049
     if-eqz v0, :cond_2
 
-    .line 1887
+    .line 2051
     invoke-interface {v0, p1}, Lcom/android/settings/guide/GuideFragmentCallback;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
@@ -2512,17 +2741,17 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 1891
+    .line 2055
     :goto_0
     return v0
 
-    .line 1887
+    .line 2051
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1891
+    .line 2055
     :cond_2
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
@@ -2536,20 +2765,20 @@
     .parameter "accounts"
 
     .prologue
-    .line 1871
+    .line 2035
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/accounts/AuthenticatorHelper;->updateAuthDescriptions(Landroid/content/Context;)V
 
-    .line 1872
+    .line 2036
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-virtual {v0, p0, p1}, Lcom/android/settings/accounts/AuthenticatorHelper;->onAccountsUpdated(Landroid/content/Context;[Landroid/accounts/Account;)V
 
-    .line 1873
+    .line 2037
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->invalidateHeaders()V
 
-    .line 1874
+    .line 2038
     return-void
 .end method
 
@@ -2562,37 +2791,37 @@
     .prologue
     const/16 v2, 0x1610
 
-    .line 1954
+    .line 2098
     if-nez p1, :cond_2
 
-    .line 1955
+    .line 2099
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
 
-    .line 1956
+    .line 2100
     instance-of v1, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
     if-eqz v1, :cond_0
 
-    .line 1957
+    .line 2101
     const/4 v1, -0x1
 
     if-ne p2, v1, :cond_1
 
-    .line 1958
+    .line 2102
     check-cast v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->setSoftapEnabled(Z)V
 
-    .line 1973
+    .line 2117
     :cond_0
     :goto_0
     return-void
 
-    .line 1960
+    .line 2104
     :cond_1
     check-cast v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
@@ -2602,26 +2831,26 @@
 
     goto :goto_0
 
-    .line 1965
+    .line 2109
     :cond_2
     const/16 v0, 0x160f
 
     if-ne p1, v0, :cond_0
 
-    .line 1966
+    .line 2110
     if-ne p2, v2, :cond_0
 
-    .line 1967
+    .line 2111
     const-string v0, "SettingsTapActivity"
 
     const-string v1, "Search direct back!!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1968
+    .line 2112
     invoke-virtual {p0, v2}, Lcom/android/settings/SettingsTabActivity;->setResult(I)V
 
-    .line 1969
+    .line 2113
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->finish()V
 
     goto :goto_0
@@ -2632,18 +2861,18 @@
     .parameter "fragment"
 
     .prologue
-    .line 1932
+    .line 2076
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onAttachFragment(Landroid/app/Fragment;)V
 
-    .line 1934
+    .line 2078
     instance-of v0, p1, Lcom/android/settings/guide/GuideFragment;
 
     if-eqz v0, :cond_0
 
-    .line 1935
+    .line 2079
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->setEnablerForGuide()V
 
-    .line 1937
+    .line 2081
     :cond_0
     return-void
 .end method
@@ -2652,21 +2881,21 @@
     .locals 1
 
     .prologue
-    .line 1978
+    .line 2122
     sget-boolean v0, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
 
     if-eqz v0, :cond_0
 
-    .line 1979
+    .line 2123
     const/16 v0, 0x1610
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsTabActivity;->setResult(I)V
 
-    .line 1981
+    .line 2125
     :cond_0
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onBackPressed()V
 
-    .line 1982
+    .line 2126
     return-void
 .end method
 
@@ -2685,7 +2914,7 @@
 
     .prologue
     .local p1, headers:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
-    const v5, 0x7f070023
+    const v5, 0x7f07002c
 
     const/16 v10, 0x160f
 
@@ -2693,7 +2922,7 @@
 
     const/4 v8, 0x0
 
-    .line 533
+    .line 565
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v4
@@ -2704,19 +2933,19 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 547
+    .line 579
     invoke-virtual {p0, v5, p1}, Lcom/android/settings/SettingsTabActivity;->loadHeadersFromResource(ILjava/util/List;)V
 
-    .line 550
+    .line 582
     :goto_0
     invoke-direct {p0, p1}, Lcom/android/settings/SettingsTabActivity;->updateHeaderList(Ljava/util/List;)V
 
-    .line 554
+    .line 586
     iget-boolean v4, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
     if-eqz v4, :cond_2
 
-    .line 555
+    .line 587
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -2727,7 +2956,7 @@
 
     if-ge v2, v4, :cond_1
 
-    .line 556
+    .line 588
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -2742,14 +2971,14 @@
 
     if-nez v4, :cond_a
 
-    .line 557
+    .line 589
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/preference/PreferenceActivity$Header;
 
-    .line 568
+    .line 600
     .local v1, header:Landroid/preference/PreferenceActivity$Header;
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
@@ -2757,37 +2986,37 @@
 
     if-eqz v4, :cond_9
 
-    .line 569
+    .line 601
     sget-wide v4, Lcom/android/settings/SettingsTabActivity;->mSearchHeaderID:J
 
-    const-wide/32 v6, 0x7f0b0599
+    const-wide/32 v6, 0x7f0b0601
 
     cmp-long v4, v4, v6
 
     if-nez v4, :cond_4
 
-    .line 570
+    .line 602
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 571
+    .line 603
     .local v0, args:Landroid/os/Bundle;
     const-string v4, "extra_from_search"
 
     invoke-virtual {v0, v4, v9}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 573
+    .line 605
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     if-eqz v4, :cond_3
 
-    .line 574
+    .line 606
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 581
+    .line 613
     :cond_0
     :goto_2
     const-string v4, "com.android.phone.CallFeaturesSetting"
@@ -2796,7 +3025,7 @@
 
     move-result-object v3
 
-    .line 582
+    .line 614
     .local v3, intent:Landroid/content/Intent;
     const-string v4, "com.android.phone"
 
@@ -2804,25 +3033,25 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 583
+    .line 615
     const-string v4, "extra_from_search"
 
     invoke-virtual {v3, v4, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 584
+    .line 616
     const-string v4, "extra_depth_counter_key"
 
     iget v5, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 585
+    .line 617
     invoke-virtual {p0, v3, v10}, Lcom/android/settings/SettingsTabActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 586
+    .line 618
     iput-boolean v8, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
-    .line 620
+    .line 652
     .end local v0           #args:Landroid/os/Bundle;
     .end local v1           #header:Landroid/preference/PreferenceActivity$Header;
     .end local v3           #intent:Landroid/content/Intent;
@@ -2830,42 +3059,42 @@
     :goto_3
     iput-boolean v8, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
-    .line 623
+    .line 655
     .end local v2           #i:I
     :cond_2
     return-void
 
-    .line 535
+    .line 567
     :pswitch_0
     invoke-virtual {p0, v5, p1}, Lcom/android/settings/SettingsTabActivity;->loadHeadersFromResource(ILjava/util/List;)V
 
     goto :goto_0
 
-    .line 538
+    .line 570
     :pswitch_1
-    const v4, 0x7f07002a
+    const v4, 0x7f070034
 
     invoke-virtual {p0, v4, p1}, Lcom/android/settings/SettingsTabActivity;->loadHeadersFromResource(ILjava/util/List;)V
 
     goto :goto_0
 
-    .line 541
+    .line 573
     :pswitch_2
-    const v4, 0x7f070006
-
-    invoke-virtual {p0, v4, p1}, Lcom/android/settings/SettingsTabActivity;->loadHeadersFromResource(ILjava/util/List;)V
-
-    goto :goto_0
-
-    .line 544
-    :pswitch_3
-    const v4, 0x7f070053
+    const v4, 0x7f07000b
 
     invoke-virtual {p0, v4, p1}, Lcom/android/settings/SettingsTabActivity;->loadHeadersFromResource(ILjava/util/List;)V
 
     goto :goto_0
 
     .line 576
+    :pswitch_3
+    const v4, 0x7f07006e
+
+    invoke-virtual {p0, v4, p1}, Lcom/android/settings/SettingsTabActivity;->loadHeadersFromResource(ILjava/util/List;)V
+
+    goto :goto_0
+
+    .line 608
     .restart local v0       #args:Landroid/os/Bundle;
     .restart local v1       #header:Landroid/preference/PreferenceActivity$Header;
     .restart local v2       #i:I
@@ -2874,46 +3103,46 @@
 
     if-eqz v4, :cond_0
 
-    .line 577
+    .line 609
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     goto :goto_2
 
-    .line 587
+    .line 619
     .end local v0           #args:Landroid/os/Bundle;
     :cond_4
     sget-wide v4, Lcom/android/settings/SettingsTabActivity;->mSearchHeaderID:J
 
-    const-wide/32 v6, 0x7f0b059e
+    const-wide/32 v6, 0x7f0b0606
 
     cmp-long v4, v4, v6
 
     if-nez v4, :cond_7
 
-    .line 588
+    .line 620
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 589
+    .line 621
     .restart local v0       #args:Landroid/os/Bundle;
     const-string v4, "extra_from_search"
 
     invoke-virtual {v0, v4, v9}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 591
+    .line 623
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     if-eqz v4, :cond_6
 
-    .line 592
+    .line 624
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 599
+    .line 631
     :cond_5
     :goto_4
     const-string v4, "com.sec.android.app.safetyassurance.settings.SafetyAssuranceSetting"
@@ -2922,7 +3151,7 @@
 
     move-result-object v3
 
-    .line 600
+    .line 632
     .restart local v3       #intent:Landroid/content/Intent;
     const-string v4, "com.sec.android.app.safetyassurance"
 
@@ -2930,41 +3159,41 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 601
+    .line 633
     const-string v4, "extra_from_search"
 
     invoke-virtual {v3, v4, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 602
+    .line 634
     const-string v4, "extra_depth_counter_key"
 
     iget v5, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 603
+    .line 635
     invoke-virtual {p0, v3, v10}, Lcom/android/settings/SettingsTabActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 604
+    .line 636
     iput-boolean v8, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
     goto :goto_3
 
-    .line 594
+    .line 626
     .end local v3           #intent:Landroid/content/Intent;
     :cond_6
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
     if-eqz v4, :cond_5
 
-    .line 595
+    .line 627
     iget-object v4, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     goto :goto_4
 
-    .line 606
+    .line 638
     .end local v0           #args:Landroid/os/Bundle;
     :cond_7
     sget v4, Lcom/android/settings/SettingsTabActivity;->mSearchSettingValue:I
@@ -2977,7 +3206,7 @@
 
     if-nez v4, :cond_8
 
-    .line 607
+    .line 639
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v4
@@ -2986,7 +3215,7 @@
 
     goto :goto_3
 
-    .line 609
+    .line 641
     :cond_8
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListView()Landroid/widget/ListView;
 
@@ -2994,12 +3223,12 @@
 
     invoke-virtual {v4, v2}, Landroid/widget/ListView;->setSelection(I)V
 
-    .line 610
+    .line 642
     invoke-virtual {p0, v1, v2}, Lcom/android/settings/SettingsTabActivity;->onHeaderClick(Landroid/preference/PreferenceActivity$Header;I)V
 
     goto/16 :goto_3
 
-    .line 614
+    .line 646
     :cond_9
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListView()Landroid/widget/ListView;
 
@@ -3007,19 +3236,19 @@
 
     invoke-virtual {v4, v2}, Landroid/widget/ListView;->setSelection(I)V
 
-    .line 615
+    .line 647
     invoke-virtual {p0, v1, v2}, Lcom/android/settings/SettingsTabActivity;->onHeaderClick(Landroid/preference/PreferenceActivity$Header;I)V
 
     goto/16 :goto_3
 
-    .line 555
+    .line 587
     .end local v1           #header:Landroid/preference/PreferenceActivity$Header;
     :cond_a
     add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_1
 
-    .line 533
+    .line 565
     nop
 
     :pswitch_data_0
@@ -3041,12 +3270,12 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 479
+    .line 511
     invoke-super {p0, p1, p2, p3, p4}, Landroid/preference/PreferenceActivity;->onBuildStartFragmentIntent(Ljava/lang/String;Landroid/os/Bundle;II)Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 483
+    .line 515
     const-class v0, Lcom/android/settings/DataUsageSummary;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -3203,13 +3432,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 498
+    .line 530
     :cond_0
     const-string v0, "settings:remove_ui_options"
 
     invoke-virtual {v1, v0, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 501
+    .line 533
     :cond_1
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
 
@@ -3217,7 +3446,7 @@
 
     if-eqz v0, :cond_5
 
-    .line 503
+    .line 535
     const-class v0, Lcom/android/settings/wifi/WifiSettings;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -3228,7 +3457,7 @@
 
     move-result v2
 
-    .line 504
+    .line 536
     const-class v0, Lcom/android/settings/bluetooth/BluetoothSettings;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -3239,44 +3468,44 @@
 
     move-result v3
 
-    .line 506
+    .line 538
     if-nez v2, :cond_2
 
     if-eqz v3, :cond_3
 
-    .line 507
+    .line 539
     :cond_2
     const-string v0, "settings:guide_is_on"
 
     invoke-virtual {v1, v0, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 510
+    .line 542
     :cond_3
     const/4 v0, 0x0
 
-    .line 512
+    .line 544
     if-eqz v2, :cond_6
 
-    .line 513
+    .line 545
     const-string v0, "wifi"
 
-    .line 521
+    .line 553
     :cond_4
     :goto_0
     const-string v2, "settings:guide_mode"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 524
+    .line 556
     :cond_5
     const-class v0, Lcom/android/settings/SubSettings;
 
     invoke-virtual {v1, p0, v0}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 525
+    .line 557
     return-object v1
 
-    .line 515
+    .line 547
     :cond_6
     if-nez v3, :cond_7
 
@@ -3292,7 +3521,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 517
+    .line 549
     :cond_7
     const-string v0, "bt"
 
@@ -3306,7 +3535,7 @@
     .prologue
     const v3, 0x7f0b0021
 
-    .line 402
+    .line 422
     const-string v2, "window"
 
     invoke-virtual {p0, v2}, Lcom/android/settings/SettingsTabActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -3319,7 +3548,7 @@
 
     move-result-object v0
 
-    .line 403
+    .line 423
     .local v0, display:Landroid/view/Display;
     invoke-virtual {v0}, Landroid/view/Display;->getWidth()I
 
@@ -3329,7 +3558,7 @@
 
     add-int/lit8 v1, v2, -0x3
 
-    .line 404
+    .line 424
     .local v1, mTextSize:I
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mConnectionTabView:Landroid/view/View;
 
@@ -3341,7 +3570,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 405
+    .line 425
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mDeviceTabView:Landroid/view/View;
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3352,7 +3581,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 406
+    .line 426
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mAccountTabView:Landroid/view/View;
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3363,7 +3592,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 407
+    .line 427
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mMoreTabView:Landroid/view/View;
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3374,10 +3603,10 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 409
+    .line 429
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 410
+    .line 430
     return-void
 .end method
 
@@ -3396,17 +3625,17 @@
 
     const/4 v8, 0x0
 
-    .line 225
+    .line 245
     sput-object p0, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
 
-    .line 227
+    .line 247
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
     move-result-object v5
 
     sput-object v5, Lcom/android/settings/SettingsTabActivity;->sSalesCode:Ljava/lang/String;
 
-    .line 228
+    .line 248
     sget-object v5, Lcom/android/settings/SettingsTabActivity;->mContext:Landroid/content/Context;
 
     invoke-static {v5}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
@@ -3415,24 +3644,24 @@
 
     iput-boolean v5, p0, Lcom/android/settings/SettingsTabActivity;->mDualFoldertype:Z
 
-    .line 229
+    .line 249
     new-instance v5, Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-direct {v5}, Lcom/android/settings/accounts/AuthenticatorHelper;-><init>()V
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
-    .line 230
+    .line 250
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-virtual {v5, p0}, Lcom/android/settings/accounts/AuthenticatorHelper;->updateAuthDescriptions(Landroid/content/Context;)V
 
-    .line 231
+    .line 251
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
     invoke-virtual {v5, p0, v8}, Lcom/android/settings/accounts/AuthenticatorHelper;->onAccountsUpdated(Landroid/content/Context;[Landroid/accounts/Account;)V
 
-    .line 233
+    .line 253
     const-string v5, "development"
 
     invoke-virtual {p0, v5, v6}, Lcom/android/settings/SettingsTabActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -3441,37 +3670,37 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferences:Landroid/content/SharedPreferences;
 
-    .line 246
+    .line 266
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 249
+    .line 269
     invoke-static {p0}, Lcom/android/settings/accounts/AccountCommon;->checkAccountSSO(Landroid/content/Context;)V
 
-    .line 252
+    .line 272
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v5
 
     invoke-static {p0, v5}, Lcom/android/settings/guide/GuideFragment;->deployGuide(Landroid/app/Activity;Landroid/content/Intent;)V
 
-    .line 254
+    .line 274
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
-    .line 256
+    .line 276
     .local v0, bar:Landroid/app/ActionBar;
     const/4 v5, 0x2
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->setNavigationMode(I)V
 
-    .line 257
+    .line 277
     invoke-virtual {v0, v6}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
-    .line 258
+    .line 278
     invoke-virtual {v0, v6}, Landroid/app/ActionBar;->setDisplayShowTitleEnabled(Z)V
 
-    .line 260
+    .line 280
     const-string v5, "window"
 
     invoke-virtual {p0, v5}, Lcom/android/settings/SettingsTabActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -3484,7 +3713,7 @@
 
     move-result-object v1
 
-    .line 261
+    .line 281
     .local v1, display:Landroid/view/Display;
     invoke-virtual {v1}, Landroid/view/Display;->getWidth()I
 
@@ -3494,7 +3723,7 @@
 
     add-int/lit8 v3, v5, -0x3
 
-    .line 263
+    .line 283
     .local v3, mTextSize:I
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
@@ -3506,7 +3735,7 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mConnectionTabView:Landroid/view/View;
 
-    .line 264
+    .line 284
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mConnectionTabView:Landroid/view/View;
 
     invoke-virtual {v5, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3515,11 +3744,11 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    const v7, 0x7f020237
+    const v7, 0x7f020288
 
     invoke-virtual {v5, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 265
+    .line 285
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mConnectionTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3528,11 +3757,11 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v7, 0x7f090b9c
+    const v7, 0x7f090ca4
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(I)V
 
-    .line 266
+    .line 286
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mConnectionTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3543,7 +3772,7 @@
 
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 267
+    .line 287
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
     move-result-object v5
@@ -3564,7 +3793,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
-    .line 271
+    .line 291
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v5
@@ -3575,7 +3804,7 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mDeviceTabView:Landroid/view/View;
 
-    .line 272
+    .line 292
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mDeviceTabView:Landroid/view/View;
 
     invoke-virtual {v5, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3584,11 +3813,11 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    const v7, 0x7f020238
+    const v7, 0x7f020289
 
     invoke-virtual {v5, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 273
+    .line 293
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mDeviceTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3597,11 +3826,11 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v7, 0x7f090239
+    const v7, 0x7f09025e
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(I)V
 
-    .line 274
+    .line 294
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mDeviceTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3612,7 +3841,7 @@
 
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 275
+    .line 295
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
     move-result-object v5
@@ -3633,7 +3862,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
-    .line 279
+    .line 299
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v5
@@ -3644,7 +3873,7 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAccountTabView:Landroid/view/View;
 
-    .line 280
+    .line 300
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAccountTabView:Landroid/view/View;
 
     invoke-virtual {v5, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3653,11 +3882,11 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    const v7, 0x7f020235
+    const v7, 0x7f020286
 
     invoke-virtual {v5, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 281
+    .line 301
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAccountTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3666,11 +3895,11 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v7, 0x7f090567
+    const v7, 0x7f090596
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(I)V
 
-    .line 282
+    .line 302
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mAccountTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3681,7 +3910,7 @@
 
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 283
+    .line 303
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
     move-result-object v5
@@ -3702,7 +3931,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
-    .line 287
+    .line 307
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v5
@@ -3713,7 +3942,7 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mMoreTabView:Landroid/view/View;
 
-    .line 288
+    .line 308
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mMoreTabView:Landroid/view/View;
 
     invoke-virtual {v5, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3722,11 +3951,11 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    const v7, 0x7f02023d
+    const v7, 0x7f02028e
 
     invoke-virtual {v5, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 289
+    .line 309
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mMoreTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3735,11 +3964,11 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v7, 0x7f090321
+    const v7, 0x7f090358
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(I)V
 
-    .line 290
+    .line 310
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mMoreTabView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -3750,7 +3979,7 @@
 
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 291
+    .line 311
     invoke-virtual {v0}, Landroid/app/ActionBar;->newTab()Landroid/app/ActionBar$Tab;
 
     move-result-object v5
@@ -3771,7 +4000,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/ActionBar;->addTab(Landroid/app/ActionBar$Tab;)V
 
-    .line 298
+    .line 318
     invoke-static {}, Lcom/android/settings/Utils;->isJOnlySearchEnable()Z
 
     move-result v5
@@ -3784,13 +4013,13 @@
 
     if-eqz v5, :cond_2
 
-    .line 299
+    .line 319
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
-    .line 300
+    .line 320
     .local v2, intent:Landroid/content/Intent;
     const-string v5, "extra_from_search"
 
@@ -3800,17 +4029,17 @@
 
     sput-boolean v5, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
 
-    .line 301
+    .line 321
     sget-boolean v5, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
 
     if-eqz v5, :cond_2
 
-    .line 302
+    .line 322
     sget-boolean v5, Lcom/android/settings/SettingsTabActivity;->mIsFromSearch:Z
 
     iput-boolean v5, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
-    .line 303
+    .line 323
     const-string v5, "extra_header_id"
 
     const-wide/16 v7, -0x1
@@ -3821,7 +4050,7 @@
 
     sput-wide v7, Lcom/android/settings/SettingsTabActivity;->mSearchHeaderID:J
 
-    .line 304
+    .line 324
     const-string v5, "extra_setting_value"
 
     const/4 v7, -0x1
@@ -3832,7 +4061,7 @@
 
     sput v5, Lcom/android/settings/SettingsTabActivity;->mSearchSettingValue:I
 
-    .line 305
+    .line 325
     const-string v5, "extra_fragment_bundle_key"
 
     invoke-virtual {v2, v5}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
@@ -3841,7 +4070,7 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
-    .line 306
+    .line 326
     const-string v5, "extra_second_fragment_bundle_key"
 
     invoke-virtual {v2, v5}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
@@ -3850,12 +4079,12 @@
 
     iput-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
-    .line 307
+    .line 327
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     if-eqz v5, :cond_1
 
-    .line 308
+    .line 328
     const-string v5, "SettingsSearch"
 
     iget-object v7, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
@@ -3870,7 +4099,7 @@
 
     invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 310
+    .line 330
     :cond_1
     const-string v5, "extra_depth_counter_key"
 
@@ -3880,21 +4109,21 @@
 
     iput v5, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
-    .line 311
+    .line 331
     iget v5, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
     add-int/lit8 v5, v5, 0x1
 
     iput v5, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
-    .line 312
+    .line 332
     const-string v5, "extra_tab_id"
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 313
+    .line 333
     .local v4, tap_index:I
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getActionBar()Landroid/app/ActionBar;
 
@@ -3902,7 +4131,7 @@
 
     invoke-virtual {v5, v4}, Landroid/app/ActionBar;->setSelectedNavigationItem(I)V
 
-    .line 314
+    .line 334
     sget v5, Lcom/android/settings/SettingsTabActivity;->mSearchSettingValue:I
 
     const/4 v7, -0x1
@@ -3914,7 +4143,7 @@
     :goto_0
     sput-boolean v5, Lcom/android/settings/SettingsTabActivity;->mDirectSettingEnabler:Z
 
-    .line 318
+    .line 338
     .end local v2           #intent:Landroid/content/Intent;
     .end local v4           #tap_index:I
     :cond_2
@@ -3922,7 +4151,7 @@
 
     if-eqz v5, :cond_3
 
-    .line 319
+    .line 339
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
@@ -3931,7 +4160,7 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 322
+    .line 342
     :cond_3
     return-void
 
@@ -3940,7 +4169,7 @@
     :cond_4
     move v5, v6
 
-    .line 314
+    .line 334
     goto :goto_0
 .end method
 
@@ -3953,24 +4182,24 @@
 
     const/4 v2, 0x0
 
-    .line 378
+    .line 398
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 380
+    .line 400
     invoke-static {}, Lcom/android/settings/Utils;->isJOnlySearchEnable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 381
-    const v0, 0x7f090569
+    .line 401
+    const v0, 0x7f090598
 
     invoke-interface {p1, v2, v2, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020194
+    const v1, 0x7f0201df
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3978,7 +4207,7 @@
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 385
+    .line 405
     :cond_0
     return v3
 .end method
@@ -3987,147 +4216,60 @@
     .locals 1
 
     .prologue
-    .line 458
+    .line 490
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onDestroy()V
 
-    .line 459
+    .line 491
     iget-boolean v0, p0, Lcom/android/settings/SettingsTabActivity;->mListeningToAccountUpdates:Z
 
     if-eqz v0, :cond_0
 
-    .line 460
+    .line 492
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Landroid/accounts/AccountManager;->removeOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;)V
 
-    .line 462
+    .line 494
     :cond_0
     return-void
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 4
-    .parameter
-    .parameter
+    .locals 2
+    .parameter "keyCode"
+    .parameter "event"
 
     .prologue
-    .line 1896
+    .line 2060
     invoke-super {p0, p1, p2}, Landroid/preference/PreferenceActivity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
-    move-result v1
-
-    .line 1898
-    invoke-static {p0}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
-
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    .line 1899
-    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getSelectedItemPosition()I
-
-    move-result v0
-
-    .line 1900
-    const v2, 0x1020002
-
-    invoke-virtual {p0, v2}, Lcom/android/settings/SettingsTabActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 1901
-    if-lez v0, :cond_0
-
-    iget-object v3, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap2:Ljava/util/HashMap;
-
-    if-eqz v3, :cond_0
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Landroid/view/View;->hasFocus()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 1902
-    packed-switch p1, :pswitch_data_0
-
-    .line 1919
-    :cond_0
-    :goto_0
-    if-nez v1, :cond_1
+    .line 2063
+    .local v0, retval:Z
+    if-nez v0, :cond_0
 
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_0
 
-    const/16 v0, 0x6f
+    const/16 v1, 0x6f
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v1, :cond_0
 
-    .line 1923
+    .line 2067
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->finish()V
 
-    .line 1924
+    .line 2068
     const/4 v0, 0x1
 
-    .line 1927
-    :goto_1
+    .line 2071
+    :cond_0
     return v0
-
-    .line 1905
-    :pswitch_0
-    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mHeaderIndexMap2:Ljava/util/HashMap;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    .line 1906
-    invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListAdapter()Landroid/widget/ListAdapter;
-
-    move-result-object v0
-
-    .line 1907
-    instance-of v3, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
-
-    if-eqz v3, :cond_0
-
-    .line 1908
-    check-cast v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
-
-    invoke-virtual {v0, v2}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->setSwitchOnOff(I)V
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v1
-
-    goto :goto_1
-
-    .line 1902
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x15
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public onNewIntent(Landroid/content/Intent;)V
@@ -4135,23 +4277,23 @@
     .parameter "intent"
 
     .prologue
-    .line 466
+    .line 498
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onNewIntent(Landroid/content/Intent;)V
 
-    .line 468
+    .line 500
     invoke-static {p0, p1}, Lcom/android/settings/guide/GuideFragment;->deployGuide(Landroid/app/Activity;Landroid/content/Intent;)V
 
-    .line 470
+    .line 502
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 471
+    .line 503
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->setEnablerForGuide()V
 
-    .line 474
+    .line 506
     :cond_0
     return-void
 .end method
@@ -4161,14 +4303,14 @@
     .parameter "item"
 
     .prologue
-    .line 391
+    .line 411
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 396
+    .line 416
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -4176,16 +4318,16 @@
     :goto_0
     return v0
 
-    .line 393
+    .line 413
     :pswitch_0
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->callSearchMenu()V
 
-    .line 394
+    .line 414
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 391
+    .line 411
     nop
 
     :pswitch_data_0
@@ -4198,27 +4340,27 @@
     .locals 3
 
     .prologue
-    .line 440
+    .line 466
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onPause()V
 
-    .line 442
+    .line 468
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
 
-    .line 443
+    .line 469
     .local v0, listAdapter:Landroid/widget/ListAdapter;
     instance-of v1, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
     if-eqz v1, :cond_0
 
-    .line 444
+    .line 470
     check-cast v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
     .end local v0           #listAdapter:Landroid/widget/ListAdapter;
     invoke-virtual {v0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->pause()V
 
-    .line 447
+    .line 473
     :cond_0
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferences:Landroid/content/SharedPreferences;
 
@@ -4226,12 +4368,12 @@
 
     invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    .line 449
+    .line 475
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferencesListener:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
-    .line 454
+    .line 486
     return-void
 .end method
 
@@ -4239,45 +4381,45 @@
     .locals 3
 
     .prologue
-    .line 414
+    .line 434
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
 
-    .line 416
+    .line 436
     new-instance v1, Lcom/android/settings/SettingsTabActivity$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/SettingsTabActivity$1;-><init>(Lcom/android/settings/SettingsTabActivity;)V
 
     iput-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferencesListener:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
-    .line 422
+    .line 442
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferences:Landroid/content/SharedPreferences;
 
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mDevelopmentPreferencesListener:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
 
     invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    .line 425
+    .line 445
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
 
-    .line 426
+    .line 446
     .local v0, listAdapter:Landroid/widget/ListAdapter;
     instance-of v1, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
     if-eqz v1, :cond_0
 
-    .line 427
+    .line 447
     check-cast v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
     .end local v0           #listAdapter:Landroid/widget/ListAdapter;
     invoke-virtual {v0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->resume()V
 
-    .line 429
+    .line 449
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->invalidateHeaders()V
 
-    .line 436
+    .line 462
     return-void
 .end method
 
@@ -4285,7 +4427,7 @@
     .locals 1
 
     .prologue
-    .line 1945
+    .line 2089
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
@@ -4300,7 +4442,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1947
+    .line 2091
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity;->getListAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
@@ -4309,7 +4451,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->setEnablersForGuide(Lcom/android/settings/SettingsTabActivity;)V
 
-    .line 1949
+    .line 2093
     :cond_0
     return-void
 .end method
@@ -4319,19 +4461,19 @@
     .parameter "adapter"
 
     .prologue
-    .line 1861
+    .line 2025
     if-nez p1, :cond_0
 
-    .line 1862
+    .line 2026
     const/4 v0, 0x0
 
     invoke-super {p0, v0}, Landroid/preference/PreferenceActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 1866
+    .line 2030
     :goto_0
     return-void
 
-    .line 1864
+    .line 2028
     :cond_0
     new-instance v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;
 
@@ -4353,10 +4495,10 @@
     .parameter "flag"
 
     .prologue
-    .line 1985
+    .line 2129
     iput-boolean p1, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
-    .line 1986
+    .line 2130
     return-void
 .end method
 
@@ -4372,7 +4514,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 327
+    .line 347
     const-string v1, "SettingsSearch"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4397,98 +4539,98 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 328
+    .line 348
     iget-boolean v1, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
     if-eqz v1, :cond_3
 
-    .line 329
+    .line 349
     if-nez p2, :cond_0
 
-    .line 330
+    .line 350
     new-instance p2, Landroid/os/Bundle;
 
     .end local p2
     invoke-direct {p2}, Landroid/os/Bundle;-><init>()V
 
-    .line 332
+    .line 352
     .restart local p2
     :cond_0
     const-string v1, "extra_from_search"
 
     invoke-virtual {p2, v1, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 334
+    .line 354
     iget v1, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
     if-le v1, v4, :cond_2
 
-    .line 335
+    .line 355
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     if-eqz v1, :cond_1
 
-    .line 336
+    .line 356
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 344
+    .line 364
     :cond_1
     :goto_0
     invoke-virtual {p0, p1, p2, p5, p6}, Lcom/android/settings/SettingsTabActivity;->onBuildStartFragmentIntent(Ljava/lang/String;Landroid/os/Bundle;II)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 345
+    .line 365
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "extra_from_search"
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 346
+    .line 366
     const-string v1, "extra_depth_counter_key"
 
     iget v2, p0, Lcom/android/settings/SettingsTabActivity;->mSearchDepthCounter:I
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 347
+    .line 367
     const-string v1, "extra_second_fragment_bundle_key"
 
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity;->mSecondSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 348
+    .line 368
     const/16 v1, 0x160f
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/SettingsTabActivity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 349
+    .line 369
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/settings/SettingsTabActivity;->mOpenSearchHierarchy:Z
 
-    .line 353
+    .line 373
     .end local v0           #intent:Landroid/content/Intent;
     :goto_1
     return-void
 
-    .line 339
+    .line 359
     :cond_2
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
     if-eqz v1, :cond_1
 
-    .line 340
+    .line 360
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity;->mSearchFragmentBundle:Landroid/os/Bundle;
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    .line 351
+    .line 371
     :cond_3
     invoke-super/range {p0 .. p6}, Landroid/preference/PreferenceActivity;->startWithFragment(Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;III)V
 

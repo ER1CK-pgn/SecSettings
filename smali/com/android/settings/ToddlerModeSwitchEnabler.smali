@@ -174,6 +174,48 @@
     return-void
 .end method
 
+.method private checkSimReady()Z
+    .locals 4
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 282
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v0
+
+    .line 283
+    .local v0, SimState:I
+    if-eqz v0, :cond_0
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneType()I
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_1
+
+    .line 289
+    const/4 v1, 0x0
+
+    .line 291
+    :cond_1
+    return v1
+.end method
+
 .method public static isToddlerModeOn(Landroid/content/Context;)Z
     .locals 5
     .parameter "context"
@@ -262,6 +304,12 @@
 
     .line 169
     iget-object v3, p0, Lcom/android/settings/ToddlerModeSwitchEnabler;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    if-eqz v3, :cond_1
+
+    invoke-direct {p0}, Lcom/android/settings/ToddlerModeSwitchEnabler;->checkSimReady()Z
+
+    move-result v3
 
     if-eqz v3, :cond_1
 
@@ -420,7 +468,7 @@
 
     invoke-direct {v2, v3, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0915cf
+    const v3, 0x7f091738
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -428,7 +476,7 @@
 
     if-eqz p1, :cond_0
 
-    const v2, 0x7f0915d0
+    const v2, 0x7f091739
 
     :goto_0
     invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
@@ -511,7 +559,7 @@
     .line 214
     .end local v0           #kgm:Landroid/app/KeyguardManager;
     :cond_0
-    const v2, 0x7f0915d1
+    const v2, 0x7f09173a
 
     goto :goto_0
 

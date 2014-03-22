@@ -60,19 +60,19 @@
 
     const/4 v0, 0x0
 
-    .line 79
+    .line 81
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 118
+    .line 120
     iput v0, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
-    .line 126
+    .line 128
     iput-boolean v0, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
-    .line 129
+    .line 131
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 130
+    .line 132
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     return-void
@@ -83,7 +83,7 @@
     .parameter "x0"
 
     .prologue
-    .line 79
+    .line 81
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
     return-object v0
@@ -93,50 +93,50 @@
     .locals 2
 
     .prologue
-    .line 186
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 188
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 187
+    .line 189
     .local v0, root:Landroid/preference/PreferenceScreen;
     if-eqz v0, :cond_0
 
-    .line 188
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
-
     .line 190
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->removeAll()V
+
+    .line 192
     :cond_0
-    const v1, 0x7f07004f
+    const v1, 0x7f070069
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/LockScreenSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 191
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 193
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 194
+    .line 196
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 196
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
-
-    .line 197
-    const v1, 0x7f070050
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/LockScreenSettings;->addPreferencesFromResource(I)V
-
     .line 198
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->removeAll()V
+
+    .line 199
+    const v1, 0x7f07006a
+
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
+
+    .line 200
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 203
+    .line 205
     :cond_1
     return-object v0
 .end method
@@ -145,15 +145,15 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 247
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     if-nez v0, :cond_0
 
-    .line 246
+    .line 248
     const-string v0, "enterprise_policy"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/LockScreenSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -161,7 +161,7 @@
 
     iput-object v0, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 248
+    .line 250
     :cond_0
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -172,16 +172,16 @@
     .locals 5
 
     .prologue
-    .line 683
+    .line 696
     iget-object v2, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
     invoke-virtual {v2}, Landroid/preference/ListPreference;->getEntries()[Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 684
+    .line 697
     .local v1, entries:[Ljava/lang/CharSequence;
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -193,7 +193,7 @@
 
     move-result v0
 
-    .line 685
+    .line 698
     .local v0, State:I
     iget-object v2, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
@@ -203,7 +203,7 @@
 
     invoke-virtual {v2, v3}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    .line 686
+    .line 699
     iget-object v2, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
     aget-object v3, v1, v0
@@ -214,7 +214,7 @@
 
     invoke-virtual {v2, v3}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 687
+    .line 700
     return-void
 .end method
 
@@ -226,15 +226,15 @@
 
     const/4 v3, 0x0
 
-    .line 514
+    .line 527
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
     if-eqz v1, :cond_0
 
-    .line 515
+    .line 528
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -249,11 +249,11 @@
     move v1, v2
 
     :goto_0
-    invoke-virtual {v4, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 518
+    .line 531
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -263,7 +263,7 @@
 
     move-result v0
 
-    .line 519
+    .line 532
     .local v0, mClockSizeValue:I
     const-string v1, "LockScreenSettings"
 
@@ -287,17 +287,17 @@
 
     invoke-static {v1, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 520
+    .line 533
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
     if-eqz v1, :cond_1
 
-    .line 521
+    .line 534
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 522
+    .line 535
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -306,10 +306,10 @@
 
     invoke-virtual {v1, v4}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    .line 523
+    .line 536
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->updateClockSizeSummary()V
 
-    .line 526
+    .line 539
     :cond_1
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
@@ -327,65 +327,65 @@
 
     if-eqz v1, :cond_3
 
-    .line 527
+    .line 540
     iget v1, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
     if-ne v1, v2, :cond_3
 
-    .line 529
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 542
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 530
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 543
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 531
+    .line 544
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 532
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 545
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mOwnerInfo:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 533
+    .line 546
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 537
+    .line 550
     :cond_3
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
     if-eqz v1, :cond_4
 
-    .line 538
+    .line 551
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -400,18 +400,18 @@
     move v1, v2
 
     :goto_1
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 540
+    .line 553
     :cond_4
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
     if-eqz v1, :cond_5
 
-    .line 541
+    .line 554
     iget-object v4, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -426,16 +426,16 @@
     move v1, v2
 
     :goto_2
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 543
+    .line 556
     :cond_5
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
     if-eqz v1, :cond_6
 
-    .line 544
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 557
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -447,30 +447,30 @@
 
     if-eqz v1, :cond_c
 
-    .line 545
+    .line 558
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0911c8
+    const v4, 0x7f091321
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 551
+    .line 564
     :cond_6
     :goto_3
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
     if-eqz v1, :cond_7
 
-    .line 552
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 565
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -482,41 +482,41 @@
 
     if-eqz v1, :cond_d
 
-    .line 553
+    .line 566
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090ea5
+    const v4, 0x7f090fde
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 559
+    .line 572
     :cond_7
     :goto_4
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
 
     if-eqz v1, :cond_8
 
-    .line 560
+    .line 573
     iget v1, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
     if-ne v1, v2, :cond_e
 
-    .line 561
+    .line 574
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0911d3
+    const v2, 0x7f09132c
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
-    .line 567
+    .line 580
     :cond_8
     :goto_5
     return-void
@@ -525,65 +525,65 @@
     :cond_9
     move v1, v3
 
-    .line 515
+    .line 528
     goto/16 :goto_0
 
     .restart local v0       #mClockSizeValue:I
     :cond_a
     move v1, v3
 
-    .line 538
+    .line 551
     goto :goto_1
 
     :cond_b
     move v1, v3
 
-    .line 541
+    .line 554
     goto :goto_2
 
-    .line 548
+    .line 561
     :cond_c
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0911c7
+    const v4, 0x7f091320
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/preference/SwitchPreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_3
 
-    .line 556
+    .line 569
     :cond_d
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090b6e
+    const v4, 0x7f090c6d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_4
 
-    .line 563
+    .line 576
     :cond_e
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0911d2
+    const v2, 0x7f09132b
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
     goto :goto_5
 .end method
@@ -595,11 +595,11 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 208
+    .line 210
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 209
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 211
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -609,8 +609,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 210
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getListView()Landroid/widget/ListView;
+    .line 212
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -618,9 +618,9 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/LockScreenSettings$1;-><init>(Lcom/android/settings/LockScreenSettings;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 241
+    .line 243
     :cond_0
     return-void
 .end method
@@ -635,7 +635,7 @@
 
     const/4 v2, 0x0
 
-    .line 713
+    .line 726
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v3, "personal_message_category"
@@ -646,8 +646,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 714
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 727
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -660,7 +660,7 @@
     :goto_0
     invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 717
+    .line 730
     :cond_0
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
@@ -672,8 +672,8 @@
 
     if-eqz v0, :cond_1
 
-    .line 718
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 731
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -684,30 +684,30 @@
     :goto_1
     invoke-static {v0, v3, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 719
+    .line 732
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
     if-eqz v0, :cond_1
 
-    .line 720
+    .line 733
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 723
+    .line 736
     :cond_1
     return-void
 
     :cond_2
     move v0, v2
 
-    .line 714
+    .line 727
     goto :goto_0
 
     :cond_3
     move v1, v2
 
-    .line 718
+    .line 731
     goto :goto_1
 .end method
 
@@ -716,17 +716,17 @@
     .parameter "newConfig"
 
     .prologue
-    .line 727
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .line 740
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 728
+    .line 741
     const-string v0, "LockScreenSettings"
 
     const-string v1, "configuration changed"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 730
+    .line 743
     return-void
 .end method
 
@@ -741,24 +741,24 @@
 
     const/4 v3, 0x0
 
-    .line 136
+    .line 138
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 137
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 139
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->resolver:Landroid/content/ContentResolver;
 
-    .line 139
+    .line 141
     new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -766,33 +766,40 @@
 
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 146
+    .line 148
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    .line 147
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 149
+    :cond_0
     iget-boolean v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 148
+    .line 150
     iget-boolean v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
     iput-boolean v1, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
-    .line 154
-    :cond_0
+    .line 156
+    :cond_1
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
-    .line 155
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 157
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -804,18 +811,18 @@
 
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
-    .line 156
+    .line 158
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
-    .line 157
+    .line 159
     const-string v1, "personal_message_category"
 
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
-    .line 160
-    :cond_1
+    .line 162
+    :cond_2
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v2, "personal_message_category"
@@ -824,7 +831,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
@@ -834,13 +841,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    .line 161
-    :cond_2
+    .line 163
+    :cond_3
     new-instance v1, Landroid/widget/Switch;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -848,25 +855,25 @@
 
     iput-object v1, p0, Lcom/android/settings/LockScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 162
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    .line 164
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0f0019
+    const v2, 0x7f0f0034
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    .line 163
+    .line 165
     .local v0, padding:I
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3, v3, v0, v3}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v1, v3, v3, v0, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 164
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 166
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -876,8 +883,8 @@
 
     invoke-virtual {v1, v4, v4}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 165
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 167
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -895,14 +902,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 169
+    .line 171
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 172
+    .line 174
     .end local v0           #padding:I
-    :cond_3
+    :cond_4
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v2, "clock_category"
@@ -911,10 +918,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
-    .line 173
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 175
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -922,23 +929,23 @@
 
     move-result-object v1
 
-    const v2, 0x7f0911d2
+    const v2, 0x7f09132b
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
-    .line 179
-    :cond_4
+    .line 181
+    :cond_5
     :goto_0
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/LockScreenSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
-    .line 183
-    :cond_5
+    .line 185
+    :cond_6
     return-void
 
-    .line 174
-    :cond_6
+    .line 176
+    :cond_7
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v2, "personal_message_category"
@@ -947,10 +954,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
-    .line 175
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 177
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -958,14 +965,14 @@
 
     move-result-object v1
 
-    const v2, 0x7f090ea5
+    const v2, 0x7f090fde
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
     goto :goto_0
 
-    .line 176
-    :cond_7
+    .line 178
+    :cond_8
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v2, "multiple_widget_category"
@@ -974,10 +981,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
-    .line 177
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 179
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -985,7 +992,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0911bc
+    const v2, 0x7f091315
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -996,39 +1003,39 @@
     .locals 2
 
     .prologue
-    .line 571
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 584
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 572
+    .line 585
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0}, Landroid/preference/ListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 573
+    .line 586
     iget-object v0, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0}, Landroid/preference/ListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 574
+    .line 587
     const-string v0, "LockScreenSettings"
 
     const-string v1, "onPause(), dismiss mClockSize dialog"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 576
+    .line 589
     :cond_0
     return-void
 .end method
@@ -1043,12 +1050,12 @@
 
     const/4 v4, 0x1
 
-    .line 640
+    .line 653
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 641
+    .line 654
     .local v1, key:Ljava/lang/String;
     const-string v6, "dualclock_settings"
 
@@ -1058,7 +1065,7 @@
 
     if-eqz v6, :cond_3
 
-    .line 642
+    .line 655
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -1070,7 +1077,7 @@
 
     move v3, v4
 
-    .line 643
+    .line 656
     .local v3, value:I
     :goto_0
     const-string v6, "oversea"
@@ -1085,43 +1092,37 @@
 
     move-result v0
 
-    .line 644
+    .line 657
     .local v0, isRoamingArea:Z
     if-nez v0, :cond_2
 
-    const-string v6, "SKT"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
     move-result v6
 
     if-eqz v6, :cond_2
 
-    .line 645
+    .line 658
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
     invoke-direct {v2, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 646
+    .line 659
     .local v2, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v6, 0x7f090ea1
+    const v6, 0x7f090fda
 
     invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 647
-    const v6, 0x7f091475
+    .line 660
+    const v6, 0x7f0915c9
 
     invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 648
+    .line 661
     const v6, 0x104000a
 
     new-instance v7, Lcom/android/settings/LockScreenSettings$3;
@@ -1130,13 +1131,13 @@
 
     invoke-virtual {v2, v6, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 654
+    .line 667
     invoke-virtual {v2, v5}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 655
+    .line 668
     invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 679
+    .line 692
     .end local v0           #isRoamingArea:Z
     .end local v2           #mAlertDialog:Landroid/app/AlertDialog$Builder;
     .end local v3           #value:I
@@ -1147,14 +1148,14 @@
     :cond_1
     move v3, v5
 
-    .line 642
+    .line 655
     goto :goto_0
 
-    .line 657
+    .line 670
     .restart local v0       #isRoamingArea:Z
     .restart local v3       #value:I
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1164,7 +1165,7 @@
 
     goto :goto_1
 
-    .line 660
+    .line 673
     .end local v0           #isRoamingArea:Z
     .end local v3           #value:I
     .restart local p2
@@ -1177,7 +1178,7 @@
 
     if-eqz v6, :cond_5
 
-    .line 661
+    .line 674
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -1189,10 +1190,10 @@
 
     move v3, v4
 
-    .line 662
+    .line 675
     .restart local v3       #value:I
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1206,10 +1207,10 @@
     :cond_4
     move v3, v5
 
-    .line 661
+    .line 674
     goto :goto_2
 
-    .line 664
+    .line 677
     .restart local p2
     :cond_5
     const-string v6, "lock_screen_short_or_camera_widget"
@@ -1220,7 +1221,7 @@
 
     if-eqz v6, :cond_8
 
-    .line 666
+    .line 679
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v6
@@ -1239,7 +1240,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 669
+    .line 682
     :cond_6
     check-cast p2, Ljava/lang/Boolean;
 
@@ -1252,10 +1253,10 @@
 
     move v3, v4
 
-    .line 670
+    .line 683
     .restart local v3       #value:I
     :goto_3
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1269,18 +1270,18 @@
     :cond_7
     move v3, v5
 
-    .line 669
+    .line 682
     goto :goto_3
 
-    .line 675
+    .line 688
     .restart local p2
     :cond_8
     iget-object v5, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
     if-ne p1, v5, :cond_0
 
-    .line 676
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 689
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1295,7 +1296,7 @@
 
     invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 677
+    .line 690
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->updateClockSizeSummary()V
 
     goto :goto_1
@@ -1311,28 +1312,35 @@
 
     const/4 v6, 0x1
 
-    .line 581
+    .line 594
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-nez v8, :cond_0
 
-    .line 582
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    .line 595
+    :cond_0
     iget-boolean v8, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
     sget v8, Lcom/android/settings/LockScreenSettings;->mSettingValue:I
 
     const/4 v9, -0x1
 
-    if-eq v8, v9, :cond_0
+    if-eq v8, v9, :cond_1
 
-    .line 583
+    .line 596
     sget v8, Lcom/android/settings/LockScreenSettings;->mSettingValue:I
 
-    if-ne v8, v6, :cond_2
+    if-ne v8, v6, :cond_3
 
     move v0, v6
 
@@ -1340,34 +1348,34 @@
     :goto_0
     move-object v1, p2
 
-    .line 584
+    .line 597
     check-cast v1, Landroid/preference/CheckBoxPreference;
 
-    .line 585
+    .line 598
     .local v1, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
-    .line 586
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 599
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 591
+    .line 604
     .end local v0           #bValue:Z
     .end local v1           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    :cond_0
+    :cond_1
     iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
-    .line 592
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 605
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -1375,75 +1383,40 @@
 
     iget-object v10, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v10}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v10}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     :goto_1
     invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 636
-    :cond_1
+    .line 649
+    :cond_2
     :goto_2
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v6
 
     :goto_3
     return v6
 
-    :cond_2
+    :cond_3
     move v0, v7
 
-    .line 583
+    .line 596
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v6, v7
 
-    .line 592
+    .line 605
     goto :goto_1
 
-    .line 593
-    :cond_4
-    iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_6
-
-    .line 594
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string v9, "wake_up_lock_screen"
-
-    iget-object v10, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v10}, Landroid/preference/CheckBoxPreference;->isChecked()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_5
-
-    :goto_4
-    invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto :goto_2
-
+    .line 606
     :cond_5
-    move v6, v7
-
-    goto :goto_4
-
-    .line 595
-    :cond_6
-    iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -1451,12 +1424,47 @@
 
     if-eqz v8, :cond_7
 
-    .line 596
+    .line 607
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string v9, "wake_up_lock_screen"
+
+    iget-object v10, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v10}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
+
+    :goto_4
+    invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_2
+
+    :cond_6
+    move v6, v7
+
+    goto :goto_4
+
+    .line 608
+    :cond_7
+    iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    .line 609
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 597
+    .line 610
     .local v2, intent:Landroid/content/Intent;
     new-instance v2, Landroid/content/Intent;
 
@@ -1465,29 +1473,29 @@
 
     invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 598
+    .line 611
     .restart local v2       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v2}, Lcom/android/settings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_2
 
-    .line 599
+    .line 612
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_7
+    :cond_8
     iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_9
 
-    .line 600
+    .line 613
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 601
+    .line 614
     .restart local v2       #intent:Landroid/content/Intent;
     new-instance v2, Landroid/content/Intent;
 
@@ -1496,108 +1504,73 @@
 
     invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 602
+    .line 615
     .restart local v2       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v2}, Lcom/android/settings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_2
 
-    .line 603
+    .line 616
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_8
+    :cond_9
     iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_b
 
-    .line 604
+    .line 617
     const/4 v6, 0x0
 
     invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
-    .line 605
+    .line 618
     new-instance v2, Landroid/content/Intent;
 
     const-string v6, "com.android.settings.ClockMyprofileMenuTablet"
 
     invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 606
+    .line 619
     .restart local v2       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v2}, Lcom/android/settings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_2
 
-    .line 608
+    .line 621
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_9
+    :cond_a
     new-instance v2, Landroid/content/Intent;
 
     const-string v6, "com.android.settings.ClockMyprofileMenu"
 
     invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 609
+    .line 622
     .restart local v2       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v2}, Lcom/android/settings/LockScreenSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_2
 
-    .line 611
+    .line 624
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_a
+    :cond_b
     iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mEditClock:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_2
 
-    .line 615
+    .line 628
     iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_c
-
-    .line 616
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v8
-
-    const-string v9, "lock_screen_date_and_year"
-
-    iget-object v10, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v10}, Landroid/preference/CheckBoxPreference;->isChecked()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_b
-
-    :goto_5
-    invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto/16 :goto_2
-
-    :cond_b
-    move v6, v7
-
-    goto :goto_5
-
-    .line 617
-    :cond_c
-    iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mOwnerInfo:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -1605,16 +1578,51 @@
 
     if-eqz v8, :cond_d
 
-    .line 618
-    const v6, 0x7f0901a4
+    .line 629
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string v9, "lock_screen_date_and_year"
+
+    iget-object v10, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v10}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_c
+
+    :goto_5
+    invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_2
+
+    :cond_c
+    move v6, v7
+
+    goto :goto_5
+
+    .line 630
+    :cond_d
+    iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mOwnerInfo:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_e
+
+    .line 631
+    const v6, 0x7f0901c7
 
     invoke-static {v6}, Lcom/android/settings/OwnerInfoSettings;->newInstance(I)Lcom/android/settings/OwnerInfoSettings;
 
     move-result-object v5
 
-    .line 619
+    .line 632
     .local v5, newFragment:Landroid/app/DialogFragment;
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v6
 
@@ -1624,18 +1632,18 @@
 
     goto/16 :goto_2
 
-    .line 620
+    .line 633
     .end local v5           #newFragment:Landroid/app/DialogFragment;
-    :cond_d
+    :cond_e
     iget-object v8, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p2, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
-    .line 621
+    .line 634
     const-string v8, "oversea"
 
     const-string v9, "ril.currentplmn"
@@ -1648,43 +1656,37 @@
 
     move-result v3
 
-    .line 622
+    .line 635
     .local v3, isRoamingArea:Z
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
-    const-string v8, "SKT"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
-    .line 623
+    .line 636
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
     invoke-direct {v4, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 624
+    .line 637
     .local v4, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v8, 0x7f090ea1
+    const v8, 0x7f090fda
 
     invoke-virtual {v4, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 625
-    const v8, 0x7f091475
+    .line 638
+    const v8, 0x7f0915c9
 
     invoke-virtual {v4, v8}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 626
+    .line 639
     const v8, 0x104000a
 
     new-instance v9, Lcom/android/settings/LockScreenSettings$2;
@@ -1693,10 +1695,10 @@
 
     invoke-virtual {v4, v8, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 631
+    .line 644
     invoke-virtual {v4, v7}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 632
+    .line 645
     invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_3
@@ -1710,27 +1712,34 @@
 
     const/4 v11, 0x0
 
-    .line 255
+    .line 257
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    if-nez v9, :cond_0
 
-    .line 256
-    iput-boolean v11, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
 
     .line 258
     :cond_0
+    iput-boolean v11, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
+
+    .line 260
+    :cond_1
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 259
+    .line 261
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->createPreferenceHierarchy()Landroid/preference/PreferenceScreen;
 
-    .line 262
+    .line 264
     const-string v9, "lock_screen_short_or_camera_widget"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -1738,22 +1747,22 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 263
+    .line 265
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v9, :cond_1
-
-    .line 264
-    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v9, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    if-eqz v9, :cond_2
 
     .line 266
+    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v9, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 268
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v9
 
-    if-eqz v9, :cond_26
+    if-eqz v9, :cond_28
 
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -1765,19 +1774,19 @@
 
     move-result v9
 
-    if-nez v9, :cond_26
+    if-nez v9, :cond_28
 
-    .line 268
+    .line 270
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v11}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v9, v11}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 269
+    .line 271
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v11}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v9, v11}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 279
+    .line 281
     :goto_0
     const/4 v9, 0x0
 
@@ -1785,7 +1794,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_2b
+    if-nez v9, :cond_2d
 
     const-string v9, "ro.product.name"
 
@@ -1799,14 +1808,14 @@
 
     move-result v9
 
-    if-nez v9, :cond_2b
+    if-nez v9, :cond_2d
 
-    .line 285
-    :cond_1
+    .line 287
+    :cond_2
     :goto_1
     const-string v9, "lock_screen_clock_or_myprofile"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -1814,17 +1823,17 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
-    .line 286
+    .line 288
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_3
 
-    .line 288
+    .line 290
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v9
 
-    if-eqz v9, :cond_2c
+    if-eqz v9, :cond_2e
 
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -1836,15 +1845,15 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_2c
+    if-eqz v9, :cond_2e
 
-    .line 290
+    .line 292
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v11}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v9, v11}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 298
-    :cond_2
+    .line 300
+    :cond_3
     :goto_2
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->resolver:Landroid/content/ContentResolver;
 
@@ -1856,10 +1865,10 @@
 
     iput v9, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
-    .line 300
+    .line 302
     const-string v9, "lock_screen_widget_options_category"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -1867,29 +1876,29 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
 
-    .line 301
-    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
-
-    if-eqz v9, :cond_3
-
-    .line 302
-    iget v9, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
-
-    if-ne v9, v10, :cond_2d
-
     .line 303
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
 
-    const v12, 0x7f0911d3
+    if-eqz v9, :cond_4
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+    .line 304
+    iget v9, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
-    .line 309
-    :cond_3
+    if-ne v9, v10, :cond_2f
+
+    .line 305
+    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
+
+    const v12, 0x7f09132c
+
+    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setTitle(I)V
+
+    .line 311
+    :cond_4
     :goto_3
     const-string v9, "lock_screen_profile"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -1897,30 +1906,30 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    .line 310
+    .line 312
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5
 
-    .line 311
+    .line 313
     iget v9, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_5
 
-    .line 312
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 314
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 316
-    :cond_4
+    .line 318
+    :cond_5
     const-string v9, "clock_size"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -1928,21 +1937,21 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    .line 317
+    .line 319
     iget v9, p0, Lcom/android/settings/LockScreenSettings;->isMyprofile:I
 
-    if-ne v9, v10, :cond_2e
+    if-ne v9, v10, :cond_30
 
-    .line 318
+    .line 320
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v9, v11}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v11}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 323
+    .line 325
     :goto_4
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1952,17 +1961,17 @@
 
     move-result v9
 
-    if-nez v9, :cond_2f
+    if-nez v9, :cond_31
 
     move v9, v10
 
     :goto_5
-    invoke-virtual {v12, v9}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v12, v9}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 325
+    .line 327
     const-string v9, "lock_screen_date_and_year"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -1970,15 +1979,15 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    .line 326
+    .line 328
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_6
 
-    .line 327
+    .line 329
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1988,18 +1997,18 @@
 
     move-result v9
 
-    if-eqz v9, :cond_30
+    if-eqz v9, :cond_32
 
     move v9, v10
 
     :goto_6
-    invoke-virtual {v12, v9}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v12, v9}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 330
-    :cond_5
+    .line 332
+    :cond_6
     const-string v9, "clock_weather"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -2007,38 +2016,31 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
-    .line 331
-    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v9}, Lcom/android/internal/widget/LockPatternUtils;->isSecureForSetting()Z
+    .line 340
+    invoke-static {}, Lcom/android/settings/Utils;->isH_Device()Z
 
     move-result v9
 
-    if-nez v9, :cond_6
+    if-nez v9, :cond_7
 
-    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v9}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled()Z
-
-    move-result v9
+    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
     if-eqz v9, :cond_7
 
-    .line 332
-    :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 341
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 335
+    .line 343
     :cond_7
     const-string v9, "owner_info_settings"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -2046,16 +2048,16 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mOwnerInfo:Landroid/preference/PreferenceScreen;
 
-    .line 338
+    .line 346
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v9
 
-    if-nez v9, :cond_31
+    if-nez v9, :cond_33
 
     move v3, v10
 
-    .line 339
+    .line 347
     .local v3, mIsOwner:Z
     :goto_7
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mOwnerInfo:Landroid/preference/PreferenceScreen;
@@ -2064,18 +2066,18 @@
 
     if-nez v3, :cond_8
 
-    .line 340
+    .line 348
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mOwnerInfo:Landroid/preference/PreferenceScreen;
 
-    const v12, 0x7f0901a8
+    const v12, 0x7f0901cd
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->setTitle(I)V
+    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setTitle(I)V
 
-    .line 343
+    .line 351
     :cond_8
     const-string v9, "dualclock_settings"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -2083,13 +2085,13 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 344
+    .line 352
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v9, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 346
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getActivity()Landroid/app/Activity;
+    .line 354
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
@@ -2099,27 +2101,27 @@
 
     if-eqz v9, :cond_9
 
-    .line 347
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 355
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 348
+    .line 356
     const-string v9, "LockScreenSettings"
 
     const-string v12, " remove Dualclock menu"
 
     invoke-static {v9, v12}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 351
+    .line 359
     :cond_9
     const-string v9, "help_text"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -2127,10 +2129,10 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    .line 352
+    .line 360
     const-string v9, "say_your_wakeup"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -2138,100 +2140,100 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    .line 354
+    .line 362
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
     if-eqz v9, :cond_a
 
-    .line 355
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 363
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mHelpText:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 358
+    .line 366
     :cond_a
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
     if-eqz v9, :cond_b
 
-    .line 359
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 367
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 363
+    .line 371
     :cond_b
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
     if-eqz v9, :cond_c
 
-    .line 364
+    .line 372
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v12
 
-    const v13, 0x7f0911f3
+    const v13, 0x7f09135d
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v12
 
-    invoke-virtual {v9, v12}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 368
+    .line 376
     :cond_c
     const-string v9, "set_wakeup_command"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
     check-cast v4, Landroid/preference/PreferenceScreen;
 
-    .line 369
+    .line 377
     .local v4, setWakeupCommand:Landroid/preference/PreferenceScreen;
     if-eqz v4, :cond_d
 
-    .line 370
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 378
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v12
 
     const-string v9, "feature_category"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
     check-cast v9, Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v12, v9}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v12, v9}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 371
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 379
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
-    invoke-virtual {v9, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 376
+    .line 384
     :cond_d
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->updateState()V
 
-    .line 379
+    .line 387
     const/4 v6, 0x1
 
-    .line 381
+    .line 389
     .local v6, svoice_state:Z
     invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -2239,7 +2241,7 @@
 
     if-eqz v9, :cond_e
 
-    .line 382
+    .line 390
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     invoke-virtual {v9}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
@@ -2250,7 +2252,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_32
+    if-eqz v9, :cond_34
 
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -2262,41 +2264,71 @@
 
     move-result v9
 
-    if-eqz v9, :cond_32
+    if-eqz v9, :cond_34
 
     move v6, v10
 
-    .line 384
+    .line 392
     :cond_e
     :goto_8
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
     if-eqz v9, :cond_f
 
-    .line 385
+    .line 393
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mSayCommand:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v9, v6}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 386
+    .line 394
     :cond_f
     if-eqz v4, :cond_10
 
-    .line 387
-    invoke-virtual {v4, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    .line 395
+    invoke-virtual {v4, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 391
+    .line 398
     :cond_10
+    invoke-direct {p0}, Lcom/android/settings/LockScreenSettings;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_11
+
+    iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
+
+    invoke-virtual {v9}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v11}, Landroid/app/enterprise/RestrictionPolicy;->isLockScreenEnabled(Z)Z
+
+    move-result v9
+
+    if-nez v9, :cond_11
+
+    .line 399
+    const-string v9, "LockScreenSettings"
+
+    const-string v12, "onResume(): isLockScreenEnabled = false"
+
+    invoke-static {v9, v12}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 400
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
+
+    .line 404
+    :cond_11
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
     move-result v9
 
-    if-eqz v9, :cond_23
+    if-eqz v9, :cond_24
 
-    .line 394
+    .line 407
     const/4 v5, 0x0
 
-    .line 395
+    .line 408
     .local v5, state:Z
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
@@ -2306,10 +2338,10 @@
 
     move-result v9
 
-    if-eqz v9, :cond_11
+    if-eqz v9, :cond_12
 
-    .line 396
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 409
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2319,12 +2351,12 @@
 
     move-result v9
 
-    if-ne v9, v10, :cond_33
+    if-ne v9, v10, :cond_35
 
     move v5, v10
 
-    .line 400
-    :cond_11
+    .line 413
+    :cond_12
     :goto_9
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
@@ -2334,10 +2366,10 @@
 
     move-result v9
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_13
 
-    .line 401
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 414
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2347,27 +2379,27 @@
 
     move-result v9
 
-    if-ne v9, v10, :cond_34
+    if-ne v9, v10, :cond_36
 
     move v5, v10
 
-    .line 404
-    :cond_12
+    .line 417
+    :cond_13
     :goto_a
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_14
 
-    .line 405
+    .line 418
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v9, v5}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 408
-    :cond_13
+    .line 421
+    :cond_14
     const-string v9, "lock_screen_favapp_or_camera_widget"
 
-    invoke-virtual {p0, v9}, Lcom/android/settings/LockScreenSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v9}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v9
 
@@ -2375,8 +2407,8 @@
 
     iput-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    .line 409
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 422
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2386,21 +2418,21 @@
 
     move-result v9
 
-    if-nez v9, :cond_14
+    if-nez v9, :cond_15
 
-    .line 410
+    .line 423
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v11}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v9, v11}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 414
-    :cond_14
+    .line 427
+    :cond_15
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_15
+    if-eqz v9, :cond_16
 
-    .line 415
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 428
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2410,25 +2442,25 @@
 
     move-result v9
 
-    if-eqz v9, :cond_35
+    if-eqz v9, :cond_37
 
-    .line 416
+    .line 429
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v12
 
-    const v13, 0x7f0911c8
+    const v13, 0x7f091321
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v12
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 424
-    :cond_15
+    .line 437
+    :cond_16
     :goto_b
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
@@ -2438,99 +2470,99 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1b
+    if-eqz v9, :cond_1c
 
-    .line 426
+    .line 439
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_16
+    if-eqz v9, :cond_17
 
-    .line 427
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 440
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 429
-    :cond_16
+    .line 442
+    :cond_17
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v9, :cond_17
+    if-eqz v9, :cond_18
 
-    .line 430
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 443
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 432
-    :cond_17
+    .line 445
+    :cond_18
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    if-eqz v9, :cond_18
+    if-eqz v9, :cond_19
 
-    .line 433
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 446
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 435
-    :cond_18
+    .line 448
+    :cond_19
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v9, :cond_19
+    if-eqz v9, :cond_1a
 
-    .line 436
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 449
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 438
-    :cond_19
+    .line 451
+    :cond_1a
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mPersonalmessage:Landroid/preference/Preference;
 
-    if-eqz v9, :cond_1a
+    if-eqz v9, :cond_1b
 
-    .line 439
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 452
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mPersonalmessage:Landroid/preference/Preference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 441
-    :cond_1a
+    .line 454
+    :cond_1b
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_1b
+    if-eqz v9, :cond_1c
 
-    .line 442
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 455
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 449
-    :cond_1b
+    .line 462
+    :cond_1c
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v12, "personal_message_category"
@@ -2539,84 +2571,84 @@
 
     move-result v9
 
-    if-eqz v9, :cond_20
+    if-eqz v9, :cond_21
 
-    .line 451
+    .line 464
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v9, :cond_1c
+    if-eqz v9, :cond_1d
 
-    .line 452
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 465
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 454
-    :cond_1c
+    .line 467
+    :cond_1d
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    if-eqz v9, :cond_1d
+    if-eqz v9, :cond_1e
 
-    .line 455
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 468
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 457
-    :cond_1d
+    .line 470
+    :cond_1e
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v9, :cond_1e
+    if-eqz v9, :cond_1f
 
-    .line 458
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 471
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mDateAndYear:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 460
-    :cond_1e
+    .line 473
+    :cond_1f
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_1f
+    if-eqz v9, :cond_20
 
-    .line 461
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 474
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 463
-    :cond_1f
+    .line 476
+    :cond_20
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_20
+    if-eqz v9, :cond_21
 
-    .line 464
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 477
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mClockWeather:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 469
-    :cond_20
+    .line 482
+    :cond_21
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->option:Ljava/lang/String;
 
     const-string v12, "clock_category"
@@ -2625,86 +2657,93 @@
 
     move-result v9
 
-    if-eqz v9, :cond_23
+    if-eqz v9, :cond_24
 
-    .line 471
+    .line 484
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_21
+    if-eqz v9, :cond_22
 
-    .line 472
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 485
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 474
-    :cond_21
+    .line 487
+    :cond_22
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    if-eqz v9, :cond_22
+    if-eqz v9, :cond_23
 
-    .line 475
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 488
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 477
-    :cond_22
+    .line 490
+    :cond_23
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mPersonalmessage:Landroid/preference/Preference;
 
-    if-eqz v9, :cond_23
+    if-eqz v9, :cond_24
 
-    .line 478
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 491
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mPersonalmessage:Landroid/preference/Preference;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 488
+    .line 501
     .end local v5           #state:Z
-    :cond_23
+    :cond_24
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v9
 
-    if-eqz v9, :cond_25
+    if-nez v9, :cond_25
 
-    .line 489
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_27
+
+    .line 502
+    :cond_25
     iget-boolean v9, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
     iput-boolean v9, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    .line 490
+    .line 503
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->openSearchDetailMenu()V
 
-    .line 491
+    .line 504
     iget-boolean v9, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
-    if-eqz v9, :cond_24
+    if-eqz v9, :cond_26
 
     sget v9, Lcom/android/settings/LockScreenSettings;->mSettingValue:I
 
     const/4 v12, -0x1
 
-    if-eq v9, v12, :cond_24
+    if-eq v9, v12, :cond_26
 
-    .line 492
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getArguments()Landroid/os/Bundle;
+    .line 505
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 493
+    .line 506
     .local v0, extra_bundle:Landroid/os/Bundle;
     const-string v9, "extra_parent_preference_key"
 
@@ -2712,15 +2751,15 @@
 
     move-result-object v7
 
-    .line 494
+    .line 507
     .local v7, targetKey:Ljava/lang/String;
     sget v9, Lcom/android/settings/LockScreenSettings;->mSettingValue:I
 
-    if-ne v9, v10, :cond_36
+    if-ne v9, v10, :cond_38
 
     move v8, v10
 
-    .line 495
+    .line 508
     .local v8, value:Z
     :goto_c
     const-string v9, "dualclock_settings"
@@ -2729,19 +2768,19 @@
 
     move-result v9
 
-    if-eqz v9, :cond_37
+    if-eqz v9, :cond_39
 
-    .line 496
+    .line 509
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v9, :cond_24
+    if-eqz v9, :cond_26
 
-    .line 497
+    .line 510
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v8}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v9, v8}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 498
+    .line 511
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -2750,28 +2789,28 @@
 
     invoke-virtual {p0, v9, v10}, Lcom/android/settings/LockScreenSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    .line 499
+    .line 512
     iput-boolean v11, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
-    .line 507
+    .line 520
     .end local v0           #extra_bundle:Landroid/os/Bundle;
     .end local v7           #targetKey:Ljava/lang/String;
     .end local v8           #value:Z
-    :cond_24
+    :cond_26
     :goto_d
     iget-boolean v9, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
     iput-boolean v9, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
-    .line 510
-    :cond_25
+    .line 523
+    :cond_27
     return-void
 
-    .line 272
+    .line 274
     .end local v3           #mIsOwner:Z
     .end local v4           #setWakeupCommand:Landroid/preference/PreferenceScreen;
     .end local v6           #svoice_state:Z
-    :cond_26
+    :cond_28
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->resolver:Landroid/content/ContentResolver;
@@ -2782,15 +2821,15 @@
 
     move-result v9
 
-    if-ne v9, v10, :cond_27
+    if-ne v9, v10, :cond_29
 
     move v9, v10
 
     :goto_e
-    invoke-virtual {v12, v9}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v12, v9}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 273
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 275
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2800,14 +2839,14 @@
 
     move-result v9
 
-    if-ne v9, v10, :cond_28
+    if-ne v9, v10, :cond_2a
 
     move v1, v10
 
-    .line 274
+    .line 276
     .local v1, isMultiple:Z
     :goto_f
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2817,16 +2856,16 @@
 
     move-result v9
 
-    if-ne v9, v10, :cond_29
+    if-ne v9, v10, :cond_2b
 
     move v2, v10
 
-    .line 275
+    .line 277
     .local v2, isSecured:Z
     :goto_10
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_2c
 
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -2834,167 +2873,167 @@
 
     move-result v9
 
-    if-nez v9, :cond_2a
+    if-nez v9, :cond_2c
 
     move v9, v10
 
     :goto_11
-    invoke-virtual {v12, v9}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v12, v9}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_0
 
     .end local v1           #isMultiple:Z
     .end local v2           #isSecured:Z
-    :cond_27
+    :cond_29
     move v9, v11
 
-    .line 272
+    .line 274
     goto :goto_e
 
-    :cond_28
+    :cond_2a
     move v1, v11
 
-    .line 273
+    .line 275
     goto :goto_f
 
     .restart local v1       #isMultiple:Z
-    :cond_29
+    :cond_2b
     move v2, v11
 
-    .line 274
+    .line 276
     goto :goto_10
 
     .restart local v2       #isSecured:Z
-    :cond_2a
+    :cond_2c
     move v9, v11
 
-    .line 275
+    .line 277
     goto :goto_11
 
-    .line 281
+    .line 283
     .end local v1           #isMultiple:Z
     .end local v2           #isSecured:Z
-    :cond_2b
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    :cond_2d
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v9
 
     iget-object v12, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v9, v12}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_1
 
-    .line 293
-    :cond_2c
+    .line 295
+    :cond_2e
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockMyprofile:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_2
 
-    .line 305
-    :cond_2d
+    .line 307
+    :cond_2f
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mWidgetOptionsCategory:Landroid/preference/PreferenceCategory;
 
-    const v12, 0x7f0911d2
+    const v12, 0x7f09132b
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceCategory;->setTitle(I)V
+    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setTitle(I)V
 
     goto/16 :goto_3
 
-    .line 320
-    :cond_2e
+    .line 322
+    :cond_30
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mClockSize:Landroid/preference/ListPreference;
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_4
 
-    :cond_2f
+    :cond_31
     move v9, v11
 
-    .line 323
+    .line 325
     goto/16 :goto_5
 
-    :cond_30
+    :cond_32
     move v9, v11
 
-    .line 327
+    .line 329
     goto/16 :goto_6
 
-    :cond_31
+    :cond_33
     move v3, v11
 
-    .line 338
+    .line 346
     goto/16 :goto_7
 
     .restart local v3       #mIsOwner:Z
     .restart local v4       #setWakeupCommand:Landroid/preference/PreferenceScreen;
     .restart local v6       #svoice_state:Z
-    :cond_32
+    :cond_34
     move v6, v11
 
-    .line 382
+    .line 390
     goto/16 :goto_8
 
     .restart local v5       #state:Z
-    :cond_33
+    :cond_35
     move v5, v11
 
-    .line 396
+    .line 409
     goto/16 :goto_9
 
-    :cond_34
+    :cond_36
     move v5, v11
 
-    .line 401
+    .line 414
     goto/16 :goto_a
 
-    .line 419
-    :cond_35
+    .line 432
+    :cond_37
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mFavappCameraWidget:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/LockScreenSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v12
 
-    const v13, 0x7f0911c7
+    const v13, 0x7f091320
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v12
 
-    invoke-virtual {v9, v12}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_b
 
     .end local v5           #state:Z
     .restart local v0       #extra_bundle:Landroid/os/Bundle;
     .restart local v7       #targetKey:Ljava/lang/String;
-    :cond_36
+    :cond_38
     move v8, v11
 
-    .line 494
+    .line 507
     goto/16 :goto_c
 
-    .line 501
+    .line 514
     .restart local v8       #value:Z
-    :cond_37
+    :cond_39
     const-string v9, "lock_screen_short_or_camera_widget"
 
     invoke-virtual {v9, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_24
+    if-eqz v9, :cond_26
 
-    .line 502
+    .line 515
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9, v8}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v9, v8}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 503
+    .line 516
     iget-object v9, p0, Lcom/android/settings/LockScreenSettings;->mShortCameraWidget:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -3003,7 +3042,7 @@
 
     invoke-virtual {p0, v9, v10}, Lcom/android/settings/LockScreenSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    .line 504
+    .line 517
     iput-boolean v11, p0, Lcom/android/settings/LockScreenSettings;->mSearchMenuOpen:Z
 
     goto/16 :goto_d

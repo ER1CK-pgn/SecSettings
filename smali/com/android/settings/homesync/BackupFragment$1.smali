@@ -30,7 +30,7 @@
     .line 234
     iput-object p1, p0, Lcom/android/settings/homesync/BackupFragment$1;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment$1;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-virtual {v1}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -71,14 +71,14 @@
     .line 240
     iget-object v0, p0, Lcom/android/settings/homesync/BackupFragment$1;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    const v1, 0x7f09149d
+    const v1, 0x7f0915f1
 
     invoke-virtual {v0, v1}, Lcom/android/settings/homesync/BackupFragment;->createAlertDialog(I)Landroid/app/AlertDialog;
 
     move-result-object v0
 
     .line 241
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 265
     :goto_0
@@ -120,7 +120,7 @@
     if-lez v0, :cond_1
 
     .line 249
-    const v0, 0x7f091483
+    const v0, 0x7f0915d7
 
     .line 250
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment$1;->this$0:Lcom/android/settings/homesync/BackupFragment;
@@ -130,7 +130,7 @@
     move-result-object v0
 
     .line 251
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto :goto_0
 
@@ -140,7 +140,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homesync/BackupFragment$1;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -156,7 +156,7 @@
     invoke-virtual {v1, v0}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     .line 257
-    const v0, 0x7f09147d
+    const v0, 0x7f0915d1
 
     invoke-virtual {v1, v0}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -201,7 +201,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v3}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v3
 
@@ -221,7 +221,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v3}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v3
 
@@ -241,7 +241,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v3}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v3
 
@@ -250,7 +250,7 @@
     .line 263
     iget-object v0, p0, Lcom/android/settings/homesync/BackupFragment$1;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

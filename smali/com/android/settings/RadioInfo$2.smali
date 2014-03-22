@@ -165,7 +165,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1, v5}, Landroid/widget/Spinner;->setSelection(IZ)V
+    invoke-virtual {v2, v1, v5}, Landroid/widget/AbsSpinner;->setSelection(IZ)V
 
     goto :goto_0
 
@@ -190,7 +190,7 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    invoke-virtual {v2, v3, v5}, Landroid/widget/Spinner;->setSelection(IZ)V
+    invoke-virtual {v2, v3, v5}, Landroid/widget/AbsSpinner;->setSelection(IZ)V
 
     goto :goto_0
 
@@ -217,7 +217,7 @@
 
     const/16 v3, 0x3e8
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/RadioInfo$2;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 
@@ -288,7 +288,7 @@
 
     const-string v3, "refresh error"
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_0
 
@@ -305,7 +305,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v3, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_0
 
@@ -319,7 +319,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 232
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -342,7 +342,7 @@
 
     const-string v3, "update error"
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_0
 

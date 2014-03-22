@@ -75,7 +75,7 @@
 
     .line 124
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f040171
+    const v4, 0x7f0401af
 
     invoke-virtual {v2, v4, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -83,7 +83,7 @@
 
     .line 125
     .local v3, layout:Landroid/view/View;
-    const v4, 0x7f0b00ee
+    const v4, 0x7f0b00ff
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -99,7 +99,7 @@
 
     .line 128
     .local v1, guideDialogBuilder:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f090044
+    const v4, 0x7f090058
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -300,7 +300,7 @@
     .local v2, mStatusBar:Landroid/app/StatusBarManager;
     const-string v5, "smart_network"
 
-    const v6, 0x7f02041a
+    const v6, 0x7f020499
 
     const/4 v7, 0x0
 

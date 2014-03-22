@@ -1,6 +1,9 @@
 .class Lcom/android/settings/DataUsageSummary$19;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "DataUsageSummary.java"
+
+# interfaces
+.implements Lcom/android/settings/widget/ChartDataUsageView$DataUsageChartListener;
 
 
 # annotations
@@ -24,72 +27,102 @@
     .parameter
 
     .prologue
-    .line 3193
+    .line 2027
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
-    .parameter "context"
-    .parameter "intent"
+.method public onInspectRangeChanged()V
+    .locals 1
 
     .prologue
-    .line 3195
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    .line 2031
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    move-result-object v0
+    #calls: Lcom/android/settings/DataUsageSummary;->updateDetailData()V
+    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$2200(Lcom/android/settings/DataUsageSummary;)V
 
-    .line 3196
-    .local v0, action:Ljava/lang/String;
-    const-string v1, "com.android.settings.ACTION_DATA_ROAMING_NEGATIVE"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 3197
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    const/4 v2, 0x0
-
-    #calls: Lcom/android/settings/DataUsageSummary;->setDataRoaming(Z)V
-    invoke-static {v1, v2}, Lcom/android/settings/DataUsageSummary;->access$3600(Lcom/android/settings/DataUsageSummary;Z)V
-
-    .line 3201
-    :cond_0
-    :goto_0
+    .line 2032
     return-void
+.end method
 
-    .line 3198
-    :cond_1
-    const-string v1, "com.android.settings.ACTION_DATA_KEY_NEGATIVE"
+.method public onLimitChanged()V
+    .locals 3
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .prologue
+    .line 2041
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 3199
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    iget-object v2, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
+    #getter for: Lcom/android/settings/DataUsageSummary;->mChart:Lcom/android/settings/widget/ChartDataUsageView;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$2100(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/widget/ChartDataUsageView;
 
-    #calls: Lcom/android/settings/DataUsageSummary;->isMobileDataEnabled()Z
-    invoke-static {v2}, Lcom/android/settings/DataUsageSummary;->access$4000(Lcom/android/settings/DataUsageSummary;)Z
+    move-result-object v1
 
-    move-result v2
+    invoke-virtual {v1}, Lcom/android/settings/widget/ChartDataUsageView;->getLimitBytes()J
 
-    #calls: Lcom/android/settings/DataUsageSummary;->setMobileDataEnabled(Z)V
-    invoke-static {v1, v2}, Lcom/android/settings/DataUsageSummary;->access$000(Lcom/android/settings/DataUsageSummary;Z)V
+    move-result-wide v1
 
-    goto :goto_0
+    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyLimitBytes(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/settings/DataUsageSummary;->access$1200(Lcom/android/settings/DataUsageSummary;J)V
+
+    .line 2042
+    return-void
+.end method
+
+.method public onWarningChanged()V
+    .locals 3
+
+    .prologue
+    .line 2036
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mChart:Lcom/android/settings/widget/ChartDataUsageView;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$2100(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/widget/ChartDataUsageView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/settings/widget/ChartDataUsageView;->getWarningBytes()J
+
+    move-result-wide v1
+
+    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyWarningBytes(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/settings/DataUsageSummary;->access$1500(Lcom/android/settings/DataUsageSummary;J)V
+
+    .line 2037
+    return-void
+.end method
+
+.method public requestLimitEdit()V
+    .locals 1
+
+    .prologue
+    .line 2051
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-static {v0}, Lcom/android/settings/DataUsageSummary$LimitEditorFragment;->show(Lcom/android/settings/DataUsageSummary;)V
+
+    .line 2052
+    return-void
+.end method
+
+.method public requestWarningEdit()V
+    .locals 1
+
+    .prologue
+    .line 2046
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$19;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-static {v0}, Lcom/android/settings/DataUsageSummary$WarningEditorFragment;->show(Lcom/android/settings/DataUsageSummary;)V
+
+    .line 2047
+    return-void
 .end method

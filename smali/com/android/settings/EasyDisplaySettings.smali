@@ -91,11 +91,11 @@
 
     .prologue
     .line 362
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0a0020
+    const v4, 0x7f0a0025
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -175,11 +175,11 @@
     if-eqz v4, :cond_0
 
     .line 166
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0a0020
+    const v5, 0x7f0a0025
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -240,11 +240,11 @@
     .end local v1           #indices:[Ljava/lang/String;
     .end local v2           #lastVal:F
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0a001e
+    const v5, 0x7f0a0023
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -298,7 +298,7 @@
 
     .line 250
     :goto_0
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     .line 251
     return-void
@@ -327,19 +327,19 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
     .line 127
     .local v3, resolver:Landroid/content/ContentResolver;
-    const v4, 0x7f07003a
+    const v4, 0x7f070047
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/EasyDisplaySettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 131
     new-instance v2, Lcom/android/settings/FontMenu;
@@ -356,7 +356,7 @@
     .local v1, eds:Lcom/android/settings/DisplaySettings;
     const-string v4, "font_size"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/EasyDisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -367,7 +367,7 @@
     .line 136
     const-string v4, "MONOTYPE"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/EasyDisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -394,7 +394,7 @@
 
     .line 144
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -462,7 +462,7 @@
     .line 153
     const-string v4, "font_size"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/EasyDisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -473,7 +473,7 @@
     .line 154
     iget-object v4, p0, Lcom/android/settings/EasyDisplaySettings;->mFontSizePref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v4, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v4, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 157
     invoke-static {}, Lcom/android/settings/Utils;->has7StepsFontSizeFeature()Z
@@ -514,7 +514,7 @@
     const/4 v5, 0x0
 
     .line 255
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -524,15 +524,15 @@
 
     .line 256
     .local v3, mSharedPreferences:Landroid/content/SharedPreferences;
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     const-string v6, "layout_inflater"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/EasyDisplaySettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -540,7 +540,7 @@
 
     .line 257
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v6, 0x7f040115
+    const v6, 0x7f04013e
 
     invoke-virtual {v1, v6, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     .line 258
     .local v2, layout:Landroid/view/View;
-    const v6, 0x7f0b0138
+    const v6, 0x7f0b0147
 
     invoke-virtual {v2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -571,13 +571,13 @@
     .line 262
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f090050
+    const v6, 0x7f090064
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -617,16 +617,16 @@
 
     .prologue
     .line 233
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 235
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/EasyDisplaySettings;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 237
     return-void
@@ -672,7 +672,7 @@
 
     .line 317
     .local v1, fontIndex:I
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -684,7 +684,7 @@
 
     .line 319
     .local v5, previousIndex:I
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -715,11 +715,11 @@
     invoke-virtual {v2, v6, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 323
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v6, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 325
     const-string v6, "EasyDisplaySettings"
@@ -732,7 +732,7 @@
     .end local v2           #i:Landroid/content/Intent;
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -767,7 +767,7 @@
     .line 339
     const/4 v6, 0x2
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/EasyDisplaySettings;->showDialog(I)V
+    invoke-virtual {p0, v6}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     .line 341
     :cond_1
@@ -812,11 +812,11 @@
     invoke-virtual {v2, v6, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 329
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v6, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 331
     const-string v6, "EasyDisplaySettings"
@@ -846,7 +846,7 @@
 
     .prologue
     .line 309
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
@@ -875,20 +875,20 @@
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 221
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/EasyDisplaySettings;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v2, v3, v0}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 223
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -986,7 +986,7 @@
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 192
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1062,7 +1062,7 @@
     invoke-virtual {p1, v3}, Landroid/preference/ListPreference;->setValueIndex(I)V
 
     .line 202
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
@@ -1075,7 +1075,7 @@
     if-ne v5, v9, :cond_1
 
     .line 205
-    const v5, 0x7f0a001f
+    const v5, 0x7f0a0024
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1084,7 +1084,7 @@
     .line 208
     .local v2, fontSizeNames:[Ljava/lang/String;
     :goto_1
-    const v5, 0x7f090583
+    const v5, 0x7f0905b2
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1129,7 +1129,7 @@
     .restart local v3       #index:I
     .restart local v4       #res:Landroid/content/res/Resources;
     :cond_1
-    const v5, 0x7f0a001d
+    const v5, 0x7f0a0022
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1264,7 +1264,7 @@
     invoke-interface {v2, v3}, Landroid/app/IActivityManager;->updatePersistentConfiguration(Landroid/content/res/Configuration;)V
 
     .line 295
-    invoke-virtual {p0}, Lcom/android/settings/EasyDisplaySettings;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     .line 304
     .end local v1           #fontScale:F

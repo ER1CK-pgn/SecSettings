@@ -18,6 +18,10 @@
 
 .field public static mIsForegroundWifiSettings:Z
 
+.field public static mIsHelpFromTetherSettings:Z
+
+.field public static mIsHelpFromWifiApSettings:Z
+
 .field public static mIsProvisioningResultOk:Z
 
 .field private static mLastClientNum:I
@@ -61,19 +65,25 @@
     .line 57
     sput-boolean v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    .line 76
-    sput v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+    .line 58
+    sput-boolean v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsHelpFromTetherSettings:Z
+
+    .line 59
+    sput-boolean v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsHelpFromWifiApSettings:Z
 
     .line 78
+    sput v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
+
+    .line 80
     sput-boolean v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    .line 79
+    .line 81
     sput-boolean v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    .line 82
+    .line 84
     sput v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->MAX_CLIENTS:I
 
-    .line 90
+    .line 92
     sput v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->backOffState:I
 
     return-void
@@ -88,10 +98,10 @@
     .line 49
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 84
+    .line 86
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    .line 85
+    .line 87
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
     return-void
@@ -102,10 +112,10 @@
     .parameter "context"
 
     .prologue
-    .line 494
+    .line 497
     const/4 v0, 0x0
 
-    .line 495
+    .line 498
     .local v0, mRvfMode:I
     const-string v3, "wifi"
 
@@ -115,27 +125,27 @@
 
     check-cast v1, Landroid/net/wifi/WifiManager;
 
-    .line 496
+    .line 499
     .local v1, mWifiManager:Landroid/net/wifi/WifiManager;
     if-eqz v1, :cond_0
 
-    .line 497
+    .line 500
     new-instance v2, Landroid/os/Message;
 
     invoke-direct {v2}, Landroid/os/Message;-><init>()V
 
-    .line 498
+    .line 501
     .local v2, msg:Landroid/os/Message;
     const/16 v3, 0x1c
 
     iput v3, v2, Landroid/os/Message;->what:I
 
-    .line 499
+    .line 502
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
     move-result v0
 
-    .line 501
+    .line 504
     .end local v2           #msg:Landroid/os/Message;
     :cond_0
     return v0
@@ -146,7 +156,7 @@
     .parameter "context"
 
     .prologue
-    .line 458
+    .line 461
     const-string v1, "SAMSUNG_HOTSPOT"
 
     const/4 v2, 0x0
@@ -155,7 +165,7 @@
 
     move-result-object v0
 
-    .line 459
+    .line 462
     .local v0, prefs:Landroid/content/SharedPreferences;
     const-string v1, "CONNECTION_TIMEOUT"
 
@@ -179,7 +189,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 504
+    .line 507
     sget-boolean v2, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->DBG:Z
 
     if-eqz v2, :cond_1
@@ -198,24 +208,24 @@
 
     if-eqz v2, :cond_1
 
-    .line 511
+    .line 514
     :cond_0
     :goto_0
     return v1
 
-    .line 507
+    .line 510
     :cond_1
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x1070022
+    const v3, 0x1070017
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 509
+    .line 512
     .local v0, mProvisionApp:[Ljava/lang/String;
     array-length v2, v0
 
@@ -223,7 +233,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 510
+    .line 513
     const/4 v1, 0x1
 
     goto :goto_0
@@ -235,23 +245,23 @@
     .parameter "type"
 
     .prologue
-    .line 452
+    .line 455
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.settings.wifi.wifiap_power_mode_alarm"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 453
+    .line 456
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "wifiap_power_mode_alarm_option"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 454
+    .line 457
     invoke-virtual {p1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 455
+    .line 458
     return-void
 .end method
 
@@ -268,7 +278,7 @@
 
     const/16 v5, 0xc
 
-    .line 402
+    .line 405
     const-string v0, "WifiApBroadcastReceiver"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -291,7 +301,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 403
+    .line 406
     const-string v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -300,34 +310,34 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 404
+    .line 407
     const-string v1, "extra_type"
 
     invoke-virtual {p3, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 405
+    .line 408
     const-string v2, "req_type"
 
     invoke-virtual {p3, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 406
+    .line 409
     if-eqz v0, :cond_0
 
-    .line 407
+    .line 410
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v3
 
-    .line 408
+    .line 411
     const/4 v4, 0x4
 
     if-ne p2, v4, :cond_1
 
-    .line 409
+    .line 412
     if-eq v3, v5, :cond_2
 
     if-eq v3, v6, :cond_2
@@ -338,23 +348,23 @@
 
     if-eq v0, v3, :cond_2
 
-    .line 439
+    .line 442
     :cond_0
     :goto_0
     return-void
 
-    .line 412
+    .line 415
     :cond_1
     const/4 v4, 0x5
 
     if-ne p2, v4, :cond_4
 
-    .line 413
+    .line 416
     if-eq v3, v5, :cond_0
 
     if-eq v3, v6, :cond_0
 
-    .line 426
+    .line 429
     :cond_2
     :goto_1
     const-string v0, "statusbar"
@@ -365,60 +375,60 @@
 
     check-cast v0, Landroid/app/StatusBarManager;
 
-    .line 427
+    .line 430
     if-eqz v0, :cond_3
 
-    .line 428
+    .line 431
     invoke-virtual {v0}, Landroid/app/StatusBarManager;->collapsePanels()V
 
-    .line 430
+    .line 433
     :cond_3
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 431
+    .line 434
     const-class v3, Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     invoke-virtual {v0, p1, v3}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 432
+    .line 435
     const/high16 v3, 0x1000
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 433
+    .line 436
     const-string v3, "com.android.settings.wifi.mobileap.wifiapwarning"
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 434
+    .line 437
     const-string v3, "wifiap_warning_dialog_type"
 
     invoke-virtual {v0, v3, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 435
+    .line 438
     const-string v3, "req_type"
 
     invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 436
+    .line 439
     const-string v2, "extra_type"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 437
+    .line 440
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 417
+    .line 420
     :cond_4
     if-eq v3, v5, :cond_5
 
     if-ne v3, v6, :cond_0
 
-    .line 421
+    .line 424
     :cond_5
     const-string v4, "WifiApBroadcastReceiver"
 
@@ -442,7 +452,7 @@
 
     invoke-static {v4, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 422
+    .line 425
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -458,42 +468,42 @@
     .parameter
 
     .prologue
-    .line 442
+    .line 445
     const-string v0, "WifiApBroadcastReceiver"
 
     const-string v1, "startHotspotProvisioningRequest"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 443
+    .line 446
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 444
+    .line 447
     const-class v1, Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 445
+    .line 448
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 446
+    .line 449
     const-string v1, "com.android.settings.wifi.mobileap.wifiapwarning"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 447
+    .line 450
     const-string v1, "wifiap_warning_dialog_type"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 448
+    .line 451
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 449
+    .line 452
     return-void
 .end method
 
@@ -502,31 +512,31 @@
     .parameter "context"
 
     .prologue
-    .line 464
+    .line 467
     sget-boolean v1, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsForegroundWifiSettings:Z
 
     if-nez v1, :cond_0
 
-    .line 465
+    .line 468
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 466
+    .line 469
     .local v0, wifiApIntent:Landroid/content/Intent;
     const-string v1, "android.settings.WIFI_AP_SETTINGS"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 467
+    .line 470
     const/high16 v1, 0x1080
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 468
+    .line 471
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 470
+    .line 473
     .end local v0           #wifiApIntent:Landroid/content/Intent;
     :cond_0
     return-void
@@ -539,12 +549,12 @@
     .parameter "context"
 
     .prologue
-    .line 488
+    .line 491
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
     if-nez v0, :cond_0
 
-    .line 489
+    .line 492
     const-string v0, "notification"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -555,15 +565,15 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 490
+    .line 493
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mNotificationManager:Landroid/app/NotificationManager;
 
-    const v1, 0x7f0903c7
+    const v1, 0x7f090400
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 491
+    .line 494
     return-void
 .end method
 
@@ -573,12 +583,12 @@
     .parameter "intent"
 
     .prologue
-    .line 93
+    .line 95
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 94
+    .line 96
     .local v5, action:Ljava/lang/String;
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -604,7 +614,7 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 96
+    .line 98
     const-string v24, "android.net.wifi.WIFI_AP_STATE_CHANGED"
 
     move-object/from16 v0, v24
@@ -615,7 +625,7 @@
 
     if-eqz v24, :cond_4
 
-    .line 97
+    .line 99
     const-string v24, "wifi_state"
 
     const/16 v25, 0xe
@@ -630,7 +640,7 @@
 
     move-result v8
 
-    .line 98
+    .line 100
     .local v8, apState:I
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -656,17 +666,17 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
+    .line 102
     packed-switch v8, :pswitch_data_0
 
-    .line 399
+    .line 402
     .end local v8           #apState:I
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 102
+    .line 104
     .restart local v8       #apState:I
     :pswitch_1
     const/16 v24, 0x0
@@ -679,21 +689,21 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
-    .line 105
+    .line 107
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
     move-result v24
 
     if-eqz v24, :cond_1
 
-    .line 106
+    .line 108
     sget-object v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
     const-string v25, "<GATE-M> WIFI_HOTSPOT_CHECKED </GATE-M>"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 111
+    .line 113
     :cond_1
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -701,14 +711,14 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 112
+    .line 114
     const-string v24, "hotspot"
 
     const/16 v25, 0x1
 
     invoke-static/range {v24 .. v25}, Lcom/sec/android/hardware/SecHardwareInterface;->setBatteryADC(Ljava/lang/String;Z)V
 
-    .line 143
+    .line 145
     invoke-direct/range {p0 .. p1}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->isProvisioningNeeded(Landroid/content/Context;)Z
 
     move-result v24
@@ -725,7 +735,7 @@
 
     if-nez v24, :cond_2
 
-    .line 145
+    .line 147
     const-string v24, "wifi"
 
     move-object/from16 v0, p1
@@ -738,7 +748,7 @@
 
     check-cast v23, Landroid/net/wifi/WifiManager;
 
-    .line 146
+    .line 148
     .local v23, wm:Landroid/net/wifi/WifiManager;
     invoke-virtual/range {v23 .. v23}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
@@ -752,14 +762,21 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 147
+    .line 149
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    invoke-virtual/range {v23 .. v25}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
+
+    .line 150
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "Provisioning is failed, start provisioning once again"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 148
+    .line 151
     const/16 v24, 0x6
 
     move-object/from16 v0, p0
@@ -772,7 +789,7 @@
 
     goto :goto_0
 
-    .line 152
+    .line 155
     .end local v23           #wm:Landroid/net/wifi/WifiManager;
     :cond_2
     const/16 v24, 0x0
@@ -781,7 +798,7 @@
 
     goto :goto_0
 
-    .line 159
+    .line 162
     :pswitch_2
     const/16 v24, 0x2
 
@@ -793,21 +810,21 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
-    .line 162
+    .line 165
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
     move-result v24
 
     if-eqz v24, :cond_3
 
-    .line 163
+    .line 166
     sget-object v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
     const-string v25, "<GATE-M> WIFI_HOTSPOT_UNCHECKED </GATE-M>"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 168
+    .line 171
     :cond_3
     const-string v24, "hotspot"
 
@@ -815,7 +832,7 @@
 
     invoke-static/range {v24 .. v25}, Lcom/sec/android/hardware/SecHardwareInterface;->setBatteryADC(Ljava/lang/String;Z)V
 
-    .line 169
+    .line 172
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "batteryChargingblock_clear set true in Hotspot"
@@ -824,7 +841,7 @@
 
     goto/16 :goto_0
 
-    .line 187
+    .line 190
     .end local v8           #apState:I
     :cond_4
     const-string v24, "com.android.settings.wifi.wifiap_power_mode_alarm"
@@ -837,7 +854,7 @@
 
     if-eqz v24, :cond_b
 
-    .line 188
+    .line 191
     const-string v24, "wifiap_power_mode_alarm_option"
 
     const/16 v25, 0x3
@@ -852,16 +869,16 @@
 
     move-result v16
 
-    .line 190
+    .line 193
     .local v16, option:I
     if-nez v16, :cond_7
 
-    .line 191
+    .line 194
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
-    .line 194
+    .line 197
     .local v9, cr:Landroid/content/ContentResolver;
     :try_start_0
     const-string v24, "wifi_ap_plugged_type"
@@ -874,17 +891,17 @@
 
     move-result v18
 
-    .line 198
+    .line 201
     .local v18, pluggedType:I
     :goto_1
     if-nez v18, :cond_0
 
-    .line 199
+    .line 202
     invoke-direct/range {p0 .. p1}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
 
     move-result v20
 
-    .line 200
+    .line 203
     .local v20, powermode_value:I
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -918,10 +935,10 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 201
+    .line 204
     if-eqz v20, :cond_5
 
-    .line 202
+    .line 205
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v24
@@ -940,7 +957,7 @@
 
     add-long v11, v24, v26
 
-    .line 204
+    .line 207
     .local v11, expireTime:J
     new-instance v6, Landroid/content/Intent;
 
@@ -950,7 +967,7 @@
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 205
+    .line 208
     .local v6, alarm_intent:Landroid/content/Intent;
     const-string v24, "wifiap_power_mode_alarm_option"
 
@@ -962,7 +979,7 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 206
+    .line 209
     const/16 v24, 0x0
 
     const/high16 v25, 0x1000
@@ -977,7 +994,7 @@
 
     move-result-object v17
 
-    .line 208
+    .line 211
     .local v17, pending:Landroid/app/PendingIntent;
     const-string v24, "alarm"
 
@@ -991,7 +1008,7 @@
 
     check-cast v7, Landroid/app/AlarmManager;
 
-    .line 209
+    .line 212
     .local v7, am:Landroid/app/AlarmManager;
     const/16 v24, 0x0
 
@@ -1001,19 +1018,19 @@
 
     invoke-virtual {v7, v0, v11, v12, v1}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 211
+    .line 214
     const/16 v24, 0x0
 
     sput-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    .line 212
+    .line 215
     const/16 v24, 0x1
 
     sput-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
     goto/16 :goto_0
 
-    .line 195
+    .line 198
     .end local v6           #alarm_intent:Landroid/content/Intent;
     .end local v7           #am:Landroid/app/AlarmManager;
     .end local v11           #expireTime:J
@@ -1023,14 +1040,14 @@
     :catch_0
     move-exception v10
 
-    .line 196
+    .line 199
     .local v10, e:Landroid/provider/Settings$SettingNotFoundException;
     const/16 v18, 0x0
 
     .restart local v18       #pluggedType:I
     goto :goto_1
 
-    .line 214
+    .line 217
     .end local v10           #e:Landroid/provider/Settings$SettingNotFoundException;
     .restart local v20       #powermode_value:I
     :cond_5
@@ -1038,7 +1055,7 @@
 
     if-eqz v24, :cond_6
 
-    .line 215
+    .line 218
     new-instance v6, Landroid/content/Intent;
 
     const-string v24, "com.android.settings.wifi.wifiap_power_mode_alarm"
@@ -1047,7 +1064,7 @@
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 216
+    .line 219
     .restart local v6       #alarm_intent:Landroid/content/Intent;
     const-string v24, "wifiap_power_mode_alarm_option"
 
@@ -1059,7 +1076,7 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 217
+    .line 220
     const/16 v24, 0x0
 
     const/high16 v25, 0x1000
@@ -1074,7 +1091,7 @@
 
     move-result-object v17
 
-    .line 219
+    .line 222
     .restart local v17       #pending:Landroid/app/PendingIntent;
     const-string v24, "alarm"
 
@@ -1088,13 +1105,13 @@
 
     check-cast v7, Landroid/app/AlarmManager;
 
-    .line 220
+    .line 223
     .restart local v7       #am:Landroid/app/AlarmManager;
     move-object/from16 v0, v17
 
     invoke-virtual {v7, v0}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    .line 222
+    .line 225
     .end local v6           #alarm_intent:Landroid/content/Intent;
     .end local v7           #am:Landroid/app/AlarmManager;
     .end local v17           #pending:Landroid/app/PendingIntent;
@@ -1105,7 +1122,7 @@
 
     goto/16 :goto_0
 
-    .line 225
+    .line 228
     .end local v9           #cr:Landroid/content/ContentResolver;
     .end local v18           #pluggedType:I
     .end local v20           #powermode_value:I
@@ -1118,7 +1135,7 @@
 
     if-ne v0, v1, :cond_8
 
-    .line 226
+    .line 229
     const-string v24, "WifiApBroadcastReceiver"
 
     new-instance v25, Ljava/lang/StringBuilder;
@@ -1143,19 +1160,19 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 227
+    .line 230
     sget v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
     if-nez v24, :cond_0
 
-    .line 228
+    .line 231
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "ALARM_START because of WIFIAP_POWER_MODE_VALUE_CHANGED"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 229
+    .line 232
     const/16 v24, 0x0
 
     move-object/from16 v0, p0
@@ -1168,7 +1185,7 @@
 
     goto/16 :goto_0
 
-    .line 231
+    .line 234
     :cond_8
     const/16 v24, 0x1
 
@@ -1178,30 +1195,30 @@
 
     if-ne v0, v1, :cond_a
 
-    .line 232
+    .line 235
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "ALARM_EXPIRE"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 233
+    .line 236
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
-    .line 234
+    .line 237
     .restart local v9       #cr:Landroid/content/ContentResolver;
     const/16 v24, 0x1
 
     sput-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
-    .line 235
+    .line 238
     const/16 v24, 0x0
 
     sput-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
-    .line 238
+    .line 241
     const-string v24, "power"
 
     move-object/from16 v0, p1
@@ -1214,7 +1231,7 @@
 
     check-cast v19, Landroid/os/PowerManager;
 
-    .line 239
+    .line 242
     .local v19, pm:Landroid/os/PowerManager;
     const/16 v24, 0x1
 
@@ -1230,14 +1247,14 @@
 
     move-result-object v13
 
-    .line 241
+    .line 244
     .local v13, mStopService:Landroid/os/PowerManager$WakeLock;
     :try_start_1
     invoke-virtual {v13}, Landroid/os/PowerManager$WakeLock;->acquire()V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 246
+    .line 249
     :goto_2
     const-string v24, "wifi"
 
@@ -1251,29 +1268,29 @@
 
     check-cast v23, Landroid/net/wifi/WifiManager;
 
-    .line 248
+    .line 251
     .restart local v23       #wm:Landroid/net/wifi/WifiManager;
     invoke-virtual/range {v23 .. v23}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v21
 
-    .line 249
+    .line 252
     .local v21, wifiApState:I
     const/16 v22, 0x0
 
-    .line 250
+    .line 253
     .local v22, wifiSavedState:I
     invoke-direct/range {p0 .. p1}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->getTimeoutValueFromSheredPreference(Landroid/content/Context;)I
 
     move-result v20
 
-    .line 252
+    .line 255
     .restart local v20       #powermode_value:I
     new-instance v14, Landroid/os/Message;
 
     invoke-direct {v14}, Landroid/os/Message;-><init>()V
 
-    .line 253
+    .line 256
     .local v14, msg:Landroid/os/Message;
     const/16 v24, 0x3
 
@@ -1281,14 +1298,14 @@
 
     iput v0, v14, Landroid/os/Message;->what:I
 
-    .line 254
+    .line 257
     move-object/from16 v0, v23
 
     invoke-virtual {v0, v14}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
     move-result v15
 
-    .line 256
+    .line 259
     .local v15, num:I
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -1316,7 +1333,7 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 257
+    .line 260
     if-nez v15, :cond_9
 
     const/16 v24, 0xd
@@ -1329,21 +1346,21 @@
 
     if-eqz v20, :cond_9
 
-    .line 258
+    .line 261
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "--> ap disable"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
+    .line 262
     const/16 v24, 0x0
 
     const/16 v25, 0x0
 
     invoke-virtual/range {v23 .. v25}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 263
+    .line 266
     :try_start_2
     const-string v24, "wifi_saved_state"
 
@@ -1355,7 +1372,7 @@
 
     move-result v22
 
-    .line 267
+    .line 270
     :goto_3
     const/16 v24, 0x1
 
@@ -1365,7 +1382,7 @@
 
     if-ne v0, v1, :cond_9
 
-    .line 269
+    .line 272
     const-wide/16 v24, 0x258
 
     :try_start_3
@@ -1373,13 +1390,13 @@
     :try_end_3
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_2
 
-    .line 273
+    .line 276
     :goto_4
     const/16 v24, 0x1
 
     invoke-virtual/range {v23 .. v24}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 274
+    .line 277
     const-string v24, "wifi_saved_state"
 
     const/16 v25, 0x0
@@ -1390,22 +1407,22 @@
 
     invoke-static {v9, v0, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 278
+    .line 281
     :cond_9
     if-eqz v13, :cond_0
 
-    .line 280
+    .line 283
     :try_start_4
     invoke-virtual {v13}, Landroid/os/PowerManager$WakeLock;->release()V
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_3
 
-    .line 281
+    .line 284
     const/4 v13, 0x0
 
     goto/16 :goto_0
 
-    .line 242
+    .line 245
     .end local v14           #msg:Landroid/os/Message;
     .end local v15           #num:I
     .end local v20           #powermode_value:I
@@ -1415,7 +1432,7 @@
     :catch_1
     move-exception v10
 
-    .line 243
+    .line 246
     .local v10, e:Ljava/lang/Throwable;
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -1443,7 +1460,7 @@
 
     goto/16 :goto_2
 
-    .line 270
+    .line 273
     .end local v10           #e:Ljava/lang/Throwable;
     .restart local v14       #msg:Landroid/os/Message;
     .restart local v15       #num:I
@@ -1454,18 +1471,18 @@
     :catch_2
     move-exception v10
 
-    .line 271
+    .line 274
     .local v10, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v10}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_4
 
-    .line 282
+    .line 285
     .end local v10           #e:Ljava/lang/InterruptedException;
     :catch_3
     move-exception v10
 
-    .line 283
+    .line 286
     .local v10, e:Ljava/lang/Throwable;
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -1493,7 +1510,7 @@
 
     goto/16 :goto_0
 
-    .line 286
+    .line 289
     .end local v9           #cr:Landroid/content/ContentResolver;
     .end local v10           #e:Ljava/lang/Throwable;
     .end local v13           #mStopService:Landroid/os/PowerManager$WakeLock;
@@ -1513,14 +1530,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 287
+    .line 290
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "ALARM_STOP"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 288
+    .line 291
     sget-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
     if-nez v24, :cond_0
@@ -1529,7 +1546,7 @@
 
     if-eqz v24, :cond_0
 
-    .line 289
+    .line 292
     new-instance v6, Landroid/content/Intent;
 
     const-string v24, "com.android.settings.wifi.wifiap_power_mode_alarm"
@@ -1538,7 +1555,7 @@
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 290
+    .line 293
     .restart local v6       #alarm_intent:Landroid/content/Intent;
     const-string v24, "wifiap_power_mode_alarm_option"
 
@@ -1550,7 +1567,7 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 291
+    .line 294
     const/16 v24, 0x0
 
     const/high16 v25, 0x1000
@@ -1565,7 +1582,7 @@
 
     move-result-object v17
 
-    .line 292
+    .line 295
     .restart local v17       #pending:Landroid/app/PendingIntent;
     const-string v24, "alarm"
 
@@ -1579,20 +1596,20 @@
 
     check-cast v7, Landroid/app/AlarmManager;
 
-    .line 293
+    .line 296
     .restart local v7       #am:Landroid/app/AlarmManager;
     move-object/from16 v0, v17
 
     invoke-virtual {v7, v0}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    .line 294
+    .line 297
     const/16 v24, 0x0
 
     sput-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bStartAlarm:Z
 
     goto/16 :goto_0
 
-    .line 297
+    .line 300
     .end local v6           #alarm_intent:Landroid/content/Intent;
     .end local v7           #am:Landroid/app/AlarmManager;
     .end local v16           #option:I
@@ -1608,7 +1625,7 @@
 
     if-eqz v24, :cond_d
 
-    .line 298
+    .line 301
     const-string v24, "wifiap_plug_state_changed_option"
 
     const/16 v25, 0x0
@@ -1623,18 +1640,18 @@
 
     move-result v16
 
-    .line 299
+    .line 302
     .restart local v16       #option:I
     if-nez v16, :cond_c
 
-    .line 300
+    .line 303
     const-string v24, "WifiApBroadcastReceiver"
 
     const-string v25, "Unplugged"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 301
+    .line 304
     const-string v24, "wifi"
 
     move-object/from16 v0, p1
@@ -1647,13 +1664,13 @@
 
     check-cast v23, Landroid/net/wifi/WifiManager;
 
-    .line 302
+    .line 305
     .restart local v23       #wm:Landroid/net/wifi/WifiManager;
     invoke-virtual/range {v23 .. v23}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v21
 
-    .line 303
+    .line 306
     .restart local v21       #wifiApState:I
     const/16 v24, 0xd
 
@@ -1667,7 +1684,7 @@
 
     if-nez v24, :cond_0
 
-    .line 304
+    .line 307
     const/16 v24, 0x0
 
     move-object/from16 v0, p0
@@ -1680,7 +1697,7 @@
 
     goto/16 :goto_0
 
-    .line 307
+    .line 310
     .end local v21           #wifiApState:I
     .end local v23           #wm:Landroid/net/wifi/WifiManager;
     :cond_c
@@ -1690,7 +1707,7 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 308
+    .line 311
     sget-boolean v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->bExpireAlarm:Z
 
     if-nez v24, :cond_0
@@ -1699,7 +1716,7 @@
 
     if-eqz v24, :cond_0
 
-    .line 309
+    .line 312
     const/16 v24, 0x2
 
     move-object/from16 v0, p0
@@ -1712,7 +1729,7 @@
 
     goto/16 :goto_0
 
-    .line 312
+    .line 315
     .end local v16           #option:I
     :cond_d
     const-string v24, "android.net.wifi.WIFI_AP_STA_STATUS_CHANGED"
@@ -1725,7 +1742,7 @@
 
     if-eqz v24, :cond_13
 
-    .line 313
+    .line 316
     const-string v24, "NUM"
 
     const/16 v25, 0x0
@@ -1740,7 +1757,7 @@
 
     move-result v4
 
-    .line 314
+    .line 317
     .local v4, ClientNum:I
     const-string v24, "WifiApBroadcastReceiver"
 
@@ -1766,13 +1783,13 @@
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 315
+    .line 318
     if-gez v4, :cond_e
 
-    .line 316
+    .line 319
     const/4 v4, 0x0
 
-    .line 319
+    .line 322
     :cond_e
     invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
 
@@ -1780,21 +1797,21 @@
 
     if-eqz v24, :cond_f
 
-    .line 320
+    .line 323
     sget v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
     move/from16 v0, v24
 
     if-le v4, v0, :cond_11
 
-    .line 321
+    .line 324
     sget-object v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
     const-string v25, "<GATE-M> WIFI_HOTSPOT_CONNECTED </GATE-M>"
 
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 328
+    .line 331
     :cond_f
     :goto_5
     if-nez v4, :cond_12
@@ -1803,7 +1820,7 @@
 
     if-eqz v24, :cond_12
 
-    .line 329
+    .line 332
     const/16 v24, 0x0
 
     move-object/from16 v0, p0
@@ -1814,14 +1831,14 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->sendWifiPowerModeAlarmIntent(Landroid/content/Context;I)V
 
-    .line 333
+    .line 336
     :cond_10
     :goto_6
     sput v4, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
     goto/16 :goto_0
 
-    .line 322
+    .line 325
     :cond_11
     sget v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mLastClientNum:I
 
@@ -1829,7 +1846,7 @@
 
     if-ge v4, v0, :cond_f
 
-    .line 323
+    .line 326
     sget-object v24, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mGateTraceTag:Ljava/lang/String;
 
     const-string v25, "<GATE-M> WIFI_HOTSPOT_DISCONNECTED </GATE-M>"
@@ -1838,11 +1855,11 @@
 
     goto :goto_5
 
-    .line 330
+    .line 333
     :cond_12
     if-lez v4, :cond_10
 
-    .line 331
+    .line 334
     const/16 v24, 0x2
 
     move-object/from16 v0, p0
@@ -1855,7 +1872,7 @@
 
     goto :goto_6
 
-    .line 334
+    .line 337
     .end local v4           #ClientNum:I
     :cond_13
     const-string v24, "com.android.settings.wifi.mobileap.TURNOFF_HOTSPOT"
@@ -1868,12 +1885,12 @@
 
     if-eqz v24, :cond_14
 
-    .line 335
+    .line 338
     invoke-virtual/range {p0 .. p1}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->clearTimeoutNotification(Landroid/content/Context;)V
 
     goto/16 :goto_0
 
-    .line 336
+    .line 339
     :cond_14
     const-string v24, "android.settings.WIFI_AP_SEC_SETTINGS"
 
@@ -1885,12 +1902,12 @@
 
     if-eqz v24, :cond_15
 
-    .line 337
+    .line 340
     invoke-direct/range {p0 .. p1}, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->startWifiApSettings(Landroid/content/Context;)V
 
     goto/16 :goto_0
 
-    .line 338
+    .line 341
     :cond_15
     const-string v24, "android.intent.action.MIP_ERROR"
 
@@ -1922,7 +1939,7 @@
 
     if-nez v24, :cond_0
 
-    .line 352
+    .line 355
     const-string v24, "android.intent.action.WIFI_ENABLE_WARNING"
 
     move-object/from16 v0, v24
@@ -1933,7 +1950,7 @@
 
     if-eqz v24, :cond_16
 
-    .line 353
+    .line 356
     const/16 v24, 0x4
 
     move-object/from16 v0, p0
@@ -1948,7 +1965,7 @@
 
     goto/16 :goto_0
 
-    .line 354
+    .line 357
     :cond_16
     const-string v24, "android.intent.action.WIFI_AP_ENABLE_WARNING"
 
@@ -1960,7 +1977,7 @@
 
     if-eqz v24, :cond_0
 
-    .line 355
+    .line 358
     const/16 v24, 0x5
 
     move-object/from16 v0, p0
@@ -1975,7 +1992,7 @@
 
     goto/16 :goto_0
 
-    .line 264
+    .line 267
     .restart local v9       #cr:Landroid/content/ContentResolver;
     .restart local v13       #mStopService:Landroid/os/PowerManager$WakeLock;
     .restart local v14       #msg:Landroid/os/Message;
@@ -1991,7 +2008,9 @@
 
     goto/16 :goto_3
 
-    .line 100
+    .line 102
+    nop
+
     :pswitch_data_0
     .packed-switch 0xb
         :pswitch_2

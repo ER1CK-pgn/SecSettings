@@ -40,7 +40,7 @@
 
     iput-object p3, p0, Lcom/android/settings/applications/AppOpsDetails$1;->val$entry:Lcom/android/settings/applications/AppOpsState$AppOpEntry;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

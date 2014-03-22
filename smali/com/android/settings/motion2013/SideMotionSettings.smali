@@ -50,7 +50,7 @@
     const/4 v3, 0x0
 
     .line 204
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -97,7 +97,7 @@
 
     .prologue
     .line 192
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -114,7 +114,7 @@
     if-eqz p2, :cond_1
 
     .line 194
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -124,12 +124,12 @@
     :goto_1
     iget-object v0, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mOneHandOperation:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 200
     iget-object v0, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mPeek:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 201
     return-void
@@ -142,7 +142,7 @@
 
     .line 196
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -168,15 +168,15 @@
     .line 60
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/motion2013/SideMotionSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 62
-    const v2, 0x7f070098
+    const v2, 0x7f0700bb
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/motion2013/SideMotionSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 64
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -201,11 +201,11 @@
     .line 67
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0f0019
+    const v3, 0x7f0f0034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -215,7 +215,7 @@
     .local v0, padding:I
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4, v4, v0, v4}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v2, v4, v4, v0, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 70
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mActivity:Landroid/app/Activity;
@@ -261,12 +261,12 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 80
     const-string v2, "one_hand_operation"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/motion2013/SideMotionSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -277,7 +277,7 @@
     .line 81
     const-string v2, "peek"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/motion2013/SideMotionSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -288,15 +288,15 @@
     .line 83
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mOneHandOperation:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v2, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 84
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mPeek:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v2, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 86
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
@@ -317,7 +317,7 @@
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 170
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -330,13 +330,13 @@
     .line 171
     const/4 v0, 0x1
 
-    const v1, 0x7f090b0f
+    const v1, 0x7f090c0b
 
     invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201db
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -362,7 +362,7 @@
     packed-switch v1, :pswitch_data_0
 
     .line 186
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
 
@@ -386,7 +386,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 183
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -413,7 +413,7 @@
     const/4 v2, 0x0
 
     .line 123
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 124
     iget-boolean v0, p0, Lcom/android/settings/motion2013/SideMotionSettings;->isGoIntoQuideHub:Z
@@ -427,7 +427,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -440,11 +440,11 @@
     if-eqz v0, :cond_0
 
     .line 126
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090d86
+    const v1, 0x7f090eb1
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -453,7 +453,7 @@
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     .line 127
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -462,7 +462,7 @@
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 128
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -518,7 +518,7 @@
     if-eqz v4, :cond_3
 
     .line 153
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -536,7 +536,7 @@
     if-eqz v4, :cond_1
 
     .line 159
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -545,7 +545,7 @@
     invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 160
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -579,7 +579,7 @@
     if-eqz v4, :cond_0
 
     .line 155
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -602,7 +602,7 @@
     iput-boolean v0, p0, Lcom/android/settings/motion2013/SideMotionSettings;->isGoIntoQuideHub:Z
 
     .line 146
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
@@ -641,7 +641,7 @@
     invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -653,7 +653,7 @@
 
     .line 104
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -675,7 +675,7 @@
     move v2, v3
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 107
     iget-object v5, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mPeek:Landroid/preference/SwitchPreferenceScreen;
@@ -693,7 +693,7 @@
     move v2, v3
 
     :goto_1
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 109
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mResolver:Landroid/content/ContentResolver;
@@ -718,12 +718,12 @@
     .line 112
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mOneHandOperation:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 113
     iget-object v2, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mPeek:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 116
     iput-boolean v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
@@ -759,7 +759,7 @@
 
     .prologue
     .line 136
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 137
     iget-object v0, p0, Lcom/android/settings/motion2013/SideMotionSettings;->mActionBarLayout:Landroid/view/View;
@@ -774,7 +774,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 139
-    invoke-virtual {p0}, Lcom/android/settings/motion2013/SideMotionSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 993
+    .line 1005
     iput-object p1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 995
+    .line 1007
     iget-object v5, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnSelecting:Z
@@ -52,11 +52,11 @@
 
     if-eqz v5, :cond_0
 
-    .line 1019
+    .line 1031
     :goto_0
     return-void
 
-    .line 998
+    .line 1010
     :cond_0
     iget-object v5, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -65,12 +65,12 @@
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mIsOnSelecting:Z
     invoke-static {v5, v6}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1002(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Z)Z
 
-    .line 999
+    .line 1011
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 1001
+    .line 1013
     .local v2, intent:Landroid/content/Intent;
     const-string v5, "com.android.settings"
 
@@ -78,10 +78,10 @@
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1002
+    .line 1014
     const-string v4, ""
 
-    .line 1003
+    .line 1015
     .local v4, shortcut_app_list:Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -96,7 +96,7 @@
 
     if-ge v1, v5, :cond_1
 
-    .line 1004
+    .line 1016
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -143,7 +143,7 @@
 
     iget-object v5, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -159,7 +159,7 @@
 
     move-result-object v3
 
-    .line 1005
+    .line 1017
     .local v3, shortcut_app:Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -177,17 +177,17 @@
 
     move-result-object v4
 
-    .line 1003
+    .line 1015
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 1008
+    .line 1020
     .end local v3           #shortcut_app:Ljava/lang/String;
     :cond_1
     const/4 v0, 0x0
 
-    .line 1009
+    .line 1021
     .local v0, clicked_view_index:I
     const/4 v0, 0x0
 
@@ -201,7 +201,7 @@
 
     if-ge v0, v5, :cond_2
 
-    .line 1010
+    .line 1022
     iget-object v5, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutButton:Ljava/util/ArrayList;
@@ -219,18 +219,18 @@
 
     if-eqz v5, :cond_3
 
-    .line 1013
+    .line 1025
     :cond_2
     const-string v5, "clicked_view_index"
 
     invoke-virtual {v2, v5, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1014
+    .line 1026
     const-string v5, "shortcut_app_list"
 
     invoke-virtual {v2, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1015
+    .line 1027
     const-string v5, "num_of_shortcut"
 
     iget-object v6, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -242,19 +242,19 @@
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1016
+    .line 1028
     const-string v5, "max_num_of_shortcut"
 
     sget v6, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->MAX_SHORTCUT_ICON:I
 
     invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1017
+    .line 1029
     iget-object v5, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     iget-object v6, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
-    invoke-virtual {v6}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -269,16 +269,16 @@
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->pcheck:I
     invoke-static {v5, v6}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$1102(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;I)I
 
-    .line 1018
+    .line 1030
     iget-object v5, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$3;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     const/16 v6, 0x65
 
-    invoke-virtual {v5, v2, v6}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v5, v2, v6}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 1009
+    .line 1021
     :cond_3
     add-int/lit8 v0, v0, 0x1
 

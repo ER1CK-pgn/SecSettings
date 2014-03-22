@@ -164,7 +164,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/settings/torchlight/TorchlightEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 83
     return-void
@@ -203,7 +203,7 @@
     .line 90
     iget-object v1, p0, Lcom/android/settings/torchlight/TorchlightEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 92
     iget-object v1, p0, Lcom/android/settings/torchlight/TorchlightEnabler;->mContext:Landroid/content/Context;

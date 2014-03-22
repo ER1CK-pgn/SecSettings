@@ -380,7 +380,7 @@
     .local v0, totalSize:J
     iget-object v2, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckShared:Landroid/widget/CheckBox;
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v2
 
@@ -395,7 +395,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckPersonal:Landroid/widget/CheckBox;
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v2
 
@@ -410,7 +410,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckPrivate:Landroid/widget/CheckBox;
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v2
 
@@ -436,7 +436,7 @@
     .line 323
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -444,7 +444,7 @@
 
     .line 324
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f09149a
+    const v1, 0x7f0915ee
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -454,7 +454,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090ad8
+    const v2, 0x7f090bbc
 
     new-instance v3, Lcom/android/settings/homesync/BackupFragment$6;
 
@@ -477,7 +477,7 @@
     .line 306
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -485,13 +485,13 @@
 
     .line 307
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f091485
+    const v1, 0x7f0915d9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f090ad8
+    const v2, 0x7f090bbc
 
     new-instance v3, Lcom/android/settings/homesync/BackupFragment$5;
 
@@ -501,7 +501,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     new-instance v3, Lcom/android/settings/homesync/BackupFragment$4;
 
@@ -547,7 +547,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 116
-    invoke-virtual {p0, v3}, Lcom/android/settings/homesync/BackupFragment;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 118
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mISpcBackupService:Lcom/sec/android/spc/service/ISpcBackupService;
@@ -563,13 +563,13 @@
 
     .line 120
     .local v0, intent:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/homesync/BackupFragment;->mConnection:Landroid/content/ServiceConnection;
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/app/Activity;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    invoke-virtual {v1, v0, v2, v3}, Landroid/content/ContextWrapper;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     .line 121
     const-wide/16 v1, 0x3e8
@@ -593,7 +593,7 @@
     const/4 v2, 0x0
 
     .line 187
-    const v1, 0x7f0914a8
+    const v1, 0x7f0915fc
 
     invoke-interface {p1, v2, v2, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -607,7 +607,7 @@
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     .line 191
-    const v1, 0x7f020232
+    const v1, 0x7f020283
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -628,7 +628,7 @@
 
     .prologue
     .line 127
-    const v0, 0x7f04001e
+    const v0, 0x7f040020
 
     const/4 v1, 0x0
 
@@ -639,14 +639,14 @@
     sput-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
 
     .line 128
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
     .line 129
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -662,7 +662,7 @@
     :cond_0
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
 
-    const v1, 0x7f0b0058
+    const v1, 0x7f0b0061
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -675,7 +675,7 @@
     .line 132
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->selectedDatesizeTextView:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -688,7 +688,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 134
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -714,7 +714,7 @@
     :cond_1
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
 
-    const v1, 0x7f0b005b
+    const v1, 0x7f0b0064
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -729,12 +729,12 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckBoxListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 144
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
 
-    const v1, 0x7f0b0063
+    const v1, 0x7f0b006c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -749,12 +749,12 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckBoxListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 147
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
 
-    const v1, 0x7f0b0066
+    const v1, 0x7f0b006f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -769,12 +769,12 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckBoxListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 150
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
 
-    const v1, 0x7f0b0067
+    const v1, 0x7f0b0070
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -789,7 +789,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mNextButtonListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 153
     sget-object v0, Lcom/android/settings/homesync/BackupFragment;->rootView:Landroid/view/View;
@@ -817,11 +817,11 @@
     if-ne v0, v2, :cond_0
 
     .line 201
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v2, 0x7f09149b
+    const v2, 0x7f0915ef
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -837,7 +837,7 @@
 
     .line 205
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -848,7 +848,7 @@
     if-lez v0, :cond_1
 
     .line 206
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -858,7 +858,7 @@
     :cond_1
     new-instance v2, Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -874,7 +874,7 @@
     invoke-virtual {v2, v0}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     .line 210
-    const v0, 0x7f09147d
+    const v0, 0x7f0915d1
 
     invoke-virtual {v2, v0}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -890,7 +890,7 @@
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 213
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -938,7 +938,7 @@
 
     aput-object v0, v2, v5
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/homesync/BackupFragment$CalculateDirectorySizeTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v1, v2}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     .line 163
     invoke-static {}, Lcom/android/settings/homesync/FileOperation;->getOpStatus()Lcom/android/settings/homesync/FileOperation$OpStatus;
@@ -950,11 +950,11 @@
     if-ne v1, v2, :cond_0
 
     .line 164
-    invoke-virtual {p0}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f09149b
+    const v2, 0x7f0915ef
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -988,7 +988,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->startBackupButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 172
     :cond_2
@@ -1007,7 +1007,7 @@
     .line 173
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckShared:Landroid/widget/CheckBox;
 
-    invoke-virtual {v1, v5}, Landroid/widget/CheckBox;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 174
     :cond_3
@@ -1026,7 +1026,7 @@
     .line 175
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckPersonal:Landroid/widget/CheckBox;
 
-    invoke-virtual {v1, v5}, Landroid/widget/CheckBox;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 176
     :cond_4
@@ -1045,7 +1045,7 @@
     .line 177
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment;->mCheckPrivate:Landroid/widget/CheckBox;
 
-    invoke-virtual {v1, v5}, Landroid/widget/CheckBox;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 179
     :cond_5

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 145
+    .line 149
     iput-object p1, p0, Lcom/android/settings/EasyModeSettings$1;->this$0:Lcom/android/settings/EasyModeSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,24 +46,24 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 148
+    .line 152
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
     if-ne v0, v2, :cond_0
 
-    .line 149
+    .line 153
     sparse-switch p2, :sswitch_data_0
 
-    .line 156
+    .line 160
     :cond_0
     :goto_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 152
+    .line 156
     :sswitch_0
     iget-object v0, p0, Lcom/android/settings/EasyModeSettings$1;->this$0:Lcom/android/settings/EasyModeSettings;
 
@@ -74,14 +74,14 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v1}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v1
 
     #setter for: Lcom/android/settings/EasyModeSettings;->mOlderPosition:I
     invoke-static {v0, v1}, Lcom/android/settings/EasyModeSettings;->access$002(Lcom/android/settings/EasyModeSettings;I)I
 
-    .line 153
+    .line 157
     iget-object v0, p0, Lcom/android/settings/EasyModeSettings$1;->this$0:Lcom/android/settings/EasyModeSettings;
 
     #setter for: Lcom/android/settings/EasyModeSettings;->flag:Z
@@ -89,7 +89,7 @@
 
     goto :goto_0
 
-    .line 149
+    .line 153
     nop
 
     :sswitch_data_0

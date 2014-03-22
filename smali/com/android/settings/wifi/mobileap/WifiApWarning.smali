@@ -33,8 +33,6 @@
 
 .field private mIsLightTheme:Z
 
-.field private mIsRoaming:Z
-
 .field private mIsTablet:Z
 
 .field private mNaiMismatchDialog:Landroid/app/AlertDialog;
@@ -53,8 +51,6 @@
 
 .field private mWifiManager:Landroid/net/wifi/WifiManager;
 
-.field phoneStateListener:Landroid/telephony/PhoneStateListener;
-
 .field private req_type:I
 
 
@@ -65,7 +61,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 61
+    .line 59
     invoke-static {}, Landroid/os/Debug;->isProductShip()I
 
     move-result v1
@@ -86,50 +82,40 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 60
+    .line 58
     invoke-direct {p0}, Lcom/android/internal/app/AlertActivity;-><init>()V
 
-    .line 91
+    .line 89
     iput-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isAirplaneMode:Z
 
-    .line 92
+    .line 90
     iput-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsLightTheme:Z
 
-    .line 93
-    iput-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsRoaming:Z
-
-    .line 94
+    .line 91
     iput-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsTablet:Z
 
-    .line 95
+    .line 92
     iput-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiDisabledByEnablingHotspot:Z
 
-    .line 103
+    .line 100
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    .line 116
+    .line 113
     iput v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->MHS_REQUEST:I
 
-    .line 118
+    .line 115
     new-instance v0, Lcom/android/settings/wifi/mobileap/WifiApWarning$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning$1;-><init>(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 715
+    .line 744
     new-instance v0, Lcom/android/settings/wifi/mobileap/WifiApWarning$32;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning$32;-><init>(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
-
-    iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->phoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    .line 760
-    new-instance v0, Lcom/android/settings/wifi/mobileap/WifiApWarning$33;
-
-    invoke-direct {v0, p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning$33;-><init>(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mConfigureDialogListener:Landroid/content/DialogInterface$OnClickListener;
 
@@ -142,7 +128,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->handleWifiApStateChanged(I)V
 
     return-void
@@ -153,7 +139,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->preProvisioning()V
 
     return-void
@@ -165,7 +151,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     iput-boolean p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isAirplaneMode:Z
 
     return p1
@@ -176,7 +162,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
 
     return-void
@@ -188,7 +174,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->secSetSoftapEnabled(Z)V
 
     return-void
@@ -199,7 +185,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->afterAttentionDialog()V
 
     return-void
@@ -210,7 +196,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->afterBatteryDialog()V
 
     return-void
@@ -221,7 +207,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
 
     return-object v0
@@ -233,7 +219,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     iput-boolean p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiDisabledByEnablingHotspot:Z
 
     return p1
@@ -245,45 +231,44 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->startProvisioningIfNecessary(I)V
 
     return-void
 .end method
 
-.method static synthetic access$1802(Lcom/android/settings/wifi/mobileap/WifiApWarning;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 60
-    iput-boolean p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsRoaming:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1900(Lcom/android/settings/wifi/mobileap/WifiApWarning;)Landroid/net/wifi/WifiConfiguration;
+.method static synthetic access$1800(Lcom/android/settings/wifi/mobileap/WifiApWarning;)Landroid/net/wifi/WifiConfiguration;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     return-object v0
 .end method
 
-.method static synthetic access$1902(Lcom/android/settings/wifi/mobileap/WifiApWarning;Landroid/net/wifi/WifiConfiguration;)Landroid/net/wifi/WifiConfiguration;
+.method static synthetic access$1802(Lcom/android/settings/wifi/mobileap/WifiApWarning;Landroid/net/wifi/WifiConfiguration;)Landroid/net/wifi/WifiConfiguration;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     return-object p1
+.end method
+
+.method static synthetic access$1900(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 58
+    invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->disableWifiDialog()V
+
+    return-void
 .end method
 
 .method static synthetic access$200(Lcom/android/settings/wifi/mobileap/WifiApWarning;)Landroid/content/Context;
@@ -291,21 +276,10 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     return-object v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 60
-    invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->disableWifiDialog()V
-
-    return-void
 .end method
 
 .method static synthetic access$300(Lcom/android/settings/wifi/mobileap/WifiApWarning;)Landroid/net/wifi/WifiManager;
@@ -313,7 +287,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     return-object v0
@@ -324,7 +298,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mNaiMismatchDialog:Landroid/app/AlertDialog;
 
     return-object v0
@@ -335,7 +309,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     return v0
@@ -346,7 +320,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->extra_type:I
 
     return v0
@@ -358,7 +332,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 58
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showProgressDialog(I)V
 
     return-void
@@ -369,7 +343,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
     return v0
@@ -380,7 +354,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
     return-object v0
@@ -390,7 +364,7 @@
     .locals 2
 
     .prologue
-    .line 733
+    .line 717
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -403,16 +377,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 735
+    .line 719
     const/16 v0, 0x1c
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showNextHotspotDialog(I)V
 
-    .line 739
+    .line 723
     :goto_0
     return-void
 
-    .line 737
+    .line 721
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->afterBatteryDialog()V
 
@@ -423,10 +397,10 @@
     .locals 3
 
     .prologue
-    .line 742
+    .line 726
     const/4 v0, 0x1
 
-    .line 744
+    .line 728
     .local v0, setSoftapEnableFlag:Z
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -436,12 +410,12 @@
 
     iput-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    .line 745
+    .line 729
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     if-eqz v1, :cond_0
 
-    .line 746
+    .line 730
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     iget-object v1, v1, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
@@ -454,7 +428,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 747
+    .line 731
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     iget-object v1, v1, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
@@ -479,29 +453,29 @@
 
     if-eqz v1, :cond_0
 
-    .line 748
+    .line 732
     const/4 v0, 0x0
 
-    .line 749
+    .line 733
     const-string v1, "WifiApWarning"
 
     const-string v2, "Dialog create during first time Mobile HotSpot at TMO"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 750
+    .line 734
     const/16 v1, 0x1d
 
     invoke-direct {p0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showNextHotspotDialog(I)V
 
-    .line 755
+    .line 739
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 756
+    .line 740
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->disableWifiDialog()V
 
-    .line 758
+    .line 742
     :cond_1
     return-void
 .end method
@@ -510,7 +484,7 @@
     .locals 3
 
     .prologue
-    .line 789
+    .line 774
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     const/4 v2, 0x1
@@ -519,7 +493,7 @@
 
     move-result-object v0
 
-    .line 790
+    .line 775
     .local v0, netInfo:Landroid/net/NetworkInfo;
     sget-object v1, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
@@ -527,22 +501,22 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 791
+    .line 776
     const/16 v1, 0x1e
 
     invoke-direct {p0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showNextHotspotDialog(I)V
 
-    .line 810
+    .line 795
     :goto_0
     return-void
 
-    .line 792
+    .line 777
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isP2pConnected()Z
 
@@ -550,21 +524,21 @@
 
     if-eqz v1, :cond_1
 
-    .line 793
+    .line 778
     const-string v1, "WifiApWarning"
 
     const-string v2, "WiFi p2p is connected. Create dailog"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 794
+    .line 779
     const/16 v1, 0x1f
 
     invoke-direct {p0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showNextHotspotDialog(I)V
 
     goto :goto_0
 
-    .line 796
+    .line 781
     :cond_1
     const/4 v1, 0x0
 
@@ -574,79 +548,102 @@
 .end method
 
 .method private dismissProgressDialog(I)V
-    .locals 3
+    .locals 4
     .parameter
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    .line 988
+    .line 985
+    const-string v0, "WifiApWarning"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "dismissProgressDialog, id = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 986
     const/16 v0, 0xa
 
     if-ne p1, v0, :cond_1
 
-    .line 989
+    .line 987
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 990
+    .line 988
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 991
-    iput-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
+    .line 989
+    iput-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    .line 992
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 990
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 1008
+    .line 1006
     :cond_0
     :goto_0
     return-void
 
-    .line 994
+    .line 992
     :cond_1
     const/16 v0, 0xb
 
     if-ne p1, v0, :cond_0
 
-    .line 995
+    .line 993
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 996
+    .line 994
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 997
-    iput-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
+    .line 995
+    iput-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    .line 998
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 996
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 999
+    .line 997
     :cond_2
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
@@ -654,38 +651,38 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1000
+    .line 998
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 1002
+    .line 1000
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.net.wifi.WIFI_DIALOG_CANCEL_ACTION"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1003
+    .line 1001
     const-string v1, "called_dialog"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1004
+    .line 1002
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1005
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 1003
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method
@@ -694,25 +691,25 @@
     .locals 3
 
     .prologue
-    .line 915
+    .line 901
     new-instance v1, Landroid/os/Message;
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
 
-    .line 916
+    .line 902
     .local v1, msg:Landroid/os/Message;
     const/16 v2, 0x1c
 
     iput v2, v1, Landroid/os/Message;->what:I
 
-    .line 917
+    .line 903
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
     move-result v0
 
-    .line 919
+    .line 905
     .local v0, mRvfMode:I
     return v0
 .end method
@@ -728,54 +725,67 @@
 
     const/4 v3, 0x1
 
-    .line 1011
+    .line 1009
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_2
+    if-eq v1, v2, :cond_0
+
+    iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
+
+    const/4 v2, 0x6
+
+    if-ne v1, v2, :cond_3
+
+    .line 1010
+    :cond_0
+    const/16 v1, 0xc
+
+    if-ne p1, v1, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isProvisioningNeeded()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 1011
+    invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showProgressDialog(I)V
+
+    .line 1030
+    :cond_1
+    :goto_0
+    return-void
 
     .line 1012
-    const/16 v1, 0xc
+    :cond_2
+    const/16 v1, 0xd
 
     if-ne p1, v1, :cond_1
 
     .line 1013
-    invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showProgressDialog(I)V
-
-    .line 1031
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 1014
-    :cond_1
-    const/16 v1, 0xd
-
-    if-ne p1, v1, :cond_0
-
-    .line 1015
     invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->dismissProgressDialog(I)V
 
     goto :goto_0
 
-    .line 1016
-    :cond_2
+    .line 1014
+    :cond_3
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1
 
-    .line 1017
-    if-ne p1, v5, :cond_0
+    .line 1015
+    if-ne p1, v5, :cond_1
 
-    .line 1018
+    .line 1016
     iget-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isAirplaneMode:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
-    .line 1019
+    .line 1017
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     const-string v2, "wifi"
@@ -786,36 +796,47 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 1020
+    .line 1018
     .local v0, wm:Landroid/net/wifi/WifiManager;
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    .line 1021
+    .line 1019
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_5
 
-    .line 1022
+    iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->extra_type:I
+
+    if-ne v1, v3, :cond_5
+
+    .line 1020
     invoke-virtual {v0, v3}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 1028
+    .line 1026
     .end local v0           #wm:Landroid/net/wifi/WifiManager;
-    :cond_3
+    :cond_4
     :goto_1
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    .line 1027
     invoke-direct {p0, v5}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->dismissProgressDialog(I)V
 
     goto :goto_0
 
-    .line 1023
+    .line 1021
     .restart local v0       #wm:Landroid/net/wifi/WifiManager;
-    :cond_4
+    :cond_5
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_4
 
-    .line 1024
+    iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->extra_type:I
+
+    if-ne v1, v3, :cond_4
+
+    .line 1022
     invoke-virtual {v0, v3}, Landroid/net/wifi/WifiManager;->setWifiIBSSEnabled(Z)Z
 
     goto :goto_1
@@ -825,7 +846,7 @@
     .locals 4
 
     .prologue
-    .line 951
+    .line 948
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
@@ -835,18 +856,18 @@
 
     move-result-object v0
 
-    .line 952
+    .line 949
     sget-object v1, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    .line 953
+    .line 950
     const-string v1, "WifiApWarning"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -871,22 +892,22 @@
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 958
+    .line 955
     :goto_0
     return v0
 
-    .line 955
+    .line 952
     :catch_0
     move-exception v0
 
-    .line 956
+    .line 953
     const-string v0, "WifiApWarning"
 
     const-string v1, "isP2pConnected - NullPointerException"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 958
+    .line 955
     const/4 v0, 0x0
 
     goto :goto_0
@@ -896,7 +917,7 @@
     .locals 2
 
     .prologue
-    .line 909
+    .line 895
     sget-boolean v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->DBG:Z
 
     if-eqz v0, :cond_0
@@ -915,10 +936,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 910
+    .line 896
     const/4 v0, 0x0
 
-    .line 911
+    .line 897
     :goto_0
     return v0
 
@@ -932,7 +953,7 @@
     .locals 2
 
     .prologue
-    .line 1036
+    .line 1035
     sget-boolean v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->DBG:Z
 
     if-eqz v0, :cond_0
@@ -951,10 +972,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 1037
+    .line 1036
     const/4 v0, 0x0
 
-    .line 1038
+    .line 1037
     :goto_0
     return v0
 
@@ -965,103 +986,111 @@
 .end method
 
 .method private preProvisioning()V
-    .locals 5
+    .locals 6
 
     .prologue
-    const/4 v4, 0x1
+    .line 676
+    iget-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
-    .line 685
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
+    const-string v4, "phone"
 
-    const-string v2, "phone"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/telephony/TelephonyManager;
-
-    .line 686
-    .local v0, tm:Landroid/telephony/TelephonyManager;
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->phoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    invoke-virtual {v0, v1, v4}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
-
-    .line 688
-    const-string v1, "WifiApWarning"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "isSimCheck() "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
+    check-cast v2, Landroid/telephony/TelephonyManager;
+
+    .line 677
+    .local v2, tm:Landroid/telephony/TelephonyManager;
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
+
+    move-result v0
+
+    .line 678
+    .local v0, isRoaming:Z
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 680
+    .local v1, iso:Ljava/lang/String;
+    const-string v3, "WifiApWarning"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "isSimCheck() "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isSimCheck()Z
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 684
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isSimCheck()Z
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_0
 
-    move-result-object v2
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimState()I
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v3
 
-    move-result-object v2
+    const/4 v4, 0x5
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-eq v3, v4, :cond_0
 
-    .line 692
-    invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isSimCheck()Z
+    const-string v3, "READY"
 
-    move-result v1
+    const-string v4, "gsm.sim.state"
 
-    if-eqz v1, :cond_0
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimState()I
+    move-result-object v4
 
-    move-result v1
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v2, 0x5
+    move-result v3
 
-    if-eq v1, v2, :cond_0
+    if-nez v3, :cond_0
 
-    const-string v1, "READY"
+    .line 688
+    const/16 v3, 0x19
 
-    const-string v2, "gsm.sim.state"
+    invoke-direct {p0, v3}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showNextHotspotDialog(I)V
 
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 696
-    const/16 v1, 0x19
-
-    invoke-direct {p0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showNextHotspotDialog(I)V
-
-    .line 705
+    .line 697
     :goto_0
-    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->phoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
-
-    .line 706
     return-void
 
-    .line 703
+    .line 695
     :cond_0
-    invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->secSetSoftapEnabled(Z)V
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v3}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->secSetSoftapEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -1071,13 +1100,13 @@
     .parameter "enabled"
 
     .prologue
-    .line 723
+    .line 707
     if-eqz p1, :cond_0
 
-    .line 727
+    .line 711
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->afterAttentionDialog()V
 
-    .line 730
+    .line 714
     :cond_0
     return-void
 .end method
@@ -1088,24 +1117,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 937
+    .line 923
     iget-boolean v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiDisabledByEnablingHotspot:Z
 
     if-eqz v0, :cond_1
 
-    .line 938
+    .line 924
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-eqz v0, :cond_0
 
-    .line 939
+    .line 925
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 940
+    .line 926
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
@@ -1117,10 +1146,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 941
+    .line 927
     iput-boolean v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiDisabledByEnablingHotspot:Z
 
-    .line 944
+    .line 930
     :cond_1
     new-instance v0, Landroid/content/Intent;
 
@@ -1128,19 +1157,19 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 945
+    .line 931
     const-string v1, "called_dialog"
 
     const/4 v2, 0x2
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 946
+    .line 932
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 947
+    .line 933
     return-void
 .end method
 
@@ -1149,35 +1178,35 @@
     .parameter
 
     .prologue
-    .line 923
+    .line 909
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 924
+    .line 910
     const/16 v1, 0x1b
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 925
+    .line 911
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 926
+    .line 912
     const-string v2, "mode"
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 927
+    .line 913
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 928
+    .line 914
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v1, v0}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
-    .line 929
+    .line 915
     return-void
 .end method
 
@@ -1194,13 +1223,13 @@
 
     const/4 v6, 0x0
 
-    .line 813
+    .line 798
     if-eqz p1, :cond_0
 
-    .line 814
+    .line 799
     iput-boolean v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiDisabledByEnablingHotspot:Z
 
-    .line 815
+    .line 800
     :cond_0
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1208,7 +1237,7 @@
 
     move-result v2
 
-    .line 816
+    .line 801
     .local v2, wifiApState:I
     if-eqz p1, :cond_3
 
@@ -1220,7 +1249,7 @@
 
     if-ne v2, v4, :cond_3
 
-    .line 818
+    .line 803
     :cond_1
     iget v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
@@ -1228,22 +1257,22 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 819
+    .line 804
     const-string v4, "WifiApWarning"
 
     const-string v5, "provisioning sucess"
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 820
+    .line 805
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 868
+    .line 853
     :goto_0
     return-void
 
-    .line 824
+    .line 809
     :cond_3
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1251,7 +1280,7 @@
 
     move-result v3
 
-    .line 825
+    .line 810
     .local v3, wifiState:I
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
@@ -1259,7 +1288,7 @@
 
     move-result-object v0
 
-    .line 826
+    .line 811
     .local v0, cr:Landroid/content/ContentResolver;
     const-string v4, "airplane_mode_on"
 
@@ -1274,7 +1303,7 @@
     :goto_1
     iput-boolean v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isAirplaneMode:Z
 
-    .line 827
+    .line 812
     const-string v4, "WifiApWarning"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1299,28 +1328,28 @@
 
     invoke-static {v4, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 828
+    .line 813
     if-eqz p1, :cond_5
 
     iget-boolean v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isAirplaneMode:Z
 
     if-eqz v4, :cond_5
 
-    .line 829
+    .line 814
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
 
-    .line 830
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 815
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     :cond_4
     move v4, v6
 
-    .line 826
+    .line 811
     goto :goto_1
 
-    .line 836
+    .line 821
     :cond_5
     if-eqz p1, :cond_9
 
@@ -1336,25 +1365,25 @@
 
     if-eqz v4, :cond_9
 
-    .line 839
+    .line 824
     :cond_6
     if-eq v3, v9, :cond_7
 
     if-ne v3, v10, :cond_8
 
-    .line 841
+    .line 826
     :cond_7
     const-string v4, "wifi_saved_state"
 
     invoke-static {v0, v4, v5}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 843
+    .line 828
     :cond_8
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v4, v6}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 845
+    .line 830
     const-wide/16 v7, 0x258
 
     :try_start_0
@@ -1362,7 +1391,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 851
+    .line 836
     :cond_9
     :goto_2
     if-eqz p1, :cond_a
@@ -1373,17 +1402,17 @@
 
     if-lez v4, :cond_a
 
-    .line 852
+    .line 837
     invoke-direct {p0, v6}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setRvfMode(I)V
 
-    .line 853
+    .line 838
     const-string v4, "WifiApWarning"
 
     const-string v6, "setRvfMode(0) for Hotspot configuration"
 
     invoke-static {v4, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 856
+    .line 841
     :cond_a
     const-string v4, "WifiApWarning"
 
@@ -1407,13 +1436,13 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 857
+    .line 842
     if-eqz p1, :cond_b
 
-    .line 858
+    .line 843
     sput-boolean v5, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    .line 859
+    .line 844
     :cond_b
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1423,42 +1452,42 @@
 
     goto/16 :goto_0
 
-    .line 846
+    .line 831
     :catch_0
     move-exception v1
 
-    .line 847
+    .line 832
     .local v1, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 .end method
 
 .method private showNextHotspotDialog(I)V
-    .locals 22
+    .locals 23
     .parameter "id"
 
     .prologue
-    .line 445
+    .line 436
     packed-switch p1, :pswitch_data_0
 
-    .line 680
+    .line 671
     :cond_0
     :goto_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->finish()V
 
-    .line 682
+    .line 673
     :goto_1
     return-void
 
-    .line 447
+    .line 438
     :pswitch_0
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
 
-    .line 448
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 439
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->finish()V
 
-    .line 451
+    .line 442
     :pswitch_1
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
@@ -1466,7 +1495,7 @@
 
     invoke-direct {v5, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 452
+    .line 443
     .local v5, HotspotWarningDialog:Landroid/app/AlertDialog$Builder;
     new-instance v15, Landroid/widget/TextView;
 
@@ -1474,15 +1503,15 @@
 
     invoke-direct {v15, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 456
+    .line 447
     .local v15, view:Landroid/widget/TextView;
-    const v18, 0x7f09044a
+    const v18, 0x7f090484
 
     move/from16 v0, v18
 
     invoke-virtual {v15, v0}, Landroid/widget/TextView;->setText(I)V
 
-    .line 458
+    .line 449
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsTablet:Z
@@ -1499,14 +1528,14 @@
 
     if-nez v18, :cond_1
 
-    .line 459
+    .line 450
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
     invoke-virtual {v15, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 460
+    .line 451
     :cond_1
     const/high16 v18, 0x4190
 
@@ -1514,7 +1543,7 @@
 
     invoke-virtual {v15, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 461
+    .line 452
     const/16 v18, 0x1e
 
     const/16 v19, 0x1e
@@ -1533,7 +1562,7 @@
 
     invoke-virtual {v15, v0, v1, v2, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 462
+    .line 453
     const/high16 v18, 0x4000
 
     const/high16 v19, 0x3f80
@@ -1544,7 +1573,7 @@
 
     invoke-virtual {v15, v0, v1}, Landroid/widget/TextView;->setLineSpacing(FF)V
 
-    .line 463
+    .line 454
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v18
@@ -1553,11 +1582,11 @@
 
     invoke-virtual {v15, v0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    .line 464
+    .line 455
     invoke-virtual {v5, v15}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 465
-    const v18, 0x7f090437
+    .line 456
+    const v18, 0x7f090471
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$10;
 
@@ -1573,8 +1602,8 @@
 
     invoke-virtual {v5, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 470
-    const v18, 0x7f09074d
+    .line 461
+    const v18, 0x7f0907a0
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$11;
 
@@ -1590,7 +1619,7 @@
 
     invoke-virtual {v5, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 476
+    .line 467
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$12;
 
     move-object/from16 v0, v18
@@ -1603,15 +1632,15 @@
 
     invoke-virtual {v5, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 482
+    .line 473
     invoke-virtual {v5}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 483
+    .line 474
     invoke-virtual {v5}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 486
+    .line 477
     .end local v5           #HotspotWarningDialog:Landroid/app/AlertDialog$Builder;
     .end local v15           #view:Landroid/widget/TextView;
     :pswitch_2
@@ -1621,16 +1650,16 @@
 
     invoke-direct {v4, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 487
+    .line 478
     .local v4, HotspotNoLTEWarningDialog:Landroid/app/AlertDialog$Builder;
-    const v18, 0x7f09043e
+    const v18, 0x7f090478
 
     move/from16 v0, v18
 
     invoke-virtual {v4, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 488
-    const v18, 0x7f09074c
+    .line 479
+    const v18, 0x7f09079f
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$13;
 
@@ -1646,7 +1675,7 @@
 
     invoke-virtual {v4, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 494
+    .line 485
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$14;
 
     move-object/from16 v0, v18
@@ -1659,22 +1688,22 @@
 
     invoke-virtual {v4, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 500
-    const v18, 0x7f0903f6
+    .line 491
+    const v18, 0x7f09042d
 
     move/from16 v0, v18
 
     invoke-virtual {v4, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 501
+    .line 492
     invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 502
+    .line 493
     invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 505
+    .line 496
     .end local v4           #HotspotNoLTEWarningDialog:Landroid/app/AlertDialog$Builder;
     :pswitch_3
     new-instance v12, Landroid/app/AlertDialog$Builder;
@@ -1683,16 +1712,16 @@
 
     invoke-direct {v12, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 506
+    .line 497
     .local v12, mNoSimDialog:Landroid/app/AlertDialog$Builder;
-    const v18, 0x7f0903f5
+    const v18, 0x7f09042c
 
     move/from16 v0, v18
 
     invoke-virtual {v12, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 507
-    const v18, 0x7f09074c
+    .line 498
+    const v18, 0x7f09079f
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$15;
 
@@ -1708,7 +1737,7 @@
 
     invoke-virtual {v12, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 513
+    .line 504
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$16;
 
     move-object/from16 v0, v18
@@ -1721,22 +1750,22 @@
 
     invoke-virtual {v12, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 519
-    const v18, 0x7f0903f6
+    .line 510
+    const v18, 0x7f09042d
 
     move/from16 v0, v18
 
     invoke-virtual {v12, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 520
+    .line 511
     invoke-virtual {v12}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 521
+    .line 512
     invoke-virtual {v12}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 524
+    .line 515
     .end local v12           #mNoSimDialog:Landroid/app/AlertDialog$Builder;
     :pswitch_4
     new-instance v13, Landroid/app/AlertDialog$Builder;
@@ -1745,16 +1774,40 @@
 
     invoke-direct {v13, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 525
+    .line 516
     .local v13, mWarnRoamBulder:Landroid/app/AlertDialog$Builder;
-    const v18, 0x7f090412
+    move-object/from16 v0, p0
 
-    move/from16 v0, v18
+    iget-object v0, v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v13, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    move-object/from16 v18, v0
 
-    .line 526
-    const v18, 0x7f0906f6
+    const v19, 0x7f09044c
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    const-string v22, "$20.48"
+
+    aput-object v22, v20, v21
+
+    invoke-virtual/range {v18 .. v20}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v13, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    .line 517
+    const v18, 0x7f090749
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$17;
 
@@ -1770,7 +1823,7 @@
 
     invoke-virtual {v13, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 531
+    .line 522
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$18;
 
     move-object/from16 v0, v18
@@ -1783,33 +1836,33 @@
 
     invoke-virtual {v13, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 537
-    const v18, 0x7f090411
+    .line 528
+    const v18, 0x7f09044b
 
     move/from16 v0, v18
 
     invoke-virtual {v13, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 538
+    .line 529
     invoke-virtual {v13}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 539
+    .line 530
     invoke-virtual {v13}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 542
+    .line 533
     .end local v13           #mWarnRoamBulder:Landroid/app/AlertDialog$Builder;
     :pswitch_5
     const-string v7, "file:///android_asset/html/%y/tethering_attention.html"
 
-    .line 543
+    .line 534
     .local v7, attention_url:Ljava/lang/String;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v11
 
-    .line 544
+    .line 535
     .local v11, locale:Ljava/util/Locale;
     invoke-virtual {v11}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -1829,7 +1882,7 @@
 
     const-string v10, "ja"
 
-    .line 545
+    .line 536
     .local v10, language:Ljava/lang/String;
     :goto_2
     const-string v18, "%y"
@@ -1840,7 +1893,7 @@
 
     move-result-object v14
 
-    .line 547
+    .line 538
     .local v14, url:Ljava/lang/String;
     new-instance v8, Landroid/webkit/WebView;
 
@@ -1848,23 +1901,23 @@
 
     invoke-direct {v8, v0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
 
-    .line 548
+    .line 539
     .local v8, attention_view:Landroid/webkit/WebView;
     invoke-virtual {v8, v14}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 550
+    .line 541
     new-instance v6, Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v0, p0
 
     invoke-direct {v6, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 551
+    .line 542
     .local v6, attentionDialog:Landroid/app/AlertDialog$Builder;
     invoke-virtual {v6, v8}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 552
-    const v18, 0x7f09074c
+    .line 543
+    const v18, 0x7f09079f
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$19;
 
@@ -1880,8 +1933,8 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 557
-    const v18, 0x7f09074d
+    .line 548
+    const v18, 0x7f0907a0
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$20;
 
@@ -1897,7 +1950,7 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 563
+    .line 554
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$21;
 
     move-object/from16 v0, v18
@@ -1910,29 +1963,29 @@
 
     invoke-virtual {v6, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 569
+    .line 560
     const v18, 0x1040014
 
     move/from16 v0, v18
 
     invoke-virtual {v6, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 570
+    .line 561
     const/16 v18, 0x0
 
     move/from16 v0, v18
 
     invoke-virtual {v6, v0}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 571
+    .line 562
     invoke-virtual {v6}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 572
+    .line 563
     invoke-virtual {v6}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 544
+    .line 535
     .end local v6           #attentionDialog:Landroid/app/AlertDialog$Builder;
     .end local v8           #attention_view:Landroid/webkit/WebView;
     .end local v10           #language:Ljava/lang/String;
@@ -1942,7 +1995,7 @@
 
     goto :goto_2
 
-    .line 575
+    .line 566
     .end local v7           #attention_url:Ljava/lang/String;
     .end local v11           #locale:Ljava/util/Locale;
     :pswitch_6
@@ -1952,16 +2005,16 @@
 
     invoke-direct {v9, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 576
+    .line 567
     .local v9, batteryDialog:Landroid/app/AlertDialog$Builder;
-    const v18, 0x7f090435
+    const v18, 0x7f09046f
 
     move/from16 v0, v18
 
     invoke-virtual {v9, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 577
-    const v18, 0x7f09074c
+    .line 568
+    const v18, 0x7f09079f
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$22;
 
@@ -1977,8 +2030,8 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 582
-    const v18, 0x7f09074d
+    .line 573
+    const v18, 0x7f0907a0
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$23;
 
@@ -1994,7 +2047,7 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 588
+    .line 579
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$24;
 
     move-object/from16 v0, v18
@@ -2007,22 +2060,22 @@
 
     invoke-virtual {v9, v0}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 594
-    const v18, 0x7f09068d
+    .line 585
+    const v18, 0x7f0906c8
 
     move/from16 v0, v18
 
     invoke-virtual {v9, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 595
+    .line 586
     invoke-virtual {v9}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 596
+    .line 587
     invoke-virtual {v9}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 599
+    .line 590
     .end local v9           #batteryDialog:Landroid/app/AlertDialog$Builder;
     :pswitch_7
     const-string v18, "WifiApWarning"
@@ -2031,7 +2084,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 600
+    .line 591
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -2048,7 +2101,7 @@
 
     iput-object v0, v1, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    .line 601
+    .line 592
     new-instance v18, Lcom/android/settings/wifi/WifiApDialog;
 
     move-object/from16 v0, p0
@@ -2079,7 +2132,7 @@
 
     iput-object v0, v1, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
 
-    .line 602
+    .line 593
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -2094,9 +2147,9 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning$25;-><init>(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
-    invoke-virtual/range {v18 .. v19}, Lcom/android/settings/wifi/WifiApDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+    invoke-virtual/range {v18 .. v19}, Landroid/app/Dialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
-    .line 613
+    .line 604
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -2107,7 +2160,7 @@
 
     goto/16 :goto_1
 
-    .line 616
+    .line 607
     :pswitch_8
     new-instance v16, Landroid/app/AlertDialog$Builder;
 
@@ -2117,9 +2170,9 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 617
+    .line 608
     .local v16, warnWifiDisable:Landroid/app/AlertDialog$Builder;
-    const v18, 0x7f0903ce
+    const v18, 0x7f090407
 
     move-object/from16 v0, v16
 
@@ -2127,8 +2180,8 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 618
-    const v18, 0x7f09074c
+    .line 609
+    const v18, 0x7f09079f
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$26;
 
@@ -2146,8 +2199,8 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 636
-    const v18, 0x7f09074d
+    .line 627
+    const v18, 0x7f0907a0
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$27;
 
@@ -2165,7 +2218,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 642
+    .line 633
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$28;
 
     move-object/from16 v0, v18
@@ -2180,8 +2233,8 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 648
-    const v18, 0x7f090432
+    .line 639
+    const v18, 0x7f09046c
 
     move-object/from16 v0, v16
 
@@ -2189,15 +2242,15 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 649
+    .line 640
     invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 650
+    .line 641
     invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 653
+    .line 644
     .end local v16           #warnWifiDisable:Landroid/app/AlertDialog$Builder;
     :pswitch_9
     new-instance v17, Landroid/app/AlertDialog$Builder;
@@ -2208,14 +2261,14 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 654
+    .line 645
     .local v17, warnWifiP2PDisable:Landroid/app/AlertDialog$Builder;
-    const v18, 0x7f0903d4
+    const v18, 0x7f09040d
 
     invoke-virtual/range {v17 .. v18}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 655
-    const v18, 0x7f09074c
+    .line 646
+    const v18, 0x7f09079f
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$29;
 
@@ -2227,8 +2280,8 @@
 
     invoke-virtual/range {v17 .. v19}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 660
-    const v18, 0x7f09074d
+    .line 651
+    const v18, 0x7f0907a0
 
     new-instance v19, Lcom/android/settings/wifi/mobileap/WifiApWarning$30;
 
@@ -2240,7 +2293,7 @@
 
     invoke-virtual/range {v17 .. v19}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 666
+    .line 657
     new-instance v18, Lcom/android/settings/wifi/mobileap/WifiApWarning$31;
 
     move-object/from16 v0, v18
@@ -2251,20 +2304,20 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 672
-    const v18, 0x7f090432
+    .line 663
+    const v18, 0x7f09046c
 
     invoke-virtual/range {v17 .. v18}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 673
+    .line 664
     invoke-virtual/range {v17 .. v17}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 674
+    .line 665
     invoke-virtual/range {v17 .. v17}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto/16 :goto_1
 
-    .line 677
+    .line 668
     .end local v17           #warnWifiP2PDisable:Landroid/app/AlertDialog$Builder;
     :pswitch_a
     move-object/from16 v0, p0
@@ -2275,7 +2328,7 @@
 
     if-eqz v18, :cond_0
 
-    .line 678
+    .line 669
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -2290,7 +2343,7 @@
 
     goto/16 :goto_0
 
-    .line 445
+    .line 436
     :pswitch_data_0
     .packed-switch 0x15
         :pswitch_0
@@ -2315,41 +2368,41 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 968
+    .line 965
     const/16 v0, 0xa
 
     if-ne p1, v0, :cond_2
 
-    .line 969
+    .line 966
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
     if-nez v0, :cond_0
 
-    .line 970
+    .line 967
     new-instance v0, Landroid/app/ProgressDialog;
 
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    .line 971
+    .line 968
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 972
+    .line 969
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09039a
+    const v2, 0x7f0903d3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2357,57 +2410,57 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 973
+    .line 970
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0, v3}, Landroid/app/ProgressDialog;->setCancelable(Z)V
+    invoke-virtual {v0, v3}, Landroid/app/Dialog;->setCancelable(Z)V
 
-    .line 974
+    .line 971
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 985
+    .line 982
     :cond_1
     :goto_0
     return-void
 
-    .line 976
+    .line 973
     :cond_2
     const/16 v0, 0xb
 
     if-ne p1, v0, :cond_1
 
-    .line 977
+    .line 974
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
     if-nez v0, :cond_3
 
-    .line 978
+    .line 975
     new-instance v0, Landroid/app/ProgressDialog;
 
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    .line 979
+    .line 976
     :cond_3
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 980
+    .line 977
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09039b
+    const v2, 0x7f0903d4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2415,15 +2468,15 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 981
+    .line 978
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0, v3}, Landroid/app/ProgressDialog;->setCancelable(Z)V
+    invoke-virtual {v0, v3}, Landroid/app/Dialog;->setCancelable(Z)V
 
-    .line 982
+    .line 979
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOffDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto :goto_0
 .end method
@@ -2437,26 +2490,26 @@
 
     const/4 v3, 0x0
 
-    .line 871
+    .line 856
     invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isProvisioningNeeded()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 872
+    .line 857
     const/16 v0, 0xa
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->showProgressDialog(I)V
 
-    .line 873
+    .line 858
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MAIN"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 874
+    .line 859
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mProvisionApp:[Ljava/lang/String;
 
     aget-object v1, v1, v3
@@ -2467,31 +2520,31 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 875
+    .line 860
     const-string v1, "type"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 876
+    .line 861
     const/high16 v1, 0x80
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 877
+    .line 862
     const-string v1, "WifiApWarning"
 
     const-string v2, "startActivityForResult"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 878
-    invoke-virtual {p0, v0, v3}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 863
+    invoke-virtual {p0, v0, v3}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 882
+    .line 867
     :goto_0
     return-void
 
-    .line 880
+    .line 865
     :cond_0
     invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setSoftapEnabled(Z)V
 
@@ -2506,14 +2559,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 904
+    .line 890
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->isProvisioningCheck()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 905
+    .line 891
     :cond_0
     :goto_0
     return v0
@@ -2539,35 +2592,38 @@
     .parameter
 
     .prologue
-    .line 885
-    invoke-super {p0, p1, p2, p3}, Lcom/android/internal/app/AlertActivity;->onActivityResult(IILandroid/content/Intent;)V
+    .line 870
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 886
+    .line 871
     const-string v0, "WifiApWarning"
 
     const-string v1, "onActivityResult"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 887
+    .line 872
     if-nez p1, :cond_0
 
-    .line 888
+    .line 873
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_1
 
-    .line 889
+    .line 874
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setSoftapEnabled(Z)V
 
-    .line 901
+    .line 875
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    .line 887
     :cond_0
     :goto_0
     return-void
 
-    .line 891
+    .line 877
     :cond_1
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
@@ -2575,14 +2631,14 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 892
+    .line 878
     const-string v0, "WifiApWarning"
 
     const-string v1, "WifiAp is disabled: provisioning fail"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 893
+    .line 879
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     const/4 v1, 0x0
@@ -2591,17 +2647,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 894
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 880
+    const/16 v0, 0xa
+
+    invoke-direct {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->dismissProgressDialog(I)V
 
     goto :goto_0
 
-    .line 896
+    .line 882
     :cond_2
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
 
-    .line 897
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 883
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method
@@ -2612,10 +2670,10 @@
     .parameter "which"
 
     .prologue
-    .line 1043
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 1042
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 1044
+    .line 1043
     return-void
 .end method
 
@@ -2630,34 +2688,34 @@
 
     const/4 v11, 0x0
 
-    const v10, 0x7f10002d
+    const v10, 0x7f100034
 
     const/4 v9, 0x1
 
-    .line 134
+    .line 131
     const-string v6, "WifiApWarning"
 
     const-string v7, "onCreate"
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 135
+    .line 132
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 137
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->getIntent()Landroid/content/Intent;
+    .line 134
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
-    .line 138
+    .line 135
     .local v3, intent:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
-    .line 139
+    .line 136
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     const-string v7, "wifi"
@@ -2670,7 +2728,7 @@
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 140
+    .line 137
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     const-string v7, "connectivity"
@@ -2683,7 +2741,7 @@
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 141
+    .line 138
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -2692,7 +2750,7 @@
 
     iput-boolean v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsTablet:Z
 
-    .line 142
+    .line 139
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-static {v6}, Lcom/android/settings/Utils;->isLightTheme(Landroid/content/Context;)Z
@@ -2701,14 +2759,14 @@
 
     iput-boolean v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIsLightTheme:Z
 
-    .line 143
+    .line 140
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x1070022
+    const v7, 0x1070017
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -2716,7 +2774,7 @@
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mProvisionApp:[Ljava/lang/String;
 
-    .line 144
+    .line 141
     new-instance v6, Landroid/content/IntentFilter;
 
     const-string v7, "android.net.wifi.WIFI_AP_STATE_CHANGED"
@@ -2725,14 +2783,14 @@
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 145
+    .line 142
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v7, "android.intent.action.AIRPLANE_MODE"
 
     invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 146
+    .line 143
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     iget-object v7, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -2741,7 +2799,7 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 147
+    .line 144
     invoke-virtual {v3}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v6
@@ -2754,22 +2812,22 @@
 
     if-nez v6, :cond_1
 
-    .line 148
+    .line 145
     const-string v6, "WifiApWarning"
 
     const-string v7, "Error: this activity may be started only with intent"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 149
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 146
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 442
+    .line 433
     :cond_0
     :goto_0
     return-void
 
-    .line 152
+    .line 149
     :cond_1
     const-string v6, "wifiap_warning_dialog_type"
 
@@ -2779,7 +2837,7 @@
 
     iput v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
-    .line 153
+    .line 150
     const-string v6, "req_type"
 
     invoke-virtual {v3, v6, v13}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -2788,7 +2846,7 @@
 
     iput v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
-    .line 154
+    .line 151
     const-string v6, "extra_type"
 
     invoke-virtual {v3, v6, v13}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -2797,21 +2855,21 @@
 
     iput v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->extra_type:I
 
-    .line 155
-    iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    .line 152
+    iget-object v5, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    .line 156
+    .line 153
     .local v5, p:Lcom/android/internal/app/AlertController$AlertParams;
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     packed-switch v6, :pswitch_data_0
 
-    .line 439
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 430
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 158
+    .line 155
     :pswitch_0
     const-string v6, "WifiApWarning"
 
@@ -2819,7 +2877,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
+    .line 157
     :pswitch_1
     const-string v6, "WifiApWarning"
 
@@ -2827,7 +2885,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 162
+    .line 159
     :pswitch_2
     const-string v6, "WifiApWarning"
 
@@ -2835,49 +2893,49 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 163
+    .line 160
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 164
+    .line 161
     .local v2, cr:Landroid/content/ContentResolver;
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
-    .line 165
-    invoke-virtual {p0, v10}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setTheme(I)V
+    .line 162
+    invoke-virtual {p0, v10}, Landroid/view/ContextThemeWrapper;->setTheme(I)V
 
-    .line 166
+    .line 163
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 167
+    .line 164
     .local v0, ad:Landroid/app/AlertDialog$Builder;
-    const v6, 0x7f0903a1
+    const v6, 0x7f0903da
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 168
+    .line 165
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     if-ne v6, v9, :cond_3
 
-    .line 169
-    const v6, 0x7f0903a5
+    .line 166
+    const v6, 0x7f0903de
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 175
+    .line 172
     :goto_1
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     if-eq v6, v9, :cond_2
 
-    .line 176
-    const v6, 0x7f09074d
+    .line 173
+    const v6, 0x7f0907a0
 
     new-instance v7, Lcom/android/settings/wifi/mobileap/WifiApWarning$2;
 
@@ -2885,7 +2943,7 @@
 
     invoke-virtual {v0, v6, v7}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 201
+    .line 198
     :cond_2
     const v6, 0x104000a
 
@@ -2895,28 +2953,28 @@
 
     invoke-virtual {v0, v6, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 234
+    .line 231
     new-instance v6, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;
 
     invoke-direct {v6, p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;-><init>(Lcom/android/settings/wifi/mobileap/WifiApWarning;Landroid/content/ContentResolver;)V
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 257
+    .line 254
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mNaiMismatchDialog:Landroid/app/AlertDialog;
 
-    .line 258
+    .line 255
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mNaiMismatchDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v6}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v6}, Landroid/app/Dialog;->show()V
 
     goto/16 :goto_0
 
-    .line 170
+    .line 167
     :cond_3
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
@@ -2924,22 +2982,22 @@
 
     if-ne v6, v7, :cond_4
 
-    .line 171
-    const v6, 0x7f0903a3
+    .line 168
+    const v6, 0x7f0903dc
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_1
 
-    .line 173
+    .line 170
     :cond_4
-    const v6, 0x7f0903a4
+    const v6, 0x7f0903dd
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_1
 
-    .line 339
+    .line 330
     .end local v0           #ad:Landroid/app/AlertDialog$Builder;
     .end local v2           #cr:Landroid/content/ContentResolver;
     :pswitch_3
@@ -2947,20 +3005,20 @@
 
     iput-object v6, v5, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 340
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setupAlert()V
+    .line 331
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
-    .line 341
-    invoke-virtual {p0, v11}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setVisible(Z)V
+    .line 332
+    invoke-virtual {p0, v11}, Landroid/app/Activity;->setVisible(Z)V
 
-    .line 342
+    .line 333
     move-object v1, p0
 
-    .line 343
+    .line 334
     .local v1, av:Landroid/app/Activity;
-    invoke-virtual {p0, v10}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setTheme(I)V
+    invoke-virtual {p0, v10}, Landroid/view/ContextThemeWrapper;->setTheme(I)V
 
-    .line 345
+    .line 336
     new-instance v6, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v6, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -2971,7 +3029,7 @@
 
     move-result-object v4
 
-    .line 347
+    .line 338
     .local v4, newDialog:Landroid/app/AlertDialog$Builder;
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
@@ -2981,12 +3039,12 @@
 
     if-ne v6, v9, :cond_6
 
-    .line 348
-    const v6, 0x7f090399
+    .line 339
+    const v6, 0x7f0903d2
 
     invoke-virtual {v4, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 356
+    .line 347
     :cond_5
     :goto_2
     const v6, 0x104000a
@@ -2997,14 +3055,14 @@
 
     invoke-virtual {v4, v6, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 389
+    .line 380
     new-instance v6, Lcom/android/settings/wifi/mobileap/WifiApWarning$8;
 
     invoke-direct {v6, p0, v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning$8;-><init>(Lcom/android/settings/wifi/mobileap/WifiApWarning;Landroid/app/Activity;)V
 
     invoke-virtual {v4, v6}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 404
+    .line 395
     const/high16 v6, 0x104
 
     new-instance v7, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;
@@ -3013,26 +3071,26 @@
 
     invoke-virtual {v4, v6, v7}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 419
+    .line 410
     invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
-    .line 420
+    .line 411
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v6, :cond_0
 
-    .line 421
+    .line 412
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mApDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v6}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v6}, Landroid/app/Dialog;->show()V
 
     goto/16 :goto_0
 
-    .line 349
+    .line 340
     :cond_6
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
@@ -3042,14 +3100,14 @@
 
     if-ne v6, v9, :cond_7
 
-    .line 350
-    const v6, 0x7f09039f
+    .line 341
+    const v6, 0x7f0903d8
 
     invoke-virtual {v4, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_2
 
-    .line 351
+    .line 342
     :cond_7
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
@@ -3059,14 +3117,14 @@
 
     if-ne v6, v12, :cond_8
 
-    .line 352
-    const v6, 0x7f09039c
+    .line 343
+    const v6, 0x7f0903d5
 
     invoke-virtual {v4, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_2
 
-    .line 353
+    .line 344
     :cond_8
     iget v6, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->req_type:I
 
@@ -3076,40 +3134,40 @@
 
     if-nez v6, :cond_5
 
-    .line 354
-    const v6, 0x7f09039e
+    .line 345
+    const v6, 0x7f0903d7
 
     invoke-virtual {v4, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     goto :goto_2
 
-    .line 425
+    .line 416
     .end local v1           #av:Landroid/app/Activity;
     .end local v4           #newDialog:Landroid/app/AlertDialog$Builder;
     :pswitch_4
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
-    .line 426
-    invoke-virtual {p0, v10}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setTheme(I)V
+    .line 417
+    invoke-virtual {p0, v10}, Landroid/view/ContextThemeWrapper;->setTheme(I)V
 
-    .line 431
+    .line 422
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->preProvisioning()V
 
     goto/16 :goto_0
 
-    .line 434
+    .line 425
     :pswitch_5
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
-    .line 435
-    invoke-virtual {p0, v10}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->setTheme(I)V
+    .line 426
+    invoke-virtual {p0, v10}, Landroid/view/ContextThemeWrapper;->setTheme(I)V
 
-    .line 436
+    .line 427
     invoke-direct {p0, v11}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->startProvisioningIfNecessary(I)V
 
     goto/16 :goto_0
 
-    .line 156
+    .line 153
     nop
 
     :pswitch_data_0
@@ -3127,27 +3185,27 @@
     .locals 2
 
     .prologue
-    .line 1085
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onDestroy()V
+    .line 1077
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 1086
+    .line 1078
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 1087
+    .line 1079
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     const/4 v1, 0x5
 
     if-ne v0, v1, :cond_0
 
-    .line 1088
+    .line 1080
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->sendBroadcastEnablingHotspotCancel()V
 
-    .line 1089
+    .line 1081
     :cond_0
     const-string v0, "WifiApWarning"
 
@@ -3155,7 +3213,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1090
+    .line 1082
     return-void
 .end method
 
@@ -3163,58 +3221,58 @@
     .locals 3
 
     .prologue
-    .line 1049
+    .line 1048
     const-string v0, "WifiApWarning"
 
     const-string v1, "onPause()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1050
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onPause()V
+    .line 1049
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 1051
+    .line 1050
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_1
 
-    .line 1052
+    .line 1051
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mNaiMismatchDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 1053
+    .line 1052
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mNaiMismatchDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 1054
+    .line 1053
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 1056
+    .line 1055
     :cond_1
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_4
 
-    .line 1059
+    .line 1058
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 1060
+    .line 1059
     const/4 v0, -0x2
 
     invoke-static {p0, v0, p0}, Lcom/android/settings/guide/GuideFragment;->onApDisableClick(Landroid/content/DialogInterface;ILandroid/app/Activity;)V
 
-    .line 1063
+    .line 1062
     :cond_2
     new-instance v0, Landroid/content/Intent;
 
@@ -3222,90 +3280,65 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1064
+    .line 1063
     const-string v1, "called_dialog"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1065
+    .line 1064
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1066
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    if-eqz v0, :cond_4
-
-    .line 1067
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiApState()I
-
-    move-result v0
-
-    .line 1068
-    const/16 v1, 0xb
-
-    if-eq v0, v1, :cond_3
-
-    const/16 v1, 0xa
-
-    if-ne v0, v1, :cond_4
-
-    .line 1070
+    .line 1074
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
-
-    .line 1082
-    :cond_4
     :goto_0
     return-void
 
-    .line 1073
-    :cond_5
+    .line 1065
+    :cond_4
     iget v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogType:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_3
 
-    .line 1074
+    .line 1066
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
-    .line 1075
+    .line 1067
     const-string v0, "WifiApWarning"
 
     const-string v1, "mDialogConfigure.dismiss()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1076
+    .line 1068
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiApDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 1078
-    :cond_6
+    .line 1070
+    :cond_5
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiApTurningOnDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
-    .line 1079
-    :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    .line 1071
+    :cond_6
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method
@@ -3314,17 +3347,17 @@
     .locals 2
 
     .prologue
-    .line 963
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onResume()V
+    .line 960
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 964
+    .line 961
     const-string v0, "WifiApWarning"
 
     const-string v1, "onResume()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 965
+    .line 962
     return-void
 .end method
 
@@ -3332,14 +3365,14 @@
     .locals 3
 
     .prologue
-    .line 931
+    .line 917
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 932
+    .line 918
     const-string v2, "wifi_ap_show_passwd"
 
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning;->mDialogConfigure:Lcom/android/settings/wifi/WifiApDialog;
@@ -3355,10 +3388,10 @@
     :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 934
+    .line 920
     return-void
 
-    .line 932
+    .line 918
     :cond_0
     const/4 v0, 0x0
 

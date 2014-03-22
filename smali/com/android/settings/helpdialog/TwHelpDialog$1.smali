@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 97
+    .line 101
     invoke-static {}, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->values()[Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     move-result-object v0
@@ -39,7 +39,7 @@
 
     sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->TRANSPARENT:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

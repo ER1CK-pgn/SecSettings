@@ -3,7 +3,7 @@
 .source "SMotionGuideHub.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,22 +27,29 @@
     .parameter
 
     .prologue
-    .line 1194
+    .line 1275
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionGuideHub$9;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
-    .parameter "dialog"
-    .parameter "which"
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "arg0"
 
     .prologue
-    .line 1197
+    .line 1278
+    iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$9;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
+
+    const/4 v1, 0x0
+
+    #setter for: Lcom/android/settings/motion2013/SMotionGuideHub;->mFolderDialog:Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Lcom/android/settings/motion2013/SMotionGuideHub;->access$1302(Lcom/android/settings/motion2013/SMotionGuideHub;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    .line 1279
     return-void
 .end method

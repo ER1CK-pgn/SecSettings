@@ -30,7 +30,7 @@
     .line 206
     iput-object p1, p0, Lcom/android/settings/motion/DoubleTapTutorial$5;->this$0:Lcom/android/settings/motion/DoubleTapTutorial;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
     .line 209
     iget-object v0, p0, Lcom/android/settings/motion/DoubleTapTutorial$5;->this$0:Lcom/android/settings/motion/DoubleTapTutorial;
 
-    invoke-virtual {v0}, Lcom/android/settings/motion/DoubleTapTutorial;->finish()V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     .line 210
     return-void

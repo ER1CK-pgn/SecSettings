@@ -98,7 +98,7 @@
     const/4 v3, 0x0
 
     .line 83
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 56
     new-instance v0, Ljava/util/ArrayList;

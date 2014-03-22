@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1726
+    .line 2242
     iput-object p1, p0, Lcom/android/settings/Utils$3;->val$c:Landroid/content/Context;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,12 +45,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1730
+    .line 2246
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 1731
+    .line 2247
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "com.sec.android.app.samsungapps"
 
@@ -58,33 +58,33 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1733
+    .line 2249
     const-string v1, "directcall"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1734
+    .line 2250
     const-string v1, "callerType"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1735
+    .line 2251
     const-string v1, "GUID"
 
     const-string v2, "com.samsung.helpplugin"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1736
+    .line 2252
     const v1, 0x14000020
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 1739
+    .line 2255
     iget-object v1, p0, Lcom/android/settings/Utils$3;->val$c:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 1740
+    .line 2256
     return-void
 .end method

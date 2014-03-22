@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1047
+    .line 1120
     iput-object p1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$4;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,22 +43,22 @@
     .parameter "id"
 
     .prologue
-    .line 1049
+    .line 1122
     new-instance v0, Lcom/android/settings/wifi/WifiReset;
 
     iget-object v1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$4;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
     #getter for: Lcom/android/settings/wifi/AdvancedWifiSettings;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->access$500(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/settings/wifi/AdvancedWifiSettings;->access$900(Lcom/android/settings/wifi/AdvancedWifiSettings;)Landroid/content/Context;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Lcom/android/settings/wifi/WifiReset;-><init>(Landroid/content/Context;)V
 
-    .line 1050
+    .line 1123
     .local v0, reset:Lcom/android/settings/wifi/WifiReset;
     invoke-virtual {v0}, Lcom/android/settings/wifi/WifiReset;->start()V
 
-    .line 1051
+    .line 1124
     return-void
 .end method

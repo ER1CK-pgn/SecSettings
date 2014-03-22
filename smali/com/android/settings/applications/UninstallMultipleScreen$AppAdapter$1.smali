@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 289
+    .line 296
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
 
     iput p2, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->val$listposition:I
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -50,7 +50,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 293
+    .line 300
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
 
     iget-object v0, v0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->this$0:Lcom/android/settings/applications/UninstallMultipleScreen;
@@ -62,9 +62,9 @@
 
     iget v1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->val$listposition:I
 
-    invoke-virtual {v0, v1, p2}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v0, v1, p2}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
-    .line 294
+    .line 301
     if-nez p2, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
@@ -76,7 +76,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v0
 
@@ -95,7 +95,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 295
+    .line 302
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
 
     iget-object v0, v0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->this$0:Lcom/android/settings/applications/UninstallMultipleScreen;
@@ -105,9 +105,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    .line 297
+    .line 304
     :cond_0
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
 
@@ -118,13 +118,13 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemCount()I
 
     move-result v0
 
     if-lez v0, :cond_1
 
-    .line 298
+    .line 305
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
 
     iget-object v0, v0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->this$0:Lcom/android/settings/applications/UninstallMultipleScreen;
@@ -138,11 +138,11 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 301
+    .line 308
     :goto_0
     return-void
 
-    .line 300
+    .line 307
     :cond_1
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;->this$1:Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;
 

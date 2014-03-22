@@ -49,7 +49,7 @@
     .line 196
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 198
     :cond_0
@@ -92,7 +92,7 @@
     .line 201
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 202
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitch:Landroid/widget/Switch;
@@ -108,12 +108,12 @@
     .line 205
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 206
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
@@ -126,7 +126,7 @@
     .line 211
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 212
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitch:Landroid/widget/Switch;
@@ -142,12 +142,12 @@
     .line 215
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 216
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
@@ -260,7 +260,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 153
     :cond_4
@@ -333,7 +333,7 @@
     .local v0, enable:Z
     iget-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v2}, Landroid/preference/SwitchPreference;->isChecked()Z
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
@@ -348,12 +348,12 @@
     :cond_2
     iget-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 171
     iget-object v2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSwitchEnabler;->mSwitchPreference:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v2, v0}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 173
     if-eqz v0, :cond_3

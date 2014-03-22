@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 88
+    .line 98
     iput-object p1, p0, Lcom/android/settings/encryption/CryptSDCardOptionConfirm$1;->this$0:Lcom/android/settings/encryption/CryptSDCardOptionConfirm;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "v"
 
     .prologue
-    .line 91
+    .line 101
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardOptionConfirm$1;->this$0:Lcom/android/settings/encryption/CryptSDCardOptionConfirm;
 
     #calls: Lcom/android/settings/encryption/CryptSDCardOptionConfirm;->applyEncryptionUpdates()V
     invoke-static {v0}, Lcom/android/settings/encryption/CryptSDCardOptionConfirm;->access$000(Lcom/android/settings/encryption/CryptSDCardOptionConfirm;)V
 
-    .line 92
+    .line 102
     return-void
 .end method

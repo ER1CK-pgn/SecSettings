@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 115
+    .line 118
     iput-object p1, p0, Lcom/android/settings/accounts/AccountPreferenceBase$1;->this$0:Lcom/android/settings/accounts/AccountPreferenceBase;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "which"
 
     .prologue
-    .line 117
+    .line 120
     iget-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceBase$1;->this$0:Lcom/android/settings/accounts/AccountPreferenceBase;
 
     #getter for: Lcom/android/settings/accounts/AccountPreferenceBase;->mHandler:Landroid/os/Handler;
@@ -56,6 +56,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 122
+    .line 125
     return-void
 .end method

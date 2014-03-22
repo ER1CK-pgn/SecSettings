@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 139
+    .line 146
     iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler$4;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,13 +45,13 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 141
+    .line 148
     iget-object v2, p0, Lcom/android/settings/MultiWindowEnabler$4;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     #calls: Lcom/android/settings/MultiWindowEnabler;->removeEnabledScreenReaderValue()V
     invoke-static {v2}, Lcom/android/settings/MultiWindowEnabler;->access$200(Lcom/android/settings/MultiWindowEnabler;)V
 
-    .line 142
+    .line 149
     iget-object v2, p0, Lcom/android/settings/MultiWindowEnabler$4;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     #getter for: Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
@@ -61,7 +61,7 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 143
+    .line 150
     iget-object v2, p0, Lcom/android/settings/MultiWindowEnabler$4;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     #getter for: Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
@@ -77,7 +77,7 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 144
+    .line 151
     iget-object v2, p0, Lcom/android/settings/MultiWindowEnabler$4;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
     #getter for: Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
@@ -87,14 +87,14 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 145
+    .line 152
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 146
+    .line 153
     .local v0, mHandler:Landroid/os/Handler;
     new-instance v2, Lcom/android/settings/MultiWindowEnabler$4$1;
 
@@ -104,14 +104,14 @@
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 151
+    .line 158
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.android.settings.action.talkback_off"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 152
+    .line 159
     .local v1, talk_back_off:Landroid/content/Intent;
     iget-object v2, p0, Lcom/android/settings/MultiWindowEnabler$4;->this$0:Lcom/android/settings/MultiWindowEnabler;
 
@@ -122,6 +122,6 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 153
+    .line 160
     return-void
 .end method

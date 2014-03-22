@@ -3,12 +3,12 @@
 .source "Settings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/Settings;->onHeaderClick(Landroid/preference/PreferenceActivity$Header;I)V
+    value = Lcom/android/settings/Settings;->onCreate(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,22 +27,36 @@
     .parameter
 
     .prologue
-    .line 3316
+    .line 1023
     iput-object p1, p0, Lcom/android/settings/Settings$4;->this$0:Lcom/android/settings/Settings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
-    .parameter "arg0"
-    .parameter "arg1"
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+    .parameter "v"
 
     .prologue
-    .line 3318
+    .line 1026
+    iget-object v0, p0, Lcom/android/settings/Settings$4;->this$0:Lcom/android/settings/Settings;
+
+    iget-object v1, p0, Lcom/android/settings/Settings$4;->this$0:Lcom/android/settings/Settings;
+
+    #getter for: Lcom/android/settings/Settings;->mParentHeader:Landroid/preference/PreferenceActivity$Header;
+    invoke-static {v1}, Lcom/android/settings/Settings;->access$200(Lcom/android/settings/Settings;)Landroid/preference/PreferenceActivity$Header;
+
+    move-result-object v1
+
+    iget-object v1, v1, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
+
+    #calls: Lcom/android/settings/Settings;->switchToParent(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/settings/Settings;->access$300(Lcom/android/settings/Settings;Ljava/lang/String;)V
+
+    .line 1027
     return-void
 .end method

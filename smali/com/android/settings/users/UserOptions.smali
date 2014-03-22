@@ -13,6 +13,8 @@
 
 .field private mMobiledata:Landroid/preference/CheckBoxPreference;
 
+.field private mMum:Landroid/app/enterprise/multiuser/MultiUserManager;
+
 .field private mRemovingUserId:I
 
 .field private mSetUser:Lcom/android/settings/users/MePreference;
@@ -31,27 +33,32 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 42
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 44
+    .line 45
     const-string v0, "key_mobile_data"
 
     iput-object v0, p0, Lcom/android/settings/users/UserOptions;->KEY_MOBILE_DATA:Ljava/lang/String;
 
-    .line 45
+    .line 46
     const-string v0, "key_user_options"
 
     iput-object v0, p0, Lcom/android/settings/users/UserOptions;->KEY_USER_OPTIONS:Ljava/lang/String;
 
-    .line 50
+    .line 49
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/settings/users/UserOptions;->mMum:Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    .line 52
     new-instance v0, Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/users/UserOptions;->mUserLock:Ljava/lang/Object;
 
-    .line 51
+    .line 53
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/users/UserOptions;->mRemovingUserId:I
@@ -64,7 +71,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 42
     invoke-direct {p0}, Lcom/android/settings/users/UserOptions;->removeThisUser()V
 
     return-void
@@ -75,35 +82,49 @@
     .parameter "userId"
 
     .prologue
-    .line 143
+    const/4 v1, 0x1
+
+    .line 156
+    iget-object v0, p0, Lcom/android/settings/users/UserOptions;->mMum:Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    invoke-virtual {v0, v1}, Landroid/app/enterprise/multiuser/MultiUserManager;->isUserRemovalAllowed(Z)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 166
+    :goto_0
+    return-void
+
+    .line 160
+    :cond_0
     iget-object v1, p0, Lcom/android/settings/users/UserOptions;->mUserLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 144
+    .line 161
     :try_start_0
     iget v0, p0, Lcom/android/settings/users/UserOptions;->mRemovingUserId:I
 
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1
 
-    .line 145
+    .line 162
     iput p1, p0, Lcom/android/settings/users/UserOptions;->mRemovingUserId:I
 
-    .line 147
-    :cond_0
+    .line 164
+    :cond_1
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/users/UserOptions;->showDialog(I)V
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
-    .line 148
+    .line 165
     monitor-exit v1
 
-    .line 149
-    return-void
+    goto :goto_0
 
-    .line 148
     :catchall_0
     move-exception v0
 
@@ -118,7 +139,23 @@
     .locals 2
 
     .prologue
-    .line 152
+    .line 171
+    iget-object v0, p0, Lcom/android/settings/users/UserOptions;->mMum:Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/app/enterprise/multiuser/MultiUserManager;->isUserRemovalAllowed(Z)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 182
+    :goto_0
+    return-void
+
+    .line 176
+    :cond_0
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -128,8 +165,8 @@
 
     invoke-interface {v0, v1}, Landroid/app/IActivityManager;->switchUser(I)Z
 
-    .line 153
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getActivity()Landroid/app/Activity;
+    .line 177
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -145,16 +182,14 @@
 
     invoke-virtual {v0, v1}, Landroid/os/UserManager;->removeUser(I)Z
 
-    .line 155
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->finish()V
+    .line 179
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 158
-    :goto_0
-    return-void
+    goto :goto_0
 
-    .line 156
+    .line 180
     :catch_0
     move-exception v0
 
@@ -172,11 +207,11 @@
 
     const/4 v7, 0x0
 
-    .line 59
+    .line 61
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 62
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getActivity()Landroid/app/Activity;
+    .line 63
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -191,11 +226,22 @@
     iput-object v4, p0, Lcom/android/settings/users/UserOptions;->mUserManager:Landroid/os/UserManager;
 
     .line 64
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/app/enterprise/multiuser/MultiUserManager;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    move-result-object v4
+
+    iput-object v4, p0, Lcom/android/settings/users/UserOptions;->mMum:Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    .line 66
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v2
 
-    .line 66
+    .line 68
     .local v2, bundle:Landroid/os/Bundle;
     const-string v4, "user_id"
 
@@ -205,7 +251,7 @@
 
     iput v4, p0, Lcom/android/settings/users/UserOptions;->user_id:I
 
-    .line 67
+    .line 69
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mUserManager:Landroid/os/UserManager;
 
     iget v5, p0, Lcom/android/settings/users/UserOptions;->user_id:I
@@ -216,13 +262,13 @@
 
     iput-object v4, p0, Lcom/android/settings/users/UserOptions;->user:Landroid/content/pm/UserInfo;
 
-    .line 69
-    const v4, 0x7f040195
+    .line 71
+    const v4, 0x7f0401d3
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/users/UserOptions;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 70
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getContentResolver()Landroid/content/ContentResolver;
+    .line 72
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -234,11 +280,11 @@
 
     move-result v0
 
-    .line 72
+    .line 74
     .local v0, DB_value:I
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->KEY_USER_OPTIONS:Ljava/lang/String;
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/users/UserOptions;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -246,7 +292,7 @@
 
     iput-object v4, p0, Lcom/android/settings/users/UserOptions;->mSetUser:Lcom/android/settings/users/MePreference;
 
-    .line 73
+    .line 75
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mUserManager:Landroid/os/UserManager;
 
     iget v5, p0, Lcom/android/settings/users/UserOptions;->user_id:I
@@ -255,22 +301,22 @@
 
     move-result-object v1
 
-    .line 74
+    .line 76
     .local v1, b:Landroid/graphics/Bitmap;
     if-eqz v1, :cond_0
 
-    .line 75
+    .line 77
     new-instance v3, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-direct {v3, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 76
+    .line 78
     .local v3, d:Landroid/graphics/drawable/Drawable;
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mSetUser:Lcom/android/settings/users/MePreference;
 
-    invoke-virtual {v4, v3}, Lcom/android/settings/users/MePreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v4, v3}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 78
+    .line 80
     .end local v3           #d:Landroid/graphics/drawable/Drawable;
     :cond_0
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mSetUser:Lcom/android/settings/users/MePreference;
@@ -279,12 +325,12 @@
 
     iget-object v5, v5, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/users/MePreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v5}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 79
+    .line 81
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->KEY_MOBILE_DATA:Ljava/lang/String;
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/users/UserOptions;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -292,13 +338,13 @@
 
     iput-object v4, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    .line 80
+    .line 82
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, p0}, Landroid/preference/CheckBoxPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v4, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 82
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getActivity()Landroid/app/Activity;
+    .line 84
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -308,36 +354,36 @@
 
     if-eqz v4, :cond_1
 
-    .line 83
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 85
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 86
-    :cond_1
-    invoke-virtual {p0, v8}, Lcom/android/settings/users/UserOptions;->setHasOptionsMenu(Z)V
+    invoke-virtual {v4, v5}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 88
+    :cond_1
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
+
+    .line 90
     if-ne v0, v8, :cond_2
 
-    .line 89
+    .line 91
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v8}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v8}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 94
+    .line 96
     :goto_0
     return-void
 
-    .line 91
+    .line 93
     :cond_2
     iget-object v4, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 .end method
@@ -349,18 +395,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 117
+    .line 128
     packed-switch p1, :pswitch_data_0
 
-    .line 138
+    .line 149
     :goto_0
     return-object v0
 
-    .line 119
+    .line 130
     :pswitch_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -374,7 +420,7 @@
 
     if-ne v1, v3, :cond_0
 
-    const v1, 0x7f090aff
+    const v1, 0x7f090be9
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -389,14 +435,14 @@
 
     if-ne v1, v3, :cond_1
 
-    const v1, 0x7f090b02
+    const v1, 0x7f090bec
 
     :goto_2
     invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f090b07
+    const v2, 0x7f090bf1
 
     new-instance v3, Lcom/android/settings/users/UserOptions$1;
 
@@ -416,23 +462,23 @@
 
     move-result-object v0
 
-    .line 134
+    .line 145
     .local v0, dlg:Landroid/app/Dialog;
     goto :goto_0
 
-    .line 119
+    .line 130
     .end local v0           #dlg:Landroid/app/Dialog;
     :cond_0
-    const v1, 0x7f090b00
+    const v1, 0x7f090bea
 
     goto :goto_1
 
     :cond_1
-    const v1, 0x7f090b03
+    const v1, 0x7f090bed
 
     goto :goto_2
 
-    .line 117
+    .line 128
     nop
 
     :pswitch_data_0
@@ -449,30 +495,39 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 98
+    .line 100
     const/4 v1, 0x1
 
-    const v2, 0x7f090b00
+    const v2, 0x7f090bea
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 99
+    .line 101
     .local v0, removeThisUser:Landroid/view/MenuItem;
-    const v1, 0x7f0200e4
+    const v1, 0x7f020124
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 100
+    .line 102
     const/4 v1, 0x5
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 102
+    .line 104
+    iget-object v1, p0, Lcom/android/settings/users/UserOptions;->mMum:Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    invoke-virtual {v1, v3}, Landroid/app/enterprise/multiuser/MultiUserManager;->isUserRemovalAllowed(Z)Z
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    .line 105
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 103
+    .line 106
     return-void
 .end method
 
@@ -483,26 +538,26 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 107
+    .line 118
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    .line 108
+    .line 119
     .local v0, itemId:I
     if-ne v0, v1, :cond_0
 
-    .line 109
+    .line 120
     iget v2, p0, Lcom/android/settings/users/UserOptions;->user_id:I
 
     invoke-direct {p0, v2}, Lcom/android/settings/users/UserOptions;->onRemoveUserClicked(I)V
 
-    .line 112
+    .line 123
     :goto_0
     return v1
 
     :cond_0
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
 
@@ -519,12 +574,12 @@
 
     const/4 v4, 0x1
 
-    .line 161
+    .line 185
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 162
+    .line 186
     .local v0, key:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/settings/users/UserOptions;->KEY_MOBILE_DATA:Ljava/lang/String;
 
@@ -534,22 +589,22 @@
 
     if-eqz v1, :cond_0
 
-    .line 163
+    .line 187
     iget-object v1, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 164
+    .line 188
     iget-object v1, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v5}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 165
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getContentResolver()Landroid/content/ContentResolver;
+    .line 189
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -559,19 +614,19 @@
 
     invoke-static {v1, v2, v5, v3}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 171
+    .line 195
     :cond_0
     :goto_0
     return v4
 
-    .line 167
+    .line 191
     :cond_1
     iget-object v1, p0, Lcom/android/settings/users/UserOptions;->mMobiledata:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 168
-    invoke-virtual {p0}, Lcom/android/settings/users/UserOptions;->getContentResolver()Landroid/content/ContentResolver;
+    .line 192
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -582,4 +637,22 @@
     invoke-static {v1, v2, v4, v3}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     goto :goto_0
+.end method
+
+.method public onResume()V
+    .locals 1
+
+    .prologue
+    .line 111
+    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
+
+    .line 112
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
+
+    .line 113
+    return-void
 .end method

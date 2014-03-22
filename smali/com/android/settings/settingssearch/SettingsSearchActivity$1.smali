@@ -1,9 +1,6 @@
 .class Lcom/android/settings/settingssearch/SettingsSearchActivity$1;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "SettingsSearchActivity.java"
-
-# interfaces
-.implements Landroid/text/TextWatcher;
 
 
 # annotations
@@ -27,94 +24,78 @@
     .parameter
 
     .prologue
-    .line 277
+    .line 78
     iput-object p1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;->this$0:Lcom/android/settings/settingssearch/SettingsSearchActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
-    .parameter "editable"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 282
-    return-void
-.end method
-
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-    .parameter "s"
-    .parameter "start"
-    .parameter "count"
-    .parameter "after"
-
-    .prologue
-    .line 287
-    return-void
-.end method
-
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 3
-    .parameter "s"
-    .parameter "start"
-    .parameter "before"
-    .parameter "count"
-
-    .prologue
-    .line 291
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    .line 81
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 292
-    .local v0, keyword:Ljava/lang/String;
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    .line 82
+    .local v0, action:Ljava/lang/String;
+    const-string v3, "android.settings.SETTING_SEARCH_DB_UPDATE"
 
-    move-result v1
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v1, :cond_0
+    move-result v3
 
-    .line 293
-    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;->this$0:Lcom/android/settings/settingssearch/SettingsSearchActivity;
+    if-eqz v3, :cond_0
 
-    #getter for: Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
-    invoke-static {v1}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->access$000(Lcom/android/settings/settingssearch/SettingsSearchActivity;)Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    .line 83
+    const-string v3, "SearchMain"
 
-    move-result-object v1
+    const-string v4, "android.settings.SETTING_SEARCH_DB_UPDATE is received"
 
-    invoke-virtual {v1}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->clear()V
+    invoke-static {v3, v4}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 294
-    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;->this$0:Lcom/android/settings/settingssearch/SettingsSearchActivity;
-
-    #getter for: Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
-    invoke-static {v1}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->access$000(Lcom/android/settings/settingssearch/SettingsSearchActivity;)Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    .line 84
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    const-string v2, ""
+    .line 85
+    .local v1, extra:Landroid/os/Bundle;
+    const-string v3, "lock"
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->setKeyword(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    .line 298
-    :goto_0
-    return-void
+    move-result v3
 
-    .line 296
-    :cond_0
-    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;->this$0:Lcom/android/settings/settingssearch/SettingsSearchActivity;
-
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
-    #calls: Lcom/android/settings/settingssearch/SettingsSearchActivity;->search(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->access$100(Lcom/android/settings/settingssearch/SettingsSearchActivity;Ljava/lang/String;)V
+    .line 86
+    .local v2, setValue:Ljava/lang/Boolean;
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    goto :goto_0
+    move-result v3
+
+    invoke-static {v3}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->access$502(Z)Z
+
+    .line 87
+    iget-object v3, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;->this$0:Lcom/android/settings/settingssearch/SettingsSearchActivity;
+
+    #calls: Lcom/android/settings/settingssearch/SettingsSearchActivity;->displayProgressDialog()V
+    invoke-static {v3}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->access$600(Lcom/android/settings/settingssearch/SettingsSearchActivity;)V
+
+    .line 89
+    .end local v1           #extra:Landroid/os/Bundle;
+    .end local v2           #setValue:Ljava/lang/Boolean;
+    :cond_0
+    return-void
 .end method

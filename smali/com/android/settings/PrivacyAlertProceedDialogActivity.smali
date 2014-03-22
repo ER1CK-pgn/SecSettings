@@ -114,31 +114,31 @@
 .end method
 
 .method private createView()Landroid/view/View;
-    .locals 12
+    .locals 11
 
     .prologue
-    const v11, 0x7f091210
-
-    const/4 v10, 0x0
-
-    .line 88
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v7
-
-    const v8, 0x7f04003d
+    const v10, 0x7f09137a
 
     const/4 v9, 0x0
 
-    invoke-virtual {v7, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    .line 88
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v6
 
-    .line 89
-    .local v6, view:Landroid/view/View;
-    const v7, 0x7f0b00b3
+    const v7, 0x7f040042
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v7, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v5
+
+    .line 89
+    .local v5, view:Landroid/view/View;
+    const v6, 0x7f0b00c0
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -146,339 +146,101 @@
 
     .line 91
     .local v0, contentView:Landroid/widget/TextView;
-    new-instance v7, Landroid/webkit/WebView;
+    new-instance v6, Landroid/webkit/WebView;
 
-    invoke-direct {v7, p0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v6, p0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
 
     .line 93
-    const-string v5, ""
+    const-string v4, ""
 
     .line 95
-    .local v5, sales_code:Ljava/lang/String;
+    .local v4, sales_code:Ljava/lang/String;
     :try_start_0
-    const-string v7, "ro.csc.sales_code"
+    const-string v6, "ro.csc.sales_code"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
     .line 96
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     .line 97
-    const-string v7, "ril.sales_code"
+    const-string v6, "ril.sales_code"
 
-    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v5
+    move-result-object v4
 
     .line 102
     :cond_0
     :goto_0
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    const-string v8, "createView : "
+    const-string v7, "createView : "
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 103
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string v8, "CscFeature_Common_UseChameleon"
+    const-string v7, "CscFeature_Common_UseChameleon"
 
-    invoke-virtual {v7, v8}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v6, v7}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v6
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    if-ne v7, v8, :cond_b
+    if-ne v6, v7, :cond_b
 
     .line 105
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    const-string v8, "TAG_CSCFEATURE_COMMON_USECHAMELEON : true"
+    const-string v7, "TAG_CSCFEATURE_COMMON_USECHAMELEON : true"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 106
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v6
 
-    .line 107
-    .local v3, locale:Ljava/util/Locale;
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    iget-object v6, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    move-result-object v7
-
-    iget-object v7, v7, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-virtual {v7}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 108
+    .line 107
     .local v1, currentLang:Ljava/lang/String;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "currentLang : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 109
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bTest:Ljava/lang/Boolean;
-
-    invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    .line 110
-    const-string v7, "/mnt/sdcard/Download/privacy_en.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnPath:Ljava/lang/String;
-
-    .line 111
-    const-string v7, "/mnt/sdcard/Download/privacy_es.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsPath:Ljava/lang/String;
-
-    .line 112
-    const-string v7, "/mnt/sdcard/Download/privacy_ko.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoPath:Ljava/lang/String;
-
-    .line 113
-    const-string v7, "/carrier/data/app/Settings/privacy_vi.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViPath:Ljava/lang/String;
-
-    .line 114
-    const-string v7, "/carrier/data/app/Settings/privacy_zh_cn.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhPath:Ljava/lang/String;
-
-    .line 116
-    const-string v7, "file:///mnt/sdcard/Download/privacy_en.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnURL:Ljava/lang/String;
-
-    .line 117
-    const-string v7, "file:///mnt/sdcard/Download/privacy_es.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsURL:Ljava/lang/String;
-
-    .line 118
-    const-string v7, "file:///mnt/sdcard/Download/privacy_ko.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoURL:Ljava/lang/String;
-
-    .line 119
-    const-string v7, "file:///carrier/data/app/Settings/privacy_vi.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViURL:Ljava/lang/String;
-
-    .line 120
-    const-string v7, "file:///carrier/data/app/Settings/privacy_zh_cn.html"
-
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhURL:Ljava/lang/String;
-
-    .line 122
-    :cond_1
-    const-string v7, "es"
-
-    invoke-virtual {v1, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    .line 123
-    new-instance v4, Ljava/io/File;
-
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsPath:Ljava/lang/String;
-
-    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 124
-    .local v4, mfile:Ljava/io/File;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "File exists1 : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 125
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_2
-
-    .line 126
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
-
-    iget-object v8, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsURL:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
-
-    .line 174
-    .end local v1           #currentLang:Ljava/lang/String;
-    .end local v3           #locale:Ljava/util/Locale;
-    .end local v4           #mfile:Ljava/io/File;
-    :goto_1
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
-
-    invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v7
-
-    if-nez v7, :cond_f
-
-    .line 175
-    const-string v7, "PrivacyAlertProceedDialogActivity"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "bFileExist : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 176
-    const-string v7, "SPR"
-
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_c
-
-    .line 177
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v8, 0x7f09120e
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
+    const-string v8, "currentLang : "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const v8, 0x7f09120f
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {p0, v11}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const v8, 0x7f091211
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -486,567 +248,796 @@
 
     move-result-object v7
 
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
-    .end local v6           #view:Landroid/view/View;
+    .line 108
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bTest:Ljava/lang/Boolean;
+
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 109
+    const-string v6, "/mnt/sdcard/Download/privacy_en.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnPath:Ljava/lang/String;
+
+    .line 110
+    const-string v6, "/mnt/sdcard/Download/privacy_es.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsPath:Ljava/lang/String;
+
+    .line 111
+    const-string v6, "/mnt/sdcard/Download/privacy_ko.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoPath:Ljava/lang/String;
+
+    .line 112
+    const-string v6, "/carrier/data/app/Settings/privacy_vi.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViPath:Ljava/lang/String;
+
+    .line 113
+    const-string v6, "/carrier/data/app/Settings/privacy_zh_cn.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhPath:Ljava/lang/String;
+
+    .line 115
+    const-string v6, "file:///mnt/sdcard/Download/privacy_en.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnURL:Ljava/lang/String;
+
+    .line 116
+    const-string v6, "file:///mnt/sdcard/Download/privacy_es.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsURL:Ljava/lang/String;
+
+    .line 117
+    const-string v6, "file:///mnt/sdcard/Download/privacy_ko.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoURL:Ljava/lang/String;
+
+    .line 118
+    const-string v6, "file:///carrier/data/app/Settings/privacy_vi.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViURL:Ljava/lang/String;
+
+    .line 119
+    const-string v6, "file:///carrier/data/app/Settings/privacy_zh_cn.html"
+
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhURL:Ljava/lang/String;
+
+    .line 121
+    :cond_1
+    const-string v6, "es"
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    .line 122
+    new-instance v3, Ljava/io/File;
+
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsPath:Ljava/lang/String;
+
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 123
+    .local v3, mfile:Ljava/io/File;
+    const-string v6, "PrivacyAlertProceedDialogActivity"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "File exists1 : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 124
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    .line 125
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
+
+    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEsURL:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+
+    .line 173
+    .end local v1           #currentLang:Ljava/lang/String;
+    .end local v3           #mfile:Ljava/io/File;
+    :goto_1
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v6
+
+    if-nez v6, :cond_f
+
+    .line 174
+    const-string v6, "PrivacyAlertProceedDialogActivity"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "bFileExist : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 175
+    const-string v6, "SPR"
+
+    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_c
+
+    .line 176
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const v7, 0x7f091378
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const v7, 0x7f091379
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {p0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const v7, 0x7f09137b
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 187
+    .end local v5           #view:Landroid/view/View;
     :goto_2
-    return-object v6
+    return-object v5
 
     .line 99
-    .restart local v6       #view:Landroid/view/View;
+    .restart local v5       #view:Landroid/view/View;
     :catch_0
     move-exception v2
 
     .line 100
     .local v2, e:Ljava/lang/Exception;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    const-string v8, "Reading failed for sales code"
+    const-string v7, "Reading failed for sales code"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    .line 129
+    .line 128
     .end local v2           #e:Ljava/lang/Exception;
     .restart local v1       #currentLang:Ljava/lang/String;
-    .restart local v3       #locale:Ljava/util/Locale;
-    .restart local v4       #mfile:Ljava/io/File;
+    .restart local v3       #mfile:Ljava/io/File;
     :cond_2
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     goto/16 :goto_1
+
+    .line 130
+    .end local v3           #mfile:Ljava/io/File;
+    :cond_3
+    const-string v6, "ko"
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
 
     .line 131
-    .end local v4           #mfile:Ljava/io/File;
-    :cond_3
-    const-string v7, "ko"
+    new-instance v3, Ljava/io/File;
 
-    invoke-virtual {v1, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoPath:Ljava/lang/String;
 
-    move-result v7
-
-    if-eqz v7, :cond_5
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 132
-    new-instance v4, Ljava/io/File;
+    .restart local v3       #mfile:Ljava/io/File;
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoPath:Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "File exists2 : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 133
-    .restart local v4       #mfile:Ljava/io/File;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "File exists2 : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v6, :cond_4
 
     .line 134
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
 
-    move-result v7
+    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoURL:Ljava/lang/String;
 
-    if-eqz v7, :cond_4
-
-    .line 135
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
-
-    iget-object v8, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalKoURL:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {v6, v7}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
-    .line 138
+    .line 137
     :cond_4
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     goto/16 :goto_1
+
+    .line 139
+    .end local v3           #mfile:Ljava/io/File;
+    :cond_5
+    const-string v6, "vi"
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_7
 
     .line 140
-    .end local v4           #mfile:Ljava/io/File;
-    :cond_5
-    const-string v7, "vi"
+    new-instance v3, Ljava/io/File;
 
-    invoke-virtual {v1, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViPath:Ljava/lang/String;
 
-    move-result v7
-
-    if-eqz v7, :cond_7
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 141
-    new-instance v4, Ljava/io/File;
+    .restart local v3       #mfile:Ljava/io/File;
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViPath:Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "File exists3 : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 142
-    .restart local v4       #mfile:Ljava/io/File;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "File exists3 : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v6, :cond_6
 
     .line 143
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
 
-    move-result v7
+    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViURL:Ljava/lang/String;
 
-    if-eqz v7, :cond_6
-
-    .line 144
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
-
-    iget-object v8, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalViURL:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {v6, v7}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
-    .line 147
+    .line 146
     :cond_6
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     goto/16 :goto_1
+
+    .line 148
+    .end local v3           #mfile:Ljava/io/File;
+    :cond_7
+    const-string v6, "zh"
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_9
 
     .line 149
-    .end local v4           #mfile:Ljava/io/File;
-    :cond_7
-    const-string v7, "zh"
+    new-instance v3, Ljava/io/File;
 
-    invoke-virtual {v1, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhPath:Ljava/lang/String;
 
-    move-result v7
-
-    if-eqz v7, :cond_9
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 150
-    new-instance v4, Ljava/io/File;
+    .restart local v3       #mfile:Ljava/io/File;
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhPath:Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "File exists4 : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 151
-    .restart local v4       #mfile:Ljava/io/File;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "File exists4 : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v6, :cond_8
 
     .line 152
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
 
-    move-result v7
+    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhURL:Ljava/lang/String;
 
-    if-eqz v7, :cond_8
-
-    .line 153
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
-
-    iget-object v8, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalZhURL:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {v6, v7}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
-    .line 156
+    .line 155
     :cond_8
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     goto/16 :goto_1
+
+    .line 158
+    .end local v3           #mfile:Ljava/io/File;
+    :cond_9
+    new-instance v3, Ljava/io/File;
+
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnPath:Ljava/lang/String;
+
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 159
-    .end local v4           #mfile:Ljava/io/File;
-    :cond_9
-    new-instance v4, Ljava/io/File;
+    .restart local v3       #mfile:Ljava/io/File;
+    const-string v6, "PrivacyAlertProceedDialogActivity"
 
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnPath:Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "File exists5 : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 160
-    .restart local v4       #mfile:Ljava/io/File;
-    const-string v7, "PrivacyAlertProceedDialogActivity"
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "File exists5 : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v6, :cond_a
 
     .line 161
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
 
-    move-result v7
+    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnURL:Ljava/lang/String;
 
-    if-eqz v7, :cond_a
-
-    .line 162
-    iget-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
-
-    iget-object v8, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->CarrierLegalEnURL:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {v6, v7}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
-    .line 165
+    .line 164
     :cond_a
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     goto/16 :goto_1
 
-    .line 169
+    .line 168
     .end local v1           #currentLang:Ljava/lang/String;
-    .end local v3           #locale:Ljava/util/Locale;
-    .end local v4           #mfile:Ljava/io/File;
+    .end local v3           #mfile:Ljava/io/File;
     :cond_b
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
+    iput-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     goto/16 :goto_1
+
+    .line 177
+    :cond_c
+    const-string v6, "BST"
+
+    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_d
 
     .line 178
-    :cond_c
-    const-string v7, "BST"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v7
+    const v7, 0x7f091380
 
-    if-eqz v7, :cond_d
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const v7, 0x7f091381
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {p0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const v7, 0x7f091382
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_2
 
     .line 179
-    new-instance v7, Ljava/lang/StringBuilder;
+    :cond_d
+    const-string v6, "VMU"
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const v8, 0x7f091216
+    move-result v6
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const v8, 0x7f091217
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {p0, v11}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const v8, 0x7f091218
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_2
+    if-eqz v6, :cond_e
 
     .line 180
-    :cond_d
-    const-string v7, "VMU"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v7
+    const v7, 0x7f091384
 
-    if-eqz v7, :cond_e
-
-    .line 181
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const v8, 0x7f09121a
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const-string v8, "\n\n"
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v7
+    const-string v7, "\n\n"
 
-    const v8, 0x7f09121b
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v8
+    const v7, 0x7f091385
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const v8, 0x7f09121c
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v8
+    const-string v7, "\n\n"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string v8, "\n\n"
+    const v7, 0x7f091386
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const v8, 0x7f09121d
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const v7, 0x7f091387
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_2
 
-    .line 183
+    .line 182
     :cond_e
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v8, 0x7f091212
+    const v7, 0x7f09137c
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    const-string v8, "\n\n"
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v7
+    const-string v7, "\n\n"
 
-    const v8, 0x7f091213
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v8
+    const v7, 0x7f09137d
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n\n"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {p0, v11}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v7, "\n\n"
 
-    move-result-object v7
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v8, "\n\n"
+    move-result-object v6
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const v8, 0x7f091214
-
-    invoke-virtual {p0, v8}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n\n"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const v7, 0x7f09137e
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_2
 
-    .line 186
+    .line 185
     :cond_f
-    iget-object v6, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
+    iget-object v5, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mView:Landroid/webkit/WebView;
 
     goto/16 :goto_2
 .end method
@@ -1059,20 +1050,20 @@
     .parameter "which"
 
     .prologue
-    .line 206
+    .line 205
     packed-switch p2, :pswitch_data_0
 
-    .line 212
+    .line 211
     :goto_0
     return-void
 
-    .line 209
+    .line 208
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 206
+    .line 205
     :pswitch_data_0
     .packed-switch -0x1
         :pswitch_0
@@ -1088,13 +1079,13 @@
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 75
-    iget-object v0, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 77
     .local v0, p:Lcom/android/internal/app/AlertController$AlertParams;
-    const v1, 0x7f09120a
+    const v1, 0x7f091374
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1117,7 +1108,7 @@
     iput-object v1, p0, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->bFileExist:Ljava/lang/Boolean;
 
     .line 84
-    invoke-virtual {p0}, Lcom/android/settings/PrivacyAlertProceedDialogActivity;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
     .line 85
     return-void
@@ -1127,10 +1118,10 @@
     .locals 0
 
     .prologue
-    .line 193
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onResume()V
+    .line 192
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 195
+    .line 194
     return-void
 .end method
 
@@ -1138,10 +1129,10 @@
     .locals 0
 
     .prologue
-    .line 198
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStart()V
+    .line 197
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
-    .line 199
+    .line 198
     return-void
 .end method
 
@@ -1149,9 +1140,9 @@
     .locals 0
 
     .prologue
-    .line 202
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStop()V
+    .line 201
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    .line 203
+    .line 202
     return-void
 .end method

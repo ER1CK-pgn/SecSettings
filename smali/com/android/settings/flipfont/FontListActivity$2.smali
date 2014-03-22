@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 333
+    .line 366
     iput-object p1, p0, Lcom/android/settings/flipfont/FontListActivity$2;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "id"
 
     .prologue
-    .line 335
+    .line 368
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListActivity$2;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
     const/4 v1, 0x0
@@ -51,16 +51,16 @@
     #setter for: Lcom/android/settings/flipfont/FontListActivity;->mSelectDialogIsActive:Z
     invoke-static {v0, v1}, Lcom/android/settings/flipfont/FontListActivity;->access$002(Lcom/android/settings/flipfont/FontListActivity;Z)Z
 
-    .line 336
+    .line 369
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListActivity$2;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListActivity;->savePreferences()V
 
-    .line 337
+    .line 370
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListActivity$2;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListActivity;->onOkButtonPressed()Z
 
-    .line 338
+    .line 371
     return-void
 .end method

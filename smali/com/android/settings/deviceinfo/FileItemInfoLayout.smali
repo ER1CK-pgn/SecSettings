@@ -130,7 +130,7 @@
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
     .line 54
-    const v0, 0x7f0b03df
+    const v0, 0x7f0b0447
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/FileItemInfoLayout;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +141,7 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/FileItemInfoLayout;->mFileNameView:Landroid/widget/TextView;
 
     .line 55
-    const v0, 0x7f0b03e0
+    const v0, 0x7f0b0448
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/FileItemInfoLayout;->findViewById(I)Landroid/view/View;
 
@@ -152,7 +152,7 @@
     iput-object v0, p0, Lcom/android/settings/deviceinfo/FileItemInfoLayout;->mFileSizeView:Landroid/widget/TextView;
 
     .line 56
-    const v0, 0x7f0b03de
+    const v0, 0x7f0b0446
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/FileItemInfoLayout;->findViewById(I)Landroid/view/View;
 

@@ -9,7 +9,7 @@
 
     .prologue
     .line 24
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
 
     if-nez p1, :cond_1
 
-    const v2, 0x7f0a0028
+    const v2, 0x7f0a002f
 
     :goto_0
     invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
@@ -53,7 +53,7 @@
 
     .line 28
     .local v0, formats:[Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -83,7 +83,7 @@
     .end local v0           #formats:[Ljava/lang/String;
     .end local v1           #index:I
     :cond_1
-    const v2, 0x7f0a0029
+    const v2, 0x7f0a0030
 
     goto :goto_0
 

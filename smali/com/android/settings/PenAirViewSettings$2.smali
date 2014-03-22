@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 241
+    .line 245
     iput-object p1, p0, Lcom/android/settings/PenAirViewSettings$2;->this$0:Lcom/android/settings/PenAirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,10 +45,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 243
+    .line 247
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettings$2;->this$0:Lcom/android/settings/PenAirViewSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/PenAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -56,10 +56,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 245
+    .line 249
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettings$2;->this$0:Lcom/android/settings/PenAirViewSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/PenAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -67,6 +67,6 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 247
+    .line 251
     return-void
 .end method

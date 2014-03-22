@@ -24,3 +24,17 @@
 
     return-void
 .end method
+
+
+# virtual methods
+.method public startTracking(Landroid/view/KeyEvent;)V
+    .locals 0
+    .parameter "event"
+
+    .prologue
+    .line 121
+    invoke-static {p1}, Landroid/support/v4/view/KeyEventCompatEclair;->startTracking(Landroid/view/KeyEvent;)V
+
+    .line 122
+    return-void
+.end method

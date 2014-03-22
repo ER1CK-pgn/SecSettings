@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 265
+    .line 298
     iput-object p1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,14 +44,14 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 267
+    .line 300
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
     iget-boolean v1, v1, Lcom/android/settings/DeviceAdminAdd;->mAdding:Z
 
     if-eqz v1, :cond_1
 
-    .line 270
+    .line 303
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
@@ -71,31 +71,31 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/app/enterprise/EnterpriseDeviceManager;->setActiveAdmin(Landroid/content/ComponentName;Z)V
 
-    .line 272
+    .line 305
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
     const/4 v2, -0x1
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/DeviceAdminAdd;->setResult(I)V
+    invoke-virtual {v1, v2}, Landroid/app/Activity;->setResult(I)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 282
+    .line 315
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
-    invoke-virtual {v1}, Lcom/android/settings/DeviceAdminAdd;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 319
+    .line 360
     :goto_1
     return-void
 
-    .line 273
+    .line 306
     :catch_0
     move-exception v0
 
-    .line 276
+    .line 309
     .local v0, e:Ljava/lang/RuntimeException;
     const-string v1, "DeviceAdminAdd"
 
@@ -127,7 +127,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 278
+    .line 311
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
     iget-object v1, v1, Lcom/android/settings/DeviceAdminAdd;->mDPM:Landroid/app/admin/DevicePolicyManager;
@@ -146,14 +146,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 279
+    .line 312
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/DeviceAdminAdd;->setResult(I)V
+    invoke-virtual {v1, v4}, Landroid/app/Activity;->setResult(I)V
 
     goto :goto_0
 
-    .line 287
+    .line 320
     .end local v0           #e:Ljava/lang/RuntimeException;
     :cond_1
     :try_start_1
@@ -165,8 +165,40 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 291
+    .line 325
     :goto_2
+    iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
+
+    iget-object v1, v1, Lcom/android/settings/DeviceAdminAdd;->mDeviceAdmin:Landroid/app/enterprise/EnterpriseDeviceAdminInfo;
+
+    invoke-virtual {v1}, Landroid/app/enterprise/EnterpriseDeviceAdminInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "sec_container_"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 326
+    const-string v1, "DeviceAdminAdd"
+
+    const-string v2, "KNOX account - verifyKnoxAccount() "
+
+    invoke-static {v1, v2}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 327
+    iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
+
+    invoke-virtual {v1}, Lcom/android/settings/DeviceAdminAdd;->verifyKnoxAccount()V
+
+    goto :goto_1
+
+    .line 331
+    :cond_2
     iget-object v1, p0, Lcom/android/settings/DeviceAdminAdd$3;->this$0:Lcom/android/settings/DeviceAdminAdd;
 
     iget-object v1, v1, Lcom/android/settings/DeviceAdminAdd;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
@@ -191,7 +223,7 @@
 
     goto :goto_1
 
-    .line 288
+    .line 321
     :catch_1
     move-exception v1
 

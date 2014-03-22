@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 205
+    .line 221
     iput-object p1, p0, Lcom/android/settings/AirplaneModeEnabler$3;->this$0:Lcom/android/settings/AirplaneModeEnabler;
 
     iput-boolean p2, p0, Lcom/android/settings/AirplaneModeEnabler$3;->val$value:Z
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .parameter "which"
 
     .prologue
-    .line 208
+    .line 224
     iget-boolean v0, p0, Lcom/android/settings/AirplaneModeEnabler$3;->val$value:Z
 
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler$3;->this$0:Lcom/android/settings/AirplaneModeEnabler;
@@ -58,7 +58,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -66,7 +66,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 209
+    .line 225
     iget-object v0, p0, Lcom/android/settings/AirplaneModeEnabler$3;->this$0:Lcom/android/settings/AirplaneModeEnabler;
 
     iget-boolean v1, p0, Lcom/android/settings/AirplaneModeEnabler$3;->val$value:Z
@@ -74,7 +74,7 @@
     #calls: Lcom/android/settings/AirplaneModeEnabler;->setAirplaneModeOn(Z)V
     invoke-static {v0, v1}, Lcom/android/settings/AirplaneModeEnabler;->access$300(Lcom/android/settings/AirplaneModeEnabler;Z)V
 
-    .line 211
+    .line 227
     :cond_0
     return-void
 .end method

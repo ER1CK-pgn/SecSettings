@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2016
+    .line 2159
     iput-object p1, p0, Lcom/android/settings/SettingsTabActivity$3;->this$0:Lcom/android/settings/SettingsTabActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,18 +44,18 @@
 
     const/4 v7, 0x1
 
-    .line 2019
+    .line 2162
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2020
+    .line 2163
     .local v0, action:Ljava/lang/String;
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$800()I
 
     move-result v2
 
-    .line 2022
+    .line 2165
     .local v2, prevWifiSummaryId:I
     const-string v5, "android.net.wifi.STATE_CHANGE"
 
@@ -65,7 +65,7 @@
 
     if-eqz v5, :cond_4
 
-    .line 2023
+    .line 2166
     const-string v5, "networkInfo"
 
     invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -74,7 +74,7 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 2024
+    .line 2167
     .local v1, info:Landroid/net/NetworkInfo;
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
 
@@ -82,12 +82,12 @@
 
     if-eqz v5, :cond_2
 
-    .line 2025
+    .line 2168
     const/4 v5, 0x2
 
     invoke-static {v5}, Lcom/android/settings/SettingsTabActivity;->access$802(I)I
 
-    .line 2043
+    .line 2186
     .end local v1           #info:Landroid/net/NetworkInfo;
     :cond_0
     :goto_0
@@ -97,29 +97,29 @@
 
     if-eq v2, v5, :cond_1
 
-    .line 2044
+    .line 2187
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity$3;->this$0:Lcom/android/settings/SettingsTabActivity;
 
-    invoke-virtual {v5}, Lcom/android/settings/SettingsTabActivity;->invalidateHeaders()V
+    invoke-virtual {v5}, Landroid/preference/PreferenceActivity;->invalidateHeaders()V
 
-    .line 2046
+    .line 2189
     :cond_1
     return-void
 
-    .line 2027
+    .line 2170
     .restart local v1       #info:Landroid/net/NetworkInfo;
     :cond_2
     iget-object v5, p0, Lcom/android/settings/SettingsTabActivity$3;->this$0:Lcom/android/settings/SettingsTabActivity;
 
     const-string v6, "wifi"
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/SettingsTabActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/net/wifi/WifiManager;
 
-    .line 2028
+    .line 2171
     .local v4, wifiManager:Landroid/net/wifi/WifiManager;
     invoke-virtual {v4}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
 
@@ -127,18 +127,18 @@
 
     if-eqz v5, :cond_3
 
-    .line 2029
+    .line 2172
     invoke-static {v7}, Lcom/android/settings/SettingsTabActivity;->access$802(I)I
 
     goto :goto_0
 
-    .line 2031
+    .line 2174
     :cond_3
     invoke-static {v8}, Lcom/android/settings/SettingsTabActivity;->access$802(I)I
 
     goto :goto_0
 
-    .line 2034
+    .line 2177
     .end local v1           #info:Landroid/net/NetworkInfo;
     .end local v4           #wifiManager:Landroid/net/wifi/WifiManager;
     :cond_4
@@ -150,7 +150,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 2035
+    .line 2178
     const-string v5, "wifi_state"
 
     const/4 v6, 0x4
@@ -159,25 +159,25 @@
 
     move-result v3
 
-    .line 2036
+    .line 2179
     .local v3, state:I
     if-eq v3, v7, :cond_5
 
     if-nez v3, :cond_6
 
-    .line 2037
+    .line 2180
     :cond_5
     invoke-static {v8}, Lcom/android/settings/SettingsTabActivity;->access$802(I)I
 
     goto :goto_0
 
-    .line 2038
+    .line 2181
     :cond_6
     const/4 v5, 0x3
 
     if-ne v3, v5, :cond_0
 
-    .line 2039
+    .line 2182
     invoke-static {v7}, Lcom/android/settings/SettingsTabActivity;->access$802(I)I
 
     goto :goto_0

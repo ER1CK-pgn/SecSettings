@@ -34,7 +34,7 @@
     invoke-super {p0, p1}, Landroid/preference/EditTextPreference;->onBindDialogView(Landroid/view/View;)V
 
     .line 53
-    invoke-virtual {p0}, Lcom/android/settings/SelectableEditTextPreference;->getEditText()Landroid/widget/EditText;
+    invoke-virtual {p0}, Landroid/preference/EditTextPreference;->getEditText()Landroid/widget/EditText;
 
     move-result-object v0
 

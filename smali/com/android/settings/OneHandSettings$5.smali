@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 305
+    .line 311
     iput-object p1, p0, Lcom/android/settings/OneHandSettings$5;->this$0:Lcom/android/settings/OneHandSettings;
 
     iput-object p2, p0, Lcom/android/settings/OneHandSettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
@@ -55,7 +55,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 307
+    .line 313
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$5;->this$0:Lcom/android/settings/OneHandSettings;
 
     #getter for: Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
@@ -65,7 +65,7 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 308
+    .line 314
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$5;->this$0:Lcom/android/settings/OneHandSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -76,7 +76,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 309
+    .line 315
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     const-string v1, "onehand_noti"
@@ -89,11 +89,11 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 310
+    .line 316
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 311
+    .line 317
     return-void
 .end method

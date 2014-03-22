@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 88
+    .line 114
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlSettings$1;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,12 +40,12 @@
     .parameter "selfChange"
 
     .prologue
-    .line 91
+    .line 117
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$1;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
     #calls: Lcom/android/settings/VoiceInputControlSettings;->updateUIVoiceInputControl()V
     invoke-static {v0}, Lcom/android/settings/VoiceInputControlSettings;->access$000(Lcom/android/settings/VoiceInputControlSettings;)V
 
-    .line 92
+    .line 118
     return-void
 .end method

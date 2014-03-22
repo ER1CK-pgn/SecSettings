@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 83
+    .line 84
     iput-object p1, p0, Lcom/android/settings/wfd/WfdHelpActivity$1;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "isChecked"
 
     .prologue
-    .line 86
+    .line 87
     iget-object v0, p0, Lcom/android/settings/wfd/WfdHelpActivity$1;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
     #setter for: Lcom/android/settings/wfd/WfdHelpActivity;->mIsReadOnlyChecked:Z
     invoke-static {v0, p2}, Lcom/android/settings/wfd/WfdHelpActivity;->access$002(Lcom/android/settings/wfd/WfdHelpActivity;Z)Z
 
-    .line 87
+    .line 88
     return-void
 .end method

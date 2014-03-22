@@ -35,7 +35,7 @@
 
     iput-object p2, p0, Lcom/android/settings/tts/TtsEnginePreference$6;->val$buttonView:Landroid/widget/CompoundButton;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 38
+    .line 30
     iput-object p1, p0, Lcom/android/settings/easymode/EasyModeEnabler$1;->this$0:Lcom/android/settings/easymode/EasyModeEnabler;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,11 +40,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 42
+    .line 33
     iget-object v0, p0, Lcom/android/settings/easymode/EasyModeEnabler$1;->this$0:Lcom/android/settings/easymode/EasyModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/easymode/EasyModeEnabler;->updateSwitch()V
 
-    .line 43
+    .line 34
     return-void
 .end method

@@ -45,7 +45,7 @@
     .line 60
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$1;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/FingerAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -90,7 +90,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 66
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$1;->this$0:Lcom/android/settings/FingerAirViewSettings;
@@ -100,7 +100,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 67
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$1;->this$0:Lcom/android/settings/FingerAirViewSettings;
@@ -110,7 +110,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 68
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$1;->this$0:Lcom/android/settings/FingerAirViewSettings;
@@ -120,7 +120,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 69
     iget-object v1, p0, Lcom/android/settings/FingerAirViewSettings$1;->this$0:Lcom/android/settings/FingerAirViewSettings;
@@ -130,7 +130,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 70
     return-void

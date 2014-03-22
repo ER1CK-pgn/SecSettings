@@ -23,16 +23,16 @@
     invoke-direct {p0, p1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     .line 40
-    const v0, 0x7f040018
+    const v0, 0x7f04001a
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 41
     if-eqz p2, :cond_0
 
     .end local p2
     :goto_0
-    invoke-virtual {p0, p2}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, p2}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 42
     iput-object p3, p0, Lcom/android/settings/fuelgauge/PowerGaugePreference;->mInfo:Lcom/android/settings/fuelgauge/BatterySipper;
@@ -123,7 +123,7 @@
     iput v0, p0, Lcom/android/settings/fuelgauge/PowerGaugePreference;->mProgress:I
 
     .line 47
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -131,7 +131,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090a66
+    const v1, 0x7f090b4a
 
     const/4 v2, 0x1
 
@@ -158,7 +158,7 @@
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerGaugePreference;->mProgressText:Ljava/lang/CharSequence;
 
     .line 49
-    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/PowerGaugePreference;->notifyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
     .line 50
     return-void

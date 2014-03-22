@@ -32,7 +32,7 @@
     const/4 v0, 0x0
 
     .line 24
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 15
     iput-object v0, p0, Lcom/android/settings/nearby/DeleteButtonListener;->mListener:Lcom/android/settings/nearby/ListItemListener;
@@ -92,7 +92,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v8}, Ljava/util/LinkedHashMap;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/util/AbstractMap;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -115,7 +115,7 @@
 
     .line 36
     .local v2, list:Ljava/util/LinkedHashMap;,"Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    invoke-virtual {v2}, Ljava/util/LinkedHashMap;->size()I
+    invoke-virtual {v2}, Ljava/util/HashMap;->size()I
 
     move-result v3
 
@@ -157,7 +157,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v2, v5}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v5}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 39
     add-int/lit8 v0, v0, 0x1

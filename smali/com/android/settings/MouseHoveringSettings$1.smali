@@ -45,7 +45,7 @@
     .line 81
     iget-object v1, p0, Lcom/android/settings/MouseHoveringSettings$1;->this$0:Lcom/android/settings/MouseHoveringSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/MouseHoveringSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -69,7 +69,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 84
     iget-object v1, p0, Lcom/android/settings/MouseHoveringSettings$1;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -79,7 +79,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 85
     iget-object v1, p0, Lcom/android/settings/MouseHoveringSettings$1;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -89,7 +89,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 88
     iget-object v1, p0, Lcom/android/settings/MouseHoveringSettings$1;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -99,7 +99,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 89
     iget-object v1, p0, Lcom/android/settings/MouseHoveringSettings$1;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -109,7 +109,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 94
     return-void

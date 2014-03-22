@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 320
+    .line 353
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$1;->this$0:Lcom/android/settings/DataUsageSummary;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -42,16 +42,16 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 329
+    .line 362
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$1;->this$0:Lcom/android/settings/DataUsageSummary;
 
     iget-object v2, p0, Lcom/android/settings/DataUsageSummary$1;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-virtual {v2}, Lcom/android/settings/DataUsageSummary;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -67,10 +67,10 @@
     #calls: Lcom/android/settings/DataUsageSummary;->setMobileDataEnabled(Z)V
     invoke-static {v1, v0}, Lcom/android/settings/DataUsageSummary;->access$000(Lcom/android/settings/DataUsageSummary;Z)V
 
-    .line 331
+    .line 364
     return-void
 
-    .line 329
+    .line 362
     :cond_0
     const/4 v0, 0x0
 

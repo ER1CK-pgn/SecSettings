@@ -60,7 +60,7 @@
     const/4 v1, 0x0
 
     .line 90
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     const/4 v0, 0x0
@@ -425,7 +425,7 @@
     .line 327
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 360
     :goto_0
@@ -446,7 +446,7 @@
     .line 357
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -462,7 +462,7 @@
     .line 335
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -478,7 +478,7 @@
     .line 340
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -494,7 +494,7 @@
     .line 347
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -510,7 +510,7 @@
     .line 352
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -609,7 +609,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -730,7 +730,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -742,7 +742,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -757,7 +757,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -769,7 +769,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -792,7 +792,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -810,7 +810,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -880,7 +880,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -903,7 +903,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -1156,7 +1156,7 @@
 
     iget-object v2, p0, Lcom/android/settings/dmr/DMREnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0913cf
+    const v3, 0x7f091548
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1168,7 +1168,7 @@
 
     iget-object v2, p0, Lcom/android/settings/dmr/DMREnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0913d9
+    const v3, 0x7f091552
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1376,7 +1376,7 @@
     .line 624
     iget-object v1, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 
@@ -1412,7 +1412,7 @@
     .line 630
     iget-object v1, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 
@@ -1455,7 +1455,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1470,7 +1470,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 637
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1493,7 +1493,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1508,7 +1508,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 640
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1694,7 +1694,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1732,7 +1732,7 @@
     invoke-virtual {v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 178
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1848,7 +1848,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1883,7 +1883,7 @@
     invoke-virtual {v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 205
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -1907,7 +1907,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1945,7 +1945,7 @@
     invoke-virtual {v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 212
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -2007,7 +2007,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 128
     return-void
@@ -2027,7 +2027,7 @@
     .line 108
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 109
     invoke-direct {p0}, Lcom/android/settings/dmr/DMREnabler;->setBroadcastReceiver()V
@@ -2090,7 +2090,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 136
     iput-object p1, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
@@ -2101,7 +2101,7 @@
     .line 138
     iget-object v0, p0, Lcom/android/settings/dmr/DMREnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method

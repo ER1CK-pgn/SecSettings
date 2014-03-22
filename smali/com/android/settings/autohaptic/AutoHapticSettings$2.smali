@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 806
+    .line 809
     iput-object p1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$2;->this$0:Lcom/android/settings/autohaptic/AutoHapticSettings;
 
     iput-object p2, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$2;->val$layout:Landroid/view/View;
@@ -49,10 +49,10 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 809
+    .line 812
     iget-object v3, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$2;->val$layout:Landroid/view/View;
 
-    const v4, 0x7f0b0138
+    const v4, 0x7f0b0147
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -60,7 +60,7 @@
 
     check-cast v1, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 810
+    .line 813
     .local v1, check:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
@@ -68,7 +68,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 811
+    .line 814
     iget-object v3, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$2;->this$0:Lcom/android/settings/autohaptic/AutoHapticSettings;
 
     invoke-virtual {v3}, Lcom/android/settings/autohaptic/AutoHapticSettings;->getActivity()Landroid/app/Activity;
@@ -81,22 +81,22 @@
 
     move-result-object v0
 
-    .line 812
+    .line 815
     .local v0, ReverbSharedPrefs:Landroid/content/SharedPreferences;
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 813
+    .line 816
     .local v2, ed:Landroid/content/SharedPreferences$Editor;
     const-string v3, "DoNotShowDialog"
 
     invoke-interface {v2, v3, v5}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 814
+    .line 817
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 816
+    .line 819
     .end local v0           #ReverbSharedPrefs:Landroid/content/SharedPreferences;
     .end local v2           #ed:Landroid/content/SharedPreferences$Editor;
     :cond_0

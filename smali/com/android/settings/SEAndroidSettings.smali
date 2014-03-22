@@ -34,11 +34,11 @@
     .line 101
     .local v0, enforcing:Ljava/lang/String;
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/SEAndroidSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -68,18 +68,18 @@
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 85
-    const v0, 0x7f070080
+    const v0, 0x7f0700a1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/SEAndroidSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 87
-    invoke-virtual {p0}, Lcom/android/settings/SEAndroidSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const-string v1, "selinux_enforcing"
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -94,7 +94,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 91
     return-void
@@ -138,7 +138,7 @@
 
     move-result v3
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 123
     invoke-direct {p0}, Lcom/android/settings/SEAndroidSettings;->saveEnforcing()V
@@ -159,7 +159,7 @@
 
     .prologue
     .line 108
-    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 110
     iget-object v0, p0, Lcom/android/settings/SEAndroidSettings;->mSELinuxToggleEnforce:Landroid/preference/CheckBoxPreference;
@@ -173,7 +173,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 113
     :cond_0

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1053
+    .line 1126
     iput-object p1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$3;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "id"
 
     .prologue
-    .line 1055
+    .line 1128
     return-void
 .end method

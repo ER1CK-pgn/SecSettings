@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 515
+    .line 513
     iput-object p1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$5;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,28 +43,28 @@
     .parameter "which"
 
     .prologue
-    .line 517
+    .line 515
     const-string v1, "SafetyZoneSettings"
 
     const-string v2, "showDuplicatedNameDialog(), ok is clicked. start wifi network picker"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 518
+    .line 516
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 519
+    .line 517
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$5;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 520
+    .line 518
     return-void
 .end method

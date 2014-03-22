@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 719
+    .line 746
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8$2;->this$1:Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "reason"
 
     .prologue
-    .line 725
+    .line 752
     const-string v0, "WifiP2pSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 726
+    .line 753
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8$2;->this$1:Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;
 
     iget-object v0, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
@@ -77,7 +77,7 @@
     #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
     invoke-static {v0, v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$900(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
 
-    .line 727
+    .line 754
     return-void
 .end method
 
@@ -85,14 +85,14 @@
     .locals 3
 
     .prologue
-    .line 721
+    .line 748
     const-string v0, "WifiP2pSettings"
 
     const-string v1, " cancelConnect success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 722
+    .line 749
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8$2;->this$1:Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;
 
     iget-object v0, v0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$8;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
@@ -104,6 +104,6 @@
     #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
     invoke-static {v0, v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$900(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
 
-    .line 723
+    .line 750
     return-void
 .end method

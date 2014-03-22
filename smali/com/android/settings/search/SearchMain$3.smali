@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 198
+    .line 228
     iput-object p1, p0, Lcom/android/settings/search/SearchMain$3;->this$0:Lcom/android/settings/search/SearchMain;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .parameter "event"
 
     .prologue
-    .line 201
+    .line 231
     const/16 v0, 0x42
 
     if-ne p2, v0, :cond_0
@@ -55,19 +55,7 @@
 
     if-nez v0, :cond_0
 
-    .line 202
-    iget-object v0, p0, Lcom/android/settings/search/SearchMain$3;->this$0:Lcom/android/settings/search/SearchMain;
-
-    #getter for: Lcom/android/settings/search/SearchMain;->mSearchView:Landroid/widget/SearchView;
-    invoke-static {v0}, Lcom/android/settings/search/SearchMain;->access$900(Lcom/android/settings/search/SearchMain;)Landroid/widget/SearchView;
-
-    move-result-object v0
-
-    iget-object v0, v0, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
-
-    invoke-virtual {v0}, Landroid/widget/SearchView$SearchAutoComplete;->requestFocus()Z
-
-    .line 204
+    .line 234
     :cond_0
     const/4 v0, 0x0
 

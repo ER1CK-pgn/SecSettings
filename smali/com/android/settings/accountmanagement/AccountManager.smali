@@ -46,7 +46,7 @@
 
     .prologue
     .line 40
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 15
     const-string v0, "com.sec.android.spc.easysetup.account.AccountContentProvider"
@@ -329,7 +329,7 @@
     .line 325
     .local v7, e:Ljava/lang/Exception;
     :try_start_2
-    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 326
     if-eqz v6, :cond_6

@@ -48,12 +48,12 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 218
     iget-object v0, p0, Lcom/android/settings/SettingsLicenseActivity$3;->this$0:Lcom/android/settings/SettingsLicenseActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/SettingsLicenseActivity;->isResumed()Z
+    invoke-virtual {v0}, Landroid/app/Activity;->isResumed()Z
 
     move-result v0
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 221
     :cond_0

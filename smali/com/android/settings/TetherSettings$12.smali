@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/TetherSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    value = Lcom/android/settings/TetherSettings;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1337
+    .line 711
     iput-object p1, p0, Lcom/android/settings/TetherSettings$12;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -40,21 +40,26 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
     .parameter "dialog"
-    .parameter "which"
+    .parameter "whichButton"
 
     .prologue
-    .line 1340
+    .line 713
     iget-object v0, p0, Lcom/android/settings/TetherSettings$12;->this$0:Lcom/android/settings/TetherSettings;
 
-    #getter for: Lcom/android/settings/TetherSettings;->mUsbTether:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->access$400(Lcom/android/settings/TetherSettings;)Landroid/preference/CheckBoxPreference;
+    #getter for: Lcom/android/settings/TetherSettings;->mTxPowerModeList:Landroid/preference/ListPreference;
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->access$1000(Lcom/android/settings/TetherSettings;)Landroid/preference/ListPreference;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$12;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    #getter for: Lcom/android/settings/TetherSettings;->mPrevTxPowerMode:I
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->access$900(Lcom/android/settings/TetherSettings;)I
 
-    .line 1341
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setValueIndex(I)V
+
+    .line 714
     return-void
 .end method

@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 404
+    .line 395
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     iput-object p2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;->val$av:Landroid/app/Activity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .parameter "which"
 
     .prologue
-    .line 408
+    .line 399
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;->val$av:Landroid/app/Activity;
 
     invoke-static {v1}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
@@ -57,12 +57,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 409
+    .line 400
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;->val$av:Landroid/app/Activity;
 
     invoke-static {p1, p2, v1}, Lcom/android/settings/guide/GuideFragment;->onApDisableClick(Landroid/content/DialogInterface;ILandroid/app/Activity;)V
 
-    .line 412
+    .line 403
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -70,7 +70,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 413
+    .line 404
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "called_dialog"
 
@@ -78,7 +78,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 414
+    .line 405
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mContext:Landroid/content/Context;
@@ -88,11 +88,11 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 415
+    .line 406
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$9;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-virtual {v1}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 416
+    .line 407
     return-void
 .end method

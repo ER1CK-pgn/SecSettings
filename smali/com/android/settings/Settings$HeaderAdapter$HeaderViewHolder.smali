@@ -15,7 +15,11 @@
 
 
 # instance fields
+.field button_:Landroid/widget/ImageButton;
+
 .field check_:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+.field divider_:Landroid/view/View;
 
 .field icon:Landroid/widget/ImageView;
 
@@ -33,8 +37,8 @@
     .locals 0
 
     .prologue
-    .line 2314
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 3256
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +48,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2314
+    .line 3256
     invoke-direct {p0}, Lcom/android/settings/Settings$HeaderAdapter$HeaderViewHolder;-><init>()V
 
     return-void

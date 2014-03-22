@@ -659,7 +659,7 @@
 
     .line 112
     .local v1, e:Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 113
     const/high16 v0, -0x100
@@ -668,13 +668,11 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 5
+    .locals 4
     .parameter "canvas"
 
     .prologue
-    const/4 v4, 0x0
-
-    const/high16 v3, 0x40f0
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
 
@@ -684,7 +682,7 @@
     .line 139
     iget-object v0, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->spectrum:Landroid/graphics/Bitmap;
 
-    invoke-virtual {p1, v0, v2, v2, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v2, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     .line 140
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -694,20 +692,16 @@
 
     int-to-float v0, v0
 
-    sub-float/2addr v0, v3
-
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
     int-to-float v1, v1
-
-    sub-float/2addr v1, v3
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 142
     iget-object v0, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
 
-    invoke-virtual {p1, v0, v2, v2, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v2, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     .line 143
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
@@ -760,7 +754,7 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 299
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 338
     :cond_1
@@ -799,7 +793,7 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 309
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto :goto_0
 
@@ -829,7 +823,7 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 319
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto :goto_0
 
@@ -865,7 +859,7 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 329
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto :goto_0
 
@@ -932,11 +926,11 @@
     if-nez v0, :cond_0
 
     .line 82
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0203c0
+    const v1, 0x7f020440
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -1056,13 +1050,27 @@
     :cond_2
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
     iget v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->HEIGHT:I
 
     if-lt v1, v2, :cond_3
 
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->HEIGHT:I
 
-    add-int/lit8 v1, v1, -0x1
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
@@ -1070,13 +1078,27 @@
     :cond_3
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->x:I
 
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
     iget v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->WIDTH:I
 
     if-lt v1, v2, :cond_4
 
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->WIDTH:I
 
-    add-int/lit8 v1, v1, -0x1
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->x:I
 
@@ -1085,7 +1107,7 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 240
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto :goto_0
 
@@ -1098,7 +1120,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 245
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
@@ -1131,13 +1153,27 @@
     :cond_6
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
     iget v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->HEIGHT:I
 
     if-lt v1, v2, :cond_7
 
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->HEIGHT:I
 
-    add-int/lit8 v1, v1, -0x1
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
@@ -1145,13 +1181,27 @@
     :cond_7
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->x:I
 
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
     iget v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->WIDTH:I
 
     if-lt v1, v2, :cond_8
 
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->WIDTH:I
 
-    add-int/lit8 v1, v1, -0x1
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->x:I
 
@@ -1160,9 +1210,9 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 251
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     .line 254
     :pswitch_2
@@ -1191,13 +1241,27 @@
     :cond_a
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
     iget v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->HEIGHT:I
 
     if-lt v1, v2, :cond_b
 
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->HEIGHT:I
 
-    add-int/lit8 v1, v1, -0x1
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->y:I
 
@@ -1205,13 +1269,27 @@
     :cond_b
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->x:I
 
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
     iget v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->WIDTH:I
 
     if-lt v1, v2, :cond_c
 
     iget v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->WIDTH:I
 
-    add-int/lit8 v1, v1, -0x1
+    iget-object v2, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->selector:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/settings/myprofile/GradientColorPickerView;->x:I
 
@@ -1220,10 +1298,10 @@
     invoke-direct {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->notifyColorChange()V
 
     .line 261
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 262
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/GradientColorPickerView;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
@@ -1240,6 +1318,8 @@
     goto/16 :goto_0
 
     .line 228
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

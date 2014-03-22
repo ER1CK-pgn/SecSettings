@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 291
+    .line 290
     iput-object p1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
     iput-object p2, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5;->val$alertDialog:Landroid/app/AlertDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
     .parameter "dialog"
 
     .prologue
-    .line 294
+    .line 293
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$5;->val$alertDialog:Landroid/app/AlertDialog;
 
     const/4 v1, -0x1
@@ -58,7 +58,7 @@
 
     invoke-static {v0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->access$202(Landroid/widget/Button;)Landroid/widget/Button;
 
-    .line 296
+    .line 295
     invoke-static {}, Lcom/android/settings/bluetooth/DevicePickerActivity;->access$200()Landroid/widget/Button;
 
     move-result-object v0
@@ -67,8 +67,8 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/DevicePickerActivity$5$1;-><init>(Lcom/android/settings/bluetooth/DevicePickerActivity$5;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 306
+    .line 305
     return-void
 .end method

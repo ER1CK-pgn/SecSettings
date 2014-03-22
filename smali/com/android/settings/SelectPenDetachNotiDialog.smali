@@ -125,7 +125,7 @@
 
     .prologue
     .line 208
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -165,7 +165,7 @@
     :pswitch_0
     iget-object v2, p0, Lcom/android/settings/SelectPenDetachNotiDialog;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v2}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v0
 
@@ -181,7 +181,7 @@
 
     .line 224
     .local v1, value:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -223,7 +223,7 @@
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 226
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -231,7 +231,7 @@
     .end local v0           #position:I
     .end local v1           #value:Ljava/lang/String;
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -258,7 +258,7 @@
     .line 86
     const-string v3, "audio"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/SelectPenDetachNotiDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -269,7 +269,7 @@
     .line 87
     const-string v3, "layout_inflater"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/SelectPenDetachNotiDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -291,7 +291,7 @@
 
     .line 93
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -342,15 +342,15 @@
     .end local v2           #intent:Landroid/content/Intent;
     :cond_0
     :goto_0
-    iget-object v0, p0, Lcom/android/settings/SelectPenDetachNotiDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
     .line 116
     .local v0, ap:Lcom/android/internal/app/AlertController$AlertParams;
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f091066
+    const v4, 0x7f0911a4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -361,7 +361,7 @@
     .line 117
     iget-object v3, p0, Lcom/android/settings/SelectPenDetachNotiDialog;->mInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f040075
+    const v4, 0x7f04007a
 
     const/4 v5, 0x0
 
@@ -378,18 +378,18 @@
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 120
-    const v3, 0x7f090173
+    const v3, 0x7f090195
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/SelectPenDetachNotiDialog;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     iput-object v3, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
     .line 121
-    const v3, 0x7f090ad8
+    const v3, 0x7f090bbc
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/SelectPenDetachNotiDialog;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -398,7 +398,7 @@
     .line 123
     iget-object v3, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v4, 0x7f0b0148
+    const v4, 0x7f0b0157
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -418,15 +418,15 @@
     .line 125
     iget-object v3, p0, Lcom/android/settings/SelectPenDetachNotiDialog;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v3, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 126
     iget-object v3, p0, Lcom/android/settings/SelectPenDetachNotiDialog;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v3, v7}, Landroid/widget/ListView;->setSoundEffectsEnabled(Z)V
+    invoke-virtual {v3, v7}, Landroid/view/View;->setSoundEffectsEnabled(Z)V
 
     .line 127
-    invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
     .line 129
     invoke-virtual {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->getCurrentSelection()I
@@ -474,7 +474,7 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {v3, v4, v5}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v3, v4, v5}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 133
     iget-object v3, p0, Lcom/android/settings/SelectPenDetachNotiDialog;->mListView:Landroid/widget/ListView;
@@ -525,7 +525,7 @@
 
     .line 104
     .local v1, e:Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -817,7 +817,7 @@
 
     .prologue
     .line 147
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onPause()V
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 148
     invoke-direct {p0}, Lcom/android/settings/SelectPenDetachNotiDialog;->stopAnyPlaying()V
@@ -831,7 +831,7 @@
 
     .prologue
     .line 141
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 142
     return-void

@@ -160,10 +160,10 @@
     .local v0, newFragment:Landroid/app/DialogFragment;
     const/4 v1, 0x0
 
-    invoke-virtual {v0, p0, v1}, Landroid/app/DialogFragment;->setTargetFragment(Landroid/app/Fragment;I)V
+    invoke-virtual {v0, p0, v1}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
     .line 634
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
@@ -626,7 +626,7 @@
     .local v2, detail:Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;
     iget-object v9, p0, Lcom/android/settings/applications/RunningServiceDetails;->mInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x7f040155
+    const v10, 0x7f04018b
 
     iget-object v11, p0, Lcom/android/settings/applications/RunningServiceDetails;->mAllDetails:Landroid/view/ViewGroup;
 
@@ -664,7 +664,7 @@
     iput-object v9, v2, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mActiveItem:Lcom/android/settings/applications/RunningProcessesView$ActiveItem;
 
     .line 381
-    const v9, 0x7f0b03b5
+    const v9, 0x7f0b0411
 
     invoke-virtual {v5, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -685,7 +685,7 @@
     .line 385
     const/16 v9, 0x8
 
-    invoke-virtual {v1, v9}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 426
     :cond_0
@@ -702,7 +702,7 @@
     if-eqz p2, :cond_2
 
     .line 387
-    const v9, 0x7f090796
+    const v9, 0x7f0907e9
 
     invoke-virtual {v1, v9}, Landroid/widget/TextView;->setText(I)V
 
@@ -738,7 +738,7 @@
     if-eqz v3, :cond_0
 
     .line 422
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
@@ -748,7 +748,7 @@
 
     aput-object v3, v10, v12
 
-    invoke-virtual {v9, v8, v10}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v9, v8, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v9
 
@@ -758,7 +758,7 @@
 
     .line 397
     :pswitch_0
-    const v8, 0x7f090798
+    const v8, 0x7f0907eb
 
     .line 398
     iget-object v9, v6, Landroid/app/ActivityManager$RunningAppProcessInfo;->importanceReasonComponent:Landroid/content/ComponentName;
@@ -767,11 +767,11 @@
 
     .line 400
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
@@ -785,15 +785,15 @@
 
     .line 402
     .local v4, prov:Landroid/content/pm/ProviderInfo;
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
-    iget-object v10, v4, Landroid/content/pm/ProviderInfo;->name:Ljava/lang/String;
+    iget-object v10, v4, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-static {v9, v10, v4}, Lcom/android/settings/applications/RunningState;->makeLabel(Landroid/content/pm/PackageManager;Ljava/lang/String;Landroid/content/pm/PackageItemInfo;)Ljava/lang/CharSequence;
     :try_end_0
@@ -806,7 +806,7 @@
     .line 409
     .end local v4           #prov:Landroid/content/pm/ProviderInfo;
     :pswitch_1
-    const v8, 0x7f090797
+    const v8, 0x7f0907ea
 
     .line 410
     iget-object v9, v6, Landroid/app/ActivityManager$RunningAppProcessInfo;->importanceReasonComponent:Landroid/content/ComponentName;
@@ -815,11 +815,11 @@
 
     .line 412
     :try_start_1
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
@@ -833,15 +833,15 @@
 
     .line 414
     .local v7, serv:Landroid/content/pm/ServiceInfo;
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
-    iget-object v10, v7, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
+    iget-object v10, v7, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-static {v9, v10, v7}, Lcom/android/settings/applications/RunningState;->makeLabel(Landroid/content/pm/PackageManager;Ljava/lang/String;Landroid/content/pm/PackageItemInfo;)Ljava/lang/CharSequence;
     :try_end_1
@@ -886,7 +886,7 @@
     .line 254
     iget-object v0, p0, Lcom/android/settings/applications/RunningServiceDetails;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040163
+    const v1, 0x7f04019e
 
     iget-object v2, p0, Lcom/android/settings/applications/RunningServiceDetails;->mAllDetails:Landroid/view/ViewGroup;
 
@@ -903,7 +903,7 @@
     .line 256
     iget-object v0, p0, Lcom/android/settings/applications/RunningServiceDetails;->mProcessesHeader:Landroid/widget/TextView;
 
-    const v1, 0x7f09078f
+    const v1, 0x7f0907e2
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -958,7 +958,7 @@
     .local v3, detail:Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;
     iget-object v9, p0, Lcom/android/settings/applications/RunningServiceDetails;->mInflater:Landroid/view/LayoutInflater;
 
-    const v10, 0x7f040156
+    const v10, 0x7f04018c
 
     iget-object v11, p0, Lcom/android/settings/applications/RunningServiceDetails;->mAllDetails:Landroid/view/ViewGroup;
 
@@ -1004,7 +1004,7 @@
     if-nez p4, :cond_1
 
     .line 286
-    const v9, 0x7f0b03b4
+    const v9, 0x7f0b0410
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1039,7 +1039,7 @@
 
     .line 294
     :cond_2
-    const v9, 0x7f0b03b5
+    const v9, 0x7f0b0411
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1049,7 +1049,7 @@
 
     .line 295
     .local v2, description:Landroid/widget/TextView;
-    const v9, 0x7f0b02d5
+    const v9, 0x7f0b0311
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1060,7 +1060,7 @@
     iput-object v9, v3, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mStopButton:Landroid/widget/Button;
 
     .line 296
-    const v9, 0x7f0b02d4
+    const v9, 0x7f0b0310
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1084,10 +1084,10 @@
     .line 302
     const/16 v9, 0x8
 
-    invoke-virtual {v2, v9}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v2, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 303
-    const v9, 0x7f0b01da
+    const v9, 0x7f0b0211
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1141,16 +1141,16 @@
 
     iget-object v9, p1, Lcom/android/settings/applications/RunningState$ServiceItem;->mServiceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget v9, v9, Landroid/content/pm/ServiceInfo;->descriptionRes:I
+    iget v9, v9, Landroid/content/pm/ComponentInfo;->descriptionRes:I
 
     if-eqz v9, :cond_7
 
     .line 306
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
@@ -1160,11 +1160,11 @@
 
     iget-object v11, p1, Lcom/android/settings/applications/RunningState$ServiceItem;->mServiceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget v11, v11, Landroid/content/pm/ServiceInfo;->descriptionRes:I
+    iget v11, v11, Landroid/content/pm/ComponentInfo;->descriptionRes:I
 
     iget-object v12, p1, Lcom/android/settings/applications/RunningState$ServiceItem;->mServiceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v12, v12, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v12, v12, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {v9, v10, v11, v12}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
@@ -1176,12 +1176,12 @@
     :goto_3
     iget-object v9, v3, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mStopButton:Landroid/widget/Button;
 
-    invoke-virtual {v9, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v9, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 329
     iget-object v10, v3, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mStopButton:Landroid/widget/Button;
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v11
 
@@ -1189,14 +1189,14 @@
 
     if-eqz v9, :cond_b
 
-    const v9, 0x7f090791
+    const v9, 0x7f0907e4
 
     :goto_4
-    invoke-virtual {v11, v9}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v11, v9}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v9
 
-    invoke-virtual {v10, v9}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v10, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 341
     :try_start_0
@@ -1260,7 +1260,7 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setEnabled(Z)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
@@ -1270,21 +1270,21 @@
     :goto_5
     iget-object v9, v3, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mReportButton:Landroid/widget/Button;
 
-    invoke-virtual {v9, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v9, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 353
     iget-object v9, v3, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mReportButton:Landroid/widget/Button;
 
-    const v10, 0x1040620
+    const v10, 0x104066c
 
-    invoke-virtual {v9, v10}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(I)V
 
     .line 355
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1303,7 +1303,7 @@
     if-eqz p1, :cond_d
 
     .line 358
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
@@ -1313,7 +1313,7 @@
 
     iget-object v11, p1, Lcom/android/settings/applications/RunningState$ServiceItem;->mServiceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v11, v11, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v11, v11, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v11, v11, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -1333,7 +1333,7 @@
     const/4 v9, 0x1
 
     :goto_6
-    invoke-virtual {v10, v9}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v10, v9}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto/16 :goto_2
 
@@ -1345,7 +1345,7 @@
     if-eqz v9, :cond_8
 
     .line 311
-    const v9, 0x7f090794
+    const v9, 0x7f0907e7
 
     invoke-virtual {v2, v9}, Landroid/widget/TextView;->setText(I)V
 
@@ -1359,11 +1359,11 @@
 
     .line 314
     :try_start_1
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
@@ -1387,11 +1387,11 @@
 
     .line 317
     .local v6, label:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    const v10, 0x7f090795
+    const v10, 0x7f0907e8
 
     const/4 v11, 0x1
 
@@ -1401,7 +1401,7 @@
 
     aput-object v6, v11, v12
 
-    invoke-virtual {v9, v10, v11}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v9, v10, v11}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v9
 
@@ -1421,16 +1421,16 @@
 
     .line 322
     :cond_9
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
     if-eqz p1, :cond_a
 
-    const v9, 0x7f090792
+    const v9, 0x7f0907e5
 
     :goto_7
-    invoke-virtual {v10, v9}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v10, v9}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v9
 
@@ -1439,13 +1439,13 @@
     goto/16 :goto_3
 
     :cond_a
-    const v9, 0x7f090793
+    const v9, 0x7f0907e6
 
     goto :goto_7
 
     .line 329
     :cond_b
-    const v9, 0x7f090790
+    const v9, 0x7f0907e3
 
     goto/16 :goto_4
 
@@ -1477,7 +1477,7 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto/16 :goto_2
 .end method
@@ -1494,7 +1494,7 @@
     .line 244
     iget-object v0, p0, Lcom/android/settings/applications/RunningServiceDetails;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040163
+    const v1, 0x7f04019e
 
     iget-object v2, p0, Lcom/android/settings/applications/RunningServiceDetails;->mAllDetails:Landroid/view/ViewGroup;
 
@@ -1511,7 +1511,7 @@
     .line 246
     iget-object v0, p0, Lcom/android/settings/applications/RunningServiceDetails;->mServicesHeader:Landroid/widget/TextView;
 
-    const v1, 0x7f09078e
+    const v1, 0x7f0907e1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1717,7 +1717,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 541
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -1732,7 +1732,7 @@
     iput v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mUid:I
 
     .line 542
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -1745,7 +1745,7 @@
     iput v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mUserId:I
 
     .line 543
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -1760,7 +1760,7 @@
     iput-object v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mProcessName:Ljava/lang/String;
 
     .line 544
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -1773,7 +1773,7 @@
     iput-boolean v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mShowBackground:Z
 
     .line 546
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1788,7 +1788,7 @@
     iput-object v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mAm:Landroid/app/ActivityManager;
 
     .line 547
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1803,7 +1803,7 @@
     iput-object v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mInflater:Landroid/view/LayoutInflater;
 
     .line 549
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1814,7 +1814,7 @@
     iput-object v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mState:Lcom/android/settings/applications/RunningState;
 
     .line 552
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1844,11 +1844,11 @@
 
     .line 556
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
@@ -1917,7 +1917,7 @@
     const/4 v2, 0x0
 
     .line 572
-    const v1, 0x7f040154
+    const v1, 0x7f04018a
 
     invoke-virtual {p1, v1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1931,7 +1931,7 @@
     iput-object v0, p0, Lcom/android/settings/applications/RunningServiceDetails;->mRootView:Landroid/view/View;
 
     .line 576
-    const v1, 0x7f0b0048
+    const v1, 0x7f0b0051
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1942,7 +1942,7 @@
     iput-object v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mAllDetails:Landroid/view/ViewGroup;
 
     .line 577
-    const v1, 0x7f0b03b3
+    const v1, 0x7f0b040f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1974,7 +1974,7 @@
     .prologue
     .line 604
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
 
@@ -1986,7 +1986,7 @@
 
     .line 605
     .local v2, id:I
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v3
 
@@ -2000,13 +2000,13 @@
     .local v0, dialog:Lcom/android/settings/applications/RunningServiceDetails$MyAlertDialogFragment;
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -2016,14 +2016,14 @@
 
     if-nez v3, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/settings/applications/RunningServiceDetails$MyAlertDialogFragment;->isAdded()Z
+    invoke-virtual {v0}, Landroid/app/Fragment;->isAdded()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
     .line 607
-    invoke-virtual {v0}, Lcom/android/settings/applications/RunningServiceDetails$MyAlertDialogFragment;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 608
     :cond_0
@@ -2105,7 +2105,7 @@
 
     .prologue
     .line 709
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -2257,7 +2257,7 @@
 
     iget-object v0, v0, Lcom/android/settings/applications/RunningProcessesView$ViewHolder;->description:Landroid/widget/TextView;
 
-    const v1, 0x7f09078d
+    const v1, 0x7f0907e0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2282,7 +2282,7 @@
     .line 700
     iget-object v1, p0, Lcom/android/settings/applications/RunningServiceDetails;->mSnippetActiveItem:Lcom/android/settings/applications/RunningProcessesView$ActiveItem;
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -2315,7 +2315,7 @@
 
     iget-object v1, v1, Lcom/android/settings/applications/RunningServiceDetails$ActiveDetail;->mActiveItem:Lcom/android/settings/applications/RunningProcessesView$ActiveItem;
 
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningServiceDetails;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 

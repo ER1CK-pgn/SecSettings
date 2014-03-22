@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 441
+    .line 442
     iput-object p1, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$1;->this$1:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
 
     iput-object p2, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$1;->val$row:Landroid/view/View;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,12 +48,12 @@
     .parameter "event"
 
     .prologue
-    .line 444
+    .line 445
     iget-object v0, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$1;->val$row:Landroid/view/View;
 
     invoke-virtual {v0, p2}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 445
+    .line 446
     const/4 v0, 0x0
 
     return v0

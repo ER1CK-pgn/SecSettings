@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 197
+    .line 209
     iput-object p1, p0, Lcom/android/settings/cloud/CloudDialog$7;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,20 +38,15 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 201
-    iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$7;->this$0:Lcom/android/settings/cloud/CloudDialog;
+    .line 213
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    const-string v1, "Baidu"
-
-    #calls: Lcom/android/settings/cloud/CloudDialog;->removeAccount(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/android/settings/cloud/CloudDialog;->access$300(Lcom/android/settings/cloud/CloudDialog;Ljava/lang/String;)V
-
-    .line 202
+    .line 214
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$7;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->dialogListener:Lcom/android/settings/cloud/CloudDialog$DialogListener;
@@ -61,7 +56,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 203
+    .line 215
     iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$7;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->dialogListener:Lcom/android/settings/cloud/CloudDialog$DialogListener;
@@ -69,9 +64,9 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/android/settings/cloud/CloudDialog$DialogListener;->onPositiveButtonClick()V
+    invoke-interface {v0}, Lcom/android/settings/cloud/CloudDialog$DialogListener;->onCancelButtonClick()V
 
-    .line 205
+    .line 216
     :cond_0
     return-void
 .end method

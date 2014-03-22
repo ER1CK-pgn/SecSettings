@@ -1,11 +1,11 @@
 .class Lcom/android/settings/users/AppRestrictionsFragment$2;
-.super Ljava/lang/Thread;
+.super Landroid/content/BroadcastReceiver;
 .source "AppRestrictionsFragment.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/users/AppRestrictionsFragment;->onPause()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/users/AppRestrictionsFragment;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,26 +24,28 @@
     .parameter
 
     .prologue
-    .line 349
+    .line 189
     iput-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$2;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 351
+    .line 192
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$2;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    #calls: Lcom/android/settings/users/AppRestrictionsFragment;->updateUserAppList()V
-    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$100(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    #calls: Lcom/android/settings/users/AppRestrictionsFragment;->onPackageChanged(Landroid/content/Intent;)V
+    invoke-static {v0, p2}, Lcom/android/settings/users/AppRestrictionsFragment;->access$200(Lcom/android/settings/users/AppRestrictionsFragment;Landroid/content/Intent;)V
 
-    .line 352
+    .line 193
     return-void
 .end method

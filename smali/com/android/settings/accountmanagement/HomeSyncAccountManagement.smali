@@ -162,7 +162,7 @@
 
     .prologue
     .line 171
-    const v9, 0x7f0b01c5
+    const v9, 0x7f0b01fc
 
     invoke-virtual {p1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -170,7 +170,7 @@
 
     .line 172
     .local v2, layout:Landroid/view/View;
-    const v9, 0x7f0b0132
+    const v9, 0x7f0b0141
 
     invoke-virtual {v2, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -182,10 +182,10 @@
     .local v7, tvName:Landroid/widget/TextView;
     const/16 v9, 0x8
 
-    invoke-virtual {v7, v9}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v7, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 174
-    const v9, 0x7f0b01cb
+    const v9, 0x7f0b0202
 
     invoke-virtual {v2, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -200,7 +200,7 @@
     invoke-virtual {v5, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 176
-    const v9, 0x7f0b01cd
+    const v9, 0x7f0b0204
 
     invoke-virtual {v2, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,16 +210,16 @@
 
     .line 177
     .local v6, tvISRegister:Landroid/widget/TextView;
-    const v9, 0x7f091433
+    const v9, 0x7f091587
 
     invoke-virtual {v6, v9}, Landroid/widget/TextView;->setText(I)V
 
     .line 178
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v9}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v9
 
@@ -227,7 +227,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d0030
+    const v10, 0x7f0d003b
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -236,7 +236,7 @@
     invoke-virtual {v6, v9}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 179
-    const v9, 0x7f0b01cf
+    const v9, 0x7f0b0206
 
     invoke-virtual {v2, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -291,7 +291,7 @@
 
     .line 186
     :goto_0
-    const v9, 0x7f0b01c4
+    const v9, 0x7f0b01fb
 
     invoke-virtual {p1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -301,12 +301,12 @@
 
     .line 187
     .local v0, headerAdmin:Landroid/widget/TextView;
-    const v9, 0x7f091430
+    const v9, 0x7f091584
 
     invoke-virtual {v0, v9}, Landroid/widget/TextView;->setText(I)V
 
     .line 188
-    const v9, 0x7f0b01c6
+    const v9, 0x7f0b01fd
 
     invoke-virtual {p1, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -316,7 +316,7 @@
 
     .line 189
     .local v1, headerGuest:Landroid/widget/TextView;
-    const v9, 0x7f091431
+    const v9, 0x7f091585
 
     invoke-virtual {v1, v9}, Landroid/widget/TextView;->setText(I)V
 
@@ -509,7 +509,7 @@
     iput-boolean v4, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->isDeletemode:Z
 
     .line 330
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -537,7 +537,7 @@
     iput-boolean v4, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->isDeletemode:Z
 
     .line 337
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -646,14 +646,14 @@
     .line 82
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 83
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -682,7 +682,7 @@
     const/4 v2, 0x0
 
     .line 193
-    const v0, 0x7f091424
+    const v0, 0x7f091578
 
     invoke-interface {p1, v2, v4, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -693,7 +693,7 @@
     .line 194
     iget-object v0, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->mAddMenuItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f0202be
+    const v1, 0x7f02031b
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -707,7 +707,7 @@
     invoke-interface {v0, v5}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 196
-    const v0, 0x7f091425
+    const v0, 0x7f091579
 
     invoke-interface {p1, v2, v5, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -718,7 +718,7 @@
     .line 197
     iget-object v0, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->mDeleteMenuItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f0202c2
+    const v1, 0x7f02031f
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -734,7 +734,7 @@
     .line 199
     const/4 v0, 0x3
 
-    const v1, 0x7f091426
+    const v1, 0x7f09157a
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -745,7 +745,7 @@
     .line 200
     iget-object v0, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->mChangeMenuItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f0202bf
+    const v1, 0x7f02031c
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -757,7 +757,7 @@
     .line 202
     const/4 v0, 0x5
 
-    const v1, 0x7f091427
+    const v1, 0x7f09157b
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -773,14 +773,14 @@
     .line 204
     iget-object v0, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->mDeleteAdminMenuItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f0202c1
+    const v1, 0x7f02031e
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 205
     const/4 v0, 0x6
 
-    const v1, 0x7f091428
+    const v1, 0x7f09157c
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -796,12 +796,12 @@
     .line 207
     iget-object v0, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->mCleanStorageMenuItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f0202c0
+    const v1, 0x7f02031d
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 213
-    const v0, 0x7f091429
+    const v0, 0x7f09157d
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -812,7 +812,7 @@
     .line 214
     iget-object v0, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->mResetPasswordMenuItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f0202c3
+    const v1, 0x7f020320
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -836,7 +836,7 @@
 
     .prologue
     .line 99
-    const v14, 0x7f0400b2
+    const v14, 0x7f0400d1
 
     const/4 v15, 0x0
 
@@ -853,7 +853,7 @@
     .line 100
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c0
+    const v15, 0x7f0b01f7
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -873,11 +873,11 @@
 
     move-result-object v14
 
-    const v15, 0x7f091430
+    const v15, 0x7f091584
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v15}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v15
 
@@ -900,7 +900,7 @@
     .line 103
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c2
+    const v15, 0x7f0b01f9
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -920,11 +920,11 @@
 
     move-result-object v14
 
-    const v15, 0x7f091431
+    const v15, 0x7f091585
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v15}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v15
 
@@ -947,7 +947,7 @@
     .line 106
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c7
+    const v15, 0x7f0b01fe
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -960,7 +960,7 @@
     .line 107
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c8
+    const v15, 0x7f0b01ff
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1060,7 +1060,7 @@
 
     const/16 v15, 0x8
 
-    invoke-virtual {v14, v15}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v14, v15}, Landroid/view/View;->setVisibility(I)V
 
     .line 126
     move-object/from16 v0, p0
@@ -1076,7 +1076,7 @@
 
     iget-object v14, v0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v15, 0x7f0b01c9
+    const v15, 0x7f0b0200
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1086,7 +1086,7 @@
 
     .line 128
     .local v3, admintitle:Landroid/widget/TextView;
-    const v14, 0x7f091435
+    const v14, 0x7f091589
 
     invoke-virtual {v3, v14}, Landroid/widget/TextView;->setText(I)V
 
@@ -1095,7 +1095,7 @@
 
     iget-object v14, v0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v15, 0x7f0b01ca
+    const v15, 0x7f0b0201
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1105,7 +1105,7 @@
 
     .line 130
     .local v2, admindescription:Landroid/widget/TextView;
-    const v14, 0x7f09142c
+    const v14, 0x7f091580
 
     invoke-virtual {v2, v14}, Landroid/widget/TextView;->setText(I)V
 
@@ -1132,7 +1132,7 @@
 
     const/4 v15, 0x0
 
-    invoke-virtual {v14, v15}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v14, v15}, Landroid/view/View;->setVisibility(I)V
 
     .line 135
     move-object/from16 v0, p0
@@ -1146,11 +1146,11 @@
     .line 136
     new-instance v4, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v14
 
-    invoke-virtual {v14}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v14}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v14
 
@@ -1193,7 +1193,7 @@
     .line 143
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c4
+    const v15, 0x7f0b01fb
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1203,14 +1203,14 @@
 
     .line 144
     .local v8, headerAdmin:Landroid/widget/TextView;
-    const v14, 0x7f091430
+    const v14, 0x7f091584
 
     invoke-virtual {v8, v14}, Landroid/widget/TextView;->setText(I)V
 
     .line 145
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c5
+    const v15, 0x7f0b01fc
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1223,7 +1223,7 @@
     invoke-virtual {v10, v14}, Landroid/view/View;->setVisibility(I)V
 
     .line 147
-    const v14, 0x7f0b01cc
+    const v14, 0x7f0b0203
 
     invoke-virtual {v10, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1238,7 +1238,7 @@
     .line 149
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v15, 0x7f0b01c6
+    const v15, 0x7f0b01fd
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1250,14 +1250,14 @@
     .local v9, headerGuest:Landroid/widget/TextView;
     const/16 v14, 0x8
 
-    invoke-virtual {v9, v14}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v9, v14}, Landroid/view/View;->setVisibility(I)V
 
     .line 151
     sget-object v14, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->list:Landroid/widget/ListView;
 
     const/16 v15, 0x8
 
-    invoke-virtual {v14, v15}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v14, v15}, Landroid/view/View;->setVisibility(I)V
 
     .line 152
     move-object/from16 v0, p0
@@ -1282,7 +1282,7 @@
 
     iget-object v14, v0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v15, 0x7f0b01c9
+    const v15, 0x7f0b0200
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1292,7 +1292,7 @@
 
     .line 155
     .local v7, guesttitle:Landroid/widget/TextView;
-    const v14, 0x7f091436
+    const v14, 0x7f09158a
 
     invoke-virtual {v7, v14}, Landroid/widget/TextView;->setText(I)V
 
@@ -1301,7 +1301,7 @@
 
     iget-object v14, v0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v15, 0x7f0b01ca
+    const v15, 0x7f0b0201
 
     invoke-virtual {v14, v15}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1311,12 +1311,12 @@
 
     .line 157
     .local v6, guestdescription:Landroid/widget/TextView;
-    const v14, 0x7f09142f
+    const v14, 0x7f091583
 
     invoke-virtual {v6, v14}, Landroid/widget/TextView;->setText(I)V
 
     .line 165
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v14
 
@@ -1366,7 +1366,7 @@
     .line 230
     const/4 v7, 0x3
 
-    invoke-virtual {p0, v0, v7}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v7}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -1388,7 +1388,7 @@
     invoke-virtual {v1, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 236
-    invoke-virtual {p0, v1, v6}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v1, v6}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -1412,7 +1412,7 @@
     .line 242
     const/4 v7, 0x4
 
-    invoke-virtual {p0, v2, v7}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v2, v7}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -1434,7 +1434,7 @@
     invoke-virtual {v4, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 248
-    invoke-virtual {p0, v4, v6}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v4, v6}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -1456,7 +1456,7 @@
     invoke-virtual {v5, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 254
-    invoke-virtual {p0, v5, v6}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v5, v6}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -1480,7 +1480,7 @@
     .line 274
     const/4 v7, 0x5
 
-    invoke-virtual {p0, v3, v7}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v3, v7}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -1688,7 +1688,7 @@
     invoke-direct {p0, v10}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->setTempData(Landroid/view/View;)V
 
     .line 377
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
@@ -1730,12 +1730,12 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 389
     iget-object v10, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v11, 0x7f0b01c9
+    const v11, 0x7f0b0200
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1745,14 +1745,14 @@
 
     .line 390
     .local v1, admintitle:Landroid/widget/TextView;
-    const v10, 0x7f091435
+    const v10, 0x7f091589
 
     invoke-virtual {v1, v10}, Landroid/widget/TextView;->setText(I)V
 
     .line 391
     iget-object v10, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v11, 0x7f0b01ca
+    const v11, 0x7f0b0201
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1762,7 +1762,7 @@
 
     .line 392
     .local v0, admindescription:Landroid/widget/TextView;
-    const v10, 0x7f09142c
+    const v10, 0x7f091580
 
     invoke-virtual {v0, v10}, Landroid/widget/TextView;->setText(I)V
 
@@ -1777,11 +1777,11 @@
     :goto_0
     new-instance v2, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter;
 
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
-    invoke-virtual {v10}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v10}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v10
 
@@ -1820,7 +1820,7 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {v10, v11}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
@@ -1834,7 +1834,7 @@
     .line 404
     sget-object v10, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v11, 0x7f0b01c4
+    const v11, 0x7f0b01fb
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1844,14 +1844,14 @@
 
     .line 405
     .local v6, headerAdmin:Landroid/widget/TextView;
-    const v10, 0x7f091430
+    const v10, 0x7f091584
 
     invoke-virtual {v6, v10}, Landroid/widget/TextView;->setText(I)V
 
     .line 406
     sget-object v10, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v11, 0x7f0b01c5
+    const v11, 0x7f0b01fc
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1864,7 +1864,7 @@
     invoke-virtual {v8, v10}, Landroid/view/View;->setVisibility(I)V
 
     .line 408
-    const v10, 0x7f0b01cc
+    const v10, 0x7f0b0203
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1879,7 +1879,7 @@
     .line 410
     sget-object v10, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->rootView:Landroid/view/View;
 
-    const v11, 0x7f0b01c6
+    const v11, 0x7f0b01fd
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1891,14 +1891,14 @@
     .local v7, headerGuest:Landroid/widget/TextView;
     const/16 v10, 0x8
 
-    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v7, v10}, Landroid/view/View;->setVisibility(I)V
 
     .line 412
     sget-object v10, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->list:Landroid/widget/ListView;
 
     const/16 v11, 0x8
 
-    invoke-virtual {v10, v11}, Landroid/widget/ListView;->setVisibility(I)V
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 413
     iget-object v10, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
@@ -1917,7 +1917,7 @@
     .line 415
     iget-object v10, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v11, 0x7f0b01c9
+    const v11, 0x7f0b0200
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1927,14 +1927,14 @@
 
     .line 416
     .local v5, guesttitle:Landroid/widget/TextView;
-    const v10, 0x7f091436
+    const v10, 0x7f09158a
 
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setText(I)V
 
     .line 417
     iget-object v10, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->view:Landroid/view/View;
 
-    const v11, 0x7f0b01ca
+    const v11, 0x7f0b0201
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1944,12 +1944,12 @@
 
     .line 418
     .local v4, guestdescription:Landroid/widget/TextView;
-    const v10, 0x7f09142f
+    const v10, 0x7f091583
 
     invoke-virtual {v4, v10}, Landroid/widget/TextView;->setText(I)V
 
     .line 419
-    invoke-virtual {p0}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 

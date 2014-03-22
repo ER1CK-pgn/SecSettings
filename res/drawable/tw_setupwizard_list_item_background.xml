@@ -2,7 +2,7 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" android:drawable="@drawable/tw_list_pressed_holo_light" />
-    <item android:state_focused="true" android:drawable="@drawable/APKTOOL_DUMMY_04bf" />
+    <item android:state_focused="true" android:drawable="@drawable/APKTOOL_DUMMY_0546" />
     <item android:state_selected="true" android:drawable="@drawable/tw_list_selected_holo_light" />
     <item android:drawable="@*android:color/white" />
 </selector>

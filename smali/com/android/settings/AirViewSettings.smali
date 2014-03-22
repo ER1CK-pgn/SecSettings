@@ -210,25 +210,25 @@
     .parameter "isEnable"
 
     .prologue
-    .line 565
+    .line 570
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_VIEW_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 566
+    .line 571
     .local v0, air_view_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 567
+    .line 572
     iget-object v1, p0, Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 568
+    .line 573
     return-void
 .end method
 
@@ -238,76 +238,76 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 571
+    .line 576
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 572
+    .line 577
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 573
+    .line 578
     iput-object v1, p0, Lcom/android/settings/AirViewSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    .line 575
+    .line 580
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
-    .line 576
+    .line 581
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 577
+    .line 582
     iput-object v1, p0, Lcom/android/settings/AirViewSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 579
+    .line 584
     :cond_1
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mInforPriviewEnableDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_2
 
-    .line 580
+    .line 585
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mInforPriviewEnableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 581
+    .line 586
     iput-object v1, p0, Lcom/android/settings/AirViewSettings;->mInforPriviewEnableDialog:Landroid/app/AlertDialog;
 
-    .line 583
+    .line 588
     :cond_2
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAirCommandDisablePopup:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_3
 
-    .line 584
+    .line 589
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAirCommandDisablePopup:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 585
+    .line 590
     iput-object v1, p0, Lcom/android/settings/AirViewSettings;->mAirCommandDisablePopup:Landroid/app/AlertDialog;
 
-    .line 587
+    .line 592
     :cond_3
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_4
 
-    .line 588
+    .line 593
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 589
+    .line 594
     iput-object v1, p0, Lcom/android/settings/AirViewSettings;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    .line 591
+    .line 596
     :cond_4
     return-void
 .end method
@@ -327,17 +327,17 @@
     .locals 4
 
     .prologue
-    .line 452
+    .line 453
     invoke-direct {p0}, Lcom/android/settings/AirViewSettings;->dismissAllDialog()V
 
-    .line 453
+    .line 454
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e96
+    const v3, 0x7f090fcf
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -355,7 +355,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e97
+    const v3, 0x7f090fd0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -373,7 +373,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f09081b
+    const v3, 0x7f090899
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -387,11 +387,11 @@
 
     move-result-object v0
 
-    .line 460
+    .line 461
     .local v0, message:Ljava/lang/String;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -401,7 +401,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090cb8
+    const v2, 0x7f090dd2
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -433,12 +433,12 @@
 
     iput-object v1, p0, Lcom/android/settings/AirViewSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    .line 486
+    .line 487
     iget-object v1, p0, Lcom/android/settings/AirViewSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
-    .line 488
+    .line 489
     return-void
 .end method
 
@@ -452,19 +452,25 @@
     .line 415
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e67
+    const v1, 0x7f090fa0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -496,12 +502,12 @@
 
     iput-object v0, p0, Lcom/android/settings/AirViewSettings;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    .line 431
+    .line 432
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 432
+    .line 433
     return-void
 .end method
 
@@ -509,25 +515,25 @@
     .locals 3
 
     .prologue
-    .line 435
+    .line 436
     invoke-direct {p0}, Lcom/android/settings/AirViewSettings;->dismissAllDialog()V
 
-    .line 436
+    .line 437
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e2a
+    const v1, 0x7f090f63
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -555,12 +561,12 @@
 
     iput-object v0, p0, Lcom/android/settings/AirViewSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 448
+    .line 449
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 449
+    .line 450
     return-void
 .end method
 
@@ -568,25 +574,25 @@
     .locals 3
 
     .prologue
-    .line 491
+    .line 492
     invoke-direct {p0}, Lcom/android/settings/AirViewSettings;->dismissAllDialog()V
 
-    .line 492
+    .line 493
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e3f
+    const v1, 0x7f090f78
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090cbf
+    const v1, 0x7f090dd9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -618,12 +624,12 @@
 
     iput-object v0, p0, Lcom/android/settings/AirViewSettings;->mInforPriviewEnableDialog:Landroid/app/AlertDialog;
 
-    .line 509
+    .line 510
     iget-object v0, p0, Lcom/android/settings/AirViewSettings;->mInforPriviewEnableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 510
+    .line 511
     return-void
 .end method
 
@@ -674,7 +680,7 @@
     .line 298
     iget-object v1, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 299
     return-void
@@ -697,13 +703,13 @@
 
     .line 258
     .local v1, airViewIndex:I
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
     .line 259
     .local v2, res:Landroid/content/res/Resources;
-    const v3, 0x7f0a0010
+    const v3, 0x7f0a0015
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -747,7 +753,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 243
     iget-object v1, p0, Lcom/android/settings/AirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -757,7 +763,7 @@
     .line 244
     iget-object v1, p0, Lcom/android/settings/AirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 245
     return-void
@@ -815,22 +821,22 @@
     .line 269
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mAirViewModeListPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v2, v3}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 270
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mPenAirViewPrefScreeen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 271
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mFingerAirViewPrefScreen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 272
     iget-object v2, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 292
     :goto_1
@@ -884,23 +890,23 @@
     .line 277
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mPenAirViewPrefScreeen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v4, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 278
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mFingerAirViewPrefScreen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 279
     iget-object v3, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 289
     :goto_2
     iget-object v3, p0, Lcom/android/settings/AirViewSettings;->mAirViewModeListPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v3, v2}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_1
 
@@ -911,17 +917,17 @@
     .line 281
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mPenAirViewPrefScreeen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v3}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 282
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mFingerAirViewPrefScreen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v4, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v4, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 283
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v4, v3}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v4, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_2
 
@@ -929,17 +935,17 @@
     :cond_3
     iget-object v3, p0, Lcom/android/settings/AirViewSettings;->mPenAirViewPrefScreeen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 286
     iget-object v3, p0, Lcom/android/settings/AirViewSettings;->mFingerAirViewPrefScreen:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 287
     iget-object v3, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_2
 .end method
@@ -1145,12 +1151,12 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 108
-    const v5, 0x7f07000d
+    const v5, 0x7f070013
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/AirViewSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 109
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -1159,21 +1165,21 @@
     .line 110
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
 
     .line 111
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/settings/AirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
     .line 113
-    invoke-virtual {p0, v4}, Lcom/android/settings/AirViewSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 115
     new-instance v5, Landroid/widget/Switch;
@@ -1198,6 +1204,16 @@
 
     .line 120
     .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/settings/Utils;->isListUI(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
     invoke-virtual {v2}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
     move-result v5
@@ -1214,11 +1230,11 @@
     :cond_0
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v7, 0x7f0f0019
+    const v7, 0x7f0f0034
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1228,7 +1244,7 @@
     .local v1, padding:I
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v5, v6, v6, v1, v6}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v5, v6, v6, v1, v6}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 124
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mActivity:Landroid/app/Activity;
@@ -1265,12 +1281,12 @@
     .line 134
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v5, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 136
     const-string v5, "air_view_mode"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/AirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1281,12 +1297,12 @@
     .line 137
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mAirViewModeListPref:Landroid/preference/ListPreference;
 
-    invoke-virtual {v5, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 139
     const-string v5, "pen_air_view_option"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/AirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1297,7 +1313,7 @@
     .line 140
     const-string v5, "finger_air_view_option"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/AirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1308,7 +1324,7 @@
     .line 142
     const-string v5, "key_air_button"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/AirViewSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1319,38 +1335,45 @@
     .line 143
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 144
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v5
 
     iget-object v7, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v5, v7}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 147
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-nez v5, :cond_2
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
 
     .line 148
+    :cond_2
     iget-boolean v5, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     .line 149
     sget v5, Lcom/android/settings/AirViewSettings;->mSettingValue:I
 
     const/4 v7, -0x1
 
-    if-eq v5, v7, :cond_2
+    if-eq v5, v7, :cond_3
 
     .line 150
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -1366,7 +1389,7 @@
     .local v3, targetKey:Ljava/lang/String;
     sget v5, Lcom/android/settings/AirViewSettings;->mSettingValue:I
 
-    if-ne v5, v4, :cond_3
+    if-ne v5, v4, :cond_4
 
     .line 154
     .local v4, value:Z
@@ -1377,16 +1400,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     .line 155
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v5}, Landroid/preference/SwitchPreferenceScreen;->isEnabled()Z
+    invoke-virtual {v5}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     .line 156
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
@@ -1401,12 +1424,12 @@
     .end local v0           #extra_bundle:Landroid/os/Bundle;
     .end local v3           #targetKey:Ljava/lang/String;
     .end local v4           #value:Z
-    :cond_2
+    :cond_3
     return-void
 
     .restart local v0       #extra_bundle:Landroid/os/Bundle;
     .restart local v3       #targetKey:Ljava/lang/String;
-    :cond_3
+    :cond_4
     move v4, v6
 
     .line 153
@@ -1425,7 +1448,7 @@
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 218
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1438,13 +1461,13 @@
     .line 219
     const/4 v0, 0x1
 
-    const v1, 0x7f091147
+    const v1, 0x7f091291
 
     invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201db
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1470,7 +1493,7 @@
     packed-switch v1, :pswitch_data_0
 
     .line 235
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
 
@@ -1494,7 +1517,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 231
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1519,10 +1542,10 @@
 
     .prologue
     .line 202
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 203
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1576,13 +1599,13 @@
 
     .line 309
     .local v1, doNotShow:Z
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
     const-string v9, "com.android.settings.airviewsettings.aircommand"
 
-    invoke-virtual {v6, v9, v8}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v6, v9, v8}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v4
 
@@ -1707,7 +1730,7 @@
     if-eqz v6, :cond_3
 
     .line 330
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -1721,7 +1744,7 @@
     .local v3, penInforPreviewState:I
     iget-object v6, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v6}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v6
 
@@ -1736,7 +1759,7 @@
 
     .line 336
     :cond_5
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1744,7 +1767,7 @@
 
     iget-object v6, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v6}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v6}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v6
 
@@ -1760,14 +1783,14 @@
 
     iget-object v9, p0, Lcom/android/settings/AirViewSettings;->mAirButtonSwitchPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v9}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v9}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v9
 
     if-nez v9, :cond_7
 
     :goto_4
-    invoke-virtual {v6, v8}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v6, v8}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_2
 
@@ -1799,9 +1822,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
 
     .line 379
+    :cond_0
     iget-object v5, p0, Lcom/android/settings/AirViewSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v6, "air_view_master_onoff"
@@ -1810,7 +1840,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_3
 
     move v0, v3
 
@@ -1819,22 +1849,22 @@
     :goto_0
     iget-boolean v5, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 382
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     .line 383
     sget v5, Lcom/android/settings/AirViewSettings;->mSettingValue:I
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_1
 
     .line 384
     sget v5, Lcom/android/settings/AirViewSettings;->mSettingValue:I
 
-    if-ne v5, v3, :cond_3
+    if-ne v5, v3, :cond_4
 
     move v2, v3
 
@@ -1847,55 +1877,55 @@
 
     .line 386
     .local v1, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 396
     .end local v0           #airViewState:Z
     .end local v1           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v2           #value:Z
-    :cond_0
+    :cond_1
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mPenAirViewPrefScreeen:Landroid/preference/PreferenceScreen;
 
-    if-ne p2, v4, :cond_5
+    if-ne p2, v4, :cond_6
 
     .line 397
     iput-boolean v3, p0, Lcom/android/settings/AirViewSettings;->isGoIntoSubMenu:Z
 
     .line 402
-    :cond_1
+    :cond_2
     :goto_2
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v4
 
     :goto_3
     return v4
 
-    :cond_2
+    :cond_3
     move v0, v4
 
     .line 379
     goto :goto_0
 
     .restart local v0       #airViewState:Z
-    :cond_3
+    :cond_4
     move v2, v4
 
     .line 384
     goto :goto_1
 
     .line 389
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->initArrayLinkKey()V
+    :cond_5
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->initArrayLinkKey()V
 
     goto :goto_3
 
     .line 398
     .end local v0           #airViewState:Z
-    :cond_5
+    :cond_6
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mFingerAirViewPrefScreen:Landroid/preference/PreferenceScreen;
 
-    if-ne p2, v4, :cond_1
+    if-ne p2, v4, :cond_2
 
     .line 399
     iput-boolean v3, p0, Lcom/android/settings/AirViewSettings;->isGoIntoSubMenu:Z
@@ -1953,7 +1983,7 @@
     iput-boolean v2, p0, Lcom/android/settings/AirViewSettings;->isGoIntoSubMenu:Z
 
     .line 180
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -2010,7 +2040,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -2033,7 +2063,7 @@
 
     .line 196
     :cond_0
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 197
     return-void
@@ -2043,21 +2073,21 @@
     .locals 6
 
     .prologue
-    .line 513
+    .line 514
     invoke-direct {p0}, Lcom/android/settings/AirViewSettings;->dismissAllDialog()V
 
-    .line 516
+    .line 517
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
     invoke-direct {v0, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 517
+    .line 518
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    invoke-virtual {p0}, Lcom/android/settings/AirViewSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -2069,9 +2099,9 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 520
+    .line 521
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f04006a
+    const v4, 0x7f04006f
 
     const/4 v5, 0x0
 
@@ -2079,9 +2109,9 @@
 
     move-result-object v2
 
-    .line 521
+    .line 522
     .local v2, layout:Landroid/view/View;
-    const v4, 0x7f0b013a
+    const v4, 0x7f0b0149
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2089,22 +2119,22 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 523
+    .line 524
     .local v3, message:Landroid/widget/TextView;
-    const v4, 0x7f090e66
+    const v4, 0x7f090f9f
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 524
+    .line 525
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 525
-    const v4, 0x7f090e39
+    .line 526
+    const v4, 0x7f090f72
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 526
-    const v4, 0x7f09074c
+    .line 527
+    const v4, 0x7f09079f
 
     new-instance v5, Lcom/android/settings/AirViewSettings$9;
 
@@ -2112,7 +2142,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 537
+    .line 538
     const/high16 v4, 0x104
 
     new-instance v5, Lcom/android/settings/AirViewSettings$10;
@@ -2121,27 +2151,27 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 546
+    .line 547
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/AirViewSettings;->mAirCommandDisablePopup:Landroid/app/AlertDialog;
 
-    .line 547
+    .line 548
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mAirCommandDisablePopup:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v4}, Landroid/app/Dialog;->show()V
 
-    .line 548
+    .line 549
     iget-object v4, p0, Lcom/android/settings/AirViewSettings;->mAirCommandDisablePopup:Landroid/app/AlertDialog;
 
     new-instance v5, Lcom/android/settings/AirViewSettings$11;
 
     invoke-direct {v5, p0, v2}, Lcom/android/settings/AirViewSettings$11;-><init>(Lcom/android/settings/AirViewSettings;Landroid/view/View;)V
 
-    invoke-virtual {v4, v5}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v4, v5}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 562
+    .line 567
     return-void
 .end method

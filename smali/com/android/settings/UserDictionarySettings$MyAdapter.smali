@@ -20,7 +20,7 @@
 # instance fields
 .field private mIndexer:Landroid/widget/AlphabetIndexer;
 
-.field private mViewBinder:Landroid/widget/SimpleCursorAdapter$ViewBinder;
+.field private final mViewBinder:Landroid/widget/SimpleCursorAdapter$ViewBinder;
 
 
 # direct methods
@@ -34,27 +34,27 @@
     .parameter "settings"
 
     .prologue
-    .line 265
+    .line 261
     invoke-direct/range {p0 .. p5}, Landroid/widget/SimpleCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V
 
-    .line 244
+    .line 239
     new-instance v2, Lcom/android/settings/UserDictionarySettings$MyAdapter$1;
 
     invoke-direct {v2, p0}, Lcom/android/settings/UserDictionarySettings$MyAdapter$1;-><init>(Lcom/android/settings/UserDictionarySettings$MyAdapter;)V
 
     iput-object v2, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter;->mViewBinder:Landroid/widget/SimpleCursorAdapter$ViewBinder;
 
-    .line 267
+    .line 263
     if-eqz p3, :cond_0
 
-    .line 268
-    const v2, 0x10406da
+    .line 264
+    const v2, 0x1040744
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 270
+    .line 266
     .local v0, alphabet:Ljava/lang/String;
     const-string v2, "word"
 
@@ -62,7 +62,7 @@
 
     move-result v1
 
-    .line 271
+    .line 267
     .local v1, wordColIndex:I
     new-instance v2, Landroid/widget/AlphabetIndexer;
 
@@ -70,15 +70,15 @@
 
     iput-object v2, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
-    .line 273
+    .line 269
     .end local v0           #alphabet:Ljava/lang/String;
     .end local v1           #wordColIndex:I
     :cond_0
     iget-object v2, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter;->mViewBinder:Landroid/widget/SimpleCursorAdapter$ViewBinder;
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/UserDictionarySettings$MyAdapter;->setViewBinder(Landroid/widget/SimpleCursorAdapter$ViewBinder;)V
+    invoke-virtual {p0, v2}, Landroid/widget/SimpleCursorAdapter;->setViewBinder(Landroid/widget/SimpleCursorAdapter$ViewBinder;)V
 
-    .line 274
+    .line 270
     return-void
 .end method
 
@@ -89,7 +89,7 @@
     .parameter "section"
 
     .prologue
-    .line 277
+    .line 274
     iget-object v0, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
     if-nez v0, :cond_0
@@ -114,7 +114,7 @@
     .parameter "position"
 
     .prologue
-    .line 281
+    .line 279
     iget-object v0, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
     if-nez v0, :cond_0
@@ -138,7 +138,7 @@
     .locals 1
 
     .prologue
-    .line 285
+    .line 284
     iget-object v0, p0, Lcom/android/settings/UserDictionarySettings$MyAdapter;->mIndexer:Landroid/widget/AlphabetIndexer;
 
     if-nez v0, :cond_0

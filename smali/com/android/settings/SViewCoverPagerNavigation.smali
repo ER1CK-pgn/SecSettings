@@ -150,12 +150,12 @@
     .parameter "page"
 
     .prologue
-    const v0, 0x7f02006a
+    const v0, 0x7f020073
 
     .line 71
     sget-object v1, Lcom/android/settings/SViewCoverPagerNavigation$1;->$SwitchMap$com$android$settings$SViewCoverPagerNavigation$PageType:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/SViewCoverPagerNavigation$PageType;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v2
 
@@ -170,7 +170,7 @@
 
     .line 73
     :pswitch_1
-    const v0, 0x7f020069
+    const v0, 0x7f020072
 
     goto :goto_0
 
@@ -216,7 +216,7 @@
     .line 85
     new-instance v2, Landroid/widget/ImageView;
 
-    invoke-virtual {p0}, Lcom/android/settings/SViewCoverPagerNavigation;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -236,10 +236,10 @@
 
     .line 87
     .local v1, padding:I
-    invoke-virtual {v2, v1, v7, v1, v7}, Landroid/widget/ImageView;->setPadding(IIII)V
+    invoke-virtual {v2, v1, v7, v1, v7}, Landroid/view/View;->setPadding(IIII)V
 
     .line 88
-    invoke-virtual {p0, v2}, Lcom/android/settings/SViewCoverPagerNavigation;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 89
     iget-object v3, p0, Lcom/android/settings/SViewCoverPagerNavigation;->mIndicatorList:Ljava/util/ArrayList;
@@ -285,14 +285,14 @@
 
     .line 94
     .restart local v2       #v:Landroid/widget/ImageView;
-    invoke-virtual {v2}, Landroid/widget/ImageView;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v3
 
     if-eqz v3, :cond_1
 
     .line 95
-    invoke-virtual {p0, v2}, Lcom/android/settings/SViewCoverPagerNavigation;->removeView(Landroid/view/View;)V
+    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 97
     :cond_1

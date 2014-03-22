@@ -30,7 +30,7 @@
     .line 142
     iput-object p1, p0, Lcom/android/settings/AirCmdPreferenceEnabler$2;->this$0:Lcom/android/settings/AirCmdPreferenceEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 145
     return-void

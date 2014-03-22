@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 75
+    .line 80
     iput-object p1, p0, Lcom/android/settings/fmm/TabletRemoteControls$1;->this$0:Lcom/android/settings/fmm/TabletRemoteControls;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -44,10 +44,10 @@
 
     const/4 v0, 0x0
 
-    .line 78
+    .line 83
     iget-object v2, p0, Lcom/android/settings/fmm/TabletRemoteControls$1;->this$0:Lcom/android/settings/fmm/TabletRemoteControls;
 
-    #calls: Lcom/android/settings/fmm/TabletRemoteControls;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v2}, Lcom/android/settings/fmm/TabletRemoteControls;->access$000(Lcom/android/settings/fmm/TabletRemoteControls;)Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -62,12 +62,12 @@
 
     move v0, v1
 
-    .line 79
+    .line 84
     .local v0, Enabled:Z
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 80
+    .line 85
     const-string v2, "TabletRemoteControls"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -90,7 +90,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 81
+    .line 86
     iget-object v2, p0, Lcom/android/settings/fmm/TabletRemoteControls$1;->this$0:Lcom/android/settings/fmm/TabletRemoteControls;
 
     #getter for: Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
@@ -98,9 +98,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 83
+    .line 88
     :cond_1
     return-void
 .end method

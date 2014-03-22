@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 92
+    .line 95
     iput-object p1, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$1;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 95
+    .line 98
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 96
+    .line 99
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.bluetooth.adapter.action.STATE_CHANGED"
 
@@ -55,7 +55,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 97
+    .line 100
     const-string v2, "android.bluetooth.adapter.extra.STATE"
 
     const/high16 v3, -0x8000
@@ -64,18 +64,18 @@
 
     move-result v1
 
-    .line 98
+    .line 101
     .local v1, state:I
     const/16 v2, 0xa
 
     if-ne v1, v2, :cond_0
 
-    .line 99
+    .line 102
     iget-object v2, p0, Lcom/android/settings/bluetooth/DeviceProfilesSettings$1;->this$0:Lcom/android/settings/bluetooth/DeviceProfilesSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/bluetooth/DeviceProfilesSettings;->finish()V
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 102
+    .line 105
     .end local v1           #state:I
     :cond_0
     return-void

@@ -139,7 +139,7 @@
 
     const/high16 v1, 0x4040
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/PieChartView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -163,7 +163,7 @@
     .line 93
     const/high16 v0, 0x41a0
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/PieChartView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -182,7 +182,7 @@
     .line 95
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/widget/PieChartView;->setWillNotDraw(Z)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->setWillNotDraw(Z)V
 
     .line 96
     return-void
@@ -353,7 +353,7 @@
     if-nez v22, :cond_1
 
     .line 154
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/PieChartView;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
 
     .line 217
     :goto_1
@@ -361,13 +361,13 @@
 
     .line 158
     :cond_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/PieChartView;->getWidth()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getWidth()I
 
     move-result v21
 
     .line 159
     .local v21, width:I
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/PieChartView;->getHeight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getHeight()I
 
     move-result v8
 
@@ -952,7 +952,7 @@
     .end local v16           #startSideVisible:Z
     .end local v17           #sweepAngle:I
     :cond_a
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/widget/PieChartView;->invalidate()V
+    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->invalidate()V
 
     goto/16 :goto_1
 .end method
@@ -1067,7 +1067,7 @@
 
     .prologue
     .line 127
-    invoke-virtual {p0}, Lcom/android/settings/widget/PieChartView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v2
 
@@ -1077,7 +1077,7 @@
 
     .line 128
     .local v0, centerX:F
-    invoke-virtual {p0}, Lcom/android/settings/widget/PieChartView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v2
 

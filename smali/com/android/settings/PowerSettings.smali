@@ -69,7 +69,7 @@
     .line 131
     iget-object v1, p0, Lcom/android/settings/PowerSettings;->mFastPowerOn:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -82,7 +82,7 @@
     if-eqz v2, :cond_0
 
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 132
     return-void
@@ -111,14 +111,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 63
-    const v4, 0x7f070071
+    const v4, 0x7f07008f
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PowerSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 65
     const-string v4, "power_saving_mode"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PowerSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -141,7 +141,7 @@
     :cond_0
     new-instance v4, Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
@@ -161,7 +161,7 @@
     .line 72
     const-string v4, "auto_power_off"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PowerSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -172,7 +172,7 @@
     .line 73
     iget-object v4, p0, Lcom/android/settings/PowerSettings;->mAutoPowerOff:Landroid/preference/ListPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -191,18 +191,18 @@
     .line 74
     iget-object v4, p0, Lcom/android/settings/PowerSettings;->mAutoPowerOff:Landroid/preference/ListPreference;
 
-    invoke-virtual {v4, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v4, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 76
     new-array v2, v9, [Ljava/lang/String;
 
     .line 77
     .local v2, mStartUpEntries:[Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v7, 0x7f0910cc
+    const v7, 0x7f09120e
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -211,11 +211,11 @@
     aput-object v4, v2, v6
 
     .line 78
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v7, 0x7f090b8f
+    const v7, 0x7f090c97
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -240,7 +240,7 @@
     .line 85
     const-string v4, "start_up"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PowerSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -260,7 +260,7 @@
 
     .line 90
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -268,7 +268,7 @@
 
     const/4 v8, 0x2
 
-    invoke-virtual {v4, v7, v8}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v4, v7, v8}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v4
 
@@ -311,7 +311,7 @@
     .line 98
     iget-object v4, p0, Lcom/android/settings/PowerSettings;->mStartUp:Landroid/preference/ListPreference;
 
-    invoke-virtual {v4, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v4, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 100
     const-string v4, "VZW"
@@ -325,19 +325,19 @@
     if-nez v4, :cond_1
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
     iget-object v7, p0, Lcom/android/settings/PowerSettings;->mStartUp:Landroid/preference/ListPreference;
 
-    invoke-virtual {v4, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v4, v7}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 105
     :cond_1
     const-string v4, "fast_power_on"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/PowerSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -348,7 +348,7 @@
     .line 106
     iget-object v7, p0, Lcom/android/settings/PowerSettings;->mFastPowerOn:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -363,7 +363,7 @@
     move v4, v5
 
     :goto_1
-    invoke-virtual {v7, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v7, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 109
     return-void
@@ -393,7 +393,7 @@
 
     .prologue
     .line 122
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 123
     const-string v0, "PowerSettings"
@@ -408,11 +408,11 @@
     invoke-virtual {v0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->pause()V
 
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
+    invoke-virtual {v0}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
@@ -445,7 +445,7 @@
 
     .line 138
     .local v2, value:I
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -486,7 +486,7 @@
     .line 144
     .local v2, value:Ljava/lang/String;
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -494,7 +494,7 @@
 
     const/4 v5, 0x2
 
-    invoke-virtual {v3, v4, v5}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v3, v4, v5}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v3
 
@@ -570,7 +570,7 @@
     if-eqz v1, :cond_0
 
     .line 161
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -578,7 +578,7 @@
 
     iget-object v1, p0, Lcom/android/settings/PowerSettings;->mFastPowerOn:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -598,7 +598,7 @@
 
     .line 165
     :cond_0
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
 
@@ -631,11 +631,11 @@
     invoke-virtual {v0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->resume()V
 
     .line 116
-    invoke-virtual {p0}, Lcom/android/settings/PowerSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
+    invoke-virtual {v0}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
@@ -676,7 +676,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 172
     :cond_0

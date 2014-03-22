@@ -3,6 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
   xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
-    <Preference android:persistent="false" android:key="battery_status" style="?android:attr/preferenceInformationStyle" />
+    <SwitchPreferenceScreen android:title="@string/power_saving_mode_title" android:key="power_saving_mode" android:fragment="com.android.settings.powersavingmode.MenuPowerSavingModeSettings" />
     <CheckBoxPreference android:persistent="false" android:title="@string/display_battery_percentage" android:key="display_battery_level" android:summary="@string/display_battery_percentage_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
+    <Preference android:persistent="false" android:key="battery_status" style="?android:attr/preferenceInformationStyle" />
 </PreferenceScreen>

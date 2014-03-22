@@ -3,12 +3,12 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/wifi/WifiSettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/wifi/WifiSettings;->getErrorAnimationView(II)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,64 +27,41 @@
     .parameter
 
     .prologue
-    .line 3039
+    .line 2286
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$27;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 3
-    .parameter "dialog"
+.method public run()V
+    .locals 1
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 3041
+    .line 2288
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$27;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    #getter for: Lcom/android/settings/wifi/WifiSettings;->mVzwDialog:Lcom/android/settings/wifi/WifiVzwDialog;
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiSettings;->access$2100(Lcom/android/settings/wifi/WifiSettings;)Lcom/android/settings/wifi/WifiVzwDialog;
+    #getter for: Lcom/android/settings/wifi/WifiSettings;->mErrorDialogAni:Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiSettings;->access$1600(Lcom/android/settings/wifi/WifiSettings;)Landroid/graphics/drawable/AnimationDrawable;
 
     move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 3064
+    .line 2289
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$27;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    const/4 v1, 0x0
+    #getter for: Lcom/android/settings/wifi/WifiSettings;->mErrorDialogAni:Landroid/graphics/drawable/AnimationDrawable;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiSettings;->access$1600(Lcom/android/settings/wifi/WifiSettings;)Landroid/graphics/drawable/AnimationDrawable;
 
-    #setter for: Lcom/android/settings/wifi/WifiSettings;->mVzwDialog:Lcom/android/settings/wifi/WifiVzwDialog;
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/WifiSettings;->access$2102(Lcom/android/settings/wifi/WifiSettings;Lcom/android/settings/wifi/WifiVzwDialog;)Lcom/android/settings/wifi/WifiVzwDialog;
+    move-result-object v0
 
-    .line 3065
-    sput-boolean v2, Lcom/android/settings/wifi/WifiSettings;->vzwEditFlag:Z
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
 
-    .line 3066
-    sput-boolean v2, Lcom/android/settings/wifi/WifiSettings;->vzwViewFlag:Z
-
-    .line 3067
-    sput v2, Lcom/android/settings/wifi/WifiSettings;->forget_network:I
-
-    .line 3068
-    sput v2, Lcom/android/settings/wifi/WifiSettings;->cancel_network:I
-
-    .line 3069
-    sput v2, Lcom/android/settings/wifi/WifiSettings;->edit_network:I
-
-    .line 3070
-    const-string v0, "WifiSettings"
-
-    const-string v1, "vzwViewFlag sets to false : mDismissListener"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 3072
+    .line 2290
     :cond_0
     return-void
 .end method

@@ -84,7 +84,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/UsbSettings;->removeDialog(I)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->removeDialog(I)V
 
     .line 108
     :cond_0

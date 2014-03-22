@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 312
+    .line 350
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$6;->this$0:Lcom/android/settings/DisplaySettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -44,7 +44,7 @@
 
     const/4 v1, 0x1
 
-    .line 315
+    .line 353
     iget-object v3, p0, Lcom/android/settings/DisplaySettings$6;->this$0:Lcom/android/settings/DisplaySettings;
 
     #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
@@ -54,7 +54,7 @@
 
     iget-object v4, p0, Lcom/android/settings/DisplaySettings$6;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-virtual {v4}, Lcom/android/settings/DisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -67,9 +67,9 @@
     if-ne v4, v1, :cond_0
 
     :goto_0
-    invoke-virtual {v3, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 316
+    .line 354
     iget-object v1, p0, Lcom/android/settings/DisplaySettings$6;->this$0:Lcom/android/settings/DisplaySettings;
 
     #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
@@ -77,14 +77,14 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 317
+    .line 355
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 318
+    .line 356
     .local v0, mHandler:Landroid/os/Handler;
     new-instance v1, Lcom/android/settings/DisplaySettings$6$1;
 
@@ -94,13 +94,13 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 323
+    .line 361
     return-void
 
     .end local v0           #mHandler:Landroid/os/Handler;
     :cond_0
     move v1, v2
 
-    .line 315
+    .line 353
     goto :goto_0
 .end method

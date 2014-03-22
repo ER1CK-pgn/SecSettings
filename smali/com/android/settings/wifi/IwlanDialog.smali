@@ -88,11 +88,11 @@
 
     .prologue
     .line 143
-    invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {p0}, Landroid/app/Dialog;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    const v2, 0x7f0400bd
+    const v2, 0x7f0400dc
 
     const/4 v3, 0x0
 
@@ -102,7 +102,7 @@
 
     .line 144
     .local v0, row:Landroid/view/View;
-    const v1, 0x7f0b0132
+    const v1, 0x7f0b0141
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
     invoke-virtual {v1, p2}, Landroid/widget/TextView;->setText(I)V
 
     .line 145
-    const v1, 0x7f0b020b
+    const v1, 0x7f0b0243
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f091108
+    const v1, 0x7f091252
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,7 +195,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f091105
+    const v4, 0x7f09124f
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -260,7 +260,7 @@
     .line 243
     iget-object v3, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f091106
+    const v4, 0x7f091250
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -302,7 +302,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f09110e
+    const v2, 0x7f091258
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -360,7 +360,7 @@
 
     .line 221
     :cond_0
-    invoke-super {p0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
 
     .line 223
     :cond_1
@@ -380,7 +380,7 @@
     invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanDialog;->dismiss()V
 
     .line 215
-    invoke-super {p0}, Landroid/app/AlertDialog;->onBackPressed()V
+    invoke-super {p0}, Landroid/app/Dialog;->onBackPressed()V
 
     .line 216
     return-void
@@ -629,11 +629,11 @@
     const/4 v8, -0x1
 
     .line 70
-    invoke-virtual {p0}, Lcom/android/settings/wifi/IwlanDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {p0}, Landroid/app/Dialog;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v5
 
-    const v6, 0x7f0400bc
+    const v6, 0x7f0400db
 
     const/4 v7, 0x0
 
@@ -646,10 +646,10 @@
     .line 71
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/IwlanDialog;->setView(Landroid/view/View;)V
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->setView(Landroid/view/View;)V
 
     .line 72
-    invoke-virtual {p0, v11}, Lcom/android/settings/wifi/IwlanDialog;->setInverseBackgroundForced(Z)V
+    invoke-virtual {p0, v11}, Landroid/app/AlertDialog;->setInverseBackgroundForced(Z)V
 
     .line 74
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mIwlanNetwork:Lcom/android/settings/wifi/IwlanNetwork;
@@ -657,14 +657,14 @@
     if-nez v5, :cond_0
 
     .line 75
-    const v5, 0x7f0910fa
+    const v5, 0x7f091244
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/IwlanDialog;->setTitle(I)V
+    invoke-virtual {p0, v5}, Landroid/app/Dialog;->setTitle(I)V
 
     .line 76
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0b0208
+    const v6, 0x7f0b0240
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -675,7 +675,7 @@
     .line 77
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0b0209
+    const v6, 0x7f0b0241
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -693,7 +693,7 @@
     .line 79
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0b020a
+    const v6, 0x7f0b0242
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -729,24 +729,24 @@
     .line 109
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f09110c
+    const v6, 0x7f091256
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v8, v5, p0}, Lcom/android/settings/wifi/IwlanDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v8, v5, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     .line 110
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f09110d
+    const v6, 0x7f091257
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v10, v5, p0}, Lcom/android/settings/wifi/IwlanDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v10, v5, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     .line 139
     .end local v0           #filters:[Landroid/text/InputFilter;
@@ -780,19 +780,19 @@
     .line 113
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0910f8
+    const v6, 0x7f091242
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/IwlanDialog;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 118
     :goto_1
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mView:Landroid/view/View;
 
-    const v6, 0x7f0b0207
+    const v6, 0x7f0b023f
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -802,7 +802,7 @@
 
     .line 119
     .local v1, group:Landroid/view/ViewGroup;
-    invoke-virtual {v1, v9}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v1, v9}, Landroid/view/View;->setVisibility(I)V
 
     .line 120
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mIwlanNetwork:Lcom/android/settings/wifi/IwlanNetwork;
@@ -816,7 +816,7 @@
     if-eqz v4, :cond_1
 
     .line 122
-    const v5, 0x7f091102
+    const v5, 0x7f09124c
 
     invoke-direct {p0, v1, v5, v4}, Lcom/android/settings/wifi/IwlanDialog;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -833,7 +833,7 @@
     if-eqz v3, :cond_2
 
     .line 127
-    const v5, 0x7f091103
+    const v5, 0x7f09124d
 
     invoke-direct {p0, v1, v5, v3}, Lcom/android/settings/wifi/IwlanDialog;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -850,24 +850,24 @@
     .line 131
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f09110a
+    const v6, 0x7f091254
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v8, v5, p0}, Lcom/android/settings/wifi/IwlanDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v8, v5, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     .line 132
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f09110e
+    const v6, 0x7f091258
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v10, v5, p0}, Lcom/android/settings/wifi/IwlanDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v10, v5, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     goto :goto_0
 
@@ -882,7 +882,7 @@
 
     move-result-object v5
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/IwlanDialog;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
 
     goto :goto_1
 
@@ -893,26 +893,26 @@
     :cond_4
     iget-object v5, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f091109
+    const v6, 0x7f091253
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v8, v5, p0}, Lcom/android/settings/wifi/IwlanDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v8, v5, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     .line 135
     const/4 v5, -0x3
 
     iget-object v6, p0, Lcom/android/settings/wifi/IwlanDialog;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f09110b
+    const v7, 0x7f091255
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p0, v5, v6, p0}, Lcom/android/settings/wifi/IwlanDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v5, v6, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     goto/16 :goto_0
 .end method
@@ -974,7 +974,7 @@
 
     .prologue
     .line 59
-    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onWindowFocusChanged(Z)V
+    invoke-super {p0, p1}, Landroid/app/Dialog;->onWindowFocusChanged(Z)V
 
     .line 60
     iget-object v1, p0, Lcom/android/settings/wifi/IwlanDialog;->mIwlanNetwork:Lcom/android/settings/wifi/IwlanNetwork;
@@ -1010,7 +1010,7 @@
     .line 63
     const/4 v1, -0x3
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/IwlanDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v0
 
@@ -1018,7 +1018,7 @@
     .local v0, button:Landroid/widget/Button;
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 66
     .end local v0           #button:Landroid/widget/Button;

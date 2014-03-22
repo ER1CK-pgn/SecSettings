@@ -30,10 +30,10 @@
     .locals 0
 
     .prologue
-    .line 64
+    .line 66
     invoke-direct {p0}, Lcom/android/internal/app/AlertActivity;-><init>()V
 
-    .line 468
+    .line 470
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .parameter "position"
 
     .prologue
-    .line 139
+    .line 141
     iget-object v1, p0, Lcom/android/settings/ActivityPicker;->mAdapter:Lcom/android/settings/ActivityPicker$PickAdapter;
 
     invoke-virtual {v1, p1}, Lcom/android/settings/ActivityPicker$PickAdapter;->getItem(I)Ljava/lang/Object;
@@ -53,7 +53,7 @@
 
     check-cast v0, Lcom/android/settings/ActivityPicker$PickAdapter$Item;
 
-    .line 140
+    .line 142
     .local v0, item:Lcom/android/settings/ActivityPicker$PickAdapter$Item;
     iget-object v1, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
 
@@ -77,24 +77,24 @@
     .end annotation
 
     .prologue
-    .line 151
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 153
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
-    .line 152
+    .line 154
     .local v8, packageManager:Landroid/content/pm/PackageManager;
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 155
+    .line 157
     .local v5, items:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/ActivityPicker$PickAdapter$Item;>;"
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
-    .line 156
+    .line 158
     .local v4, intent:Landroid/content/Intent;
     const-string v10, "android.intent.extra.shortcut.NAME"
 
@@ -102,7 +102,7 @@
 
     move-result-object v7
 
-    .line 158
+    .line 160
     .local v7, labels:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v10, "android.intent.extra.shortcut.ICON_RESOURCE"
 
@@ -110,7 +110,7 @@
 
     move-result-object v3
 
-    .line 161
+    .line 163
     .local v3, icons:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/Intent$ShortcutIconResource;>;"
     if-eqz v7, :cond_0
 
@@ -126,7 +126,7 @@
 
     if-ne v10, v11, :cond_0
 
-    .line 162
+    .line 164
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -137,18 +137,18 @@
 
     if-ge v0, v10, :cond_0
 
-    .line 163
+    .line 165
     invoke-virtual {v7, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Ljava/lang/String;
 
-    .line 164
+    .line 166
     .local v6, label:Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 168
+    .line 170
     .local v1, icon:Landroid/graphics/drawable/Drawable;
     :try_start_0
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -157,7 +157,7 @@
 
     check-cast v2, Landroid/content/Intent$ShortcutIconResource;
 
-    .line 169
+    .line 171
     .local v2, iconResource:Landroid/content/Intent$ShortcutIconResource;
     iget-object v10, v2, Landroid/content/Intent$ShortcutIconResource;->packageName:Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     move-result-object v9
 
-    .line 171
+    .line 173
     .local v9, res:Landroid/content/res/Resources;
     iget-object v10, v2, Landroid/content/Intent$ShortcutIconResource;->resourceName:Ljava/lang/String;
 
@@ -183,7 +183,7 @@
 
     move-result-object v1
 
-    .line 177
+    .line 179
     .end local v2           #iconResource:Landroid/content/Intent$ShortcutIconResource;
     .end local v9           #res:Landroid/content/res/Resources;
     :goto_1
@@ -193,12 +193,12 @@
 
     invoke-interface {v5, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 162
+    .line 164
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 182
+    .line 184
     .end local v0           #i:I
     .end local v1           #icon:Landroid/graphics/drawable/Drawable;
     .end local v6           #label:Ljava/lang/String;
@@ -207,16 +207,16 @@
 
     if-eqz v10, :cond_1
 
-    .line 183
+    .line 185
     iget-object v10, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
 
     invoke-virtual {p0, v10, v5}, Lcom/android/settings/ActivityPicker;->putIntentItems(Landroid/content/Intent;Ljava/util/List;)V
 
-    .line 186
+    .line 188
     :cond_1
     return-object v5
 
-    .line 173
+    .line 175
     .restart local v0       #i:I
     .restart local v1       #icon:Landroid/graphics/drawable/Drawable;
     .restart local v6       #label:Ljava/lang/String;
@@ -231,15 +231,15 @@
     .parameter "dialog"
 
     .prologue
-    .line 130
+    .line 132
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ActivityPicker;->setResult(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
 
-    .line 131
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->finish()V
+    .line 133
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 132
+    .line 134
     return-void
 .end method
 
@@ -249,21 +249,21 @@
     .parameter "which"
 
     .prologue
-    .line 121
+    .line 123
     invoke-virtual {p0, p2}, Lcom/android/settings/ActivityPicker;->getIntentForPosition(I)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 122
+    .line 124
     .local v0, intent:Landroid/content/Intent;
     const/4 v1, -0x1
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/ActivityPicker;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, v1, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
 
-    .line 123
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->finish()V
+    .line 125
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 124
+    .line 126
     return-void
 .end method
 
@@ -272,15 +272,15 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 81
+    .line 83
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 83
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->getIntent()Landroid/content/Intent;
+    .line 85
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 86
+    .line 88
     .local v0, intent:Landroid/content/Intent;
     const-string v4, "android.intent.extra.INTENT"
 
@@ -288,7 +288,7 @@
 
     move-result-object v3
 
-    .line 87
+    .line 89
     .local v3, parcel:Landroid/os/Parcelable;
     const-string v4, "extra_pkg_name"
 
@@ -298,29 +298,29 @@
 
     iput-object v4, p0, Lcom/android/settings/ActivityPicker;->pkgName:Ljava/lang/String;
 
-    .line 89
+    .line 91
     instance-of v4, v3, Landroid/content/Intent;
 
     if-eqz v4, :cond_0
 
-    .line 90
+    .line 92
     check-cast v3, Landroid/content/Intent;
 
     .end local v3           #parcel:Landroid/os/Parcelable;
     iput-object v3, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
 
-    .line 97
+    .line 99
     :goto_0
-    iget-object v2, p0, Lcom/android/settings/ActivityPicker;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v2, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    .line 98
+    .line 100
     .local v2, params:Lcom/android/internal/app/AlertController$AlertParams;
     iput-object p0, v2, Lcom/android/internal/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    .line 99
+    .line 101
     iput-object p0, v2, Lcom/android/internal/app/AlertController$AlertParams;->mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
 
-    .line 102
+    .line 104
     const-string v4, "android.intent.extra.TITLE"
 
     invoke-virtual {v0, v4}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -329,7 +329,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 103
+    .line 105
     const-string v4, "android.intent.extra.TITLE"
 
     invoke-virtual {v0, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -338,13 +338,13 @@
 
     iput-object v4, v2, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 109
+    .line 111
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->getItems()Ljava/util/List;
 
     move-result-object v1
 
-    .line 110
+    .line 112
     .local v1, items:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/ActivityPicker$PickAdapter$Item;>;"
     new-instance v4, Lcom/android/settings/ActivityPicker$PickAdapter;
 
@@ -352,18 +352,18 @@
 
     iput-object v4, p0, Lcom/android/settings/ActivityPicker;->mAdapter:Lcom/android/settings/ActivityPicker$PickAdapter;
 
-    .line 111
+    .line 113
     iget-object v4, p0, Lcom/android/settings/ActivityPicker;->mAdapter:Lcom/android/settings/ActivityPicker$PickAdapter;
 
     iput-object v4, v2, Lcom/android/internal/app/AlertController$AlertParams;->mAdapter:Landroid/widget/ListAdapter;
 
-    .line 113
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->setupAlert()V
+    .line 115
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
 
-    .line 114
+    .line 116
     return-void
 
-    .line 92
+    .line 94
     .end local v1           #items:Ljava/util/List;,"Ljava/util/List<Lcom/android/settings/ActivityPicker$PickAdapter$Item;>;"
     .end local v2           #params:Lcom/android/internal/app/AlertController$AlertParams;
     .restart local v3       #parcel:Landroid/os/Parcelable;
@@ -378,7 +378,7 @@
 
     iput-object v4, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
 
-    .line 93
+    .line 95
     iget-object v4, p0, Lcom/android/settings/ActivityPicker;->mBaseIntent:Landroid/content/Intent;
 
     const-string v5, "android.intent.category.DEFAULT"
@@ -387,11 +387,11 @@
 
     goto :goto_0
 
-    .line 105
+    .line 107
     .end local v3           #parcel:Landroid/os/Parcelable;
     .restart local v2       #params:Lcom/android/internal/app/AlertController$AlertParams;
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/app/Activity;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -421,18 +421,18 @@
 
     const/4 v8, 0x0
 
-    .line 193
-    invoke-virtual {p0}, Lcom/android/settings/ActivityPicker;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 195
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
-    .line 194
+    .line 196
     .local v5, packageManager:Landroid/content/pm/PackageManager;
     invoke-virtual {v5, p1, v8}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v3
 
-    .line 196
+    .line 198
     .local v3, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     new-instance v8, Landroid/content/pm/ResolveInfo$DisplayNameComparator;
 
@@ -440,10 +440,10 @@
 
     invoke-static {v3, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 199
+    .line 201
     const/4 v2, 0x1
 
-    .line 201
+    .line 203
     .local v2, isSettingChangeAllowed:Z
     :try_start_0
     const-string v8, "restriction_policy"
@@ -456,18 +456,26 @@
 
     move-result-object v7
 
-    .line 202
+    .line 204
     .local v7, rp:Landroid/app/enterprise/IRestrictionPolicy;
     if-eqz v7, :cond_0
 
-    .line 203
-    const/4 v8, 0x0
+    .line 205
+    new-instance v8, Landroid/app/enterprise/ContextInfo;
 
-    invoke-interface {v7, v8}, Landroid/app/enterprise/IRestrictionPolicy;->isSettingsChangesAllowed(Z)Z
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v9
+
+    invoke-direct {v8, v9}, Landroid/app/enterprise/ContextInfo;-><init>(I)V
+
+    const/4 v9, 0x0
+
+    invoke-interface {v7, v8, v9}, Landroid/app/enterprise/IRestrictionPolicy;->isSettingsChangesAllowed(Landroid/app/enterprise/ContextInfo;Z)Z
 
     move-result v2
 
-    .line 204
+    .line 206
     const-string v8, "AcitivyPicker"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -492,7 +500,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 211
+    .line 213
     .end local v7           #rp:Landroid/app/enterprise/IRestrictionPolicy;
     :cond_0
     :goto_0
@@ -500,7 +508,7 @@
 
     move-result v4
 
-    .line 212
+    .line 214
     .local v4, listSize:I
     const/4 v1, 0x0
 
@@ -508,14 +516,14 @@
     :goto_1
     if-ge v1, v4, :cond_4
 
-    .line 213
+    .line 215
     invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/content/pm/ResolveInfo;
 
-    .line 216
+    .line 218
     .local v6, resolveInfo:Landroid/content/pm/ResolveInfo;
     const-string v8, "com.android.settings"
 
@@ -529,7 +537,7 @@
 
     if-eqz v8, :cond_2
 
-    .line 217
+    .line 219
     if-eqz v2, :cond_1
 
     const-string v8, "deskclock"
@@ -542,27 +550,27 @@
 
     if-ne v8, v11, :cond_3
 
-    .line 212
+    .line 214
     :cond_1
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 206
+    .line 208
     .end local v1           #i:I
     .end local v4           #listSize:I
     .end local v6           #resolveInfo:Landroid/content/pm/ResolveInfo;
     :catch_0
     move-exception v0
 
-    .line 207
+    .line 209
     .local v0, e:Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
-    .line 220
+    .line 222
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v1       #i:I
     .restart local v4       #listSize:I
@@ -580,7 +588,7 @@
 
     if-eqz v8, :cond_3
 
-    .line 221
+    .line 223
     const-string v8, "deskclock"
 
     iget-object v9, p0, Lcom/android/settings/ActivityPicker;->pkgName:Ljava/lang/String;
@@ -591,7 +599,7 @@
 
     if-eq v8, v11, :cond_1
 
-    .line 226
+    .line 228
     :cond_3
     new-instance v8, Lcom/android/settings/ActivityPicker$PickAdapter$Item;
 
@@ -601,7 +609,7 @@
 
     goto :goto_2
 
-    .line 228
+    .line 230
     .end local v6           #resolveInfo:Landroid/content/pm/ResolveInfo;
     :cond_4
     return-void

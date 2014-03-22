@@ -101,9 +101,9 @@
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mConnectedTime:Ljava/lang/Long;
 
     .line 90
-    const v0, 0x7f040138
+    const v0, 0x7f040169
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 91
     return-void
@@ -229,7 +229,7 @@
     .line 190
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f09040d
+    const v1, 0x7f090447
 
     const/4 v2, 0x1
 
@@ -267,7 +267,7 @@
     :goto_1
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto :goto_0
 
@@ -440,7 +440,7 @@
     :cond_0
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mDeviceName:Ljava/lang/String;
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v5}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 101
     new-instance v5, Ljava/lang/StringBuilder;
@@ -469,13 +469,13 @@
 
     move-result-object v5
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v5}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 102
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 104
-    const v5, 0x7f0b036a
+    const v5, 0x7f0b03b4
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +485,7 @@
 
     .line 106
     .local v0, btn:Landroid/widget/LinearLayout;
-    const v5, 0x7f0b036c
+    const v5, 0x7f0b03b6
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -524,7 +524,7 @@
     iput v8, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mIsButtonState:I
 
     .line 113
-    const v5, 0x7f02029d
+    const v5, 0x7f0202fa
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -533,10 +533,10 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice$1;-><init>(Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;)V
 
-    invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 120
-    invoke-virtual {v0, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
 
     .line 121
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mContext:Landroid/content/Context;
@@ -545,18 +545,18 @@
 
     move-result-object v5
 
-    const v6, 0x7f0903c9
+    const v6, 0x7f090402
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 147
     :cond_1
     :goto_0
-    const v5, 0x7f0b0369
+    const v5, 0x7f0b03b3
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -568,7 +568,7 @@
 
     invoke-direct {v6, p0}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice$3;-><init>(Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;)V
 
-    invoke-virtual {v5, v6}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 159
     return-void
@@ -588,7 +588,7 @@
     iput v5, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mIsButtonState:I
 
     .line 126
-    const v5, 0x7f02029e
+    const v5, 0x7f0202fb
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -597,10 +597,10 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice$2;-><init>(Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;)V
 
-    invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 139
-    invoke-virtual {v0, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
 
     .line 140
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->mContext:Landroid/content/Context;
@@ -609,13 +609,13 @@
 
     move-result-object v5
 
-    const v6, 0x7f0903ee
+    const v6, 0x7f090425
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
@@ -626,7 +626,7 @@
     .line 144
     const/16 v5, 0x8
 
-    invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -707,7 +707,7 @@
     invoke-virtual {v4, v5, v6}, Landroid/net/wifi/WifiApWhiteList;->addWhiteList(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 252
-    const v2, 0x7f0903d6
+    const v2, 0x7f09040f
 
     .line 271
     .local v2, msgId:I
@@ -723,7 +723,7 @@
     invoke-virtual {v4, v5, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 285
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->notifyHierarchyChanged()V
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyHierarchyChanged()V
 
     goto :goto_0
 
@@ -750,7 +750,7 @@
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice;->reloadWhiteList()V
 
     .line 258
-    const v2, 0x7f0903d7
+    const v2, 0x7f090410
 
     .line 260
     .restart local v2       #msgId:I

@@ -110,7 +110,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/settings/ReadingMode$AppListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
     .line 412
     return-void

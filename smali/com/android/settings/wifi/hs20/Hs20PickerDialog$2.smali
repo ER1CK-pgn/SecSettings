@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 38
+    .line 75
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$2;->this$0:Lcom/android/settings/wifi/hs20/Hs20PickerDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,21 +42,21 @@
     .parameter "v"
 
     .prologue
-    .line 41
+    .line 81
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$2;->this$0:Lcom/android/settings/wifi/hs20/Hs20PickerDialog;
 
     iget-object v0, v0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanListner:Lcom/android/settings/wifi/hs20/Hs20PickerDialog$OnScanButtonPressed;
 
     if-eqz v0, :cond_0
 
-    .line 42
+    .line 83
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$2;->this$0:Lcom/android/settings/wifi/hs20/Hs20PickerDialog;
 
     iget-object v0, v0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->scanListner:Lcom/android/settings/wifi/hs20/Hs20PickerDialog$OnScanButtonPressed;
 
     invoke-interface {v0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$OnScanButtonPressed;->onScanPressed()V
 
-    .line 44
+    .line 87
     :cond_0
     return-void
 .end method

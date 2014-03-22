@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private delOption:Z
+
 .field private mContext:Landroid/content/Context;
 
 .field private mDeleteClickListener:Landroid/view/View$OnClickListener;
@@ -11,6 +13,8 @@
 .field private mSerialNumber:I
 
 .field private mUserId:I
+
+.field private mUserManager:Landroid/os/UserManager;
 
 
 # direct methods
@@ -20,7 +24,7 @@
     .parameter "attrs"
 
     .prologue
-    .line 46
+    .line 51
     const/16 v3, -0xa
 
     const/4 v4, 0x0
@@ -35,7 +39,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/settings/users/UserPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IZLandroid/view/View$OnClickListener;)V
 
-    .line 47
+    .line 52
     return-void
 .end method
 
@@ -48,44 +52,82 @@
     .parameter "deleteListener"
 
     .prologue
-    .line 51
+    .line 56
     invoke-direct {p0, p1, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 41
+    .line 44
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/users/UserPreference;->mSerialNumber:I
 
-    .line 42
+    .line 45
     const/16 v0, -0xa
 
     iput v0, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
 
-    .line 43
+    .line 46
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/users/UserPreference;->mContext:Landroid/content/Context;
 
-    .line 52
+    .line 47
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/settings/users/UserPreference;->delOption:Z
+
+    .line 57
     iput-object p1, p0, Lcom/android/settings/users/UserPreference;->mContext:Landroid/content/Context;
 
-    .line 54
-    if-eqz p4, :cond_0
+    .line 60
+    const v0, 0x7f040163
 
-    .line 55
-    const v0, 0x7f040133
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/users/UserPreference;->setWidgetLayoutResource(I)V
-
-    .line 56
+    .line 61
     iput-object p5, p0, Lcom/android/settings/users/UserPreference;->mDeleteClickListener:Landroid/view/View$OnClickListener;
 
-    .line 59
-    :cond_0
+    .line 64
+    iput-boolean p4, p0, Lcom/android/settings/users/UserPreference;->delOption:Z
+
+    .line 65
     iput p3, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
 
-    .line 60
+    .line 66
+    const-string v0, "user"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    iput-object v0, p0, Lcom/android/settings/users/UserPreference;->mUserManager:Landroid/os/UserManager;
+
+    .line 67
     return-void
+.end method
+
+.method private isInitialized(Landroid/content/pm/UserInfo;)Z
+    .locals 1
+    .parameter "user"
+
+    .prologue
+    .line 70
+    iget v0, p1, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/lit8 v0, v0, 0x10
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 
@@ -97,12 +139,12 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 99
+    .line 144
     instance-of v1, p1, Lcom/android/settings/users/UserPreference;
 
     if-eqz v1, :cond_0
 
-    .line 100
+    .line 145
     invoke-virtual {p0}, Lcom/android/settings/users/UserPreference;->getSerialNumber()I
 
     move-result v1
@@ -116,12 +158,12 @@
 
     if-le v1, v2, :cond_1
 
-    .line 102
+    .line 147
     :cond_0
     :goto_0
     return v0
 
-    .line 100
+    .line 145
     :cond_1
     const/4 v0, -0x1
 
@@ -133,7 +175,7 @@
     .parameter "x0"
 
     .prologue
-    .line 36
+    .line 39
     check-cast p1, Landroid/preference/Preference;
 
     .end local p1
@@ -148,12 +190,12 @@
     .locals 2
 
     .prologue
-    .line 84
+    .line 129
     iget v0, p0, Lcom/android/settings/users/UserPreference;->mSerialNumber:I
 
     if-gez v0, :cond_1
 
-    .line 86
+    .line 131
     iget v0, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
 
     const/16 v1, -0xa
@@ -162,13 +204,13 @@
 
     const v0, 0x7fffffff
 
-    .line 91
+    .line 136
     :goto_0
     return v0
 
-    .line 87
+    .line 132
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/users/UserPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -188,7 +230,7 @@
 
     iput v0, p0, Lcom/android/settings/users/UserPreference;->mSerialNumber:I
 
-    .line 89
+    .line 134
     iget v0, p0, Lcom/android/settings/users/UserPreference;->mSerialNumber:I
 
     if-gez v0, :cond_1
@@ -197,7 +239,7 @@
 
     goto :goto_0
 
-    .line 91
+    .line 136
     :cond_1
     iget v0, p0, Lcom/android/settings/users/UserPreference;->mSerialNumber:I
 
@@ -208,80 +250,180 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 140
     iget v0, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
 
     return v0
 .end method
 
 .method protected onBindView(Landroid/view/View;)V
-    .locals 6
+    .locals 13
     .parameter "view"
 
     .prologue
-    .line 65
-    const v5, 0x7f0b0361
+    const/16 v12, 0x8
 
-    invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 76
+    const v10, 0x7f0b03ab
+
+    invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 66
+    .line 77
     .local v0, deleteView:Landroid/view/View;
     if-eqz v0, :cond_0
 
-    .line 67
-    iget-object v5, p0, Lcom/android/settings/users/UserPreference;->mDeleteClickListener:Landroid/view/View$OnClickListener;
+    .line 78
+    iget-object v10, p0, Lcom/android/settings/users/UserPreference;->mDeleteClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v10}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 68
+    .line 79
     invoke-virtual {v0, p0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 72
-    :cond_0
-    const v5, 0x1020006
+    .line 81
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v10
+
+    invoke-static {v10}, Landroid/app/enterprise/multiuser/MultiUserManager;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/multiuser/MultiUserManager;
+
+    move-result-object v6
+
+    .line 82
+    .local v6, mum:Landroid/app/enterprise/multiuser/MultiUserManager;
+    const/4 v10, 0x0
+
+    invoke-virtual {v6, v10}, Landroid/app/enterprise/multiuser/MultiUserManager;->isUserRemovalAllowed(Z)Z
+
+    move-result v10
+
+    invoke-virtual {v0, v10}, Landroid/view/View;->setEnabled(Z)V
+
+    .line 88
+    .end local v6           #mum:Landroid/app/enterprise/multiuser/MultiUserManager;
+    :cond_0
+    iget-object v10, p0, Lcom/android/settings/users/UserPreference;->mUserManager:Landroid/os/UserManager;
+
+    iget v11, p0, Lcom/android/settings/users/UserPreference;->mUserId:I
+
+    invoke-virtual {v10, v11}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v8
+
+    .line 89
+    .local v8, user:Landroid/content/pm/UserInfo;
+    invoke-direct {p0, v8}, Lcom/android/settings/users/UserPreference;->isInitialized(Landroid/content/pm/UserInfo;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_1
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v10
+
+    if-eqz v10, :cond_2
+
+    .line 90
+    :cond_1
+    const v10, 0x7f0b03aa
+
+    invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/ImageView;
+    .line 91
+    .local v1, dividerDelete:Landroid/view/View;
+    invoke-virtual {v1, v12}, Landroid/view/View;->setVisibility(I)V
 
-    .line 73
-    .local v1, imageView:Landroid/widget/ImageView;
-    iget-object v5, p0, Lcom/android/settings/users/UserPreference;->mContext:Landroid/content/Context;
+    .line 92
+    invoke-virtual {v0, v12}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    .line 96
+    .end local v1           #dividerDelete:Landroid/view/View;
+    :cond_2
+    iget-boolean v10, p0, Lcom/android/settings/users/UserPreference;->delOption:Z
+
+    if-nez v10, :cond_4
+
+    .line 97
+    const v10, 0x7f0b03a8
+
+    invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    .line 98
+    .local v2, dividerView:Landroid/view/View;
+    if-eqz v2, :cond_3
+
+    .line 99
+    invoke-virtual {v2, v12}, Landroid/view/View;->setVisibility(I)V
+
+    .line 101
+    :cond_3
+    const v10, 0x7f0b03a9
+
+    invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/ImageView;
+
+    .line 102
+    .local v4, imgView:Landroid/widget/ImageView;
+    if-eqz v4, :cond_4
+
+    .line 103
+    invoke-virtual {v4, v12}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 117
+    .end local v2           #dividerView:Landroid/view/View;
+    .end local v4           #imgView:Landroid/widget/ImageView;
+    :cond_4
+    const v10, 0x1020006
+
+    invoke-virtual {p1, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 74
-    .local v3, resources:Landroid/content/res/Resources;
-    const v5, 0x7f0f003d
+    check-cast v3, Landroid/widget/ImageView;
 
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    .line 118
+    .local v3, imageView:Landroid/widget/ImageView;
+    iget-object v10, p0, Lcom/android/settings/users/UserPreference;->mContext:Landroid/content/Context;
 
-    move-result v4
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    .line 75
-    .local v4, viewSize:I
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+    move-result-object v7
 
-    invoke-direct {v2, v4, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    .line 119
+    .local v7, resources:Landroid/content/res/Resources;
+    const v10, 0x7f0f005b
 
-    .line 76
-    .local v2, layoutParams:Landroid/widget/LinearLayout$LayoutParams;
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    .line 77
-    sget-object v5, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
+    move-result v9
 
-    invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    .line 120
+    .local v9, viewSize:I
+    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 80
+    add-int/lit8 v10, v9, -0x14
+
+    add-int/lit8 v11, v9, -0xa
+
+    invoke-direct {v5, v10, v11}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    .line 121
+    .local v5, layoutParams:Landroid/widget/LinearLayout$LayoutParams;
+    invoke-virtual {v3, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 125
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 81
+    .line 126
     return-void
 .end method

@@ -733,7 +733,7 @@
     invoke-virtual {v9}, Ljava/io/BufferedOutputStream;->flush()V
 
     .line 388
-    invoke-virtual {v5}, Ljava/io/FileOutputStream;->flush()V
+    invoke-virtual {v5}, Ljava/io/OutputStream;->flush()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_2
     .catch Ljava/io/FileNotFoundException; {:try_start_a .. :try_end_a} :catch_0
@@ -1116,11 +1116,11 @@
     .parameter "position"
 
     .prologue
-    const v4, 0x7f090a74
+    const v4, 0x7f090b58
 
-    const v3, 0x7f090a73
+    const v3, 0x7f090b57
 
-    const v2, 0x7f090a72
+    const v2, 0x7f090b56
 
     .line 218
     iget-object v1, p0, Lcom/android/settings/flipfont/FontListAdapter;->mFontNames:Ljava/util/Vector;
@@ -1328,7 +1328,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090a75
+    const v2, 0x7f090b59
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1357,7 +1357,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090a76
+    const v2, 0x7f090b5a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1386,7 +1386,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0910ba
+    const v2, 0x7f0911fb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1415,7 +1415,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0910bb
+    const v2, 0x7f0911fc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1444,7 +1444,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0910bc
+    const v2, 0x7f0911fd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1473,7 +1473,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090a78
+    const v2, 0x7f090b5c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1502,7 +1502,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090a79
+    const v2, 0x7f090b5d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1531,7 +1531,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090a7a
+    const v2, 0x7f090b5e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1580,7 +1580,7 @@
     .line 277
     iget-object v5, p0, Lcom/android/settings/flipfont/FontListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f040185
+    const v6, 0x7f0401c5
 
     const/4 v7, 0x0
 

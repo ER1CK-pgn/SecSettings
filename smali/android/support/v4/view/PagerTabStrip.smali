@@ -192,38 +192,38 @@
     iput v1, p0, Landroid/support/v4/view/PagerTabStrip;->mTouchSlop:I
 
     .line 97
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v1
 
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingBottom()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
 
     move-result v4
 
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/support/v4/view/PagerTabStrip;->setPadding(IIII)V
 
     .line 98
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getTextSpacing()I
+    invoke-virtual {p0}, Landroid/support/v4/view/PagerTitleStrip;->getTextSpacing()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Landroid/support/v4/view/PagerTabStrip;->setTextSpacing(I)V
 
     .line 100
-    invoke-virtual {p0, v5}, Landroid/support/v4/view/PagerTabStrip;->setWillNotDraw(Z)V
+    invoke-virtual {p0, v5}, Landroid/view/View;->setWillNotDraw(Z)V
 
     .line 102
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip;->mPrevText:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setFocusable(Z)V
+    invoke-virtual {v1, v6}, Landroid/view/View;->setFocusable(Z)V
 
     .line 103
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip;->mPrevText:Landroid/widget/TextView;
@@ -232,12 +232,12 @@
 
     invoke-direct {v2, p0}, Landroid/support/v4/view/PagerTabStrip$1;-><init>(Landroid/support/v4/view/PagerTabStrip;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 110
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip;->mNextText:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setFocusable(Z)V
+    invoke-virtual {v1, v6}, Landroid/view/View;->setFocusable(Z)V
 
     .line 111
     iget-object v1, p0, Landroid/support/v4/view/PagerTitleStrip;->mNextText:Landroid/widget/TextView;
@@ -246,10 +246,10 @@
 
     invoke-direct {v2, p0}, Landroid/support/v4/view/PagerTabStrip$2;-><init>(Landroid/support/v4/view/PagerTabStrip;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 118
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -291,10 +291,10 @@
     const v11, 0xffffff
 
     .line 257
-    invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
     .line 259
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v7
 
@@ -306,7 +306,7 @@
     .local v6, bottom:I
     iget-object v0, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->getLeft()I
+    invoke-virtual {v0}, Landroid/view/View;->getLeft()I
 
     move-result v0
 
@@ -318,7 +318,7 @@
     .local v8, left:I
     iget-object v0, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->getRight()I
+    invoke-virtual {v0}, Landroid/view/View;->getRight()I
 
     move-result v0
 
@@ -382,7 +382,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 270
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v0
 
@@ -394,11 +394,11 @@
 
     int-to-float v2, v0
 
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v3
 
@@ -524,7 +524,7 @@
     :pswitch_2
     iget-object v3, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v3}, Landroid/widget/TextView;->getLeft()I
+    invoke-virtual {v3}, Landroid/view/View;->getLeft()I
 
     move-result v3
 
@@ -557,7 +557,7 @@
     :cond_3
     iget-object v3, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v3}, Landroid/widget/TextView;->getRight()I
+    invoke-virtual {v3}, Landroid/view/View;->getRight()I
 
     move-result v3
 
@@ -601,7 +601,7 @@
 
     .prologue
     .line 176
-    invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->setBackgroundColor(I)V
+    invoke-super {p0, p1}, Landroid/view/View;->setBackgroundColor(I)V
 
     .line 177
     iget-boolean v0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderlineSet:Z
@@ -637,7 +637,7 @@
 
     .prologue
     .line 168
-    invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-super {p0, p1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 169
     iget-boolean v0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderlineSet:Z
@@ -669,7 +669,7 @@
 
     .prologue
     .line 184
-    invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->setBackgroundResource(I)V
+    invoke-super {p0, p1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 185
     iget-boolean v0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderlineSet:Z
@@ -713,7 +713,7 @@
 
     .line 155
     :cond_0
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/view/PagerTitleStrip;->setPadding(IIII)V
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->setPadding(IIII)V
 
     .line 156
     return-void
@@ -735,7 +735,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 131
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 132
     return-void
@@ -747,7 +747,7 @@
 
     .prologue
     .line 140
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -798,7 +798,7 @@
 
     .line 278
     .local v2, r:Landroid/graphics/Rect;
-    invoke-virtual {p0}, Landroid/support/v4/view/PagerTabStrip;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v0
 
@@ -806,7 +806,7 @@
     .local v0, bottom:I
     iget-object v5, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getLeft()I
+    invoke-virtual {v5}, Landroid/view/View;->getLeft()I
 
     move-result v5
 
@@ -818,7 +818,7 @@
     .local v1, left:I
     iget-object v5, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getRight()I
+    invoke-virtual {v5}, Landroid/view/View;->getRight()I
 
     move-result v5
 
@@ -863,7 +863,7 @@
     .line 288
     iget-object v5, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getLeft()I
+    invoke-virtual {v5}, Landroid/view/View;->getLeft()I
 
     move-result v5
 
@@ -874,7 +874,7 @@
     .line 289
     iget-object v5, p0, Landroid/support/v4/view/PagerTitleStrip;->mCurrText:Landroid/widget/TextView;
 
-    invoke-virtual {v5}, Landroid/widget/TextView;->getRight()I
+    invoke-virtual {v5}, Landroid/view/View;->getRight()I
 
     move-result v5
 
@@ -886,7 +886,7 @@
     invoke-virtual {v2, v1, v4, v3, v0}, Landroid/graphics/Rect;->union(IIII)V
 
     .line 292
-    invoke-virtual {p0, v2}, Landroid/support/v4/view/PagerTabStrip;->invalidate(Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v2}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
 
     .line 293
     return-void

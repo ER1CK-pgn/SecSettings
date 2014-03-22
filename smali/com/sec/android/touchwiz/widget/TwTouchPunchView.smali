@@ -204,7 +204,7 @@
     if-eqz v2, :cond_1
 
     .line 157
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationX()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationX()F
 
     move-result v2
 
@@ -224,7 +224,7 @@
 
     add-float/2addr v2, v3
 
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationY()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationY()F
 
     move-result v3
 
@@ -257,7 +257,7 @@
 
     .line 162
     :cond_1
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationX()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationX()F
 
     move-result v2
 
@@ -265,7 +265,7 @@
 
     .line 163
     .local v0, xTranslation:I
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationY()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationY()F
 
     move-result v2
 
@@ -384,7 +384,7 @@
 
     .line 189
     .local v0, l:[I
-    invoke-virtual {p0, v0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getLocationOnScreen([I)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->getLocationOnScreen([I)V
 
     .line 190
     iget-object v1, p0, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->mGlobalRect:Landroid/graphics/Rect;
@@ -395,7 +395,7 @@
 
     aget v4, v0, v4
 
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v5
 
@@ -403,7 +403,7 @@
 
     aget v5, v0, v7
 
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v6
 
@@ -415,7 +415,7 @@
     iput-boolean v7, p0, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->mInitialized:Z
 
     .line 193
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 195
     .end local v0           #l:[I
@@ -487,7 +487,7 @@
 
     move-result v5
 
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationX()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationX()F
 
     move-result v6
 
@@ -519,7 +519,7 @@
 
     move-result v7
 
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationY()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationY()F
 
     move-result v8
 
@@ -573,7 +573,7 @@
     .line 97
     .end local v0           #diff:D
     :cond_2
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationX()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationX()F
 
     move-result v5
 
@@ -581,7 +581,7 @@
 
     .line 98
     .local v3, xTranslation:I
-    invoke-virtual {p0}, Lcom/sec/android/touchwiz/widget/TwTouchPunchView;->getTranslationY()F
+    invoke-virtual {p0}, Landroid/view/View;->getTranslationY()F
 
     move-result v5
 

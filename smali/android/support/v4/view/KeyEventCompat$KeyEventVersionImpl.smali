@@ -20,3 +20,6 @@
 
 .method public abstract metaStateHasNoModifiers(I)Z
 .end method
+
+.method public abstract startTracking(Landroid/view/KeyEvent;)V
+.end method

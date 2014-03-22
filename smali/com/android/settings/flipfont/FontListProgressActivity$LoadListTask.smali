@@ -140,7 +140,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 3
+    .locals 4
     .parameter
 
     .prologue
@@ -148,12 +148,12 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 63
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListProgressActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListProgressActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 64
     iget-boolean v0, p0, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->enable:Z
@@ -170,23 +170,40 @@
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 66
-    iget-object v1, p0, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListProgressActivity;
+    new-instance v1, Landroid/os/Bundle;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/flipfont/FontListProgressActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
     .line 67
+    const-string v2, "EasySettings"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 68
+    const-string v2, "EasySettingsBundle"
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+
+    .line 69
+    iget-object v1, p0, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->this$0:Lcom/android/settings/flipfont/FontListProgressActivity;
+
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    .line 70
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/flipfont/FontListProgressActivity$LoadListTask;->enable:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 74
+    .line 77
     :cond_0
     :goto_0
     return-void
 
-    .line 70
+    .line 73
     :catch_0
     move-exception v0
 
@@ -209,7 +226,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090a67
+    const v3, 0x7f090b4b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -230,7 +247,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090a80
+    const v3, 0x7f090b64
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

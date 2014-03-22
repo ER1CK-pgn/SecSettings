@@ -467,7 +467,7 @@
 
     .line 360
     .local v0, e:Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -518,7 +518,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
@@ -554,7 +554,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
@@ -590,7 +590,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
@@ -616,7 +616,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/BackupFragment$CalculateDirectorySizeTask;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-virtual {v1}, Lcom/android/settings/homesync/BackupFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 

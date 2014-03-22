@@ -27,16 +27,16 @@
     .parameter "context"
 
     .prologue
-    .line 203
+    .line 204
     iput-object p1, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
-    .line 204
+    .line 205
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 205
+    .line 206
     iput-object p2, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->mContext:Landroid/content/Context;
 
-    .line 206
+    .line 207
     return-void
 .end method
 
@@ -46,10 +46,10 @@
     .locals 4
 
     .prologue
-    .line 210
+    .line 211
     const/4 v0, 0x0
 
-    .line 212
+    .line 213
     .local v0, count:I
     const/4 v1, 0x0
 
@@ -68,7 +68,7 @@
 
     if-ge v1, v2, :cond_4
 
-    .line 213
+    .line 214
     iget-object v2, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
     #getter for: Lcom/android/settings/LockScreenWallpaper;->isTypeBoth:Z
@@ -78,7 +78,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 214
+    .line 215
     const-string v3, "com.sec.android.gallery3d"
 
     iget-object v2, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -154,18 +154,18 @@
 
     if-eqz v2, :cond_1
 
-    .line 217
+    .line 218
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    .line 212
+    .line 213
     :cond_1
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 221
+    .line 222
     :cond_2
     const-string v3, "com.sec.android.gallery3d"
 
@@ -267,13 +267,13 @@
 
     if-eqz v2, :cond_1
 
-    .line 225
+    .line 226
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 231
+    .line 232
     :cond_4
     return v0
 .end method
@@ -283,7 +283,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 236
+    .line 237
     const/4 v0, 0x0
 
     return-object v0
@@ -294,7 +294,7 @@
     .parameter "position"
 
     .prologue
-    .line 241
+    .line 242
     int-to-long v0, p1
 
     return-wide v0
@@ -309,10 +309,10 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 253
+    .line 254
     if-nez p2, :cond_3
 
-    .line 254
+    .line 255
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
     #getter for: Lcom/android/settings/LockScreenWallpaper;->mInflater:Landroid/view/LayoutInflater;
@@ -320,7 +320,7 @@
 
     move-result-object v4
 
-    const v5, 0x1090141
+    const v5, 0x1090113
 
     const/4 v6, 0x0
 
@@ -328,12 +328,12 @@
 
     move-result-object p2
 
-    .line 258
+    .line 259
     new-instance v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;
 
     invoke-direct {v1}, Lcom/android/settings/LockScreenWallpaper$ViewHolder;-><init>()V
 
-    .line 259
+    .line 260
     .local v1, holder:Lcom/android/settings/LockScreenWallpaper$ViewHolder;
     const v4, 0x1020014
 
@@ -345,7 +345,7 @@
 
     iput-object v4, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->text:Landroid/widget/TextView;
 
-    .line 260
+    .line 261
     const v4, 0x1020015
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -356,7 +356,7 @@
 
     iput-object v4, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->text2:Landroid/widget/TextView;
 
-    .line 261
+    .line 262
     const v4, 0x1020006
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -367,14 +367,14 @@
 
     iput-object v4, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 262
+    .line 263
     iget-object v4, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    invoke-virtual {v4}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
-    .line 263
+    .line 264
     .local v3, lp:Landroid/view/ViewGroup$LayoutParams;
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
@@ -387,15 +387,15 @@
 
     iput v4, v3, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 265
+    .line 266
     invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 273
+    .line 274
     .end local v3           #lp:Landroid/view/ViewGroup$LayoutParams;
     :goto_0
     move v0, p1
 
-    .line 274
+    .line 275
     .local v0, count:I
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
@@ -406,7 +406,7 @@
 
     if-eqz v4, :cond_4
 
-    .line 275
+    .line 276
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -424,7 +424,7 @@
 
     if-ge v2, v4, :cond_8
 
-    .line 276
+    .line 277
     const-string v5, "com.sec.android.gallery3d"
 
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -500,11 +500,11 @@
 
     if-eqz v4, :cond_2
 
-    .line 279
+    .line 280
     :cond_0
     if-nez v0, :cond_1
 
-    .line 280
+    .line 281
     iget-object v5, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->text:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -533,12 +533,12 @@
 
     invoke-virtual {v5, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 281
+    .line 282
     iget-object v4, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->text2:Landroid/widget/TextView;
 
-    invoke-virtual {v4, v7}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v4, v7}, Landroid/view/View;->setVisibility(I)V
 
-    .line 282
+    .line 283
     iget-object v5, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->icon:Landroid/widget/ImageView;
 
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -567,7 +567,7 @@
 
     invoke-virtual {v5, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 283
+    .line 284
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
     #getter for: Lcom/android/settings/LockScreenWallpaper;->ItemName:[Ljava/lang/String;
@@ -594,17 +594,17 @@
 
     aput-object v4, v5, p1
 
-    .line 285
+    .line 286
     :cond_1
     add-int/lit8 v0, v0, -0x1
 
-    .line 275
+    .line 276
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_1
 
-    .line 269
+    .line 270
     .end local v0           #count:I
     .end local v1           #holder:Lcom/android/settings/LockScreenWallpaper$ViewHolder;
     .end local v2           #i:I
@@ -618,7 +618,7 @@
     .restart local v1       #holder:Lcom/android/settings/LockScreenWallpaper$ViewHolder;
     goto/16 :goto_0
 
-    .line 289
+    .line 290
     .restart local v0       #count:I
     :cond_4
     const/4 v2, 0x0
@@ -638,7 +638,7 @@
 
     if-ge v2, v4, :cond_8
 
-    .line 291
+    .line 292
     const-string v5, "com.sec.android.gallery3d"
 
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -739,11 +739,11 @@
 
     if-eqz v4, :cond_7
 
-    .line 296
+    .line 297
     :cond_5
     if-nez v0, :cond_6
 
-    .line 297
+    .line 298
     iget-object v5, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->text:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -772,12 +772,12 @@
 
     invoke-virtual {v5, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 298
+    .line 299
     iget-object v4, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->text2:Landroid/widget/TextView;
 
-    invoke-virtual {v4, v7}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v4, v7}, Landroid/view/View;->setVisibility(I)V
 
-    .line 299
+    .line 300
     iget-object v5, v1, Lcom/android/settings/LockScreenWallpaper$ViewHolder;->icon:Landroid/widget/ImageView;
 
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -806,7 +806,7 @@
 
     invoke-virtual {v5, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 300
+    .line 301
     iget-object v4, p0, Lcom/android/settings/LockScreenWallpaper$WallpaperAdapter;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
     #getter for: Lcom/android/settings/LockScreenWallpaper;->ItemName:[Ljava/lang/String;
@@ -833,17 +833,17 @@
 
     aput-object v4, v5, p1
 
-    .line 302
+    .line 303
     :cond_6
     add-int/lit8 v0, v0, -0x1
 
-    .line 289
+    .line 290
     :cond_7
     add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_2
 
-    .line 307
+    .line 308
     :cond_8
     return-object p2
 .end method

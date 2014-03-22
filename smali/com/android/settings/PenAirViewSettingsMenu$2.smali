@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 244
+    .line 308
     iput-object p1, p0, Lcom/android/settings/PenAirViewSettingsMenu$2;->this$0:Lcom/android/settings/PenAirViewSettingsMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,24 +38,11 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 0
     .parameter "dialog"
     .parameter "which"
 
     .prologue
-    .line 246
-    iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu$2;->this$0:Lcom/android/settings/PenAirViewSettingsMenu;
-
-    invoke-virtual {v0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "pen_hovering_information_preview"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 248
+    .line 310
     return-void
 .end method

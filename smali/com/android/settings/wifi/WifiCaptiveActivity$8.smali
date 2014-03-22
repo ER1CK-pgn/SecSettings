@@ -45,7 +45,7 @@
 
     iput-object p4, p0, Lcom/android/settings/wifi/WifiCaptiveActivity$8;->val$error:Landroid/net/http/SslError;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

@@ -96,7 +96,7 @@
     .line 131
     iput v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
-    .line 626
+    .line 628
     new-instance v0, Lcom/android/settings/guide/BtSettingsGuider$5;
 
     invoke-direct {v0, p0}, Lcom/android/settings/guide/BtSettingsGuider$5;-><init>(Lcom/android/settings/guide/BtSettingsGuider;)V
@@ -114,7 +114,7 @@
     iput-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     .line 145
-    invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -156,23 +156,23 @@
     .locals 2
 
     .prologue
-    .line 367
+    .line 369
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     if-ne v0, v1, :cond_0
 
-    .line 368
+    .line 370
     const/4 v0, 0x0
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-static {v0, v1}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListFocusEnabled(ZLandroid/app/Activity;)V
 
-    .line 370
+    .line 372
     :cond_0
     return-void
 .end method
@@ -182,10 +182,10 @@
     .parameter "resID"
 
     .prologue
-    .line 497
+    .line 499
     iget-object v2, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
@@ -193,14 +193,14 @@
 
     move-result-object v0
 
-    .line 499
+    .line 501
     .local v0, bubbleView:Landroid/view/View;
-    const v2, 0x7f0911f5
+    const v2, 0x7f09135f
 
     if-eq p1, v2, :cond_0
 
-    .line 500
-    const v2, 0x7f0b01b4
+    .line 502
+    const v2, 0x7f0b01e8
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -208,11 +208,11 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 502
+    .line 504
     .local v1, summary:Landroid/widget/TextView;
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 516
+    .line 518
     .end local v1           #summary:Landroid/widget/TextView;
     :cond_0
     return-void
@@ -224,8 +224,8 @@
     .parameter "layout"
 
     .prologue
-    .line 456
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 458
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -239,7 +239,7 @@
 
     move-result-object v1
 
-    .line 459
+    .line 461
     .local v1, bubbleView:Landroid/view/View;
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
@@ -247,7 +247,7 @@
 
     if-nez v3, :cond_0
 
-    const v3, 0x7f040091
+    const v3, 0x7f0400ac
 
     if-ne p2, v3, :cond_1
 
@@ -258,13 +258,13 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f040093
+    const v3, 0x7f0400ae
 
     if-eq p2, v3, :cond_2
 
-    .line 461
+    .line 463
     :cond_1
-    const v3, 0x7f0b01b4
+    const v3, 0x7f0b01e8
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -272,18 +272,18 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 463
+    .line 465
     .local v2, summary:Landroid/widget/TextView;
     invoke-virtual {v2, p1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 477
+    .line 479
     .end local v2           #summary:Landroid/widget/TextView;
     :cond_2
     iget-object v3, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v3, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v3, v1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    .line 479
+    .line 481
     const v3, 0x7f0b0002
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -292,23 +292,23 @@
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    .line 482
+    .line 484
     .local v0, btnClose:Landroid/widget/ImageButton;
     if-eqz v0, :cond_3
 
-    .line 483
+    .line 485
     const/4 v3, 0x0
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageButton;->setHoverPopupType(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setHoverPopupType(I)V
 
-    .line 484
+    .line 486
     new-instance v3, Lcom/android/settings/guide/BtSettingsGuider$3;
 
     invoke-direct {v3, p0}, Lcom/android/settings/guide/BtSettingsGuider$3;-><init>(Lcom/android/settings/guide/BtSettingsGuider;)V
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 494
+    .line 496
     :cond_3
     return-void
 .end method
@@ -318,31 +318,31 @@
     .parameter "type"
 
     .prologue
-    .line 399
+    .line 401
     const/4 v1, -0x1
 
-    .line 401
+    .line 403
     .local v1, resID:I
     iget-object v2, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-nez v2, :cond_0
 
-    .line 453
+    .line 455
     :goto_0
     return-void
 
-    .line 405
-    :cond_0
-    const v0, 0x7f040099
-
     .line 407
+    :cond_0
+    const v0, 0x7f0400b4
+
+    .line 409
     .local v0, layout:I
     invoke-direct {p0, p1}, Lcom/android/settings/guide/BtSettingsGuider;->setFocus(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
-    .line 409
+    .line 411
     sget-object v2, Lcom/android/settings/guide/BtSettingsGuider$6;->$SwitchMap$com$android$settings$guide$BtSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v3
 
@@ -350,49 +350,49 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 452
+    .line 454
     :cond_1
     :goto_1
     invoke-direct {p0, v1, v0}, Lcom/android/settings/guide/BtSettingsGuider;->initHelpDialogContent(II)V
 
     goto :goto_0
 
-    .line 411
+    .line 413
     :pswitch_0
-    const v1, 0x7f091205
+    const v1, 0x7f09136f
 
-    .line 412
+    .line 414
     goto :goto_1
 
-    .line 415
+    .line 417
     :pswitch_1
-    const v1, 0x7f091203
-
-    .line 416
-    goto :goto_1
+    const v1, 0x7f09136d
 
     .line 418
-    :pswitch_2
-    const v1, 0x7f091202
-
-    .line 419
     goto :goto_1
 
-    .line 421
-    :pswitch_3
-    const v1, 0x7f0911f5
+    .line 420
+    :pswitch_2
+    const v1, 0x7f09136c
 
-    .line 422
+    .line 421
+    goto :goto_1
+
+    .line 423
+    :pswitch_3
+    const v1, 0x7f09135f
+
+    .line 424
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    .line 423
-    const v0, 0x7f040093
+    .line 425
+    const v0, 0x7f0400ae
 
-    .line 430
+    .line 432
     :goto_2
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
@@ -400,11 +400,11 @@
 
     if-nez v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -418,7 +418,7 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 434
+    .line 436
     new-instance v2, Landroid/os/Handler;
 
     invoke-direct {v2}, Landroid/os/Handler;-><init>()V
@@ -433,13 +433,13 @@
 
     goto :goto_1
 
-    .line 425
+    .line 427
     :cond_2
-    const v0, 0x7f040091
+    const v0, 0x7f0400ac
 
     goto :goto_2
 
-    .line 409
+    .line 411
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -451,15 +451,17 @@
 .end method
 
 .method private onBluetoothStateChanged()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 692
+    const/4 v2, 0x1
+
+    .line 694
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     if-eqz v0, :cond_1
 
-    .line 693
+    .line 695
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->isEnabled()Z
@@ -468,31 +470,14 @@
 
     iput-boolean v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBTEnabled:Z
 
-    .line 696
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
+    .line 698
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isResumed()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 699
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
@@ -502,7 +487,24 @@
 
     if-eqz v0, :cond_1
 
-    .line 700
+    .line 701
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Fragment;->isResumed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 702
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getState()I
@@ -523,28 +525,26 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 702
+    .line 704
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 703
-    const/4 v0, 0x1
+    .line 705
+    sput-boolean v2, Lcom/android/settings/guide/BtSettingsGuider;->isFinished:Z
 
-    sput-boolean v0, Lcom/android/settings/guide/BtSettingsGuider;->isFinished:Z
-
-    .line 704
+    .line 706
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->onDestroy()V
 
-    .line 712
+    .line 718
     :cond_1
     :goto_0
     return-void
 
-    .line 706
+    .line 708
     :cond_2
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
@@ -558,7 +558,18 @@
 
     iput v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
-    .line 707
+    .line 709
+    iget v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
+
+    if-nez v0, :cond_3
+
+    .line 710
+    invoke-virtual {p0, v2}, Lcom/android/settings/guide/BtSettingsGuider;->changeHelpDialogState(Z)V
+
+    goto :goto_0
+
+    .line 712
+    :cond_3
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/settings/guide/BtSettingsGuider;->changeHelpDialogState(Z)V
@@ -576,14 +587,14 @@
 
     const/4 v1, 0x0
 
-    .line 721
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
+    .line 727
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v2
 
     if-eqz v2, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v2
 
@@ -598,12 +609,12 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 723
+    .line 729
     .local v0, bShowDialog:Z
     :goto_0
     packed-switch p1, :pswitch_data_0
 
-    .line 754
+    .line 760
     :cond_1
     :goto_1
     :pswitch_0
@@ -613,20 +624,20 @@
     :cond_2
     move v0, v1
 
-    .line 721
+    .line 727
     goto :goto_0
 
-    .line 725
+    .line 731
     .restart local v0       #bShowDialog:Z
     :pswitch_1
     if-eqz v0, :cond_3
 
-    .line 726
+    .line 732
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->CONNECTED:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
-    .line 728
+    .line 734
     :cond_3
     iget v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
@@ -636,47 +647,47 @@
 
     goto :goto_1
 
-    .line 732
+    .line 738
     :pswitch_2
     if-ne p2, v3, :cond_1
 
-    .line 734
+    .line 740
     iget v2, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
     if-lez v2, :cond_5
 
-    .line 735
+    .line 741
     iget v2, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
     add-int/lit8 v2, v2, -0x1
 
     iput v2, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
-    .line 737
+    .line 743
     if-nez v0, :cond_4
 
-    .line 739
+    .line 745
     sget-object v2, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     iput-object v2, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    .line 744
+    .line 750
     :cond_4
     :goto_2
     if-eqz v0, :cond_1
 
-    .line 745
+    .line 751
     invoke-virtual {p0, v1}, Lcom/android/settings/guide/BtSettingsGuider;->changeHelpDialogState(Z)V
 
     goto :goto_1
 
-    .line 742
+    .line 748
     :cond_5
     iput v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
     goto :goto_2
 
-    .line 723
+    .line 729
     nop
 
     :pswitch_data_0
@@ -695,10 +706,10 @@
     .prologue
     const/high16 v2, -0x8000
 
-    .line 646
+    .line 648
     sget-object v0, Lcom/android/settings/guide/BtSettingsGuider$6;->$SwitchMap$com$android$settings$guide$BtSettingsGuider$BluetoothBroadcastActions:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/BtSettingsGuider$BluetoothBroadcastActions;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -706,17 +717,17 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 666
+    .line 668
     :goto_0
     return-void
 
-    .line 648
+    .line 650
     :pswitch_0
     invoke-direct {p0}, Lcom/android/settings/guide/BtSettingsGuider;->onBluetoothStateChanged()V
 
     goto :goto_0
 
-    .line 652
+    .line 654
     :pswitch_1
     const/4 v0, 0x1
 
@@ -724,7 +735,7 @@
 
     goto :goto_0
 
-    .line 656
+    .line 658
     :pswitch_2
     const/4 v0, 0x0
 
@@ -732,7 +743,7 @@
 
     goto :goto_0
 
-    .line 660
+    .line 662
     :pswitch_3
     const-string v0, "android.bluetooth.device.extra.BOND_STATE"
 
@@ -750,7 +761,7 @@
 
     goto :goto_0
 
-    .line 646
+    .line 648
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -765,14 +776,14 @@
     .parameter "started"
 
     .prologue
-    .line 675
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
+    .line 677
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
@@ -782,12 +793,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 676
+    .line 678
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     if-eqz v0, :cond_0
 
-    .line 679
+    .line 681
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->isEnabled()Z
@@ -796,11 +807,11 @@
 
     iput-boolean v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBTEnabled:Z
 
-    .line 682
+    .line 684
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/settings/guide/BtSettingsGuider;->changeHelpDialogState(Z)V
 
-    .line 684
+    .line 686
     :cond_1
     return-void
 .end method
@@ -810,16 +821,16 @@
     .parameter "state"
 
     .prologue
-    .line 855
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 861
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 857
+    .line 863
     .local v1, activity:Landroid/app/Activity;
     sget-object v3, Lcom/android/settings/guide/BtSettingsGuider$6;->$SwitchMap$com$android$settings$guide$BtSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 
@@ -827,12 +838,12 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 886
+    .line 892
     :cond_0
     :goto_0
     return-void
 
-    .line 862
+    .line 868
     :pswitch_0
     if-eqz v1, :cond_0
 
@@ -840,8 +851,8 @@
 
     if-eqz v3, :cond_0
 
-    .line 863
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 869
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -851,38 +862,38 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->requestFocus()Z
+    invoke-virtual {v3}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_0
 
-    .line 868
+    .line 874
     :pswitch_1
     if-eqz v1, :cond_0
 
-    .line 869
+    .line 875
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
-    .line 871
+    .line 877
     .local v0, actionBar:Landroid/app/ActionBar;
     if-eqz v0, :cond_0
 
-    .line 872
+    .line 878
     invoke-virtual {v0}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
 
     move-result-object v2
 
-    .line 874
+    .line 880
     .local v2, view:Landroid/view/View;
     if-eqz v2, :cond_0
 
-    .line 875
+    .line 881
     invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_0
 
-    .line 857
+    .line 863
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -900,19 +911,19 @@
     .parameter "type"
 
     .prologue
-    .line 332
+    .line 334
     const/4 v0, 0x0
 
-    .line 334
+    .line 336
     .local v0, created:Z
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-nez v1, :cond_0
 
-    .line 335
+    .line 337
     new-instance v1, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -920,31 +931,31 @@
 
     iput-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 336
+    .line 338
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setShowWrongInputToast(Z)V
+    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
 
-    .line 337
+    .line 339
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setOwnerActivity(Landroid/app/Activity;)V
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
 
-    .line 338
+    .line 340
     const/4 v1, -0x1
 
     iput v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedLayout:I
 
-    .line 339
+    .line 341
     const/4 v0, 0x1
 
-    .line 342
+    .line 344
     :cond_0
     iget-object v2, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
@@ -955,45 +966,45 @@
     sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     :goto_0
-    invoke-virtual {v2, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
-
-    .line 346
-    invoke-direct {p0}, Lcom/android/settings/guide/BtSettingsGuider;->handleDialogChange()V
+    invoke-virtual {v2, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
 
     .line 348
+    invoke-direct {p0}, Lcom/android/settings/guide/BtSettingsGuider;->handleDialogChange()V
+
+    .line 350
     iget v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedLayout:I
 
     if-eq v1, p2, :cond_3
 
-    .line 349
+    .line 351
     invoke-direct {p0, p1, p2}, Lcom/android/settings/guide/BtSettingsGuider;->initHelpDialogContent(II)V
 
-    .line 354
+    .line 356
     :goto_1
     if-eqz v0, :cond_1
 
-    .line 355
+    .line 357
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
-    .line 358
+    .line 360
     :cond_1
     iput-object p3, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    .line 359
+    .line 361
     iput p2, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedLayout:I
 
-    .line 360
+    .line 362
     return-void
 
-    .line 342
+    .line 344
     :cond_2
     sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
     goto :goto_0
 
-    .line 351
+    .line 353
     :cond_3
     invoke-direct {p0, p1}, Lcom/android/settings/guide/BtSettingsGuider;->initHelpDialogContent(I)V
 
@@ -1007,12 +1018,12 @@
     .parameter "isScanning"
 
     .prologue
-    .line 246
+    .line 248
     iget-boolean v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBTEnabled:Z
 
     if-eqz v1, :cond_1
 
-    .line 247
+    .line 249
     if-nez p1, :cond_0
 
     iget-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
@@ -1027,18 +1038,18 @@
 
     if-eqz v1, :cond_2
 
-    .line 248
+    .line 250
     :cond_0
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->SCANNING:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
-    .line 265
+    .line 267
     :cond_1
     :goto_0
     return-void
 
-    .line 250
+    .line 252
     :cond_2
     iget-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
@@ -1058,20 +1069,20 @@
 
     if-ge v1, v2, :cond_3
 
-    .line 251
+    .line 253
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->CONNECTED:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_0
 
-    .line 253
+    .line 255
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -1079,20 +1090,20 @@
 
     move-result v0
 
-    .line 257
+    .line 259
     .local v0, cachedDevices:I
     iget v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mInitialBondedCount:I
 
     if-le v0, v1, :cond_4
 
-    .line 258
+    .line 260
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->FOUND:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_0
 
-    .line 260
+    .line 262
     :cond_4
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
@@ -1105,52 +1116,52 @@
     .locals 4
 
     .prologue
-    .line 382
+    .line 384
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v1, :cond_0
 
-    .line 383
+    .line 385
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 384
+    .line 386
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 386
+    .line 388
     invoke-direct {p0}, Lcom/android/settings/guide/BtSettingsGuider;->handleDialogChange()V
 
-    .line 388
+    .line 390
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     iput-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    .line 389
+    .line 391
     const/4 v1, -0x1
 
     iput v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedLayout:I
 
-    .line 390
+    .line 392
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/BtSettingsGuider$OnCloseHelpDialogListener;
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 395
+    .line 397
     :cond_0
     :goto_0
     return-void
 
-    .line 392
+    .line 394
     :catch_0
     move-exception v0
 
-    .line 393
+    .line 395
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const-string v1, "BtSettingsGuider"
 
@@ -1191,19 +1202,19 @@
     .parameter "newConfig"
 
     .prologue
-    .line 374
+    .line 376
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     if-eq v0, v1, :cond_0
 
-    .line 375
+    .line 377
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-direct {p0, v0}, Lcom/android/settings/guide/BtSettingsGuider;->invalidateHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
-    .line 377
+    .line 379
     :cond_0
     return-void
 .end method
@@ -1275,36 +1286,36 @@
     .locals 2
 
     .prologue
-    .line 224
+    .line 226
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->dismissHelpDialog()V
 
-    .line 226
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 228
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 227
+    .line 229
     const/4 v0, 0x1
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-static {v0, v1}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
 
-    .line 229
+    .line 231
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBTReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_0
 
-    .line 230
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 232
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -1312,16 +1323,16 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 231
+    .line 233
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBTReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 235
+    .line 237
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->finish()V
 
-    .line 236
+    .line 238
     return-void
 .end method
 
@@ -1337,20 +1348,20 @@
 
     const/4 v5, 0x1
 
-    .line 763
+    .line 769
     const/4 v1, 0x0
 
-    .line 764
+    .line 770
     .local v1, isHandled:Z
     const/4 v2, 0x1
 
-    .line 768
+    .line 774
     .local v2, passToView:Z
     sget-object v3, Lcom/android/settings/guide/BtSettingsGuider$6;->$SwitchMap$com$android$settings$guide$BtSettingsGuider$GuideStates:[I
 
     iget-object v4, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v4}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 
@@ -1358,15 +1369,15 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 832
+    .line 838
     :cond_0
     :goto_0
     if-nez v1, :cond_1
 
     if-eqz v2, :cond_1
 
-    .line 833
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 839
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1374,29 +1385,29 @@
 
     move-result-object v0
 
-    .line 835
+    .line 841
     .local v0, focus:Landroid/view/View;
     if-eqz v0, :cond_1
 
-    .line 836
+    .line 842
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v3
 
     if-nez v3, :cond_4
 
-    .line 837
+    .line 843
     invoke-virtual {v0, p1, p2}, Landroid/view/View;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    .line 844
+    .line 850
     .end local v0           #focus:Landroid/view/View;
     :cond_1
     :goto_1
     return v1
 
-    .line 771
+    .line 777
     :pswitch_0
     if-eq p1, v7, :cond_2
 
@@ -1454,12 +1465,12 @@
 
     if-eq p1, v3, :cond_2
 
-    .line 786
+    .line 792
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 787
+    .line 793
     :cond_2
     if-ne p1, v6, :cond_0
 
@@ -1469,14 +1480,14 @@
 
     if-ne v3, v5, :cond_0
 
-    .line 789
+    .line 795
     const/4 v2, 0x0
 
-    .line 790
+    .line 796
     const/4 v1, 0x1
 
-    .line 792
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 798
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1486,7 +1497,7 @@
 
     goto :goto_0
 
-    .line 798
+    .line 804
     :pswitch_1
     if-ne p1, v7, :cond_3
 
@@ -1496,21 +1507,21 @@
 
     if-ne v3, v5, :cond_3
 
-    .line 800
+    .line 806
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->dismissHelpDialog()V
 
-    .line 801
+    .line 807
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->showCompleteDialog()V
 
-    .line 802
+    .line 808
     const/4 v2, 0x0
 
-    .line 803
+    .line 809
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 805
+    .line 811
     :cond_3
     if-ne p1, v6, :cond_0
 
@@ -1520,14 +1531,14 @@
 
     if-ne v3, v5, :cond_0
 
-    .line 807
+    .line 813
     const/4 v2, 0x0
 
-    .line 808
+    .line 814
     const/4 v1, 0x1
 
-    .line 810
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 816
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1537,7 +1548,7 @@
 
     goto/16 :goto_0
 
-    .line 817
+    .line 823
     :pswitch_2
     if-ne p1, v6, :cond_0
 
@@ -1547,14 +1558,14 @@
 
     if-ne v3, v5, :cond_0
 
-    .line 819
+    .line 825
     const/4 v2, 0x0
 
-    .line 820
+    .line 826
     const/4 v1, 0x1
 
-    .line 822
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 828
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1564,7 +1575,7 @@
 
     goto/16 :goto_0
 
-    .line 839
+    .line 845
     .restart local v0       #focus:Landroid/view/View;
     :cond_4
     invoke-virtual {v0, p1, p2}, Landroid/view/View;->onKeyUp(ILandroid/view/KeyEvent;)Z
@@ -1573,7 +1584,7 @@
 
     goto/16 :goto_1
 
-    .line 768
+    .line 774
     nop
 
     :pswitch_data_0
@@ -1591,7 +1602,7 @@
     .parameter "item"
 
     .prologue
-    .line 759
+    .line 765
     return-void
 .end method
 
@@ -1599,22 +1610,27 @@
     .locals 1
 
     .prologue
-    .line 216
+    .line 215
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/settings/guide/GuideFragment;->setsIsInGuideMode(Z)V
+
+    .line 218
     invoke-static {}, Lcom/android/settings/guide/GuideFragment;->isTablet()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 217
+    .line 219
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     iput-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    .line 218
+    .line 220
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->dismissHelpDialog()V
 
-    .line 220
+    .line 222
     :cond_0
     return-void
 .end method
@@ -1624,18 +1640,18 @@
     .parameter "menu"
 
     .prologue
-    .line 597
+    .line 599
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -1655,7 +1671,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 602
+    .line 604
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
@@ -1668,7 +1684,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 613
+    .line 615
     :cond_0
     return-void
 .end method
@@ -1677,16 +1693,19 @@
     .locals 5
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     .line 167
+    invoke-static {v3}, Lcom/android/settings/guide/GuideFragment;->setsIsInGuideMode(Z)V
+
+    .line 168
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     if-eqz v0, :cond_0
 
-    .line 170
+    .line 171
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->isEnabled()Z
@@ -1695,7 +1714,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBTEnabled:Z
 
-    .line 172
+    .line 173
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getState()I
@@ -1710,20 +1729,20 @@
 
     if-nez v0, :cond_0
 
-    .line 174
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 175
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 175
-    sput-boolean v4, Lcom/android/settings/guide/BtSettingsGuider;->isFinished:Z
-
     .line 176
+    sput-boolean v3, Lcom/android/settings/guide/BtSettingsGuider;->isFinished:Z
+
+    .line 177
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->onDestroy()V
 
-    .line 180
+    .line 181
     :cond_0
     const-string v0, "BtSettingsGuider"
 
@@ -1749,16 +1768,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 181
+    .line 182
     sget-boolean v0, Lcom/android/settings/guide/BtSettingsGuider;->isFinished:Z
 
     if-eqz v0, :cond_1
 
-    .line 205
+    .line 206
     :goto_0
     return-void
 
-    .line 185
+    .line 186
     :cond_1
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
@@ -1778,22 +1797,22 @@
 
     if-ge v0, v1, :cond_3
 
-    .line 187
+    .line 188
     sget-object v0, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->CONNECTED:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
-    .line 201
+    .line 202
     :cond_2
     :goto_1
-    invoke-virtual {p0, v4}, Lcom/android/settings/guide/BtSettingsGuider;->setGuidedActionBarClickable(Z)V
+    invoke-virtual {p0, v3}, Lcom/android/settings/guide/BtSettingsGuider;->setGuidedActionBarClickable(Z)V
 
-    .line 204
-    sput-boolean v3, Lcom/android/settings/guide/BtSettingsGuider;->mCreate:Z
+    .line 205
+    sput-boolean v4, Lcom/android/settings/guide/BtSettingsGuider;->mCreate:Z
 
     goto :goto_0
 
-    .line 188
+    .line 189
     :cond_3
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
@@ -1807,12 +1826,12 @@
 
     if-eq v0, v1, :cond_4
 
-    .line 189
-    invoke-virtual {p0, v3}, Lcom/android/settings/guide/BtSettingsGuider;->changeHelpDialogState(Z)V
+    .line 190
+    invoke-virtual {p0, v4}, Lcom/android/settings/guide/BtSettingsGuider;->changeHelpDialogState(Z)V
 
     goto :goto_1
 
-    .line 190
+    .line 191
     :cond_4
     invoke-static {}, Lcom/android/settings/guide/GuideFragment;->isTablet()Z
 
@@ -1826,12 +1845,12 @@
 
     if-eq v0, v1, :cond_2
 
-    .line 191
+    .line 192
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     iget-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1843,12 +1862,12 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 192
+    .line 193
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
-    .line 196
+    .line 197
     :goto_2
     sget-object v0, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
@@ -1856,7 +1875,7 @@
 
     goto :goto_1
 
-    .line 194
+    .line 195
     :cond_5
     iget-object v0, p0, Lcom/android/settings/guide/BtSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
@@ -1870,7 +1889,7 @@
     .parameter "enabler"
 
     .prologue
-    .line 618
+    .line 620
     return-void
 .end method
 
@@ -1879,12 +1898,12 @@
     .parameter "clickable"
 
     .prologue
-    .line 526
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 528
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 527
+    .line 529
     .local v1, activity:Landroid/app/Activity;
     if-eqz v1, :cond_2
 
@@ -1892,50 +1911,50 @@
 
     move-result-object v0
 
-    .line 529
+    .line 531
     .local v0, ab:Landroid/app/ActionBar;
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 531
+    .line 533
     invoke-virtual {v0}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
 
     move-result-object v2
 
-    .line 533
+    .line 535
     .local v2, v:Landroid/view/View;
     if-eqz v2, :cond_1
 
-    .line 534
+    .line 536
     invoke-virtual {v2}, Landroid/view/View;->isClickable()Z
 
     move-result v3
 
     if-eq v3, p1, :cond_0
 
-    .line 536
+    .line 538
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 537
+    .line 539
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setClickable(Z)V
 
-    .line 542
+    .line 544
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 543
+    .line 545
     invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
 
-    .line 547
+    .line 549
     .end local v2           #v:Landroid/view/View;
     :cond_1
     return-void
 
-    .line 527
+    .line 529
     .end local v0           #ab:Landroid/app/ActionBar;
     :cond_2
     const/4 v0, 0x0
@@ -1947,12 +1966,12 @@
     .locals 4
 
     .prologue
-    .line 554
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 556
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f0902cd
+    const v2, 0x7f090304
 
     const/4 v3, 0x1
 
@@ -1962,7 +1981,7 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 556
+    .line 558
     const-wide/16 v1, 0x514
 
     :try_start_0
@@ -1970,27 +1989,27 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 560
+    .line 562
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
-    .line 561
+    .line 563
     invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->onDestroy()V
 
-    .line 588
+    .line 590
     return-void
 
-    .line 557
+    .line 559
     :catch_0
     move-exception v0
 
-    .line 558
+    .line 560
     .local v0, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1999,7 +2018,7 @@
     .locals 0
 
     .prologue
-    .line 623
+    .line 625
     return-void
 .end method
 
@@ -2008,18 +2027,18 @@
     .parameter "type"
 
     .prologue
-    const v5, 0x7f091203
+    const v5, 0x7f09136d
 
-    const v4, 0x7f0911f5
+    const v4, 0x7f09135f
 
     const/4 v0, 0x1
 
-    const v3, 0x7f040099
-
-    .line 268
-    invoke-direct {p0, p1}, Lcom/android/settings/guide/BtSettingsGuider;->setFocus(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
+    const v3, 0x7f0400b4
 
     .line 270
+    invoke-direct {p0, p1}, Lcom/android/settings/guide/BtSettingsGuider;->setFocus(Lcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
+
+    .line 272
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v1, :cond_0
@@ -2028,20 +2047,20 @@
 
     if-ne v1, p1, :cond_0
 
-    .line 325
+    .line 327
     :goto_0
     return-void
 
-    .line 274
+    .line 276
     :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/BtSettingsGuider$OnCloseHelpDialogListener;
 
-    .line 276
+    .line 278
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$6;->$SwitchMap$com$android$settings$guide$BtSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v2
 
@@ -2049,7 +2068,7 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 323
+    .line 325
     :goto_1
     sget-object v1, Lcom/android/settings/guide/BtSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/BtSettingsGuider$GuideStates;
 
@@ -2060,21 +2079,21 @@
 
     goto :goto_0
 
-    .line 278
+    .line 280
     :pswitch_0
-    const v1, 0x7f091205
+    const v1, 0x7f09136f
 
     invoke-direct {p0, v1, v3, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_1
 
-    .line 281
+    .line 283
     :pswitch_1
     invoke-direct {p0, v5, v3, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_1
 
-    .line 285
+    .line 287
     :pswitch_2
     new-instance v1, Lcom/android/settings/guide/BtSettingsGuider$1;
 
@@ -2082,56 +2101,56 @@
 
     iput-object v1, p0, Lcom/android/settings/guide/BtSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/BtSettingsGuider$OnCloseHelpDialogListener;
 
-    .line 290
-    const v1, 0x7f091202
+    .line 292
+    const v1, 0x7f09136c
 
     invoke-direct {p0, v1, v3, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_1
 
-    .line 294
+    .line 296
     :pswitch_3
-    invoke-virtual {p0}, Lcom/android/settings/guide/BtSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-static {v0, v1}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
 
-    .line 295
+    .line 297
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 296
-    const v1, 0x7f040093
-
-    invoke-direct {p0, v4, v1, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
-
-    goto :goto_1
-
     .line 298
-    :cond_1
-    const v1, 0x7f040091
+    const v1, 0x7f0400ae
 
     invoke-direct {p0, v4, v1, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_1
 
-    .line 311
+    .line 300
+    :cond_1
+    const v1, 0x7f0400ac
+
+    invoke-direct {p0, v4, v1, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
+
+    goto :goto_1
+
+    .line 313
     :pswitch_4
     invoke-direct {p0, v5, v3, p1}, Lcom/android/settings/guide/BtSettingsGuider;->showHelpDialog(IILcom/android/settings/guide/BtSettingsGuider$GuideStates;)V
 
     goto :goto_1
 
-    .line 323
+    .line 325
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_2
 
-    .line 276
+    .line 278
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

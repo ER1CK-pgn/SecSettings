@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
 
-    invoke-virtual {v1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->getCount()I
+    invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v1
 
@@ -118,7 +118,7 @@
     .line 157
     iget-object v1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
 
-    invoke-virtual {v1, p1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -141,7 +141,7 @@
 
     .line 162
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 164
     .end local v0           #keyboardLayout:Landroid/hardware/input/KeyboardLayout;
@@ -154,7 +154,7 @@
 
     .prologue
     .line 145
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getTargetFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
@@ -173,7 +173,7 @@
 
     .prologue
     .line 208
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -184,9 +184,9 @@
     if-eqz v1, :cond_0
 
     .line 210
-    const v2, 0x10202ee
+    const v2, 0x10202dc
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -194,7 +194,7 @@
     .local v0, customPanel:Landroid/view/View;
     iget-object v2, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
 
-    invoke-virtual {v2}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->getCount()I
+    invoke-virtual {v2}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v2
 
@@ -230,10 +230,10 @@
 
     .prologue
     .line 151
-    invoke-super {p0, p1, p2, p3}, Landroid/app/DialogFragment;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 152
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -243,7 +243,7 @@
 
     const-string v1, "layout"
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     .line 153
     return-void
@@ -258,7 +258,7 @@
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onAttach(Landroid/app/Activity;)V
 
     .line 69
-    invoke-virtual {p1}, Landroid/app/Activity;->getBaseContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -294,7 +294,7 @@
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onCancel(Landroid/content/DialogInterface;)V
 
     .line 141
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 142
     return-void
@@ -322,7 +322,7 @@
 
     .line 82
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getLoaderManager()Landroid/app/LoaderManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
 
@@ -342,7 +342,7 @@
 
     .prologue
     .line 93
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -358,13 +358,13 @@
 
     invoke-direct {v3, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0907b4
+    const v4, 0x7f090807
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0907b5
+    const v4, 0x7f090808
 
     new-instance v5, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$2;
 
@@ -386,7 +386,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0400be
+    const v4, 0x7f0400dd
 
     const/4 v5, 0x0
 
@@ -430,11 +430,11 @@
     .line 168
     new-instance v0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutLoader;
 
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getBaseContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -469,7 +469,7 @@
     if-ne p1, v0, :cond_0
 
     .line 196
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getLoaderManager()Landroid/app/LoaderManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getLoaderManager()Landroid/app/LoaderManager;
 
     move-result-object v0
 
@@ -499,7 +499,7 @@
     if-ne p1, v0, :cond_0
 
     .line 203
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 205
     :cond_0
@@ -527,14 +527,14 @@
     .local p1, loader:Landroid/content/Loader;,"Landroid/content/Loader<Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$Keyboards;>;"
     iget-object v1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
 
-    invoke-virtual {v1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->clear()V
+    invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->clear()V
 
     .line 174
     iget-object v1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
 
     iget-object v2, p2, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$Keyboards;->keyboardLayouts:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->addAll(Ljava/util/Collection;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V
 
     .line 175
     iget-object v1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
@@ -544,7 +544,7 @@
     invoke-virtual {v1, v2}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->setCheckedItem(I)V
 
     .line 176
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
@@ -563,7 +563,7 @@
 
     const/4 v3, 0x1
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v1, v2, v3}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 180
     :cond_0
@@ -606,7 +606,7 @@
     .local p1, loader:Landroid/content/Loader;,"Landroid/content/Loader<Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$Keyboards;>;"
     iget-object v0, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mAdapter:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;
 
-    invoke-virtual {v0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutAdapter;->clear()V
+    invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->clear()V
 
     .line 186
     invoke-direct {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->updateSwitchHintVisibility()V
@@ -630,7 +630,7 @@
     iput v0, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mInputDeviceId:I
 
     .line 135
-    invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 136
     return-void
@@ -641,7 +641,7 @@
 
     .prologue
     .line 118
-    invoke-super {p0}, Landroid/app/DialogFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 120
     iget-object v1, p0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->mIm:Landroid/hardware/input/InputManager;
@@ -664,7 +664,7 @@
     if-nez v0, :cond_0
 
     .line 124
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 128
     :goto_0

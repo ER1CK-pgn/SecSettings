@@ -128,7 +128,7 @@
 
     .line 111
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/Display;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 112
     return-void
@@ -151,14 +151,14 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 40
-    const v6, 0x7f040077
+    const v6, 0x7f04007d
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/Display;->setContentView(I)V
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->setContentView(I)V
 
     .line 42
-    const v6, 0x7f0b015a
+    const v6, 0x7f0b016b
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/Display;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -171,7 +171,7 @@
 
     iget-object v7, p0, Lcom/android/settings/Display;->mFontSizeChanged:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    invoke-virtual {v6, v7}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+    invoke-virtual {v6, v7}, Landroid/widget/AdapterView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
     .line 44
     const/4 v6, 0x3
@@ -180,7 +180,7 @@
 
     .line 45
     .local v4, states:[Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/Display;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -188,7 +188,7 @@
     .local v2, r:Landroid/content/res/Resources;
     const/4 v6, 0x0
 
-    const v7, 0x7f0900aa
+    const v7, 0x7f0900c9
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
     .line 47
     const/4 v6, 0x1
 
-    const v7, 0x7f0900ab
+    const v7, 0x7f0900ca
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -208,7 +208,7 @@
     aput-object v7, v4, v6
 
     .line 48
-    const v6, 0x7f0900ac
+    const v6, 0x7f0900cb
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,9 +235,9 @@
     invoke-virtual {v6, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     .line 55
-    const v6, 0x7f0b015b
+    const v6, 0x7f0b016c
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/Display;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -248,7 +248,7 @@
     .line 56
     iget-object v6, p0, Lcom/android/settings/Display;->mPreview:Landroid/widget/TextView;
 
-    const v7, 0x7f0900ad
+    const v7, 0x7f0900cc
 
     invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -257,9 +257,9 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 58
-    const v6, 0x7f0b015c
+    const v6, 0x7f0b016d
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/Display;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -267,16 +267,16 @@
 
     .line 59
     .local v3, save:Landroid/widget/Button;
-    const v6, 0x7f0900ae
+    const v6, 0x7f0900cd
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v6
 
-    invoke-virtual {v3, v6}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 60
-    invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 62
     new-instance v6, Landroid/util/TypedValue;
@@ -288,7 +288,7 @@
     .line 63
     sget-object v6, Landroid/R$styleable;->TextView:[I
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/Display;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {p0, v6}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v5
 
@@ -299,7 +299,7 @@
     invoke-virtual {v5, v8, v6}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
 
     .line 68
-    invoke-virtual {p0}, Lcom/android/settings/Display;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
@@ -404,7 +404,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsSpinner;->setSelection(I)V
 
     .line 95
     :goto_1
@@ -428,7 +428,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsSpinner;->setSelection(I)V
 
     goto :goto_1
 
@@ -438,7 +438,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/AbsSpinner;->setSelection(I)V
 
     goto :goto_1
 

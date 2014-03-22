@@ -30,7 +30,7 @@
     .line 145
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -52,7 +52,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
+    invoke-virtual {v1}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
 
     move-result v1
 
@@ -63,7 +63,7 @@
     .line 149
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;
 
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApAllowedList;->showDialog(I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
     invoke-static {v1, v3}, Lcom/android/settings/wifi/mobileap/WifiApAllowedList;->access$100(Lcom/android/settings/wifi/mobileap/WifiApAllowedList;I)V
 
     .line 154
@@ -79,7 +79,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09040d
+    const v2, 0x7f090447
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

@@ -10,6 +10,10 @@
 
 
 # instance fields
+.field private autoEnableState:I
+
+.field private isLowLevel:I
+
 .field private mContentResolver:Landroid/content/ContentResolver;
 
 .field private mContext:Landroid/content/Context;
@@ -22,10 +26,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 123
+    .line 194
     sput-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
-    .line 124
+    .line 195
     sput-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mSupportedArmFrequency:[I
 
     return-void
@@ -45,12 +49,12 @@
     .locals 7
 
     .prologue
-    .line 126
+    .line 197
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
     if-nez v0, :cond_1
 
-    .line 127
+    .line 198
     new-instance v0, Landroid/os/DVFSHelper;
 
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
@@ -65,7 +69,7 @@
 
     sput-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
-    .line 128
+    .line 199
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->getSupportedCPUFrequency()[I
@@ -74,23 +78,23 @@
 
     sput-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mSupportedArmFrequency:[I
 
-    .line 129
+    .line 200
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mSupportedArmFrequency:[I
 
     if-nez v0, :cond_0
 
-    .line 130
+    .line 201
     const-string v0, "PowerNotiReceiver"
 
     const-string v1, "error : mSupportedArmFrequency == null"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 147
+    .line 218
     :goto_0
     return-void
 
-    .line 134
+    .line 205
     :cond_0
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
@@ -100,7 +104,7 @@
 
     move-result v6
 
-    .line 135
+    .line 206
     .local v6, max_cpu_clock:I
     const-string v0, "PowerNotiReceiver"
 
@@ -124,10 +128,10 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 136
+    .line 207
     if-lez v6, :cond_1
 
-    .line 137
+    .line 208
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "CPU"
@@ -136,7 +140,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
-    .line 141
+    .line 212
     .end local v6           #max_cpu_clock:I
     :cond_1
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContentResolver:Landroid/content/ContentResolver;
@@ -153,14 +157,14 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 142
+    .line 213
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->acquire()V
 
     goto :goto_0
 
-    .line 144
+    .line 215
     :cond_2
     const-string v0, "PowerNotiReceiver"
 
@@ -168,7 +172,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 145
+    .line 216
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restoreCpuPowersaving()V
 
     goto :goto_0
@@ -180,7 +184,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 157
+    .line 228
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v2, "psm_display"
@@ -193,7 +197,7 @@
 
     if-ne v1, v4, :cond_0
 
-    .line 158
+    .line 229
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
 
     const-string v2, "power"
@@ -204,7 +208,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 159
+    .line 230
     .local v0, mPowerManager:Landroid/os/PowerManager;
     const-string v1, "PowerNotiReceiver"
 
@@ -212,18 +216,18 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 170
+    .line 241
     invoke-static {v4}, Lcom/sec/android/hardware/SecHardwareInterface;->setPowerSaveFPS(Z)V
 
-    .line 173
+    .line 244
     invoke-virtual {v0, v4}, Landroid/os/PowerManager;->setSystemPowerSaveMode(Z)V
 
-    .line 178
+    .line 249
     .end local v0           #mPowerManager:Landroid/os/PowerManager;
     :goto_0
     return-void
 
-    .line 175
+    .line 246
     :cond_0
     const-string v1, "PowerNotiReceiver"
 
@@ -231,48 +235,119 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
+    .line 247
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restoreDisplayPowersaving()V
 
     goto :goto_0
 .end method
 
 .method private doPowerSaveAction()V
-    .locals 0
+    .locals 3
 
     .prologue
-    .line 112
+    .line 182
+    iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f090d3a
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    .line 183
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doCpuPowersaving()V
 
-    .line 113
+    .line 184
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doDisplayPowersaving()V
 
-    .line 115
+    .line 186
     return-void
+.end method
+
+.method private isAutoEnable()Z
+    .locals 4
+
+    .prologue
+    .line 172
+    const/4 v0, 0x0
+
+    .line 173
+    .local v0, ret:Z
+    const-string v1, "ATT"
+
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->autoEnableState:I
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_0
+
+    .line 174
+    const/4 v0, 0x1
+
+    .line 176
+    :cond_0
+    const-string v1, "PowerNotiReceiver"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "isAutoEnable : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 177
+    return v0
 .end method
 
 .method private restoreCpuPowersaving()V
     .locals 2
 
     .prologue
-    .line 150
+    .line 221
     const-string v0, "PowerNotiReceiver"
 
     const-string v1, "restoreCpuPowersaving"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 151
+    .line 222
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
     if-eqz v0, :cond_0
 
-    .line 152
+    .line 223
     sget-object v0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mArmFreqLimitHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->release()V
 
-    .line 154
+    .line 225
     :cond_0
     return-void
 .end method
@@ -283,7 +358,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 181
+    .line 252
     iget-object v1, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
 
     const-string v2, "power"
@@ -294,7 +369,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 182
+    .line 253
     .local v0, mPowerManager:Landroid/os/PowerManager;
     const-string v1, "PowerNotiReceiver"
 
@@ -302,13 +377,13 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 194
+    .line 265
     invoke-static {v3}, Lcom/sec/android/hardware/SecHardwareInterface;->setPowerSaveFPS(Z)V
 
-    .line 197
+    .line 268
     invoke-virtual {v0, v3}, Landroid/os/PowerManager;->setSystemPowerSaveMode(Z)V
 
-    .line 198
+    .line 269
     return-void
 .end method
 
@@ -316,53 +391,76 @@
     .locals 0
 
     .prologue
-    .line 118
+    .line 189
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restoreCpuPowersaving()V
 
-    .line 119
+    .line 190
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restoreDisplayPowersaving()V
 
-    .line 121
+    .line 192
     return-void
 .end method
 
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 8
+    .locals 9
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    const v7, 0x7f090c2d
+    const/4 v7, 0x0
 
     const/4 v6, 0x1
 
-    .line 56
+    .line 63
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 57
+    .line 64
     .local v0, action:Ljava/lang/String;
+    const-string v3, "PowerNotiReceiver"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "action="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 65
     iput-object p1, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
 
-    .line 59
-    invoke-static {v4}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+    .line 67
+    invoke-static {v8}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    invoke-static {v4}, Lcom/android/settings/Utils;->isLightTheme(Landroid/content/Context;)Z
+    invoke-static {v8}, Lcom/android/settings/Utils;->isLightTheme(Landroid/content/Context;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 60
+    .line 68
     :cond_0
     new-instance v3, Landroid/view/ContextThemeWrapper;
 
@@ -374,7 +472,7 @@
 
     iput-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
 
-    .line 62
+    .line 70
     :cond_1
     iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
 
@@ -384,7 +482,7 @@
 
     iput-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContentResolver:Landroid/content/ContentResolver;
 
-    .line 63
+    .line 71
     iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -393,13 +491,11 @@
 
     const-string v4, "psm_switch"
 
-    const/4 v5, 0x0
-
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 64
+    .line 72
     .local v1, powersavingState:I
     const-string v3, "PowerNotiReceiver"
 
@@ -423,7 +519,87 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 65
+    .line 74
+    iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "psm_auto_turn_on"
+
+    invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->autoEnableState:I
+
+    .line 75
+    iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "isLowLevel"
+
+    invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    .line 76
+    const-string v3, "PowerNotiReceiver"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "autoEnableState="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->autoEnableState:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 77
+    const-string v3, "PowerNotiReceiver"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "isLowLevel : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 81
     const-string v3, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -432,27 +608,24 @@
 
     if-eqz v3, :cond_3
 
-    .line 66
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isAutoEnable()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    .line 83
     if-ne v1, v6, :cond_2
 
-    .line 67
-    iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
-
-    invoke-static {v3, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
-
-    .line 69
+    .line 84
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
 
-    .line 109
+    .line 168
     :cond_2
     :goto_0
     return-void
 
-    .line 78
+    .line 94
     :cond_3
     const-string v3, "android.settings.POWERSAVING_CHANGED"
 
@@ -460,112 +633,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_f
 
-    .line 79
-    if-ne v1, v6, :cond_6
-
-    .line 80
-    const-string v3, "changed"
-
-    invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 81
-    .local v2, strMsg:Ljava/lang/String;
-    if-eqz v2, :cond_5
-
-    .line 82
-    const-string v3, "true"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    .line 83
-    const-string v3, "PowerNotiReceiver"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "onReceive POWERSAVING_CHANGED="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 84
-    iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
-
-    invoke-static {v3, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
-
-    .line 86
-    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
-
-    goto :goto_0
-
-    .line 88
-    :cond_4
-    const-string v3, "PowerNotiReceiver"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "onReceive POWERSAVING_CHANGED="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 91
-    :cond_5
-    iget-object v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->mContext:Landroid/content/Context;
-
-    invoke-static {v3, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
-
-    .line 93
-    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
-
-    goto :goto_0
+    .line 95
+    if-ne v1, v6, :cond_a
 
     .line 96
-    .end local v2           #strMsg:Ljava/lang/String;
-    :cond_6
     const-string v3, "changed"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -573,8 +646,8 @@
     move-result-object v2
 
     .line 97
-    .restart local v2       #strMsg:Ljava/lang/String;
-    if-eqz v2, :cond_8
+    .local v2, strMsg:Ljava/lang/String;
+    if-eqz v2, :cond_7
 
     .line 98
     const-string v3, "true"
@@ -583,7 +656,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6
 
     .line 99
     const-string v3, "PowerNotiReceiver"
@@ -608,13 +681,161 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
+    .line 101
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isAutoEnable()Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    .line 102
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
+
+    goto :goto_0
+
+    .line 104
+    :cond_4
+    iget v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    if-ne v3, v6, :cond_5
+
+    .line 105
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
+
+    goto :goto_0
+
+    .line 107
+    :cond_5
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
+
+    goto :goto_0
+
+    .line 112
+    :cond_6
+    const-string v3, "PowerNotiReceiver"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "onReceive POWERSAVING_CHANGED="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 116
+    :cond_7
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isAutoEnable()Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    .line 117
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
+
+    goto :goto_0
+
+    .line 119
+    :cond_8
+    iget v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    if-ne v3, v6, :cond_9
+
+    .line 120
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
+
+    goto :goto_0
+
+    .line 122
+    :cond_9
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
+
+    goto :goto_0
+
+    .line 128
+    .end local v2           #strMsg:Ljava/lang/String;
+    :cond_a
+    const-string v3, "changed"
+
+    invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 129
+    .restart local v2       #strMsg:Ljava/lang/String;
+    if-eqz v2, :cond_d
+
+    .line 130
+    const-string v3, "true"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_c
+
+    .line 131
+    const-string v3, "PowerNotiReceiver"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "onReceive POWERSAVING_CHANGED="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 133
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isAutoEnable()Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    .line 134
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
 
     goto/16 :goto_0
 
-    .line 102
-    :cond_7
+    .line 136
+    :cond_b
+    iget v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    if-ne v3, v6, :cond_2
+
+    .line 137
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
+
+    goto/16 :goto_0
+
+    .line 142
+    :cond_c
     const-string v3, "PowerNotiReceiver"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -639,8 +860,62 @@
 
     goto/16 :goto_0
 
-    .line 105
-    :cond_8
+    .line 146
+    :cond_d
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isAutoEnable()Z
+
+    move-result v3
+
+    if-nez v3, :cond_e
+
+    .line 147
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
+
+    goto/16 :goto_0
+
+    .line 149
+    :cond_e
+    iget v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    if-ne v3, v6, :cond_2
+
+    .line 150
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
+
+    goto/16 :goto_0
+
+    .line 158
+    .end local v2           #strMsg:Ljava/lang/String;
+    :cond_f
+    const-string v3, "android.settings.POWERSAVING_AUTO_ENABLE"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isAutoEnable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 159
+    if-ne v1, v6, :cond_2
+
+    .line 160
+    iget v3, p0, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->isLowLevel:I
+
+    if-ne v3, v6, :cond_10
+
+    .line 161
+    invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->doPowerSaveAction()V
+
+    goto/16 :goto_0
+
+    .line 163
+    :cond_10
     invoke-direct {p0}, Lcom/android/settings/powersavingmode/PowerNotiReceiver;->restorePowerSaveAction()V
 
     goto/16 :goto_0

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 425
+    .line 440
     iput-object p1, p0, Lcom/android/settings/motion/MotionTutorialSettings$5;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 427
+    .line 442
     iget-object v0, p0, Lcom/android/settings/motion/MotionTutorialSettings$5;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
     #calls: Lcom/android/settings/motion/MotionTutorialSettings;->stopAnimation()V
     invoke-static {v0}, Lcom/android/settings/motion/MotionTutorialSettings;->access$900(Lcom/android/settings/motion/MotionTutorialSettings;)V
 
-    .line 428
+    .line 443
     return-void
 .end method

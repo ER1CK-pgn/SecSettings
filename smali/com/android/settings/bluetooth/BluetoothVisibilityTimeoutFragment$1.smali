@@ -73,7 +73,7 @@
     .line 73
     iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothVisibilityTimeoutFragment$1;->this$0:Lcom/android/settings/bluetooth/BluetoothVisibilityTimeoutFragment;
 
-    invoke-virtual {v2}, Lcom/android/settings/bluetooth/BluetoothVisibilityTimeoutFragment;->dismiss()V
+    invoke-virtual {v2}, Landroid/app/DialogFragment;->dismiss()V
 
     .line 76
     .end local v1           #state:I

@@ -3,7 +3,7 @@
 .source "DataUsageSummary.java"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemSelectedListener;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # annotations
@@ -27,17 +27,17 @@
     .parameter
 
     .prologue
-    .line 1604
+    .line 1736
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 6
     .parameter
     .parameter "view"
@@ -54,78 +54,62 @@
     .end annotation
 
     .prologue
-    .line 1607
+    .line 1739
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
+    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    .line 1740
+    .local v1, context:Landroid/content/Context;
     invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/settings/DataUsageSummary$CycleItem;
+    check-cast v0, Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 1608
-    .local v0, cycle:Lcom/android/settings/DataUsageSummary$CycleItem;
-    instance-of v1, v0, Lcom/android/settings/DataUsageSummary$CycleChangeItem;
+    .line 1743
+    .local v0, app:Lcom/android/settings/DataUsageSummary$AppItem;
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    if-eqz v1, :cond_0
+    #getter for: Lcom/android/settings/DataUsageSummary;->mUidDetailProvider:Lcom/android/settings/net/UidDetailProvider;
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$1900(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/net/UidDetailProvider;
 
-    .line 1611
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
+    move-result-object v3
 
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary$CycleEditorFragment;->show(Lcom/android/settings/DataUsageSummary;)V
+    if-eqz v3, :cond_0
 
-    .line 1614
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
+    if-nez v0, :cond_1
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mCycleSpinner:Landroid/widget/Spinner;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$2000(Lcom/android/settings/DataUsageSummary;)Landroid/widget/Spinner;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/Spinner;->setSelection(I)V
-
-    .line 1628
+    .line 1747
+    :cond_0
     :goto_0
     return-void
 
-    .line 1624
-    :cond_0
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
+    .line 1745
+    :cond_1
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mChart:Lcom/android/settings/widget/ChartDataUsageView;
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$2100(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/widget/ChartDataUsageView;
+    #getter for: Lcom/android/settings/DataUsageSummary;->mUidDetailProvider:Lcom/android/settings/net/UidDetailProvider;
+    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$1900(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/net/UidDetailProvider;
 
-    move-result-object v1
+    move-result-object v3
 
-    iget-wide v2, v0, Lcom/android/settings/DataUsageSummary$CycleItem;->start:J
+    iget v4, v0, Lcom/android/settings/DataUsageSummary$AppItem;->key:I
 
-    iget-wide v4, v0, Lcom/android/settings/DataUsageSummary$CycleItem;->end:J
+    const/4 v5, 0x1
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/settings/widget/ChartDataUsageView;->setVisibleRange(JJ)V
+    invoke-virtual {v3, v4, v5}, Lcom/android/settings/net/UidDetailProvider;->getUidDetail(IZ)Lcom/android/settings/net/UidDetail;
 
-    .line 1626
-    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
+    move-result-object v2
 
-    #calls: Lcom/android/settings/DataUsageSummary;->updateDetailData()V
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$2200(Lcom/android/settings/DataUsageSummary;)V
+    .line 1746
+    .local v2, detail:Lcom/android/settings/net/UidDetail;
+    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$15;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    iget-object v4, v2, Lcom/android/settings/net/UidDetail;->label:Ljava/lang/CharSequence;
+
+    invoke-static {v3, v0, v4}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->show(Lcom/android/settings/DataUsageSummary;Lcom/android/settings/DataUsageSummary$AppItem;Ljava/lang/CharSequence;)V
 
     goto :goto_0
-.end method
-
-.method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .locals 0
-    .parameter
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/widget/AdapterView",
-            "<*>;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 1633
-    .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
-    return-void
 .end method

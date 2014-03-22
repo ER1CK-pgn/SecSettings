@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 125
+    .line 137
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,16 +47,16 @@
 
     const/4 v8, 0x0
 
-    .line 128
+    .line 140
     const/4 v4, 0x1
 
-    .line 129
+    .line 141
     .local v4, retVal:Z
     invoke-virtual {p2}, Landroid/view/DragEvent;->getAction()I
 
     move-result v0
 
-    .line 131
+    .line 143
     .local v0, dragEvent:I
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -68,7 +68,7 @@
 
     move-result v1
 
-    .line 132
+    .line 144
     .local v1, idx:I
     const-string v5, "NotificationPanelMenu"
 
@@ -92,7 +92,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 135
+    .line 147
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->idxGap:I
@@ -102,7 +102,7 @@
 
     if-ge v1, v5, :cond_1
 
-    .line 136
+    .line 148
     const-string v5, "NotificationPanelMenu"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -125,7 +125,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 137
+    .line 149
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mActiveNotificationPanelList:Ljava/util/ArrayList;
@@ -139,21 +139,21 @@
 
     check-cast v3, Landroid/view/View;
 
-    .line 145
+    .line 157
     .local v3, panelView:Landroid/view/View;
     :goto_0
     if-nez v3, :cond_2
 
     const/4 v4, 0x0
 
-    .line 177
+    .line 189
     .end local v4           #retVal:Z
     :cond_0
     :goto_1
     :pswitch_0
     return v4
 
-    .line 139
+    .line 151
     .end local v3           #panelView:Landroid/view/View;
     .restart local v4       #retVal:Z
     :cond_1
@@ -166,7 +166,7 @@
 
     sub-int/2addr v1, v5
 
-    .line 140
+    .line 152
     const-string v5, "NotificationPanelMenu"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -213,7 +213,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 153
     const-string v5, "NotificationPanelMenu"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -236,7 +236,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 142
+    .line 154
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mCandidateNotificationPanelList:Ljava/util/ArrayList;
@@ -253,9 +253,9 @@
     .restart local v3       #panelView:Landroid/view/View;
     goto :goto_0
 
-    .line 147
+    .line 159
     :cond_2
-    const v5, 0x7f0b028b
+    const v5, 0x7f0b02c7
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -263,21 +263,21 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    .line 149
+    .line 161
     .local v2, panelBorder:Landroid/widget/LinearLayout;
     packed-switch v0, :pswitch_data_0
 
     :pswitch_1
     goto :goto_1
 
-    .line 151
+    .line 163
     :pswitch_2
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #calls: Lcom/android/settings/NotificationPanelMenu;->changeQuickSettingsByPanel(Landroid/view/View;)V
     invoke-static {v5, p1}, Lcom/android/settings/NotificationPanelMenu;->access$700(Lcom/android/settings/NotificationPanelMenu;Landroid/view/View;)V
 
-    .line 152
+    .line 164
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #calls: Lcom/android/settings/NotificationPanelMenu;->updateQuickSettingsList()V
@@ -285,26 +285,26 @@
 
     goto :goto_1
 
-    .line 156
-    :pswitch_3
-    invoke-virtual {v2, v9}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    goto :goto_1
-
-    .line 163
-    :pswitch_4
-    invoke-virtual {v2, v8}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    goto :goto_1
-
-    .line 167
-    :pswitch_5
-    invoke-virtual {v2, v8}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
     .line 168
+    :pswitch_3
+    invoke-virtual {v2, v9}, Landroid/view/View;->setAlpha(F)V
+
+    goto :goto_1
+
+    .line 175
+    :pswitch_4
+    invoke-virtual {v2, v8}, Landroid/view/View;->setAlpha(F)V
+
+    goto :goto_1
+
+    .line 179
+    :pswitch_5
+    invoke-virtual {v2, v8}, Landroid/view/View;->setAlpha(F)V
+
+    .line 180
     invoke-virtual {v3, v9}, Landroid/view/View;->setAlpha(F)V
 
-    .line 169
+    .line 181
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mShadowBuilder:Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;
@@ -314,7 +314,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 170
+    .line 182
     iget-object v5, p0, Lcom/android/settings/NotificationPanelMenu$3;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mShadowBuilder:Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;
@@ -326,7 +326,7 @@
 
     goto/16 :goto_1
 
-    .line 149
+    .line 161
     nop
 
     :pswitch_data_0

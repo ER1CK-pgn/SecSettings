@@ -128,7 +128,7 @@
 
     const-wide/16 v1, 0x7d0
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$2;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
 
@@ -144,7 +144,7 @@
 
     const-wide/16 v1, 0x3e8
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$2;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 129
+    .line 135
     iput-object p1, p0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory$1;->this$0:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 132
+    .line 138
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 144
+    .line 150
     :goto_0
     return-void
 
-    .line 134
+    .line 140
     :pswitch_0
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -58,7 +58,7 @@
 
     check-cast v1, [J
 
-    .line 135
+    .line 141
     .local v1, size:[J
     iget-object v2, p0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory$1;->this$0:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
@@ -74,14 +74,14 @@
 
     goto :goto_0
 
-    .line 139
+    .line 145
     .end local v1           #size:[J
     :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/settings/deviceinfo/StorageMeasurement$MeasurementDetails;
 
-    .line 140
+    .line 146
     .local v0, details:Lcom/android/settings/deviceinfo/StorageMeasurement$MeasurementDetails;
     iget-object v2, p0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory$1;->this$0:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
@@ -89,7 +89,7 @@
 
     goto :goto_0
 
-    .line 132
+    .line 138
     nop
 
     :pswitch_data_0

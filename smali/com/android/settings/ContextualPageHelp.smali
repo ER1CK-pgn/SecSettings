@@ -147,7 +147,7 @@
 
     .prologue
     .line 50
-    const v1, 0x7f040040
+    const v1, 0x7f040046
 
     const/4 v2, 0x0
 
@@ -157,7 +157,7 @@
 
     .line 52
     .local v0, view:Landroid/view/View;
-    const v1, 0x7f0b00b5
+    const v1, 0x7f0b00c2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -175,9 +175,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f091248
+    const v3, 0x7f0913b2
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/ContextualPageHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -192,7 +192,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 53
-    const v1, 0x7f0b00b6
+    const v1, 0x7f0b00c3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,9 +210,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f091249
+    const v3, 0x7f0913b3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/ContextualPageHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -227,7 +227,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 54
-    const v1, 0x7f0b00b9
+    const v1, 0x7f0b00c6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -245,9 +245,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f09124a
+    const v3, 0x7f0913b4
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/ContextualPageHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -262,7 +262,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 55
-    const v1, 0x7f0b00ba
+    const v1, 0x7f0b00c7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -280,9 +280,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f09124b
+    const v3, 0x7f0913b5
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/ContextualPageHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -297,7 +297,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 57
-    const v1, 0x7f0b00b8
+    const v1, 0x7f0b00c5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -308,7 +308,7 @@
     iput-object v1, p0, Lcom/android/settings/ContextualPageHelp;->launchbtnplay:Landroid/widget/ImageView;
 
     .line 58
-    const v1, 0x7f0b00b7
+    const v1, 0x7f0b00c4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -321,7 +321,7 @@
     .line 59
     iget-object v1, p0, Lcom/android/settings/ContextualPageHelp;->launchimg:Landroid/widget/ImageView;
 
-    const v2, 0x7f020289
+    const v2, 0x7f0202ec
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -332,10 +332,10 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ContextualPageHelp$1;-><init>(Lcom/android/settings/ContextualPageHelp;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 68
-    const v1, 0x7f0b00bd
+    const v1, 0x7f0b00ca
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -346,7 +346,7 @@
     iput-object v1, p0, Lcom/android/settings/ContextualPageHelp;->recommendbtnplay:Landroid/widget/ImageView;
 
     .line 69
-    const v1, 0x7f0b00bc
+    const v1, 0x7f0b00c9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -359,7 +359,7 @@
     .line 70
     iget-object v1, p0, Lcom/android/settings/ContextualPageHelp;->recommendimg:Landroid/widget/ImageView;
 
-    const v2, 0x7f020382
+    const v2, 0x7f0203f2
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -370,7 +370,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ContextualPageHelp$2;-><init>(Lcom/android/settings/ContextualPageHelp;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 79
     return-object v0

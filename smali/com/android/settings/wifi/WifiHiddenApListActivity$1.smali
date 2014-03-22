@@ -30,7 +30,7 @@
     .line 172
     iput-object p1, p0, Lcom/android/settings/wifi/WifiHiddenApListActivity$1;->this$0:Lcom/android/settings/wifi/WifiHiddenApListActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -86,11 +86,11 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/widget/ListView;->getContext()Landroid/content/Context;
+    invoke-virtual {v5}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v5
 
-    const v6, 0x7f091154
+    const v6, 0x7f09129e
 
     const/4 v7, 0x0
 
@@ -113,7 +113,7 @@
 
     const-string v6, "wifi"
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/wifi/WifiHiddenApListActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 

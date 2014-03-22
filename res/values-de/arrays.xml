@@ -12,8 +12,9 @@
     </string-array>
     <string-array name="lock_screen_unlock_effect_entries">
         <item>Ohne</item>
-        <item>Welle</item>
+        <item>Welleneffekt</item>
         <item>Lichteffekt</item>
+        <item>Particle effect</item>
     </string-array>
     <string-array name="auto_power_off_entries">
         <item>Aus</item>
@@ -231,6 +232,10 @@
         <item>10</item>
         <item>11</item>
     </string-array>
+    <string-array name="wifi_ap_tx_power_mode_entries">
+        <item>Standard</item>
+        <item>Hoch</item>
+    </string-array>
     <string-array name="wifi_ap_maxclient">
         <item>1</item>
         <item>2</item>
@@ -248,6 +253,11 @@
         <item>5 Minuten</item>
         <item>1 Stunde</item>
         <item>Niemals</item>
+    </string-array>
+    <string-array name="bluetooth_visibility_timeout_entries_for_vzw">
+        <item>2 Minuten</item>
+        <item>5 Minuten</item>
+        <item>1 Stunde</item>
     </string-array>
     <string-array name="wifi_signal">
         <item>Schwach</item>
@@ -273,7 +283,7 @@
     </string-array>
     <string-array name="wifi_ap_list_priority_entries">
         <item>Alphabet</item>
-        <item>RSSI</item>
+        <item>Signalstärke</item>
     </string-array>
     <string-array name="wifi_frequency_band_entries">
         <item>Auto</item>
@@ -375,10 +385,114 @@
         <item>eHRPD</item>
         <item>Nicht angegeben</item>
     </string-array>
+    <string-array name="mvno_type_entries">
+        <item>Ohne</item>
+        <item>SPN</item>
+        <item>IMSI</item>
+        <item>GID</item>
+    </string-array>
     <string-array name="app_install_location_entries">
         <item>Interner Gerätespeicher</item>
         <item>Austauschbare SD-Karte</item>
         <item>Standard</item>
+    </string-array>
+    <string-array name="app_ops_categories">
+        <item>Standort</item>
+        <item>Persönlich</item>
+        <item>Nachrichten</item>
+        <item>Medien</item>
+        <item>Gerät</item>
+        <item>Gerät</item>
+    </string-array>
+    <string-array name="app_ops_summaries">
+        <item>coarse location</item>
+        <item>fine location</item>
+        <item>GPS</item>
+        <item>Vibrieren</item>
+        <item>Kontakte lesen</item>
+        <item>modify contacts</item>
+        <item>Anrufprotokoll lesen</item>
+        <item>modify call log</item>
+        <item>read calendar</item>
+        <item>modify calendar</item>
+        <item>wi-fi scan</item>
+        <item>Benachrichtigung</item>
+        <item>cell scan</item>
+        <item>call phone</item>
+        <item>read SMS</item>
+        <item>write SMS</item>
+        <item>SMS empfangen</item>
+        <item>receive emergency SMS</item>
+        <item>receive MMS</item>
+        <item>receive WAP push</item>
+        <item>SMS senden</item>
+        <item>read ICC SMS</item>
+        <item>write ICC SMS</item>
+        <item>modify settings</item>
+        <item>draw on top</item>
+        <item>Auf Benachrichtigungen zugreifen</item>
+        <item>Kamera</item>
+        <item>Ton aufzeichnen</item>
+        <item>play audio</item>
+        <item>read clipboard</item>
+        <item>modify clipboard</item>
+        <item>media buttons</item>
+        <item>audio focus</item>
+        <item>master volume</item>
+        <item>voice volume</item>
+        <item>Klingeltonlautstärke</item>
+        <item>Medienvolumen</item>
+        <item>Alarmlautstärke</item>
+        <item>notification volume</item>
+        <item>bluetooth volume</item>
+        <item>keep awake</item>
+        <item>monitor location</item>
+        <item>monitor high power location</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>Standort</item>
+        <item>Standort</item>
+        <item>Standort</item>
+        <item>Vibrieren</item>
+        <item>Kontakte lesen</item>
+        <item>Modify contacts</item>
+        <item>Anrufprotokoll lesen</item>
+        <item>Modify call log</item>
+        <item>Read calendar</item>
+        <item>Modify calendar</item>
+        <item>Standort</item>
+        <item>Post notification</item>
+        <item>Standort</item>
+        <item>Call phone</item>
+        <item>Receive SMS/MMS</item>
+        <item>Send SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>Receive SMS/MMS</item>
+        <item>SMS/MMS senden</item>
+        <item>Receive SMS/MMS</item>
+        <item>SMS/MMS senden</item>
+        <item>Modify settings</item>
+        <item>Draw on top</item>
+        <item>Auf Benachrichtigungen zugreifen</item>
+        <item>Kamera</item>
+        <item>Ton aufzeichnen</item>
+        <item>Play audio</item>
+        <item>Read clipboard</item>
+        <item>Modify clipboard</item>
+        <item>Media buttons</item>
+        <item>Audio focus</item>
+        <item>Master volume</item>
+        <item>Voice volume</item>
+        <item>Klingeltonlautstärke</item>
+        <item>Medienvolumen</item>
+        <item>Alarmlautstärke</item>
+        <item>Notification volume</item>
+        <item>Bluetooth volume</item>
+        <item>Keep awake</item>
+        <item>Standort</item>
+        <item>Location</item>
     </string-array>
     <string-array name="long_press_timeout_titles_selector">
         <item>Kurz (0,5 Sekunden)</item>
@@ -390,6 +504,43 @@
         <item>Kurz</item>
         <item>Mittel</item>
         <item>Lang</item>
+    </string-array>
+    <string-array name="captioning_typeface_selector_titles">
+        <item>Standard</item>
+        <item>Sans Serif</item>
+        <item>Sans serif condensed</item>
+        <item>Serif</item>
+        <item>nichtproportional</item>
+    </string-array>
+    <string-array name="captioning_font_size_selector_titles">
+        <item>Sehr klein</item>
+        <item>Klein</item>
+        <item>Normal</item>
+        <item>Groß</item>
+        <item>Sehr groß</item>
+    </string-array>
+    <string-array name="captioning_edge_type_selector_titles">
+        <item>Ohne</item>
+        <item>Umriss</item>
+        <item>Schatteneffekt</item>
+    </string-array>
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="captioning_preset_selector_titles">
+        <item>Negativ</item>
+        <item>Schwarz auf weiß</item>
+        <item>Gelb auf schwarz</item>
+        <item>Gelb auf blau</item>
+        <item>Benutzerdefiniert</item>
+    </string-array>
+    <string-array name="select_runtime_titles">
+        <item>Dalvik</item>
+        <item>Kunst</item>
+        <item>ART (debug)</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>Nie überprüfen</item>
@@ -434,6 +585,9 @@
         <item>1280x720 tvdpi</item>
         <item>1920x1080 xhdpi</item>
         <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi</item>
+        <item>1920x1080 xhdpi (secure)</item>
+        <item>1280x720 tvdpi and 1920x1080 xhdpi</item>
     </string-array>
     <string-array name="enable_opengl_traces_entries">
         <item>Ohne</item>
@@ -450,7 +604,13 @@
         <item>Ausblenden</item>
         <item>Auf dem Bildschirm als Balken anzeigen</item>
         <item>Auf dem Bildschirm als Linie anzeigen</item>
-        <item>In “adb shell dumpsys gfxinfo” anzeigen</item>
+        <item>In „adb shell dumpsys gfxinfo“ anzeigen</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Aus</item>
+        <item>Overdraw-Bereiche anzeigen</item>
+        <item>Bereich für Benutzer mir Deuteranomalie anzeigen</item>
+        <item>Overdraw-Zähler anzeigen</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>Standardbegrenzung</item>
@@ -481,6 +641,12 @@
         <item>Nie zulassen</item>
         <item>Immer zulassen</item>
     </string-array>
+    <string-array name="ram_states">
+        <item>Normal</item>
+        <item>Mäßig</item>
+        <item>Niedrig</item>
+        <item>critical</item>
+    </string-array>
     <string-array name="allshare_download_to">
         <item>Gerät</item>
         <item>SD-Karte</item>
@@ -503,6 +669,10 @@
         <item>Videos</item>
         <item>Fotos</item>
         <item>Musik</item>
+    </string-array>
+    <string-array name="cpa_authentication_entries">
+        <item>CHAP</item>
+        <item>PAP</item>
     </string-array>
     <string-array name="wifi_connect_entries">
         <item>Automatisch</item>
@@ -577,8 +747,8 @@
         <item>Normal</item>
     </string-array>
     <string-array name="selinux_seculevel_summaries">
-        <item>Hoch: Alle nicht authentifizierten Aktionen sperren</item>
-        <item>Normal: Explizite Threads sperren</item>
+        <item>Hoch: bekannte und potenzielle Bedrohungen sperren</item>
+        <item>Normal: bekannte Bedrohungen sperren</item>
     </string-array>
     <string-array name="time_interval_entries">
         <item>3 Minuten</item>
@@ -593,6 +763,21 @@
     </string-array>
     <string-array name="shortcut_entries_no_talkback">
         <item>Eingabehilfe</item>
+    </string-array>
+    <string-array name="earthquake_magnitude_entries">
+        <item>Alle</item>
+        <item>M4.0+</item>
+        <item>M5.0+</item>
+    </string-array>
+    <string-array name="safetycare_emergency_message_interval_entries">
+        <item>Einmal</item>
+        <item>Alle 10 Minuten</item>
+        <item>Every 20 minutes</item>
+    </string-array>
+    <string-array name="data_usage_display_unit">
+        <item>MB/GB (automatische Änderung)</item>
+        <item>Nur MB</item>
+        <item>Nur GB</item>
     </string-array>
     <string-array name="touch_key_light_entries">
         <item>1,5 Sekunden</item>

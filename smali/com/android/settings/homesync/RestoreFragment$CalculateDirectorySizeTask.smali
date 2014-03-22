@@ -131,7 +131,7 @@
 
     iget-object v4, p0, Lcom/android/settings/homesync/RestoreFragment$CalculateDirectorySizeTask;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-virtual {v4}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v4}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -202,11 +202,11 @@
 
     iget-object v2, p0, Lcom/android/settings/homesync/RestoreFragment$CalculateDirectorySizeTask;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 
-    invoke-virtual {v2}, Lcom/android/settings/homesync/RestoreFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    const v3, 0x7f04014f
+    const v3, 0x7f040185
 
     iget-object v4, p0, Lcom/android/settings/homesync/RestoreFragment$CalculateDirectorySizeTask;->this$0:Lcom/android/settings/homesync/RestoreFragment;
 

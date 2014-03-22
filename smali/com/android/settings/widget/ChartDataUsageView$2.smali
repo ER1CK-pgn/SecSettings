@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 134
+    .line 139
     iput-object p1, p0, Lcom/android/settings/widget/ChartDataUsageView$2;->this$0:Lcom/android/settings/widget/ChartDataUsageView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,12 +44,12 @@
     .parameter "event"
 
     .prologue
-    .line 138
+    .line 143
     const/16 v0, 0x14
 
     if-ne p2, v0, :cond_0
 
-    .line 139
+    .line 144
     iget-object v0, p0, Lcom/android/settings/widget/ChartDataUsageView$2;->this$0:Lcom/android/settings/widget/ChartDataUsageView;
 
     #getter for: Lcom/android/settings/widget/ChartDataUsageView;->mListView:Lcom/android/settings/widget/DataUsageListView;
@@ -59,7 +59,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 140
+    .line 145
     iget-object v0, p0, Lcom/android/settings/widget/ChartDataUsageView$2;->this$0:Lcom/android/settings/widget/ChartDataUsageView;
 
     #getter for: Lcom/android/settings/widget/ChartDataUsageView;->mListView:Lcom/android/settings/widget/DataUsageListView;
@@ -71,7 +71,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/widget/DataUsageListView;->setSelectable(Z)V
 
-    .line 143
+    .line 148
     :cond_0
     const/4 v0, 0x0
 

@@ -30,7 +30,7 @@
     .line 248
     iput-object p1, p0, Lcom/android/settings/DisplayAdvanceMenu$2;->this$0:Lcom/android/settings/DisplayAdvanceMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
     .line 251
     iget-object v0, p0, Lcom/android/settings/DisplayAdvanceMenu$2;->this$0:Lcom/android/settings/DisplayAdvanceMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/android/settings/DisplayAdvanceMenu$2;->this$0:Lcom/android/settings/DisplayAdvanceMenu;
 
-    invoke-virtual {v1}, Lcom/android/settings/DisplayAdvanceMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 

@@ -30,7 +30,7 @@
     .line 156
     iput-object p1, p0, Lcom/android/settings/PenDetachmentOption$3;->this$0:Lcom/android/settings/PenDetachmentOption;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -145,7 +145,7 @@
 
     .line 175
     :cond_2
-    const v5, 0x7f0b028b
+    const v5, 0x7f0b02c7
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -183,19 +183,19 @@
 
     .line 185
     :pswitch_3
-    invoke-virtual {v2, v7}, Landroid/widget/LinearLayout;->setAlpha(F)V
+    invoke-virtual {v2, v7}, Landroid/view/View;->setAlpha(F)V
 
     goto :goto_1
 
     .line 192
     :pswitch_4
-    invoke-virtual {v2, v6}, Landroid/widget/LinearLayout;->setAlpha(F)V
+    invoke-virtual {v2, v6}, Landroid/view/View;->setAlpha(F)V
 
     goto :goto_1
 
     .line 196
     :pswitch_5
-    invoke-virtual {v2, v6}, Landroid/widget/LinearLayout;->setAlpha(F)V
+    invoke-virtual {v2, v6}, Landroid/view/View;->setAlpha(F)V
 
     .line 197
     invoke-virtual {v3, v7}, Landroid/view/View;->setAlpha(F)V

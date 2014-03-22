@@ -30,7 +30,7 @@
     .line 112
     iput-object p1, p0, Lcom/android/settings/DreamSettings$1$1;->this$1:Lcom/android/settings/DreamSettings$1;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
 
     iget-object v0, v0, Lcom/android/settings/DreamSettings$1;->this$0:Lcom/android/settings/DreamSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/DreamSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 

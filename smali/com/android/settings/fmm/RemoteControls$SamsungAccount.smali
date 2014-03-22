@@ -73,7 +73,7 @@
     const/4 v8, 0x0
 
     .line 370
-    invoke-virtual {p0}, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -121,7 +121,7 @@
 
     .line 380
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -131,7 +131,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {v5, v6, v7}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v5, v6, v7}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v5
 
@@ -252,7 +252,7 @@
     .line 405
     iget-object v5, p0, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->mSamsungAdd:Landroid/widget/ImageView;
 
-    const v6, 0x7f0204c4
+    const v6, 0x7f02054b
 
     invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -266,7 +266,7 @@
     const/4 v4, 0x0
 
     .line 423
-    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 424
     iget-object v2, p0, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->mSamsungDescription:Landroid/accounts/AuthenticatorDescription;
@@ -286,7 +286,7 @@
 
     .line 429
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -354,14 +354,14 @@
     :cond_1
     iget-object v2, p0, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->mSamsungTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f090968
+    const v3, 0x7f090a46
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
     .line 438
     iget-object v2, p0, Lcom/android/settings/fmm/RemoteControls$SamsungAccount;->mSamsungSummary:Landroid/widget/TextView;
 
-    const v3, 0x7f090b58
+    const v3, 0x7f090c56
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

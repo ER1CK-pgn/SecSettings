@@ -41,7 +41,7 @@
     .local p0, this:Lcom/android/settings/AppWidgetLoader$1;,"Lcom/android/settings/AppWidgetLoader.1;"
     iput-object p1, p0, Lcom/android/settings/AppWidgetLoader$1;->this$0:Lcom/android/settings/AppWidgetLoader;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 167
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;

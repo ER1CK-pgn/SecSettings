@@ -57,7 +57,7 @@
 
     .prologue
     .line 26
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 144
     return-void
@@ -100,4 +100,18 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static startTracking(Landroid/view/KeyEvent;)V
+    .locals 1
+    .parameter "event"
+
+    .prologue
+    .line 196
+    sget-object v0, Landroid/support/v4/view/KeyEventCompat;->IMPL:Landroid/support/v4/view/KeyEventCompat$KeyEventVersionImpl;
+
+    invoke-interface {v0, p0}, Landroid/support/v4/view/KeyEventCompat$KeyEventVersionImpl;->startTracking(Landroid/view/KeyEvent;)V
+
+    .line 197
+    return-void
 .end method

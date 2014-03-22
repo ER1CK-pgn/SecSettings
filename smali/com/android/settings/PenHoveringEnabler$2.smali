@@ -30,7 +30,7 @@
     .line 221
     iput-object p1, p0, Lcom/android/settings/PenHoveringEnabler$2;->this$0:Lcom/android/settings/PenHoveringEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -72,7 +72,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v1
 

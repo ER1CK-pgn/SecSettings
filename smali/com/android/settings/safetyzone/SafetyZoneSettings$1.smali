@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 261
+    .line 259
     iput-object p1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -53,10 +53,10 @@
 
     const/4 v8, 0x1
 
-    .line 263
+    .line 261
     iget-object v5, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    #calls: Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v5}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->access$000(Lcom/android/settings/safetyzone/SafetyZoneSettings;)Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -67,11 +67,11 @@
 
     move-result-object v4
 
-    .line 264
+    .line 262
     .local v4, safety_zone_list:Ljava/lang/String;
     const-string v2, ""
 
-    .line 265
+    .line 263
     .local v2, combinedString:Ljava/lang/String;
     const-string v5, ";and;"
 
@@ -79,7 +79,7 @@
 
     move-result-object v1
 
-    .line 266
+    .line 264
     .local v1, activeAps:[Ljava/lang/String;
     const-string v5, "SafetyZoneSettings"
 
@@ -107,7 +107,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
+    .line 266
     const/4 v3, 0x0
 
     .local v3, i:I
@@ -116,7 +116,7 @@
 
     if-ge v3, v5, :cond_3
 
-    .line 269
+    .line 267
     aget-object v5, v1, v3
 
     const-string v6, "/and/"
@@ -125,7 +125,7 @@
 
     move-result-object v0
 
-    .line 270
+    .line 268
     .local v0, activeApinfo:[Ljava/lang/String;
     array-length v5, v0
 
@@ -133,7 +133,7 @@
 
     if-ne v5, v6, :cond_2
 
-    .line 271
+    .line 269
     const-string v5, "SafetyZoneSettings"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -204,7 +204,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 272
+    .line 270
     if-eqz v2, :cond_0
 
     const-string v5, ""
@@ -215,7 +215,7 @@
 
     if-nez v5, :cond_0
 
-    .line 273
+    .line 271
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -234,7 +234,7 @@
 
     move-result-object v2
 
-    .line 275
+    .line 273
     :cond_0
     invoke-static {}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->access$100()I
 
@@ -242,7 +242,7 @@
 
     if-ne v3, v5, :cond_1
 
-    .line 276
+    .line 274
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -310,13 +310,13 @@
 
     move-result-object v2
 
-    .line 268
+    .line 266
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_0
 
-    .line 279
+    .line 277
     :cond_1
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -374,7 +374,7 @@
 
     goto :goto_1
 
-    .line 283
+    .line 281
     :cond_2
     const-string v5, "SafetyZoneSettings"
 
@@ -412,16 +412,16 @@
 
     goto :goto_1
 
-    .line 286
+    .line 284
     .end local v0           #activeApinfo:[Ljava/lang/String;
     :cond_3
     iget-object v5, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v5}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -429,31 +429,31 @@
 
     invoke-static {v5, v6, v2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 288
+    .line 286
     iget-object v5, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
     #calls: Lcom/android/settings/safetyzone/SafetyZoneSettings;->updateAccessPointList()Z
     invoke-static {v5}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->access$300(Lcom/android/settings/safetyzone/SafetyZoneSettings;)Z
 
-    .line 289
+    .line 287
     iget-object v5, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
     iput-object v12, v5, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    .line 290
+    .line 288
     iget-object v5, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
     #setter for: Lcom/android/settings/safetyzone/SafetyZoneSettings;->apData:Landroid/content/Intent;
     invoke-static {v5, v12}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->access$402(Lcom/android/settings/safetyzone/SafetyZoneSettings;Landroid/content/Intent;)Landroid/content/Intent;
 
-    .line 291
+    .line 289
     const/4 v5, -0x1
 
     invoke-static {v5}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->access$102(I)I
 
-    .line 292
+    .line 290
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 293
+    .line 291
     return-void
 .end method

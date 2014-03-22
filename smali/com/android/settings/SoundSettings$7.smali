@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 741
+    .line 851
     iput-object p1, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,79 +35,128 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 743
+    .line 853
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 744
+    .line 854
     .local v0, action:Ljava/lang/String;
-    const-string v1, "android.media.RINGER_MODE_CHANGED"
+    const-string v2, "android.media.RINGER_MODE_CHANGED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 855
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+
+    #calls: Lcom/android/settings/SoundSettings;->getPhoneSilentModeSettingValue()Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$1000(Lcom/android/settings/SoundSettings;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "vibrate"
+
+    if-eq v2, v3, :cond_0
+
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+
+    #calls: Lcom/android/settings/SoundSettings;->getPhoneSilentModeSettingValue()Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$1000(Lcom/android/settings/SoundSettings;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "mute"
+
+    if-ne v2, v3, :cond_2
+
+    .line 856
+    :cond_0
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+
+    #getter for: Lcom/android/settings/SoundSettings;->mVibrateWhenRinging:Landroid/preference/CheckBoxPreference;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$1100(Lcom/android/settings/SoundSettings;)Landroid/preference/CheckBoxPreference;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 859
+    :goto_0
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+
+    #getter for: Lcom/android/settings/SoundSettings;->mAudioManager:Landroid/media/AudioManager;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$800(Lcom/android/settings/SoundSettings;)Landroid/media/AudioManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/media/AudioManager;->getRingerMode()I
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    .line 860
+    .local v1, ringerMode:I
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
 
-    .line 745
-    iget-object v1, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+    #getter for: Lcom/android/settings/SoundSettings;->mSoundMode:Landroid/preference/ListPreference;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$1200(Lcom/android/settings/SoundSettings;)Landroid/preference/ListPreference;
 
-    #calls: Lcom/android/settings/SoundSettings;->getPhoneSilentModeSettingValue()Ljava/lang/String;
-    invoke-static {v1}, Lcom/android/settings/SoundSettings;->access$1000(Lcom/android/settings/SoundSettings;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    const-string v2, "vibrate"
+    move-result-object v3
 
-    if-eq v1, v2, :cond_0
+    invoke-virtual {v2, v3}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+    .line 861
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
 
-    #calls: Lcom/android/settings/SoundSettings;->getPhoneSilentModeSettingValue()Ljava/lang/String;
-    invoke-static {v1}, Lcom/android/settings/SoundSettings;->access$1000(Lcom/android/settings/SoundSettings;)Ljava/lang/String;
+    #getter for: Lcom/android/settings/SoundSettings;->mSoundMode:Landroid/preference/ListPreference;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$1200(Lcom/android/settings/SoundSettings;)Landroid/preference/ListPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "mute"
+    iget-object v3, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
 
-    if-ne v1, v2, :cond_2
+    #getter for: Lcom/android/settings/SoundSettings;->mSoundMode:Landroid/preference/ListPreference;
+    invoke-static {v3}, Lcom/android/settings/SoundSettings;->access$1200(Lcom/android/settings/SoundSettings;)Landroid/preference/ListPreference;
 
-    .line 746
-    :cond_0
-    iget-object v1, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+    move-result-object v3
 
-    #getter for: Lcom/android/settings/SoundSettings;->mVibrateWhenRinging:Landroid/preference/CheckBoxPreference;
-    invoke-static {v1}, Lcom/android/settings/SoundSettings;->access$1100(Lcom/android/settings/SoundSettings;)Landroid/preference/CheckBoxPreference;
+    invoke-virtual {v3}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v3
 
-    const/4 v2, 0x0
+    invoke-virtual {v2, v3}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 750
+    .line 863
+    .end local v1           #ringerMode:I
     :cond_1
-    :goto_0
     return-void
 
-    .line 748
+    .line 858
     :cond_2
-    iget-object v1, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
+    iget-object v2, p0, Lcom/android/settings/SoundSettings$7;->this$0:Lcom/android/settings/SoundSettings;
 
     #getter for: Lcom/android/settings/SoundSettings;->mVibrateWhenRinging:Landroid/preference/CheckBoxPreference;
-    invoke-static {v1}, Lcom/android/settings/SoundSettings;->access$1100(Lcom/android/settings/SoundSettings;)Landroid/preference/CheckBoxPreference;
+    invoke-static {v2}, Lcom/android/settings/SoundSettings;->access$1100(Lcom/android/settings/SoundSettings;)Landroid/preference/CheckBoxPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method

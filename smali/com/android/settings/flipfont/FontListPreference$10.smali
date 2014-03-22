@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 999
+    .line 1040
     iput-object p1, p0, Lcom/android/settings/flipfont/FontListPreference$10;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "id"
 
     .prologue
-    .line 1001
+    .line 1042
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$10;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListPreference;->onOkButtonPressed()Z
 
-    .line 1002
+    .line 1043
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$10;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     const/4 v1, 0x0
@@ -56,21 +56,21 @@
     #setter for: Lcom/android/settings/flipfont/FontListPreference;->mRebootDialogIsActive:Z
     invoke-static {v0, v1}, Lcom/android/settings/flipfont/FontListPreference;->access$502(Lcom/android/settings/flipfont/FontListPreference;Z)Z
 
-    .line 1003
+    .line 1044
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$10;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListPreference;->savePreferences()V
 
-    .line 1004
+    .line 1045
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$10;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListPreference;->restartNow()V
 
-    .line 1005
+    .line 1046
     iget-object v0, p0, Lcom/android/settings/flipfont/FontListPreference$10;->this$0:Lcom/android/settings/flipfont/FontListPreference;
 
     invoke-virtual {v0}, Lcom/android/settings/flipfont/FontListPreference;->dismissList()V
 
-    .line 1006
+    .line 1047
     return-void
 .end method

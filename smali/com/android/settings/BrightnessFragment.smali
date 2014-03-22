@@ -1717,7 +1717,7 @@
 
     .line 209
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f040031
+    const v5, 0x7f040035
 
     const/4 v6, 0x0
 
@@ -1730,7 +1730,7 @@
     .line 212
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b0090
+    const v6, 0x7f0b0099
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1760,7 +1760,7 @@
     .line 217
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b0091
+    const v6, 0x7f0b009a
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1773,7 +1773,7 @@
     .line 219
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b008e
+    const v6, 0x7f0b0097
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1786,7 +1786,7 @@
     .line 220
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b0093
+    const v6, 0x7f0b009c
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1841,7 +1841,7 @@
     :goto_0
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b0094
+    const v6, 0x7f0b009d
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1939,7 +1939,7 @@
     :cond_0
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b008c
+    const v6, 0x7f0b0095
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1952,7 +1952,7 @@
     .line 254
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b008d
+    const v6, 0x7f0b0096
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2025,7 +2025,7 @@
     .line 277
     iget-object v5, p0, Lcom/android/settings/BrightnessFragment;->brightnessModeLayout:Landroid/view/View;
 
-    const v6, 0x7f0b0095
+    const v6, 0x7f0b009e
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2075,7 +2075,7 @@
 
     .line 288
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v5, 0x7f09056f
+    const v5, 0x7f09059e
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

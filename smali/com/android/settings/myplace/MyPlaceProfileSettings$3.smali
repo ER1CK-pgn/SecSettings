@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 743
+    .line 703
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,110 +38,114 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 7
+    .locals 6
     .parameter "dialog"
-    .parameter "which"
+    .parameter "selected"
 
     .prologue
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    .line 746
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    const/4 v3, 0x0
 
-    check-cast p1, Landroid/app/AlertDialog;
+    .line 707
+    const-string v1, "MyPlaceSettings"
 
-    .end local p1
-    iput-object p1, v2, Lcom/android/settings/myplace/MyPlaceProfileSettings;->alert:Landroid/app/AlertDialog;
+    const-string v2, "Select method item is clicked"
 
-    .line 747
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, v2, Lcom/android/settings/myplace/MyPlaceProfileSettings;->alert:Landroid/app/AlertDialog;
+    .line 709
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v2}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mOlderPosition:I
+    invoke-static {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1400(Lcom/android/settings/myplace/MyPlaceProfileSettings;)I
 
     move-result v1
 
-    .line 749
-    .local v1, selected:I
-    const-string v2, "MyPlaceSettings"
+    if-ne v1, p2, :cond_0
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mFlag:Z
+    invoke-static {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1500(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Z
 
-    const-string v4, "click ok on Select method dialog : "
+    move-result v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v1, :cond_0
 
-    move-result-object v3
+    .line 710
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    #setter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mFlag:Z
+    invoke-static {v1, v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1502(Lcom/android/settings/myplace/MyPlaceProfileSettings;Z)Z
 
-    move-result-object v3
+    .line 711
+    if-nez p2, :cond_4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 712
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    move-result-object v3
+    invoke-virtual {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->checkNetwork()Z
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v1
 
-    .line 752
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1
 
-    .line 753
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    .line 713
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->checkNetwork()Z
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    const v2, 0x7f09152c
 
-    .line 754
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    invoke-virtual {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->getActivity()Landroid/app/Activity;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    const v3, 0x7f0913bc
-
-    const/4 v4, 0x0
-
-    invoke-static {v2, v3, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/Toast;->show()V
-
-    .line 793
+    .line 757
+    :cond_0
     :goto_0
     return-void
 
-    .line 759
-    :cond_0
-    const-string v2, "MyPlaceSettings"
+    .line 719
+    :cond_1
+    const-string v1, "MyPlaceSettings"
 
-    const-string v3, "map is clicked. start mapview"
+    const-string v2, "map is clicked. start mapview"
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 761
+    .line 721
     new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "com.android.settings.myplace.SELECT_MAP"
+    const-string v1, "com.android.settings.myplace.SELECT_MAP"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 763
+    .line 723
     .local v0, intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
+    invoke-static {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
+
+    move-result-object v1
+
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLocation:Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$400(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-nez v1, :cond_2
+
+    const-string v1, ""
+
     iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
     #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
@@ -154,162 +158,149 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string v2, ""
+    move-result v1
 
-    iget-object v3, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    if-eqz v1, :cond_3
+
+    .line 725
+    :cond_2
+    const-string v1, "location"
+
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
     #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
 
-    move-result-object v3
+    move-result-object v2
 
     #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLocation:Ljava/lang/String;
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$400(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$400(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 728
+    :cond_3
+    const-string v1, "map_latitude"
+
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
+
+    move-result-object v2
+
+    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLatitude:I
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$500(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)I
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 765
-    :cond_1
-    const-string v2, "location"
+    .line 730
+    const-string v1, "map_longtitude"
 
-    iget-object v3, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
-
-    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
-
-    move-result-object v3
-
-    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLocation:Ljava/lang/String;
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$400(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 767
-    :cond_2
-    const-string v2, "map_latitude"
-
-    iget-object v3, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
     #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
 
-    move-result-object v3
-
-    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLatitude:I
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$500(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)I
-
-    move-result v3
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 769
-    const-string v2, "map_longtitude"
-
-    iget-object v3, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
-
-    #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings;->mPlaceInfo:Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1600(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;
-
-    move-result-object v3
+    move-result-object v2
 
     #getter for: Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->mGpsLongitude:I
-    invoke-static {v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$600(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)I
+    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;->access$600(Lcom/android/settings/myplace/MyPlaceProfileSettings$MyPlaceInfo;)I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 771
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    .line 733
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    const/4 v3, 0x3
+    const/4 v2, 0x3
 
-    invoke-virtual {v2, v0, v3}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->startActivityForResult(Landroid/content/Intent;I)V
-
-    goto :goto_0
-
-    .line 774
-    .end local v0           #intent:Landroid/content/Intent;
-    :cond_3
-    if-ne v1, v5, :cond_4
-
-    .line 775
-    const-string v2, "MyPlaceSettings"
-
-    const-string v3, "wifi is clicked. start wifi network picker"
-
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 777
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v2, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
-
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 779
-    .restart local v0       #intent:Landroid/content/Intent;
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
-
-    invoke-virtual {v2, v0, v5}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 781
+    .line 736
     .end local v0           #intent:Landroid/content/Intent;
     :cond_4
-    if-ne v1, v6, :cond_5
+    if-ne p2, v4, :cond_5
 
-    .line 782
-    const-string v2, "MyPlaceSettings"
+    .line 737
+    const-string v1, "MyPlaceSettings"
 
-    const-string v3, "bt is clicked. start bt device picker"
+    const-string v2, "wifi is clicked. start wifi network picker"
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 784
+    .line 739
     new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "com.android.settings.bluetooth.CheckBluetoothLEStateActivity"
+    const-string v1, "android.net.wifi.PICK_WIFI_NETWORK_DUMMY_RESULT"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 786
+    .line 741
     .restart local v0       #intent:Landroid/content/Intent;
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v2, v0, v6}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v4}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto :goto_0
+
+    .line 743
+    .end local v0           #intent:Landroid/content/Intent;
+    :cond_5
+    if-ne p2, v5, :cond_6
+
+    .line 744
+    const-string v1, "MyPlaceSettings"
+
+    const-string v2, "bt is clicked. start bt device picker"
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 746
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "com.android.settings.bluetooth.CheckBluetoothLEStateActivity"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 748
+    .restart local v0       #intent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+
+    invoke-virtual {v1, v0, v5}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 789
+    .line 751
     .end local v0           #intent:Landroid/content/Intent;
-    :cond_5
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    :cond_6
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->resetPlaceInfo()V
+    invoke-virtual {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->resetPlaceInfo()V
 
-    .line 790
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    .line 752
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
     #calls: Lcom/android/settings/myplace/MyPlaceProfileSettings;->createPreferenceHierarchy()Landroid/preference/PreferenceScreen;
-    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1700(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Landroid/preference/PreferenceScreen;
+    invoke-static {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1700(Lcom/android/settings/myplace/MyPlaceProfileSettings;)Landroid/preference/PreferenceScreen;
 
-    .line 791
-    iget-object v2, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
+    .line 753
+    iget-object v1, p0, Lcom/android/settings/myplace/MyPlaceProfileSettings$3;->this$0:Lcom/android/settings/myplace/MyPlaceProfileSettings;
 
     #calls: Lcom/android/settings/myplace/MyPlaceProfileSettings;->updateProfile()V
-    invoke-static {v2}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1800(Lcom/android/settings/myplace/MyPlaceProfileSettings;)V
+    invoke-static {v1}, Lcom/android/settings/myplace/MyPlaceProfileSettings;->access$1800(Lcom/android/settings/myplace/MyPlaceProfileSettings;)V
+
+    .line 754
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
     goto/16 :goto_0
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 926
+    .line 946
     iput-object p1, p0, Lcom/android/settings/wifi/WifiApDialog$4;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 928
+    .line 948
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$4;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #calls: Lcom/android/settings/wifi/WifiApDialog;->restartFocusedViewInput()V
     invoke-static {v0}, Lcom/android/settings/wifi/WifiApDialog;->access$1900(Lcom/android/settings/wifi/WifiApDialog;)V
 
-    .line 929
+    .line 949
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 867
+    .line 823
     iput-object p1, p0, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1$1;->this$1:Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 869
+    .line 825
     const-string v1, "eng"
 
     sget-object v2, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -52,14 +52,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 870
+    .line 826
     const-string v1, "persist.sys.shutdown"
 
     const-string v2, "DTSR"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 872
+    .line 828
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -67,31 +67,31 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 873
+    .line 829
     .local v0, startIntent:Landroid/content/Intent;
     const-string v1, "android.intent.action.REBOOT"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 874
+    .line 830
     const-string v1, "android.intent.extra.KEY_CONFIRM"
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 875
+    .line 831
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 876
+    .line 832
     iget-object v1, p0, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1$1;->this$1:Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;
 
     iget-object v1, v1, Lcom/android/settings/DateTimeSettings$ConfirmAutoTimeAndTimezoneFragment$1;->val$context:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 877
+    .line 833
     return-void
 .end method

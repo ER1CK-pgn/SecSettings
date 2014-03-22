@@ -86,7 +86,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 356
+    .line 357
     return-void
 .end method
 
@@ -139,7 +139,7 @@
     .parameter "context"
 
     .prologue
-    .line 353
+    .line 354
     sget-boolean v0, Lcom/android/settings/wifi/WifiStatusReceiver;->mIsForegroundWifiSettings:Z
 
     return v0
@@ -257,171 +257,201 @@
 .end method
 
 .method doWifiConnectionMonitoringPolicy()V
-    .locals 5
+    .locals 6
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     .line 296
-    iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 298
-    .local v0, wifiInfo:Landroid/net/wifi/WifiInfo;
-    sget-boolean v1, Lcom/android/settings/wifi/WifiConnectionMonitorService;->DEBUG:Z
+    .line 297
+    .local v1, wifiInfo:Landroid/net/wifi/WifiInfo;
+    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getRssi()I
 
-    if-eqz v1, :cond_0
+    move-result v0
 
-    const-string v1, "WifiConnectionMonitorService"
+    .line 299
+    .local v0, rssi:I
+    sget-boolean v2, Lcom/android/settings/wifi/WifiConnectionMonitorService;->DEBUG:Z
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "WifiConnectionMonitorService"
 
-    const-string v3, "Rssi: "
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v2
+    const-string v4, "Rssi: "
 
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getRssi()I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v3
+    move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, ", mThreshold: "
+    const-string v4, ", mThreshold: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v3, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mThreshold:I
+    iget v4, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mThreshold:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 300
-    :cond_0
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getRssi()I
-
-    move-result v1
-
-    iget v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mThreshold:I
-
-    if-gt v1, v2, :cond_2
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 301
-    iget v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
+    :cond_0
+    iget v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mThreshold:I
 
-    add-int/lit8 v1, v1, 0x1
+    if-gt v0, v2, :cond_2
 
-    iput v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
+    const/16 v2, -0xc8
 
-    .line 307
-    iget v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
+    if-eq v0, v2, :cond_2
 
-    const/4 v2, 0x5
+    .line 302
+    iget v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
 
-    if-le v1, v2, :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
 
     .line 308
-    iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mContext:Landroid/content/Context;
+    iget v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
 
-    invoke-direct {p0, v1}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->isWifiSettingScreen(Landroid/content/Context;)Z
+    const/4 v3, 0x5
 
-    move-result v1
-
-    if-eqz v1, :cond_3
+    if-le v2, v3, :cond_1
 
     .line 309
-    sget-boolean v1, Lcom/android/settings/wifi/WifiConnectionMonitorService;->DEBUG:Z
+    iget-object v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mContext:Landroid/content/Context;
 
-    if-eqz v1, :cond_1
+    invoke-direct {p0, v2}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->isWifiSettingScreen(Landroid/content/Context;)Z
 
-    const-string v1, "WifiConnectionMonitorService"
+    move-result v2
 
-    const-string v2, "WifiSettingScreen, skip disconnect"
+    if-eqz v2, :cond_3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .line 310
+    sget-boolean v2, Lcom/android/settings/wifi/WifiConnectionMonitorService;->DEBUG:Z
 
-    .line 321
+    if-eqz v2, :cond_1
+
+    const-string v2, "WifiConnectionMonitorService"
+
+    const-string v3, "WifiSettingScreen, skip disconnect"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 322
     :cond_1
     :goto_0
     return-void
 
-    .line 303
+    .line 304
     :cond_2
-    iput v4, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
+    iput v5, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
 
     goto :goto_0
 
-    .line 313
+    .line 314
     :cond_3
-    const-string v1, "WifiConnectionMonitorService"
+    const-string v2, "WifiConnectionMonitorService"
 
-    const-string v2, "Disconnect and add to blacklist"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 315
-    iget-object v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mBlacklist:Ljava/util/ArrayList;
+    const-string v4, "Disconnect and add to blacklist, "
 
-    monitor-enter v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, ", "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mThreshold:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 316
-    :try_start_0
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mBlacklist:Ljava/util/ArrayList;
 
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/settings/wifi/AccessPoint;->removeDoubleQuotes(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->addBlackList(Ljava/lang/String;)V
+    monitor-enter v3
 
     .line 317
-    monitor-exit v2
+    :try_start_0
+    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/settings/wifi/AccessPoint;->removeDoubleQuotes(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->addBlackList(Ljava/lang/String;)V
+
+    .line 318
+    monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 318
-    iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiManager;->disableNetwork(I)Z
-
     .line 319
-    iput v4, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
+    iget-object v2, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/net/wifi/WifiManager;->disableNetwork(I)Z
+
+    .line 320
+    iput v5, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mLowSignalTimeCount:I
 
     goto :goto_0
 
-    .line 317
+    .line 318
     :catchall_0
-    move-exception v1
+    move-exception v2
 
     :try_start_1
-    monitor-exit v2
+    monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw v2
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
@@ -459,7 +489,7 @@
     iput-object v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mBlacklist:Ljava/util/ArrayList;
 
     .line 173
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -557,7 +587,7 @@
     .line 191
     iget-object v1, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v1, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 193
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
@@ -580,10 +610,10 @@
     .line 212
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 213
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiConnectionMonitorService;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -597,7 +627,7 @@
     .line 215
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mConnectionMonitorHandler:Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -821,14 +851,14 @@
     .line 223
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mConnectionMonitorHandler:Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;
 
-    invoke-virtual {v0, v3}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->removeMessages(I)V
+    invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 224
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mConnectionMonitorHandler:Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;
 
     const-wide/16 v1, 0x3e8
 
-    invoke-virtual {v0, v3, v1, v2}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     .line 227
     :cond_0
@@ -861,12 +891,12 @@
     .line 240
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mConnectionMonitorHandler:Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 241
     iget-object v0, p0, Lcom/android/settings/wifi/WifiConnectionMonitorService;->mConnectionMonitorHandler:Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 244
     :cond_0
@@ -899,7 +929,7 @@
 
     const/16 v1, 0x3e9
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 235
     :cond_0
@@ -932,7 +962,7 @@
 
     const/16 v1, 0x3ea
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/WifiConnectionMonitorService$ConnectionMonitoringHandler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 252
     :cond_0

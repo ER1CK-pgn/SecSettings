@@ -71,7 +71,7 @@
 
     .prologue
     .line 121
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
@@ -101,7 +101,7 @@
     .line 142
     const-string v0, "enterprise_policy"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ClockMyprofileMenu;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -123,7 +123,7 @@
     .line 129
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v0
 
@@ -132,11 +132,11 @@
     .line 130
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911db
+    const v2, 0x7f091334
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -147,9 +147,9 @@
     .line 131
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202b9
+    const v1, 0x7f020316
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 137
     :goto_0
@@ -159,11 +159,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911dc
+    const v2, 0x7f091335
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -174,9 +174,9 @@
     .line 135
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202ba
+    const v1, 0x7f020317
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 .end method
@@ -198,9 +198,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 56
-    const v2, 0x7f0400c6
+    const v2, 0x7f0400e9
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ClockMyprofileMenu;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 58
     new-array v2, v8, [Ljava/lang/String;
@@ -210,11 +210,11 @@
     .line 59
     sget-object v2, Lcom/android/settings/ClockMyprofileMenu;->mModeItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090b6e
+    const v4, 0x7f090c6d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -225,11 +225,11 @@
     .line 60
     sget-object v2, Lcom/android/settings/ClockMyprofileMenu;->mModeItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090ea5
+    const v4, 0x7f090fde
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -238,9 +238,9 @@
     aput-object v3, v2, v6
 
     .line 62
-    const v2, 0x7f0b0148
+    const v2, 0x7f0b0157
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ClockMyprofileMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -253,7 +253,7 @@
 
     new-instance v3, Landroid/widget/ArrayAdapter;
 
-    const v4, 0x7f0400de
+    const v4, 0x7f040102
 
     sget-object v5, Lcom/android/settings/ClockMyprofileMenu;->mModeItem:[Ljava/lang/String;
 
@@ -269,7 +269,7 @@
     .line 65
     iget-object v2, p0, Lcom/android/settings/ClockMyprofileMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -279,22 +279,22 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3, v6}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v2, v3, v6}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 66
     iget-object v2, p0, Lcom/android/settings/ClockMyprofileMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 67
     iget-object v2, p0, Lcom/android/settings/ClockMyprofileMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2, v8}, Landroid/widget/ListView;->setOverScrollMode(I)V
+    invoke-virtual {v2, v8}, Landroid/widget/AbsListView;->setOverScrollMode(I)V
 
     .line 69
-    const v2, 0x7f0b0219
+    const v2, 0x7f0b0258
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ClockMyprofileMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -303,9 +303,9 @@
     iput-object v2, p0, Lcom/android/settings/ClockMyprofileMenu;->mBodyText:Landroid/widget/TextView;
 
     .line 70
-    const v2, 0x7f0b00be
+    const v2, 0x7f0b00cb
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ClockMyprofileMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -314,9 +314,9 @@
     iput-object v2, p0, Lcom/android/settings/ClockMyprofileMenu;->mImageView:Landroid/widget/ImageView;
 
     .line 72
-    const v2, 0x7f0b021c
+    const v2, 0x7f0b01f5
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ClockMyprofileMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -328,12 +328,12 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ClockMyprofileMenu$1;-><init>(Lcom/android/settings/ClockMyprofileMenu;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 85
-    const v2, 0x7f0b021b
+    const v2, 0x7f0b01f4
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ClockMyprofileMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -345,7 +345,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ClockMyprofileMenu$2;-><init>(Lcom/android/settings/ClockMyprofileMenu;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 92
     invoke-static {p0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -368,13 +368,13 @@
 
     .prologue
     .line 160
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getMenuInflater()Landroid/view/MenuInflater;
+    invoke-virtual {p0}, Landroid/app/Activity;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
     .line 161
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f120005
+    const v1, 0x7f120007
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -426,11 +426,11 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911db
+    const v2, 0x7f091334
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -441,9 +441,9 @@
     .line 106
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202b9
+    const v1, 0x7f020316
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -451,11 +451,11 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911dc
+    const v2, 0x7f091335
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -466,9 +466,9 @@
     .line 110
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202ba
+    const v1, 0x7f020317
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -518,19 +518,19 @@
 
     .line 169
     :sswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 173
     :sswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 176
     :sswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -538,7 +538,7 @@
 
     iget-object v3, p0, Lcom/android/settings/ClockMyprofileMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v3}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v3
 
@@ -564,7 +564,7 @@
     if-eqz v1, :cond_0
 
     .line 180
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -576,7 +576,7 @@
 
     .line 183
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/ClockMyprofileMenu;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -584,8 +584,8 @@
     :sswitch_data_0
     .sparse-switch
         0x102002c -> :sswitch_0
-        0x7f0b05f6 -> :sswitch_1
-        0x7f0b05f8 -> :sswitch_2
+        0x7f0b0672 -> :sswitch_1
+        0x7f0b0674 -> :sswitch_2
     .end sparse-switch
 .end method
 

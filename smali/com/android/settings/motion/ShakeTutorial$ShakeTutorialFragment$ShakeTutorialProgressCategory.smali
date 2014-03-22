@@ -28,23 +28,23 @@
     .parameter "attrs"
 
     .prologue
-    .line 370
+    .line 368
     iput-object p1, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$ShakeTutorialProgressCategory;->this$0:Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment;
 
-    .line 371
+    .line 369
     invoke-direct {p0, p2, p3}, Landroid/preference/PreferenceCategory;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 368
+    .line 366
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$ShakeTutorialProgressCategory;->mProgress:Z
 
-    .line 372
-    const v0, 0x7f04012c
+    .line 370
+    const v0, 0x7f04015c
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$ShakeTutorialProgressCategory;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    .line 373
+    .line 371
     return-void
 .end method
 
@@ -55,25 +55,25 @@
     .parameter "view"
 
     .prologue
-    .line 377
-    invoke-super {p0, p1}, Landroid/preference/PreferenceCategory;->onBindView(Landroid/view/View;)V
+    .line 375
+    invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
-    .line 378
-    const v3, 0x7f0b0350
+    .line 376
+    const v3, 0x7f0b039a
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 379
+    .line 377
     .local v1, textView:Landroid/view/View;
-    const v3, 0x7f0b034f
+    const v3, 0x7f0b0399
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 381
+    .line 379
     .local v0, progressBar:Landroid/view/View;
     iget-boolean v3, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$ShakeTutorialProgressCategory;->mProgress:Z
 
@@ -81,18 +81,18 @@
 
     const/4 v2, 0x0
 
-    .line 382
+    .line 380
     .local v2, visibility:I
     :goto_0
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 383
+    .line 381
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 384
+    .line 382
     return-void
 
-    .line 381
+    .line 379
     .end local v2           #visibility:I
     :cond_0
     const/4 v2, 0x4
@@ -105,12 +105,12 @@
     .parameter "progressOn"
 
     .prologue
-    .line 392
+    .line 390
     iput-boolean p1, p0, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$ShakeTutorialProgressCategory;->mProgress:Z
 
-    .line 393
-    invoke-virtual {p0}, Lcom/android/settings/motion/ShakeTutorial$ShakeTutorialFragment$ShakeTutorialProgressCategory;->notifyChanged()V
+    .line 391
+    invoke-virtual {p0}, Landroid/preference/Preference;->notifyChanged()V
 
-    .line 394
+    .line 392
     return-void
 .end method

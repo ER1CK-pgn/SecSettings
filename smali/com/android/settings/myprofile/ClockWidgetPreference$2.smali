@@ -30,7 +30,7 @@
     .line 179
     iput-object p1, p0, Lcom/android/settings/myprofile/ClockWidgetPreference$2;->this$0:Lcom/android/settings/myprofile/ClockWidgetPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -55,7 +55,7 @@
 
     iget-object v2, p0, Lcom/android/settings/myprofile/ClockWidgetPreference$2;->this$0:Lcom/android/settings/myprofile/ClockWidgetPreference;
 
-    #calls: Lcom/android/settings/myprofile/ClockWidgetPreference;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v2}, Lcom/android/settings/myprofile/ClockWidgetPreference;->access$000(Lcom/android/settings/myprofile/ClockWidgetPreference;)Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -71,7 +71,7 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 183
     return-void

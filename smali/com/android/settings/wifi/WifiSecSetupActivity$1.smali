@@ -1,6 +1,9 @@
 .class Lcom/android/settings/wifi/WifiSecSetupActivity$1;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "WifiSecSetupActivity.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -24,28 +27,31 @@
     .parameter
 
     .prologue
-    .line 144
+    .line 140
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSecSetupActivity$1;->this$0:Lcom/android/settings/wifi/WifiSecSetupActivity;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onClick(Landroid/view/View;)V
     .locals 1
-    .parameter "context"
-    .parameter "intent"
+    .parameter "view"
 
     .prologue
-    .line 147
+    .line 143
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSecSetupActivity$1;->this$0:Lcom/android/settings/wifi/WifiSecSetupActivity;
 
-    #calls: Lcom/android/settings/wifi/WifiSecSetupActivity;->handleEvent(Landroid/content/Context;Landroid/content/Intent;)V
-    invoke-static {v0, p1, p2}, Lcom/android/settings/wifi/WifiSecSetupActivity;->access$000(Lcom/android/settings/wifi/WifiSecSetupActivity;Landroid/content/Context;Landroid/content/Intent;)V
+    #getter for: Lcom/android/settings/wifi/WifiSecSetupActivity;->popup:Landroid/widget/PopupMenu;
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiSecSetupActivity;->access$000(Lcom/android/settings/wifi/WifiSecSetupActivity;)Landroid/widget/PopupMenu;
 
-    .line 148
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
+
+    .line 144
     return-void
 .end method

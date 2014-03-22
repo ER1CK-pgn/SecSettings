@@ -36,10 +36,10 @@
     .locals 1
 
     .prologue
-    .line 397
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 425
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 398
+    .line 426
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -61,7 +61,7 @@
 
     const/4 v0, -0x1
 
-    .line 401
+    .line 429
     invoke-virtual {p1}, Lcom/android/settings/applications/AppOpsState$AppOpEntry;->getSwitchOrder()I
 
     move-result v2
@@ -72,7 +72,7 @@
 
     if-eq v2, v3, :cond_2
 
-    .line 402
+    .line 430
     invoke-virtual {p1}, Lcom/android/settings/applications/AppOpsState$AppOpEntry;->getSwitchOrder()I
 
     move-result v2
@@ -83,7 +83,7 @@
 
     if-ge v2, v3, :cond_1
 
-    .line 412
+    .line 440
     :cond_0
     :goto_0
     return v0
@@ -91,10 +91,10 @@
     :cond_1
     move v0, v1
 
-    .line 402
+    .line 430
     goto :goto_0
 
-    .line 404
+    .line 432
     :cond_2
     invoke-virtual {p1}, Lcom/android/settings/applications/AppOpsState$AppOpEntry;->isRunning()Z
 
@@ -106,7 +106,7 @@
 
     if-eq v2, v3, :cond_3
 
-    .line 406
+    .line 434
     invoke-virtual {p1}, Lcom/android/settings/applications/AppOpsState$AppOpEntry;->isRunning()Z
 
     move-result v2
@@ -117,7 +117,7 @@
 
     goto :goto_0
 
-    .line 408
+    .line 436
     :cond_3
     invoke-virtual {p1}, Lcom/android/settings/applications/AppOpsState$AppOpEntry;->getTime()J
 
@@ -131,7 +131,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 410
+    .line 438
     invoke-virtual {p1}, Lcom/android/settings/applications/AppOpsState$AppOpEntry;->getTime()J
 
     move-result-wide v2
@@ -148,7 +148,7 @@
 
     goto :goto_0
 
-    .line 412
+    .line 440
     :cond_4
     iget-object v0, p0, Lcom/android/settings/applications/AppOpsState$1;->sCollator:Ljava/text/Collator;
 
@@ -181,7 +181,7 @@
     .parameter "x1"
 
     .prologue
-    .line 397
+    .line 425
     check-cast p1, Lcom/android/settings/applications/AppOpsState$AppOpEntry;
 
     .end local p1

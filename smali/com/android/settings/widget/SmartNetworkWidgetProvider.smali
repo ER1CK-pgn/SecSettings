@@ -79,7 +79,7 @@
 
     .line 168
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f040171
+    const v4, 0x7f0401af
 
     invoke-virtual {v2, v4, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -87,7 +87,7 @@
 
     .line 169
     .local v3, layout:Landroid/view/View;
-    const v4, 0x7f0b00ee
+    const v4, 0x7f0b00ff
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -103,7 +103,7 @@
 
     .line 172
     .local v1, guideDialogBuilder:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f090044
+    const v4, 0x7f090058
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -391,7 +391,7 @@
     .local v2, mStatusBar:Landroid/app/StatusBarManager;
     const-string v5, "smart_network"
 
-    const v6, 0x7f02041a
+    const v6, 0x7f020499
 
     const/4 v7, 0x0
 
@@ -493,9 +493,9 @@
     .parameter "views"
 
     .prologue
-    const v6, 0x7f0b03f4
+    const v6, 0x7f0b045b
 
-    const v5, 0x7f0b03f3
+    const v5, 0x7f0b045a
 
     const/16 v4, 0x8
 
@@ -564,7 +564,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040170
+    const v4, 0x7f0401ae
 
     invoke-direct {v1, v3, v4}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -593,7 +593,7 @@
 
     .line 141
     .local v0, toggleSmartNetwork:Landroid/app/PendingIntent;
-    const v3, 0x7f0b03e2
+    const v3, 0x7f0b044a
 
     invoke-virtual {v1, v3, v0}, Landroid/widget/RemoteViews;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 

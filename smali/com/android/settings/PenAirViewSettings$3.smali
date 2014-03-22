@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 255
+    .line 259
     iput-object p1, p0, Lcom/android/settings/PenAirViewSettings$3;->this$0:Lcom/android/settings/PenAirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 257
+    .line 261
     iget-object v1, p0, Lcom/android/settings/PenAirViewSettings$3;->this$0:Lcom/android/settings/PenAirViewSettings;
 
     #getter for: Lcom/android/settings/PenAirViewSettings;->mCheckPrefPenInformationPreview:Landroid/preference/CheckBoxPreference;
@@ -54,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/settings/PenAirViewSettings$3;->this$0:Lcom/android/settings/PenAirViewSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/PenAirViewSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -69,8 +69,8 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 259
+    .line 263
     return-void
 .end method

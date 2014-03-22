@@ -48,7 +48,7 @@
     .locals 1
 
     .prologue
-    .line 414
+    .line 418
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
     .line 38
@@ -66,7 +66,7 @@
 
     iput-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mOpenedHeader:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    .line 416
+    .line 420
     return-void
 .end method
 
@@ -75,10 +75,10 @@
     .parameter "activity"
 
     .prologue
-    .line 321
+    .line 325
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 322
+    .line 326
     return-void
 .end method
 
@@ -94,12 +94,12 @@
 
     const v10, 0x7f0b0008
 
-    .line 255
+    .line 259
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
 
-    .line 258
+    .line 262
     .local v1, fm:Landroid/app/FragmentManager;
     const-string v7, "GuideFragment"
 
@@ -109,7 +109,7 @@
 
     check-cast v2, Lcom/android/settings/guide/GuideFragment;
 
-    .line 260
+    .line 264
     .local v2, frag:Lcom/android/settings/guide/GuideFragment;
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -123,13 +123,13 @@
 
     move-result-object v3
 
-    .line 261
+    .line 265
     .local v3, guideMode:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/settings/guide/GuideModeHelper;->isGuideModeBluetooth(Ljava/lang/String;)Z
 
     move-result v4
 
-    .line 262
+    .line 266
     .local v4, isBtGuide:Z
     const-string v7, "TAG"
 
@@ -157,12 +157,12 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 264
+    .line 268
     invoke-static {v3}, Lcom/android/settings/guide/GuideModeHelper;->isGuideModeWiFi(Ljava/lang/String;)Z
 
     move-result v5
 
-    .line 268
+    .line 272
     .local v5, isWifiGuide:Z
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -176,7 +176,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 270
+    .line 274
     invoke-virtual {v1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v7
@@ -187,27 +187,27 @@
 
     invoke-virtual {v7}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 272
+    .line 276
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->findMainView(Landroid/app/Activity;)Landroid/view/ViewGroup;
 
     move-result-object v6
 
-    .line 274
+    .line 278
     .local v6, layout:Landroid/view/ViewGroup;
     if-eqz v6, :cond_0
 
-    .line 275
-    invoke-virtual {v6, v10}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    .line 279
+    invoke-virtual {v6, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
     invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 278
+    .line 282
     :cond_0
     sput-boolean v11, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
 
-    .line 281
+    .line 285
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v7
@@ -218,16 +218,16 @@
 
     if-eqz v7, :cond_1
 
-    .line 282
+    .line 286
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->completeGuide(Landroid/app/Activity;)V
 
-    .line 313
+    .line 317
     .end local v6           #layout:Landroid/view/ViewGroup;
     :cond_1
     :goto_0
     return-void
 
-    .line 286
+    .line 290
     :cond_2
     if-eqz v2, :cond_3
 
@@ -235,37 +235,37 @@
 
     if-eqz v5, :cond_6
 
-    .line 287
+    .line 291
     :cond_3
     invoke-static {p1}, Lcom/android/settings/guide/GuideFragment;->newInstance(Landroid/content/Intent;)Lcom/android/settings/guide/GuideFragment;
 
     move-result-object v2
 
-    .line 289
+    .line 293
     if-eqz v2, :cond_5
 
-    .line 291
+    .line 295
     invoke-static {p0}, Lcom/android/settings/guide/GuideFragment;->findMainView(Landroid/app/Activity;)Landroid/view/ViewGroup;
 
     move-result-object v6
 
-    .line 293
+    .line 297
     .restart local v6       #layout:Landroid/view/ViewGroup;
     if-eqz v6, :cond_4
 
-    .line 294
+    .line 298
     new-instance v0, Landroid/widget/FrameLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 296
+    .line 300
     .local v0, container:Landroid/widget/FrameLayout;
-    invoke-virtual {v0, v10}, Landroid/widget/FrameLayout;->setId(I)V
+    invoke-virtual {v0, v10}, Landroid/view/View;->setId(I)V
 
-    .line 297
+    .line 301
     invoke-virtual {v6, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 300
+    .line 304
     .end local v0           #container:Landroid/widget/FrameLayout;
     :cond_4
     invoke-virtual {v1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
@@ -280,19 +280,19 @@
 
     invoke-virtual {v7}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 303
+    .line 307
     sput-boolean v12, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
 
     goto :goto_0
 
-    .line 305
+    .line 309
     .end local v6           #layout:Landroid/view/ViewGroup;
     :cond_5
     sput-boolean v11, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
 
     goto :goto_0
 
-    .line 309
+    .line 313
     :cond_6
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -302,7 +302,7 @@
 
     invoke-direct {v2, v7, v8}, Lcom/android/settings/guide/GuideFragment;->initFragment(Landroid/os/Bundle;Lcom/android/settings/guide/GuideFragment$GuideModes;)V
 
-    .line 310
+    .line 314
     sput-boolean v12, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
 
     goto :goto_0
@@ -313,7 +313,7 @@
     .parameter "activity"
 
     .prologue
-    .line 699
+    .line 703
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
@@ -342,16 +342,16 @@
     .parameter "activity"
 
     .prologue
-    .line 349
+    .line 353
     const/4 v1, 0x0
 
-    .line 351
+    .line 355
     .local v1, retval:Landroid/view/ViewGroup;
     instance-of v2, p0, Landroid/app/ListActivity;
 
     if-eqz v2, :cond_0
 
-    .line 353
+    .line 357
     check-cast p0, Landroid/app/ListActivity;
 
     .end local p0
@@ -359,11 +359,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    .line 355
+    .line 359
     .local v0, parent:Landroid/view/ViewParent;
     instance-of v2, v0, Landroid/view/ViewGroup;
 
@@ -371,10 +371,10 @@
 
     move-object v1, v0
 
-    .line 356
+    .line 360
     check-cast v1, Landroid/view/ViewGroup;
 
-    .line 360
+    .line 364
     .end local v0           #parent:Landroid/view/ViewParent;
     :cond_0
     return-object v1
@@ -384,7 +384,7 @@
     .locals 1
 
     .prologue
-    .line 732
+    .line 736
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
@@ -414,15 +414,15 @@
     .parameter "mode"
 
     .prologue
-    .line 464
+    .line 468
     move-object v3, p2
 
-    .line 466
+    .line 470
     .local v3, newMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
     if-nez v3, :cond_0
 
-    .line 468
-    invoke-virtual {p0}, Lcom/android/settings/guide/GuideFragment;->getArguments()Landroid/os/Bundle;
+    .line 472
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v4
 
@@ -430,9 +430,9 @@
 
     move-result-object v1
 
-    .line 470
+    .line 474
     .local v1, guideMode:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/guide/GuideFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v4
 
@@ -440,7 +440,7 @@
 
     move-result v2
 
-    .line 473
+    .line 477
     .local v2, isInSettingsGuide:Z
     invoke-static {v1}, Lcom/android/settings/guide/GuideModeHelper;->isGuideModeWiFi(Ljava/lang/String;)Z
 
@@ -448,30 +448,30 @@
 
     if-eqz v4, :cond_3
 
-    .line 474
+    .line 478
     if-eqz v2, :cond_2
 
     sget-object v3, Lcom/android/settings/guide/GuideFragment$GuideModes;->WIFI_SETTINGS:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 480
+    .line 484
     .end local v1           #guideMode:Ljava/lang/String;
     .end local v2           #isInSettingsGuide:Z
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/guide/GuideFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 482
+    .line 486
     .local v0, activity:Landroid/app/Activity;
     if-nez v0, :cond_5
 
-    .line 537
+    .line 541
     :cond_1
     :goto_1
     return-void
 
-    .line 474
+    .line 478
     .end local v0           #activity:Landroid/app/Activity;
     .restart local v1       #guideMode:Ljava/lang/String;
     .restart local v2       #isInSettingsGuide:Z
@@ -480,7 +480,7 @@
 
     goto :goto_0
 
-    .line 475
+    .line 479
     :cond_3
     invoke-static {v1}, Lcom/android/settings/guide/GuideModeHelper;->isGuideModeBluetooth(Ljava/lang/String;)Z
 
@@ -488,7 +488,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 476
+    .line 480
     if-eqz v2, :cond_4
 
     sget-object v3, Lcom/android/settings/guide/GuideFragment$GuideModes;->BLUETOOTH_SETTING:Lcom/android/settings/guide/GuideFragment$GuideModes;
@@ -501,12 +501,12 @@
 
     goto :goto_2
 
-    .line 486
+    .line 490
     .end local v1           #guideMode:Ljava/lang/String;
     .end local v2           #isInSettingsGuide:Z
     .restart local v0       #activity:Landroid/app/Activity;
     :cond_5
-    invoke-virtual {p0}, Lcom/android/settings/guide/GuideFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v4
 
@@ -516,52 +516,52 @@
 
     if-eqz v4, :cond_6
 
-    .line 487
+    .line 491
     invoke-static {v0}, Lcom/android/settings/guide/GuideFragment;->completeGuide(Landroid/app/Activity;)V
 
     goto :goto_1
 
-    .line 491
+    .line 495
     :cond_6
     iget-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     if-eq v3, v4, :cond_1
 
-    .line 496
+    .line 500
     iput-object v3, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 499
+    .line 503
     iget-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v4, :cond_7
 
-    .line 500
+    .line 504
     iget-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v4}, Lcom/android/settings/guide/GuiderLifecycleListener;->onDestroy()V
 
-    .line 501
+    .line 505
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
-    .line 504
+    .line 508
     :cond_7
     iget-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     if-eqz v4, :cond_1
 
-    .line 505
+    .line 509
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Lcom/android/settings/guide/GuideFragment;->mIsInGuideMode:Z
 
-    .line 507
+    .line 511
     sget-object v4, Lcom/android/settings/guide/GuideFragment$1;->$SwitchMap$com$android$settings$guide$GuideFragment$GuideModes:[I
 
     iget-object v5, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    invoke-virtual {v5}, Lcom/android/settings/guide/GuideFragment$GuideModes;->ordinal()I
+    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
 
     move-result v5
 
@@ -569,21 +569,21 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 533
+    .line 537
     :cond_8
     :goto_3
     iget-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v4, :cond_1
 
-    .line 534
+    .line 538
     iget-object v4, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v4}, Lcom/android/settings/guide/GuiderLifecycleListener;->showHelpDialog()V
 
     goto :goto_1
 
-    .line 513
+    .line 517
     :pswitch_0
     invoke-virtual {v0}, Landroid/app/Activity;->getLocalClassName()Ljava/lang/String;
 
@@ -597,7 +597,7 @@
 
     if-nez v4, :cond_8
 
-    .line 514
+    .line 518
     new-instance v4, Lcom/android/settings/guide/BtSettingsGuider;
 
     invoke-direct {v4, v0}, Lcom/android/settings/guide/BtSettingsGuider;-><init>(Landroid/app/Activity;)V
@@ -606,7 +606,7 @@
 
     goto :goto_3
 
-    .line 523
+    .line 527
     :pswitch_1
     invoke-virtual {v0}, Landroid/app/Activity;->getLocalClassName()Ljava/lang/String;
 
@@ -620,7 +620,7 @@
 
     if-nez v4, :cond_8
 
-    .line 524
+    .line 528
     new-instance v4, Lcom/android/settings/guide/WifiSettingsGuider;
 
     invoke-direct {v4, v0}, Lcom/android/settings/guide/WifiSettingsGuider;-><init>(Landroid/app/Activity;)V
@@ -629,7 +629,7 @@
 
     goto :goto_3
 
-    .line 507
+    .line 511
     nop
 
     :pswitch_data_0
@@ -645,7 +645,7 @@
     .locals 1
 
     .prologue
-    .line 385
+    .line 389
     sget-boolean v0, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
 
     return v0
@@ -656,7 +656,7 @@
     .parameter "parentActivity"
 
     .prologue
-    .line 372
+    .line 376
     sget-boolean v0, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
 
     if-eqz v0, :cond_0
@@ -682,7 +682,7 @@
     .locals 1
 
     .prologue
-    .line 760
+    .line 764
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
     move-result v0
@@ -695,7 +695,7 @@
     .parameter "settingsIntent"
 
     .prologue
-    .line 397
+    .line 401
     invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v2
@@ -706,26 +706,26 @@
 
     if-nez v2, :cond_0
 
-    .line 400
+    .line 404
     const/4 v1, 0x0
 
-    .line 410
+    .line 414
     :goto_0
     return-object v1
 
-    .line 403
+    .line 407
     :cond_0
     new-instance v1, Lcom/android/settings/guide/GuideFragment;
 
     invoke-direct {v1}, Lcom/android/settings/guide/GuideFragment;-><init>()V
 
-    .line 406
+    .line 410
     .local v1, f:Lcom/android/settings/guide/GuideFragment;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 407
+    .line 411
     .local v0, args:Landroid/os/Bundle;
     invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -733,8 +733,8 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 408
-    invoke-virtual {v1, v0}, Lcom/android/settings/guide/GuideFragment;->setArguments(Landroid/os/Bundle;)V
+    .line 412
+    invoke-virtual {v1, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
     goto :goto_0
 .end method
@@ -776,7 +776,7 @@
     .parameter "mBluetoothEnabler"
 
     .prologue
-    .line 334
+    .line 338
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v1
@@ -793,14 +793,14 @@
 
     check-cast v0, Lcom/android/settings/guide/GuideFragmentCallback;
 
-    .line 337
+    .line 341
     .local v0, guide:Lcom/android/settings/guide/GuideFragmentCallback;
     if-eqz v0, :cond_0
 
-    .line 338
+    .line 342
     invoke-interface {v0, p2, p1}, Lcom/android/settings/guide/GuideFragmentCallback;->setEnablers(Lcom/android/settings/bluetooth/BluetoothEnabler;Lcom/android/settings/wifi/WifiEnabler;)V
 
-    .line 340
+    .line 344
     :cond_0
     return-void
 .end method
@@ -852,6 +852,18 @@
     goto :goto_0
 .end method
 
+.method public static setsIsInGuideMode(Z)V
+    .locals 0
+    .parameter "b"
+
+    .prologue
+    .line 95
+    sput-boolean p0, Lcom/android/settings/guide/GuideFragment;->sIsInGuideMode:Z
+
+    .line 96
+    return-void
+.end method
+
 
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -859,49 +871,49 @@
     .parameter "keyEvent"
 
     .prologue
-    .line 587
+    .line 591
     const/4 v1, 0x0
 
-    .line 588
+    .line 592
     .local v1, result:Z
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v0
 
-    .line 590
+    .line 594
     .local v0, keyCode:I
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     if-eqz v2, :cond_0
 
-    .line 591
+    .line 595
     sparse-switch v0, :sswitch_data_0
 
-    .line 601
+    .line 605
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v2, :cond_0
 
-    .line 602
+    .line 606
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v2, v0, p1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onKey(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    .line 608
+    .line 612
     :cond_0
     :goto_0
     return v1
 
-    .line 597
+    .line 601
     :sswitch_0
     const/4 v1, 0x0
 
-    .line 598
+    .line 602
     goto :goto_0
 
-    .line 591
+    .line 595
     nop
 
     :sswitch_data_0
@@ -917,7 +929,7 @@
     .locals 1
 
     .prologue
-    .line 721
+    .line 725
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
@@ -945,7 +957,7 @@
     .locals 1
 
     .prologue
-    .line 707
+    .line 711
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
@@ -974,30 +986,30 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 432
+    .line 436
     invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 434
+    .line 438
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     if-nez v0, :cond_0
 
-    .line 435
+    .line 439
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/guide/GuideFragment;->initFragment(Landroid/os/Bundle;Lcom/android/settings/guide/GuideFragment$GuideModes;)V
 
-    .line 437
+    .line 441
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
 
-    .line 438
+    .line 442
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0, p1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 441
+    .line 445
     :cond_0
     return-void
 .end method
@@ -1009,21 +1021,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 445
+    .line 449
     invoke-super {p0, p1}, Landroid/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 447
+    .line 451
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     if-nez v0, :cond_0
 
-    .line 448
+    .line 452
     invoke-static {p1}, Lcom/android/settings/guide/GuideModeHelper;->init(Landroid/content/Context;)V
 
-    .line 450
+    .line 454
     invoke-direct {p0, v1, v1}, Lcom/android/settings/guide/GuideFragment;->initFragment(Landroid/os/Bundle;Lcom/android/settings/guide/GuideFragment$GuideModes;)V
 
-    .line 452
+    .line 456
     :cond_0
     return-void
 .end method
@@ -1033,7 +1045,7 @@
     .parameter "newConfig"
 
     .prologue
-    .line 565
+    .line 569
     iget-boolean v0, p0, Lcom/android/settings/guide/GuideFragment;->mIsInGuideMode:Z
 
     if-eqz v0, :cond_0
@@ -1042,16 +1054,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 566
+    .line 570
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0, p1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 569
+    .line 573
     :cond_0
     invoke-super {p0, p1}, Landroid/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 570
+    .line 574
     return-void
 .end method
 
@@ -1062,27 +1074,27 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 420
+    .line 424
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 422
+    .line 426
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
 
-    .line 423
+    .line 427
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0, p1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onCreate(Landroid/os/Bundle;)V
 
-    .line 426
+    .line 430
     :cond_0
-    invoke-virtual {p0, v1}, Lcom/android/settings/guide/GuideFragment;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
-    .line 427
-    invoke-virtual {p0, v1}, Lcom/android/settings/guide/GuideFragment;->setRetainInstance(Z)V
+    .line 431
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->setRetainInstance(Z)V
 
-    .line 428
+    .line 432
     return-void
 .end method
 
@@ -1090,37 +1102,37 @@
     .locals 4
 
     .prologue
-    .line 574
+    .line 578
     iget-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v1, :cond_0
 
-    .line 576
+    .line 580
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onDestroy()V
 
-    .line 577
+    .line 581
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 582
+    .line 586
     :cond_0
     :goto_0
     invoke-super {p0}, Landroid/app/Fragment;->onDestroy()V
 
-    .line 583
+    .line 587
     return-void
 
-    .line 578
+    .line 582
     :catch_0
     move-exception v0
 
-    .line 579
+    .line 583
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const-string v1, "GuideFragment"
 
@@ -1152,17 +1164,17 @@
     .parameter "item"
 
     .prologue
-    .line 746
+    .line 750
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
 
-    .line 747
+    .line 751
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0, p1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onOptionsItemSelected(Landroid/view/MenuItem;)V
 
-    .line 750
+    .line 754
     :cond_0
     invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
@@ -1175,20 +1187,20 @@
     .locals 1
 
     .prologue
-    .line 556
+    .line 560
     invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 558
+    .line 562
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
 
-    .line 559
+    .line 563
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0}, Lcom/android/settings/guide/GuiderLifecycleListener;->onPause()V
 
-    .line 561
+    .line 565
     :cond_0
     return-void
 .end method
@@ -1198,17 +1210,17 @@
     .parameter "menu"
 
     .prologue
-    .line 739
+    .line 743
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v0, :cond_0
 
-    .line 740
+    .line 744
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0, p1}, Lcom/android/settings/guide/GuiderLifecycleListener;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    .line 742
+    .line 746
     :cond_0
     return-void
 .end method
@@ -1217,32 +1229,32 @@
     .locals 1
 
     .prologue
-    .line 541
+    .line 545
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 543
+    .line 547
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-nez v0, :cond_0
 
-    .line 552
+    .line 556
     :goto_0
     return-void
 
-    .line 547
+    .line 551
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/guide/GuideFragment;->mIsInGuideMode:Z
 
     if-eqz v0, :cond_1
 
-    .line 548
+    .line 552
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v0}, Lcom/android/settings/guide/GuiderLifecycleListener;->onResume()V
 
     goto :goto_0
 
-    .line 550
+    .line 554
     :cond_1
     iget-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
@@ -1257,7 +1269,7 @@
     .parameter "enablerWiFi"
 
     .prologue
-    .line 615
+    .line 619
     new-instance v0, Lcom/android/settings/guide/GuideFragment$WrappedEnabler;
 
     iget-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
@@ -1281,30 +1293,30 @@
     :cond_1
     invoke-direct {v0, v1, p2}, Lcom/android/settings/guide/GuideFragment$WrappedEnabler;-><init>(Lcom/android/settings/guide/GuideFragment$GuideModes;Ljava/lang/Object;)V
 
-    .line 619
+    .line 623
     .local v0, enabler:Lcom/android/settings/guide/GuideFragment$WrappedEnabler;
     iget-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v1, :cond_2
 
-    .line 620
+    .line 624
     iget-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v1, v0}, Lcom/android/settings/guide/GuiderLifecycleListener;->setEnabler(Lcom/android/settings/guide/GuideFragment$WrappedEnabler;)V
 
-    .line 622
-    invoke-virtual {p0}, Lcom/android/settings/guide/GuideFragment;->isResumed()Z
+    .line 626
+    invoke-virtual {p0}, Landroid/app/Fragment;->isResumed()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 623
+    .line 627
     iget-object v1, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v1}, Lcom/android/settings/guide/GuiderLifecycleListener;->showHelpDialog()V
 
-    .line 626
+    .line 630
     :cond_2
     return-void
 .end method
@@ -1314,21 +1326,21 @@
     .parameter "id"
 
     .prologue
-    .line 632
+    .line 636
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 633
+    .line 637
     const/4 v0, 0x0
 
-    .line 638
+    .line 642
     :goto_0
     return v0
 
-    .line 636
+    .line 640
     :cond_0
     invoke-static {p1, p2}, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->fromId(J)Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
@@ -1336,7 +1348,7 @@
 
     iput-object v0, p0, Lcom/android/settings/guide/GuideFragment;->mOpenedHeader:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    .line 638
+    .line 642
     invoke-virtual {p0}, Lcom/android/settings/guide/GuideFragment;->switchGuiderMode()Z
 
     move-result v0
@@ -1350,14 +1362,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 653
+    .line 657
     const/4 v0, 0x0
 
-    .line 654
+    .line 658
     .local v0, nextMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
     const/4 v1, 0x0
 
-    .line 656
+    .line 660
     .local v1, retval:Z
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
@@ -1365,20 +1377,20 @@
 
     if-nez v2, :cond_0
 
-    .line 657
+    .line 661
     const/4 v2, 0x0
 
-    .line 689
+    .line 693
     :goto_0
     return v2
 
-    .line 661
+    .line 665
     :cond_0
     sget-object v2, Lcom/android/settings/guide/GuideFragment$1;->$SwitchMap$com$android$settings$guide$GuideFragment$SettingsHeader:[I
 
     iget-object v3, p0, Lcom/android/settings/guide/GuideFragment;->mOpenedHeader:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    invoke-virtual {v3}, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->ordinal()I
+    invoke-virtual {v3}, Ljava/lang/Enum;->ordinal()I
 
     move-result v3
 
@@ -1386,45 +1398,45 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 678
+    .line 682
     :cond_1
     :goto_1
     if-eqz v0, :cond_3
 
-    .line 679
+    .line 683
     invoke-direct {p0, v4, v0}, Lcom/android/settings/guide/GuideFragment;->initFragment(Landroid/os/Bundle;Lcom/android/settings/guide/GuideFragment$GuideModes;)V
 
-    .line 681
+    .line 685
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     if-eqz v2, :cond_2
 
-    .line 682
+    .line 686
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v2, v4}, Lcom/android/settings/guide/GuiderLifecycleListener;->onCreate(Landroid/os/Bundle;)V
 
-    .line 683
+    .line 687
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v2, v4}, Lcom/android/settings/guide/GuiderLifecycleListener;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 684
+    .line 688
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mGuider:Lcom/android/settings/guide/GuiderLifecycleListener;
 
     invoke-interface {v2}, Lcom/android/settings/guide/GuiderLifecycleListener;->onResume()V
 
-    .line 686
+    .line 690
     :cond_2
     const/4 v1, 0x1
 
     :cond_3
     move v2, v1
 
-    .line 689
+    .line 693
     goto :goto_0
 
-    .line 663
+    .line 667
     :pswitch_0
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
@@ -1432,12 +1444,12 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 664
+    .line 668
     sget-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->WIFI_SETTINGS:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     goto :goto_1
 
-    .line 669
+    .line 673
     :pswitch_1
     iget-object v2, p0, Lcom/android/settings/guide/GuideFragment;->mMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
@@ -1445,12 +1457,12 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 670
+    .line 674
     sget-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->BLUETOOTH_SETTING:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     goto :goto_1
 
-    .line 661
+    .line 665
     nop
 
     :pswitch_data_0

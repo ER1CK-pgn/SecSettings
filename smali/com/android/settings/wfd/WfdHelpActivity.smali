@@ -55,14 +55,14 @@
     .line 82
     iput-boolean v1, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mIsReadOnlyChecked:Z
 
-    .line 83
+    .line 84
     new-instance v0, Lcom/android/settings/wfd/WfdHelpActivity$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wfd/WfdHelpActivity$1;-><init>(Lcom/android/settings/wfd/WfdHelpActivity;)V
 
     iput-object v0, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mCheckBoxListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    .line 90
+    .line 91
     new-instance v0, Lcom/android/settings/wfd/WfdHelpActivity$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/wfd/WfdHelpActivity$2;-><init>(Lcom/android/settings/wfd/WfdHelpActivity;)V
@@ -92,28 +92,28 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 241
+    .line 242
     move v1, p1
 
-    .line 242
+    .line 243
     .local v1, desiredState:Z
     invoke-static {p0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v2
 
-    .line 243
+    .line 244
     .local v2, nfcAdapter:Landroid/nfc/NfcAdapter;
     const-string v0, "WfdHelpActivity"
 
-    .line 245
+    .line 246
     .local v0, TAG:Ljava/lang/String;
     if-nez v2, :cond_0
 
-    .line 291
+    .line 292
     :goto_0
     return v5
 
-    .line 250
+    .line 251
     :cond_0
     new-instance v3, Lcom/android/settings/wfd/WfdHelpActivity$5;
 
@@ -121,85 +121,19 @@
 
     invoke-direct {v3, v4, v1, v2}, Lcom/android/settings/wfd/WfdHelpActivity$5;-><init>(Ljava/lang/String;ZLandroid/nfc/NfcAdapter;)V
 
-    invoke-virtual {v3}, Lcom/android/settings/wfd/WfdHelpActivity$5;->start()V
+    invoke-virtual {v3}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 .end method
 
 .method private isWfdConnected()Z
-    .locals 4
+    .locals 1
 
     .prologue
-    const/4 v1, 0x1
-
-    .line 458
-    const-string v2, "wfd"
-
-    invoke-virtual {p0, v2}, Lcom/android/settings/wfd/WfdHelpActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/wfd/WfdManager;
-
-    .line 459
-    .local v0, wfdManager:Lcom/samsung/wfd/WfdManager;
-    if-eqz v0, :cond_1
-
-    .line 460
-    const-string v2, "WfdHelpActivity"
-
-    const-string v3, "AllShare Cast is turned on..."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 461
-    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdManager;->setWfdEnabledDialog(Z)Z
+    const/4 v0, 0x0
 
-    .line 466
-    :goto_0
-    if-eqz v0, :cond_0
-
-    .line 468
-    invoke-virtual {v0}, Lcom/samsung/wfd/WfdManager;->getWfdState()I
-
-    move-result v2
-
-    packed-switch v2, :pswitch_data_0
-
-    .line 476
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_1
-    return v1
-
-    .line 463
-    :cond_1
-    const-string v2, "WfdHelpActivity"
-
-    const-string v3, "mWfdManager is null !"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 472
-    :pswitch_0
-    const-string v2, "WfdHelpActivity"
-
-    const-string v3, "isWfdConnected >> true"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    .line 468
-    :pswitch_data_0
-    .packed-switch 0x3
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
+    return v0
 .end method
 
 .method private makeNdefMessage(Ljava/lang/String;)Landroid/nfc/NdefMessage;
@@ -272,27 +206,27 @@
 
     const/4 v6, 0x2
 
-    .line 227
-    const v3, 0x7f0b0474
+    .line 228
+    const v3, 0x7f0b04dc
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/wfd/IndexedTextLayout;
 
-    .line 228
+    .line 229
     .local v0, idxTextLayout:Lcom/android/settings/wfd/IndexedTextLayout;
-    const v3, 0x7f0904ea
+    const v3, 0x7f090516
 
     invoke-virtual {v0, v3}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 230
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getResources()Landroid/content/res/Resources;
+    .line 231
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0904eb
+    const v4, 0x7f090517
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -312,21 +246,21 @@
 
     move-result-object v1
 
-    .line 231
+    .line 232
     .local v1, result_msg2:Ljava/lang/String;
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(Ljava/lang/String;)V
 
-    .line 233
-    const v3, 0x7f0904ec
+    .line 234
+    const v3, 0x7f090518
 
     invoke-virtual {v0, v3}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 235
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getResources()Landroid/content/res/Resources;
+    .line 236
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0904ed
+    const v4, 0x7f090519
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -350,11 +284,11 @@
 
     move-result-object v2
 
-    .line 236
+    .line 237
     .local v2, result_msg4:Ljava/lang/String;
     invoke-virtual {v0, v2}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(Ljava/lang/String;)V
 
-    .line 237
+    .line 238
     return-void
 .end method
 
@@ -362,32 +296,32 @@
     .locals 2
 
     .prologue
-    .line 204
-    const v1, 0x7f0b0474
+    .line 205
+    const v1, 0x7f0b04dc
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/wfd/IndexedTextLayout;
 
-    .line 205
+    .line 206
     .local v0, idxTextLayout:Lcom/android/settings/wfd/IndexedTextLayout;
-    const v1, 0x7f0904e7
+    const v1, 0x7f090513
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 207
-    const v1, 0x7f0904e8
+    .line 208
+    const v1, 0x7f090514
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 209
-    const v1, 0x7f0904e9
+    .line 210
+    const v1, 0x7f090515
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 211
+    .line 212
     return-void
 .end method
 
@@ -397,8 +331,8 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 195
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    .line 196
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -410,16 +344,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 197
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mInSettingsMode:Z
 
-    .line 201
+    .line 202
     :goto_0
     return-void
 
-    .line 200
+    .line 201
     :cond_0
     iput-boolean v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mInSettingsMode:Z
 
@@ -430,19 +364,19 @@
     .locals 6
 
     .prologue
-    const v5, 0x7f0b0474
+    const v5, 0x7f0b04dc
 
-    const v4, 0x7f0904ee
+    const v4, 0x7f09051a
 
-    .line 214
+    .line 215
     const-string v1, "WfdHelpActivity"
 
     const-string v2, "setWriteText"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    .line 217
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -454,7 +388,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -468,36 +402,36 @@
 
     if-eqz v1, :cond_0
 
-    .line 217
-    invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    .line 218
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/wfd/IndexedTextLayout;
 
-    .line 218
+    .line 219
     .local v0, idxTextLayout:Lcom/android/settings/wfd/IndexedTextLayout;
     invoke-virtual {v0, v4}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 219
-    const v1, 0x7f0904ef
+    .line 220
+    const v1, 0x7f09051b
 
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
-    .line 224
+    .line 225
     :goto_0
     return-void
 
-    .line 221
+    .line 222
     .end local v0           #idxTextLayout:Lcom/android/settings/wfd/IndexedTextLayout;
     :cond_0
-    invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/wfd/IndexedTextLayout;
 
-    .line 222
+    .line 223
     .restart local v0       #idxTextLayout:Lcom/android/settings/wfd/IndexedTextLayout;
     invoke-virtual {v0, v4}, Lcom/android/settings/wfd/IndexedTextLayout;->setText(I)V
 
@@ -513,11 +447,11 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 515
+    .line 500
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 517
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    .line 502
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -525,7 +459,7 @@
 
     move-result-object v1
 
-    .line 518
+    .line 503
     .local v1, intentAction:Ljava/lang/String;
     const-string v3, "com.samsung.wfd.DP_HELP"
 
@@ -535,34 +469,34 @@
 
     if-eqz v3, :cond_1
 
-    .line 519
+    .line 504
     iput-boolean v4, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    .line 520
-    const v3, 0x7f0401a6
+    .line 505
+    const v3, 0x7f0401e4
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdHelpActivity;->setContentView(I)V
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 521
-    const v3, 0x7f0b0473
+    .line 506
+    const v3, 0x7f0b04db
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 525
+    .line 510
     .local v0, helpImage:Landroid/widget/ImageView;
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setHelpText()V
 
-    .line 540
+    .line 525
     .end local v0           #helpImage:Landroid/widget/ImageView;
     :cond_0
     :goto_0
     return-void
 
-    .line 527
+    .line 512
     :cond_1
     const-string v3, "com.samsung.wfd.WRITE_NFC"
 
@@ -572,42 +506,42 @@
 
     if-eqz v3, :cond_2
 
-    .line 528
+    .line 513
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    .line 529
-    const v3, 0x7f0401ad
+    .line 514
+    const v3, 0x7f0401e7
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdHelpActivity;->setContentView(I)V
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 530
+    .line 515
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setWriteText()V
 
-    .line 532
-    const v3, 0x7f0b0488
+    .line 517
+    const v3, 0x7f0b04e4
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/CheckBox;
 
-    .line 533
+    .line 518
     .local v2, isReadOnly:Landroid/widget/CheckBox;
     iget-boolean v3, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mIsReadOnlyChecked:Z
 
-    invoke-virtual {v2, v3}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {v2, v3}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    .line 534
+    .line 519
     iget-object v3, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mCheckBoxListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {v2, v3}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 
-    .line 535
+    .line 520
     .end local v2           #isReadOnly:Landroid/widget/CheckBox;
     :cond_2
     const-string v3, "com.samsung.wfd.NFC_HELP"
@@ -618,15 +552,15 @@
 
     if-eqz v3, :cond_0
 
-    .line 536
+    .line 521
     iput-boolean v4, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    .line 537
-    const v3, 0x7f0401ae
+    .line 522
+    const v3, 0x7f0401e8
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wfd/WfdHelpActivity;->setContentView(I)V
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 538
+    .line 523
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setHelpText2()V
 
     goto :goto_0
@@ -637,45 +571,45 @@
     .parameter "icicle"
 
     .prologue
-    .line 107
+    .line 108
     const-string v13, "WfdHelpActivity"
 
     const-string v14, "onCreate"
 
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 108
+    .line 109
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 110
+    .line 111
     new-instance v7, Landroid/content/IntentFilter;
 
     invoke-direct {v7}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 111
+    .line 112
     .local v7, intentFilter:Landroid/content/IntentFilter;
     const-string v13, "com.samsung.wfd.ALL_CLEAR"
 
     invoke-virtual {v7, v13}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 112
+    .line 113
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/settings/wfd/WfdHelpActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13, v7}, Lcom/android/settings/wfd/WfdHelpActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v0, v13, v7}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 114
+    .line 115
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setIsSettings()V
 
-    .line 116
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getActionBar()Landroid/app/ActionBar;
+    .line 117
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v2
 
-    .line 117
+    .line 118
     .local v2, bar:Landroid/app/ActionBar;
     move-object/from16 v0, p0
 
@@ -683,24 +617,24 @@
 
     if-eqz v13, :cond_0
 
-    .line 118
+    .line 119
     const/high16 v13, 0x7f03
 
     invoke-virtual {v2, v13}, Landroid/app/ActionBar;->setIcon(I)V
 
-    .line 121
+    .line 122
     :cond_0
     const/4 v13, 0x1
 
     invoke-virtual {v2, v13}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
-    .line 122
-    const v13, 0x7f0904a1
+    .line 123
+    const v13, 0x7f0904db
 
     invoke-virtual {v2, v13}, Landroid/app/ActionBar;->setTitle(I)V
 
-    .line 124
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    .line 125
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v13
 
@@ -708,7 +642,7 @@
 
     move-result-object v6
 
-    .line 126
+    .line 127
     .local v6, intentAction:Ljava/lang/String;
     const-string v13, "WfdHelpActivity"
 
@@ -732,7 +666,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 127
+    .line 128
     const-string v13, "com.samsung.wfd.DP_HELP"
 
     invoke-virtual {v6, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -741,42 +675,42 @@
 
     if-eqz v13, :cond_2
 
-    .line 128
+    .line 129
     const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v13, v0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    .line 129
-    const v13, 0x7f0401a6
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13}, Lcom/android/settings/wfd/WfdHelpActivity;->setContentView(I)V
-
     .line 130
-    const v13, 0x7f0b0473
+    const v13, 0x7f0401e4
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/app/Activity;->setContentView(I)V
+
+    .line 131
+    const v13, 0x7f0b04db
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
     check-cast v4, Landroid/widget/ImageView;
 
-    .line 134
+    .line 135
     .local v4, helpImage:Landroid/widget/ImageView;
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setHelpText()V
 
-    .line 192
+    .line 193
     .end local v4           #helpImage:Landroid/widget/ImageView;
     :cond_1
     :goto_0
     return-void
 
-    .line 137
+    .line 138
     :cond_2
     const-string v13, "com.samsung.wfd.WRITE_NFC"
 
@@ -786,60 +720,60 @@
 
     if-eqz v13, :cond_3
 
-    .line 138
+    .line 139
     const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v13, v0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    .line 140
-    const v13, 0x7f0401ad
+    .line 141
+    const v13, 0x7f0401e7
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/wfd/WfdHelpActivity;->setContentView(I)V
+    invoke-virtual {v0, v13}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 141
+    .line 142
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setWriteText()V
 
-    .line 143
-    const v13, 0x7f0b0488
+    .line 144
+    const v13, 0x7f0b04e4
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/wfd/WfdHelpActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v8
 
     check-cast v8, Landroid/widget/CheckBox;
 
-    .line 144
+    .line 145
     .local v8, isReadOnly:Landroid/widget/CheckBox;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/settings/wfd/WfdHelpActivity;->mCheckBoxListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {v8, v13}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v8, v13}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 147
+    .line 148
     const-string v13, "nfc"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/wfd/WfdHelpActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v13}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v9
 
     check-cast v9, Landroid/nfc/NfcManager;
 
-    .line 148
+    .line 149
     .local v9, manager:Landroid/nfc/NfcManager;
     invoke-virtual {v9}, Landroid/nfc/NfcManager;->getDefaultAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object v1
 
-    .line 149
+    .line 150
     .local v1, adapter:Landroid/nfc/NfcAdapter;
     if-eqz v1, :cond_1
 
@@ -849,22 +783,22 @@
 
     if-nez v13, :cond_1
 
-    .line 150
+    .line 151
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     move-object/from16 v0, p0
 
     invoke-direct {v3, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 152
+    .line 153
     .local v3, builder:Landroid/app/AlertDialog$Builder;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v5
 
-    .line 153
+    .line 154
     .local v5, inflater:Landroid/view/LayoutInflater;
-    const v13, 0x7f0401ac
+    const v13, 0x7f0401e6
 
     const/4 v14, 0x0
 
@@ -872,9 +806,9 @@
 
     move-result-object v12
 
-    .line 154
+    .line 155
     .local v12, vwTitleView:Landroid/view/View;
-    const v13, 0x7f0b011c
+    const v13, 0x7f0b012b
 
     invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -882,34 +816,34 @@
 
     check-cast v11, Landroid/widget/TextView;
 
-    .line 155
+    .line 156
     .local v11, txViewTitle:Landroid/widget/TextView;
-    const v13, 0x7f0904c8
+    const v13, 0x7f090502
 
     invoke-virtual {v11, v13}, Landroid/widget/TextView;->setText(I)V
 
-    .line 156
+    .line 157
     invoke-virtual {v3, v12}, Landroid/app/AlertDialog$Builder;->setCustomTitle(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 158
+    .line 159
     new-instance v10, Landroid/widget/TextView;
 
     move-object/from16 v0, p0
 
     invoke-direct {v10, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 159
+    .line 160
     .local v10, tv:Landroid/widget/TextView;
     const/high16 v13, 0x41a0
 
     invoke-virtual {v10, v13}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 161
-    const v13, 0x7f0904e5
+    .line 162
+    const v13, 0x7f090512
 
     invoke-virtual {v10, v13}, Landroid/widget/TextView;->setText(I)V
 
-    .line 162
+    .line 163
     const/16 v13, 0x16
 
     const/16 v14, 0x16
@@ -922,11 +856,11 @@
 
     invoke-virtual {v10, v13, v14, v15, v0}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 164
+    .line 165
     invoke-virtual {v3, v10}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 165
-    const v13, 0x7f0907d9
+    .line 166
+    const v13, 0x7f09082a
 
     new-instance v14, Lcom/android/settings/wfd/WfdHelpActivity$3;
 
@@ -936,8 +870,8 @@
 
     invoke-virtual {v3, v13, v14}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 175
-    const v13, 0x7f0907da
+    .line 176
+    const v13, 0x7f09082b
 
     new-instance v14, Lcom/android/settings/wfd/WfdHelpActivity$4;
 
@@ -947,16 +881,16 @@
 
     invoke-virtual {v3, v13, v14}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 182
+    .line 183
     invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v13
 
-    invoke-virtual {v13}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v13}, Landroid/app/Dialog;->show()V
 
     goto/16 :goto_0
 
-    .line 186
+    .line 187
     .end local v1           #adapter:Landroid/nfc/NfcAdapter;
     .end local v3           #builder:Landroid/app/AlertDialog$Builder;
     .end local v5           #inflater:Landroid/view/LayoutInflater;
@@ -974,21 +908,21 @@
 
     if-eqz v13, :cond_1
 
-    .line 187
+    .line 188
     const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v13, v0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    .line 188
-    const v13, 0x7f0401ae
+    .line 189
+    const v13, 0x7f0401e8
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/wfd/WfdHelpActivity;->setContentView(I)V
+    invoke-virtual {v0, v13}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 189
+    .line 190
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/wfd/WfdHelpActivity;->setHelpText2()V
 
     goto/16 :goto_0
@@ -1005,8 +939,8 @@
 
     const/4 v4, 0x0
 
-    .line 482
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    .line 467
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -1018,7 +952,7 @@
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -1030,8 +964,8 @@
 
     if-eqz v2, :cond_0
 
-    .line 483
-    const v2, 0x7f0904e1
+    .line 468
+    const v2, 0x7f09050e
 
     invoke-interface {p1, v4, v5, v4, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1043,11 +977,11 @@
 
     iput-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemLearnNfc:Landroid/view/MenuItem;
 
-    .line 489
+    .line 474
     :goto_0
     const/4 v2, 0x2
 
-    const v3, 0x7f0904e0
+    const v3, 0x7f09050d
 
     invoke-interface {p1, v4, v2, v4, v3}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1059,22 +993,22 @@
 
     iput-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemStartLink:Landroid/view/MenuItem;
 
-    .line 492
+    .line 477
     const-string v2, "nfc"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wfd/WfdHelpActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/nfc/NfcManager;
 
-    .line 493
+    .line 478
     .local v1, manager:Landroid/nfc/NfcManager;
     invoke-virtual {v1}, Landroid/nfc/NfcManager;->getDefaultAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object v0
 
-    .line 494
+    .line 479
     .local v0, adapter:Landroid/nfc/NfcAdapter;
     if-eqz v0, :cond_1
 
@@ -1082,8 +1016,8 @@
 
     if-nez v2, :cond_1
 
-    .line 500
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    .line 485
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -1099,17 +1033,17 @@
 
     if-eqz v2, :cond_2
 
-    .line 501
+    .line 486
     iget-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemStartLink:Landroid/view/MenuItem;
 
     invoke-interface {v2, v6}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 503
+    .line 488
     iget-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemLearnNfc:Landroid/view/MenuItem;
 
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 510
+    .line 495
     :goto_1
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
@@ -1117,11 +1051,11 @@
 
     return v2
 
-    .line 486
+    .line 471
     .end local v0           #adapter:Landroid/nfc/NfcAdapter;
     .end local v1           #manager:Landroid/nfc/NfcManager;
     :cond_0
-    const v2, 0x7f0904df
+    const v2, 0x7f09050c
 
     invoke-interface {p1, v4, v5, v4, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1135,7 +1069,7 @@
 
     goto :goto_0
 
-    .line 495
+    .line 480
     .restart local v0       #adapter:Landroid/nfc/NfcAdapter;
     .restart local v1       #manager:Landroid/nfc/NfcManager;
     :cond_1
@@ -1143,20 +1077,20 @@
 
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 496
+    .line 481
     iget-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemStartLink:Landroid/view/MenuItem;
 
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     goto :goto_1
 
-    .line 505
+    .line 490
     :cond_2
     iget-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemLearnNfc:Landroid/view/MenuItem;
 
     invoke-interface {v2, v6}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 507
+    .line 492
     iget-object v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemStartLink:Landroid/view/MenuItem;
 
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
@@ -1168,15 +1102,15 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 103
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 103
+    .line 104
     iget-object v0, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 104
+    .line 105
     return-void
 .end method
 
@@ -1187,14 +1121,14 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 319
+    .line 320
     const-string v4, "WfdHelpActivity"
 
     const-string v5, "onNewIntent"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 320
+    .line 321
     const-string v4, "WfdHelpActivity"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1219,77 +1153,72 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 322
+    .line 323
     iget-boolean v4, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mWriteTagMode:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    .line 323
-    const-string v4, "WfdPickerActivity"
-
-    invoke-virtual {p0, v4, v7}, Lcom/android/settings/wfd/WfdHelpActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v3
+    .line 324
+    const/4 v0, 0x0
 
     .line 325
-    .local v3, pref_r:Landroid/content/SharedPreferences;
-    const-string v4, "wlan.wfd.lastdeviceaddr"
+    .local v0, connectAddr:Ljava/lang/String;
+    const/4 v2, 0x0
 
-    const-string v5, ""
+    .line 326
+    .local v2, mDisplayManager:Landroid/hardware/display/DisplayManager;
+    const-string v4, "display"
 
-    invoke-interface {v3, v4, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 328
-    .local v1, mLastDeviceAddr:Ljava/lang/String;
-    const-string v4, "WfdHelpActivity"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "addr"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 329
-    invoke-direct {p0, v1}, Lcom/android/settings/wfd/WfdHelpActivity;->makeNdefMessage(Ljava/lang/String;)Landroid/nfc/NdefMessage;
+    invoke-virtual {p0, v4}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 330
-    .local v2, message:Landroid/nfc/NdefMessage;
+    .end local v2           #mDisplayManager:Landroid/hardware/display/DisplayManager;
+    check-cast v2, Landroid/hardware/display/DisplayManager;
+
+    .line 328
+    .restart local v2       #mDisplayManager:Landroid/hardware/display/DisplayManager;
+    if-eqz v2, :cond_0
+
+    .line 329
+    invoke-virtual {v2}, Landroid/hardware/display/DisplayManager;->getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/hardware/display/WifiDisplayStatus;->getActiveDisplay()Landroid/hardware/display/WifiDisplay;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/hardware/display/WifiDisplay;->getDeviceAddress()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 331
+    :cond_0
+    invoke-direct {p0, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->makeNdefMessage(Ljava/lang/String;)Landroid/nfc/NdefMessage;
+
+    move-result-object v3
+
+    .line 332
+    .local v3, message:Landroid/nfc/NdefMessage;
     const-string v4, "android.nfc.extra.TAG"
 
     invoke-virtual {p1, v4}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/nfc/Tag;
+    check-cast v1, Landroid/nfc/Tag;
 
-    .line 332
-    .local v0, detectedTag:Landroid/nfc/Tag;
-    invoke-virtual {p0, v2, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->writeTag(Landroid/nfc/NdefMessage;Landroid/nfc/Tag;)Z
+    .line 334
+    .local v1, detectedTag:Landroid/nfc/Tag;
+    invoke-virtual {p0, v3, v1}, Lcom/android/settings/wfd/WfdHelpActivity;->writeTag(Landroid/nfc/NdefMessage;Landroid/nfc/Tag;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 333
-    const v4, 0x7f0904e3
+    .line 335
+    const v4, 0x7f090510
 
     invoke-static {p0, v4, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1297,7 +1226,7 @@
 
     invoke-virtual {v4}, Landroid/widget/Toast;->show()V
 
-    .line 338
+    .line 339
     :goto_0
     iget-object v4, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mMenuItemLearnNfc:Landroid/view/MenuItem;
 
@@ -1306,20 +1235,20 @@
     invoke-interface {v4, v5}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     .line 343
-    .end local v0           #detectedTag:Landroid/nfc/Tag;
-    .end local v1           #mLastDeviceAddr:Ljava/lang/String;
-    .end local v2           #message:Landroid/nfc/NdefMessage;
-    .end local v3           #pref_r:Landroid/content/SharedPreferences;
+    .end local v0           #connectAddr:Ljava/lang/String;
+    .end local v1           #detectedTag:Landroid/nfc/Tag;
+    .end local v2           #mDisplayManager:Landroid/hardware/display/DisplayManager;
+    .end local v3           #message:Landroid/nfc/NdefMessage;
     :goto_1
     return-void
 
-    .line 335
-    .restart local v0       #detectedTag:Landroid/nfc/Tag;
-    .restart local v1       #mLastDeviceAddr:Ljava/lang/String;
-    .restart local v2       #message:Landroid/nfc/NdefMessage;
-    .restart local v3       #pref_r:Landroid/content/SharedPreferences;
-    :cond_0
-    const v4, 0x7f0904e4
+    .line 337
+    .restart local v0       #connectAddr:Ljava/lang/String;
+    .restart local v1       #detectedTag:Landroid/nfc/Tag;
+    .restart local v2       #mDisplayManager:Landroid/hardware/display/DisplayManager;
+    .restart local v3       #message:Landroid/nfc/NdefMessage;
+    :cond_1
+    const v4, 0x7f090511
 
     invoke-static {p0, v4, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1330,11 +1259,11 @@
     goto :goto_0
 
     .line 341
-    .end local v0           #detectedTag:Landroid/nfc/Tag;
-    .end local v1           #mLastDeviceAddr:Ljava/lang/String;
-    .end local v2           #message:Landroid/nfc/NdefMessage;
-    .end local v3           #pref_r:Landroid/content/SharedPreferences;
-    :cond_1
+    .end local v0           #connectAddr:Ljava/lang/String;
+    .end local v1           #detectedTag:Landroid/nfc/Tag;
+    .end local v2           #mDisplayManager:Landroid/hardware/display/DisplayManager;
+    .end local v3           #message:Landroid/nfc/NdefMessage;
+    :cond_2
     const-string v4, "WfdHelpActivity"
 
     const-string v5, "Activity received other intent from NDEF_DISCOVER"
@@ -1368,7 +1297,7 @@
 
     .line 410
     :sswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
@@ -1380,7 +1309,7 @@
 
     if-eqz v4, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
@@ -1393,38 +1322,38 @@
     if-eqz v2, :cond_1
 
     .line 411
-    const-string v2, "wfd"
+    const-string v2, "display"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wfd/WfdHelpActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/samsung/wfd/WfdManager;
+    check-cast v0, Landroid/hardware/display/DisplayManager;
 
     .line 412
-    .local v1, wfdManager:Lcom/samsung/wfd/WfdManager;
-    invoke-virtual {v1}, Lcom/samsung/wfd/WfdManager;->setWfdTerminate()Z
+    .local v0, displayManager:Landroid/hardware/display/DisplayManager;
+    invoke-virtual {v0}, Landroid/hardware/display/DisplayManager;->disconnectWifiDisplay()V
 
     .line 413
-    new-instance v0, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.samsung.wfd.LAUNCH_WFD_PICKER_DLG"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 414
-    .local v0, intent:Landroid/content/Intent;
+    .local v1, intent:Landroid/content/Intent;
     const-string v2, "show_dialog_once"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 415
     const-string v2, "called_by_nfc"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 416
-    invoke-virtual {v0, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 417
     iget-boolean v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mInSettingsMode:Z
@@ -1434,14 +1363,14 @@
     .line 418
     const-string v2, "called_by_settings"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 420
     :cond_0
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .end local v0           #intent:Landroid/content/Intent;
-    .end local v1           #wfdManager:Lcom/samsung/wfd/WfdManager;
+    .end local v0           #displayManager:Landroid/hardware/display/DisplayManager;
+    .end local v1           #intent:Landroid/content/Intent;
     :goto_1
     move v2, v3
 
@@ -1450,14 +1379,14 @@
 
     .line 422
     :cond_1
-    new-instance v0, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.samsung.wfd.NFC_HELP"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 423
-    .restart local v0       #intent:Landroid/content/Intent;
+    .restart local v1       #intent:Landroid/content/Intent;
     iget-boolean v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mInSettingsMode:Z
 
     if-eqz v2, :cond_2
@@ -1465,16 +1394,16 @@
     .line 424
     const-string v2, "called_by_settings"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 426
     :cond_2
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
     .line 430
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v1           #intent:Landroid/content/Intent;
     :sswitch_1
     invoke-direct {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->isWfdConnected()Z
 
@@ -1483,14 +1412,14 @@
     if-eqz v2, :cond_4
 
     .line 431
-    new-instance v0, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.samsung.wfd.WRITE_NFC"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 432
-    .restart local v0       #intent:Landroid/content/Intent;
+    .restart local v1       #intent:Landroid/content/Intent;
     iget-boolean v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mInSettingsMode:Z
 
     if-eqz v2, :cond_3
@@ -1498,36 +1427,36 @@
     .line 433
     const-string v2, "called_by_settings"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 435
     :cond_3
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
     .line 437
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v1           #intent:Landroid/content/Intent;
     :cond_4
-    new-instance v0, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.samsung.wfd.LAUNCH_WFD_PICKER_DLG"
 
-    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 438
-    .restart local v0       #intent:Landroid/content/Intent;
+    .restart local v1       #intent:Landroid/content/Intent;
     const-string v2, "show_dialog_once"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 439
     const-string v2, "tag_write_if_success"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 440
-    invoke-virtual {v0, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 441
     iget-boolean v2, p0, Lcom/android/settings/wfd/WfdHelpActivity;->mInSettingsMode:Z
@@ -1537,16 +1466,16 @@
     .line 442
     const-string v2, "called_by_settings"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 444
     :cond_5
-    invoke-virtual {p0, v0}, Lcom/android/settings/wfd/WfdHelpActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
     .line 448
-    .end local v0           #intent:Landroid/content/Intent;
+    .end local v1           #intent:Landroid/content/Intent;
     :sswitch_2
     const-string v2, "WfdHelpActivity"
 
@@ -1555,7 +1484,7 @@
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 449
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_1
 
@@ -1574,29 +1503,29 @@
     .locals 3
 
     .prologue
-    .line 309
+    .line 310
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 310
+    .line 311
     const-string v1, "WfdHelpActivity"
 
     const-string v2, "onPause"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 312
+    .line 313
     invoke-static {p0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v0
 
-    .line 313
+    .line 314
     .local v0, adapter:Landroid/nfc/NfcAdapter;
     if-eqz v0, :cond_0
 
-    .line 314
+    .line 315
     invoke-virtual {v0, p0}, Landroid/nfc/NfcAdapter;->disableForegroundDispatch(Landroid/app/Activity;)V
 
-    .line 315
+    .line 316
     :cond_0
     return-void
 .end method
@@ -1609,22 +1538,22 @@
 
     const/4 v5, 0x0
 
-    .line 296
+    .line 297
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 297
+    .line 298
     const-string v2, "WfdHelpActivity"
 
     const-string v4, "onResume"
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 299
+    .line 300
     invoke-static {p0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v0
 
-    .line 300
+    .line 301
     .local v0, adapter:Landroid/nfc/NfcAdapter;
     new-instance v2, Landroid/content/Intent;
 
@@ -1644,18 +1573,18 @@
 
     move-result-object v1
 
-    .line 302
+    .line 303
     .local v1, pendingIntent:Landroid/app/PendingIntent;
     if-eqz v0, :cond_0
 
     move-object v2, v3
 
-    .line 303
+    .line 304
     check-cast v2, [[Ljava/lang/String;
 
     invoke-virtual {v0, p0, v1, v3, v2}, Landroid/nfc/NfcAdapter;->enableForegroundDispatch(Landroid/app/Activity;Landroid/app/PendingIntent;[Landroid/content/IntentFilter;[[Ljava/lang/String;)V
 
-    .line 305
+    .line 306
     :cond_0
     return-void
 .end method
@@ -1819,7 +1748,7 @@
 
     invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/wfd/WfdHelpActivity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {p0, v6}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     move v4, v5
 

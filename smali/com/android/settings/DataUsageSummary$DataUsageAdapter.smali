@@ -40,17 +40,17 @@
     .parameter "insetSide"
 
     .prologue
-    .line 1981
+    .line 2226
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 1978
+    .line 2223
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
-    .line 1982
+    .line 2227
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -59,10 +59,10 @@
 
     iput-object v0, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mProvider:Lcom/android/settings/net/UidDetailProvider;
 
-    .line 1983
+    .line 2228
     iput p2, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mInsetSide:I
 
-    .line 1984
+    .line 2229
     return-void
 .end method
 
@@ -74,29 +74,29 @@
     .parameter "restrictedUids"
 
     .prologue
-    .line 1990
+    .line 2235
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v13}, Ljava/util/ArrayList;->clear()V
 
-    .line 1992
+    .line 2237
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v4
 
-    .line 1993
+    .line 2238
     .local v4, currentUserId:I
     new-instance v9, Landroid/util/SparseArray;
 
     invoke-direct {v9}, Landroid/util/SparseArray;-><init>()V
 
-    .line 1995
+    .line 2240
     .local v9, knownItems:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Lcom/android/settings/DataUsageSummary$AppItem;>;"
     const/4 v5, 0x0
 
-    .line 1996
+    .line 2241
     .local v5, entry:Landroid/net/NetworkStats$Entry;
     if-eqz p1, :cond_1
 
@@ -104,7 +104,7 @@
 
     move-result v11
 
-    .line 1997
+    .line 2242
     .local v11, size:I
     :goto_0
     const/4 v6, 0x0
@@ -113,17 +113,17 @@
     :goto_1
     if-ge v6, v11, :cond_6
 
-    .line 1998
+    .line 2243
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v6, v5}, Landroid/net/NetworkStats;->getValues(ILandroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
 
     move-result-object v5
 
-    .line 2001
+    .line 2246
     iget v12, v5, Landroid/net/NetworkStats$Entry;->uid:I
 
-    .line 2003
+    .line 2248
     .local v12, uid:I
     invoke-static {v12}, Landroid/os/UserHandle;->isApp(I)Z
 
@@ -131,17 +131,17 @@
 
     if-eqz v13, :cond_3
 
-    .line 2004
+    .line 2249
     invoke-static {v12}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v13
 
     if-ne v13, v4, :cond_2
 
-    .line 2005
+    .line 2250
     move v3, v12
 
-    .line 2015
+    .line 2260
     .local v3, collapseKey:I
     :goto_2
     invoke-virtual {v9, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -150,17 +150,17 @@
 
     check-cast v8, Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 2016
+    .line 2261
     .local v8, item:Lcom/android/settings/DataUsageSummary$AppItem;
     if-nez v8, :cond_0
 
-    .line 2017
+    .line 2262
     new-instance v8, Lcom/android/settings/DataUsageSummary$AppItem;
 
     .end local v8           #item:Lcom/android/settings/DataUsageSummary$AppItem;
     invoke-direct {v8, v3}, Lcom/android/settings/DataUsageSummary$AppItem;-><init>(I)V
 
-    .line 2018
+    .line 2263
     .restart local v8       #item:Lcom/android/settings/DataUsageSummary$AppItem;
     move-object/from16 v0, p0
 
@@ -168,16 +168,16 @@
 
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 2019
+    .line 2264
     iget v13, v8, Lcom/android/settings/DataUsageSummary$AppItem;->key:I
 
     invoke-virtual {v9, v13, v8}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 2021
+    .line 2266
     :cond_0
     invoke-virtual {v8, v12}, Lcom/android/settings/DataUsageSummary$AppItem;->addUid(I)V
 
-    .line 2022
+    .line 2267
     iget-wide v13, v8, Lcom/android/settings/DataUsageSummary$AppItem;->total:J
 
     iget-wide v15, v5, Landroid/net/NetworkStats$Entry;->rxBytes:J
@@ -192,12 +192,12 @@
 
     iput-wide v13, v8, Lcom/android/settings/DataUsageSummary$AppItem;->total:J
 
-    .line 1997
+    .line 2242
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
-    .line 1996
+    .line 2241
     .end local v3           #collapseKey:I
     .end local v6           #i:I
     .end local v8           #item:Lcom/android/settings/DataUsageSummary$AppItem;
@@ -208,7 +208,7 @@
 
     goto :goto_0
 
-    .line 2007
+    .line 2252
     .restart local v6       #i:I
     .restart local v11       #size:I
     .restart local v12       #uid:I
@@ -224,7 +224,7 @@
     .restart local v3       #collapseKey:I
     goto :goto_2
 
-    .line 2009
+    .line 2254
     .end local v3           #collapseKey:I
     :cond_3
     const/4 v13, -0x4
@@ -235,14 +235,14 @@
 
     if-ne v12, v13, :cond_5
 
-    .line 2010
+    .line 2255
     :cond_4
     move v3, v12
 
     .restart local v3       #collapseKey:I
     goto :goto_2
 
-    .line 2012
+    .line 2257
     .end local v3           #collapseKey:I
     :cond_5
     const/16 v3, 0x3e8
@@ -250,7 +250,7 @@
     .restart local v3       #collapseKey:I
     goto :goto_2
 
-    .line 2025
+    .line 2270
     .end local v3           #collapseKey:I
     .end local v12           #uid:I
     :cond_6
@@ -268,7 +268,7 @@
 
     aget v12, v2, v7
 
-    .line 2027
+    .line 2272
     .restart local v12       #uid:I
     invoke-static {v12}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -276,13 +276,13 @@
 
     if-eq v13, v4, :cond_7
 
-    .line 2025
+    .line 2270
     :goto_4
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_3
 
-    .line 2029
+    .line 2274
     :cond_7
     invoke-virtual {v9, v12}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
@@ -290,35 +290,35 @@
 
     check-cast v8, Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 2030
+    .line 2275
     .restart local v8       #item:Lcom/android/settings/DataUsageSummary$AppItem;
     if-nez v8, :cond_8
 
-    .line 2031
+    .line 2276
     new-instance v8, Lcom/android/settings/DataUsageSummary$AppItem;
 
     .end local v8           #item:Lcom/android/settings/DataUsageSummary$AppItem;
     invoke-direct {v8, v12}, Lcom/android/settings/DataUsageSummary$AppItem;-><init>(I)V
 
-    .line 2032
+    .line 2277
     .restart local v8       #item:Lcom/android/settings/DataUsageSummary$AppItem;
     const-wide/16 v13, -0x1
 
     iput-wide v13, v8, Lcom/android/settings/DataUsageSummary$AppItem;->total:J
 
-    .line 2033
+    .line 2278
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 2034
+    .line 2279
     iget v13, v8, Lcom/android/settings/DataUsageSummary$AppItem;->key:I
 
     invoke-virtual {v9, v13, v8}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 2036
+    .line 2281
     :cond_8
     const/4 v13, 0x1
 
@@ -326,7 +326,7 @@
 
     goto :goto_4
 
-    .line 2039
+    .line 2284
     .end local v8           #item:Lcom/android/settings/DataUsageSummary$AppItem;
     .end local v12           #uid:I
     :cond_9
@@ -336,7 +336,7 @@
 
     invoke-static {v13}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    .line 2040
+    .line 2285
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
@@ -366,13 +366,13 @@
 
     iput-wide v13, v0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mLargest:J
 
-    .line 2041
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->notifyDataSetChanged()V
+    .line 2286
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 2042
+    .line 2287
     return-void
 
-    .line 2040
+    .line 2285
     :cond_a
     const-wide/16 v13, 0x0
 
@@ -383,7 +383,7 @@
     .locals 1
 
     .prologue
-    .line 2046
+    .line 2291
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -398,7 +398,7 @@
     .parameter "position"
 
     .prologue
-    .line 2051
+    .line 2296
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -413,7 +413,7 @@
     .parameter "position"
 
     .prologue
-    .line 2056
+    .line 2301
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -440,11 +440,11 @@
 
     const/4 v2, 0x0
 
-    .line 2061
+    .line 2306
     if-nez p2, :cond_0
 
-    .line 2062
-    invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    .line 2307
+    invoke-virtual {p3}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v5
 
@@ -452,31 +452,31 @@
 
     move-result-object v5
 
-    const v6, 0x7f04005e
+    const v6, 0x7f040063
 
     invoke-virtual {v5, v6, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
-    .line 2065
+    .line 2310
     iget v5, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mInsetSide:I
 
     if-lez v5, :cond_0
 
-    .line 2066
+    .line 2311
     iget v5, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mInsetSide:I
 
     iget v6, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mInsetSide:I
 
     invoke-virtual {p2, v5, v2, v6, v2}, Landroid/view/View;->setPaddingRelative(IIII)V
 
-    .line 2070
+    .line 2315
     :cond_0
-    invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    invoke-virtual {p3}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 2072
+    .line 2317
     .local v0, context:Landroid/content/Context;
     const v5, 0x1020014
 
@@ -486,7 +486,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    .line 2073
+    .line 2318
     .local v4, text1:Landroid/widget/TextView;
     const v5, 0x102000d
 
@@ -496,7 +496,7 @@
 
     check-cast v3, Landroid/widget/ProgressBar;
 
-    .line 2077
+    .line 2322
     .local v3, progress:Landroid/widget/ProgressBar;
     iget-object v5, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mItems:Ljava/util/ArrayList;
 
@@ -506,13 +506,13 @@
 
     check-cast v1, Lcom/android/settings/DataUsageSummary$AppItem;
 
-    .line 2078
+    .line 2323
     .local v1, item:Lcom/android/settings/DataUsageSummary$AppItem;
     iget-object v5, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mProvider:Lcom/android/settings/net/UidDetailProvider;
 
     invoke-static {v5, v1, p2}, Lcom/android/settings/DataUsageSummary$UidDetailTask;->bindView(Lcom/android/settings/net/UidDetailProvider;Lcom/android/settings/DataUsageSummary$AppItem;Landroid/view/View;)V
 
-    .line 2080
+    .line 2325
     iget-boolean v5, v1, Lcom/android/settings/DataUsageSummary$AppItem;->restricted:Z
 
     if-eqz v5, :cond_2
@@ -523,17 +523,17 @@
 
     if-gtz v5, :cond_2
 
-    .line 2081
-    const v5, 0x7f0909df
+    .line 2326
+    const v5, 0x7f090abc
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
-    .line 2082
+    .line 2327
     const/16 v5, 0x8
 
     invoke-virtual {v3, v5}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 2088
+    .line 2344
     :goto_0
     iget-wide v5, p0, Lcom/android/settings/DataUsageSummary$DataUsageAdapter;->mLargest:J
 
@@ -553,15 +553,15 @@
 
     long-to-int v2, v5
 
-    .line 2089
+    .line 2345
     .local v2, percentTotal:I
     :cond_1
     invoke-virtual {v3, v2}, Landroid/widget/ProgressBar;->setProgress(I)V
 
-    .line 2091
+    .line 2347
     return-object p2
 
-    .line 2084
+    .line 2329
     .end local v2           #percentTotal:I
     :cond_2
     iget-wide v5, v1, Lcom/android/settings/DataUsageSummary$AppItem;->total:J
@@ -572,8 +572,54 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2085
+    .line 2332
+    invoke-static {}, Lcom/android/settings/DataUsageSummary;->access$3100()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    .line 2333
+    sget v5, Lcom/android/settings/DataUsageSummary;->mSelectDisplayUnit:I
+
+    const/4 v6, 0x2
+
+    if-ne v5, v6, :cond_4
+
+    .line 2334
+    iget-wide v5, v1, Lcom/android/settings/DataUsageSummary$AppItem;->total:J
+
+    #calls: Lcom/android/settings/DataUsageSummary;->formatFileSizeGB(Landroid/content/Context;J)Ljava/lang/String;
+    invoke-static {v0, v5, v6}, Lcom/android/settings/DataUsageSummary;->access$3200(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 2341
+    :cond_3
+    :goto_1
     invoke-virtual {v3, v2}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
     goto :goto_0
+
+    .line 2335
+    :cond_4
+    sget v5, Lcom/android/settings/DataUsageSummary;->mSelectDisplayUnit:I
+
+    const/4 v6, 0x1
+
+    if-ne v5, v6, :cond_3
+
+    .line 2336
+    iget-wide v5, v1, Lcom/android/settings/DataUsageSummary$AppItem;->total:J
+
+    #calls: Lcom/android/settings/DataUsageSummary;->formatFileSizeMB(Landroid/content/Context;J)Ljava/lang/String;
+    invoke-static {v0, v5, v6}, Lcom/android/settings/DataUsageSummary;->access$3300(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
 .end method

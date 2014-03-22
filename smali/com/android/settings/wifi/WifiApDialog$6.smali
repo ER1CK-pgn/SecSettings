@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1070
+    .line 1089
     iput-object p1, p0, Lcom/android/settings/wifi/WifiApDialog$6;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "dialog"
 
     .prologue
-    .line 1072
+    .line 1091
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$6;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #getter for: Lcom/android/settings/wifi/WifiApDialog;->mHideSsid:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -54,6 +54,6 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
-    .line 1073
+    .line 1092
     return-void
 .end method

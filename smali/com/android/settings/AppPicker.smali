@@ -73,7 +73,7 @@
 
     .prologue
     .line 48
-    invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 50
     new-instance v0, Lcom/android/settings/AppPicker$AppListAdapter;
@@ -85,14 +85,14 @@
     .line 51
     iget-object v0, p0, Lcom/android/settings/AppPicker;->mAdapter:Lcom/android/settings/AppPicker$AppListAdapter;
 
-    invoke-virtual {v0}, Lcom/android/settings/AppPicker$AppListAdapter;->getCount()I
+    invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v0
 
     if-gtz v0, :cond_0
 
     .line 52
-    invoke-virtual {p0}, Lcom/android/settings/AppPicker;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 56
     :goto_0
@@ -102,7 +102,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AppPicker;->mAdapter:Lcom/android/settings/AppPicker$AppListAdapter;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AppPicker;->setListAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {p0, v0}, Landroid/app/ListActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     goto :goto_0
 .end method
@@ -118,7 +118,7 @@
     .line 70
     iget-object v2, p0, Lcom/android/settings/AppPicker;->mAdapter:Lcom/android/settings/AppPicker$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/AppPicker$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -146,10 +146,10 @@
     :cond_0
     const/4 v2, -0x1
 
-    invoke-virtual {p0, v2, v1}, Lcom/android/settings/AppPicker;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, v2, v1}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
 
     .line 74
-    invoke-virtual {p0}, Lcom/android/settings/AppPicker;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 75
     return-void
@@ -160,7 +160,7 @@
 
     .prologue
     .line 60
-    invoke-super {p0}, Landroid/app/ListActivity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 61
     return-void
@@ -171,7 +171,7 @@
 
     .prologue
     .line 65
-    invoke-super {p0}, Landroid/app/ListActivity;->onStop()V
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
     .line 66
     return-void

@@ -52,7 +52,7 @@
     .locals 1
 
     .prologue
-    .line 107
+    .line 108
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPasswordChangeEnforced:Z
@@ -64,20 +64,20 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 144
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 105
+    .line 106
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarDisableCount:I
 
-    .line 117
+    .line 118
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mBtConnect:Landroid/widget/ImageView;
 
-    .line 145
+    .line 146
     return-void
 .end method
 
@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 103
+    .line 104
     sget-boolean v0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPasswordChangeEnforced:Z
 
     return v0
@@ -95,10 +95,10 @@
     .locals 2
 
     .prologue
-    .line 124
+    .line 125
     monitor-enter p0
 
-    .line 125
+    .line 126
     :try_start_0
     iget v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarDisableCount:I
 
@@ -108,21 +108,21 @@
 
     if-nez v0, :cond_0
 
-    .line 126
+    .line 127
     iget-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     const/high16 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/app/StatusBarManager;->disable(I)V
 
-    .line 128
+    .line 129
     :cond_0
     monitor-exit p0
 
-    .line 129
+    .line 130
     return-void
 
-    .line 128
+    .line 129
     :catchall_0
     move-exception v0
 
@@ -137,28 +137,28 @@
     .locals 3
 
     .prologue
-    .line 247
+    .line 248
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 248
+    .line 249
     .local v0, intentBluetooth:Landroid/content/Intent;
     const-string v1, "android.settings.BLUETOOTH_SETTINGS"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 249
+    .line 250
     const-string v1, "SmartcardPasswordEnforced"
 
     sget-boolean v2, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPasswordChangeEnforced:Z
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 250
-    invoke-virtual {p0, v0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->startActivity(Landroid/content/Intent;)V
+    .line 251
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 252
+    .line 253
     return-void
 .end method
 
@@ -166,16 +166,16 @@
     .locals 2
 
     .prologue
-    .line 132
+    .line 133
     monitor-enter p0
 
-    .line 133
+    .line 134
     :try_start_0
     iget v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarDisableCount:I
 
     if-lez v0, :cond_0
 
-    .line 134
+    .line 135
     iget v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarDisableCount:I
 
     add-int/lit8 v0, v0, -0x1
@@ -184,21 +184,21 @@
 
     if-nez v0, :cond_0
 
-    .line 135
+    .line 136
     iget-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/StatusBarManager;->disable(I)V
 
-    .line 138
+    .line 139
     :cond_0
     monitor-exit p0
 
-    .line 139
+    .line 140
     return-void
 
-    .line 138
+    .line 139
     :catchall_0
     move-exception v0
 
@@ -218,36 +218,36 @@
     .parameter "data"
 
     .prologue
-    .line 239
+    .line 240
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 241
+    .line 242
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 8
+    .locals 9
     .parameter "v"
 
     .prologue
-    .line 255
+    .line 256
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v4
 
     packed-switch v4, :pswitch_data_0
 
-    .line 303
+    .line 305
     :goto_0
     return-void
 
-    .line 257
+    .line 258
     :pswitch_0
     invoke-direct {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->handleNext()V
 
     goto :goto_0
 
-    .line 261
+    .line 262
     :pswitch_1
     iget-object v4, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPwdPolicy:Landroid/app/enterprise/PasswordPolicy;
 
@@ -267,7 +267,7 @@
 
     if-lez v4, :cond_0
 
-    .line 263
+    .line 264
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v4
@@ -286,7 +286,7 @@
 
     add-long v2, v4, v6
 
-    .line 265
+    .line 266
     .local v2, when:J
     new-instance v0, Landroid/content/Intent;
 
@@ -294,13 +294,13 @@
 
     invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 266
+    .line 267
     .local v0, intent:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v4}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v4
 
@@ -308,11 +308,19 @@
 
     const/high16 v6, 0x1000
 
-    invoke-static {v4, v5, v0, v6}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    new-instance v7, Landroid/os/UserHandle;
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v8
+
+    invoke-direct {v7, v8}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-static {v4, v5, v0, v6, v7}, Landroid/app/PendingIntent;->getBroadcastAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/UserHandle;)Landroid/app/PendingIntent;
 
     move-result-object v1
 
-    .line 269
+    .line 271
     .local v1, sender:Landroid/app/PendingIntent;
     iget-object v4, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mAlarmManager:Landroid/app/AlarmManager;
 
@@ -320,19 +328,19 @@
 
     invoke-virtual {v4, v5, v2, v3, v1}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 271
+    .line 273
     iget-object v4, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPwdPolicy:Landroid/app/enterprise/PasswordPolicy;
 
     const/4 v5, -0x1
 
     invoke-virtual {v4, v5}, Landroid/app/enterprise/PasswordPolicy;->setPwdChangeRequested(I)Z
 
-    .line 275
+    .line 277
     .end local v0           #intent:Landroid/content/Intent;
     .end local v1           #sender:Landroid/app/PendingIntent;
     .end local v2           #when:J
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -340,7 +348,7 @@
 
     goto :goto_0
 
-    .line 296
+    .line 298
     :pswitch_2
     new-instance v0, Landroid/content/Intent;
 
@@ -348,18 +356,18 @@
 
     invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 297
+    .line 299
     .restart local v0       #intent:Landroid/content/Intent;
     const/high16 v4, 0x1080
 
     invoke-virtual {v0, v4}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 299
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 301
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v4}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v4
 
@@ -367,9 +375,11 @@
 
     goto :goto_0
 
-    .line 255
+    .line 256
+    nop
+
     :pswitch_data_0
-    .packed-switch 0x7f0b007f
+    .packed-switch 0x7f0b0088
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -381,11 +391,11 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 149
+    .line 150
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 150
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 151
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -399,8 +409,8 @@
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mStatusBarManager:Landroid/app/StatusBarManager;
 
-    .line 152
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 153
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -414,7 +424,7 @@
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 155
+    .line 156
     iget-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getPasswordPolicy()Landroid/app/enterprise/PasswordPolicy;
@@ -423,8 +433,8 @@
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPwdPolicy:Landroid/app/enterprise/PasswordPolicy;
 
-    .line 156
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 157
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -442,8 +452,8 @@
 
     sput-boolean v0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPasswordChangeEnforced:Z
 
-    .line 157
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 158
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -457,8 +467,8 @@
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mAlarmManager:Landroid/app/AlarmManager;
 
-    .line 158
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 159
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -472,10 +482,10 @@
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mTelMgr:Landroid/telephony/TelephonyManager;
 
-    .line 159
+    .line 160
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -483,7 +493,7 @@
 
     iput-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 160
+    .line 161
     const-string v0, "BluetoothPairingWithCac"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -508,7 +518,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 162
+    .line 163
     return-void
 .end method
 
@@ -519,16 +529,16 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    const v9, 0x7f0b007f
+    const v8, 0x7f0b0088
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    .line 167
+    .line 168
     const/4 v4, 0x0
 
-    .line 170
+    .line 171
     .local v4, view:Landroid/view/View;
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPwdPolicy:Landroid/app/enterprise/PasswordPolicy;
 
@@ -554,18 +564,18 @@
 
     move-result v5
 
-    if-ne v5, v8, :cond_2
+    if-ne v5, v7, :cond_2
 
-    .line 173
+    .line 174
     :cond_0
-    const v5, 0x7f04002a
+    const v5, 0x7f04002e
 
-    invoke-virtual {p1, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, v5, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v4
 
-    .line 174
-    const v5, 0x7f0b0081
+    .line 175
+    const v5, 0x7f0b008a
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -575,26 +585,13 @@
 
     iput-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mEmergencyCall:Landroid/widget/Button;
 
-    .line 175
+    .line 176
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mEmergencyCall:Landroid/widget/Button;
 
-    invoke-virtual {v5, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 176
-    iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    iget-object v6, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mEmergencyCall:Landroid/widget/Button;
-
-    iget-object v7, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mTelMgr:Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v7}, Landroid/telephony/TelephonyManager;->getCallState()I
-
-    move-result v7
-
-    invoke-virtual {v5, v6, v7, v8}, Lcom/android/internal/widget/LockPatternUtils;->updateEmergencyCallButtonState(Landroid/widget/Button;IZ)V
-
-    .line 178
-    invoke-virtual {v4, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 179
+    invoke-virtual {v4, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -602,21 +599,21 @@
 
     iput-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
 
-    .line 179
+    .line 180
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
 
-    invoke-virtual {v5, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 180
+    .line 181
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 189
+    .line 190
     :goto_0
-    const v5, 0x7f0b007e
+    const v5, 0x7f0b0087
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -626,15 +623,15 @@
 
     iput-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mBtConnect:Landroid/widget/ImageView;
 
-    .line 190
+    .line 191
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mBtConnect:Landroid/widget/ImageView;
 
-    const v6, 0x7f020063
+    const v6, 0x7f02006b
 
     invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 191
-    const v5, 0x7f0b0080
+    .line 192
+    const v5, 0x7f0b0089
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -644,19 +641,19 @@
 
     iput-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mNextButton:Landroid/widget/Button;
 
-    .line 192
+    .line 193
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mNextButton:Landroid/widget/Button;
 
-    invoke-virtual {v5, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 194
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
+    .line 195
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 196
+    .line 197
     .local v0, activity:Landroid/app/Activity;
-    const v5, 0x7f0b007d
+    const v5, 0x7f0b0086
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -666,48 +663,48 @@
 
     iput-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mHeaderText:Landroid/widget/TextView;
 
-    .line 198
+    .line 199
     instance-of v5, v0, Landroid/preference/PreferenceActivity;
 
     if-eqz v5, :cond_1
 
     move-object v2, v0
 
-    .line 199
+    .line 200
     check-cast v2, Landroid/preference/PreferenceActivity;
 
-    .line 200
-    .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
-    const v1, 0x7f090200
-
     .line 201
+    .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
+    const v1, 0x7f090225
+
+    .line 202
     .local v1, id:I
-    invoke-virtual {p0, v1}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    .line 202
+    .line 203
     .local v3, title:Ljava/lang/CharSequence;
     invoke-virtual {v2, v3, v3}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 205
+    .line 206
     .end local v1           #id:I
     .end local v2           #preferenceActivity:Landroid/preference/PreferenceActivity;
     .end local v3           #title:Ljava/lang/CharSequence;
     :cond_1
     return-object v4
 
-    .line 182
+    .line 183
     .end local v0           #activity:Landroid/app/Activity;
     :cond_2
-    const v5, 0x7f040029
+    const v5, 0x7f04002d
 
-    invoke-virtual {p1, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, v5, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v4
 
-    .line 183
-    invoke-virtual {v4, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 184
+    invoke-virtual {v4, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -715,20 +712,20 @@
 
     iput-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
 
-    .line 184
-    iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
-
-    invoke-virtual {v5, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     .line 185
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
 
-    invoke-virtual {v5, v8}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v5, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 186
     iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
 
-    invoke-virtual {v5, v8}, Landroid/widget/Button;->setClickable(Z)V
+    invoke-virtual {v5, v7}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 187
+    iget-object v5, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mCancelButton:Landroid/widget/Button;
+
+    invoke-virtual {v5, v7}, Landroid/view/View;->setClickable(Z)V
 
     goto :goto_0
 .end method
@@ -737,18 +734,18 @@
     .locals 1
 
     .prologue
-    .line 224
+    .line 225
     invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 225
+    .line 226
     sget-boolean v0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPasswordChangeEnforced:Z
 
     if-eqz v0, :cond_0
 
-    .line 226
+    .line 227
     invoke-direct {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->reenableStatusBar()V
 
-    .line 228
+    .line 229
     :cond_0
     return-void
 .end method
@@ -757,40 +754,20 @@
     .locals 1
 
     .prologue
-    .line 210
+    .line 211
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 211
-    iget-object v0, p0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isDeviceConnectedWithCACCard()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 212
-    invoke-virtual {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
-
-    .line 219
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 215
-    :cond_1
+    .line 216
     sget-boolean v0, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->mPasswordChangeEnforced:Z
 
     if-eqz v0, :cond_0
 
-    .line 216
+    .line 217
     invoke-direct {p0}, Lcom/android/settings/BluetoothPairingWithCac$BluetoothPairingWithCacFragment;->disableStatusBar()V
 
-    goto :goto_0
+    .line 220
+    :cond_0
+    return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
@@ -798,9 +775,9 @@
     .parameter "outState"
 
     .prologue
-    .line 234
+    .line 235
     invoke-super {p0, p1}, Landroid/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 235
+    .line 236
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 199
+    .line 217
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlEnabler$2;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 202
+    .line 220
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$2;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
     #getter for: Lcom/android/settings/VoiceInputControlEnabler;->mSwitch:Landroid/widget/Switch;
@@ -55,7 +55,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 203
+    .line 221
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$2;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
     #getter for: Lcom/android/settings/VoiceInputControlEnabler;->mContext:Landroid/content/Context;
@@ -71,6 +71,6 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 204
+    .line 222
     return-void
 .end method

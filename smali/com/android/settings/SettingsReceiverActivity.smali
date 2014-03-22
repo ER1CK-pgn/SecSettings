@@ -187,7 +187,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09012b
+    const v5, 0x7f09014c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
     .line 61
     iget-object v4, p0, Lcom/android/settings/SettingsReceiverActivity;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f040118
+    const v5, 0x7f040141
 
     const/4 v6, 0x0
 
@@ -238,7 +238,7 @@
     .line 62
     iget-object v4, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v5, 0x7f0b0138
+    const v5, 0x7f0b0147
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -251,7 +251,7 @@
     .line 63
     iget-object v4, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v5, 0x7f0b0318
+    const v5, 0x7f0b0358
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -301,7 +301,7 @@
     if-eqz v4, :cond_1
 
     .line 69
-    const v4, 0x7f0911ec
+    const v4, 0x7f091356
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -317,7 +317,7 @@
 
     .line 71
     :cond_1
-    const v4, 0x7f0911ed
+    const v4, 0x7f091357
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 

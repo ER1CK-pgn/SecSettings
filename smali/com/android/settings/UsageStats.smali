@@ -120,7 +120,7 @@
     :cond_0
     const-string v0, "layout_inflater"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/UsageStats;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -129,21 +129,21 @@
     iput-object v0, p0, Lcom/android/settings/UsageStats;->mInflater:Landroid/view/LayoutInflater;
 
     .line 227
-    invoke-virtual {p0}, Lcom/android/settings/UsageStats;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/UsageStats;->mPm:Landroid/content/pm/PackageManager;
 
     .line 229
-    const v0, 0x7f04018d
+    const v0, 0x7f0401cb
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/UsageStats;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 230
-    const v0, 0x7f0b041d
+    const v0, 0x7f0b0486
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/UsageStats;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -154,12 +154,12 @@
     .line 231
     iget-object v0, p0, Lcom/android/settings/UsageStats;->mTypeSpinner:Landroid/widget/Spinner;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/AdapterView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
     .line 233
-    const v0, 0x7f0b041e
+    const v0, 0x7f0b0487
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/UsageStats;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

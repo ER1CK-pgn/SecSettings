@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 96
+    .line 148
     iput-object p1, p0, Lcom/android/settings/wifi/SetupWizardWifiScreen$2;->this$0:Lcom/android/settings/wifi/SetupWizardWifiScreen;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,11 +42,16 @@
     .parameter "v"
 
     .prologue
-    .line 98
+    .line 150
     iget-object v0, p0, Lcom/android/settings/wifi/SetupWizardWifiScreen$2;->this$0:Lcom/android/settings/wifi/SetupWizardWifiScreen;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/SetupWizardWifiScreen;->onBackPressed()V
+    #getter for: Lcom/android/settings/wifi/SetupWizardWifiScreen;->mWifiSettings:Lcom/android/settings/wifi/WifiSettings;
+    invoke-static {v0}, Lcom/android/settings/wifi/SetupWizardWifiScreen;->access$200(Lcom/android/settings/wifi/SetupWizardWifiScreen;)Lcom/android/settings/wifi/WifiSettings;
 
-    .line 99
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiSettings;->onScanMenuPressed()V
+
+    .line 151
     return-void
 .end method

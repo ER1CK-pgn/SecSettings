@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/TetherSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    value = Lcom/android/settings/TetherSettings;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,22 +20,17 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/TetherSettings;
 
-.field final synthetic val$newState:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/TetherSettings;Z)V
+.method constructor <init>(Lcom/android/settings/TetherSettings;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 1351
+    .line 699
     iput-object p1, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
 
-    iput-boolean p2, p0, Lcom/android/settings/TetherSettings$13;->val$newState:Z
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,57 +38,93 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
-    .parameter "arg0"
-    .parameter "arg1"
+    .locals 6
+    .parameter "dialog"
+    .parameter "whichButton"
 
     .prologue
-    .line 1354
-    iget-object v1, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
+    const/4 v5, 0x1
 
-    invoke-virtual {v1}, Lcom/android/settings/TetherSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 701
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
 
-    move-result-object v1
+    #calls: Lcom/android/settings/TetherSettings;->saveTxPowerModeValue(I)I
+    invoke-static {v2, v5}, Lcom/android/settings/TetherSettings;->access$1100(Lcom/android/settings/TetherSettings;I)I
 
-    const-string v2, "sidesync_usb_enabled"
+    .line 702
+    iget-object v3, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
 
-    const/4 v3, 0x0
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    #getter for: Lcom/android/settings/TetherSettings;->mCustomView:Landroid/view/View;
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->access$1300(Lcom/android/settings/TetherSettings;)Landroid/view/View;
 
-    .line 1355
-    new-instance v0, Landroid/content/Intent;
+    move-result-object v2
 
-    const-string v1, "com.sec.android.sidesync.action.FINISH_SIDESYNC_APP"
+    const v4, 0x7f0b04f7
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    .line 1356
-    .local v0, intent:Landroid/content/Intent;
-    const-string v1, "FINISH_SIDESYNC_APP_REASON"
+    move-result-object v2
 
-    const-string v2, "BY_SETTINGS_TETHERING"
+    check-cast v2, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    #setter for: Lcom/android/settings/TetherSettings;->mTxPowerModeDoNotShowAgain:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v3, v2}, Lcom/android/settings/TetherSettings;->access$1202(Lcom/android/settings/TetherSettings;Lcom/sec/android/touchwiz/widget/TwCheckBox;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 1357
-    iget-object v1, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
+    .line 703
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
+
+    #getter for: Lcom/android/settings/TetherSettings;->mTxPowerModeDoNotShowAgain:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->access$1200(Lcom/android/settings/TetherSettings;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 704
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
 
     #getter for: Lcom/android/settings/TetherSettings;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/settings/TetherSettings;->access$1800(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->access$1400(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string v3, "SAMSUNG_HOTSPOT"
+
+    iget-object v4, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
+
+    #getter for: Lcom/android/settings/TetherSettings;->mContext:Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/settings/TetherSettings;->access$1400(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 705
+    .local v1, sharedPref:Landroid/content/SharedPreferences;
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    .line 1358
-    iget-object v1, p0, Lcom/android/settings/TetherSettings$13;->this$0:Lcom/android/settings/TetherSettings;
+    move-result-object v0
 
-    iget-boolean v2, p0, Lcom/android/settings/TetherSettings$13;->val$newState:Z
+    .line 706
+    .local v0, ed:Landroid/content/SharedPreferences$Editor;
+    const-string v2, "TX_POWER_MODE_DO_NOTSHOW_AGAIN"
 
-    #calls: Lcom/android/settings/TetherSettings;->setUsbTethering(Z)V
-    invoke-static {v1, v2}, Lcom/android/settings/TetherSettings;->access$1900(Lcom/android/settings/TetherSettings;Z)V
+    invoke-interface {v0, v2, v5}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1359
+    .line 707
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    .line 709
+    .end local v0           #ed:Landroid/content/SharedPreferences$Editor;
+    .end local v1           #sharedPref:Landroid/content/SharedPreferences;
+    :cond_0
     return-void
 .end method

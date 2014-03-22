@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 88
+    .line 177
     iput-object p1, p0, Lcom/android/settings/wifi/WifiReset$2;->this$0:Lcom/android/settings/wifi/WifiReset;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 90
+    .line 181
     iget-object v1, p0, Lcom/android/settings/wifi/WifiReset$2;->this$0:Lcom/android/settings/wifi/WifiReset;
 
     #getter for: Lcom/android/settings/wifi/WifiReset;->mContext:Landroid/content/Context;
@@ -54,12 +54,12 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 91
+    .line 183
     .local v0, powerManager:Landroid/os/PowerManager;
     const-string v1, "Device Reboot."
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 92
+    .line 185
     return-void
 .end method

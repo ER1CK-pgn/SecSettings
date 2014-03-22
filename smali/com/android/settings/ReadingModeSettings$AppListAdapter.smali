@@ -48,14 +48,14 @@
     .end annotation
 
     .prologue
-    .line 333
+    .line 338
     .local p5, objects:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ActivityInfo;>;"
     iput-object p1, p0, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->this$0:Lcom/android/settings/ReadingModeSettings;
 
-    .line 334
+    .line 339
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;IILjava/util/List;)V
 
-    .line 336
+    .line 341
     return-void
 .end method
 
@@ -68,10 +68,10 @@
     .parameter "parent"
 
     .prologue
-    .line 339
+    .line 344
     iget-object v5, p0, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->this$0:Lcom/android/settings/ReadingModeSettings;
 
-    invoke-virtual {v5}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v5}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -83,9 +83,9 @@
 
     check-cast v3, Landroid/view/LayoutInflater;
 
-    .line 340
+    .line 345
     .local v3, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f040146
+    const v5, 0x7f04017b
 
     const/4 v6, 0x0
 
@@ -93,8 +93,8 @@
 
     move-result-object p2
 
-    .line 342
-    const v5, 0x7f0b0050
+    .line 347
+    const v5, 0x7f0b0059
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -102,9 +102,9 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 343
+    .line 348
     .local v2, appName:Landroid/widget/TextView;
-    const v5, 0x7f0b004f
+    const v5, 0x7f0b0058
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -112,9 +112,9 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    .line 344
+    .line 349
     .local v1, appIcon:Landroid/widget/ImageView;
-    const v5, 0x7f0b036e
+    const v5, 0x7f0b03b8
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -122,9 +122,9 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 346
+    .line 351
     .local v0, appCheck:Landroid/widget/CheckBox;
-    invoke-virtual {p0, p1}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -137,18 +137,18 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v6}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v5
 
     if-eqz v5, :cond_0
 
-    .line 347
+    .line 352
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -166,13 +166,13 @@
 
     move-result-object v6
 
-    invoke-virtual {p0, p1}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -188,7 +188,7 @@
 
     move-result-object v4
 
-    .line 348
+    .line 353
     .local v4, s:Ljava/lang/String;
     const-string v5, "ReadingModeSettings"
 
@@ -212,7 +212,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 349
+    .line 354
     const-string v5, "ReadingModeSettings"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -246,8 +246,8 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 350
-    invoke-virtual {p0, p1}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    .line 355
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -260,13 +260,13 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v6}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v5
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 351
+    .line 356
     iget-object v5, p0, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->this$0:Lcom/android/settings/ReadingModeSettings;
 
     #getter for: Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
@@ -284,12 +284,12 @@
 
     move-result v5
 
-    invoke-virtual {v0, v5}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {v0, v5}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
-    .line 354
+    .line 359
     .end local v4           #s:Ljava/lang/String;
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -302,14 +302,14 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
     if-eqz v5, :cond_1
 
-    .line 355
-    invoke-virtual {p0, p1}, Lcom/android/settings/ReadingModeSettings$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    .line 360
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -322,13 +322,13 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 357
+    .line 362
     :cond_1
     return-object p2
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 241
+    .line 245
     iput-object p1, p0, Lcom/android/settings/applications/ManageApplications$TabInfo$1;->this$0:Lcom/android/settings/applications/ManageApplications$TabInfo;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 247
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$TabInfo$1;->this$0:Lcom/android/settings/applications/ManageApplications$TabInfo;
 
     invoke-virtual {v0}, Lcom/android/settings/applications/ManageApplications$TabInfo;->handleRunningProcessesAvail()V
 
-    .line 244
+    .line 248
     return-void
 .end method

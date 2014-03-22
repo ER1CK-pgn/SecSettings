@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 397
+    .line 424
     iput-object p1, p0, Lcom/android/settings/nfc/SBeamEnabler$1;->this$0:Lcom/android/settings/nfc/SBeamEnabler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 400
+    .line 427
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 401
+    .line 428
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.nfc.action.ADAPTER_STATE_CHANGED"
 
@@ -57,7 +57,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 402
+    .line 429
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler$1;->this$0:Lcom/android/settings/nfc/SBeamEnabler;
 
     const-string v2, "android.nfc.extra.ADAPTER_STATE"
@@ -68,12 +68,12 @@
 
     invoke-virtual {v1, v2, p2}, Lcom/android/settings/nfc/SBeamEnabler;->changedNfcState(ILandroid/content/Intent;)V
 
-    .line 413
+    .line 438
     :cond_0
     :goto_0
     return-void
 
-    .line 405
+    .line 430
     :cond_1
     const-string v1, "com.android.settings.action.SBEAM_STATE_UPDATED"
 
@@ -91,7 +91,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 406
+    .line 431
     :cond_2
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler$1;->this$0:Lcom/android/settings/nfc/SBeamEnabler;
 
@@ -100,7 +100,7 @@
 
     goto :goto_0
 
-    .line 407
+    .line 432
     :cond_3
     const-string v1, "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
 
@@ -110,21 +110,21 @@
 
     if-eqz v1, :cond_0
 
-    .line 408
+    .line 433
     invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->isAllowWifiByDevicePolicy(Landroid/content/Context;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 409
+    .line 434
     const-string v1, "[SBeam]"
 
     const-string v2, "SBeamStateReceiver : apply eas policy"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 410
+    .line 435
     const/4 v1, 0x0
 
     invoke-static {p1, v1, v3}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V

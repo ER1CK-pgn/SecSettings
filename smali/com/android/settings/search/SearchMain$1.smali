@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 76
+    .line 81
     iput-object p1, p0, Lcom/android/settings/search/SearchMain$1;->this$0:Lcom/android/settings/search/SearchMain;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 79
+    .line 84
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 80
+    .line 85
     .local v0, action:Ljava/lang/String;
     const-string v3, "android.settings.SETTING_SEARCH_DB_UPDATE"
 
@@ -55,19 +55,19 @@
 
     if-eqz v3, :cond_0
 
-    .line 81
+    .line 86
     const-string v3, "SearchMain"
 
     const-string v4, "android.settings.SETTING_SEARCH_DB_UPDATE is received"
 
     invoke-static {v3, v4}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 82
+    .line 87
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 83
+    .line 88
     .local v1, extra:Landroid/os/Bundle;
     const-string v3, "lock"
 
@@ -79,7 +79,7 @@
 
     move-result-object v2
 
-    .line 84
+    .line 89
     .local v2, setValue:Ljava/lang/Boolean;
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -87,13 +87,13 @@
 
     invoke-static {v3}, Lcom/android/settings/search/SearchMain;->access$502(Z)Z
 
-    .line 85
+    .line 90
     iget-object v3, p0, Lcom/android/settings/search/SearchMain$1;->this$0:Lcom/android/settings/search/SearchMain;
 
     #calls: Lcom/android/settings/search/SearchMain;->displayProgressDialog()V
     invoke-static {v3}, Lcom/android/settings/search/SearchMain;->access$600(Lcom/android/settings/search/SearchMain;)V
 
-    .line 87
+    .line 92
     .end local v1           #extra:Landroid/os/Bundle;
     .end local v2           #setValue:Ljava/lang/Boolean;
     :cond_0

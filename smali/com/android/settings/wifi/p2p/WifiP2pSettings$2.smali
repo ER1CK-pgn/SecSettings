@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 580
+    .line 605
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 584
+    .line 609
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mScanClicked:Z
@@ -54,21 +54,21 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 585
+    .line 610
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
     invoke-static {v0, v2, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$900(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
 
-    .line 586
+    .line 611
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
 
     move-result v0
 
@@ -109,41 +109,41 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/ProgressCategory;->getPreferenceCount()I
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 590
+    .line 615
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mNoDevicePref:Landroid/preference/PreferenceGroup;
-    invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3700(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
+    invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3800(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
 
     move-result-object v0
 
-    const v1, 0x7f0401db
+    const v1, 0x7f040217
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->setLayoutResource(I)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    .line 591
+    .line 616
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$2;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mNoDevicePref:Landroid/preference/PreferenceGroup;
-    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3700(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
+    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3800(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Landroid/preference/PreferenceGroup;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 595
+    .line 620
     :cond_1
     return-void
 .end method
@@ -153,6 +153,6 @@
     .parameter "millisUntilFinished"
 
     .prologue
-    .line 582
+    .line 607
     return-void
 .end method

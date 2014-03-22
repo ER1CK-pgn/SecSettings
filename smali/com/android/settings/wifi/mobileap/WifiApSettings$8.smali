@@ -3,7 +3,7 @@
 .source "WifiApSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -27,53 +27,52 @@
     .parameter
 
     .prologue
-    .line 692
+    .line 805
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$8;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onClick(Landroid/view/View;)V
     .locals 2
-    .parameter "dialog"
-    .parameter "whichButton"
+    .parameter "v"
 
     .prologue
-    .line 694
+    .line 807
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$8;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
     const/4 v1, 0x7
 
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApSettings;->removeDialog(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$1000(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->removeDialog(I)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$800(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
 
-    .line 695
+    .line 808
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$8;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
     const/4 v1, 0x0
 
     #setter for: Lcom/android/settings/wifi/mobileap/WifiApSettings;->mContinueOpen:Z
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$502(Lcom/android/settings/wifi/mobileap/WifiApSettings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$902(Lcom/android/settings/wifi/mobileap/WifiApSettings;Z)Z
 
-    .line 696
+    .line 809
     const-string v0, "WifiApSettings"
 
-    const-string v1, "selects Cancel"
+    const-string v1, "selects ChangeSecurity"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 697
+    .line 810
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$8;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
     const/4 v1, 0x1
 
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApSettings;->showDialog(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$1100(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
+    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$1000(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
 
-    .line 698
+    .line 811
     return-void
 .end method

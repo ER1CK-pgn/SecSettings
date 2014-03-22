@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 115
+    .line 127
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$2;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 117
+    .line 129
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$2;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     new-instance v1, Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;
@@ -56,7 +56,7 @@
     #setter for: Lcom/android/settings/NotificationPanelMenu;->mShadowBuilder:Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;
     invoke-static {v0, v1}, Lcom/android/settings/NotificationPanelMenu;->access$102(Lcom/android/settings/NotificationPanelMenu;Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;)Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;
 
-    .line 118
+    .line 130
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$2;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mShadowBuilder:Lcom/android/settings/NotificationPanelMenu$PanelDragShadowBuilder;
@@ -68,13 +68,13 @@
 
     invoke-virtual {p1, v3, v0, v3, v1}, Landroid/view/View;->startDrag(Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
 
-    .line 119
+    .line 131
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$2;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #setter for: Lcom/android/settings/NotificationPanelMenu;->mLongClickedView:Landroid/view/View;
     invoke-static {v0, p1}, Lcom/android/settings/NotificationPanelMenu;->access$202(Lcom/android/settings/NotificationPanelMenu;Landroid/view/View;)Landroid/view/View;
 
-    .line 120
+    .line 132
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$2;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mLongClickedView:Landroid/view/View;
@@ -86,7 +86,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    .line 121
+    .line 133
     const/4 v0, 0x1
 
     return v0

@@ -9,7 +9,7 @@
 
     .prologue
     .line 28
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -27,6 +27,22 @@
     invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     .line 44
+    return-void
+.end method
+
+.method public static addChild(Ljava/lang/Object;Landroid/view/View;)V
+    .locals 0
+    .parameter "info"
+    .parameter "child"
+
+    .prologue
+    .line 47
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->addChild(Landroid/view/View;)V
+
+    .line 48
     return-void
 .end method
 
@@ -302,6 +318,69 @@
     return v0
 .end method
 
+.method public static obtain(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .parameter "info"
+
+    .prologue
+    .line 39
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-static {p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->obtain(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static recycle(Ljava/lang/Object;)V
+    .locals 0
+    .parameter "info"
+
+    .prologue
+    .line 217
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
+
+    .line 218
+    return-void
+.end method
+
+.method public static setBoundsInParent(Ljava/lang/Object;Landroid/graphics/Rect;)V
+    .locals 0
+    .parameter "info"
+    .parameter "bounds"
+
+    .prologue
+    .line 145
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInParent(Landroid/graphics/Rect;)V
+
+    .line 146
+    return-void
+.end method
+
+.method public static setBoundsInScreen(Ljava/lang/Object;Landroid/graphics/Rect;)V
+    .locals 0
+    .parameter "info"
+    .parameter "bounds"
+
+    .prologue
+    .line 149
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInScreen(Landroid/graphics/Rect;)V
+
+    .line 150
+    return-void
+.end method
+
 .method public static setClassName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
     .locals 0
     .parameter "info"
@@ -318,6 +397,134 @@
     return-void
 .end method
 
+.method public static setClickable(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "clickable"
+
+    .prologue
+    .line 165
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClickable(Z)V
+
+    .line 166
+    return-void
+.end method
+
+.method public static setContentDescription(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+    .locals 0
+    .parameter "info"
+    .parameter "contentDescription"
+
+    .prologue
+    .line 169
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    .line 170
+    return-void
+.end method
+
+.method public static setEnabled(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "enabled"
+
+    .prologue
+    .line 173
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setEnabled(Z)V
+
+    .line 174
+    return-void
+.end method
+
+.method public static setFocusable(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "focusable"
+
+    .prologue
+    .line 177
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setFocusable(Z)V
+
+    .line 178
+    return-void
+.end method
+
+.method public static setFocused(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "focused"
+
+    .prologue
+    .line 181
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setFocused(Z)V
+
+    .line 182
+    return-void
+.end method
+
+.method public static setLongClickable(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "longClickable"
+
+    .prologue
+    .line 185
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setLongClickable(Z)V
+
+    .line 186
+    return-void
+.end method
+
+.method public static setPackageName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+    .locals 0
+    .parameter "info"
+    .parameter "packageName"
+
+    .prologue
+    .line 189
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setPackageName(Ljava/lang/CharSequence;)V
+
+    .line 190
+    return-void
+.end method
+
+.method public static setParent(Ljava/lang/Object;Landroid/view/View;)V
+    .locals 0
+    .parameter "info"
+    .parameter "parent"
+
+    .prologue
+    .line 193
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setParent(Landroid/view/View;)V
+
+    .line 194
+    return-void
+.end method
+
 .method public static setScrollable(Ljava/lang/Object;Z)V
     .locals 0
     .parameter "info"
@@ -331,5 +538,37 @@
     invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setScrollable(Z)V
 
     .line 202
+    return-void
+.end method
+
+.method public static setSelected(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "selected"
+
+    .prologue
+    .line 205
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setSelected(Z)V
+
+    .line 206
+    return-void
+.end method
+
+.method public static setSource(Ljava/lang/Object;Landroid/view/View;)V
+    .locals 0
+    .parameter "info"
+    .parameter "source"
+
+    .prologue
+    .line 209
+    check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    .end local p0
+    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->setSource(Landroid/view/View;)V
+
+    .line 210
     return-void
 .end method

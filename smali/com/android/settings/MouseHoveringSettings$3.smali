@@ -30,7 +30,7 @@
     .line 317
     iput-object p1, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .line 319
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/MouseHoveringSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -67,7 +67,7 @@
     .line 321
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/MouseHoveringSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -78,7 +78,7 @@
     .line 322
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/MouseHoveringSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -103,7 +103,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 328
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -113,7 +113,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 329
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 332
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -133,7 +133,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 333
     iget-object v0, p0, Lcom/android/settings/MouseHoveringSettings$3;->this$0:Lcom/android/settings/MouseHoveringSettings;
@@ -143,7 +143,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 334
     return-void

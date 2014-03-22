@@ -9,7 +9,7 @@
 
     .prologue
     .line 7
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -25,7 +25,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0062
+    const v3, 0x7f0a006c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

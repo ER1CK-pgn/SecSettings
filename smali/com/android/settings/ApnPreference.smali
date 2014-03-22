@@ -237,9 +237,9 @@
 
     .prologue
     .line 139
-    const v0, 0x7f040013
+    const v0, 0x7f040015
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 140
     return-void
@@ -286,10 +286,10 @@
     if-eqz v5, :cond_3
 
     .line 114
-    invoke-virtual {v1, p0}, Landroid/widget/RadioButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 116
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v5
 
@@ -307,7 +307,7 @@
     sput-object v1, Lcom/android/settings/ApnPreference;->mCurrentChecked:Landroid/widget/CompoundButton;
 
     .line 119
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v5
 
@@ -320,7 +320,7 @@
     iput-boolean v5, p0, Lcom/android/settings/ApnPreference;->mProtectFromCheckedChange:Z
 
     .line 123
-    invoke-virtual {v1, v0}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 124
     const/4 v5, 0x0
@@ -363,7 +363,7 @@
     :cond_3
     const/16 v5, 0x8
 
-    invoke-virtual {v1, v5}, Landroid/widget/RadioButton;->setVisibility(I)V
+    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -389,7 +389,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v2
 
@@ -443,7 +443,7 @@
     sput-object p1, Lcom/android/settings/ApnPreference;->mCurrentChecked:Landroid/widget/CompoundButton;
 
     .line 161
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
@@ -452,7 +452,7 @@
     .line 162
     sget-object v0, Lcom/android/settings/ApnPreference;->mSelectedKey:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnPreference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -483,7 +483,7 @@
     if-ne v4, v5, :cond_1
 
     .line 171
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -492,7 +492,7 @@
     if-eqz v0, :cond_1
 
     .line 181
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v4
 
@@ -569,7 +569,7 @@
 
     .prologue
     .line 147
-    invoke-virtual {p0}, Lcom/android/settings/ApnPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 

@@ -34,7 +34,7 @@
     const/4 v1, 0x0
 
     .line 67
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
     iput-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mSwitch:Landroid/preference/SwitchPreference;
@@ -149,25 +149,25 @@
     .parameter "isEnable"
 
     .prologue
-    .line 247
+    .line 248
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_VIEW_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 248
+    .line 249
     .local v0, air_view_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 249
+    .line 250
     iget-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 250
+    .line 251
     return-void
 .end method
 
@@ -177,34 +177,34 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 253
+    .line 254
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 254
+    .line 255
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 255
+    .line 256
     iput-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    .line 257
+    .line 258
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
-    .line 258
+    .line 259
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 259
+    .line 260
     iput-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 261
+    .line 262
     :cond_1
     return-void
 .end method
@@ -223,7 +223,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e96
+    const v3, 0x7f090fcf
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -241,7 +241,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e97
+    const v3, 0x7f090fd0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f09081b
+    const v3, 0x7f090899
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -287,7 +287,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090cb8
+    const v3, 0x7f090dd2
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
     .line 178
     iget-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     .line 179
     iget-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
@@ -335,7 +335,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/AirViewPreferenceEnabler$4;-><init>(Lcom/android/settings/AirViewPreferenceEnabler;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 186
     return-void
@@ -357,7 +357,7 @@
 
     iget-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090e67
+    const v2, 0x7f090fa0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -369,13 +369,19 @@
 
     iget-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090e39
+    const v2, 0x7f090f72
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -405,21 +411,21 @@
 
     iput-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    .line 236
+    .line 237
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 237
+    .line 238
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
     new-instance v1, Lcom/android/settings/AirViewPreferenceEnabler$8;
 
     invoke-direct {v1, p0}, Lcom/android/settings/AirViewPreferenceEnabler$8;-><init>(Lcom/android/settings/AirViewPreferenceEnabler;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 244
+    .line 245
     return-void
 .end method
 
@@ -437,13 +443,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e2a
+    const v1, 0x7f090f63
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -474,7 +480,7 @@
     .line 214
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 216
     return-void
@@ -639,7 +645,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 89
     return-void
@@ -676,7 +682,7 @@
     .line 80
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mSwitch:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 81
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mContext:Landroid/content/Context;
@@ -728,7 +734,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, v4}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 138
     iget-object v3, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mSwitch:Landroid/preference/SwitchPreference;
@@ -736,12 +742,12 @@
     if-ne v0, v1, :cond_0
 
     :goto_0
-    invoke-virtual {v3, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v3, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 139
     iget-object v1, p0, Lcom/android/settings/AirViewPreferenceEnabler;->mSwitch:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v1, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 140
     return-void

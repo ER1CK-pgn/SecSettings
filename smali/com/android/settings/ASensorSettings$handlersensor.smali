@@ -30,7 +30,7 @@
     .line 205
     iput-object p1, p0, Lcom/android/settings/ASensorSettings$handlersensor;->this$0:Lcom/android/settings/ASensorSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -223,7 +223,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/settings/ASensorSettings$ASensorSettingsView;->invalidate()V
+    invoke-virtual {v2}, Landroid/view/View;->invalidate()V
 
     goto :goto_2
 .end method

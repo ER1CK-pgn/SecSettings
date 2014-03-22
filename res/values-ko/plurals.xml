@@ -36,4 +36,12 @@
         <item quantity="other">%d초</item>
         <item quantity="one">1초</item>
     </plurals>
+    <plurals name="torchlight_timeout_minutes">
+        <item quantity="other">%d분</item>
+        <item quantity="one">1분</item>
+    </plurals>
+    <plurals name="torchlight_timeout_seconds">
+        <item quantity="other">%d초</item>
+        <item quantity="one">1초</item>
+    </plurals>
 </resources>

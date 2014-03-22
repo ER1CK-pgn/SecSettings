@@ -30,7 +30,7 @@
     .line 65
     invoke-direct {p0}, Landroid/app/ListFragment;-><init>()V
 
-    .line 373
+    .line 375
     return-void
 .end method
 
@@ -188,7 +188,7 @@
 
     .prologue
     .line 101
-    const v0, 0x7f0401e6
+    const v0, 0x7f040224
 
     invoke-static {p0, p1, v0}, Lcom/android/settings/ZonePicker;->constructTimezoneAdapter(Landroid/content/Context;ZI)Landroid/widget/SimpleAdapter;
 
@@ -291,11 +291,11 @@
 
     .line 328
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -463,7 +463,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0700a9
+    const v9, 0x7f0700ce
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -516,7 +516,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0700a8
+    const v9, 0x7f0700cd
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -673,7 +673,7 @@
     .line 235
     .local v0, adapter:Landroid/widget/SimpleAdapter;
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/settings/ZonePicker;->setListAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {p0, v0}, Landroid/app/ListFragment;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 236
     iput-boolean p1, p0, Lcom/android/settings/ZonePicker;->mSortedByTimezone:Z
@@ -689,7 +689,7 @@
 
     .line 239
     .local v1, defaultIndex:I
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
 
@@ -702,11 +702,11 @@
     if-eqz v3, :cond_0
 
     .line 240
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -735,7 +735,7 @@
     if-ltz v1, :cond_1
 
     .line 246
-    invoke-virtual {p0, v1}, Lcom/android/settings/ZonePicker;->setSelection(I)V
+    invoke-virtual {p0, v1}, Landroid/app/ListFragment;->setSelection(I)V
 
     .line 248
     :cond_1
@@ -760,10 +760,10 @@
     const/4 v2, 0x1
 
     .line 165
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 167
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -788,7 +788,7 @@
     invoke-direct {p0, v2}, Lcom/android/settings/ZonePicker;->setSorting(Z)V
 
     .line 173
-    invoke-virtual {p0, v2}, Lcom/android/settings/ZonePicker;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 174
     return-void
@@ -805,31 +805,31 @@
     .line 193
     const/4 v0, 0x1
 
-    const v1, 0x7f090197
+    const v1, 0x7f0901ba
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020195
+    const v1, 0x7f0201e0
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 195
     const/4 v0, 0x2
 
-    const v1, 0x7f090198
+    const v1, 0x7f0901bb
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020186
+    const v1, 0x7f0201ce
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     .line 197
-    invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
+    invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
     .line 198
     return-void
@@ -859,7 +859,7 @@
 
     .line 182
     .local v0, list:Landroid/widget/ListView;
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v2
 
@@ -872,7 +872,7 @@
     if-eqz v2, :cond_0
 
     .line 183
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -885,7 +885,7 @@
     invoke-virtual {v2, v3}, Landroid/view/Window;->addFlags(I)V
 
     .line 184
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -895,7 +895,7 @@
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v2, v3}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 187
     :cond_0
@@ -915,14 +915,26 @@
     .parameter "id"
 
     .prologue
-    .line 337
-    invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
+    .line 338
+    invoke-virtual {p0}, Landroid/app/Fragment;->isResumed()Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    .line 373
+    :goto_0
+    return-void
+
+    .line 339
+    :cond_0
+    invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/util/Map;
 
-    .line 338
+    .line 340
     .local v4, map:Ljava/util/Map;,"Ljava/util/Map<**>;"
     const-string v7, "id"
 
@@ -932,13 +944,13 @@
 
     check-cast v6, Ljava/lang/String;
 
-    .line 341
+    .line 343
     .local v6, tzId:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 342
+    .line 344
     .local v0, activity:Landroid/app/Activity;
     const-string v7, "alarm"
 
@@ -948,13 +960,13 @@
 
     check-cast v1, Landroid/app/AlarmManager;
 
-    .line 345
+    .line 347
     .local v1, alarm:Landroid/app/AlarmManager;
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v2
 
-    .line 347
+    .line 349
     .local v2, arguments:Landroid/os/Bundle;
     const-string v7, "ishomecity"
 
@@ -962,16 +974,16 @@
 
     move-result v3
 
-    .line 349
+    .line 351
     .local v3, ishomecity:Z
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
-    .line 350
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    .line 352
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -979,27 +991,8 @@
 
     invoke-static {v7, v8, v6}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 353
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/app/Activity;->onBackPressed()V
-
-    .line 371
-    :goto_0
-    return-void
-
-    .line 359
-    :cond_0
-    invoke-direct {p0}, Lcom/android/settings/ZonePicker;->getAutoState()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    .line 360
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    .line 355
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
@@ -1007,31 +1000,48 @@
 
     goto :goto_0
 
-    .line 364
+    .line 361
     :cond_1
+    invoke-direct {p0}, Lcom/android/settings/ZonePicker;->getAutoState()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    .line 362
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/app/Activity;->onBackPressed()V
+
+    goto :goto_0
+
+    .line 366
+    :cond_2
     invoke-virtual {v1, v6}, Landroid/app/AlarmManager;->setTimeZone(Ljava/lang/String;)V
 
-    .line 365
+    .line 367
     invoke-static {v6}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v5
 
-    .line 366
+    .line 368
     .local v5, tz:Ljava/util/TimeZone;
     iget-object v7, p0, Lcom/android/settings/ZonePicker;->mListener:Lcom/android/settings/ZonePicker$ZoneSelectionListener;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
-    .line 367
+    .line 369
     iget-object v7, p0, Lcom/android/settings/ZonePicker;->mListener:Lcom/android/settings/ZonePicker$ZoneSelectionListener;
 
     invoke-interface {v7, v5}, Lcom/android/settings/ZonePicker$ZoneSelectionListener;->onZoneSelected(Ljava/util/TimeZone;)V
 
     goto :goto_0
 
-    .line 369
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/ZonePicker;->getActivity()Landroid/app/Activity;
+    .line 371
+    :cond_3
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 

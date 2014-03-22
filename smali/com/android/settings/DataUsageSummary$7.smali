@@ -3,7 +3,7 @@
 .source "DataUsageSummary.java"
 
 # interfaces
-.implements Landroid/widget/TabHost$OnTabChangeListener;
+.implements Landroid/widget/TabHost$TabContentFactory;
 
 
 # annotations
@@ -27,27 +27,36 @@
     .parameter
 
     .prologue
-    .line 975
+    .line 1063
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$7;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onTabChanged(Ljava/lang/String;)V
-    .locals 1
-    .parameter "tabId"
+.method public createTabContent(Ljava/lang/String;)Landroid/view/View;
+    .locals 2
+    .parameter "tag"
 
     .prologue
-    .line 979
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$7;->this$0:Lcom/android/settings/DataUsageSummary;
+    .line 1066
+    new-instance v0, Landroid/view/View;
 
-    #calls: Lcom/android/settings/DataUsageSummary;->updateBody()V
-    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$400(Lcom/android/settings/DataUsageSummary;)V
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$7;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    .line 980
-    return-void
+    #getter for: Lcom/android/settings/DataUsageSummary;->mTabHost:Landroid/widget/TabHost;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$500(Lcom/android/settings/DataUsageSummary;)Landroid/widget/TabHost;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    return-object v0
 .end method

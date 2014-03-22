@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 80
+    .line 85
     iput-object p1, p0, Lcom/android/settings/deviceinfo/UsbSettings$2;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "which"
 
     .prologue
-    .line 83
+    .line 88
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 318
+    .line 330
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$7;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "arg1"
 
     .prologue
-    .line 321
+    .line 333
     return-void
 .end method

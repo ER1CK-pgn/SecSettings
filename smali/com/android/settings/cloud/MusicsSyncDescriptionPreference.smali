@@ -37,7 +37,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 24
-    const v3, 0x7f0b03fb
+    const v3, 0x7f0b0464
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,11 +53,11 @@
     if-eqz v3, :cond_0
 
     .line 26
-    invoke-virtual {p0}, Lcom/android/settings/cloud/MusicsSyncDescriptionPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    const v4, 0x7f0912b0
+    const v4, 0x7f09141c
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -65,11 +65,11 @@
 
     .line 27
     .local v2, vendorName:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/cloud/MusicsSyncDescriptionPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    const v4, 0x7f0912de
+    const v4, 0x7f09144a
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -77,11 +77,11 @@
 
     .line 28
     .local v0, musicPlayerAppName:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/cloud/MusicsSyncDescriptionPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    const v4, 0x7f0912c3
+    const v4, 0x7f09142f
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

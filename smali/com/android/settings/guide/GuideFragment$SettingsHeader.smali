@@ -50,7 +50,7 @@
 
     const/4 v2, 0x0
 
-    .line 101
+    .line 105
     new-instance v0, Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
     const-string v1, "NONE"
@@ -63,12 +63,12 @@
 
     sput-object v0, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->NONE:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    .line 103
+    .line 107
     new-instance v3, Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
     const-string v4, "WIFI"
 
-    const-wide/32 v6, 0x7f0b0579
+    const-wide/32 v6, 0x7f0b05e0
 
     sget-object v8, Lcom/android/settings/guide/GuideFragment$GuideModes;->WIFI_SETTINGS:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
@@ -78,12 +78,12 @@
 
     sput-object v3, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->WIFI:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    .line 105
+    .line 109
     new-instance v3, Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
     const-string v4, "BLUETOOTH"
 
-    const-wide/32 v6, 0x7f0b057b
+    const-wide/32 v6, 0x7f0b05e2
 
     sget-object v8, Lcom/android/settings/guide/GuideFragment$GuideModes;->BLUETOOTH_SETTING:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
@@ -93,7 +93,7 @@
 
     sput-object v3, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->BLUETOOTH:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    .line 99
+    .line 103
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/settings/guide/GuideFragment$SettingsHeader;
@@ -130,16 +130,16 @@
     .end annotation
 
     .prologue
-    .line 118
+    .line 122
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 119
+    .line 123
     iput-wide p3, p0, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->mHeaderId:J
 
-    .line 120
+    .line 124
     iput-object p5, p0, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->mGuideMode:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 121
+    .line 125
     return-void
 .end method
 
@@ -148,10 +148,10 @@
     .parameter "id"
 
     .prologue
-    .line 132
+    .line 136
     sget-object v4, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->NONE:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    .line 134
+    .line 138
     .local v4, retval:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
     invoke-static {}, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->values()[Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
@@ -169,7 +169,7 @@
 
     aget-object v2, v0, v1
 
-    .line 135
+    .line 139
     .local v2, item:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
     iget-wide v5, v2, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->mHeaderId:J
 
@@ -177,15 +177,15 @@
 
     if-nez v5, :cond_1
 
-    .line 136
+    .line 140
     move-object v4, v2
 
-    .line 141
+    .line 145
     .end local v2           #item:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
     :cond_0
     return-object v4
 
-    .line 134
+    .line 138
     .restart local v2       #item:Lcom/android/settings/guide/GuideFragment$SettingsHeader;
     :cond_1
     add-int/lit8 v1, v1, 0x1
@@ -198,7 +198,7 @@
     .parameter
 
     .prologue
-    .line 99
+    .line 103
     const-class v0, Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -214,10 +214,10 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 103
     sget-object v0, Lcom/android/settings/guide/GuideFragment$SettingsHeader;->$VALUES:[Lcom/android/settings/guide/GuideFragment$SettingsHeader;
 
-    invoke-virtual {v0}, [Lcom/android/settings/guide/GuideFragment$SettingsHeader;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

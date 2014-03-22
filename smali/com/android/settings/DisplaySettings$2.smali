@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 280
+    .line 318
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$2;->this$0:Lcom/android/settings/DisplaySettings;
 
     invoke-direct {p0}, Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;-><init>()V
@@ -38,12 +38,12 @@
     .locals 1
 
     .prologue
-    .line 283
+    .line 321
     iget-object v0, p0, Lcom/android/settings/DisplaySettings$2;->this$0:Lcom/android/settings/DisplaySettings;
 
     #calls: Lcom/android/settings/DisplaySettings;->updateAccelerometerRotationCheckbox()V
     invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$100(Lcom/android/settings/DisplaySettings;)V
 
-    .line 284
+    .line 322
     return-void
 .end method

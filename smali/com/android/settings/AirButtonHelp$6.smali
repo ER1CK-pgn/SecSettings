@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 281
+    .line 292
     iput-object p1, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,29 +42,29 @@
     .parameter "v"
 
     .prologue
-    const v10, 0x7f090e2d
+    const v10, 0x7f090f66
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    .line 284
+    .line 295
     iget-object v6, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-virtual {v6}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v6}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
     if-eqz v6, :cond_0
 
-    .line 285
+    .line 296
     iget-object v6, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-virtual {v6}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v6}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -78,16 +78,16 @@
 
     move v3, v4
 
-    .line 286
+    .line 297
     .local v3, isAirViewEnabled:Z
     :goto_0
     iget-object v6, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-virtual {v6}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v6}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -101,35 +101,35 @@
 
     move v2, v4
 
-    .line 288
+    .line 299
     .local v2, isAirButtonEnabled:Z
     :goto_1
     if-nez v2, :cond_3
 
-    .line 289
+    .line 300
     iget-object v6, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    const v7, 0x7f090e57
+    const v7, 0x7f090f90
 
     new-array v8, v4, [Ljava/lang/Object;
 
     iget-object v9, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-virtual {v9, v10}, Lcom/android/settings/AirButtonHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {v9, v10}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
     aput-object v9, v8, v5
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/settings/AirButtonHelp;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v7, v8}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 290
+    .line 301
     .local v1, dialogTitle:Ljava/lang/String;
     iget-object v6, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    const v7, 0x7f090e58
+    const v7, 0x7f090f91
 
     const/4 v8, 0x2
 
@@ -137,7 +137,7 @@
 
     iget-object v9, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-virtual {v9, v10}, Lcom/android/settings/AirButtonHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {v9, v10}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v9
 
@@ -145,25 +145,25 @@
 
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    const v9, 0x7f090e4c
+    const v9, 0x7f090f85
 
-    invoke-virtual {v5, v9}, Lcom/android/settings/AirButtonHelp;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v9}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     aput-object v5, v8, v4
 
-    invoke-virtual {v6, v7, v8}, Lcom/android/settings/AirButtonHelp;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v7, v8}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 292
+    .line 303
     .local v0, dialogSummary:Ljava/lang/String;
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;
 
-    invoke-virtual {v5}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v5}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -177,7 +177,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0914c0
+    const v5, 0x7f091616
 
     new-instance v6, Lcom/android/settings/AirButtonHelp$6$2;
 
@@ -187,7 +187,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090173
+    const v5, 0x7f090195
 
     new-instance v6, Lcom/android/settings/AirButtonHelp$6$1;
 
@@ -199,7 +199,7 @@
 
     invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 312
+    .line 323
     .end local v0           #dialogSummary:Ljava/lang/String;
     .end local v1           #dialogTitle:Ljava/lang/String;
     .end local v2           #isAirButtonEnabled:Z
@@ -211,17 +211,17 @@
     :cond_1
     move v3, v5
 
-    .line 285
+    .line 296
     goto :goto_0
 
     .restart local v3       #isAirViewEnabled:Z
     :cond_2
     move v2, v5
 
-    .line 286
+    .line 297
     goto :goto_1
 
-    .line 307
+    .line 318
     .restart local v2       #isAirButtonEnabled:Z
     :cond_3
     iget-object v4, p0, Lcom/android/settings/AirButtonHelp$6;->this$0:Lcom/android/settings/AirButtonHelp;

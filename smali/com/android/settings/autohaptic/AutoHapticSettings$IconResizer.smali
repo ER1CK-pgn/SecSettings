@@ -34,32 +34,32 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 680
+    .line 683
     iput-object p1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->this$0:Lcom/android/settings/autohaptic/AutoHapticSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 674
-    iput v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
-
-    .line 675
-    iput v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconHeight:I
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 677
+    iput v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
+
+    .line 678
+    iput v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconHeight:I
+
+    .line 680
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
-    .line 678
+    .line 681
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1}, Landroid/graphics/Canvas;-><init>()V
 
     iput-object v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 681
+    .line 684
     iget-object v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
     new-instance v2, Landroid/graphics/PaintFlagsDrawFilter;
@@ -72,16 +72,16 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
 
-    .line 684
-    invoke-virtual {p1}, Lcom/android/settings/autohaptic/AutoHapticSettings;->getActivity()Landroid/app/Activity;
+    .line 687
+    invoke-virtual {p1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 685
+    .line 688
     .local v0, resources:Landroid/content/res/Resources;
     const/high16 v1, 0x105
 
@@ -95,7 +95,7 @@
 
     iput v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
 
-    .line 687
+    .line 690
     return-void
 .end method
 
@@ -108,26 +108,26 @@
     .prologue
     const/4 v13, 0x0
 
-    .line 702
+    .line 705
     iget v8, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
 
-    .line 703
+    .line 706
     .local v8, width:I
     iget v2, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconHeight:I
 
-    .line 705
+    .line 708
     .local v2, height:I
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v4
 
-    .line 706
+    .line 709
     .local v4, iconWidth:I
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v3
 
-    .line 708
+    .line 711
     .local v3, iconHeight:I
     instance-of v11, p1, Landroid/graphics/drawable/PaintDrawable;
 
@@ -135,29 +135,29 @@
 
     move-object v5, p1
 
-    .line 709
+    .line 712
     check-cast v5, Landroid/graphics/drawable/PaintDrawable;
 
-    .line 710
+    .line 713
     .local v5, painter:Landroid/graphics/drawable/PaintDrawable;
-    invoke-virtual {v5, v8}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicWidth(I)V
-
-    .line 711
-    invoke-virtual {v5, v2}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicHeight(I)V
+    invoke-virtual {v5, v8}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicWidth(I)V
 
     .line 714
+    invoke-virtual {v5, v2}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicHeight(I)V
+
+    .line 717
     .end local v5           #painter:Landroid/graphics/drawable/PaintDrawable;
     :cond_0
     if-lez v8, :cond_3
 
     if-lez v2, :cond_3
 
-    .line 715
+    .line 718
     if-lt v8, v4, :cond_1
 
     if-ge v2, v3, :cond_6
 
-    .line 716
+    .line 719
     :cond_1
     int-to-float v11, v4
 
@@ -165,18 +165,18 @@
 
     div-float v6, v11, v12
 
-    .line 718
+    .line 721
     .local v6, ratio:F
     if-le v4, v3, :cond_4
 
-    .line 719
+    .line 722
     int-to-float v11, v8
 
     div-float/2addr v11, v6
 
     float-to-int v2, v11
 
-    .line 724
+    .line 727
     :cond_2
     :goto_0
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getOpacity()I
@@ -189,7 +189,7 @@
 
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 726
+    .line 729
     .local v0, c:Landroid/graphics/Bitmap$Config;
     :goto_1
     iget v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
@@ -200,15 +200,15 @@
 
     move-result-object v7
 
-    .line 727
+    .line 730
     .local v7, thumb:Landroid/graphics/Bitmap;
     iget-object v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 728
+    .line 731
     .local v1, canvas:Landroid/graphics/Canvas;
     invoke-virtual {v1, v7}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 734
+    .line 737
     iget-object v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -217,14 +217,14 @@
 
     invoke-virtual {v11, v12}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 735
+    .line 738
     iget v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
 
     sub-int/2addr v11, v8
 
     div-int/lit8 v9, v11, 0x2
 
-    .line 736
+    .line 739
     .local v9, x:I
     iget v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconHeight:I
 
@@ -232,7 +232,7 @@
 
     div-int/lit8 v10, v11, 0x2
 
-    .line 737
+    .line 740
     .local v10, y:I
     add-int v11, v9, v8
 
@@ -240,31 +240,31 @@
 
     invoke-virtual {p1, v9, v10, v11, v12}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 738
+    .line 741
     invoke-virtual {p1, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 739
+    .line 742
     iget-object v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v11}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 740
+    .line 743
     new-instance p1, Landroid/graphics/drawable/BitmapDrawable;
 
     .end local p1
     iget-object v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->this$0:Lcom/android/settings/autohaptic/AutoHapticSettings;
 
-    invoke-virtual {v11}, Lcom/android/settings/autohaptic/AutoHapticSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 
     invoke-direct {p1, v11, v7}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 741
+    .line 744
     .restart local p1
     invoke-virtual {v1, v13}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 758
+    .line 761
     .end local v0           #c:Landroid/graphics/Bitmap$Config;
     .end local v1           #canvas:Landroid/graphics/Canvas;
     .end local v6           #ratio:F
@@ -275,12 +275,12 @@
     :goto_2
     return-object p1
 
-    .line 720
+    .line 723
     .restart local v6       #ratio:F
     :cond_4
     if-le v3, v4, :cond_2
 
-    .line 721
+    .line 724
     int-to-float v11, v2
 
     mul-float/2addr v11, v6
@@ -289,23 +289,23 @@
 
     goto :goto_0
 
-    .line 724
+    .line 727
     :cond_5
     sget-object v0, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
     goto :goto_1
 
-    .line 742
+    .line 745
     .end local v6           #ratio:F
     :cond_6
     if-ge v4, v8, :cond_3
 
     if-ge v3, v2, :cond_3
 
-    .line 743
+    .line 746
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 744
+    .line 747
     .restart local v0       #c:Landroid/graphics/Bitmap$Config;
     iget v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mIconWidth:I
 
@@ -315,15 +315,15 @@
 
     move-result-object v7
 
-    .line 745
+    .line 748
     .restart local v7       #thumb:Landroid/graphics/Bitmap;
     iget-object v1, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 746
+    .line 749
     .restart local v1       #canvas:Landroid/graphics/Canvas;
     invoke-virtual {v1, v7}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 747
+    .line 750
     iget-object v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -332,18 +332,18 @@
 
     invoke-virtual {v11, v12}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 748
+    .line 751
     sub-int v11, v8, v4
 
     div-int/lit8 v9, v11, 0x2
 
-    .line 749
+    .line 752
     .restart local v9       #x:I
     sub-int v11, v2, v3
 
     div-int/lit8 v10, v11, 0x2
 
-    .line 750
+    .line 753
     .restart local v10       #y:I
     add-int v11, v9, v4
 
@@ -351,27 +351,27 @@
 
     invoke-virtual {p1, v9, v10, v11, v12}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 751
+    .line 754
     invoke-virtual {p1, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 752
+    .line 755
     iget-object v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v11}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 753
+    .line 756
     new-instance p1, Landroid/graphics/drawable/BitmapDrawable;
 
     .end local p1
     iget-object v11, p0, Lcom/android/settings/autohaptic/AutoHapticSettings$IconResizer;->this$0:Lcom/android/settings/autohaptic/AutoHapticSettings;
 
-    invoke-virtual {v11}, Lcom/android/settings/autohaptic/AutoHapticSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 
     invoke-direct {p1, v11, v7}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 754
+    .line 757
     .restart local p1
     invoke-virtual {v1, v13}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 

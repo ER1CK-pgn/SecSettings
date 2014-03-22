@@ -47,7 +47,7 @@
     .line 106
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v0
 
@@ -56,11 +56,11 @@
     .line 107
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911ca
+    const v2, 0x7f091323
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -71,9 +71,9 @@
     .line 108
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202bc
+    const v1, 0x7f020319
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 114
     :goto_0
@@ -83,11 +83,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911c9
+    const v2, 0x7f091322
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -98,9 +98,9 @@
     .line 112
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202b8
+    const v1, 0x7f020315
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 .end method
@@ -122,9 +122,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 49
-    const v2, 0x7f0400c9
+    const v2, 0x7f0400ec
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ShortCameraMenu;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 51
     new-array v2, v8, [Ljava/lang/String;
@@ -134,11 +134,11 @@
     .line 52
     sget-object v2, Lcom/android/settings/ShortCameraMenu;->mModeItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0911c7
+    const v4, 0x7f091320
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -149,11 +149,11 @@
     .line 53
     sget-object v2, Lcom/android/settings/ShortCameraMenu;->mModeItem:[Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0911c8
+    const v4, 0x7f091321
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -162,9 +162,9 @@
     aput-object v3, v2, v7
 
     .line 55
-    const v2, 0x7f0b0148
+    const v2, 0x7f0b0157
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ShortCameraMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -177,7 +177,7 @@
 
     new-instance v3, Landroid/widget/ArrayAdapter;
 
-    const v4, 0x7f0400de
+    const v4, 0x7f040102
 
     sget-object v5, Lcom/android/settings/ShortCameraMenu;->mModeItem:[Ljava/lang/String;
 
@@ -193,7 +193,7 @@
     .line 58
     iget-object v2, p0, Lcom/android/settings/ShortCameraMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -203,22 +203,22 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3, v7}, Landroid/widget/ListView;->setItemChecked(IZ)V
+    invoke-virtual {v2, v3, v7}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
     .line 59
     iget-object v2, p0, Lcom/android/settings/ShortCameraMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 60
     iget-object v2, p0, Lcom/android/settings/ShortCameraMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v2, v8}, Landroid/widget/ListView;->setOverScrollMode(I)V
+    invoke-virtual {v2, v8}, Landroid/widget/AbsListView;->setOverScrollMode(I)V
 
     .line 62
-    const v2, 0x7f0b0227
+    const v2, 0x7f0b0263
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ShortCameraMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -227,9 +227,9 @@
     iput-object v2, p0, Lcom/android/settings/ShortCameraMenu;->mBodyText:Landroid/widget/TextView;
 
     .line 63
-    const v2, 0x7f0b00be
+    const v2, 0x7f0b00cb
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ShortCameraMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -238,9 +238,9 @@
     iput-object v2, p0, Lcom/android/settings/ShortCameraMenu;->mImageView:Landroid/widget/ImageView;
 
     .line 65
-    const v2, 0x7f0b021c
+    const v2, 0x7f0b01f5
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ShortCameraMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -252,12 +252,12 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ShortCameraMenu$1;-><init>(Lcom/android/settings/ShortCameraMenu;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 72
-    const v2, 0x7f0b021b
+    const v2, 0x7f0b01f4
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ShortCameraMenu;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -269,7 +269,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/ShortCameraMenu$2;-><init>(Lcom/android/settings/ShortCameraMenu;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 79
     invoke-static {p0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -289,13 +289,13 @@
 
     .prologue
     .line 128
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getMenuInflater()Landroid/view/MenuInflater;
+    invoke-virtual {p0}, Landroid/app/Activity;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
     .line 129
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f120005
+    const v1, 0x7f120007
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -347,11 +347,11 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911ca
+    const v2, 0x7f091323
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -362,9 +362,9 @@
     .line 91
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202bc
+    const v1, 0x7f020319
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -372,11 +372,11 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mBodyText:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0911c9
+    const v2, 0x7f091322
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -387,9 +387,9 @@
     .line 95
     iget-object v0, p0, Lcom/android/settings/ShortCameraMenu;->mImageView:Landroid/widget/ImageView;
 
-    const v1, 0x7f0202b8
+    const v1, 0x7f020315
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto :goto_0
 
@@ -440,13 +440,13 @@
 
     .line 137
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 140
     :pswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -454,20 +454,20 @@
 
     iget-object v3, p0, Lcom/android/settings/ShortCameraMenu;->mListView:Landroid/widget/ListView;
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v3}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v3
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 141
-    invoke-virtual {p0}, Lcom/android/settings/ShortCameraMenu;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 135
     :pswitch_data_0
-    .packed-switch 0x7f0b05f6
+    .packed-switch 0x7f0b0672
         :pswitch_1
         :pswitch_0
         :pswitch_2

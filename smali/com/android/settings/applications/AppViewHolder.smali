@@ -40,7 +40,7 @@
     if-nez p1, :cond_0
 
     .line 27
-    const v1, 0x7f0400d4
+    const v1, 0x7f0400f8
 
     const/4 v2, 0x0
 
@@ -58,7 +58,7 @@
     iput-object p1, v0, Lcom/android/settings/applications/AppViewHolder;->rootView:Landroid/view/View;
 
     .line 33
-    const v1, 0x7f0b0050
+    const v1, 0x7f0b0059
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -69,7 +69,7 @@
     iput-object v1, v0, Lcom/android/settings/applications/AppViewHolder;->appName:Landroid/widget/TextView;
 
     .line 34
-    const v1, 0x7f0b004f
+    const v1, 0x7f0b0058
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -80,7 +80,7 @@
     iput-object v1, v0, Lcom/android/settings/applications/AppViewHolder;->appIcon:Landroid/widget/ImageView;
 
     .line 35
-    const v1, 0x7f0b023b
+    const v1, 0x7f0b0277
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -91,7 +91,7 @@
     iput-object v1, v0, Lcom/android/settings/applications/AppViewHolder;->appSize:Landroid/widget/TextView;
 
     .line 36
-    const v1, 0x7f0b023c
+    const v1, 0x7f0b0278
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -102,7 +102,7 @@
     iput-object v1, v0, Lcom/android/settings/applications/AppViewHolder;->disabled:Landroid/widget/TextView;
 
     .line 37
-    const v1, 0x7f0b023a
+    const v1, 0x7f0b0276
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

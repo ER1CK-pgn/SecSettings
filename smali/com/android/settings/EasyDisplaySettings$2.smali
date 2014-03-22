@@ -40,7 +40,7 @@
 
     iput-object p3, p0, Lcom/android/settings/EasyDisplaySettings$2;->val$mcheck:Landroid/widget/CheckBox;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
     iget-object v2, p0, Lcom/android/settings/EasyDisplaySettings$2;->val$mcheck:Landroid/widget/CheckBox;
 
-    invoke-virtual {v2}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v2
 

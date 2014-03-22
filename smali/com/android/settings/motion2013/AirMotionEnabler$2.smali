@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/motion2013/AirMotionEnabler;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/motion2013/AirMotionEnabler;->showTalkBackDisableDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,117 +21,172 @@
 .field final synthetic this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
 
+# direct methods
+.method constructor <init>(Lcom/android/settings/motion2013/AirMotionEnabler;)V
+    .locals 0
+    .parameter
+
+    .prologue
+    .line 163
+    iput-object p1, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+    .locals 5
     .parameter "dialog"
     .parameter "which"
 
     .prologue
     const/4 v2, 0x0
 
-    .line 191
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+    const/4 v0, 0x1
+
+    .line 165
+    iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v3}, Lcom/android/settings/Utils;->turnOffTalkBack(Landroid/content/Context;)Z
 
-    move-result-object v0
-
-    const-string v1, "air_motion_glance_view"
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 193
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+    .line 166
+    iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string v1, "air_motion_scroll"
+    const-string v4, "air_motion_engine"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 195
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
-
-    #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "air_motion_turn"
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 197
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+    .line 167
+    iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string v1, "air_motion_item_move"
+    invoke-static {v3}, Lcom/android/settings/Utils;->isCurrentAirmotionAllItemDisabled(Landroid/content/ContentResolver;)Z
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    move-result v3
 
-    .line 199
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+    if-eqz v3, :cond_4
 
-    #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "air_motion_clip"
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 201
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+    .line 168
+    iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    check-cast v1, Landroid/preference/PreferenceActivity;
 
-    move-result-object v0
+    .line 170
+    .local v1, preferenceActivity:Landroid/preference/PreferenceActivity;
+    invoke-virtual {v1}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
-    const-string v1, "air_motion_call_accept"
+    move-result v3
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    if-nez v3, :cond_0
 
-    .line 203
-    iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+    invoke-virtual {v1}, Landroid/preference/PreferenceActivity;->onIsMultiPane()Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    .line 172
+    :cond_0
+    iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+
+    #calls: Lcom/android/settings/motion2013/AirMotionEnabler;->showAllOptionDisabledDialog()V
+    invoke-static {v2}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$200(Lcom/android/settings/motion2013/AirMotionEnabler;)V
+
+    .line 186
+    .end local v1           #preferenceActivity:Landroid/preference/PreferenceActivity;
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 175
+    .restart local v1       #preferenceActivity:Landroid/preference/PreferenceActivity;
+    :cond_2
+    iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+
+    #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mContext:Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "air_motion_engine"
+
+    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-lez v3, :cond_3
+
+    .line 177
+    .local v0, airMotionState:Z
+    :goto_1
+    if-nez v0, :cond_1
+
+    .line 180
+    iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+
+    #calls: Lcom/android/settings/motion2013/AirMotionEnabler;->showAllOptionDisabledDialog()V
+    invoke-static {v2}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$200(Lcom/android/settings/motion2013/AirMotionEnabler;)V
+
+    goto :goto_0
+
+    .end local v0           #airMotionState:Z
+    :cond_3
+    move v0, v2
+
+    .line 175
+    goto :goto_1
+
+    .line 183
+    .end local v1           #preferenceActivity:Landroid/preference/PreferenceActivity;
+    :cond_4
+    iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
+
+    #getter for: Lcom/android/settings/motion2013/AirMotionEnabler;->mSwitch:Landroid/widget/Switch;
+    invoke-static {v2}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$000(Lcom/android/settings/motion2013/AirMotionEnabler;)Landroid/widget/Switch;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    .line 184
+    iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionEnabler$2;->this$0:Lcom/android/settings/motion2013/AirMotionEnabler;
 
     #calls: Lcom/android/settings/motion2013/AirMotionEnabler;->broadcastMotionChanged(Z)V
-    invoke-static {v0, v2}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$100(Lcom/android/settings/motion2013/AirMotionEnabler;Z)V
+    invoke-static {v2, v0}, Lcom/android/settings/motion2013/AirMotionEnabler;->access$300(Lcom/android/settings/motion2013/AirMotionEnabler;Z)V
 
-    .line 204
-    return-void
+    goto :goto_0
 .end method

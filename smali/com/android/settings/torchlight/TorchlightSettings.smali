@@ -94,11 +94,11 @@
     if-lez v5, :cond_0
 
     .line 188
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v6, 0x7f11000a
+    const v6, 0x7f11000d
 
     long-to-int v7, v0
 
@@ -174,11 +174,11 @@
 
     move-result-object v5
 
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f11000b
+    const v7, 0x7f11000e
 
     long-to-int v8, v3
 
@@ -267,7 +267,7 @@
     .line 176
     .end local v1           #summary:Ljava/lang/String;
     :cond_0
-    const v2, 0x7f09144b
+    const v2, 0x7f09159f
 
     const/4 v3, 0x1
 
@@ -281,7 +281,7 @@
 
     aput-object v5, v3, v4
 
-    invoke-virtual {p0, v2, v3}, Lcom/android/settings/torchlight/TorchlightSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v2, v3}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -312,7 +312,7 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 146
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -350,11 +350,11 @@
 
     .line 152
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -364,7 +364,7 @@
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/settings/torchlight/TorchlightSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 155
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -431,7 +431,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 78
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -440,12 +440,12 @@
     iput-object v2, p0, Lcom/android/settings/torchlight/TorchlightSettings;->mContentResolver:Landroid/content/ContentResolver;
 
     .line 81
-    const v4, 0x7f0700aa
+    const v4, 0x7f0700cf
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/torchlight/TorchlightSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 82
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
@@ -453,7 +453,7 @@
     .local v3, screen:Landroid/preference/PreferenceScreen;
     const-string v4, "torchlight_help"
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/torchlight/TorchlightSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v4}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -462,7 +462,7 @@
     .line 85
     iget-object v4, p0, Lcom/android/settings/torchlight/TorchlightSettings;->mHelpPref:Landroid/preference/Preference;
 
-    const v5, 0x7f04017d
+    const v5, 0x7f0401bd
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -476,7 +476,7 @@
     .line 88
     const-string v4, "torchlight_timeout"
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -508,7 +508,7 @@
     .line 92
     iget-object v4, p0, Lcom/android/settings/torchlight/TorchlightSettings;->torchTimePreference:Landroid/preference/ListPreference;
 
-    invoke-virtual {v4, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v4, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 94
     invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->initTorchlightswitchBtn()V
@@ -574,7 +574,7 @@
     .line 134
     :cond_0
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -668,7 +668,7 @@
 
     .prologue
     .line 112
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 113
     const-string v0, "TorchlightSettings"
@@ -697,7 +697,7 @@
     const/4 v3, 0x0
 
     .line 118
-    invoke-virtual {p0}, Lcom/android/settings/torchlight/TorchlightSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -714,7 +714,7 @@
     .line 120
     iget-object v1, p0, Lcom/android/settings/torchlight/TorchlightSettings;->torchTimePreference:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 123
     :goto_0
@@ -724,7 +724,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/torchlight/TorchlightSettings;->torchTimePreference:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method

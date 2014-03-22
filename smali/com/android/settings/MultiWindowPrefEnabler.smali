@@ -44,7 +44,7 @@
     const/4 v0, 0x0
 
     .line 43
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 27
     iput-object v0, p0, Lcom/android/settings/MultiWindowPrefEnabler;->mContext:Landroid/content/Context;
@@ -307,13 +307,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090cb7
+    const v1, 0x7f090dd1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090cb6
+    const v1, 0x7f090dd0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -441,7 +441,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 58
     return-void
@@ -457,7 +457,7 @@
     .line 50
     iget-object v0, p0, Lcom/android/settings/MultiWindowPrefEnabler;->mSwitch:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 51
     iget-object v0, p0, Lcom/android/settings/MultiWindowPrefEnabler;->mContext:Landroid/content/Context;
@@ -553,7 +553,7 @@
     if-ne v2, v3, :cond_2
 
     :goto_2
-    invoke-virtual {v5, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v5, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 102
     :goto_3
@@ -590,12 +590,12 @@
     if-ne v2, v3, :cond_4
 
     :goto_4
-    invoke-virtual {v5, v3}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v5, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 99
     iget-object v3, p0, Lcom/android/settings/MultiWindowPrefEnabler;->mSwitch:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_3
 

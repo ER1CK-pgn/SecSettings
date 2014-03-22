@@ -84,10 +84,10 @@
     if-ne v0, v1, :cond_2
 
     .line 217
-    const v6, 0x7f0914a1
+    const v6, 0x7f0915f5
 
     .line 218
-    const v2, 0x7f0914ab
+    const v2, 0x7f0915ff
 
     .line 229
     :goto_0
@@ -114,7 +114,7 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 233
     const-wide/16 v0, 0x7d0
@@ -125,7 +125,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/homesync/FileOperationProgress$2;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -134,7 +134,7 @@
     .line 236
     iget-object v0, p0, Lcom/android/settings/homesync/FileOperationProgress$2;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -152,7 +152,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homesync/FileOperationPaste;->context:Landroid/app/Activity;
 
-    const v3, 0x7f020512
+    const v3, 0x7f0205a0
 
     invoke-static {}, Lcom/android/settings/homesync/FileOperationProgress;->access$000()Lcom/android/settings/homesync/FileOperationPaste;
 
@@ -182,7 +182,7 @@
     if-ne v0, v1, :cond_3
 
     .line 220
-    const v6, 0x7f0914a4
+    const v6, 0x7f0915f8
 
     goto :goto_0
 
@@ -199,19 +199,19 @@
     if-ne v0, v1, :cond_4
 
     .line 222
-    const v6, 0x7f0914ab
+    const v6, 0x7f0915ff
 
     .line 223
-    const v2, 0x7f0914ab
+    const v2, 0x7f0915ff
 
     goto :goto_0
 
     .line 225
     :cond_4
-    const v6, 0x7f0914a2
+    const v6, 0x7f0915f6
 
     .line 226
-    const v2, 0x7f0914a2
+    const v2, 0x7f0915f6
 
     goto :goto_0
 

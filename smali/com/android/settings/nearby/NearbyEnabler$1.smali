@@ -33,14 +33,14 @@
     .parameter
 
     .prologue
-    .line 380
+    .line 395
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$1;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     iput-object p2, p0, Lcom/android/settings/nearby/NearbyEnabler$1;->val$handler:Landroid/preference/Preference$OnPreferenceChangeListener;
 
     iput-boolean p3, p0, Lcom/android/settings/nearby/NearbyEnabler$1;->val$value:Z
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
     .locals 3
 
     .prologue
-    .line 383
+    .line 398
     iget-object v0, p0, Lcom/android/settings/nearby/NearbyEnabler$1;->val$handler:Landroid/preference/Preference$OnPreferenceChangeListener;
 
     const/4 v1, 0x0
@@ -64,6 +64,6 @@
 
     invoke-interface {v0, v1, v2}, Landroid/preference/Preference$OnPreferenceChangeListener;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    .line 384
+    .line 399
     return-void
 .end method

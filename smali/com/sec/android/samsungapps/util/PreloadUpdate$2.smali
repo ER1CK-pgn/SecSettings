@@ -31,7 +31,7 @@
     iput-object p1, p0, Lcom/sec/android/samsungapps/util/PreloadUpdate$2;->this$0:Lcom/sec/android/samsungapps/util/PreloadUpdate;
 
     .line 44
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -96,7 +96,7 @@
 
     .line 58
     .local v0, e:Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 59
     iget-object v1, p0, Lcom/sec/android/samsungapps/util/PreloadUpdate$2;->this$0:Lcom/sec/android/samsungapps/util/PreloadUpdate;

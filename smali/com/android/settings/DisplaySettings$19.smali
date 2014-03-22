@@ -3,7 +3,7 @@
 .source "DisplaySettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,95 +27,54 @@
     .parameter
 
     .prologue
-    .line 1584
+    .line 1791
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 5
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 4
     .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v0, 0x1
 
-    .line 1586
-    iget-object v2, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
-
-    #calls: Lcom/android/settings/DisplaySettings;->removeEnabledScreenReaderValue()V
-    invoke-static {v2}, Lcom/android/settings/DisplaySettings;->access$1100(Lcom/android/settings/DisplaySettings;)V
-
-    .line 1587
-    iget-object v2, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
+    .line 1795
+    iget-object v1, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
 
     #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
-    invoke-static {v2}, Lcom/android/settings/DisplaySettings;->access$400(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
+    invoke-static {v1}, Lcom/android/settings/DisplaySettings;->access$400(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 1588
     iget-object v2, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/DisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
     const-string v3, "multi_window_enabled"
 
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 1589
-    iget-object v2, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
+    move-result v2
 
-    #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
-    invoke-static {v2}, Lcom/android/settings/DisplaySettings;->access$400(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
+    if-ne v2, v0, :cond_0
 
-    move-result-object v2
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
-
-    .line 1590
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    .line 1591
-    .local v0, mHandler:Landroid/os/Handler;
-    new-instance v2, Lcom/android/settings/DisplaySettings$19$1;
-
-    invoke-direct {v2, p0}, Lcom/android/settings/DisplaySettings$19$1;-><init>(Lcom/android/settings/DisplaySettings$19;)V
-
-    const-wide/16 v3, 0x3e8
-
-    invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 1596
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "com.android.settings.action.talkback_off"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 1597
-    .local v1, talk_back_off:Landroid/content/Intent;
-    iget-object v2, p0, Lcom/android/settings/DisplaySettings$19;->this$0:Lcom/android/settings/DisplaySettings;
-
-    invoke-virtual {v2}, Lcom/android/settings/DisplaySettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 1598
+    .line 1796
     return-void
+
+    .line 1795
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

@@ -3,12 +3,12 @@
 .source "TetherSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/TetherSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    value = Lcom/android/settings/TetherSettings;->onActivityCreated(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,34 +27,105 @@
     .parameter
 
     .prologue
-    .line 1361
+    .line 1309
     iput-object p1, p0, Lcom/android/settings/TetherSettings$14;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .parameter "dialog"
-    .parameter "which"
+.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    .locals 6
+    .parameter "v"
+    .parameter "keyCode"
+    .parameter "event"
 
     .prologue
-    .line 1364
-    iget-object v0, p0, Lcom/android/settings/TetherSettings$14;->this$0:Lcom/android/settings/TetherSettings;
+    const/4 v3, 0x1
 
-    #getter for: Lcom/android/settings/TetherSettings;->mUsbTether:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->access$400(Lcom/android/settings/TetherSettings;)Landroid/preference/CheckBoxPreference;
+    const/4 v2, 0x0
+
+    .line 1312
+    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result v4
+
+    if-ne v4, v3, :cond_0
+
+    .line 1313
+    packed-switch p2, :pswitch_data_0
+
+    .line 1325
+    :cond_0
+    :goto_0
+    return v2
+
+    .line 1316
+    :pswitch_0
+    iget-object v4, p0, Lcom/android/settings/TetherSettings$14;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-virtual {v4}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/preference/PreferenceScreen;->getRootAdapter()Landroid/widget/ListAdapter;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/TetherSettings$14;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-virtual {v5}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+
+    move-result v5
+
+    invoke-interface {v4, v5}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    .line 1317
+    .local v0, item:Ljava/lang/Object;
+    if-nez v0, :cond_1
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 1318
+    const-string v4, "TetherSettings"
 
-    .line 1365
-    return-void
+    const-string v5, "dispatchKeyEvent item is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1319
+    :cond_1
+    instance-of v4, v0, Lcom/android/settings/SettingsSwitchPreference;
+
+    if-eqz v4, :cond_0
+
+    move-object v1, v0
+
+    .line 1320
+    check-cast v1, Lcom/android/settings/SettingsSwitchPreference;
+
+    .line 1321
+    .local v1, preference:Lcom/android/settings/SettingsSwitchPreference;
+    invoke-virtual {v1}, Lcom/android/settings/SettingsSwitchPreference;->performClick()V
+
+    move v2, v3
+
+    .line 1322
+    goto :goto_0
+
+    .line 1313
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x15
+        :pswitch_0
+        :pswitch_0
+    .end packed-switch
 .end method

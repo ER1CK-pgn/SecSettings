@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 200
+    .line 208
     iput-object p1, p0, Lcom/android/settings/motion/MotionEnabler$3;->this$0:Lcom/android/settings/motion/MotionEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 202
+    .line 210
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler$3;->this$0:Lcom/android/settings/motion/MotionEnabler;
 
     #getter for: Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
@@ -61,7 +61,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 203
+    .line 211
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler$3;->this$0:Lcom/android/settings/motion/MotionEnabler;
 
     #getter for: Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
@@ -77,7 +77,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 204
+    .line 212
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler$3;->this$0:Lcom/android/settings/motion/MotionEnabler;
 
     #getter for: Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
@@ -93,7 +93,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 205
+    .line 213
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler$3;->this$0:Lcom/android/settings/motion/MotionEnabler;
 
     #getter for: Lcom/android/settings/motion/MotionEnabler;->mContext:Landroid/content/Context;
@@ -109,12 +109,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 206
+    .line 214
     iget-object v0, p0, Lcom/android/settings/motion/MotionEnabler$3;->this$0:Lcom/android/settings/motion/MotionEnabler;
 
     #calls: Lcom/android/settings/motion/MotionEnabler;->broadcastMotionChanged(Z)V
     invoke-static {v0, v2}, Lcom/android/settings/motion/MotionEnabler;->access$200(Lcom/android/settings/motion/MotionEnabler;Z)V
 
-    .line 207
+    .line 215
     return-void
 .end method

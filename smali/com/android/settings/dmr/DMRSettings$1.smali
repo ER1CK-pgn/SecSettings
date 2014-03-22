@@ -30,7 +30,7 @@
     .line 887
     iput-object p1, p0, Lcom/android/settings/dmr/DMRSettings$1;->this$0:Lcom/android/settings/dmr/DMRSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -81,22 +81,22 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/dmr/DMRSettings$1;->this$0:Lcom/android/settings/dmr/DMRSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 904
     iget-object v1, p0, Lcom/android/settings/dmr/DMRSettings$1;->this$0:Lcom/android/settings/dmr/DMRSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v1
 
@@ -110,7 +110,7 @@
 
     iget-object v2, p0, Lcom/android/settings/dmr/DMRSettings$1;->this$0:Lcom/android/settings/dmr/DMRSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v2}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
@@ -134,13 +134,13 @@
     .line 914
     iget-object v0, p0, Lcom/android/settings/dmr/DMRSettings$1;->this$0:Lcom/android/settings/dmr/DMRSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 915
     iget-object v0, p0, Lcom/android/settings/dmr/DMRSettings$1;->this$0:Lcom/android/settings/dmr/DMRSettings;

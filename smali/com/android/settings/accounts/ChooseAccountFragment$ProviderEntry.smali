@@ -40,16 +40,16 @@
     .parameter "accountType"
 
     .prologue
-    .line 87
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 94
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 88
+    .line 95
     iput-object p1, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->name:Ljava/lang/CharSequence;
 
-    .line 89
+    .line 96
     iput-object p2, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->type:Ljava/lang/String;
 
-    .line 90
+    .line 97
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .parameter "x0"
 
     .prologue
-    .line 83
+    .line 90
     iget-object v0, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->type:Ljava/lang/String;
 
     return-object v0
@@ -69,7 +69,7 @@
     .parameter "x0"
 
     .prologue
-    .line 83
+    .line 90
     iget-object v0, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->name:Ljava/lang/CharSequence;
 
     return-object v0
@@ -86,7 +86,7 @@
 
     const/4 v0, -0x1
 
-    .line 94
+    .line 101
     const-string v2, "com.osp.app.signin"
 
     iget-object v3, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->type:Ljava/lang/String;
@@ -97,12 +97,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 108
+    .line 115
     :cond_0
     :goto_0
     return v0
 
-    .line 97
+    .line 104
     :cond_1
     const-string v2, "com.osp.app.signin"
 
@@ -116,26 +116,26 @@
 
     move v0, v1
 
-    .line 98
+    .line 105
     goto :goto_0
 
-    .line 102
+    .line 109
     :cond_2
     iget-object v2, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->name:Ljava/lang/CharSequence;
 
     if-eqz v2, :cond_0
 
-    .line 105
+    .line 112
     iget-object v0, p1, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->name:Ljava/lang/CharSequence;
 
     if-nez v0, :cond_3
 
     move v0, v1
 
-    .line 106
+    .line 113
     goto :goto_0
 
-    .line 108
+    .line 115
     :cond_3
     iget-object v0, p0, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;->name:Ljava/lang/CharSequence;
 
@@ -153,7 +153,7 @@
     .parameter "x0"
 
     .prologue
-    .line 83
+    .line 90
     check-cast p1, Lcom/android/settings/accounts/ChooseAccountFragment$ProviderEntry;
 
     .end local p1

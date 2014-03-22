@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 295
+    .line 333
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$4;->this$0:Lcom/android/settings/DisplaySettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,11 +40,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 298
+    .line 336
     iget-object v0, p0, Lcom/android/settings/DisplaySettings$4;->this$0:Lcom/android/settings/DisplaySettings;
 
     invoke-virtual {v0}, Lcom/android/settings/DisplaySettings;->updateAccessControlCheckbox()V
 
-    .line 299
+    .line 337
     return-void
 .end method

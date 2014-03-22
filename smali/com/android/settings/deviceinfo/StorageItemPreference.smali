@@ -103,7 +103,7 @@
 
     .line 78
     .local v1, res:Landroid/content/res/Resources;
-    const v3, 0x7f0f0017
+    const v3, 0x7f0f0032
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -111,7 +111,7 @@
 
     .line 79
     .local v2, width:I
-    const v3, 0x7f0f0018
+    const v3, 0x7f0f0033
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -125,17 +125,17 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v3}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 85
     .end local v0           #height:I
     .end local v1           #res:Landroid/content/res/Resources;
     .end local v2           #width:I
     :goto_0
-    invoke-virtual {p0, p2}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 87
-    const v3, 0x7f090610
+    const v3, 0x7f090646
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setSummary(I)V
 
@@ -198,7 +198,7 @@
 
     .line 55
     .local v1, res:Landroid/content/res/Resources;
-    const v3, 0x7f0f0017
+    const v3, 0x7f0f0032
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -206,7 +206,7 @@
 
     .line 56
     .local v2, width:I
-    const v3, 0x7f0f0018
+    const v3, 0x7f0f0033
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -220,17 +220,17 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v3}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 62
     .end local v0           #height:I
     .end local v1           #res:Landroid/content/res/Resources;
     .end local v2           #width:I
     :goto_0
-    invoke-virtual {p0, p2}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 63
-    const v3, 0x7f090610
+    const v3, 0x7f090646
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setSummary(I)V
 

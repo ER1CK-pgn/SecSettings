@@ -26,7 +26,7 @@
 
     .prologue
     .line 60
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     new-instance v0, Lcom/android/settings/ContextualPageEnabler$1;
@@ -493,7 +493,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 98
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mContext:Landroid/content/Context;
@@ -554,7 +554,7 @@
     .line 72
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 73
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mSwitch:Landroid/widget/Switch;
@@ -565,7 +565,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 84
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mContext:Landroid/content/Context;
@@ -608,7 +608,7 @@
     .line 77
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -616,7 +616,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/ContextualPageEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method

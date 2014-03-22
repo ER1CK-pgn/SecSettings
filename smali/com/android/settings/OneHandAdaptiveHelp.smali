@@ -51,15 +51,15 @@
     .line 52
     :array_0
     .array-data 0x4
-        0xbbt 0x0t 0x2t 0x7ft
-        0xbct 0x0t 0x2t 0x7ft
+        0xfbt 0x0t 0x2t 0x7ft
+        0xfct 0x0t 0x2t 0x7ft
     .end array-data
 
     .line 56
     :array_1
     .array-data 0x4
-        0xbdt 0x0t 0x2t 0x7ft
-        0xbet 0x0t 0x2t 0x7ft
+        0xfdt 0x0t 0x2t 0x7ft
+        0xfet 0x0t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -158,7 +158,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 89
-    invoke-virtual {p0}, Lcom/android/settings/OneHandAdaptiveHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -195,11 +195,11 @@
 
     .line 95
     :cond_0
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0f0019
+    const v5, 0x7f0f0034
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -207,7 +207,7 @@
 
     .line 97
     .local v2, padding:I
-    invoke-virtual {v0, v6, v6, v2, v6}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v0, v6, v6, v2, v6}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 98
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -234,7 +234,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f091112
+    const v5, 0x7f09125c
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -260,7 +260,7 @@
 
     .prologue
     .line 114
-    const v0, 0x7f0400af
+    const v0, 0x7f0400cd
 
     const/4 v1, 0x0
 

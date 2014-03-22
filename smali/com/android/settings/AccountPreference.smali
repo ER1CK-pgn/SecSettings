@@ -67,7 +67,7 @@
     if-eqz p5, :cond_0
 
     .line 53
-    invoke-virtual {p0, p3}, Lcom/android/settings/AccountPreference;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, p3}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 57
     :goto_0
@@ -75,15 +75,15 @@
 
     iget-object v0, v0, Landroid/accounts/Account;->name:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 58
     const-string v0, ""
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 59
-    invoke-virtual {p0, v1}, Lcom/android/settings/AccountPreference;->setPersistent(Z)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setPersistent(Z)V
 
     .line 60
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/AccountPreference;->setSyncStatus(IZ)V
@@ -97,7 +97,7 @@
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountPreference;->setIcon(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setIcon(I)V
 
     goto :goto_0
 .end method
@@ -107,7 +107,7 @@
     .parameter "status"
 
     .prologue
-    const v3, 0x7f09095f
+    const v3, 0x7f090a3d
 
     .line 151
     packed-switch p1, :pswitch_data_0
@@ -136,7 +136,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 160
-    invoke-virtual {p0}, Lcom/android/settings/AccountPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -149,11 +149,11 @@
 
     .line 153
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/AccountPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f09095d
+    const v1, 0x7f090a3b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -163,11 +163,11 @@
 
     .line 155
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/AccountPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f09095e
+    const v1, 0x7f090a3c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -177,7 +177,7 @@
 
     .line 157
     :pswitch_2
-    invoke-virtual {p0}, Lcom/android/settings/AccountPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -205,7 +205,7 @@
     packed-switch p1, :pswitch_data_0
 
     .line 144
-    const v0, 0x7f020231
+    const v0, 0x7f020282
 
     .line 145
     .local v0, res:I
@@ -238,7 +238,7 @@
     .line 132
     .end local v0           #res:I
     :pswitch_0
-    const v0, 0x7f02022f
+    const v0, 0x7f020280
 
     .line 133
     .restart local v0       #res:I
@@ -247,7 +247,7 @@
     .line 135
     .end local v0           #res:I
     :pswitch_1
-    const v0, 0x7f020230
+    const v0, 0x7f020281
 
     .line 136
     .restart local v0       #res:I
@@ -256,7 +256,7 @@
     .line 138
     .end local v0           #res:I
     :pswitch_2
-    const v0, 0x7f020231
+    const v0, 0x7f020282
 
     .line 139
     .restart local v0       #res:I
@@ -265,7 +265,7 @@
     .line 141
     .end local v0           #res:I
     :pswitch_3
-    const v0, 0x7f02022f
+    const v0, 0x7f020280
 
     .line 142
     .restart local v0       #res:I
@@ -292,7 +292,7 @@
     packed-switch p1, :pswitch_data_0
 
     .line 122
-    const v0, 0x7f090970
+    const v0, 0x7f090a4e
 
     .line 123
     .local v0, res:I
@@ -325,7 +325,7 @@
     .line 110
     .end local v0           #res:I
     :pswitch_0
-    const v0, 0x7f09096e
+    const v0, 0x7f090a4c
 
     .line 111
     .restart local v0       #res:I
@@ -334,7 +334,7 @@
     .line 113
     .end local v0           #res:I
     :pswitch_1
-    const v0, 0x7f09096f
+    const v0, 0x7f090a4d
 
     .line 114
     .restart local v0       #res:I
@@ -343,7 +343,7 @@
     .line 116
     .end local v0           #res:I
     :pswitch_2
-    const v0, 0x7f090970
+    const v0, 0x7f090a4e
 
     .line 117
     .restart local v0       #res:I
@@ -352,7 +352,7 @@
     .line 119
     .end local v0           #res:I
     :pswitch_3
-    const v0, 0x7f090972
+    const v0, 0x7f090a50
 
     .line 120
     .restart local v0       #res:I
@@ -445,7 +445,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 93
     :cond_0
@@ -469,7 +469,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0030
+    const v6, 0x7f0f004c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -479,11 +479,11 @@
 
     .line 84
     .local v1, iconSize:I
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getPaddingLeft()I
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v5
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getPaddingRight()I
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v6
 
@@ -491,11 +491,11 @@
 
     .line 85
     .local v3, paddingLR:I
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getPaddingTop()I
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v5
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getPaddingBottom()I
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
 
     move-result v6
 
@@ -503,7 +503,7 @@
 
     .line 87
     .local v4, paddingTB:I
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
 
@@ -519,7 +519,7 @@
     iput v5, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     .line 90
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto :goto_0
 .end method
@@ -560,7 +560,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 101
     :cond_0
@@ -571,7 +571,7 @@
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountPreference;->setSummary(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 104
     :cond_1

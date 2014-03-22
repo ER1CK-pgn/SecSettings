@@ -3,12 +3,12 @@
 .source "WifiSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/WifiSettings;->onCreateDialog(I)Landroid/app/Dialog;
+    value = Lcom/android/settings/wifi/WifiSettings;->startWith(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,29 +20,49 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/wifi/WifiSettings;
 
+.field final synthetic val$activity:Landroid/app/Activity;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/wifi/WifiSettings;)V
+.method constructor <init>(Lcom/android/settings/wifi/WifiSettings;Landroid/app/Activity;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 1891
+    .line 1184
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettings$8;->this$0:Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/settings/wifi/WifiSettings$8;->val$activity:Landroid/app/Activity;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
-    .parameter "dialog"
-    .parameter "id"
+.method public run()V
+    .locals 3
 
     .prologue
-    .line 1894
+    .line 1186
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$8;->val$activity:Landroid/app/Activity;
+
+    if-eqz v0, :cond_0
+
+    .line 1187
+    iget-object v0, p0, Lcom/android/settings/wifi/WifiSettings$8;->val$activity:Landroid/app/Activity;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.android.settings.wifi.WIFI_ON"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 1189
+    :cond_0
     return-void
 .end method

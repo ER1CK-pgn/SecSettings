@@ -22,8 +22,8 @@
     .locals 0
 
     .prologue
-    .line 94
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 90
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
     .parameter "canvas"
 
     .prologue
-    .line 124
+    .line 120
     invoke-static {p1, p2}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->draw(Ljava/lang/Object;Landroid/graphics/Canvas;)Z
 
     move-result v0
@@ -49,10 +49,10 @@
     .parameter "edgeEffect"
 
     .prologue
-    .line 108
+    .line 104
     invoke-static {p1}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->finish(Ljava/lang/Object;)V
 
-    .line 109
+    .line 105
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .parameter "edgeEffect"
 
     .prologue
-    .line 104
+    .line 100
     invoke-static {p1}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->isFinished(Ljava/lang/Object;)Z
 
     move-result v0
@@ -74,7 +74,7 @@
     .parameter "context"
 
     .prologue
-    .line 96
+    .line 92
     invoke-static {p1}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->newEdgeEffect(Landroid/content/Context;)Ljava/lang/Object;
 
     move-result-object v0
@@ -88,7 +88,7 @@
     .parameter "deltaDistance"
 
     .prologue
-    .line 112
+    .line 108
     invoke-static {p1, p2}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->onPull(Ljava/lang/Object;F)Z
 
     move-result v0
@@ -101,7 +101,7 @@
     .parameter "edgeEffect"
 
     .prologue
-    .line 116
+    .line 112
     invoke-static {p1}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->onRelease(Ljava/lang/Object;)Z
 
     move-result v0
@@ -116,9 +116,9 @@
     .parameter "height"
 
     .prologue
-    .line 100
+    .line 96
     invoke-static {p1, p2, p3}, Landroid/support/v4/widget/EdgeEffectCompatIcs;->setSize(Ljava/lang/Object;II)V
 
-    .line 101
+    .line 97
     return-void
 .end method

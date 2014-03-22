@@ -30,7 +30,7 @@
     .line 239
     iput-object p1, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem$1;->this$1:Lcom/android/settings/PenHelpFragment$PenHelpItem;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,9 +47,9 @@
 
     iget-object v1, v1, Lcom/android/settings/PenHelpFragment$PenHelpItem;->contentPlayBtn:Landroid/widget/ImageButton;
 
-    const v2, 0x7f020560
+    const v2, 0x7f0205fc
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageResource(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 242
     iget-object v1, p0, Lcom/android/settings/PenHelpFragment$PenHelpItem$1;->this$1:Lcom/android/settings/PenHelpFragment$PenHelpItem;

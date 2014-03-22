@@ -30,7 +30,7 @@
     .line 131
     iput-object p1, p0, Lcom/android/settings/CryptDecryptSettings$2;->this$0:Lcom/android/settings/CryptDecryptSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -52,19 +52,23 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/CryptDecryptSettings$2;->this$0:Lcom/android/settings/CryptDecryptSettings;
 
-    const v2, 0x7f090ba8
+    const v2, 0x7f090cb0
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/CryptDecryptSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     .line 135
     iget-object v0, p0, Lcom/android/settings/CryptDecryptSettings$2;->this$0:Lcom/android/settings/CryptDecryptSettings;
@@ -106,13 +110,13 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptDecryptSettings$2;->this$0:Lcom/android/settings/CryptDecryptSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/CryptDecryptSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0901b8
+    const v1, 0x7f0901dd
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -124,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0901b9
+    const v1, 0x7f0901de
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -140,7 +144,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto :goto_0
 .end method

@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 439
+    .line 445
     iput-object p1, p0, Lcom/android/settings/OneHandSettings$9;->this$0:Lcom/android/settings/OneHandSettings;
 
     iput-object p2, p0, Lcom/android/settings/OneHandSettings$9;->val$edit:Landroid/content/SharedPreferences$Editor;
@@ -55,7 +55,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 441
+    .line 447
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$9;->this$0:Lcom/android/settings/OneHandSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -66,7 +66,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 442
+    .line 448
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$9;->this$0:Lcom/android/settings/OneHandSettings;
 
     #getter for: Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
@@ -76,7 +76,7 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 444
+    .line 450
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$9;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     const-string v1, "disable_hand_adaptive_noti"
@@ -89,11 +89,11 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 445
+    .line 451
     iget-object v0, p0, Lcom/android/settings/OneHandSettings$9;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 446
+    .line 452
     return-void
 .end method

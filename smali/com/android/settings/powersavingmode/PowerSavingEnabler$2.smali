@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 255
+    .line 276
     iput-object p1, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler$2;->this$0:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 257
+    .line 278
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler$2;->this$0:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
     #getter for: Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
@@ -63,7 +63,7 @@
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 258
+    .line 279
     iget-object v0, p0, Lcom/android/settings/powersavingmode/PowerSavingEnabler$2;->this$0:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
     #getter for: Lcom/android/settings/powersavingmode/PowerSavingEnabler;->mContext:Landroid/content/Context;
@@ -73,14 +73,14 @@
 
     check-cast v0, Landroid/preference/PreferenceActivity;
 
-    .line 259
+    .line 280
     const-class v1, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    const v3, 0x7f090c2f
+    const v3, 0x7f090d3c
 
     const/4 v6, 0x0
 
@@ -90,6 +90,6 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 260
+    .line 281
     return-void
 .end method

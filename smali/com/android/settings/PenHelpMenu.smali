@@ -34,9 +34,9 @@
     if-eqz v0, :cond_0
 
     .line 31
-    const v0, 0x7f07006b
+    const v0, 0x7f070088
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpMenu;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 48
     :goto_0
@@ -44,9 +44,9 @@
 
     .line 34
     :cond_0
-    const v0, 0x7f07006a
+    const v0, 0x7f070087
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpMenu;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     goto :goto_0
 .end method

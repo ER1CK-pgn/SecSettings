@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 84
+    .line 167
     iput-object p1, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,20 +40,20 @@
     .parameter "intent"
 
     .prologue
-    const v9, 0x7f0910ff
+    const v9, 0x7f091249
 
-    const v8, 0x7f0910f8
+    const v8, 0x7f091242
 
     const/4 v6, 0x1
 
     const/4 v7, 0x0
 
-    .line 88
+    .line 175
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 89
+    .line 177
     .local v0, action:Ljava/lang/String;
     const-string v4, "android.net.wifi.STATE_CHANGE"
 
@@ -63,7 +63,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 90
+    .line 179
     const-string v4, "networkInfo"
 
     invoke-virtual {p2, v4}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -72,7 +72,7 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 91
+    .line 181
     .local v1, networkInfo:Landroid/net/NetworkInfo;
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
@@ -80,7 +80,7 @@
 
     sget-object v5, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
-    invoke-virtual {v4, v5}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -95,7 +95,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 92
+    .line 183
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlandState:I
@@ -105,7 +105,7 @@
 
     if-nez v4, :cond_0
 
-    .line 94
+    .line 187
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #calls: Lcom/android/settings/wifi/IwlanEnabler;->isAvailableDataStorage()Z
@@ -115,7 +115,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 95
+    .line 189
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlanCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -123,15 +123,15 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v6}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 143
+    .line 285
     .end local v1           #networkInfo:Landroid/net/NetworkInfo;
     :cond_0
     :goto_0
     return-void
 
-    .line 97
+    .line 193
     .restart local v1       #networkInfo:Landroid/net/NetworkInfo;
     :cond_1
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
@@ -141,11 +141,11 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 100
+    .line 199
     :cond_2
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
@@ -156,7 +156,7 @@
 
     if-nez v4, :cond_0
 
-    .line 101
+    .line 201
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlanCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -164,9 +164,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 102
+    .line 203
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlanCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -174,9 +174,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 103
+    .line 205
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mPdgDomainName:Ljava/lang/String;
@@ -195,10 +195,10 @@
 
     if-eqz v4, :cond_3
 
-    .line 104
+    .line 207
     const/4 v3, 0x0
 
-    .line 105
+    .line 209
     .local v3, str:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
@@ -220,7 +220,7 @@
 
     if-eqz v4, :cond_4
 
-    .line 106
+    .line 211
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mContext:Landroid/content/Context;
@@ -232,7 +232,7 @@
 
     move-result-object v3
 
-    .line 110
+    .line 219
     :goto_1
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
@@ -274,9 +274,9 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v5}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 113
+    .line 225
     .end local v3           #str:Ljava/lang/String;
     :cond_3
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
@@ -286,7 +286,7 @@
 
     goto/16 :goto_0
 
-    .line 108
+    .line 215
     .restart local v3       #str:Ljava/lang/String;
     :cond_4
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
@@ -298,7 +298,7 @@
 
     goto :goto_1
 
-    .line 116
+    .line 231
     .end local v1           #networkInfo:Landroid/net/NetworkInfo;
     .end local v3           #str:Ljava/lang/String;
     :cond_5
@@ -310,7 +310,7 @@
 
     if-eqz v4, :cond_8
 
-    .line 117
+    .line 233
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #calls: Lcom/android/settings/wifi/IwlanEnabler;->isWifiConnected()Z
@@ -320,7 +320,7 @@
 
     if-nez v4, :cond_0
 
-    .line 118
+    .line 235
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlanCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -328,9 +328,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 119
+    .line 237
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlanCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -338,9 +338,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 120
+    .line 239
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mPdgDomainName:Ljava/lang/String;
@@ -359,10 +359,10 @@
 
     if-eqz v4, :cond_6
 
-    .line 121
+    .line 241
     const/4 v3, 0x0
 
-    .line 122
+    .line 243
     .restart local v3       #str:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
@@ -384,7 +384,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 123
+    .line 245
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mContext:Landroid/content/Context;
@@ -396,7 +396,7 @@
 
     move-result-object v3
 
-    .line 127
+    .line 253
     :goto_2
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
@@ -438,9 +438,9 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v5}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 130
+    .line 259
     .end local v3           #str:Ljava/lang/String;
     :cond_6
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
@@ -450,7 +450,7 @@
 
     goto/16 :goto_0
 
-    .line 125
+    .line 249
     .restart local v3       #str:Ljava/lang/String;
     :cond_7
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
@@ -462,7 +462,7 @@
 
     goto :goto_2
 
-    .line 132
+    .line 263
     .end local v3           #str:Ljava/lang/String;
     :cond_8
     const-string v4, "vpn.connectivity"
@@ -481,7 +481,7 @@
 
     if-eqz v4, :cond_a
 
-    .line 133
+    .line 265
     const-string v4, "connection_state"
 
     invoke-virtual {p2, v4}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
@@ -492,7 +492,7 @@
 
     move-result-object v2
 
-    .line 134
+    .line 267
     .local v2, state:Ljava/lang/String;
     if-eqz v2, :cond_9
 
@@ -504,13 +504,13 @@
 
     if-eqz v4, :cond_9
 
-    .line 135
+    .line 269
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #setter for: Lcom/android/settings/wifi/IwlanEnabler;->mIsVpnConnected:Z
     invoke-static {v4, v6}, Lcom/android/settings/wifi/IwlanEnabler;->access$702(Lcom/android/settings/wifi/IwlanEnabler;Z)Z
 
-    .line 136
+    .line 271
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     #getter for: Lcom/android/settings/wifi/IwlanEnabler;->mIwlanCheckBoxPref:Landroid/preference/CheckBoxPreference;
@@ -518,11 +518,11 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v7}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v4, v7}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_0
 
-    .line 138
+    .line 275
     :cond_9
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
@@ -531,7 +531,7 @@
 
     goto/16 :goto_0
 
-    .line 140
+    .line 279
     .end local v2           #state:Ljava/lang/String;
     :cond_a
     const-string v4, "action.iwlan.connectivity"
@@ -542,7 +542,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 141
+    .line 281
     iget-object v4, p0, Lcom/android/settings/wifi/IwlanEnabler$1;->this$0:Lcom/android/settings/wifi/IwlanEnabler;
 
     invoke-virtual {v4, p2}, Lcom/android/settings/wifi/IwlanEnabler;->updataIwlanNetworks(Landroid/content/Intent;)V

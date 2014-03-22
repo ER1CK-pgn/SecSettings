@@ -14,7 +14,7 @@
         <ImageView android:layout_gravity="center_horizontal" android:id="@id/no_device_icon" android:visibility="gone" android:layout_width="126.0dip" android:layout_height="126.0dip" android:src="@drawable/noitem_allsharecast" />
         <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="19.0dip" android:textColor="#fff5f5f5" android:layout_gravity="center_horizontal" android:id="@id/no_device" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_p2p_no_device_found" />
     </LinearLayout>
-    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:gravity="center" android:id="@id/empty_message" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wifi_p2p_turnon_message" />
+    <LinearLayout android:layout_gravity="left" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:textSize="18.0dip" android:textColor="#ffa9a9a9" android:id="@id/empty_message" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="10.0dip" android:text="@string/wifi_p2p_turnon_message" />
     </LinearLayout>
 </RelativeLayout>

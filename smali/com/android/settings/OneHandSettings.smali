@@ -74,12 +74,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 350
+    .line 356
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 352
+    .line 358
     .local v0, cr:Landroid/content/ContentResolver;
     const-string v2, "hand_adaptable_operation"
 
@@ -89,7 +89,7 @@
 
     if-nez v2, :cond_1
 
-    .line 355
+    .line 361
     :cond_0
     :goto_0
     return v1
@@ -138,7 +138,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 281
+    .line 287
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -147,7 +147,7 @@
 
     move-result-object v1
 
-    .line 282
+    .line 288
     .local v1, mSharedPreferences:Landroid/content/SharedPreferences;
     const-string v2, "onehand_noti"
 
@@ -157,24 +157,24 @@
 
     move-result v0
 
-    .line 283
+    .line 289
     .local v0, do_not_show_again:Z
     if-nez v0, :cond_0
 
-    .line 284
+    .line 290
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->showGuideDialog()V
 
-    .line 289
+    .line 295
     :goto_0
     return-void
 
-    .line 286
+    .line 292
     :cond_0
     iget-object v2, p0, Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v2, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
-    .line 287
+    .line 293
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -190,7 +190,7 @@
     .locals 4
 
     .prologue
-    .line 461
+    .line 467
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -199,7 +199,7 @@
 
     move-result-object v1
 
-    .line 462
+    .line 468
     .local v1, mSharedPreferences:Landroid/content/SharedPreferences;
     const-string v2, "deselect_hand_adaptive_noti"
 
@@ -209,14 +209,14 @@
 
     move-result v0
 
-    .line 463
+    .line 469
     .local v0, do_not_show_again:Z
     if-nez v0, :cond_0
 
-    .line 464
+    .line 470
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->showHandAdaptiveModeDeselectAllDialog()V
 
-    .line 466
+    .line 472
     :cond_0
     return-void
 .end method
@@ -227,7 +227,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 412
+    .line 418
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -236,7 +236,7 @@
 
     move-result-object v1
 
-    .line 413
+    .line 419
     .local v1, mSharedPreferences:Landroid/content/SharedPreferences;
     const-string v2, "disable_hand_adaptive_noti"
 
@@ -244,18 +244,18 @@
 
     move-result v0
 
-    .line 414
+    .line 420
     .local v0, do_not_show_again:Z
     if-nez v0, :cond_0
 
-    .line 415
+    .line 421
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->showHandAdaptiveModeDisableDialog()V
 
-    .line 420
+    .line 426
     :goto_0
     return-void
 
-    .line 417
+    .line 423
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -265,7 +265,7 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 418
+    .line 424
     iget-object v2, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
@@ -279,7 +279,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 363
+    .line 369
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -288,7 +288,7 @@
 
     move-result-object v1
 
-    .line 364
+    .line 370
     .local v1, mSharedPreferences:Landroid/content/SharedPreferences;
     const-string v2, "enable_hand_adaptive_noti"
 
@@ -298,18 +298,18 @@
 
     move-result v0
 
-    .line 365
+    .line 371
     .local v0, do_not_show_again:Z
     if-nez v0, :cond_0
 
-    .line 366
+    .line 372
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->showHandAdaptiveModeEnableDialog()V
 
-    .line 371
+    .line 377
     :goto_0
     return-void
 
-    .line 368
+    .line 374
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -319,7 +319,7 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 369
+    .line 375
     iget-object v2, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
@@ -350,7 +350,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 88
-    const v3, 0x7f070065
+    const v3, 0x7f070082
 
     invoke-virtual {p0, v3}, Lcom/android/settings/OneHandSettings;->addPreferencesFromResource(I)V
 
@@ -512,19 +512,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-nez v3, :cond_4
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
 
     .line 131
+    :cond_4
     iget-boolean v3, p0, Lcom/android/settings/OneHandSettings;->mOpenDetailMenu:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     .line 132
     sget v3, Lcom/android/settings/OneHandSettings;->mSettingValue:I
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_5
 
     .line 133
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getArguments()Landroid/os/Bundle;
@@ -543,7 +550,7 @@
     .local v1, targetKey:Ljava/lang/String;
     sget v3, Lcom/android/settings/OneHandSettings;->mSettingValue:I
 
-    if-ne v3, v2, :cond_5
+    if-ne v3, v2, :cond_6
 
     .line 136
     .local v2, value:Z
@@ -554,12 +561,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     .line 137
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     .line 138
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
@@ -568,7 +575,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     .line 139
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
@@ -588,13 +595,13 @@
     .end local v0           #extra_bundle:Landroid/os/Bundle;
     .end local v1           #targetKey:Ljava/lang/String;
     .end local v2           #value:Z
-    :cond_4
+    :cond_5
     return-void
 
     .line 135
     .restart local v0       #extra_bundle:Landroid/os/Bundle;
     .restart local v1       #targetKey:Ljava/lang/String;
-    :cond_5
+    :cond_6
     const/4 v2, 0x0
 
     goto :goto_0
@@ -604,10 +611,10 @@
     .locals 0
 
     .prologue
-    .line 177
+    .line 183
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
 
-    .line 178
+    .line 184
     return-void
 .end method
 
@@ -621,12 +628,12 @@
 
     const/4 v3, 0x0
 
-    .line 326
+    .line 332
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 327
+    .line 333
     .local v0, key:Ljava/lang/String;
     check-cast p2, Ljava/lang/Boolean;
 
@@ -639,7 +646,7 @@
 
     move v1, v2
 
-    .line 329
+    .line 335
     .local v1, value:I
     :goto_0
     const-string v4, "hand_adaptive_mode"
@@ -650,10 +657,10 @@
 
     if-eqz v4, :cond_0
 
-    .line 331
+    .line 337
     if-ne v1, v2, :cond_3
 
-    .line 332
+    .line 338
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -702,10 +709,10 @@
 
     if-nez v3, :cond_2
 
-    .line 338
+    .line 344
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->showHandAdaptiveModeInfoDialog()V
 
-    .line 346
+    .line 352
     :cond_0
     :goto_1
     return v2
@@ -714,17 +721,17 @@
     :cond_1
     move v1, v3
 
-    .line 327
+    .line 333
     goto :goto_0
 
-    .line 340
+    .line 346
     .restart local v1       #value:I
     :cond_2
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->createHandAdaptiveModeEnableDialog()V
 
     goto :goto_1
 
-    .line 343
+    .line 349
     :cond_3
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->createHandAdaptiveModeDisableDialog()V
 
@@ -741,7 +748,7 @@
 
     const/4 v2, 0x0
 
-    .line 182
+    .line 188
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -750,14 +757,14 @@
 
     if-eqz v3, :cond_5
 
-    .line 183
+    .line 189
     const-string v3, "OneHandSettings"
 
     const-string v4, "mAnyScreen"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 184
+    .line 190
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -766,7 +773,7 @@
 
     if-eqz v3, :cond_4
 
-    .line 186
+    .line 192
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -779,12 +786,12 @@
 
     if-ne v3, v1, :cond_2
 
-    .line 188
+    .line 194
     .local v1, magnificationEnabled:Z
     :goto_0
     if-eqz v1, :cond_3
 
-    .line 190
+    .line 196
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -793,22 +800,22 @@
 
     invoke-static {v3, v4, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 191
+    .line 197
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->createGuideDialog()V
 
-    .line 198
+    .line 204
     .end local v1           #magnificationEnabled:Z
     :goto_1
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
 
-    .line 199
+    .line 205
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 200
+    .line 206
     .local v0, mHandler:Landroid/os/Handler;
     new-instance v3, Lcom/android/settings/OneHandSettings$1;
 
@@ -818,7 +825,7 @@
 
     invoke-virtual {v0, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 238
+    .line 244
     .end local v0           #mHandler:Landroid/os/Handler;
     :cond_0
     :goto_2
@@ -828,7 +835,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 239
+    .line 245
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -837,15 +844,15 @@
 
     invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 240
+    .line 246
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
-    .line 242
+    .line 248
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->createHandAdaptiveModeDeselectAllDialog()V
 
-    .line 245
+    .line 251
     :cond_1
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
@@ -856,17 +863,17 @@
     :cond_2
     move v1, v2
 
-    .line 186
+    .line 192
     goto :goto_0
 
-    .line 193
+    .line 199
     .restart local v1       #magnificationEnabled:Z
     :cond_3
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->createGuideDialog()V
 
     goto :goto_1
 
-    .line 196
+    .line 202
     .end local v1           #magnificationEnabled:Z
     :cond_4
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -879,7 +886,7 @@
 
     goto :goto_1
 
-    .line 205
+    .line 211
     :cond_5
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mDialer:Landroid/preference/CheckBoxPreference;
 
@@ -889,14 +896,14 @@
 
     if-eqz v3, :cond_7
 
-    .line 206
+    .line 212
     const-string v3, "OneHandSettings"
 
     const-string v4, "mDialer"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 207
+    .line 213
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mDialer:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -905,7 +912,7 @@
 
     if-eqz v3, :cond_6
 
-    .line 208
+    .line 214
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -916,7 +923,7 @@
 
     goto :goto_2
 
-    .line 210
+    .line 216
     :cond_6
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -928,7 +935,7 @@
 
     goto :goto_2
 
-    .line 212
+    .line 218
     :cond_7
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mSamsungKeypad:Landroid/preference/CheckBoxPreference;
 
@@ -938,21 +945,21 @@
 
     if-eqz v3, :cond_9
 
-    .line 214
+    .line 220
     invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 215
+    .line 221
     const-string v3, "OneHandSettings"
 
     const-string v4, "mSamsungKeypad"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
+    .line 222
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mSamsungKeypad:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -961,7 +968,7 @@
 
     if-eqz v3, :cond_8
 
-    .line 217
+    .line 223
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -972,7 +979,7 @@
 
     goto :goto_2
 
-    .line 219
+    .line 225
     :cond_8
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -984,7 +991,7 @@
 
     goto/16 :goto_2
 
-    .line 222
+    .line 228
     :cond_9
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mCalculator:Landroid/preference/CheckBoxPreference;
 
@@ -994,14 +1001,14 @@
 
     if-eqz v3, :cond_b
 
-    .line 223
+    .line 229
     const-string v3, "OneHandSettings"
 
     const-string v4, "mCalculator"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 224
+    .line 230
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mCalculator:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -1010,7 +1017,7 @@
 
     if-eqz v3, :cond_a
 
-    .line 225
+    .line 231
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -1021,7 +1028,7 @@
 
     goto/16 :goto_2
 
-    .line 227
+    .line 233
     :cond_a
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1033,7 +1040,7 @@
 
     goto/16 :goto_2
 
-    .line 229
+    .line 235
     :cond_b
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mPattern:Landroid/preference/CheckBoxPreference;
 
@@ -1043,14 +1050,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 230
+    .line 236
     const-string v3, "OneHandSettings"
 
     const-string v4, "mPattern"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
+    .line 237
     iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mPattern:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {v3}, Landroid/preference/CheckBoxPreference;->isChecked()Z
@@ -1059,7 +1066,7 @@
 
     if-eqz v3, :cond_c
 
-    .line 232
+    .line 238
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -1070,7 +1077,7 @@
 
     goto/16 :goto_2
 
-    .line 234
+    .line 240
     :cond_c
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1084,211 +1091,244 @@
 .end method
 
 .method public onResume()V
-    .locals 5
+    .locals 6
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     .line 152
-    iget-boolean v0, p0, Lcom/android/settings/OneHandSettings;->mEnableLog:Z
+    iget-boolean v1, p0, Lcom/android/settings/OneHandSettings;->mEnableLog:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string v0, "OneHandSettings"
+    const-string v1, "OneHandSettings"
 
-    const-string v3, "OneHandSettings onResume() start"
+    const-string v4, "OneHandSettings onResume() start"
 
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 153
     :cond_0
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
     .line 155
-    iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
+    iget-object v4, p0, Lcom/android/settings/OneHandSettings;->mAnyScreen:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v4, "any_screen_enabled"
+    const-string v5, "any_screen_enabled"
 
-    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
-    move v0, v1
+    move v1, v2
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     .line 158
-    iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
+    iget-object v4, p0, Lcom/android/settings/OneHandSettings;->mHandAdaptiveMode:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v4, "hand_adaptable_operation"
+    const-string v5, "hand_adaptable_operation"
 
-    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
-    move v0, v1
+    move v1, v2
 
     :goto_1
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
 
     .line 160
-    iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mDialer:Landroid/preference/CheckBoxPreference;
+    iget-object v4, p0, Lcom/android/settings/OneHandSettings;->mDialer:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v4, "onehand_dialer_enabled"
+    const-string v5, "onehand_dialer_enabled"
 
-    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_5
 
-    move v0, v1
+    move v1, v2
 
     :goto_2
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     .line 163
     invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     .line 164
-    iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mSamsungKeypad:Landroid/preference/CheckBoxPreference;
+    iget-object v4, p0, Lcom/android/settings/OneHandSettings;->mSamsungKeypad:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v4, "onehand_samsungkeypad_enabled"
+    const-string v5, "onehand_samsungkeypad_enabled"
 
-    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_6
+    if-eqz v1, :cond_6
 
-    move v0, v1
+    move v1, v2
 
     :goto_3
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
 
     .line 167
     :cond_1
-    iget-object v3, p0, Lcom/android/settings/OneHandSettings;->mCalculator:Landroid/preference/CheckBoxPreference;
+    iget-object v4, p0, Lcom/android/settings/OneHandSettings;->mCalculator:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v4, "onehand_calculator_enabled"
+    const-string v5, "onehand_calculator_enabled"
 
-    invoke-static {v0, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v1, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    move v1, v2
+
+    :goto_4
+    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 169
+    iget-object v4, p0, Lcom/android/settings/OneHandSettings;->mPattern:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v5, "onehand_pattern_enabled"
+
+    invoke-static {v1, v5, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    move v1, v2
+
+    :goto_5
+    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 172
+    invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v4, "easy_mode_switch"
+
+    invoke-static {v1, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    if-eqz v0, :cond_7
-
-    move v0, v1
-
-    :goto_4
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 169
-    iget-object v0, p0, Lcom/android/settings/OneHandSettings;->mPattern:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "onehand_pattern_enabled"
-
-    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    :goto_5
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 172
-    iget-boolean v0, p0, Lcom/android/settings/OneHandSettings;->mEnableLog:Z
-
-    if-eqz v0, :cond_2
-
-    const-string v0, "OneHandSettings"
-
-    const-string v1, "OneHandSettings onResume() end"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 173
+    .local v0, EasymodeDisabled:I
+    if-nez v0, :cond_9
+
+    .line 174
+    iget-object v1, p0, Lcom/android/settings/OneHandSettings;->mDialer:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+
+    .line 178
+    :goto_6
+    iget-boolean v1, p0, Lcom/android/settings/OneHandSettings;->mEnableLog:Z
+
+    if-eqz v1, :cond_2
+
+    const-string v1, "OneHandSettings"
+
+    const-string v2, "OneHandSettings onResume() end"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 179
     :cond_2
     return-void
 
+    .end local v0           #EasymodeDisabled:I
     :cond_3
-    move v0, v2
+    move v1, v3
 
     .line 155
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
-    move v0, v2
+    move v1, v3
 
     .line 158
     goto :goto_1
 
     :cond_5
-    move v0, v2
+    move v1, v3
 
     .line 160
     goto :goto_2
 
     :cond_6
-    move v0, v2
+    move v1, v3
 
     .line 164
     goto :goto_3
 
     :cond_7
-    move v0, v2
+    move v1, v3
 
     .line 167
     goto :goto_4
 
     :cond_8
-    move v1, v2
+    move v1, v3
 
     .line 169
     goto :goto_5
+
+    .line 176
+    .restart local v0       #EasymodeDisabled:I
+    :cond_9
+    iget-object v1, p0, Lcom/android/settings/OneHandSettings;->mDialer:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+
+    goto :goto_6
 .end method
 
 .method public showGuideDialog()V
     .locals 8
 
     .prologue
-    .line 293
+    .line 299
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
@@ -1297,7 +1337,7 @@
 
     invoke-direct {v0, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 295
+    .line 301
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
@@ -1307,13 +1347,13 @@
 
     move-result-object v4
 
-    .line 296
+    .line 302
     .local v4, mSharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 298
+    .line 304
     .local v1, edit:Landroid/content/SharedPreferences$Editor;
     const-string v6, "layout_inflater"
 
@@ -1323,9 +1363,9 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    .line 299
+    .line 305
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v6, 0x7f040119
+    const v6, 0x7f040142
 
     const/4 v7, 0x0
 
@@ -1333,9 +1373,9 @@
 
     move-result-object v3
 
-    .line 300
+    .line 306
     .local v3, layout:Landroid/view/View;
-    const v6, 0x7f0b0138
+    const v6, 0x7f0b0147
 
     invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1343,16 +1383,16 @@
 
     check-cast v5, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 302
+    .line 308
     .local v5, mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 303
-    const v6, 0x7f091113
+    .line 309
+    const v6, 0x7f09125d
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 305
+    .line 311
     const v6, 0x104000a
 
     new-instance v7, Lcom/android/settings/OneHandSettings$5;
@@ -1361,20 +1401,20 @@
 
     invoke-virtual {v0, v6, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 313
+    .line 319
     new-instance v6, Lcom/android/settings/OneHandSettings$6;
 
     invoke-direct {v6, p0}, Lcom/android/settings/OneHandSettings$6;-><init>(Lcom/android/settings/OneHandSettings;)V
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 321
+    .line 327
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 322
+    .line 328
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 323
+    .line 329
     return-void
 .end method
 
@@ -1382,7 +1422,7 @@
     .locals 9
 
     .prologue
-    .line 470
+    .line 476
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
@@ -1391,7 +1431,7 @@
 
     invoke-direct {v0, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 472
+    .line 478
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
@@ -1401,13 +1441,13 @@
 
     move-result-object v4
 
-    .line 473
+    .line 479
     .local v4, mSharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 475
+    .line 481
     .local v1, edit:Landroid/content/SharedPreferences$Editor;
     const-string v7, "layout_inflater"
 
@@ -1417,9 +1457,9 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    .line 476
+    .line 482
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v7, 0x7f040116
+    const v7, 0x7f04013f
 
     const/4 v8, 0x0
 
@@ -1427,9 +1467,9 @@
 
     move-result-object v3
 
-    .line 477
+    .line 483
     .local v3, layout:Landroid/view/View;
-    const v7, 0x7f0b0138
+    const v7, 0x7f0b0147
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1437,9 +1477,9 @@
 
     check-cast v5, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 479
+    .line 485
     .local v5, mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    const v7, 0x7f0b0316
+    const v7, 0x7f0b0356
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1447,9 +1487,9 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    .line 480
+    .line 486
     .local v6, tv:Landroid/widget/TextView;
-    const v7, 0x7f09112a
+    const v7, 0x7f091274
 
     invoke-virtual {p0, v7}, Lcom/android/settings/OneHandSettings;->getString(I)Ljava/lang/String;
 
@@ -1457,15 +1497,15 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 482
+    .line 488
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 483
-    const v7, 0x7f091123
+    .line 489
+    const v7, 0x7f09126d
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 485
+    .line 491
     const v7, 0x104000a
 
     new-instance v8, Lcom/android/settings/OneHandSettings$11;
@@ -1474,20 +1514,20 @@
 
     invoke-virtual {v0, v7, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 491
+    .line 497
     new-instance v7, Lcom/android/settings/OneHandSettings$12;
 
     invoke-direct {v7, p0}, Lcom/android/settings/OneHandSettings$12;-><init>(Lcom/android/settings/OneHandSettings;)V
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 497
+    .line 503
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 498
+    .line 504
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 499
+    .line 505
     return-void
 .end method
 
@@ -1495,7 +1535,7 @@
     .locals 9
 
     .prologue
-    .line 424
+    .line 430
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
@@ -1504,7 +1544,7 @@
 
     invoke-direct {v0, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 426
+    .line 432
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
@@ -1514,13 +1554,13 @@
 
     move-result-object v4
 
-    .line 427
+    .line 433
     .local v4, mSharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 429
+    .line 435
     .local v1, edit:Landroid/content/SharedPreferences$Editor;
     const-string v7, "layout_inflater"
 
@@ -1530,9 +1570,9 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    .line 430
+    .line 436
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v7, 0x7f040116
+    const v7, 0x7f04013f
 
     const/4 v8, 0x0
 
@@ -1540,9 +1580,9 @@
 
     move-result-object v3
 
-    .line 431
+    .line 437
     .local v3, layout:Landroid/view/View;
-    const v7, 0x7f0b0138
+    const v7, 0x7f0b0147
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1550,9 +1590,9 @@
 
     check-cast v5, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 433
+    .line 439
     .local v5, mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    const v7, 0x7f0b0316
+    const v7, 0x7f0b0356
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1560,9 +1600,9 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    .line 434
+    .line 440
     .local v6, tv:Landroid/widget/TextView;
-    const v7, 0x7f091129
+    const v7, 0x7f091273
 
     invoke-virtual {p0, v7}, Lcom/android/settings/OneHandSettings;->getString(I)Ljava/lang/String;
 
@@ -1570,15 +1610,15 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 436
+    .line 442
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 437
-    const v7, 0x7f091123
+    .line 443
+    const v7, 0x7f09126d
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 439
+    .line 445
     const v7, 0x104000a
 
     new-instance v8, Lcom/android/settings/OneHandSettings$9;
@@ -1587,20 +1627,20 @@
 
     invoke-virtual {v0, v7, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 448
+    .line 454
     new-instance v7, Lcom/android/settings/OneHandSettings$10;
 
     invoke-direct {v7, p0}, Lcom/android/settings/OneHandSettings$10;-><init>(Lcom/android/settings/OneHandSettings;)V
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 456
+    .line 462
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 457
+    .line 463
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 458
+    .line 464
     return-void
 .end method
 
@@ -1608,7 +1648,7 @@
     .locals 9
 
     .prologue
-    .line 375
+    .line 381
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
@@ -1617,7 +1657,7 @@
 
     invoke-direct {v0, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 377
+    .line 383
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
 
@@ -1627,13 +1667,13 @@
 
     move-result-object v4
 
-    .line 378
+    .line 384
     .local v4, mSharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 380
+    .line 386
     .local v1, edit:Landroid/content/SharedPreferences$Editor;
     const-string v7, "layout_inflater"
 
@@ -1643,9 +1683,9 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    .line 381
+    .line 387
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v7, 0x7f040116
+    const v7, 0x7f04013f
 
     const/4 v8, 0x0
 
@@ -1653,9 +1693,9 @@
 
     move-result-object v3
 
-    .line 382
+    .line 388
     .local v3, layout:Landroid/view/View;
-    const v7, 0x7f0b0138
+    const v7, 0x7f0b0147
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1663,9 +1703,9 @@
 
     check-cast v5, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 384
+    .line 390
     .local v5, mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    const v7, 0x7f0b0316
+    const v7, 0x7f0b0356
 
     invoke-virtual {v3, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1673,9 +1713,9 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    .line 385
+    .line 391
     .local v6, tv:Landroid/widget/TextView;
-    const v7, 0x7f091128
+    const v7, 0x7f091272
 
     invoke-virtual {p0, v7}, Lcom/android/settings/OneHandSettings;->getString(I)Ljava/lang/String;
 
@@ -1683,15 +1723,15 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 387
+    .line 393
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 388
-    const v7, 0x7f091123
+    .line 394
+    const v7, 0x7f09126d
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 390
+    .line 396
     const v7, 0x104000a
 
     new-instance v8, Lcom/android/settings/OneHandSettings$7;
@@ -1700,20 +1740,20 @@
 
     invoke-virtual {v0, v7, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 399
+    .line 405
     new-instance v7, Lcom/android/settings/OneHandSettings$8;
 
     invoke-direct {v7, p0}, Lcom/android/settings/OneHandSettings$8;-><init>(Lcom/android/settings/OneHandSettings;)V
 
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 407
+    .line 413
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 408
+    .line 414
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 409
+    .line 415
     return-void
 .end method
 
@@ -1721,7 +1761,7 @@
     .locals 3
 
     .prologue
-    .line 503
+    .line 509
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/settings/OneHandSettings;->getActivity()Landroid/app/Activity;
@@ -1730,23 +1770,23 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 504
+    .line 510
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f091123
+    const v1, 0x7f09126d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 505
+    .line 511
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 506
-    const v1, 0x7f090d18
+    .line 512
+    const v1, 0x7f090e3f
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 507
+    .line 513
     const v1, 0x104000a
 
     new-instance v2, Lcom/android/settings/OneHandSettings$13;
@@ -1755,12 +1795,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 514
+    .line 520
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 515
+    .line 521
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 516
+    .line 522
     return-void
 .end method

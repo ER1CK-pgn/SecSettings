@@ -44,7 +44,7 @@
     .locals 1
 
     .prologue
-    .line 780
+    .line 790
     new-instance v0, Lcom/android/settings/BrightnessPreference$SavedState$1;
 
     invoke-direct {v0}, Lcom/android/settings/BrightnessPreference$SavedState$1;-><init>()V
@@ -63,10 +63,10 @@
 
     const/4 v1, 0x1
 
-    .line 758
+    .line 768
     invoke-direct {p0, p1}, Landroid/preference/Preference$BaseSavedState;-><init>(Landroid/os/Parcel;)V
 
-    .line 759
+    .line 769
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -78,14 +78,14 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->automatic:Z
 
-    .line 760
+    .line 770
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->progress:I
 
-    .line 761
+    .line 771
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -95,33 +95,33 @@
     :goto_1
     iput-boolean v1, p0, Lcom/android/settings/BrightnessPreference$SavedState;->oldAutomatic:Z
 
-    .line 762
+    .line 772
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->oldProgress:I
 
-    .line 763
+    .line 773
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->curBrightness:I
 
-    .line 764
+    .line 774
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 759
+    .line 769
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 761
+    .line 771
     goto :goto_1
 .end method
 
@@ -130,10 +130,10 @@
     .parameter "superState"
 
     .prologue
-    .line 777
+    .line 787
     invoke-direct {p0, p1}, Landroid/preference/Preference$BaseSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 778
+    .line 788
     return-void
 .end method
 
@@ -149,10 +149,10 @@
 
     const/4 v2, 0x0
 
-    .line 768
-    invoke-super {p0, p1, p2}, Landroid/preference/Preference$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    .line 778
+    invoke-super {p0, p1, p2}, Landroid/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 769
+    .line 779
     iget-boolean v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->automatic:Z
 
     if-eqz v0, :cond_0
@@ -162,12 +162,12 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 770
+    .line 780
     iget v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->progress:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 771
+    .line 781
     iget-boolean v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->oldAutomatic:Z
 
     if-eqz v0, :cond_1
@@ -175,28 +175,28 @@
     :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 772
+    .line 782
     iget v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->oldProgress:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 773
+    .line 783
     iget v0, p0, Lcom/android/settings/BrightnessPreference$SavedState;->curBrightness:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 774
+    .line 784
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 769
+    .line 779
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 771
+    .line 781
     goto :goto_1
 .end method

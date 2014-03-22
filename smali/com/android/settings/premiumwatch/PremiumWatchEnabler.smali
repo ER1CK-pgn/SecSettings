@@ -116,7 +116,7 @@
     .end local v1           #out:Ljava/io/BufferedWriter;
     .local v2, out:Ljava/io/BufferedWriter;
     :try_start_1
-    invoke-virtual {v2, p2}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v2, p2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
@@ -508,7 +508,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 140
     iput-object p1, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
@@ -516,7 +516,7 @@
     .line 141
     iget-object v1, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 143
     iget-object v1, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mContext:Landroid/content/Context;
@@ -538,7 +538,7 @@
     .line 146
     iget-object v1, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 147
     iget-object v1, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
@@ -580,19 +580,6 @@
     goto :goto_1
 .end method
 
-.method public setSwitchOnOff()V
-    .locals 1
-
-    .prologue
-    .line 176
-    iget-object v0, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v0}, Landroid/widget/Switch;->toggle()V
-
-    .line 177
-    return-void
-.end method
-
 .method public updateSwitch()V
     .locals 6
 
@@ -618,7 +605,7 @@
     .local v1, state:I
     iget-object v2, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v2}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
@@ -633,7 +620,7 @@
     .line 86
     iget-object v2, p0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2}, Landroid/widget/Switch;->isEnabled()Z
+    invoke-virtual {v2}, Landroid/view/View;->isEnabled()Z
 
     move-result v2
 

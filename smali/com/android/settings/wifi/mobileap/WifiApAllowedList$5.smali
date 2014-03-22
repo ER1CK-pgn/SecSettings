@@ -35,7 +35,7 @@
 
     iput p2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$5;->val$screenWidth:I
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -57,7 +57,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0903ee
+    const v3, 0x7f090425
 
     invoke-static {v2, v3, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 234
+    .line 231
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     iput-object p2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->val$cr:Landroid/content/ContentResolver;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -49,10 +49,10 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 236
+    .line 233
     const/4 v1, 0x0
 
-    .line 238
+    .line 235
     .local v1, wifiSavedState:I
     :try_start_0
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->val$cr:Landroid/content/ContentResolver;
@@ -65,11 +65,11 @@
 
     move-result v1
 
-    .line 242
+    .line 239
     :goto_0
     if-ne v1, v4, :cond_1
 
-    .line 244
+    .line 241
     const-wide/16 v2, 0x258
 
     :try_start_1
@@ -77,7 +77,7 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 248
+    .line 245
     :goto_1
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
@@ -88,7 +88,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 249
+    .line 246
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -98,7 +98,7 @@
 
     invoke-virtual {v2, v4}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 250
+    .line 247
     :cond_0
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->val$cr:Landroid/content/ContentResolver;
 
@@ -108,7 +108,7 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 252
+    .line 249
     :cond_1
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
@@ -119,7 +119,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 253
+    .line 250
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApWarning;->mNaiMismatchDialog:Landroid/app/AlertDialog;
@@ -127,28 +127,28 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v2}, Landroid/app/Dialog;->dismiss()V
 
-    .line 254
+    .line 251
     :cond_2
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$4;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-virtual {v2}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
-    .line 255
+    .line 252
     return-void
 
-    .line 245
+    .line 242
     :catch_0
     move-exception v0
 
-    .line 246
+    .line 243
     .local v0, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
-    .line 239
+    .line 236
     .end local v0           #e:Ljava/lang/InterruptedException;
     :catch_1
     move-exception v2

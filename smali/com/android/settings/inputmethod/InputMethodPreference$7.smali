@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 323
+    .line 328
     iput-object p1, p0, Lcom/android/settings/inputmethod/InputMethodPreference$7;->this$0:Lcom/android/settings/inputmethod/InputMethodPreference;
 
     iput-object p2, p0, Lcom/android/settings/inputmethod/InputMethodPreference$7;->val$chkPref:Lcom/android/settings/inputmethod/InputMethodPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -50,11 +50,12 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 326
+    .line 331
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodPreference$7;->val$chkPref:Lcom/android/settings/inputmethod/InputMethodPreference;
 
-    invoke-virtual {v0, v1, v1}, Lcom/android/settings/inputmethod/InputMethodPreference;->setChecked(ZZ)V
+    #calls: Lcom/android/settings/inputmethod/InputMethodPreference;->setChecked(ZZ)V
+    invoke-static {v0, v1, v1}, Lcom/android/settings/inputmethod/InputMethodPreference;->access$100(Lcom/android/settings/inputmethod/InputMethodPreference;ZZ)V
 
-    .line 327
+    .line 332
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 570
+    .line 637
     iput-object p1, p0, Lcom/android/settings/TetherSettings$9;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,19 +38,17 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
     .parameter "dialog"
     .parameter "whichButton"
 
     .prologue
-    .line 572
+    .line 639
     iget-object v0, p0, Lcom/android/settings/TetherSettings$9;->this$0:Lcom/android/settings/TetherSettings;
 
-    const/4 v1, 0x1
+    #calls: Lcom/android/settings/TetherSettings;->startTethering()V
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->access$800(Lcom/android/settings/TetherSettings;)V
 
-    #calls: Lcom/android/settings/TetherSettings;->saveTxPowerModeValue(I)I
-    invoke-static {v0, v1}, Lcom/android/settings/TetherSettings;->access$1100(Lcom/android/settings/TetherSettings;I)I
-
-    .line 573
+    .line 640
     return-void
 .end method

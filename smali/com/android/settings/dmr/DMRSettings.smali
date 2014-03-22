@@ -241,7 +241,7 @@
 
     .prologue
     .line 86
-    invoke-virtual {p0, p1}, Lcom/android/settings/dmr/DMRSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -453,9 +453,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f090f5e
+    const v1, 0x7f091098
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dmr/DMRSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -504,7 +504,7 @@
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1234
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -571,7 +571,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -609,7 +609,7 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1180
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -699,7 +699,7 @@
     .line 1153
     iget-object v3, p0, Lcom/android/settings/dmr/DMRSettings;->mDeviceName:Landroid/preference/EditTextPreference;
 
-    invoke-virtual {v3, v1}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 1161
     .end local v1           #modifiedName:Ljava/lang/String;
@@ -725,7 +725,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -740,7 +740,7 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1141
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -776,7 +776,7 @@
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1157
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -822,7 +822,7 @@
     .line 992
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceGroup;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 994
     invoke-virtual/range {p1 .. p1}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
@@ -943,7 +943,7 @@
     if-nez v14, :cond_9
 
     .line 1052
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1155,9 +1155,9 @@
     .line 1079
     .local v14, value:Ljava/lang/Object;
     :cond_8
-    const v1, 0x7f090f5e
+    const v1, 0x7f091098
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/dmr/DMRSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v14
 
@@ -1284,15 +1284,15 @@
     .line 936
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0913cf
+    const v2, 0x7f091548
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/dmr/DMRSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1300,9 +1300,9 @@
 
     move-result-object v1
 
-    const v2, 0x7f0913d9
+    const v2, 0x7f091552
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/dmr/DMRSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1310,7 +1310,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090f54
+    const v2, 0x7f09108e
 
     new-instance v3, Lcom/android/settings/dmr/DMRSettings$3;
 
@@ -1366,7 +1366,7 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 978
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1615,7 +1615,7 @@
     .line 1689
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1625,7 +1625,7 @@
     if-eqz p2, :cond_1
 
     .line 1693
-    const v0, 0x7f0913d3
+    const v0, 0x7f09154c
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1652,13 +1652,13 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1701
-    const v0, 0x7f0913d8
+    const v0, 0x7f091551
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     .line 1780
     :goto_1
-    const v0, 0x7f090f55
+    const v0, 0x7f09108f
 
     new-instance v1, Lcom/android/settings/dmr/DMRSettings$7;
 
@@ -1672,14 +1672,14 @@
     move-result-object v0
 
     .line 1788
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 1789
     return-void
 
     .line 1695
     :cond_1
-    const v0, 0x7f0913d5
+    const v0, 0x7f09154e
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1759,7 +1759,7 @@
     invoke-virtual {v3, v6, v8, v0}, Landroid/app/AlertDialog$Builder;->setMultiChoiceItems([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 1743
-    const v0, 0x7f090f5c
+    const v0, 0x7f091096
 
     new-instance v1, Lcom/android/settings/dmr/DMRSettings$6;
 
@@ -1781,7 +1781,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 262
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1810,11 +1810,11 @@
     iput-object v2, p0, Lcom/android/settings/dmr/DMRSettings;->mDMREnabler:Lcom/android/settings/dmr/DMREnabler;
 
     .line 267
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0f0019
+    const v3, 0x7f0f0034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1824,7 +1824,7 @@
     .local v1, padding:I
     iget-object v2, p0, Lcom/android/settings/dmr/DMRSettings;->mEnabledSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 270
     return-void
@@ -1846,7 +1846,7 @@
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 202
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceManager()Landroid/preference/PreferenceManager;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
     move-result-object v2
 
@@ -1855,16 +1855,16 @@
     invoke-virtual {v2, v3}, Landroid/preference/PreferenceManager;->setSharedPreferencesName(Ljava/lang/String;)V
 
     .line 205
-    const v2, 0x7f070034
+    const v2, 0x7f070041
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/dmr/DMRSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 208
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -1876,22 +1876,22 @@
     iput-object v2, p0, Lcom/android/settings/dmr/DMRSettings;->mDeviceName:Landroid/preference/EditTextPreference;
 
     .line 220
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
     const-string v3, "dmr_device_name"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/dmr/DMRSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 240
     const-string v2, "dmr_accept_device"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/dmr/DMRSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1902,7 +1902,7 @@
     .line 242
     const-string v2, "dmr_reject_device"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/dmr/DMRSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -1913,7 +1913,7 @@
     .line 244
     const-string v2, "dmr_access_control"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/dmr/DMRSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1949,7 +1949,7 @@
 
     .prologue
     .line 377
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
     .line 378
     const-string v0, "Settings"
@@ -1980,7 +1980,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 297
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1993,7 +1993,7 @@
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;)V
 
     .line 298
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroyView()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroyView()V
 
     .line 299
     return-void
@@ -2011,7 +2011,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 364
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 366
     return-void
@@ -2162,7 +2162,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/dmr/DMRSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v13}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v11
 
@@ -2174,7 +2174,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/dmr/DMRSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v13}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v12
 
@@ -2245,7 +2245,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v14}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
@@ -2257,7 +2257,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v14}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
@@ -2272,7 +2272,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v14}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
@@ -2284,7 +2284,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v14}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
@@ -2307,7 +2307,7 @@
 
     move-result-object v15
 
-    invoke-virtual {v15}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2325,7 +2325,7 @@
 
     move-result-object v15
 
-    invoke-virtual {v15}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2386,7 +2386,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v14}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
@@ -2409,7 +2409,7 @@
 
     move-result-object v15
 
-    invoke-virtual {v15}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2628,7 +2628,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v4}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2643,7 +2643,7 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 773
-    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -2666,7 +2666,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2681,7 +2681,7 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 776
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -2731,7 +2731,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v13, v14}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
@@ -2759,7 +2759,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v4}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2774,7 +2774,7 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 799
-    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 842
     .end local v3           #currentName:Ljava/lang/String;
@@ -2810,7 +2810,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2825,7 +2825,7 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 802
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 
@@ -2853,7 +2853,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v13, v14}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 810
     const/4 v13, 0x1
@@ -3034,7 +3034,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v4}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v15
 
@@ -3049,7 +3049,7 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 828
-    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 829
     const/4 v13, 0x0
@@ -3075,7 +3075,7 @@
 
     move-result-object v14
 
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v15
 
@@ -3090,7 +3090,7 @@
     invoke-static {v13, v14}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 832
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 833
     const/4 v13, 0x0
@@ -3165,7 +3165,7 @@
     .line 398
     iget-object v6, p0, Lcom/android/settings/dmr/DMRSettings;->mDeviceName:Landroid/preference/EditTextPreference;
 
-    invoke-virtual {v6}, Landroid/preference/EditTextPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v6}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -3186,7 +3186,7 @@
     .local v3, positiveButton:Landroid/widget/Button;
     const/4 v6, 0x0
 
-    invoke-virtual {v3, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 402
     check-cast p1, Landroid/preference/EditTextPreference;
@@ -3361,7 +3361,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3376,7 +3376,7 @@
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 448
-    invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
@@ -3413,7 +3413,7 @@
     invoke-static {v4, v6}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 463
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v4, v5
 
@@ -3441,7 +3441,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3456,7 +3456,7 @@
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 427
-    invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_1
 
@@ -3479,7 +3479,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3494,7 +3494,7 @@
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 430
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_1
 
@@ -3534,7 +3534,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3549,7 +3549,7 @@
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 451
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -3589,11 +3589,11 @@
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 307
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/preference/PreferenceScreen;->getSharedPreferences()Landroid/content/SharedPreferences;
+    invoke-virtual {v4}, Landroid/preference/Preference;->getSharedPreferences()Landroid/content/SharedPreferences;
 
     move-result-object v4
 
@@ -3603,7 +3603,7 @@
 
     .line 308
     .local v0, currentPreference:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;*>;"
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v4
 
@@ -3620,7 +3620,7 @@
     .line 346
     iget-object v4, p0, Lcom/android/settings/dmr/DMRSettings;->mDeviceName:Landroid/preference/EditTextPreference;
 
-    invoke-virtual {v4}, Landroid/preference/EditTextPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v4}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v2
 
@@ -3723,7 +3723,7 @@
     .local v3, positiveButton:Landroid/widget/Button;
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 358
     .end local v1           #currentText:Ljava/lang/String;
@@ -3762,7 +3762,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 372
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     .line 373
     return-void
@@ -3777,7 +3777,7 @@
     const/4 v5, -0x2
 
     .line 274
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStart()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStart()V
 
     .line 275
     iget-object v1, p0, Lcom/android/settings/dmr/DMRSettings;->mDMREnabler:Lcom/android/settings/dmr/DMREnabler;
@@ -3791,7 +3791,7 @@
 
     .line 277
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/dmr/DMRSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -3845,7 +3845,7 @@
 
     .line 291
     :cond_0
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
     .line 292
     return-void

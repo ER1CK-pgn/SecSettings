@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 518
+    .line 534
     iput-object p1, p0, Lcom/android/settings/EasyModeSettings$6;->this$0:Lcom/android/settings/EasyModeSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "id"
 
     .prologue
-    .line 521
+    .line 537
     return-void
 .end method

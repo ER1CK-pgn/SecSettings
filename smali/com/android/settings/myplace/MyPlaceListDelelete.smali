@@ -41,7 +41,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 225
+    .line 230
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -66,7 +66,7 @@
 
     move-result-object v6
 
-    .line 226
+    .line 231
     .local v6, c:Landroid/database/Cursor;
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
@@ -76,21 +76,21 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 227
+    .line 232
     const-string v0, "MyPlaceSettings"
 
     const-string v1, "AddAccessPointToList(), there is no safety zone, return false"
 
     invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 228
+    .line 233
     const/4 v0, 0x0
 
-    .line 241
+    .line 246
     :goto_0
     return v0
 
-    .line 231
+    .line 236
     :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
@@ -98,20 +98,20 @@
 
     add-int/lit8 v7, v0, -0x3
 
-    .line 232
+    .line 237
     .local v7, count:I
     new-array v0, v7, [Ljava/lang/String;
 
     sput-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mListItem:[Ljava/lang/String;
 
-    .line 233
+    .line 238
     const/4 v8, 0x0
 
     .local v8, i:I
     :goto_1
     if-ge v8, v7, :cond_2
 
-    .line 234
+    .line 239
     add-int/lit8 v0, v8, 0x3
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->moveToPosition(I)Z
@@ -120,7 +120,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 235
+    .line 240
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mListItem:[Ljava/lang/String;
 
     const-string v1, "profile_name"
@@ -135,17 +135,17 @@
 
     aput-object v1, v0, v8
 
-    .line 233
+    .line 238
     :cond_1
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 239
+    .line 244
     :cond_2
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 241
+    .line 246
     const/4 v0, 0x1
 
     goto :goto_0
@@ -156,14 +156,14 @@
     .parameter "checked"
 
     .prologue
-    .line 93
+    .line 98
     sget-object v2, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v2}, Landroid/widget/ListView;->getCount()I
 
     move-result v0
 
-    .line 94
+    .line 99
     .local v0, count:I
     const/4 v1, 0x0
 
@@ -171,7 +171,7 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    .line 95
+    .line 100
     sget-object v2, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v2, v1}, Landroid/widget/ListView;->isItemChecked(I)Z
@@ -180,22 +180,22 @@
 
     if-eq v2, p1, :cond_0
 
-    .line 96
+    .line 101
     sget-object v2, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v2, v1, p1}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 94
+    .line 99
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 98
+    .line 103
     :cond_1
     invoke-static {}, Lcom/android/settings/myplace/MyPlaceListDelelete;->checkDeleteButtonstate()V
 
-    .line 99
+    .line 104
     return-void
 .end method
 
@@ -203,12 +203,12 @@
     .locals 2
 
     .prologue
-    .line 209
+    .line 214
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
     if-eqz v0, :cond_0
 
-    .line 210
+    .line 215
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
@@ -217,39 +217,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 211
+    .line 216
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
     const/4 v1, 0x1
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
-
-    .line 212
-    sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
-
-    invoke-interface {v0}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 213
-    sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
-
-    const v1, 0x7f0200dc
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    .line 222
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 216
-    :cond_1
-    sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
-
-    const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
@@ -265,7 +236,36 @@
     .line 218
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200de
+    const v1, 0x7f02011c
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+
+    .line 227
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 221
+    :cond_1
+    sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    .line 222
+    sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
+
+    invoke-interface {v0}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 223
+    sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
+
+    const v1, 0x7f02011e
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -280,14 +280,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 246
+    .line 251
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v0}, Landroid/widget/ListView;->getCount()I
 
     move-result v7
 
-    .line 247
+    .line 252
     .local v7, count:I
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
@@ -295,7 +295,7 @@
 
     move-result v13
 
-    .line 248
+    .line 253
     .local v13, selectedCount:I
     const-string v0, "MyPlaceSettings"
 
@@ -329,14 +329,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 250
+    .line 255
     new-array v8, v13, [I
 
-    .line 252
+    .line 257
     .local v8, deleteList:[I
     if-lez v7, :cond_2
 
-    .line 253
+    .line 258
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
@@ -361,7 +361,7 @@
 
     move-result-object v6
 
-    .line 254
+    .line 259
     .local v6, c:Landroid/database/Cursor;
     const/4 v9, 0x0
 
@@ -372,7 +372,7 @@
     :goto_0
     if-ge v9, v7, :cond_1
 
-    .line 255
+    .line 260
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v0, v9}, Landroid/widget/ListView;->isItemChecked(I)Z
@@ -381,7 +381,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 256
+    .line 261
     add-int/lit8 v0, v9, 0x3
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->moveToPosition(I)Z
@@ -390,7 +390,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 257
+    .line 262
     const-string v0, "_id"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -401,7 +401,7 @@
 
     move-result v10
 
-    .line 258
+    .line 263
     .local v10, id:I
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
 
@@ -437,44 +437,44 @@
 
     invoke-virtual {v0, v1, v3, v2}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 259
+    .line 264
     aput v10, v8, v12
 
-    .line 260
+    .line 265
     add-int/lit8 v12, v12, 0x1
 
-    .line 254
+    .line 259
     .end local v10           #id:I
     :cond_0
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
-    .line 264
+    .line 269
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 269
+    .line 274
     new-instance v11, Landroid/content/Intent;
 
     const-string v0, "android.settings.MYPLACE_DELETED"
 
     invoke-direct {v11, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 270
+    .line 275
     .local v11, intent:Landroid/content/Intent;
     const-string v0, "deleteList"
 
     invoke-virtual {v11, v0, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[I)Landroid/content/Intent;
 
-    .line 271
+    .line 276
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0, v11}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 273
+    .line 278
     .end local v6           #c:Landroid/database/Cursor;
     .end local v9           #i:I
     .end local v11           #intent:Landroid/content/Intent;
@@ -488,6 +488,8 @@
     .parameter "savedInstanceState"
 
     .prologue
+    const/16 v3, 0x8
+
     .line 59
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
@@ -518,7 +520,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0161
+    const v1, 0x7f0b0172
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -531,7 +533,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0163
+    const v1, 0x7f0b0174
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -549,7 +551,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0164
+    const v1, 0x7f0b0175
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -560,13 +562,35 @@
     sput-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mSelectAllCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     .line 68
-    invoke-direct {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->AddAccessPointToList()Z
+    invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 69
+    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mButtonSellectAll:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 70
+    iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mCustomListDel:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 73
+    :cond_0
+    invoke-direct {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->AddAccessPointToList()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 74
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     new-instance v1, Landroid/widget/ArrayAdapter;
@@ -575,7 +599,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04016e
+    const v3, 0x7f0401aa
 
     sget-object v4, Lcom/android/settings/myplace/MyPlaceListDelelete;->mListItem:[Ljava/lang/String;
 
@@ -583,27 +607,27 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 70
+    .line 75
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 71
+    .line 76
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 74
-    :cond_0
+    .line 79
+    :cond_1
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->setHasOptionsMenu(Z)V
 
-    .line 75
+    .line 80
     return-void
 .end method
 
@@ -612,7 +636,7 @@
     .parameter "v"
 
     .prologue
-    .line 88
+    .line 93
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mSelectAllCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mSelectAllCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -628,7 +652,7 @@
     :goto_0
     invoke-virtual {v1, v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
-    .line 89
+    .line 94
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mSelectAllCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
@@ -637,10 +661,10 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->ToggleAllCheck(Z)V
 
-    .line 90
+    .line 95
     return-void
 
-    .line 88
+    .line 93
     :cond_0
     const/4 v0, 0x0
 
@@ -652,17 +676,17 @@
     .parameter "arg0"
 
     .prologue
-    .line 203
+    .line 208
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 204
+    .line 209
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    .line 205
+    .line 210
     return-void
 .end method
 
@@ -672,7 +696,7 @@
     .parameter "inflater"
 
     .prologue
-    const v6, 0x7f090173
+    const v6, 0x7f090195
 
     const/4 v5, 0x5
 
@@ -682,10 +706,10 @@
 
     const/4 v2, 0x0
 
-    .line 103
+    .line 108
     invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 105
+    .line 110
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -694,51 +718,51 @@
 
     if-nez v0, :cond_0
 
-    .line 106
+    .line 111
     const v0, 0x7f120001
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 107
+    .line 112
     invoke-interface {p1, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    .line 108
+    .line 113
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    const v1, 0x7f090991
+    const v1, 0x7f090a6f
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 109
+    .line 114
     invoke-interface {p1, v2}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_cancel:Landroid/view/MenuItem;
 
-    .line 110
+    .line 115
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_cancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v6}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 124
+    .line 129
     :goto_0
     invoke-static {}, Lcom/android/settings/myplace/MyPlaceListDelelete;->checkDeleteButtonstate()V
 
-    .line 125
+    .line 130
     return-void
 
-    .line 113
+    .line 118
     :cond_0
     invoke-interface {p1, v2, v4, v2, v6}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200d8
+    const v1, 0x7f020118
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -746,14 +770,14 @@
 
     invoke-interface {v0, v5}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 116
-    const v0, 0x7f090991
+    .line 121
+    const v0, 0x7f090a6f
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200dc
+    const v1, 0x7f02011c
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -761,14 +785,14 @@
 
     invoke-interface {v0, v5}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 120
+    .line 125
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
-    .line 121
+    .line 126
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
@@ -786,7 +810,7 @@
 
     .prologue
     .line 48
-    const v0, 0x7f04015a
+    const v0, 0x7f040191
 
     const/4 v1, 0x0
 
@@ -805,10 +829,10 @@
     .parameter "id"
 
     .prologue
-    .line 79
+    .line 84
     invoke-static {}, Lcom/android/settings/myplace/MyPlaceListDelelete;->checkDeleteButtonstate()V
 
-    .line 80
+    .line 85
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v0}, Landroid/widget/ListView;->getCheckedItemCount()I
@@ -823,18 +847,18 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 81
+    .line 86
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mSelectAllCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
-    .line 85
+    .line 90
     :goto_0
     return-void
 
-    .line 83
+    .line 88
     :cond_0
     sget-object v0, Lcom/android/settings/myplace/MyPlaceListDelelete;->mSelectAllCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
@@ -852,14 +876,14 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 158
+    .line 163
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v5
 
     sparse-switch v5, :sswitch_data_0
 
-    .line 196
+    .line 201
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v4
@@ -867,7 +891,7 @@
     :goto_0
     return v4
 
-    .line 163
+    .line 168
     :sswitch_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -877,36 +901,36 @@
 
     invoke-direct {v1, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 164
+    .line 169
     .local v1, builder:Landroid/app/AlertDialog$Builder;
-    const v5, 0x7f090991
+    const v5, 0x7f090a6f
 
     invoke-virtual {v1, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 165
+    .line 170
     sget-object v5, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v5}, Landroid/widget/ListView;->getCheckedItemCount()I
 
     move-result v2
 
-    .line 167
+    .line 172
     .local v2, count:I
     if-ne v2, v4, :cond_0
 
-    .line 168
-    const v5, 0x7f0915d2
+    .line 173
+    const v5, 0x7f09173b
 
     invoke-virtual {p0, v5}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 172
+    .line 177
     .local v3, tempStr:Ljava/lang/String;
     :goto_1
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 173
+    .line 178
     const v5, 0x104000a
 
     new-instance v6, Lcom/android/settings/myplace/MyPlaceListDelelete$1;
@@ -915,7 +939,7 @@
 
     invoke-virtual {v1, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 180
+    .line 185
     const/high16 v5, 0x104
 
     new-instance v6, Lcom/android/settings/myplace/MyPlaceListDelelete$2;
@@ -924,22 +948,22 @@
 
     invoke-virtual {v1, v5, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 186
+    .line 191
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    .line 187
+    .line 192
     .local v0, alertDialog:Landroid/app/AlertDialog;
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
     goto :goto_0
 
-    .line 170
+    .line 175
     .end local v0           #alertDialog:Landroid/app/AlertDialog;
     .end local v3           #tempStr:Ljava/lang/String;
     :cond_0
-    const v5, 0x7f0915d3
+    const v5, 0x7f09173c
 
     new-array v6, v4, [Ljava/lang/Object;
 
@@ -958,7 +982,7 @@
     .restart local v3       #tempStr:Ljava/lang/String;
     goto :goto_1
 
-    .line 192
+    .line 197
     .end local v1           #builder:Landroid/app/AlertDialog$Builder;
     .end local v2           #count:I
     .end local v3           #tempStr:Ljava/lang/String;
@@ -969,7 +993,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
+    .line 198
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
@@ -978,15 +1002,15 @@
 
     goto :goto_0
 
-    .line 158
+    .line 163
     nop
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
         0x2 -> :sswitch_1
-        0x7f0b05f6 -> :sswitch_1
-        0x7f0b05f7 -> :sswitch_0
+        0x7f0b0672 -> :sswitch_1
+        0x7f0b0673 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -1009,18 +1033,18 @@
     .parameter "menu"
 
     .prologue
-    const v6, 0x7f0200de
+    const v6, 0x7f02011e
 
-    const v5, 0x7f0200dc
+    const v5, 0x7f02011c
 
-    const v4, 0x7f0200d8
+    const v4, 0x7f020118
 
     const/4 v3, 0x0
 
-    .line 129
+    .line 134
     invoke-super {p0, p1}, Landroid/app/ListFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    .line 131
+    .line 136
     invoke-virtual {p0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -1029,7 +1053,7 @@
 
     move-result-object v0
 
-    .line 133
+    .line 138
     .local v0, config:Landroid/content/res/Configuration;
     invoke-static {v3}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
@@ -1037,29 +1061,29 @@
 
     if-nez v1, :cond_3
 
-    .line 135
+    .line 140
     iget v1, v0, Landroid/content/res/Configuration;->orientation:I
 
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_1
 
-    .line 136
+    .line 141
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_cancel:Landroid/view/MenuItem;
 
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    .line 137
+    .line 142
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    .line 154
+    .line 159
     :cond_0
     :goto_0
     return-void
 
-    .line 138
+    .line 143
     :cond_1
     iget v1, v0, Landroid/content/res/Configuration;->orientation:I
 
@@ -1067,12 +1091,12 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 139
+    .line 144
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_cancel:Landroid/view/MenuItem;
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 140
+    .line 145
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v1}, Landroid/widget/ListView;->getCheckedItemCount()I
@@ -1081,14 +1105,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 141
+    .line 146
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
     invoke-interface {v1, v5}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     goto :goto_0
 
-    .line 143
+    .line 148
     :cond_2
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
@@ -1096,13 +1120,13 @@
 
     goto :goto_0
 
-    .line 147
+    .line 152
     :cond_3
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_cancel:Landroid/view/MenuItem;
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 148
+    .line 153
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mlistView:Landroid/widget/ListView;
 
     invoke-virtual {v1}, Landroid/widget/ListView;->getCheckedItemCount()I
@@ -1111,14 +1135,14 @@
 
     if-eqz v1, :cond_4
 
-    .line 149
+    .line 154
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 
     invoke-interface {v1, v5}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     goto :goto_0
 
-    .line 151
+    .line 156
     :cond_4
     sget-object v1, Lcom/android/settings/myplace/MyPlaceListDelelete;->mItem_del:Landroid/view/MenuItem;
 

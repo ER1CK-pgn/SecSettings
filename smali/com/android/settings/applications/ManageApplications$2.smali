@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1393
+    .line 1434
     iput-object p1, p0, Lcom/android/settings/applications/ManageApplications$2;->this$0:Lcom/android/settings/applications/ManageApplications;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "service"
 
     .prologue
-    .line 1396
+    .line 1437
     iget-object v1, p0, Lcom/android/settings/applications/ManageApplications$2;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     invoke-static {p2}, Lcom/android/internal/app/IMediaContainerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IMediaContainerService;
@@ -53,7 +53,7 @@
     #setter for: Lcom/android/settings/applications/ManageApplications;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
     invoke-static {v1, v2}, Lcom/android/settings/applications/ManageApplications;->access$1402(Lcom/android/settings/applications/ManageApplications;Lcom/android/internal/app/IMediaContainerService;)Lcom/android/internal/app/IMediaContainerService;
 
-    .line 1397
+    .line 1438
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -71,7 +71,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1398
+    .line 1439
     iget-object v1, p0, Lcom/android/settings/applications/ManageApplications$2;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     #getter for: Lcom/android/settings/applications/ManageApplications;->mTabs:Ljava/util/ArrayList;
@@ -94,12 +94,12 @@
 
     invoke-virtual {v1, v2}, Lcom/android/settings/applications/ManageApplications$TabInfo;->setContainerService(Lcom/android/internal/app/IMediaContainerService;)V
 
-    .line 1397
+    .line 1438
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1400
+    .line 1441
     :cond_0
     return-void
 .end method
@@ -109,7 +109,7 @@
     .parameter "name"
 
     .prologue
-    .line 1404
+    .line 1445
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$2;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     const/4 v1, 0x0
@@ -117,6 +117,6 @@
     #setter for: Lcom/android/settings/applications/ManageApplications;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
     invoke-static {v0, v1}, Lcom/android/settings/applications/ManageApplications;->access$1402(Lcom/android/settings/applications/ManageApplications;Lcom/android/internal/app/IMediaContainerService;)Lcom/android/internal/app/IMediaContainerService;
 
-    .line 1405
+    .line 1446
     return-void
 .end method

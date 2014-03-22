@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 667
+    .line 679
     iput-object p1, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 670
+    .line 682
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 671
+    .line 683
     .local v0, action:Ljava/lang/String;
     const-string v3, "com.android.server.enterprise.VPN_NEW_PROFILE"
 
@@ -64,32 +64,32 @@
 
     if-eqz v3, :cond_1
 
-    .line 673
+    .line 685
     iget-object v3, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
-    invoke-virtual {v3}, Lcom/android/settings/vpn2/VpnSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v3}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
-    .line 674
+    .line 686
     .local v2, group:Landroid/preference/PreferenceGroup;
     const-string v3, "add_network"
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    .line 675
+    .line 687
     .local v1, addNetworkPreference:Landroid/preference/Preference;
-    invoke-virtual {v2}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v2}, Landroid/preference/PreferenceGroup;->removeAll()V
 
-    .line 677
+    .line 689
     if-eqz v1, :cond_0
 
-    .line 678
-    invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    .line 690
+    invoke-virtual {v2, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 680
+    .line 692
     :cond_0
     iget-object v3, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
@@ -100,12 +100,12 @@
     #setter for: Lcom/android/settings/vpn2/VpnSettings;->mPreferences:Ljava/util/HashMap;
     invoke-static {v3, v4}, Lcom/android/settings/vpn2/VpnSettings;->access$302(Lcom/android/settings/vpn2/VpnSettings;Ljava/util/HashMap;)Ljava/util/HashMap;
 
-    .line 682
+    .line 694
     iget-object v3, p0, Lcom/android/settings/vpn2/VpnSettings$2;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
     invoke-virtual {v3}, Lcom/android/settings/vpn2/VpnSettings;->onResume()V
 
-    .line 684
+    .line 696
     .end local v1           #addNetworkPreference:Landroid/preference/Preference;
     .end local v2           #group:Landroid/preference/PreferenceGroup;
     :cond_1

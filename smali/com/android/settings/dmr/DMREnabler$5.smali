@@ -205,7 +205,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -217,7 +217,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -229,7 +229,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -241,7 +241,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -262,7 +262,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v9}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v9
 
@@ -290,7 +290,7 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 480
     const-string v9, "DMREnabler"
@@ -361,7 +361,7 @@
 
     move-result-object v11
 
-    invoke-virtual {v11}, Landroid/net/NetworkInfo$DetailedState;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v11
 
@@ -447,7 +447,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v9}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v9}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v9
 
@@ -482,7 +482,7 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 492
     new-instance v7, Landroid/content/Intent;

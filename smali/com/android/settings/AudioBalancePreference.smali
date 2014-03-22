@@ -68,7 +68,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayerisPrepared:Z
 
-    .line 308
+    .line 309
     new-instance v0, Lcom/android/settings/AudioBalancePreference$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/AudioBalancePreference$1;-><init>(Lcom/android/settings/AudioBalancePreference;)V
@@ -76,7 +76,7 @@
     iput-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
     .line 70
-    const v0, 0x7f040112
+    const v0, 0x7f04013a
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AudioBalancePreference;->setDialogLayoutResource(I)V
 
@@ -102,7 +102,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090c6c
+    const v1, 0x7f090d80
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090c6d
+    const v1, 0x7f090d81
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090c6e
+    const v1, 0x7f090d82
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090c6f
+    const v1, 0x7f090d83
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -154,7 +154,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090c70
+    const v1, 0x7f090d84
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -178,7 +178,7 @@
 .end method
 
 .method private getAudioBalanceFromDB(I)I
-    .locals 4
+    .locals 5
     .parameter "defaultValue"
 
     .prologue
@@ -187,76 +187,80 @@
 
     .line 228
     .local v0, audiobalance:I
-    const-string v1, "AudioBalancePreference"
+    const-string v2, "AudioBalancePreference"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "getAudioBalanceFromDB() defaultValue : "
+    const-string v4, "getAudioBalanceFromDB() defaultValue : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 230
     :try_start_0
     invoke-virtual {p0}, Lcom/android/settings/AudioBalancePreference;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "audio_balance"
+    const-string v3, "audio_balance"
 
-    invoke-static {v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
     move-result v0
 
     .line 232
-    const-string v1, "AudioBalancePreference"
+    const-string v2, "AudioBalancePreference"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "getAudioBalanceFromDB() audiobalance : "
+    const-string v4, "getAudioBalanceFromDB() audiobalance : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 235
+    .line 236
     :goto_0
     return v0
 
     .line 233
     :catch_0
     move-exception v1
+
+    .line 234
+    .local v1, snfe:Landroid/provider/Settings$SettingNotFoundException;
+    invoke-virtual {v1}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -265,7 +269,7 @@
     .locals 3
 
     .prologue
-    .line 159
+    .line 155
     const-string v0, "AudioBalancePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -290,17 +294,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
+    .line 156
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 161
+    .line 157
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->pause()V
 
-    .line 163
+    .line 159
     :cond_0
     return-void
 .end method
@@ -309,20 +313,20 @@
     .locals 4
 
     .prologue
-    .line 132
+    .line 129
     new-instance v1, Landroid/media/MediaPlayer;
 
     invoke-direct {v1}, Landroid/media/MediaPlayer;-><init>()V
 
     iput-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    .line 135
+    .line 132
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v1, p0}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
 
-    .line 136
+    .line 133
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {p0}, Lcom/android/settings/AudioBalancePreference;->getContext()Landroid/content/Context;
@@ -333,14 +337,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/media/MediaPlayer;->setDataSource(Landroid/content/Context;Landroid/net/Uri;)V
 
-    .line 137
+    .line 134
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v1}, Landroid/media/MediaPlayer;->prepare()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 142
+    .line 138
     :goto_0
     const-string v1, "AudioBalancePreference"
 
@@ -366,14 +370,14 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 143
+    .line 139
     return-void
 
-    .line 139
+    .line 135
     :catch_0
     move-exception v0
 
-    .line 140
+    .line 136
     .local v0, localIOException:Ljava/io/IOException;
     const-string v1, "AudioBalancePreference"
 
@@ -388,7 +392,7 @@
     .locals 3
 
     .prologue
-    .line 166
+    .line 162
     const-string v0, "AudioBalancePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -413,40 +417,40 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
+    .line 163
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 168
+    .line 164
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
 
-    .line 169
+    .line 165
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    .line 170
+    .line 166
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayerisPrepared:Z
 
-    .line 173
+    .line 169
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mAudioManager:Landroid/media/AudioManager;
 
     if-eqz v0, :cond_1
 
-    .line 174
+    .line 170
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mAudioManager:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
 
-    .line 176
+    .line 172
     :cond_1
     return-void
 .end method
@@ -455,16 +459,16 @@
     .locals 3
 
     .prologue
-    .line 259
+    .line 260
     iget-boolean v0, p0, Lcom/android/settings/AudioBalancePreference;->mRestoredOldState:Z
 
     if-eqz v0, :cond_0
 
-    .line 266
+    .line 267
     :goto_0
     return-void
 
-    .line 262
+    .line 263
     :cond_0
     const-string v0, "AudioBalancePreference"
 
@@ -490,12 +494,12 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 263
+    .line 264
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
     invoke-direct {p0, v0}, Lcom/android/settings/AudioBalancePreference;->setAudioBalance(I)V
 
-    .line 265
+    .line 266
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/AudioBalancePreference;->mRestoredOldState:Z
@@ -508,7 +512,7 @@
     .parameter "audiobalance"
 
     .prologue
-    .line 269
+    .line 270
     const-string v0, "AudioBalancePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -531,7 +535,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
+    .line 272
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mAudioManager:Landroid/media/AudioManager;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -554,7 +558,7 @@
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 272
+    .line 273
     return-void
 .end method
 
@@ -562,7 +566,7 @@
     .locals 4
 
     .prologue
-    .line 146
+    .line 142
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     if-eqz v0, :cond_0
@@ -579,7 +583,7 @@
 
     if-nez v0, :cond_0
 
-    .line 147
+    .line 143
     const-string v0, "AudioBalancePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -604,7 +608,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 148
+    .line 144
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mAudioManager:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
@@ -619,19 +623,19 @@
 
     if-nez v0, :cond_1
 
-    .line 150
+    .line 146
     const-string v0, "AudioBalancePreference"
 
     const-string v1, "startMediaPlayer() requestAudioFocus : fail"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 156
+    .line 152
     :cond_0
     :goto_0
     return-void
 
-    .line 153
+    .line 149
     :cond_1
     const-string v0, "AudioBalancePreference"
 
@@ -639,7 +643,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 154
+    .line 150
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->start()V
@@ -654,12 +658,12 @@
 
     .prologue
     .line 91
-    const v0, 0x7f090c71
+    const v0, 0x7f090d85
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AudioBalancePreference;->setPositiveButtonText(I)V
 
     .line 92
-    const v0, 0x7f090c72
+    const v0, 0x7f090d86
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AudioBalancePreference;->setNegativeButtonText(I)V
 
@@ -718,7 +722,7 @@
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 102
-    const v0, 0x7f0b0303
+    const v0, 0x7f0b0341
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -741,7 +745,7 @@
     .line 105
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
-    const v1, 0x7f0204ec
+    const v1, 0x7f02057a
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->setVerticalBarDrawable(I)V
 
@@ -772,12 +776,12 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->setProgress(I)V
 
-    .line 114
+    .line 112
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
     if-ne v0, v3, :cond_0
 
-    .line 116
+    .line 113
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -808,20 +812,20 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 128
+    .line 125
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/AudioBalancePreference;->prepareMediaPlayer()V
 
-    .line 129
+    .line 126
     return-void
 
-    .line 117
+    .line 114
     :cond_0
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
     if-ge v0, v3, :cond_1
 
-    .line 118
+    .line 115
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
     add-int/lit8 v0, v0, -0x32
@@ -830,7 +834,7 @@
 
     iput v0, p0, Lcom/android/settings/AudioBalancePreference;->mPercentageOfBalance:I
 
-    .line 119
+    .line 116
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -881,7 +885,7 @@
 
     goto :goto_0
 
-    .line 121
+    .line 118
     :cond_1
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
@@ -891,7 +895,7 @@
 
     iput v0, p0, Lcom/android/settings/AudioBalancePreference;->mPercentageOfBalance:I
 
-    .line 122
+    .line 119
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -942,7 +946,7 @@
 
     goto :goto_0
 
-    .line 125
+    .line 122
     :cond_2
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
@@ -956,10 +960,10 @@
     .parameter "positiveResult"
 
     .prologue
-    .line 240
+    .line 241
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onDialogClosed(Z)V
 
-    .line 242
+    .line 243
     invoke-virtual {p0}, Lcom/android/settings/AudioBalancePreference;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -968,16 +972,16 @@
 
     move-result-object v0
 
-    .line 244
+    .line 245
     .local v0, resolver:Landroid/content/ContentResolver;
     if-eqz p1, :cond_1
 
-    .line 245
+    .line 246
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     if-eqz v1, :cond_0
 
-    .line 246
+    .line 247
     const-string v1, "AudioBalancePreference"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1006,7 +1010,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 247
+    .line 248
     iget-object v1, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->getProgress()I
@@ -1015,7 +1019,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/settings/AudioBalancePreference;->setAudioBalance(I)V
 
-    .line 248
+    .line 249
     const-string v1, "audio_balance"
 
     iget-object v2, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
@@ -1026,15 +1030,15 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 255
+    .line 256
     :cond_0
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/AudioBalancePreference;->releaseMediaPlayer()V
 
-    .line 256
+    .line 257
     return-void
 
-    .line 252
+    .line 253
     :cond_1
     invoke-direct {p0}, Lcom/android/settings/AudioBalancePreference;->restoreOldState()V
 
@@ -1046,19 +1050,19 @@
     .parameter "paramMediaPlayer"
 
     .prologue
-    .line 179
+    .line 175
     const-string v0, "AudioBalancePreference"
 
     const-string v1, "onPrepared() mMediaPlayer"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 180
+    .line 176
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayerisPrepared:Z
 
-    .line 181
+    .line 177
     return-void
 .end method
 
@@ -1077,18 +1081,18 @@
 
     const/16 v1, 0x32
 
-    .line 185
+    .line 181
     iput v5, p0, Lcom/android/settings/AudioBalancePreference;->mPercentageOfBalance:I
 
-    .line 186
+    .line 182
     iput p2, p0, Lcom/android/settings/AudioBalancePreference;->mCurrentProgress:I
 
-    .line 187
+    .line 183
     const/16 v0, 0x64
 
     if-gt p2, v0, :cond_2
 
-    .line 189
+    .line 185
     if-eq p2, v1, :cond_0
 
     const/16 v0, 0x35
@@ -1099,7 +1103,7 @@
 
     if-lt p2, v0, :cond_0
 
-    .line 190
+    .line 186
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->setProgress(I)V
@@ -1108,13 +1112,13 @@
     :goto_0
     return-void
 
-    .line 194
+    .line 190
     :cond_0
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mCurrentProgress:I
 
     if-le v0, v1, :cond_3
 
-    .line 196
+    .line 192
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mCurrentProgress:I
 
     add-int/lit8 v0, v0, -0x32
@@ -1123,7 +1127,7 @@
 
     iput v0, p0, Lcom/android/settings/AudioBalancePreference;->mPercentageOfBalance:I
 
-    .line 197
+    .line 193
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1217,13 +1221,13 @@
 
     goto :goto_0
 
-    .line 198
+    .line 194
     :cond_3
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mCurrentProgress:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_4
 
-    .line 200
+    .line 196
     iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mCurrentProgress:I
 
     rsub-int/lit8 v0, v0, 0x32
@@ -1232,7 +1236,7 @@
 
     iput v0, p0, Lcom/android/settings/AudioBalancePreference;->mPercentageOfBalance:I
 
-    .line 201
+    .line 197
     iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1282,6 +1286,48 @@
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_1
+
+    .line 198
+    :cond_4
+    iget v0, p0, Lcom/android/settings/AudioBalancePreference;->mCurrentProgress:I
+
+    if-ne v0, v1, :cond_1
+
+    .line 200
+    iput v1, p0, Lcom/android/settings/AudioBalancePreference;->mPercentageOfBalance:I
+
+    .line 201
+    iget-object v0, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/settings/AudioBalancePreference;->seekBarMessage:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ". "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/AudioBalancePreference;->initMessage:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -1289,7 +1335,7 @@
     .parameter
 
     .prologue
-    .line 294
+    .line 295
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1304,31 +1350,31 @@
 
     if-nez v0, :cond_1
 
-    .line 296
+    .line 297
     :cond_0
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 306
+    .line 307
     :goto_0
     return-void
 
-    .line 300
+    .line 301
     :cond_1
     check-cast p1, Lcom/android/settings/AudioBalancePreference$SavedState;
 
-    .line 301
+    .line 302
     invoke-virtual {p1}, Lcom/android/settings/AudioBalancePreference$SavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v0
 
     invoke-super {p0, v0}, Landroid/preference/SeekBarDialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 303
+    .line 304
     iget v0, p1, Lcom/android/settings/AudioBalancePreference$SavedState;->oldProgress:I
 
     iput v0, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
-    .line 305
+    .line 306
     iget v0, p1, Lcom/android/settings/AudioBalancePreference$SavedState;->progress:I
 
     invoke-direct {p0, v0}, Lcom/android/settings/AudioBalancePreference;->setAudioBalance(I)V
@@ -1340,12 +1386,12 @@
     .locals 3
 
     .prologue
-    .line 276
+    .line 277
     invoke-super {p0}, Landroid/preference/SeekBarDialogPreference;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v1
 
-    .line 277
+    .line 278
     .local v1, superState:Landroid/os/Parcelable;
     invoke-virtual {p0}, Lcom/android/settings/AudioBalancePreference;->getDialog()Landroid/app/Dialog;
 
@@ -1366,18 +1412,18 @@
     :cond_0
     move-object v0, v1
 
-    .line 289
+    .line 290
     :cond_1
     :goto_0
     return-object v0
 
-    .line 281
+    .line 282
     :cond_2
     new-instance v0, Lcom/android/settings/AudioBalancePreference$SavedState;
 
     invoke-direct {v0, v1}, Lcom/android/settings/AudioBalancePreference$SavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 282
+    .line 283
     .local v0, myState:Lcom/android/settings/AudioBalancePreference$SavedState;
     iget-object v2, p0, Lcom/android/settings/AudioBalancePreference;->mSeekBar:Lcom/sec/android/touchwiz/widget/TwSeekBarSplit;
 
@@ -1387,12 +1433,12 @@
 
     iput v2, v0, Lcom/android/settings/AudioBalancePreference$SavedState;->progress:I
 
-    .line 283
+    .line 284
     iget v2, p0, Lcom/android/settings/AudioBalancePreference;->mOldAudioBalance:I
 
     iput v2, v0, Lcom/android/settings/AudioBalancePreference$SavedState;->oldProgress:I
 
-    .line 285
+    .line 286
     iget-object v2, p0, Lcom/android/settings/AudioBalancePreference;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     if-eqz v2, :cond_1
@@ -1409,7 +1455,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 286
+    .line 287
     invoke-direct {p0}, Lcom/android/settings/AudioBalancePreference;->pauseMediaPlayer()V
 
     goto :goto_0

@@ -30,10 +30,10 @@
 
     .prologue
     .line 27
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 28
-    const v0, 0x7f04003c
+    const v0, 0x7f040041
 
     const/4 v1, 0x0
 
@@ -46,7 +46,7 @@
     .line 29
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00ac
+    const v1, 0x7f0b00b9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -59,7 +59,7 @@
     .line 30
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00ad
+    const v1, 0x7f0b00ba
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
     .line 31
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00ae
+    const v1, 0x7f0b00bb
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
     .line 32
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00b1
+    const v1, 0x7f0b00be
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -98,7 +98,7 @@
     .line 33
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00af
+    const v1, 0x7f0b00bc
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
     .line 34
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b009b
+    const v1, 0x7f0b00a6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
     .line 35
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00b0
+    const v1, 0x7f0b00bd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -137,7 +137,7 @@
     .line 36
     iget-object v0, p0, Lcom/android/settings/HelpItem;->container:Landroid/view/View;
 
-    const v1, 0x7f0b00b2
+    const v1, 0x7f0b00bf
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
     .line 104
     iget-object v0, p0, Lcom/android/settings/HelpItem;->contentTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 105
     return-void
@@ -243,7 +243,7 @@
     .line 98
     iget-object v1, p0, Lcom/android/settings/HelpItem;->contentImageArea:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
@@ -258,7 +258,7 @@
     .line 100
     iget-object v1, p0, Lcom/android/settings/HelpItem;->contentImageArea:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 101
     return-void
@@ -277,7 +277,7 @@
     .line 93
     iget-object v0, p0, Lcom/android/settings/HelpItem;->contentImageArea:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v0, p1}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 94
     return-void
@@ -293,7 +293,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 130
     if-eqz p1, :cond_0
@@ -301,7 +301,7 @@
     .line 131
     iget-object v0, p0, Lcom/android/settings/HelpItem;->tryBtn:Landroid/widget/Button;
 
-    invoke-virtual {v0, p1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 133
     :cond_0
@@ -316,7 +316,7 @@
     .line 89
     iget-object v0, p0, Lcom/android/settings/HelpItem;->titleTextView2:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 90
     return-void
@@ -332,7 +332,7 @@
 
     const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 53
     iget-object v0, p0, Lcom/android/settings/HelpItem;->titleTextView:Landroid/widget/TextView;
@@ -353,7 +353,7 @@
 
     const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 58
     iget-object v0, p0, Lcom/android/settings/HelpItem;->titleTextView2:Landroid/widget/TextView;
@@ -383,7 +383,7 @@
 
     const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 64
     iget-object v0, p0, Lcom/android/settings/HelpItem;->titleTextView2:Landroid/widget/TextView;
@@ -411,7 +411,7 @@
     .line 85
     iget-object v0, p0, Lcom/android/settings/HelpItem;->titleTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 86
     return-void
@@ -428,9 +428,9 @@
     .line 109
     iget-object v1, p0, Lcom/android/settings/HelpItem;->contentPlayBtn:Landroid/widget/ImageButton;
 
-    const v2, 0x7f0200e8
+    const v2, 0x7f020128
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageResource(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 110
     iget-object v1, p0, Lcom/android/settings/HelpItem;->contentPlayBtn:Landroid/widget/ImageButton;
@@ -439,7 +439,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/HelpItem$1;-><init>(Lcom/android/settings/HelpItem;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 126
     :cond_0

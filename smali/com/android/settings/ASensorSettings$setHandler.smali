@@ -89,7 +89,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090aae
+    const v3, 0x7f090b92
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -159,10 +159,10 @@
     iput v6, v0, Landroid/os/Message;->what:I
 
     .line 422
-    invoke-virtual {p0, v0, v8, v9}, Lcom/android/settings/ASensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v8, v9}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 423
-    invoke-virtual {p0, v7}, Lcom/android/settings/ASensorSettings$setHandler;->removeMessages(I)V
+    invoke-virtual {p0, v7}, Landroid/os/Handler;->removeMessages(I)V
 
     goto :goto_0
 
@@ -212,22 +212,22 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/settings/ASensorSettings$ASensorSettingsView;->invalidate()V
+    invoke-virtual {v2}, Landroid/view/View;->invalidate()V
 
     .line 432
-    invoke-virtual {p0, v6}, Lcom/android/settings/ASensorSettings$setHandler;->removeMessages(I)V
+    invoke-virtual {p0, v6}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 433
     iput v6, v0, Landroid/os/Message;->what:I
 
     .line 434
-    invoke-virtual {p0, v0, v8, v9}, Lcom/android/settings/ASensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v8, v9}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
 
     .line 436
     :cond_0
-    invoke-virtual {p0, v6}, Lcom/android/settings/ASensorSettings$setHandler;->removeMessages(I)V
+    invoke-virtual {p0, v6}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 437
     const/4 v2, 0x3
@@ -235,7 +235,7 @@
     iput v2, v0, Landroid/os/Message;->what:I
 
     .line 438
-    invoke-virtual {p0, v0, v8, v9}, Lcom/android/settings/ASensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v8, v9}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 439
     const/16 v2, 0x28
@@ -248,7 +248,7 @@
     :pswitch_2
     const/4 v2, 0x3
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ASensorSettings$setHandler;->removeMessages(I)V
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 446
     iget-object v2, p0, Lcom/android/settings/ASensorSettings$setHandler;->this$0:Lcom/android/settings/ASensorSettings;
@@ -293,7 +293,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090aad
+    const v3, 0x7f090b91
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

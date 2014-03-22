@@ -30,7 +30,7 @@
     .line 136
     iput-object p1, p0, Lcom/android/settings/DefaultRingtonePreference$1;->this$0:Lcom/android/settings/DefaultRingtonePreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -56,7 +56,7 @@
 
     iget-object v1, p0, Lcom/android/settings/DefaultRingtonePreference$1;->this$0:Lcom/android/settings/DefaultRingtonePreference;
 
-    invoke-virtual {v1}, Lcom/android/settings/DefaultRingtonePreference;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -74,7 +74,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DefaultRingtonePreference$1;->this$0:Lcom/android/settings/DefaultRingtonePreference;
 
-    invoke-virtual {v2}, Lcom/android/settings/DefaultRingtonePreference;->getRingtoneType()I
+    invoke-virtual {v2}, Landroid/preference/RingtonePreference;->getRingtoneType()I
 
     move-result v2
 
@@ -83,7 +83,7 @@
     .line 144
     iget-object v1, p0, Lcom/android/settings/DefaultRingtonePreference$1;->this$0:Lcom/android/settings/DefaultRingtonePreference;
 
-    invoke-virtual {v1}, Lcom/android/settings/DefaultRingtonePreference;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v1
 

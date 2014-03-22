@@ -155,7 +155,7 @@
     .line 110
     iget-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090ea7
+    const v3, 0x7f090fe0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
     iput-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mFixedTitleString:Ljava/lang/String;
 
     .line 113
-    const v2, 0x7f0b03c3
+    const v2, 0x7f0b042a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -175,7 +175,7 @@
     iput-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mLabelEditMyProfile:Landroid/widget/TextView;
 
     .line 117
-    const v2, 0x7f0b03c4
+    const v2, 0x7f0b042b
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -205,14 +205,14 @@
     .line 122
     iget-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mEditMyProfile:Landroid/widget/EditText;
 
-    invoke-virtual {v2, v0}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setFilters([Landroid/text/InputFilter;)V
 
     .line 125
     iget-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mEditMyProfile:Landroid/widget/EditText;
 
     iget-object v3, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->EditProfileLimitTextWatcher:Landroid/text/TextWatcher;
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     .line 126
     invoke-direct {p0}, Lcom/android/settings/myprofile/EditMyProfileDialog;->getProfileTextFromDB()Ljava/lang/String;
@@ -227,7 +227,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 130
     iget-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mEditMyProfile:Landroid/widget/EditText;
@@ -338,14 +338,14 @@
     .line 161
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EditMyProfileDialog;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
     .line 162
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EditMyProfileDialog;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
@@ -422,7 +422,7 @@
 
     .prologue
     .line 69
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EditMyProfileDialog;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -462,7 +462,7 @@
     .line 75
     iget-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f04015e
+    const v3, 0x7f040197
 
     const/4 v4, 0x0
 
@@ -524,7 +524,7 @@
     .line 104
     iget-object v2, p0, Lcom/android/settings/myprofile/EditMyProfileDialog;->dialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v2}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 

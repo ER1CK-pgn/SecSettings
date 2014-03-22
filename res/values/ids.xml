@@ -32,9 +32,17 @@
     <item type="id" name="tab_custom_layout">false</item>
     <item type="id" name="tab_custom_view_icon">false</item>
     <item type="id" name="tab_custom_view_text">false</item>
+    <item type="id" name="drawer_layout">false</item>
+    <item type="id" name="frame">false</item>
+    <item type="id" name="content_frame">false</item>
+    <item type="id" name="left_drawer">false</item>
     <item type="id" name="user_explain">false</item>
     <item type="id" name="user_explain1">false</item>
     <item type="id" name="enable_mobiledata">false</item>
+    <item type="id" name="gps_alert_title">false</item>
+    <item type="id" name="gps_alert_body">false</item>
+    <item type="id" name="gps_alert_bottom">false</item>
+    <item type="id" name="checkbox">false</item>
     <item type="id" name="tv_air_button_help_msg_1">false</item>
     <item type="id" name="iv_air_button_help_popup_introduction_1">false</item>
     <item type="id" name="tv_air_button_help_msg_2">false</item>
@@ -61,6 +69,7 @@
     <item type="id" name="tv_air_button_help_item_display_functional_menu_text">false</item>
     <item type="id" name="iv_air_button_help_item_display_functional_menu">false</item>
     <item type="id" name="try_btn_air_button_help_item_display_functional_menu">false</item>
+    <item type="id" name="airplane_mode_desc_text_view">false</item>
     <item type="id" name="airplane_mode_info">false</item>
     <item type="id" name="allow_one_installation">false</item>
     <item type="id" name="ScrollView01">false</item>
@@ -115,10 +124,10 @@
     <item type="id" name="temperature">false</item>
     <item type="id" name="technology">false</item>
     <item type="id" name="uptime">false</item>
+    <item type="id" name="message">false</item>
     <item type="id" name="message1">false</item>
     <item type="id" name="checkbox1">false</item>
     <item type="id" name="autoaccept_text">false</item>
-    <item type="id" name="message">false</item>
     <item type="id" name="bluetooth_device_picker_fragment">false</item>
     <item type="id" name="bluetooth_map_remember_choice">false</item>
     <item type="id" name="LinearLayout_bt">false</item>
@@ -149,6 +158,8 @@
     <item type="id" name="auto_detail_seekbar">false</item>
     <item type="id" name="temperature_warning">false</item>
     <item type="id" name="progress_info">false</item>
+    <item type="id" name="preview_text">false</item>
+    <item type="id" name="properties_fragment">false</item>
     <item type="id" name="spacerBottom">false</item>
     <item type="id" name="password_entry">false</item>
     <item type="id" name="secondlockText">false</item>
@@ -170,6 +181,8 @@
     <item type="id" name="buttonContainer">false</item>
     <item type="id" name="setup_signature_title">false</item>
     <item type="id" name="setup_signature">false</item>
+    <item type="id" name="color_swatch">false</item>
+    <item type="id" name="summary">false</item>
     <item type="id" name="help_item">false</item>
     <item type="id" name="title_textview">false</item>
     <item type="id" name="title_textview2">false</item>
@@ -199,6 +212,7 @@
     <item type="id" name="button_8">false</item>
     <item type="id" name="button_9">false</item>
     <item type="id" name="button_10">false</item>
+    <item type="id" name="preference_area">false</item>
     <item type="id" name="hint">false</item>
     <item type="id" name="error">false</item>
     <item type="id" name="old_password_prompt">false</item>
@@ -213,6 +227,7 @@
     <item type="id" name="warning_sdcard_ongoing_enc">false</item>
     <item type="id" name="warning_sdcard_ongoing_dec">false</item>
     <item type="id" name="initiate_decrypt">false</item>
+    <item type="id" name="crypt_keeper_confirm_desc">false</item>
     <item type="id" name="fast_encryption">false</item>
     <item type="id" name="execute_encrypt">false</item>
     <item type="id" name="emergencyCallButton">false</item>
@@ -230,15 +245,15 @@
     <item type="id" name="initiate_encrypt">false</item>
     <item type="id" name="desc">false</item>
     <item type="id" name="enc_messages">false</item>
+    <item type="id" name="crypt_keeper_sd_layout">false</item>
     <item type="id" name="enable_disable">false</item>
     <item type="id" name="apply">false</item>
     <item type="id" name="yes">false</item>
     <item type="id" name="no">false</item>
     <item type="id" name="date">false</item>
+    <item type="id" name="scrollView">false</item>
     <item type="id" name="custom_dialog_warning_textView">false</item>
     <item type="id" name="checkBox">false</item>
-    <item type="id" name="description">false</item>
-    <item type="id" name="stepIndicator">false</item>
     <item type="id" name="bytes">false</item>
     <item type="id" name="chart">false</item>
     <item type="id" name="grid">false</item>
@@ -305,7 +320,7 @@
     <item type="id" name="action_button">false</item>
     <item type="id" name="rightSpacer">false</item>
     <item type="id" name="name">false</item>
-    <item type="id" name="checkbox">false</item>
+    <item type="id" name="description">false</item>
     <item type="id" name="device_health_fragment_container">false</item>
     <item type="id" name="device_name_edit_text_popup">false</item>
     <item type="id" name="audio_output_mode_scroll">false</item>
@@ -344,6 +359,8 @@
     <item type="id" name="nine">false</item>
     <item type="id" name="zero">false</item>
     <item type="id" name="ok">false</item>
+    <item type="id" name="direct_access_message">false</item>
+    <item type="id" name="direct_access_status">false</item>
     <item type="id" name="fontSize">false</item>
     <item type="id" name="preview">false</item>
     <item type="id" name="save">false</item>
@@ -365,6 +382,8 @@
     <item type="id" name="help_instruction">false</item>
     <item type="id" name="user_photo">false</item>
     <item type="id" name="user_name">false</item>
+    <item type="id" name="empty_print_state">false</item>
+    <item type="id" name="empty_printers_list_service_enabled">false</item>
     <item type="id" name="capabilities_header">false</item>
     <item type="id" name="capabilities">false</item>
     <item type="id" name="help_text">false</item>
@@ -386,6 +405,13 @@
     <item type="id" name="eth_dns_edit">false</item>
     <item type="id" name="gw_text">false</item>
     <item type="id" name="eth_gw_edit">false</item>
+    <item type="id" name="catgory">false</item>
+    <item type="id" name="category_text_view">false</item>
+    <item type="id" name="category_expander_img_view">false</item>
+    <item type="id" name="favorite_checkbox">false</item>
+    <item type="id" name="favorite_icon">false</item>
+    <item type="id" name="favorite_list">false</item>
+    <item type="id" name="footer">false</item>
     <item type="id" name="widget_title">false</item>
     <item type="id" name="widget_line_one">false</item>
     <item type="id" name="btn_ringtone">false</item>
@@ -419,6 +445,11 @@
     <item type="id" name="text_settings">false</item>
     <item type="id" name="summary_text">false</item>
     <item type="id" name="feature_settings_fragment">false</item>
+    <item type="id" name="textView">false</item>
+    <item type="id" name="image_view">false</item>
+    <item type="id" name="message_view">false</item>
+    <item type="id" name="image_view2">false</item>
+    <item type="id" name="message_view2">false</item>
     <item type="id" name="FileOperationProgressTitle">false</item>
     <item type="id" name="FileOperationProgressMessage">false</item>
     <item type="id" name="FileOperationProgressFilename">false</item>
@@ -429,6 +460,27 @@
     <item type="id" name="FileOperationProgressCancelButton">false</item>
     <item type="id" name="help_content">false</item>
     <item type="id" name="locale">false</item>
+    <item type="id" name="battery_low_powersaving">false</item>
+    <item type="id" name="battery_low_wifi">false</item>
+    <item type="id" name="battery_low_battery">false</item>
+    <item type="id" name="battery_low_mobile_data">false</item>
+    <item type="id" name="battery_low_brightness">false</item>
+    <item type="id" name="battery_low_screen_timeout">false</item>
+    <item type="id" name="battery_low_air_view">false</item>
+    <item type="id" name="parentPanel">false</item>
+    <item type="id" name="image">false</item>
+    <item type="id" name="textPanel">false</item>
+    <item type="id" name="text1">false</item>
+    <item type="id" name="glance_preview">false</item>
+    <item type="id" name="glance_list">false</item>
+    <item type="id" name="low_memory_application">false</item>
+    <item type="id" name="low_memory_storage">false</item>
+    <item type="id" name="roaming_wifi">false</item>
+    <item type="id" name="roaming_airplane_mode">false</item>
+    <item type="id" name="roaming_data_usage">false</item>
+    <item type="id" name="roaming_mobile_networks">false</item>
+    <item type="id" name="grid_area">false</item>
+    <item type="id" name="header_layout">false</item>
     <item type="id" name="gsensor">false</item>
     <item type="id" name="gsensor_text">false</item>
     <item type="id" name="gsensor_view">false</item>
@@ -445,6 +497,9 @@
     <item type="id" name="handwriting_language_list">false</item>
     <item type="id" name="more_button_layout">false</item>
     <item type="id" name="more_button">false</item>
+    <item type="id" name="button_layout">false</item>
+    <item type="id" name="button_cancel">false</item>
+    <item type="id" name="button_ok">false</item>
     <item type="id" name="member_management_description">false</item>
     <item type="id" name="member_mgmt_row_11">false</item>
     <item type="id" name="member_mgmt_row_12">false</item>
@@ -475,6 +530,7 @@
     <item type="id" name="control_buttons_panel">false</item>
     <item type="id" name="more_control_buttons_panel">false</item>
     <item type="id" name="notification_switch">false</item>
+    <item type="id" name="auto_start_switch">false</item>
     <item type="id" name="total_size_prefix">false</item>
     <item type="id" name="info_size_dots">false</item>
     <item type="id" name="total_size_text">false</item>
@@ -525,7 +581,14 @@
     <item type="id" name="titleDivider">false</item>
     <item type="id" name="label">false</item>
     <item type="id" name="widget_list">false</item>
+    <item type="id" name="knox_icon">false</item>
+    <item type="id" name="knox_name">false</item>
+    <item type="id" name="knox_uninstall_btn">false</item>
+    <item type="id" name="create_knox_popup">false</item>
+    <item type="id" name="listview">false</item>
     <item type="id" name="imageView1">false</item>
+    <item type="id" name="default_app_pref">false</item>
+    <item type="id" name="clear">false</item>
     <item type="id" name="TextView01">false</item>
     <item type="id" name="TextView02">false</item>
     <item type="id" name="TextView03">false</item>
@@ -536,9 +599,6 @@
     <item type="id" name="linked_contact_minus_imageView">false</item>
     <item type="id" name="locale_picker_fragment">false</item>
     <item type="id" name="clock_myprofile_body_text">false</item>
-    <item type="id" name="button_layout">false</item>
-    <item type="id" name="button_cancel">false</item>
-    <item type="id" name="button_ok">false</item>
     <item type="id" name="tvPreviewText">false</item>
     <item type="id" name="tvEditmyprofile">false</item>
     <item type="id" name="tvFontSize">false</item>
@@ -611,13 +671,13 @@
     <item type="id" name="btnSelectTextForColor">false</item>
     <item type="id" name="btnSelectBackGroundForColor">false</item>
     <item type="id" name="spinner_fontstyle">false</item>
-    <item type="id" name="nfc_explained">false</item>
-    <item type="id" name="nfc_payment_layout">false</item>
-    <item type="id" name="payment_mode_list">false</item>
+    <item type="id" name="nfc_payment_summary_text">false</item>
     <item type="id" name="skip">false</item>
     <item type="id" name="text_checkbox">false</item>
     <item type="id" name="text_title">false</item>
     <item type="id" name="text_description">false</item>
+    <item type="id" name="nfc_payment_pref">false</item>
+    <item type="id" name="banner">false</item>
     <item type="id" name="menu_settings_title">false</item>
     <item type="id" name="dontshowtext">false</item>
     <item type="id" name="dontshow">false</item>
@@ -752,7 +812,6 @@
     <item type="id" name="power_saving_tips_gps_3">false</item>
     <item type="id" name="power_saving_tips_live_wallpaper_title">false</item>
     <item type="id" name="power_saving_tips_live_wallpaper_1">false</item>
-    <item type="id" name="summary">false</item>
     <item type="id" name="buttons_spacer_left">false</item>
     <item type="id" name="two_buttons_panel">false</item>
     <item type="id" name="details">false</item>
@@ -761,15 +820,20 @@
     <item type="id" name="packages_section_title">false</item>
     <item type="id" name="packages_section">false</item>
     <item type="id" name="radioButton">false</item>
+    <item type="id" name="air_wake_up_image">false</item>
+    <item type="id" name="air_wake_up_explained">false</item>
     <item type="id" name="app_restrictions_pref">false</item>
     <item type="id" name="app_restrictions_settings">false</item>
     <item type="id" name="settings_divider">false</item>
     <item type="id" name="deviceDetails">false</item>
     <item type="id" name="profileExpand">false</item>
+    <item type="id" name="color_preview">false</item>
     <item type="id" name="contents">false</item>
     <item type="id" name="left">false</item>
     <item type="id" name="right">false</item>
     <item type="id" name="seekbar">false</item>
+    <item type="id" name="auto_haptic_noti">false</item>
+    <item type="id" name="never_show_autohaptic_dialog_again">false</item>
     <item type="id" name="automatic_mode">false</item>
     <item type="id" name="automatic_noti">false</item>
     <item type="id" name="brightness_level">false</item>
@@ -799,8 +863,10 @@
     <item type="id" name="checkbox_haptic">false</item>
     <item type="id" name="power_saving_message_2">false</item>
     <item type="id" name="reset_noti">false</item>
+    <item type="id" name="media_section">false</item>
     <item type="id" name="media_mute_button">false</item>
     <item type="id" name="media_volume_seekbar">false</item>
+    <item type="id" name="ringer_line">false</item>
     <item type="id" name="ringer_section">false</item>
     <item type="id" name="ringer_description_text">false</item>
     <item type="id" name="ringer_mute_button">false</item>
@@ -820,6 +886,7 @@
     <item type="id" name="waiting_tone_button">false</item>
     <item type="id" name="waiting_tone_volume_seekbar">false</item>
     <item type="id" name="smart_alert_message">false</item>
+    <item type="id" name="smart_bonding_popup_msg">false</item>
     <item type="id" name="smart_rotation_noti1">false</item>
     <item type="id" name="smart_rotation_noti2">false</item>
     <item type="id" name="smart_rotation_noti3">false</item>
@@ -832,12 +899,19 @@
     <item type="id" name="smart_stay_noti2">false</item>
     <item type="id" name="smart_stay_noti3">false</item>
     <item type="id" name="smart_stay_noti4">false</item>
+    <item type="id" name="ultrasonic_sensor_dialog_content">false</item>
+    <item type="id" name="incoming_call_layout">false</item>
     <item type="id" name="incoming_call_vibration_seekbar_text">false</item>
     <item type="id" name="incoming_call_vibration_seekbar">false</item>
     <item type="id" name="incoming_call_divider">false</item>
     <item type="id" name="notification_vibration_seekbar">false</item>
     <item type="id" name="haptic_feedback_vibration_seekbar_text">false</item>
     <item type="id" name="haptic_feedback_vibration_seekbar">false</item>
+    <item type="id" name="buttonWidget">false</item>
+    <item type="id" name="home_app_pref">false</item>
+    <item type="id" name="home_radio">false</item>
+    <item type="id" name="home_divider">false</item>
+    <item type="id" name="home_app_uninstall">false</item>
     <item type="id" name="inputmethod_pref">false</item>
     <item type="id" name="inputmethod_title_layout">false</item>
     <item type="id" name="inputmethod_divide_line">false</item>
@@ -878,12 +952,12 @@
     <item type="id" name="wifi_ap_settings_allowed_toggle">false</item>
     <item type="id" name="app_check">false</item>
     <item type="id" name="premium_watch_help_img">false</item>
+    <item type="id" name="services">false</item>
     <item type="id" name="notificationIcon">false</item>
     <item type="id" name="hostname">false</item>
     <item type="id" name="port">false</item>
     <item type="id" name="exclusionlist">false</item>
     <item type="id" name="action">false</item>
-    <item type="id" name="clear">false</item>
     <item type="id" name="defaultView">false</item>
     <item type="id" name="notificaiton_panel_layout">false</item>
     <item type="id" name="notificaiton_panel_bar_layout">false</item>
@@ -929,6 +1003,24 @@
     <item type="id" name="reading_mode_category">false</item>
     <item type="id" name="saved_app_icon">false</item>
     <item type="id" name="saved_app_name">false</item>
+    <item type="id" name="recommeded_apps_settings_layout">false</item>
+    <item type="id" name="recommeded_apps_earphone_category">false</item>
+    <item type="id" name="recommeded_apps_earphone_title">false</item>
+    <item type="id" name="edit_btn_1">false</item>
+    <item type="id" name="recommeded_app_earphones_area">false</item>
+    <item type="id" name="recommeded_apps_docking_category">false</item>
+    <item type="id" name="recommeded_apps_docking_title">false</item>
+    <item type="id" name="edit_btn_2">false</item>
+    <item type="id" name="recommeded_app_docking_area">false</item>
+    <item type="id" name="layout_most_used_docking">false</item>
+    <item type="id" name="checkbox_most_used_docking">false</item>
+    <item type="id" name="recommeded_apps_roaming_category">false</item>
+    <item type="id" name="recommeded_apps_roaming_title">false</item>
+    <item type="id" name="edit_btn_3">false</item>
+    <item type="id" name="recommeded_app_roaming_area">false</item>
+    <item type="id" name="layout_most_used_roaming">false</item>
+    <item type="id" name="checkbox_most_used_roaming">false</item>
+    <item type="id" name="regulatoryInfo">false</item>
     <item type="id" name="remember">false</item>
     <item type="id" name="samsung_account">false</item>
     <item type="id" name="location_consent">false</item>
@@ -950,8 +1042,18 @@
     <item type="id" name="comp_description">false</item>
     <item type="id" name="s_beam_explained">false</item>
     <item type="id" name="s_beam_image">false</item>
-    <item type="id" name="image_view">false</item>
-    <item type="id" name="message_view">false</item>
+    <item type="id" name="advanced_setting_btn">false</item>
+    <item type="id" name="head_message">false</item>
+    <item type="id" name="function_title_1">false</item>
+    <item type="id" name="image_view_1">false</item>
+    <item type="id" name="message_view_1">false</item>
+    <item type="id" name="tutorial_title_1">false</item>
+    <item type="id" name="try_btn_1">false</item>
+    <item type="id" name="function_title_2">false</item>
+    <item type="id" name="image_view_2">false</item>
+    <item type="id" name="message_view_2">false</item>
+    <item type="id" name="tutorial_title_2">false</item>
+    <item type="id" name="try_btn_2">false</item>
     <item type="id" name="s_view_cover_view">false</item>
     <item type="id" name="s_view_cover_root">false</item>
     <item type="id" name="digital_clock_time">false</item>
@@ -959,6 +1061,7 @@
     <item type="id" name="digital_month_day">false</item>
     <item type="id" name="s_view_cover_page_navigation">false</item>
     <item type="id" name="description_text">false</item>
+    <item type="id" name="coverage_list">false</item>
     <item type="id" name="bluetooth_scan_dialog_button">false</item>
     <item type="id" name="button_text">false</item>
     <item type="id" name="tv_profileLabel">false</item>
@@ -970,6 +1073,7 @@
     <item type="id" name="menuTitle">false</item>
     <item type="id" name="menuSummary">false</item>
     <item type="id" name="menuTypeLayout">false</item>
+    <item type="id" name="search_icon">false</item>
     <item type="id" name="layout_container">false</item>
     <item type="id" name="location_edit_area">false</item>
     <item type="id" name="location_textview">false</item>
@@ -998,7 +1102,6 @@
     <item type="id" name="wifi_back_button">false</item>
     <item type="id" name="wifi_skip_button">false</item>
     <item type="id" name="wifi_next_button">false</item>
-    <item type="id" name="preference_area">false</item>
     <item type="id" name="sim_alert_message_area">false</item>
     <item type="id" name="kind_header">false</item>
     <item type="id" name="create">false</item>
@@ -1017,6 +1120,8 @@
     <item type="id" name="help_container">false</item>
     <item type="id" name="smart_screen_noti_for_scroll1">false</item>
     <item type="id" name="do_not_show_again_for_scroll">false</item>
+    <item type="id" name="sms_image">false</item>
+    <item type="id" name="sms_text">false</item>
     <item type="id" name="syncDescription">false</item>
     <item type="id" name="perform_longpress">false</item>
     <item type="id" name="tapandholdview">false</item>
@@ -1056,19 +1161,14 @@
     <item type="id" name="package_name">false</item>
     <item type="id" name="launch_count">false</item>
     <item type="id" name="usage_time">false</item>
-    <item type="id" name="banner">false</item>
     <item type="id" name="mount_button">false</item>
     <item type="id" name="unmount_button">false</item>
     <item type="id" name="progress">false</item>
     <item type="id" name="user_dict_settings_add_dialog_top">false</item>
     <item type="id" name="user_dictionary_add_word_text">false</item>
     <item type="id" name="user_dictionary_add_word_grid">false</item>
-    <item type="id" name="user_dictionary_add_word_grid_1">false</item>
     <item type="id" name="user_dictionary_add_shortcut_label">false</item>
     <item type="id" name="user_dictionary_add_shortcut">false</item>
-    <item type="id" name="user_dictionary_add_word_grid_2">false</item>
-    <item type="id" name="user_dictionary_add_locale_label">false</item>
-    <item type="id" name="user_dictionary_add_locale">false</item>
     <item type="id" name="user_limits_fragment">false</item>
     <item type="id" name="back_button">false</item>
     <item type="id" name="uspwidget_root_layout">false</item>
@@ -1121,15 +1221,19 @@
     <item type="id" name="empty_view">false</item>
     <item type="id" name="empty_view_center_icon">false</item>
     <item type="id" name="empty_view_popup">false</item>
+    <item type="id" name="title_heading">false</item>
+    <item type="id" name="stepIndicator">false</item>
+    <item type="id" name="setupwizard_steps">false</item>
+    <item type="id" name="progressBar">false</item>
+    <item type="id" name="wifi_captiveportal_webview">false</item>
+    <item type="id" name="bottomButtonPanel">false</item>
+    <item type="id" name="buttonDivider">false</item>
+    <item type="id" name="wifi_captiveportal_cancel">false</item>
     <item type="id" name="textMessage">false</item>
-    <item type="id" name="text1">false</item>
     <item type="id" name="text2">false</item>
     <item type="id" name="watch_signature_edit_popup">false</item>
     <item type="id" name="watch_style_help_layout">false</item>
     <item type="id" name="style_list">false</item>
-    <item type="id" name="wfd_background_view">false</item>
-    <item type="id" name="wfd_animation_view">false</item>
-    <item type="id" name="wfd_connecting_text">false</item>
     <item type="id" name="footer_layout">false</item>
     <item type="id" name="multi_connect_footer">false</item>
     <item type="id" name="ListLayout">false</item>
@@ -1139,25 +1243,13 @@
     <item type="id" name="empty_message">false</item>
     <item type="id" name="allsahrecast_help_image">false</item>
     <item type="id" name="IndexedTextView">false</item>
-    <item type="id" name="wfd_picker_dialog_fragment_layout">false</item>
     <item type="id" name="wfd_picker_dialog_layout">false</item>
+    <item type="id" name="wfd_picker_dialog_fragment_layout">false</item>
     <item type="id" name="wfd_picker_dialog_fragment">false</item>
-    <item type="id" name="wfd_picker_dialog_welcome_layout">false</item>
-    <item type="id" name="nfc_sticker_welcome_image">false</item>
-    <item type="id" name="ngc_sticker_welcome_text">false</item>
     <item type="id" name="wfd_picker_dialog_buttons_layout">false</item>
     <item type="id" name="wfd_picker_dialog_btn_cancel">false</item>
     <item type="id" name="wfd_picker_dialog_btn_stop">false</item>
     <item type="id" name="wfd_picker_dialog_btn_ok">false</item>
-    <item type="id" name="device_list_subtitle">false</item>
-    <item type="id" name="available">false</item>
-    <item type="id" name="title_progress">false</item>
-    <item type="id" name="scanning">false</item>
-    <item type="id" name="device_list_layout">false</item>
-    <item type="id" name="wfd_device_list">false</item>
-    <item type="id" name="no_device_text">false</item>
-    <item type="id" name="wfd_sel_device_row_icon">false</item>
-    <item type="id" name="wfd_sel_device_row_text">false</item>
     <item type="id" name="allsharecast_is_readonly">false</item>
     <item type="id" name="allsharecast_help_scroll">false</item>
     <item type="id" name="btn_wifi">false</item>
@@ -1166,14 +1258,16 @@
     <item type="id" name="btn_bluetooth">false</item>
     <item type="id" name="img_bluetooth">false</item>
     <item type="id" name="ind_bluetooth">false</item>
-    <item type="id" name="btn_gps">false</item>
-    <item type="id" name="img_gps">false</item>
-    <item type="id" name="ind_gps">false</item>
+    <item type="id" name="btn_location">false</item>
+    <item type="id" name="img_location">false</item>
+    <item type="id" name="ind_location">false</item>
     <item type="id" name="btn_sync">false</item>
     <item type="id" name="img_sync">false</item>
     <item type="id" name="ind_sync">false</item>
     <item type="id" name="ind_brightness">false</item>
     <item type="id" name="wifi_secsetup_activity_fragment_layout">false</item>
+    <item type="id" name="wifi_screen_subtitle">false</item>
+    <item type="id" name="wifi_vzwsetup_activity_fragment_layout">false</item>
     <item type="id" name="wifi_ap_5g_warning_dialog">false</item>
     <item type="id" name="wifi_ap_do_not_show_again">false</item>
     <item type="id" name="mac_address">false</item>
@@ -1228,6 +1322,7 @@
     <item type="id" name="wifi_ap_change_security">false</item>
     <item type="id" name="dialog_hotspot_button_continue">false</item>
     <item type="id" name="timeout_list">false</item>
+    <item type="id" name="wifi_ap_high_tx_power_mode_warning_msg">false</item>
     <item type="id" name="wifi_ap_remove_whitelist">false</item>
     <item type="id" name="wifi_ap_device_name">false</item>
     <item type="id" name="device_name">false</item>
@@ -1242,8 +1337,6 @@
     <item type="id" name="wifi_captiveportal_text">false</item>
     <item type="id" name="connectionLayout">false</item>
     <item type="id" name="connectingText">false</item>
-    <item type="id" name="wifi_captiveportal_webview">false</item>
-    <item type="id" name="wifi_captiveportal_cancel">false</item>
     <item type="id" name="bottom_btn">false</item>
     <item type="id" name="previous_btn_img">false</item>
     <item type="id" name="previous_btn_text">false</item>
@@ -1301,11 +1394,16 @@
     <item type="id" name="wifi_advanced_fields">false</item>
     <item type="id" name="setup_fields">false</item>
     <item type="id" name="network_setup">false</item>
+    <item type="id" name="proxy_pac_info">false</item>
     <item type="id" name="wifi_keymgmt_layout">false</item>
     <item type="id" name="wifi_ft">false</item>
     <item type="id" name="wifi_cckm">false</item>
     <item type="id" name="wifi_priority_fields">false</item>
     <item type="id" name="wifi_priority_radiogroup">false</item>
+    <item type="id" name="blank_layout">false</item>
+    <item type="id" name="left_container">false</item>
+    <item type="id" name="center_container">false</item>
+    <item type="id" name="right_container">false</item>
     <item type="id" name="img_ani">false</item>
     <item type="id" name="do_not_show_this_again">false</item>
     <item type="id" name="layout_selectall">false</item>
@@ -1318,12 +1416,7 @@
     <item type="id" name="searching_progress">false</item>
     <item type="id" name="searching_for_networks">false</item>
     <item type="id" name="dont_disturb">false</item>
-    <item type="id" name="wifiscreen_layout_id">false</item>
-    <item type="id" name="heading">false</item>
-    <item type="id" name="bottomButtonPanel">false</item>
-    <item type="id" name="back">false</item>
-    <item type="id" name="welcomedivider">false</item>
-    <item type="id" name="exit">false</item>
+    <item type="id" name="dont_notifyme">false</item>
     <item type="id" name="layout_deviceinfo">false</item>
     <item type="id" name="device_name_title">false</item>
     <item type="id" name="mac_address_title">false</item>
@@ -1347,6 +1440,7 @@
     <item type="id" name="previous_btn">false</item>
     <item type="id" name="next_button_text">false</item>
     <item type="id" name="next_button_image">false</item>
+    <item type="id" name="menu_button">false</item>
     <item type="id" name="top_padding_layout">false</item>
     <item type="id" name="top_padding">false</item>
     <item type="id" name="wifi_setup_title">false</item>
@@ -1387,6 +1481,14 @@
     <item type="id" name="wifitimer_end_tp">false</item>
     <item type="id" name="info_msg">false</item>
     <item type="id" name="ok_button">false</item>
+    <item type="id" name="wifiscreen_layout_id">false</item>
+    <item type="id" name="setupwizard_title">false</item>
+    <item type="id" name="wifi_setup_screentitle">false</item>
+    <item type="id" name="wifi_description">false</item>
+    <item type="id" name="negative_button">false</item>
+    <item type="id" name="negative_button_text">false</item>
+    <item type="id" name="positive_button">false</item>
+    <item type="id" name="positive_button_text">false</item>
     <item type="id" name="wps_dialog_txt">false</item>
     <item type="id" name="wps_timeout_bar">false</item>
     <item type="id" name="wps_progress_bar">false</item>
@@ -1399,6 +1501,7 @@
     <item type="id" name="scloud_settings">false</item>
     <item type="id" name="privacy_settings">false</item>
     <item type="id" name="wireless_section">false</item>
+    <item type="id" name="wifi_calling_settings">false</item>
     <item type="id" name="wifi_settings">false</item>
     <item type="id" name="wifi_sprinthotspot_settings">false</item>
     <item type="id" name="bluetooth_settings">false</item>
@@ -1406,6 +1509,7 @@
     <item type="id" name="airplane_mode">false</item>
     <item type="id" name="header_connection_airplane_mode">false</item>
     <item type="id" name="header_connection_toddler_mode">false</item>
+    <item type="id" name="smart_bonding_settings">false</item>
     <item type="id" name="data_usage_settings">false</item>
     <item type="id" name="location_settings">false</item>
     <item type="id" name="dualSlot_settings">false</item>
@@ -1429,7 +1533,7 @@
     <item type="id" name="premium_watch_settings">false</item>
     <item type="id" name="led_indicator_settings">false</item>
     <item type="id" name="sound_settings">false</item>
-    <item type="id" name="easy_mode_settings">false</item>
+    <item type="id" name="home_screen_mode_settings">false</item>
     <item type="id" name="launch_camera">false</item>
     <item type="id" name="call_settings">false</item>
     <item type="id" name="dormant_mode">false</item>
@@ -1453,18 +1557,26 @@
     <item type="id" name="air_view_settings">false</item>
     <item type="id" name="voice_input_control_settings">false</item>
     <item type="id" name="pen_settings_menu">false</item>
+    <item type="id" name="contextual_contents_settings">false</item>
+    <item type="id" name="description_view">false</item>
     <item type="id" name="header_display_screen">false</item>
     <item type="id" name="header_display_multi_window">false</item>
     <item type="id" name="header_display_others">false</item>
     <item type="id" name="header_display_wallpaper">false</item>
     <item type="id" name="header_display_font">false</item>
     <item type="id" name="header_display_notification_panel">false</item>
-    <item type="id" name="home_screen_mode_settings">false</item>
+    <item type="id" name="festival_effect_settings">false</item>
+    <item type="id" name="easy_mode_settings">false</item>
+    <item type="id" name="easy_mode_app_settings">false</item>
+    <item type="id" name="glance_settings">false</item>
     <item type="id" name="header_general_account_and_backup">false</item>
     <item type="id" name="header_general_device_manager">false</item>
     <item type="id" name="date_time_settings">false</item>
     <item type="id" name="header_personal_page">false</item>
+    <item type="id" name="safetycare_settings">false</item>
     <item type="id" name="application_settings">false</item>
+    <item type="id" name="application_function_control">false</item>
+    <item type="id" name="launch_application_settings">false</item>
     <item type="id" name="user_settings">false</item>
     <item type="id" name="battery_settings">false</item>
     <item type="id" name="power_settings">false</item>
@@ -1474,46 +1586,57 @@
     <item type="id" name="activate_this_device">false</item>
     <item type="id" name="system_update">false</item>
     <item type="id" name="about_settings">false</item>
+    <item type="id" name="battery_low">false</item>
+    <item type="id" name="glance_battery_low_wifi">false</item>
+    <item type="id" name="glance_battery">false</item>
+    <item type="id" name="glance_display">false</item>
+    <item type="id" name="low_memory">false</item>
+    <item type="id" name="glance_application_manager">false</item>
+    <item type="id" name="glance_storage">false</item>
+    <item type="id" name="glance_wifi">false</item>
+    <item type="id" name="glance_data_usage">false</item>
+    <item type="id" name="glance_mobile_networks">false</item>
+    <item type="id" name="sound_and_display_section">false</item>
+    <item type="id" name="personalixation_section">false</item>
+    <item type="id" name="header_input_hightouch_sensitivity">false</item>
+    <item type="id" name="motion_section">false</item>
+    <item type="id" name="header_input_motion_and_gesture_2014">false</item>
+    <item type="id" name="user_and_backup_section">false</item>
+    <item type="id" name="system_section">false</item>
+    <item type="id" name="application_section">false</item>
     <item type="id" name="header_input_voice_and_input">false</item>
     <item type="id" name="header_input_motions_and_control">false</item>
     <item type="id" name="header_input_air_gesture">false</item>
     <item type="id" name="header_air_command">false</item>
     <item type="id" name="header_input_motions">false</item>
     <item type="id" name="header_input_palm_motion">false</item>
-    <item type="id" name="header_input_arc_motion">false</item>
-    <item type="id" name="header_input_hightouch_sensitivity">false</item>
+    <item type="id" name="header_edit_application">false</item>
     <item type="id" name="category_longlife_settings">false</item>
+    <item type="id" name="category_longlife_about">false</item>
+    <item type="id" name="about_emergencymode">false</item>
+    <item type="id" name="disable_emergencymode">false</item>
     <item type="id" name="system_permissions">false</item>
     <item type="id" name="device_manager">false</item>
-    <item type="id" name="edit_passwd">false</item>
-    <item type="id" name="passwd_checkbox">false</item>
-    <item type="id" name="confcancle">false</item>
-    <item type="id" name="confok">false</item>
-    <item type="id" name="client_title">false</item>
-    <item type="id" name="client_layout">false</item>
-    <item type="id" name="listview_client">false</item>
-    <item type="id" name="log_title">false</item>
-    <item type="id" name="log_layout">false</item>
-    <item type="id" name="listview_log">false</item>
+    <item type="id" name="safetycare_help">false</item>
     <item type="id" name="home_settings_category">false</item>
     <item type="id" name="wifi_ap_settings">false</item>
     <item type="id" name="ethernet_settings">false</item>
     <item type="id" name="operator_settings">false</item>
-    <item type="id" name="samba_settings">false</item>
     <item type="id" name="header_nearby_settings">false</item>
     <item type="id" name="dmr_settings">false</item>
     <item type="id" name="device_section">false</item>
     <item type="id" name="customizable_key">false</item>
+    <item type="id" name="nfc_payment_settings">false</item>
     <item type="id" name="manufacturer_settings">false</item>
     <item type="id" name="personal_section">false</item>
     <item type="id" name="homesync_account_management_settings">false</item>
     <item type="id" name="customizedkey_settings">false</item>
     <item type="id" name="homesync_backup_and_restore_settings">false</item>
-    <item type="id" name="system_section">false</item>
     <item type="id" name="mouse_hovering_settings">false</item>
     <item type="id" name="dualmode_settings">false</item>
     <item type="id" name="hdmi_settings">false</item>
     <item type="id" name="usb_settings">false</item>
+    <item type="id" name="print_settings">false</item>
     <item type="id" name="development_settings_orange">false</item>
     <item type="id" name="data_usage_menu_roaming">false</item>
     <item type="id" name="background_traffic_optimization">false</item>
@@ -1523,12 +1646,17 @@
     <item type="id" name="data_usage_menu_show_wifi">false</item>
     <item type="id" name="data_usage_menu_show_ethernet">false</item>
     <item type="id" name="data_usage_menu_metered">false</item>
+    <item type="id" name="data_usage_display_unit">false</item>
     <item type="id" name="data_usage_menu_help">false</item>
     <item type="id" name="menu_cancel">false</item>
     <item type="id" name="menu_del">false</item>
     <item type="id" name="menu_done">false</item>
+    <item type="id" name="action_knoxadd">false</item>
     <item type="id" name="action_delete">false</item>
     <item type="id" name="action_select_all">false</item>
+    <item type="id" name="print_menu_item_search">false</item>
+    <item type="id" name="print_menu_item_add_printer">false</item>
+    <item type="id" name="print_menu_item_settings">false</item>
     <item type="id" name="storage_usb">false</item>
     <item type="id" name="action_cancel">false</item>
     <item type="id" name="action_done">false</item>

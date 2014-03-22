@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 73
+    .line 86
     iput-object p1, p0, Lcom/android/settings/nearby/AcceptListPreference$1;->this$0:Lcom/android/settings/nearby/AcceptListPreference;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 75
+    .line 88
     const-string v0, "AcceptListPreference"
 
     const-string v1, "showDialog"
@@ -52,6 +52,11 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/settings/nearby/DLog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 76
+    .line 89
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/settings/nearby/AcceptListPreference;->access$002(Z)Z
+
+    .line 90
     return-void
 .end method

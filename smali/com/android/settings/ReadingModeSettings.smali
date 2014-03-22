@@ -163,7 +163,7 @@
     .line 87
     iput-object v1, p0, Lcom/android/settings/ReadingModeSettings;->mSavedApplist_Activity:[Ljava/lang/String;
 
-    .line 365
+    .line 370
     return-void
 .end method
 
@@ -171,18 +171,18 @@
     .locals 6
 
     .prologue
-    .line 380
+    .line 385
     const-string v2, ""
 
-    .line 381
+    .line 386
     .local v2, mTempAppinfo:Ljava/lang/String;
     const-string v1, ""
 
-    .line 382
+    .line 387
     .local v1, mTempAppList:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v3
 
@@ -190,7 +190,7 @@
 
     move-result-object v0
 
-    .line 384
+    .line 389
     .local v0, CheckedApplistData:Ljava/util/Iterator;
     :cond_0
     :goto_0
@@ -200,7 +200,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 385
+    .line 390
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -208,7 +208,7 @@
     .end local v2           #mTempAppinfo:Ljava/lang/String;
     check-cast v2, Ljava/lang/String;
 
-    .line 386
+    .line 391
     .restart local v2       #mTempAppinfo:Ljava/lang/String;
     const-string v3, "ReadingModeSettings"
 
@@ -248,7 +248,7 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 387
+    .line 392
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v3, v2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -279,7 +279,7 @@
 
     if-eq v3, v4, :cond_0
 
-    .line 388
+    .line 393
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -298,11 +298,11 @@
 
     goto :goto_0
 
-    .line 391
+    .line 396
     :cond_1
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v3
 
@@ -310,7 +310,7 @@
 
     move-result-object v0
 
-    .line 393
+    .line 398
     :cond_2
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -319,7 +319,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 394
+    .line 399
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -327,7 +327,7 @@
     .end local v2           #mTempAppinfo:Ljava/lang/String;
     check-cast v2, Ljava/lang/String;
 
-    .line 395
+    .line 400
     .restart local v2       #mTempAppinfo:Ljava/lang/String;
     const-string v3, "ReadingModeSettings"
 
@@ -367,7 +367,7 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 396
+    .line 401
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v3, v2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -384,7 +384,7 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 397
+    .line 402
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -403,7 +403,7 @@
 
     goto :goto_1
 
-    .line 400
+    .line 405
     :cond_3
     const-string v3, "ReadingModeSettings"
 
@@ -427,12 +427,12 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 401
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 406
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -440,7 +440,7 @@
 
     invoke-static {v3, v4, v1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 402
+    .line 407
     return-void
 .end method
 
@@ -505,18 +505,18 @@
     .locals 6
 
     .prologue
-    .line 405
+    .line 410
     const/4 v1, 0x0
 
-    .line 406
+    .line 411
     .local v1, mCheckedAppNum:I
     const-string v2, ""
 
-    .line 407
+    .line 412
     .local v2, mCheckedAppinfo:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v3}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v3
 
@@ -524,7 +524,7 @@
 
     move-result-object v0
 
-    .line 409
+    .line 414
     .local v0, CheckedData:Ljava/util/Iterator;
     :cond_0
     :goto_0
@@ -534,7 +534,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 410
+    .line 415
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -542,7 +542,7 @@
     .end local v2           #mCheckedAppinfo:Ljava/lang/String;
     check-cast v2, Ljava/lang/String;
 
-    .line 411
+    .line 416
     .restart local v2       #mCheckedAppinfo:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
 
@@ -558,12 +558,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 412
+    .line 417
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 415
+    .line 420
     :cond_1
     const-string v3, "ReadingModeSettings"
 
@@ -587,7 +587,7 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 416
+    .line 421
     return v1
 .end method
 
@@ -602,73 +602,73 @@
 
     const/4 v2, 0x1
 
-    .line 269
+    .line 274
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
     if-eqz v0, :cond_0
 
-    .line 270
+    .line 275
     if-eqz p1, :cond_2
 
-    .line 271
+    .line 276
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200d8
+    const v1, 0x7f020118
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 272
+    .line 277
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 278
+    .line 283
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
     if-eqz v0, :cond_1
 
-    .line 279
+    .line 284
     if-eqz p1, :cond_3
 
-    .line 280
+    .line 285
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200dc
+    const v1, 0x7f02011c
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 281
+    .line 286
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 287
+    .line 292
     :cond_1
     :goto_1
     return-void
 
-    .line 274
+    .line 279
     :cond_2
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    .line 275
+    .line 280
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     goto :goto_0
 
-    .line 283
+    .line 288
     :cond_3
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    .line 284
+    .line 289
     iget-object v0, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
@@ -684,14 +684,14 @@
 
     .prologue
     .line 136
-    invoke-super/range {p0 .. p1}, Landroid/app/ListFragment;->onActivityCreated(Landroid/os/Bundle;)V
+    invoke-super/range {p0 .. p1}, Landroid/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 138
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
@@ -842,6 +842,51 @@
 
     .line 154
     :cond_1
+    const-string v2, "com.android.settings.Settings$WifiApSettingsActivity"
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mAppList:Ljava/util/List;
+
+    invoke-interface {v1, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/ResolveInfo;
+
+    iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v2, "com.android.settings.Settings$TetherSettingsActivity2"
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mAppList:Ljava/util/List;
+
+    invoke-interface {v1, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/ResolveInfo;
+
+    iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 159
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settings/ReadingModeSettings;->mExtraAppList:Ljava/util/List;
@@ -860,7 +905,7 @@
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 155
+    .line 160
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -901,7 +946,7 @@
 
     iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -917,7 +962,7 @@
 
     move-result-object v15
 
-    .line 156
+    .line 161
     .local v15, mAppinfo:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -929,11 +974,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    .line 158
+    .line 163
     .end local v15           #mAppinfo:Ljava/lang/String;
     :cond_2
     const/4 v13, 0x0
@@ -949,7 +994,7 @@
 
     if-ge v13, v1, :cond_5
 
-    .line 159
+    .line 164
     const/4 v14, 0x0
 
     .local v14, j:I
@@ -964,7 +1009,7 @@
 
     if-ge v14, v1, :cond_3
 
-    .line 160
+    .line 165
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mExtraList:Ljava/util/List;
@@ -997,26 +1042,26 @@
 
     if-eqz v1, :cond_4
 
-    .line 161
+    .line 166
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mExtraList:Ljava/util/List;
 
     invoke-interface {v1, v14}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 158
+    .line 163
     :cond_3
     add-int/lit8 v13, v13, 0x1
 
     goto :goto_2
 
-    .line 159
+    .line 164
     :cond_4
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_3
 
-    .line 167
+    .line 172
     .end local v14           #j:I
     :cond_5
     const/4 v13, 0x0
@@ -1032,7 +1077,7 @@
 
     if-ge v13, v1, :cond_a
 
-    .line 169
+    .line 174
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1048,7 +1093,7 @@
 
     move-object/from16 v16, v0
 
-    .line 170
+    .line 175
     .local v16, pkgName:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1062,13 +1107,13 @@
 
     move-result-object v10
 
-    .line 171
+    .line 176
     .local v10, app:Landroid/content/pm/ApplicationInfo;
-    iget-object v1, v10, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v10, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     if-nez v1, :cond_7
 
-    .line 167
+    .line 172
     .end local v10           #app:Landroid/content/pm/ApplicationInfo;
     .end local v16           #pkgName:Ljava/lang/String;
     :cond_6
@@ -1077,11 +1122,11 @@
 
     goto :goto_4
 
-    .line 173
+    .line 178
     .restart local v10       #app:Landroid/content/pm/ApplicationInfo;
     .restart local v16       #pkgName:Ljava/lang/String;
     :cond_7
-    iget-object v1, v10, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v10, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     const-string v2, "samsung.settings.reading_default_on"
 
@@ -1091,7 +1136,7 @@
 
     if-eqz v1, :cond_8
 
-    .line 174
+    .line 179
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mPm:Landroid/content/pm/PackageManager;
@@ -1104,7 +1149,7 @@
 
     move-result-object v8
 
-    .line 175
+    .line 180
     .local v8, Papp:Landroid/content/pm/PackageInfo;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1128,7 +1173,7 @@
 
     aget-object v2, v2, v3
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1144,7 +1189,7 @@
 
     move-result-object v15
 
-    .line 176
+    .line 181
     .restart local v15       #mAppinfo:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1156,13 +1201,13 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_5
 
-    .line 188
+    .line 193
     .end local v8           #Papp:Landroid/content/pm/PackageInfo;
     .end local v10           #app:Landroid/content/pm/ApplicationInfo;
     .end local v15           #mAppinfo:Ljava/lang/String;
@@ -1170,7 +1215,7 @@
     :catch_0
     move-exception v12
 
-    .line 189
+    .line 194
     .local v12, e:Ljava/lang/Exception;
     const-string v1, "ReadingModeSettings"
 
@@ -1180,13 +1225,13 @@
 
     goto :goto_5
 
-    .line 177
+    .line 182
     .end local v12           #e:Ljava/lang/Exception;
     .restart local v10       #app:Landroid/content/pm/ApplicationInfo;
     .restart local v16       #pkgName:Ljava/lang/String;
     :cond_8
     :try_start_1
-    iget-object v1, v10, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v10, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     const-string v2, "samsung.settings.reading_default_addtolist"
 
@@ -1195,102 +1240,6 @@
     move-result v1
 
     if-eqz v1, :cond_9
-
-    .line 178
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mPm:Landroid/content/pm/PackageManager;
-
-    const/4 v2, 0x1
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v1, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-
-    move-result-object v8
-
-    .line 179
-    .restart local v8       #Papp:Landroid/content/pm/PackageInfo;
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, v8, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, v8, Landroid/content/pm/PackageInfo;->activities:[Landroid/content/pm/ActivityInfo;
-
-    const/4 v3, 0x0
-
-    aget-object v2, v2, v3
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ";"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    .line 180
-    .restart local v15       #mAppinfo:Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
-
-    const/4 v2, 0x1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 181
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mExtraAppList:Ljava/util/List;
-
-    iget-object v2, v8, Landroid/content/pm/PackageInfo;->activities:[Landroid/content/pm/ActivityInfo;
-
-    const/4 v3, 0x0
-
-    aget-object v2, v2, v3
-
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_5
-
-    .line 182
-    .end local v8           #Papp:Landroid/content/pm/PackageInfo;
-    .end local v15           #mAppinfo:Ljava/lang/String;
-    :cond_9
-    iget-object v1, v10, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-
-    const-string v2, "samsung.settings.reading_default_on_addtolist"
-
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
 
     .line 183
     move-object/from16 v0, p0
@@ -1329,7 +1278,7 @@
 
     aget-object v2, v2, v3
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1349,6 +1298,19 @@
     .restart local v15       #mAppinfo:Ljava/lang/String;
     move-object/from16 v0, p0
 
+    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
+
+    const/4 v2, 0x1
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 186
+    move-object/from16 v0, p0
+
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mExtraAppList:Ljava/util/List;
 
     iget-object v2, v8, Landroid/content/pm/PackageInfo;->activities:[Landroid/content/pm/ActivityInfo;
@@ -1359,7 +1321,90 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 186
+    goto/16 :goto_5
+
+    .line 187
+    .end local v8           #Papp:Landroid/content/pm/PackageInfo;
+    .end local v15           #mAppinfo:Ljava/lang/String;
+    :cond_9
+    iget-object v1, v10, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+
+    const-string v2, "samsung.settings.reading_default_on_addtolist"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    .line 188
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mPm:Landroid/content/pm/PackageManager;
+
+    const/4 v2, 0x1
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v8
+
+    .line 189
+    .restart local v8       #Papp:Landroid/content/pm/PackageInfo;
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, v8, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "/"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, v8, Landroid/content/pm/PackageInfo;->activities:[Landroid/content/pm/ActivityInfo;
+
+    const/4 v3, 0x0
+
+    aget-object v2, v2, v3
+
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ";"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    .line 190
+    .restart local v15       #mAppinfo:Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mExtraAppList:Ljava/util/List;
+
+    iget-object v2, v8, Landroid/content/pm/PackageInfo;->activities:[Landroid/content/pm/ActivityInfo;
+
+    const/4 v3, 0x0
+
+    aget-object v2, v2, v3
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 191
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
@@ -1370,13 +1415,13 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_5
 
-    .line 192
+    .line 197
     .end local v8           #Papp:Landroid/content/pm/PackageInfo;
     .end local v10           #app:Landroid/content/pm/ApplicationInfo;
     .end local v15           #mAppinfo:Ljava/lang/String;
@@ -1388,14 +1433,14 @@
 
     invoke-interface {v1}, Ljava/util/List;->clear()V
 
-    .line 194
+    .line 199
     new-instance v9, Lcom/android/settings/ReadingModeSettings$AlphaComparator;
 
     move-object/from16 v0, p0
 
     invoke-direct {v9, v0}, Lcom/android/settings/ReadingModeSettings$AlphaComparator;-><init>(Lcom/android/settings/ReadingModeSettings;)V
 
-    .line 195
+    .line 200
     .local v9, alphaComparator:Lcom/android/settings/ReadingModeSettings$AlphaComparator;
     move-object/from16 v0, p0
 
@@ -1403,7 +1448,7 @@
 
     invoke-static {v1, v9}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 197
+    .line 202
     new-instance v1, Ljava/util/LinkedHashMap;
 
     invoke-direct {v1}, Ljava/util/LinkedHashMap;-><init>()V
@@ -1412,7 +1457,7 @@
 
     iput-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
 
-    .line 199
+    .line 204
     const/4 v13, 0x0
 
     :goto_6
@@ -1426,10 +1471,10 @@
 
     if-ge v13, v1, :cond_f
 
-    .line 200
+    .line 205
     const/4 v11, 0x0
 
-    .line 201
+    .line 206
     .local v11, checkedpackage:Z
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1467,7 +1512,7 @@
 
     check-cast v1, Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1483,7 +1528,7 @@
 
     move-result-object v15
 
-    .line 202
+    .line 207
     .restart local v15       #mAppinfo:Ljava/lang/String;
     const/4 v14, 0x0
 
@@ -1495,7 +1540,7 @@
 
     if-ge v14, v1, :cond_d
 
-    .line 203
+    .line 208
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mSavedApplist_Package:[Ljava/lang/String;
@@ -1536,7 +1581,7 @@
 
     check-cast v1, Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1544,7 +1589,7 @@
 
     if-eqz v1, :cond_c
 
-    .line 204
+    .line 209
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
@@ -1579,7 +1624,7 @@
 
     if-ne v1, v2, :cond_c
 
-    .line 205
+    .line 210
     :cond_b
     move-object/from16 v0, p0
 
@@ -1591,9 +1636,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 206
+    .line 211
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempApplist:Ljava/util/LinkedHashMap;
@@ -1604,22 +1649,22 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 207
+    .line 212
     const/4 v11, 0x1
 
-    .line 202
+    .line 207
     :cond_c
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_7
 
-    .line 211
+    .line 216
     :cond_d
     if-nez v11, :cond_e
 
-    .line 212
+    .line 217
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mTempCheckedApplist:Ljava/util/LinkedHashMap;
@@ -1630,26 +1675,26 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v15, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v15, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 199
+    .line 204
     :cond_e
     add-int/lit8 v13, v13, 0x1
 
     goto/16 :goto_6
 
-    .line 215
+    .line 220
     .end local v11           #checkedpackage:Z
     .end local v14           #j:I
     .end local v15           #mAppinfo:Ljava/lang/String;
     :cond_f
     new-instance v1, Lcom/android/settings/ReadingModeSettings$AppListAdapter;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    const v4, 0x7f040146
+    const v4, 0x7f04017b
 
     const/4 v5, 0x0
 
@@ -1665,14 +1710,14 @@
 
     iput-object v1, v0, Lcom/android/settings/ReadingModeSettings;->mAppListAdapter:Lcom/android/settings/ReadingModeSettings$AppListAdapter;
 
-    .line 217
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ReadingModeSettings;->getListView()Landroid/widget/ListView;
+    .line 222
+    invoke-virtual/range {p0 .. p0}, Landroid/app/ListFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/settings/ReadingModeSettings;->list_view:Landroid/widget/ListView;
 
-    .line 218
+    .line 223
     sget-object v1, Lcom/android/settings/ReadingModeSettings;->list_view:Landroid/widget/ListView;
 
     move-object/from16 v0, p0
@@ -1681,7 +1726,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 219
+    .line 224
     sget-object v1, Lcom/android/settings/ReadingModeSettings;->list_view:Landroid/widget/ListView;
 
     new-instance v2, Lcom/android/settings/ReadingModeSettings$1;
@@ -1690,16 +1735,16 @@
 
     invoke-direct {v2, v0}, Lcom/android/settings/ReadingModeSettings$1;-><init>(Lcom/android/settings/ReadingModeSettings;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 246
+    .line 251
     const/4 v1, 0x1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/ReadingModeSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
-    .line 247
+    .line 252
     return-void
 .end method
 
@@ -1711,14 +1756,14 @@
     const/4 v7, 0x0
 
     .line 104
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 105
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -1871,7 +1916,7 @@
     .end local v2           #package_index:I
     .end local v3           #package_name:Ljava/lang/String;
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1895,8 +1940,8 @@
 
     const/4 v3, 0x0
 
-    .line 252
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 257
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1904,14 +1949,14 @@
 
     move-result v0
 
-    .line 254
+    .line 259
     .local v0, isTablet:Z
-    invoke-super {p0, p1, p2}, Landroid/app/ListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
+    invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 256
+    .line 261
     const/4 v1, 0x2
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1919,13 +1964,13 @@
 
     iput-object v1, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
-    .line 257
+    .line 262
     iget-object v1, p0, Lcom/android/settings/ReadingModeSettings;->mMenuCancel:Landroid/view/MenuItem;
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 259
-    const v1, 0x7f091309
+    .line 264
+    const v1, 0x7f09147a
 
     invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1933,18 +1978,18 @@
 
     iput-object v1, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
-    .line 260
+    .line 265
     iget-object v1, p0, Lcom/android/settings/ReadingModeSettings;->mMenuDone:Landroid/view/MenuItem;
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 262
+    .line 267
     if-eqz v0, :cond_0
 
-    .line 263
+    .line 268
     invoke-direct {p0, v4}, Lcom/android/settings/ReadingModeSettings;->updateOptionsMenuIcon(Z)V
 
-    .line 266
+    .line 271
     :cond_0
     return-void
 .end method
@@ -1957,7 +2002,7 @@
 
     .prologue
     .line 127
-    const v1, 0x7f040145
+    const v1, 0x7f04017a
 
     const/4 v2, 0x0
 
@@ -1967,7 +2012,7 @@
 
     .line 129
     .local v0, mView:Landroid/view/View;
-    const v1, 0x7f0b03a0
+    const v1, 0x7f0b03ea
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1977,7 +2022,7 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 131
     return-object v0
@@ -1990,14 +2035,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 291
+    .line 296
     const-string v1, "ReadingModeSettings"
 
     const-string v2, "onOptionsItemSelected"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 293
+    .line 298
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
@@ -2006,8 +2051,8 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 295
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 300
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2017,8 +2062,8 @@
 
     if-eqz v1, :cond_0
 
-    .line 296
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 301
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2036,8 +2081,8 @@
 
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
 
-    .line 297
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 302
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2047,13 +2092,13 @@
 
     invoke-virtual {v1}, Landroid/app/FragmentManager;->popBackStack()V
 
-    .line 313
+    .line 318
     :goto_0
     return v0
 
-    .line 299
+    .line 304
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2061,7 +2106,7 @@
 
     goto :goto_0
 
-    .line 301
+    .line 306
     :cond_1
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
@@ -2069,11 +2114,11 @@
 
     if-ne v1, v0, :cond_3
 
-    .line 303
+    .line 308
     invoke-direct {p0}, Lcom/android/settings/ReadingModeSettings;->SavedReadingModeApplist()V
 
-    .line 304
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 309
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2083,8 +2128,8 @@
 
     if-eqz v1, :cond_2
 
-    .line 305
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 310
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2102,8 +2147,8 @@
 
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
 
-    .line 306
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    .line 311
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2115,9 +2160,9 @@
 
     goto :goto_0
 
-    .line 308
+    .line 313
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/ReadingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2125,9 +2170,9 @@
 
     goto :goto_0
 
-    .line 313
+    .line 318
     :cond_3
-    invoke-super {p0, p1}, Landroid/app/ListFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
@@ -2138,10 +2183,10 @@
     .locals 0
 
     .prologue
-    .line 323
-    invoke-super {p0}, Landroid/app/ListFragment;->onPause()V
+    .line 328
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 324
+    .line 329
     return-void
 .end method
 
@@ -2149,10 +2194,10 @@
     .locals 0
 
     .prologue
-    .line 318
-    invoke-super {p0}, Landroid/app/ListFragment;->onResume()V
+    .line 323
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 319
+    .line 324
     return-void
 .end method
 
@@ -2160,9 +2205,9 @@
     .locals 0
 
     .prologue
-    .line 328
-    invoke-super {p0}, Landroid/app/ListFragment;->onStop()V
+    .line 333
+    invoke-super {p0}, Landroid/app/Fragment;->onStop()V
 
-    .line 330
+    .line 335
     return-void
 .end method

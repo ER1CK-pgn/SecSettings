@@ -74,7 +74,7 @@
     .locals 14
 
     .prologue
-    const v13, 0x7f090966
+    const v13, 0x7f090a44
 
     const/4 v2, 0x1
 
@@ -95,7 +95,7 @@
     .line 180
     iget-object v0, p0, Lcom/android/settings/AccountMenu;->mAccountCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v0}, Landroid/preference/PreferenceCategory;->removeAll()V
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 182
     array-length v6, v5
@@ -363,7 +363,7 @@
     .line 265
     new-instance v0, Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {p0}, Lcom/android/settings/AccountMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -372,10 +372,10 @@
     invoke-direct {v0, v8, v9}, Landroid/preference/PreferenceScreen;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 266
-    invoke-virtual {v0, v7}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v0, v7}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
     .line 267
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 269
     iget-object v1, p0, Lcom/android/settings/AccountMenu;->mAuthenticatorHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
@@ -398,15 +398,15 @@
     move-result-object v1
 
     .line 272
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     .line 273
-    invoke-virtual {v0, p0}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 275
     iget-object v1, p0, Lcom/android/settings/AccountMenu;->mAccountCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v1, v0}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_1
 
@@ -493,7 +493,7 @@
     invoke-virtual {v10, v0, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 254
-    invoke-virtual {p0}, Lcom/android/settings/AccountMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -541,7 +541,7 @@
 
     .line 391
     .local v0, resources:Landroid/content/res/Resources;
-    const v2, 0x7f0f0030
+    const v2, 0x7f0f004c
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -605,16 +605,16 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 97
-    const v0, 0x7f070004
+    const v0, 0x7f070009
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountMenu;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/AccountMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -630,7 +630,7 @@
     .line 105
     const-string v0, "vzw_bua_plus"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -639,7 +639,7 @@
     .line 106
     const-string v0, "vzw_bua_plus"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccountMenu;->removePreference(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->removePreference(Ljava/lang/String;)V
 
     .line 110
     :cond_0
@@ -690,7 +690,7 @@
 
     .prologue
     .line 138
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
     .line 139
     iget-object v0, p0, Lcom/android/settings/AccountMenu;->mContext:Landroid/content/Context;
@@ -732,7 +732,7 @@
 
     .prologue
     .line 133
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 134
     return-void
@@ -783,7 +783,7 @@
     if-eqz v1, :cond_0
 
     .line 291
-    invoke-virtual {p0}, Lcom/android/settings/AccountMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -868,7 +868,7 @@
     .line 127
     const-string v1, "account_menu_category"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/AccountMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 

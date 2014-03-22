@@ -34,10 +34,13 @@
     <bool name="enable_wifi_ip_settings">true</bool>
     <bool name="settings_list">true</bool>
     <bool name="settings_tab">false</bool>
+    <bool name="settings_grid">false</bool>
+    <bool name="easymode_launhcer">false</bool>
     <bool name="enable_dormant_mode">true</bool>
     <bool name="import_use_call_setting_ha">false</bool>
     <bool name="show_system_memory">true</bool>
     <bool name="enable_dualmode_settings">false</bool>
+    <bool name="settings_widget">false</bool>
     <bool name="config_msid_enable">false</bool>
     <bool name="supports_advanced_settings">true</bool>
     <bool name="def_airplane_mode_on">false</bool>

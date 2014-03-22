@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 165
+    .line 166
     iput-object p1, p0, Lcom/android/settings/wfd/WfdHelpActivity$3;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,13 +43,13 @@
     .parameter "arg1"
 
     .prologue
-    .line 170
+    .line 171
     iget-object v0, p0, Lcom/android/settings/wfd/WfdHelpActivity$3;->this$0:Lcom/android/settings/wfd/WfdHelpActivity;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Lcom/android/settings/wfd/WfdHelpActivity;->changeNfcEnabled(Landroid/content/Context;Z)Z
 
-    .line 173
+    .line 174
     return-void
 .end method

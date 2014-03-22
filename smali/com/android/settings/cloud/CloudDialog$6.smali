@@ -3,7 +3,7 @@
 .source "CloudDialog.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnKeyListener;
 
 
 # annotations
@@ -27,46 +27,60 @@
     .parameter
 
     .prologue
-    .line 207
+    .line 219
     iput-object p1, p0, Lcom/android/settings/cloud/CloudDialog$6;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
+    .locals 2
     .parameter "dialog"
-    .parameter "which"
+    .parameter "keyCode"
+    .parameter "event"
 
     .prologue
-    .line 211
+    .line 221
+    const/4 v0, 0x0
+
+    .line 222
+    .local v0, result:Z
+    const/4 v1, 0x4
+
+    if-ne p2, v1, :cond_1
+
+    .line 223
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 212
-    iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$6;->this$0:Lcom/android/settings/cloud/CloudDialog;
+    .line 224
+    iget-object v1, p0, Lcom/android/settings/cloud/CloudDialog$6;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->dialogListener:Lcom/android/settings/cloud/CloudDialog$DialogListener;
-    invoke-static {v0}, Lcom/android/settings/cloud/CloudDialog;->access$200(Lcom/android/settings/cloud/CloudDialog;)Lcom/android/settings/cloud/CloudDialog$DialogListener;
+    invoke-static {v1}, Lcom/android/settings/cloud/CloudDialog;->access$200(Lcom/android/settings/cloud/CloudDialog;)Lcom/android/settings/cloud/CloudDialog$DialogListener;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 213
-    iget-object v0, p0, Lcom/android/settings/cloud/CloudDialog$6;->this$0:Lcom/android/settings/cloud/CloudDialog;
+    .line 225
+    iget-object v1, p0, Lcom/android/settings/cloud/CloudDialog$6;->this$0:Lcom/android/settings/cloud/CloudDialog;
 
     #getter for: Lcom/android/settings/cloud/CloudDialog;->dialogListener:Lcom/android/settings/cloud/CloudDialog$DialogListener;
-    invoke-static {v0}, Lcom/android/settings/cloud/CloudDialog;->access$200(Lcom/android/settings/cloud/CloudDialog;)Lcom/android/settings/cloud/CloudDialog$DialogListener;
+    invoke-static {v1}, Lcom/android/settings/cloud/CloudDialog;->access$200(Lcom/android/settings/cloud/CloudDialog;)Lcom/android/settings/cloud/CloudDialog$DialogListener;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Lcom/android/settings/cloud/CloudDialog$DialogListener;->onCancelButtonClick()V
+    invoke-interface {v1}, Lcom/android/settings/cloud/CloudDialog$DialogListener;->onCancelButtonClick()V
 
-    .line 214
+    .line 227
     :cond_0
-    return-void
+    const/4 v0, 0x1
+
+    .line 229
+    :cond_1
+    return v0
 .end method

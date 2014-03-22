@@ -51,25 +51,25 @@
     .locals 1
 
     .prologue
-    .line 79
+    .line 80
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 107
+    .line 108
     const-string v0, "permission"
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->SPC_PERMISSION_TABLE:Ljava/lang/String;
 
-    .line 108
+    .line 109
     const-string v0, "account"
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->SPC_ACCOUNT_TABLE:Ljava/lang/String;
 
-    .line 109
+    .line 110
     const-string v0, "com.sec.android.spc.easysetup.account.AccountContentProvider"
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->AUTHORITY:Ljava/lang/String;
 
-    .line 110
+    .line 111
     const-string v0, "content://com.sec.android.spc.easysetup.account.AccountContentProvider/account"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -78,27 +78,27 @@
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->ACCOUNT_CONTENT_URI:Landroid/net/Uri;
 
-    .line 112
+    .line 113
     const-string v0, "UserDivision"
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->USER_DIVISION:Ljava/lang/String;
 
-    .line 113
+    .line 114
     const-string v0, "SamsungId"
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->SAMSUNG_ID:Ljava/lang/String;
 
-    .line 114
+    .line 115
     const-string v0, "admin"
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->USER_ADMIN:Ljava/lang/String;
 
-    .line 125
+    .line 126
     sget-object v0, Lcom/android/settings/MasterClearConfirm$PWState;->CURRENT:Lcom/android/settings/MasterClearConfirm$PWState;
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mPWState:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    .line 135
+    .line 136
     new-instance v0, Lcom/android/settings/MasterClearConfirm$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/MasterClearConfirm$1;-><init>(Lcom/android/settings/MasterClearConfirm;)V
@@ -112,7 +112,7 @@
     .locals 6
 
     .prologue
-    .line 251
+    .line 253
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -125,14 +125,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 252
+    .line 254
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 255
+    .line 257
     :cond_0
     invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
 
@@ -140,14 +140,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 315
+    .line 317
     :cond_1
     :goto_0
     return-void
 
-    .line 260
+    .line 262
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -161,7 +161,7 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 261
+    .line 263
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v0
@@ -172,30 +172,30 @@
 
     if-eqz v0, :cond_1
 
-    .line 275
+    .line 277
     iget-boolean v0, p0, Lcom/android/settings/MasterClearConfirm;->mEraseSdCard:Z
 
     if-eqz v0, :cond_5
 
-    .line 276
+    .line 278
     iget-boolean v0, p0, Lcom/android/settings/MasterClearConfirm;->mCanEraseExternalOnFuseSystem:Z
 
     if-eqz v0, :cond_4
 
-    .line 278
+    .line 280
     new-instance v1, Landroid/content/Intent;
 
     const-string v0, "com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET"
 
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 279
+    .line 281
     sget-object v0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->COMPONENT_NAME:Landroid/content/ComponentName;
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 280
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 282
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -207,21 +207,21 @@
 
     check-cast v0, Landroid/os/storage/StorageManager;
 
-    .line 281
+    .line 283
     invoke-virtual {v0}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
 
     move-result-object v2
 
-    .line 282
+    .line 284
     array-length v3, v2
 
-    .line 283
+    .line 285
     const/4 v0, 0x0
 
     :goto_1
     if-ge v0, v3, :cond_1
 
-    .line 284
+    .line 286
     const-string v4, "sd"
 
     aget-object v5, v2, v0
@@ -236,29 +236,29 @@
 
     if-eqz v4, :cond_3
 
-    .line 285
+    .line 287
     const-string v3, "storage_volume"
 
     aget-object v0, v2, v0
 
     invoke-virtual {v1, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 286
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 288
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto :goto_0
 
-    .line 283
+    .line 285
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 292
+    .line 294
     :cond_4
     new-instance v0, Landroid/content/Intent;
 
@@ -266,21 +266,21 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 293
+    .line 295
     sget-object v1, Lcom/android/internal/os/storage/ExternalStorageFormatter;->COMPONENT_NAME:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 294
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 296
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto :goto_0
 
-    .line 298
+    .line 300
     :cond_5
     const-string v0, "VZW"
 
@@ -390,6 +390,18 @@
 
     if-nez v0, :cond_6
 
+    const-string v0, "TMB"
+
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -402,7 +414,7 @@
 
     if-eqz v0, :cond_7
 
-    .line 303
+    .line 305
     :cond_6
     const-string v0, "MasterClearConfirm"
 
@@ -410,17 +422,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 304
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 306
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 305
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 307
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -438,11 +450,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto/16 :goto_0
 
-    .line 307
+    .line 309
     :cond_7
     const-string v0, "ATT"
 
@@ -456,8 +468,8 @@
 
     if-eqz v0, :cond_8
 
-    .line 308
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 310
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -467,13 +479,13 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 310
+    .line 312
     :cond_8
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -483,7 +495,7 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 .end method
@@ -493,12 +505,12 @@
     .parameter "intent"
 
     .prologue
-    .line 341
+    .line 343
     sget-object v0, Lcom/android/settings/MasterClearConfirm$2;->$SwitchMap$com$android$settings$MasterClearConfirm$PWState:[I
 
     iget-object v1, p0, Lcom/android/settings/MasterClearConfirm;->mPWState:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    invoke-virtual {v1}, Lcom/android/settings/MasterClearConfirm$PWState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -506,11 +518,11 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 358
+    .line 360
     :goto_0
     return-void
 
-    .line 343
+    .line 345
     :pswitch_0
     const-string v0, ".password"
 
@@ -520,21 +532,21 @@
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mNewPassword:Ljava/lang/String;
 
-    .line 344
+    .line 346
     sget-object v0, Lcom/android/settings/MasterClearConfirm$PWState;->CONFIRM:Lcom/android/settings/MasterClearConfirm$PWState;
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mPWState:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    .line 345
-    const v0, 0x7f090063
+    .line 347
+    const v0, 0x7f090077
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f090065
+    const v1, 0x7f090079
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -546,18 +558,18 @@
 
     goto :goto_0
 
-    .line 350
+    .line 352
     :pswitch_1
     sget-object v0, Lcom/android/settings/MasterClearConfirm$PWState;->CURRENT:Lcom/android/settings/MasterClearConfirm$PWState;
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mPWState:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    .line 351
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 353
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -567,12 +579,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 353
+    .line 355
     invoke-direct {p0}, Lcom/android/settings/MasterClearConfirm;->DoMasterReset()V
 
     goto :goto_0
 
-    .line 341
+    .line 343
     nop
 
     :pswitch_data_0
@@ -586,14 +598,14 @@
     .locals 5
 
     .prologue
-    const v3, 0x7f090063
+    const v3, 0x7f090077
 
-    .line 318
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 320
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -603,29 +615,29 @@
 
     move-result-object v0
 
-    .line 320
+    .line 322
     .local v0, phone_password:Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 321
+    .line 323
     sget-object v1, Lcom/android/settings/MasterClearConfirm$PWState;->NEW:Lcom/android/settings/MasterClearConfirm$PWState;
 
     iput-object v1, p0, Lcom/android/settings/MasterClearConfirm;->mPWState:Lcom/android/settings/MasterClearConfirm$PWState;
 
-    .line 322
-    invoke-virtual {p0, v3}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    .line 324
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f090062
+    const v2, 0x7f090076
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f090070
+    const v3, 0x7f090084
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -633,19 +645,19 @@
 
     invoke-virtual {p0, v1, v2, v3, v4}, Lcom/android/settings/MasterClearConfirm;->queryPhonepassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 328
+    .line 330
     :goto_0
     return-void
 
-    .line 325
+    .line 327
     :cond_0
-    invoke-virtual {p0, v3}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f090065
+    const v2, 0x7f090079
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -661,7 +673,7 @@
     .parameter "x0"
 
     .prologue
-    .line 79
+    .line 80
     invoke-direct {p0}, Lcom/android/settings/MasterClearConfirm;->storeResetDate()V
 
     return-void
@@ -672,7 +684,7 @@
     .parameter "x0"
 
     .prologue
-    .line 79
+    .line 80
     invoke-direct {p0}, Lcom/android/settings/MasterClearConfirm;->DoMasterReset()V
 
     return-void
@@ -683,7 +695,7 @@
     .parameter "x0"
 
     .prologue
-    .line 79
+    .line 80
     invoke-direct {p0}, Lcom/android/settings/MasterClearConfirm;->StartPassword()V
 
     return-void
@@ -693,10 +705,10 @@
     .locals 2
 
     .prologue
-    .line 417
+    .line 419
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0b0248
+    const v1, 0x7f0b0284
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -706,14 +718,14 @@
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
-    .line 418
+    .line 420
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     iget-object v1, p0, Lcom/android/settings/MasterClearConfirm;->mFinalClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 419
+    .line 421
     return-void
 .end method
 
@@ -723,14 +735,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 361
+    .line 363
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/settings/MasterClearConfirm;->mTelMan:Landroid/telephony/TelephonyManager;
 
-    .line 362
+    .line 364
     sget-object v1, Lcom/android/settings/MasterClearConfirm;->mTelMan:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimState()I
@@ -747,217 +759,221 @@
 
     if-ne v1, v0, :cond_1
 
-    .line 364
+    .line 366
     :cond_0
     const/4 v0, 0x0
 
-    .line 366
+    .line 368
     :cond_1
     return v0
 .end method
 
 .method private storeResetDate()V
-    .locals 8
+    .locals 9
 
     .prologue
-    .line 174
+    .line 175
     const-string v1, "/efs/LastResetDate.txt"
 
-    .line 175
+    .line 176
     .local v1, filename:Ljava/lang/String;
-    invoke-static {}, Ljava/text/DateFormat;->getDateInstance()Ljava/text/DateFormat;
+    new-instance v2, Ljava/text/SimpleDateFormat;
 
-    move-result-object v6
+    const-string v7, "dd/MM/yyyy hh:mm:ss"
 
+    invoke-direct {v2, v7}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    .line 177
+    .local v2, formatter:Ljava/text/DateFormat;
     new-instance v7, Ljava/util/Date;
 
     invoke-direct {v7}, Ljava/util/Date;-><init>()V
 
-    invoke-virtual {v6, v7}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v2, v7}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    .line 176
-    .local v5, string:Ljava/lang/String;
-    const/4 v2, 0x0
-
-    .line 179
-    .local v2, fw:Ljava/io/FileWriter;
-    :try_start_0
-    new-instance v4, Ljava/io/File;
-
-    invoke-direct {v4, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 180
-    .local v4, resolveMe:Ljava/io/File;
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
-
-    move-result v6
-
-    if-nez v6, :cond_0
+    .line 178
+    .local v6, string:Ljava/lang/String;
+    const/4 v3, 0x0
 
     .line 181
-    invoke-virtual {v4}, Ljava/io/File;->createNewFile()Z
+    .local v3, fw:Ljava/io/FileWriter;
+    :try_start_0
+    new-instance v5, Ljava/io/File;
+
+    invoke-direct {v5, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 182
-    const/4 v6, 0x1
+    .local v5, resolveMe:Ljava/io/File;
+    invoke-virtual {v5}, Ljava/io/File;->exists()Z
 
-    const/4 v7, 0x0
+    move-result v7
 
-    invoke-virtual {v4, v6, v7}, Ljava/io/File;->setReadable(ZZ)Z
+    if-nez v7, :cond_0
 
-    .line 185
+    .line 183
+    invoke-virtual {v5}, Ljava/io/File;->createNewFile()Z
+
+    .line 184
+    const/4 v7, 0x1
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v7, v8}, Ljava/io/File;->setReadable(ZZ)Z
+
+    .line 187
     :cond_0
-    new-instance v3, Ljava/io/FileWriter;
+    new-instance v4, Ljava/io/FileWriter;
 
-    invoke-direct {v3, v4}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+    invoke-direct {v4, v5}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 186
-    .end local v2           #fw:Ljava/io/FileWriter;
-    .local v3, fw:Ljava/io/FileWriter;
+    .line 188
+    .end local v3           #fw:Ljava/io/FileWriter;
+    .local v4, fw:Ljava/io/FileWriter;
     :try_start_1
-    invoke-virtual {v3, v5}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v4, v6}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 190
-    if-eqz v3, :cond_3
-
     .line 192
+    if-eqz v4, :cond_3
+
+    .line 194
     :try_start_2
-    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v4}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    move-object v2, v3
+    move-object v3, v4
 
-    .line 197
-    .end local v3           #fw:Ljava/io/FileWriter;
-    .end local v4           #resolveMe:Ljava/io/File;
-    .restart local v2       #fw:Ljava/io/FileWriter;
+    .line 199
+    .end local v4           #fw:Ljava/io/FileWriter;
+    .end local v5           #resolveMe:Ljava/io/File;
+    .restart local v3       #fw:Ljava/io/FileWriter;
     :cond_1
     :goto_0
     return-void
 
-    .line 193
-    .end local v2           #fw:Ljava/io/FileWriter;
-    .restart local v3       #fw:Ljava/io/FileWriter;
-    .restart local v4       #resolveMe:Ljava/io/File;
+    .line 195
+    .end local v3           #fw:Ljava/io/FileWriter;
+    .restart local v4       #fw:Ljava/io/FileWriter;
+    .restart local v5       #resolveMe:Ljava/io/File;
     :catch_0
     move-exception v0
 
-    .line 194
+    .line 196
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    move-object v2, v3
+    move-object v3, v4
 
-    .line 195
-    .end local v3           #fw:Ljava/io/FileWriter;
-    .restart local v2       #fw:Ljava/io/FileWriter;
+    .line 197
+    .end local v4           #fw:Ljava/io/FileWriter;
+    .restart local v3       #fw:Ljava/io/FileWriter;
     goto :goto_0
 
-    .line 187
+    .line 189
     .end local v0           #e:Ljava/io/IOException;
-    .end local v4           #resolveMe:Ljava/io/File;
+    .end local v5           #resolveMe:Ljava/io/File;
     :catch_1
     move-exception v0
 
-    .line 188
+    .line 190
     .local v0, e:Ljava/lang/Exception;
     :goto_1
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 190
-    if-eqz v2, :cond_1
-
     .line 192
+    if-eqz v3, :cond_1
+
+    .line 194
     :try_start_4
-    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
     goto :goto_0
 
-    .line 193
+    .line 195
     :catch_2
     move-exception v0
 
-    .line 194
+    .line 196
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
-    .line 190
+    .line 192
     .end local v0           #e:Ljava/io/IOException;
     :catchall_0
-    move-exception v6
+    move-exception v7
 
     :goto_2
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    .line 192
+    .line 194
     :try_start_5
-    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 195
+    .line 197
     :cond_2
     :goto_3
-    throw v6
+    throw v7
 
-    .line 193
+    .line 195
     :catch_3
     move-exception v0
 
-    .line 194
+    .line 196
     .restart local v0       #e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
-    .line 190
+    .line 192
     .end local v0           #e:Ljava/io/IOException;
-    .end local v2           #fw:Ljava/io/FileWriter;
-    .restart local v3       #fw:Ljava/io/FileWriter;
-    .restart local v4       #resolveMe:Ljava/io/File;
-    :catchall_1
-    move-exception v6
-
-    move-object v2, v3
-
     .end local v3           #fw:Ljava/io/FileWriter;
-    .restart local v2       #fw:Ljava/io/FileWriter;
+    .restart local v4       #fw:Ljava/io/FileWriter;
+    .restart local v5       #resolveMe:Ljava/io/File;
+    :catchall_1
+    move-exception v7
+
+    move-object v3, v4
+
+    .end local v4           #fw:Ljava/io/FileWriter;
+    .restart local v3       #fw:Ljava/io/FileWriter;
     goto :goto_2
 
-    .line 187
-    .end local v2           #fw:Ljava/io/FileWriter;
-    .restart local v3       #fw:Ljava/io/FileWriter;
+    .line 189
+    .end local v3           #fw:Ljava/io/FileWriter;
+    .restart local v4       #fw:Ljava/io/FileWriter;
     :catch_4
     move-exception v0
 
-    move-object v2, v3
+    move-object v3, v4
 
-    .end local v3           #fw:Ljava/io/FileWriter;
-    .restart local v2       #fw:Ljava/io/FileWriter;
+    .end local v4           #fw:Ljava/io/FileWriter;
+    .restart local v3       #fw:Ljava/io/FileWriter;
     goto :goto_1
 
-    .end local v2           #fw:Ljava/io/FileWriter;
-    .restart local v3       #fw:Ljava/io/FileWriter;
-    :cond_3
-    move-object v2, v3
-
     .end local v3           #fw:Ljava/io/FileWriter;
-    .restart local v2       #fw:Ljava/io/FileWriter;
+    .restart local v4       #fw:Ljava/io/FileWriter;
+    :cond_3
+    move-object v3, v4
+
+    .end local v4           #fw:Ljava/io/FileWriter;
+    .restart local v3       #fw:Ljava/io/FileWriter;
     goto :goto_0
 .end method
 
@@ -972,19 +988,19 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 372
+    .line 374
     invoke-super {p0, p1, p2, p3}, Landroid/app/Fragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 374
+    .line 376
     sparse-switch p1, :sswitch_data_0
 
-    .line 410
+    .line 412
     :cond_0
     :goto_0
     :sswitch_0
     return-void
 
-    .line 376
+    .line 378
     :sswitch_1
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -998,15 +1014,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 377
+    .line 379
     if-ne p2, v2, :cond_0
 
-    .line 378
+    .line 380
     invoke-direct {p0, p3}, Lcom/android/settings/MasterClearConfirm;->SetFirstTimePhonepassword(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 384
+    .line 386
     :sswitch_2
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -1020,15 +1036,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 385
+    .line 387
     if-ne p2, v2, :cond_0
 
-    .line 386
+    .line 388
     invoke-direct {p0}, Lcom/android/settings/MasterClearConfirm;->DoMasterReset()V
 
     goto :goto_0
 
-    .line 374
+    .line 376
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_1
@@ -1044,15 +1060,15 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 442
+    .line 444
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 444
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getArguments()Landroid/os/Bundle;
+    .line 446
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 445
+    .line 447
     .local v0, args:Landroid/os/Bundle;
     if-eqz v0, :cond_1
 
@@ -1065,7 +1081,7 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/settings/MasterClearConfirm;->mEraseSdCard:Z
 
-    .line 447
+    .line 449
     if-eqz v0, :cond_0
 
     const-string v1, "can_erase_sd_on_fuse"
@@ -1077,13 +1093,13 @@
     :cond_0
     iput-boolean v2, p0, Lcom/android/settings/MasterClearConfirm;->mCanEraseExternalOnFuseSystem:Z
 
-    .line 449
+    .line 451
     return-void
 
     :cond_1
     move v1, v2
 
-    .line 445
+    .line 447
     goto :goto_0
 .end method
 
@@ -1094,8 +1110,8 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 424
-    const v0, 0x7f0400d8
+    .line 426
+    const v0, 0x7f0400fc
 
     const/4 v1, 0x0
 
@@ -1105,10 +1121,10 @@
 
     iput-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mContentView:Landroid/view/View;
 
-    .line 425
+    .line 427
     invoke-direct {p0}, Lcom/android/settings/MasterClearConfirm;->establishFinalConfirmationState()V
 
-    .line 426
+    .line 428
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm;->mContentView:Landroid/view/View;
 
     return-object v0
@@ -1118,11 +1134,11 @@
     .locals 3
 
     .prologue
-    .line 432
+    .line 434
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 433
-    invoke-virtual {p0}, Lcom/android/settings/MasterClearConfirm;->getActivity()Landroid/app/Activity;
+    .line 435
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1134,13 +1150,13 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 434
+    .line 436
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     iget-object v1, p0, Lcom/android/settings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     if-eqz v1, :cond_0
 
-    .line 435
+    .line 437
     iget-object v1, p0, Lcom/android/settings/MasterClearConfirm;->mFinalButton:Landroid/widget/Button;
 
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
@@ -1151,9 +1167,9 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 437
+    .line 439
     :cond_0
     return-void
 .end method
@@ -1166,12 +1182,12 @@
     .parameter "requestCode"
 
     .prologue
-    .line 332
+    .line 334
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 333
+    .line 335
     .local v0, pickIntent:Landroid/content/Intent;
     const-string v1, "com.android.settings"
 
@@ -1179,24 +1195,24 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 334
+    .line 336
     const-string v1, ".title"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 335
+    .line 337
     const-string v1, ".subject"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 336
+    .line 338
     const-string v1, ".password"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 337
-    invoke-virtual {p0, v0, p4}, Lcom/android/settings/MasterClearConfirm;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 339
+    invoke-virtual {p0, v0, p4}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 338
+    .line 340
     return-void
 .end method

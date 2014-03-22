@@ -61,10 +61,10 @@
     .locals 3
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 47
+    .line 93
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
@@ -113,7 +113,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mPreferenceKeys:[Ljava/lang/String;
 
-    .line 82
+    .line 163
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
@@ -126,7 +126,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->saveAndFinishServerSettings()V
 
     return-void
@@ -137,7 +137,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     return-object v0
@@ -148,7 +148,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     return-object v0
@@ -160,7 +160,7 @@
     .parameter "x1"
 
     .prologue
-    .line 34
+    .line 67
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     return-object p1
@@ -171,7 +171,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->readServerSettings()V
 
     return-void
@@ -182,7 +182,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->fillLayout()V
 
     return-void
@@ -193,7 +193,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getLocalServerConfig()Landroid/net/DhcpServerConfiguration;
 
     move-result-object v0
@@ -206,7 +206,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     return-object v0
@@ -217,7 +217,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->prefs:Landroid/content/SharedPreferences;
 
     return-object v0
@@ -229,7 +229,7 @@
     .parameter "x1"
 
     .prologue
-    .line 34
+    .line 67
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->prefs:Landroid/content/SharedPreferences;
 
     return-object p1
@@ -240,30 +240,42 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;)Landroid/net/wifi/WifiManager;
+.method static synthetic access$1700(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;)Landroid/net/wifi/WifiConfiguration;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 34
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
+    .line 67
+    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     return-object v0
 .end method
 
-.method static synthetic access$1800(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;)Landroid/net/wifi/WifiConfiguration;
+.method static synthetic access$1800(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;Landroid/net/wifi/WifiConfiguration;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 67
+    invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->resetWifiAp(Landroid/net/wifi/WifiConfiguration;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1900(Lcom/android/settings/wifi/mobileap/WifiApLanSettings;)Landroid/net/wifi/WifiManager;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 34
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+    .line 67
+    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     return-object v0
 .end method
@@ -273,7 +285,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     return-object v0
@@ -284,7 +296,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     return-object v0
@@ -295,7 +307,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     return-object v0
@@ -307,7 +319,7 @@
     .parameter "x1"
 
     .prologue
-    .line 34
+    .line 67
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     return-object p1
@@ -318,7 +330,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
     return-object v0
@@ -332,7 +344,7 @@
     .parameter "x3"
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->isSameNetwork(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
@@ -348,7 +360,7 @@
     .parameter "x3"
 
     .prologue
-    .line 34
+    .line 67
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->convertToSameNetwork(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -361,7 +373,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
 
     return-object v0
@@ -372,7 +384,7 @@
     .parameter "x0"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
     return-object v0
@@ -384,7 +396,7 @@
     .parameter "x1"
 
     .prologue
-    .line 34
+    .line 67
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
     return-object p1
@@ -397,37 +409,37 @@
     .parameter "subnetMask"
 
     .prologue
-    .line 505
+    .line 997
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 506
+    .line 999
     .local v0, intReferenceIP:I
     invoke-direct {p0, p2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v2
 
-    .line 507
+    .line 1001
     .local v2, intTargetIP:I
     invoke-direct {p0, p3}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 509
+    .line 1005
     .local v1, intSubnetMask:I
     and-int v3, v0, v1
 
-    .line 510
+    .line 1007
     .local v3, networkAddress:I
     xor-int/lit8 v4, v1, -0x1
 
     and-int/2addr v2, v4
 
-    .line 511
+    .line 1009
     or-int/2addr v2, v3
 
-    .line 513
+    .line 1013
     invoke-direct {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->intToIp(I)Ljava/lang/String;
 
     move-result-object v4
@@ -439,82 +451,82 @@
     .locals 6
 
     .prologue
-    .line 150
+    .line 299
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 151
+    .line 301
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 152
+    .line 303
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmaskETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 153
+    .line 305
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmaskETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 154
+    .line 307
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnableCBPref:Landroid/preference/CheckBoxPreference;
 
     iget-boolean v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 155
+    .line 309
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnableCBPref:Landroid/preference/CheckBoxPreference;
 
-    const v2, 0x7f090421
+    const v2, 0x7f09045b
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(I)V
 
-    .line 156
+    .line 311
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 157
+    .line 313
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 158
+    .line 315
     iget-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
     if-eqz v1, :cond_0
 
-    .line 159
+    .line 317
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 160
+    .line 319
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 166
+    .line 331
     :goto_0
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
@@ -526,10 +538,10 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 167
+    .line 333
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
-    const v2, 0x7f090423
+    const v2, 0x7f09045d
 
     const/4 v3, 0x1
 
@@ -545,13 +557,13 @@
 
     aput-object v5, v3, v4
 
-    invoke-virtual {p0, v2, v3}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v2, v3}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 168
+    .line 335
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUserETPref:Landroid/preference/EditTextPreference;
 
     iget v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
@@ -562,7 +574,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 169
+    .line 337
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUserETPref:Landroid/preference/EditTextPreference;
 
     iget v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
@@ -571,12 +583,12 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 170
+    .line 339
     return-void
 
-    .line 162
+    .line 323
     :cond_0
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
@@ -586,16 +598,16 @@
 
     move-result-object v0
 
-    .line 163
+    .line 325
     .local v0, endIP:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     invoke-virtual {v1, v0}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 164
+    .line 327
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
-    invoke-virtual {v1, v0}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method
@@ -606,18 +618,18 @@
     .parameter "subnetMask"
 
     .prologue
-    .line 517
+    .line 1021
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 518
+    .line 1023
     .local v1, intanyIP:I
     invoke-direct {p0, p2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 520
+    .line 1027
     .local v0, intSubnetMask:I
     xor-int/lit8 v2, v0, -0x1
 
@@ -636,64 +648,64 @@
     .locals 3
 
     .prologue
-    .line 551
+    .line 1089
     const-string v1, "WifiApLanSettings"
 
     const-string v2, "getServerConfig"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 552
+    .line 1091
     new-instance v0, Landroid/net/DhcpServerConfiguration;
 
     invoke-direct {v0}, Landroid/net/DhcpServerConfiguration;-><init>()V
 
-    .line 554
+    .line 1095
     .local v0, mCurrentServerConfig:Landroid/net/DhcpServerConfiguration;
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->localIp:Ljava/lang/String;
 
-    .line 555
+    .line 1097
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->subnetmask:Ljava/lang/String;
 
-    .line 556
+    .line 1099
     iget-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
     iput-boolean v1, v0, Landroid/net/DhcpServerConfiguration;->dhcpEnable:Z
 
-    .line 557
+    .line 1101
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->ipRangeStart:Ljava/lang/String;
 
-    .line 559
+    .line 1105
     iget-boolean v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
     if-eqz v1, :cond_0
 
-    .line 560
+    .line 1107
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->ipRangeEnd:Ljava/lang/String;
 
-    .line 565
+    .line 1117
     :goto_0
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTime:I
 
     iput v1, v0, Landroid/net/DhcpServerConfiguration;->leaseTime:I
 
-    .line 566
+    .line 1119
     iget v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
 
     iput v1, v0, Landroid/net/DhcpServerConfiguration;->maxClient:I
 
-    .line 567
+    .line 1121
     return-object v0
 
-    .line 562
+    .line 1111
     :cond_0
     const-string v1, "static"
 
@@ -706,25 +718,25 @@
     .locals 3
 
     .prologue
-    .line 681
+    .line 1349
     new-instance v1, Landroid/os/Message;
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
 
-    .line 682
+    .line 1351
     .local v1, msg:Landroid/os/Message;
     const/16 v2, 0x1c
 
     iput v2, v1, Landroid/os/Message;->what:I
 
-    .line 683
+    .line 1353
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2, v1}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
     move-result v0
 
-    .line 685
+    .line 1355
     .local v0, mRvfMode:I
     return v0
 .end method
@@ -734,7 +746,7 @@
     .parameter "i"
 
     .prologue
-    .line 544
+    .line 1075
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -803,15 +815,15 @@
 
     const/4 v4, -0x1
 
-    .line 524
+    .line 1035
     if-nez p1, :cond_1
 
-    .line 540
+    .line 1067
     :cond_0
     :goto_0
     return v4
 
-    .line 527
+    .line 1041
     :cond_1
     const-string v5, "\\."
 
@@ -819,16 +831,16 @@
 
     move-result-object v0
 
-    .line 529
+    .line 1045
     .local v0, addrArray:[Ljava/lang/String;
     array-length v5, v0
 
     if-ne v5, v6, :cond_0
 
-    .line 532
+    .line 1051
     new-array v3, v6, [I
 
-    .line 533
+    .line 1053
     .local v3, ipOct:[I
     const/4 v2, 0x0
 
@@ -836,7 +848,7 @@
     :goto_1
     if-ge v2, v6, :cond_2
 
-    .line 535
+    .line 1057
     :try_start_0
     aget-object v5, v0, v2
 
@@ -848,20 +860,20 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 533
+    .line 1053
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 536
+    .line 1059
     :catch_0
     move-exception v1
 
-    .line 537
+    .line 1061
     .local v1, e:Ljava/lang/NumberFormatException;
     goto :goto_0
 
-    .line 540
+    .line 1067
     .end local v1           #e:Ljava/lang/NumberFormatException;
     :cond_2
     const/4 v4, 0x0
@@ -900,21 +912,21 @@
     .parameter "testIp"
 
     .prologue
-    .line 467
+    .line 921
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 468
+    .line 923
     const/4 v1, 0x0
 
-    .line 471
+    .line 929
     :goto_0
     return v1
 
-    .line 470
+    .line 927
     :cond_0
     const-string v1, "(([2][5][0-5]|[2][0-4][0-9]|[0-1][0-9][0-9]|[0-9][0-9]|[0-9])\\.){3}([2][5][0-5]|[2][0-4][0-9]|[0-1][0-9][0-9]|[0-9][0-9]|[0-9])"
 
@@ -922,7 +934,7 @@
 
     move-result-object v0
 
-    .line 471
+    .line 929
     .local v0, validIp:Ljava/util/regex/Pattern;
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
@@ -942,24 +954,24 @@
     .parameter "subnetMask"
 
     .prologue
-    .line 497
+    .line 981
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 498
+    .line 983
     .local v0, intFirstIp:I
     invoke-direct {p0, p2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 499
+    .line 985
     .local v1, intSecondIp:I
     invoke-direct {p0, p3}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v2
 
-    .line 501
+    .line 989
     .local v2, intSubnetMask:I
     and-int v3, v0, v2
 
@@ -987,12 +999,12 @@
 
     const/4 v5, 0x0
 
-    .line 475
+    .line 937
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->ipToInt(Ljava/lang/String;)I
 
     move-result v2
 
-    .line 476
+    .line 939
     .local v2, intsubnet:I
     if-eqz v2, :cond_0
 
@@ -1009,16 +1021,16 @@
     :cond_0
     move v4, v5
 
-    .line 493
+    .line 973
     :cond_1
     :goto_0
     return v4
 
-    .line 479
+    .line 945
     :cond_2
     const v3, 0x7fffffff
 
-    .line 480
+    .line 947
     .local v3, testMask:I
     const/4 v1, 0x0
 
@@ -1028,7 +1040,7 @@
 
     if-ge v1, v6, :cond_5
 
-    .line 481
+    .line 949
     ushr-int/lit8 v2, v2, 0x1
 
     and-int/lit8 v6, v2, 0x1
@@ -1037,34 +1049,34 @@
 
     move v0, v4
 
-    .line 482
+    .line 951
     .local v0, bitValue:Z
     :goto_2
     if-eqz v0, :cond_4
 
-    .line 483
+    .line 953
     xor-int v6, v2, v3
 
     if-eqz v6, :cond_1
 
     move v4, v5
 
-    .line 486
+    .line 959
     goto :goto_0
 
     .end local v0           #bitValue:Z
     :cond_3
     move v0, v5
 
-    .line 481
+    .line 949
     goto :goto_2
 
-    .line 489
+    .line 965
     .restart local v0       #bitValue:Z
     :cond_4
     ushr-int/lit8 v3, v3, 0x1
 
-    .line 480
+    .line 947
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
@@ -1073,7 +1085,7 @@
     :cond_5
     move v4, v5
 
-    .line 493
+    .line 973
     goto :goto_0
 .end method
 
@@ -1081,14 +1093,14 @@
     .locals 2
 
     .prologue
-    .line 571
+    .line 1129
     const-string v0, "WifiApLanSettings"
 
     const-string v1, "readServerSettings 2"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 572
+    .line 1131
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getDhcpServerConfiguration()Landroid/net/DhcpServerConfiguration;
@@ -1097,75 +1109,75 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
-    .line 573
+    .line 1133
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     if-nez v0, :cond_0
 
-    .line 574
+    .line 1135
     new-instance v0, Landroid/net/DhcpServerConfiguration;
 
     invoke-direct {v0}, Landroid/net/DhcpServerConfiguration;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
-    .line 575
+    .line 1137
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const-string v1, "192.168.1.1"
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->localIp:Ljava/lang/String;
 
-    .line 576
+    .line 1139
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const-string v1, "255.255.255.0"
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->subnetmask:Ljava/lang/String;
 
-    .line 577
+    .line 1141
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/net/DhcpServerConfiguration;->dhcpEnable:Z
 
-    .line 578
+    .line 1143
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const-string v1, "192.168.1.100"
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->ipRangeStart:Ljava/lang/String;
 
-    .line 579
+    .line 1145
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const-string v1, "192.168.1.254"
 
     iput-object v1, v0, Landroid/net/DhcpServerConfiguration;->ipRangeEnd:Ljava/lang/String;
 
-    .line 580
+    .line 1147
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const/16 v1, 0x5a
 
     iput v1, v0, Landroid/net/DhcpServerConfiguration;->leaseTime:I
 
-    .line 581
+    .line 1149
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     const/16 v1, 0x64
 
     iput v1, v0, Landroid/net/DhcpServerConfiguration;->maxClient:I
 
-    .line 583
+    .line 1153
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->saveDhcpServerConfiguration(Landroid/net/DhcpServerConfiguration;)Z
 
-    .line 585
+    .line 1157
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
@@ -1173,49 +1185,77 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
-    .line 586
+    .line 1159
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v0, v0, Landroid/net/DhcpServerConfiguration;->subnetmask:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
-    .line 587
+    .line 1161
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-boolean v0, v0, Landroid/net/DhcpServerConfiguration;->dhcpEnable:Z
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
-    .line 588
+    .line 1163
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v0, v0, Landroid/net/DhcpServerConfiguration;->ipRangeStart:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    .line 589
+    .line 1165
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v0, v0, Landroid/net/DhcpServerConfiguration;->ipRangeEnd:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    .line 590
+    .line 1167
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget v0, v0, Landroid/net/DhcpServerConfiguration;->leaseTime:I
 
     iput v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTime:I
 
-    .line 591
+    .line 1169
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget v0, v0, Landroid/net/DhcpServerConfiguration;->maxClient:I
 
     iput v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
 
-    .line 592
+    .line 1171
+    return-void
+.end method
+
+.method private resetWifiAp(Landroid/net/wifi/WifiConfiguration;)V
+    .locals 2
+    .parameter "wifiConfig"
+
+    .prologue
+    .line 1363
+    new-instance v0, Landroid/os/Message;
+
+    invoke-direct {v0}, Landroid/os/Message;-><init>()V
+
+    .line 1365
+    .local v0, msg:Landroid/os/Message;
+    const/16 v1, 0xc5
+
+    iput v1, v0, Landroid/os/Message;->what:I
+
+    .line 1367
+    iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    .line 1369
+    iget-object v1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1, v0}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
+
+    .line 1371
     return-void
 .end method
 
@@ -1225,14 +1265,14 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 638
+    .line 1263
     const-string v5, "WifiApLanSettings"
 
     const-string v6, "saveAndFinishServerSettings"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 640
+    .line 1267
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getLocalServerConfig()Landroid/net/DhcpServerConfiguration;
@@ -1245,42 +1285,42 @@
 
     if-nez v5, :cond_1
 
-    .line 641
+    .line 1269
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v5}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v4
 
-    .line 642
+    .line 1271
     .local v4, wifiApState:I
     const/4 v0, 0x0
 
-    .line 644
+    .line 1275
     .local v0, ClientNum:I
     const/16 v5, 0xd
 
     if-ne v4, v5, :cond_0
 
-    .line 645
+    .line 1277
     new-instance v3, Landroid/os/Message;
 
     invoke-direct {v3}, Landroid/os/Message;-><init>()V
 
-    .line 646
+    .line 1279
     .local v3, msg:Landroid/os/Message;
     const/4 v5, 0x3
 
     iput v5, v3, Landroid/os/Message;->what:I
 
-    .line 647
+    .line 1281
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v5, v3}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
     move-result v0
 
-    .line 650
+    .line 1287
     .end local v3           #msg:Landroid/os/Message;
     :cond_0
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -1299,29 +1339,29 @@
 
     if-nez v5, :cond_3
 
-    .line 651
+    .line 1289
     if-lez v0, :cond_2
 
-    .line 652
+    .line 1291
     const-string v5, "WifiApLanSettings"
 
     const-string v6, "saveAndFinishServerSettings : WifiAP enabled"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 653
+    .line 1293
     const/4 v5, 0x4
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->showDialog(I)V
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
-    .line 678
+    .line 1343
     .end local v0           #ClientNum:I
     .end local v4           #wifiApState:I
     :cond_1
     :goto_0
     return-void
 
-    .line 655
+    .line 1297
     .restart local v0       #ClientNum:I
     .restart local v4       #wifiApState:I
     :cond_2
@@ -1333,7 +1373,7 @@
 
     invoke-virtual {v5, v6}, Landroid/net/ConnectivityManager;->saveDhcpServerConfiguration(Landroid/net/DhcpServerConfiguration;)Z
 
-    .line 657
+    .line 1301
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     const-string v6, "SAMSUNG_HOTSPOT"
@@ -1344,23 +1384,23 @@
 
     iput-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->prefs:Landroid/content/SharedPreferences;
 
-    .line 658
+    .line 1303
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->prefs:Landroid/content/SharedPreferences;
 
     invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 659
+    .line 1305
     .local v2, ed:Landroid/content/SharedPreferences$Editor;
     const-string v5, "DHCP_CHANGE"
 
     invoke-interface {v2, v5, v8}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 660
+    .line 1307
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 662
+    .line 1311
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     const/4 v6, 0x0
@@ -1369,7 +1409,7 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 664
+    .line 1315
     const-wide/16 v5, 0x258
 
     :try_start_0
@@ -1377,33 +1417,33 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 668
+    .line 1323
     :goto_1
     sput-boolean v8, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    .line 669
+    .line 1325
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     invoke-virtual {v5, v6, v8}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 671
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->finish()V
+    .line 1329
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_0
 
-    .line 665
+    .line 1317
     :catch_0
     move-exception v1
 
-    .line 666
+    .line 1319
     .local v1, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
-    .line 674
+    .line 1335
     .end local v1           #e:Ljava/lang/InterruptedException;
     .end local v2           #ed:Landroid/content/SharedPreferences$Editor;
     :cond_3
@@ -1415,8 +1455,8 @@
 
     invoke-virtual {v5, v6}, Landroid/net/ConnectivityManager;->saveDhcpServerConfiguration(Landroid/net/DhcpServerConfiguration;)Z
 
-    .line 675
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->finish()V
+    .line 1337
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_0
 .end method
@@ -1429,14 +1469,14 @@
 
     const/4 v8, 0x1
 
-    .line 595
+    .line 1177
     const-string v5, "WifiApLanSettings"
 
     const-string v6, "saveServerSettings"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 597
+    .line 1181
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getLocalServerConfig()Landroid/net/DhcpServerConfiguration;
@@ -1449,40 +1489,40 @@
 
     if-nez v5, :cond_2
 
-    .line 598
+    .line 1183
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v5}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v4
 
-    .line 599
+    .line 1185
     .local v4, wifiApState:I
     const/4 v0, 0x0
 
-    .line 601
+    .line 1189
     .local v0, ClientNum:I
     const/16 v5, 0xd
 
     if-ne v4, v5, :cond_0
 
-    .line 602
+    .line 1191
     new-instance v3, Landroid/os/Message;
 
     invoke-direct {v3}, Landroid/os/Message;-><init>()V
 
-    .line 603
+    .line 1193
     .local v3, msg:Landroid/os/Message;
     iput v7, v3, Landroid/os/Message;->what:I
 
-    .line 604
+    .line 1195
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v5, v3}, Landroid/net/wifi/WifiManager;->callSECApi(Landroid/os/Message;)I
 
     move-result v0
 
-    .line 607
+    .line 1201
     .end local v3           #msg:Landroid/os/Message;
     :cond_0
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -1501,26 +1541,26 @@
 
     if-nez v5, :cond_3
 
-    .line 608
+    .line 1203
     if-lez v0, :cond_1
 
-    .line 609
+    .line 1205
     const-string v5, "WifiApLanSettings"
 
     const-string v6, "saveServerSettings : WifiAP enabled"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 610
-    invoke-virtual {p0, v7}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->showDialog(I)V
+    .line 1207
+    invoke-virtual {p0, v7}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
-    .line 635
+    .line 1257
     .end local v0           #ClientNum:I
     .end local v4           #wifiApState:I
     :goto_0
     return-void
 
-    .line 613
+    .line 1213
     .restart local v0       #ClientNum:I
     .restart local v4       #wifiApState:I
     :cond_1
@@ -1532,7 +1572,7 @@
 
     invoke-virtual {v5, v6}, Landroid/net/ConnectivityManager;->saveDhcpServerConfiguration(Landroid/net/DhcpServerConfiguration;)Z
 
-    .line 615
+    .line 1217
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     const-string v6, "SAMSUNG_HOTSPOT"
@@ -1543,23 +1583,23 @@
 
     iput-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->prefs:Landroid/content/SharedPreferences;
 
-    .line 616
+    .line 1219
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->prefs:Landroid/content/SharedPreferences;
 
     invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 617
+    .line 1221
     .local v2, ed:Landroid/content/SharedPreferences$Editor;
     const-string v5, "DHCP_CHANGE"
 
     invoke-interface {v2, v5, v8}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 618
+    .line 1223
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 620
+    .line 1227
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     const/4 v6, 0x0
@@ -1568,7 +1608,7 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 622
+    .line 1231
     const-wide/16 v5, 0x258
 
     :try_start_0
@@ -1576,41 +1616,41 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 626
+    .line 1239
     :goto_1
     sput-boolean v8, Lcom/android/settings/wifi/mobileap/WifiApBroadcastReceiver;->mIsProvisioningResultOk:Z
 
-    .line 627
+    .line 1241
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     iget-object v6, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
     invoke-virtual {v5, v6, v8}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 634
+    .line 1255
     .end local v0           #ClientNum:I
     .end local v2           #ed:Landroid/content/SharedPreferences$Editor;
     .end local v4           #wifiApState:I
     :cond_2
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_0
 
-    .line 623
+    .line 1233
     .restart local v0       #ClientNum:I
     .restart local v2       #ed:Landroid/content/SharedPreferences$Editor;
     .restart local v4       #wifiApState:I
     :catch_0
     move-exception v1
 
-    .line 624
+    .line 1235
     .local v1, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
-    .line 630
+    .line 1247
     .end local v1           #e:Ljava/lang/InterruptedException;
     .end local v2           #ed:Landroid/content/SharedPreferences$Editor;
     :cond_3
@@ -1620,7 +1660,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 631
+    .line 1249
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getLocalServerConfig()Landroid/net/DhcpServerConfiguration;
@@ -1636,10 +1676,10 @@
     .locals 3
 
     .prologue
-    .line 135
+    .line 269
     const-string v2, "wifiap_local_ip_addrs"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1647,10 +1687,10 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
 
-    .line 136
+    .line 271
     const-string v2, "wifiap_local_subnetmask"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1658,10 +1698,10 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmaskETPref:Landroid/preference/EditTextPreference;
 
-    .line 137
+    .line 273
     const-string v2, "wifiap_dhcp_enable"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1669,10 +1709,10 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnableCBPref:Landroid/preference/CheckBoxPreference;
 
-    .line 138
+    .line 275
     const-string v2, "wifiap_dhcp_start_ip"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1680,10 +1720,10 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
-    .line 139
+    .line 277
     const-string v2, "wifiap_dhcp_end_ip"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1691,10 +1731,10 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
-    .line 140
+    .line 279
     const-string v2, "wifiap_dhcp_lease_time"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1702,10 +1742,10 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
-    .line 141
+    .line 281
     const-string v2, "wifiap_dhcp_max_user"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -1713,7 +1753,7 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUserETPref:Landroid/preference/EditTextPreference;
 
-    .line 143
+    .line 285
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -1724,25 +1764,25 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 144
+    .line 287
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mPreferenceKeys:[Ljava/lang/String;
 
     aget-object v2, v2, v0
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    .line 145
+    .line 289
     .local v1, preference:Landroid/preference/Preference;
     invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 143
+    .line 285
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 147
+    .line 293
     .end local v1           #preference:Landroid/preference/Preference;
     :cond_0
     return-void
@@ -1755,10 +1795,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 112
+    .line 223
     const-string v0, "wifi"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1766,7 +1806,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 113
+    .line 225
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiApConfiguration()Landroid/net/wifi/WifiConfiguration;
@@ -1775,10 +1815,10 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    .line 114
+    .line 227
     const-string v0, "connectivity"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1786,28 +1826,28 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 115
+    .line 229
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->readServerSettings()V
 
-    .line 116
+    .line 231
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->setLayout()V
 
-    .line 117
+    .line 233
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->fillLayout()V
 
-    .line 118
+    .line 235
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
-    .line 119
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getActivity()Landroid/app/Activity;
+    .line 237
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
-    .line 120
+    .line 239
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -1816,8 +1856,8 @@
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mIsTablet:Z
 
-    .line 121
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getView()Landroid/view/View;
+    .line 241
+    invoke-virtual {p0}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
@@ -1827,10 +1867,10 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 131
+    .line 261
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 132
+    .line 263
     return-void
 .end method
 
@@ -1843,57 +1883,57 @@
 
     const/4 v2, 0x5
 
-    .line 189
+    .line 377
     iget-boolean v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mIsTablet:Z
 
     if-nez v0, :cond_0
 
-    .line 190
+    .line 379
     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_1
 
-    .line 191
+    .line 381
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200ca
+    const v1, 0x7f02010a
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 192
+    .line 383
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 193
+    .line 385
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200cb
+    const v1, 0x7f02010b
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 194
+    .line 387
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 200
+    .line 399
     :cond_0
     :goto_0
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 201
+    .line 401
     return-void
 
-    .line 196
+    .line 391
     :cond_1
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    .line 197
+    .line 393
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
@@ -1906,15 +1946,15 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 106
+    .line 211
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 107
-    const v0, 0x7f0700c9
+    .line 213
+    const v0, 0x7f0700eb
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 108
+    .line 215
     return-void
 .end method
 
@@ -1923,26 +1963,26 @@
     .parameter "id"
 
     .prologue
-    const v6, 0x7f09042e
+    const v6, 0x7f090468
 
-    const v5, 0x7f09042d
+    const v5, 0x7f090467
 
-    const v4, 0x7f09042c
+    const v4, 0x7f090466
 
-    const v3, 0x7f09042b
+    const v3, 0x7f090465
 
-    const v2, 0x7f09042a
+    const v2, 0x7f090464
 
-    .line 340
+    .line 679
     packed-switch p1, :pswitch_data_0
 
-    .line 459
+    .line 905
     const/4 v0, 0x0
 
     :goto_0
     return-object v0
 
-    .line 342
+    .line 683
     :pswitch_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -1980,7 +2020,7 @@
 
     goto :goto_0
 
-    .line 370
+    .line 739
     :pswitch_1
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -2018,7 +2058,7 @@
 
     goto :goto_0
 
-    .line 398
+    .line 795
     :pswitch_2
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -2026,13 +2066,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f09042f
+    const v1, 0x7f090469
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090430
+    const v1, 0x7f09046a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2060,7 +2100,7 @@
 
     goto :goto_0
 
-    .line 429
+    .line 845
     :pswitch_3
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -2068,13 +2108,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f09042f
+    const v1, 0x7f090469
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090430
+    const v1, 0x7f09046a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2102,7 +2142,7 @@
 
     goto/16 :goto_0
 
-    .line 340
+    .line 679
     nop
 
     :pswitch_data_0
@@ -2126,10 +2166,10 @@
 
     const/4 v2, 0x0
 
-    .line 174
+    .line 347
     const/4 v0, 0x2
 
-    const v1, 0x7f0903af
+    const v1, 0x7f0903e8
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2137,8 +2177,8 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
-    .line 175
-    const v0, 0x7f0903ae
+    .line 349
+    const v0, 0x7f0903e7
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2146,46 +2186,46 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
-    .line 176
+    .line 351
     iget-boolean v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mIsTablet:Z
 
     if-eqz v0, :cond_0
 
-    .line 177
+    .line 353
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200ca
+    const v1, 0x7f02010a
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 178
+    .line 355
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 179
+    .line 357
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
-    const v1, 0x7f0200cb
+    const v1, 0x7f02010b
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 180
+    .line 359
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 185
+    .line 369
     :goto_0
     return-void
 
-    .line 182
+    .line 363
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemCancel:Landroid/view/MenuItem;
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 183
+    .line 365
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mMenuItemSave:Landroid/view/MenuItem;
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setShowAsAction(I)V
@@ -2197,10 +2237,10 @@
     .locals 0
 
     .prologue
-    .line 463
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    .line 913
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
-    .line 464
+    .line 915
     return-void
 .end method
 
@@ -2211,34 +2251,34 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 205
+    .line 409
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 213
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .line 425
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
     :goto_0
     return v0
 
-    .line 207
+    .line 413
     :pswitch_0
     invoke-direct {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->saveServerSettings()V
 
     goto :goto_0
 
-    .line 210
+    .line 419
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->finish()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_0
 
-    .line 205
+    .line 409
     nop
 
     :pswitch_data_0
@@ -2254,31 +2294,31 @@
     .parameter "newValue"
 
     .prologue
-    const v5, 0x7f090425
+    const v5, 0x7f09045f
 
     const/4 v7, 0x2
 
-    const v6, 0x7f0903b0
+    const v6, 0x7f0903e9
 
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
-    .line 225
+    .line 449
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 226
+    .line 451
     .local v1, key:Ljava/lang/String;
     if-nez v1, :cond_0
 
-    .line 335
+    .line 669
     .end local p2
     :goto_0
     return v2
 
-    .line 228
+    .line 455
     .restart local p2
     :cond_0
     const-string v4, "wifiap_local_ip_addrs"
@@ -2289,13 +2329,13 @@
 
     if-eqz v4, :cond_4
 
-    .line 229
+    .line 457
     check-cast p2, Ljava/lang/String;
 
     .end local p2
     iput-object p2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
-    .line 230
+    .line 459
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->isIpAddress(Ljava/lang/String;)Z
@@ -2304,21 +2344,21 @@
 
     if-eqz v4, :cond_3
 
-    .line 231
+    .line 461
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 232
+    .line 463
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 233
+    .line 465
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v2, v5, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -2327,7 +2367,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 235
+    .line 469
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
@@ -2340,7 +2380,7 @@
 
     if-nez v2, :cond_1
 
-    .line 236
+    .line 471
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
@@ -2353,21 +2393,21 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    .line 237
+    .line 473
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 238
+    .line 475
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 240
+    .line 479
     :cond_1
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
@@ -2381,7 +2421,7 @@
 
     if-nez v2, :cond_2
 
-    .line 241
+    .line 481
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
@@ -2394,14 +2434,14 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    .line 242
+    .line 483
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 243
+    .line 485
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
@@ -2412,10 +2452,10 @@
     :goto_1
     move v2, v3
 
-    .line 335
+    .line 669
     goto :goto_0
 
-    .line 247
+    .line 493
     :cond_3
     const-string v4, "WifiApLanSettings"
 
@@ -2423,7 +2463,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 248
+    .line 495
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v4, v6, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -2432,7 +2472,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 249
+    .line 497
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v2, v2, Landroid/net/DhcpServerConfiguration;->localIp:Ljava/lang/String;
@@ -2441,7 +2481,7 @@
 
     goto :goto_1
 
-    .line 251
+    .line 501
     .restart local p2
     :cond_4
     const-string v4, "wifiap_local_subnetmask"
@@ -2452,13 +2492,13 @@
 
     if-eqz v4, :cond_7
 
-    .line 252
+    .line 503
     check-cast p2, Ljava/lang/String;
 
     .end local p2
     iput-object p2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
-    .line 253
+    .line 505
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
     invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->isValidSubnetMask(Ljava/lang/String;)Z
@@ -2467,21 +2507,21 @@
 
     if-eqz v4, :cond_6
 
-    .line 254
+    .line 507
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmaskETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 255
+    .line 509
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmaskETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
 
     invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 257
+    .line 513
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v2, v5, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -2490,7 +2530,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 259
+    .line 517
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
@@ -2503,7 +2543,7 @@
 
     if-nez v2, :cond_5
 
-    .line 260
+    .line 519
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
@@ -2516,21 +2556,21 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    .line 261
+    .line 521
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 262
+    .line 523
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 264
+    .line 527
     :cond_5
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
@@ -2544,7 +2584,7 @@
 
     if-nez v2, :cond_2
 
-    .line 265
+    .line 529
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
@@ -2557,14 +2597,14 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    .line 266
+    .line 531
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 267
+    .line 533
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
@@ -2573,7 +2613,7 @@
 
     goto/16 :goto_1
 
-    .line 270
+    .line 539
     :cond_6
     const-string v4, "WifiApLanSettings"
 
@@ -2581,7 +2621,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
+    .line 541
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v4, v6, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -2590,7 +2630,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 272
+    .line 543
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v2, v2, Landroid/net/DhcpServerConfiguration;->subnetmask:Ljava/lang/String;
@@ -2599,7 +2639,7 @@
 
     goto/16 :goto_1
 
-    .line 274
+    .line 547
     .restart local p2
     :cond_7
     const-string v4, "wifiap_dhcp_enable"
@@ -2610,7 +2650,7 @@
 
     if-eqz v4, :cond_8
 
-    .line 275
+    .line 549
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -2620,19 +2660,19 @@
 
     iput-boolean v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
-    .line 276
+    .line 551
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnableCBPref:Landroid/preference/CheckBoxPreference;
 
     iget-boolean v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
-    invoke-virtual {v2, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 277
+    .line 553
     iget-boolean v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEnable:Z
 
     if-eqz v2, :cond_2
 
-    .line 278
+    .line 555
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mSubnetmask:Ljava/lang/String;
@@ -2643,16 +2683,16 @@
 
     iput-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    .line 279
+    .line 557
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_1
 
-    .line 281
+    .line 561
     .restart local p2
     :cond_8
     const-string v4, "wifiap_dhcp_start_ip"
@@ -2663,13 +2703,13 @@
 
     if-eqz v4, :cond_b
 
-    .line 282
+    .line 563
     check-cast p2, Ljava/lang/String;
 
     .end local p2
     iput-object p2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    .line 283
+    .line 565
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
     invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->isIpAddress(Ljava/lang/String;)Z
@@ -2678,7 +2718,7 @@
 
     if-eqz v4, :cond_a
 
-    .line 284
+    .line 567
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
@@ -2691,14 +2731,14 @@
 
     if-eqz v4, :cond_9
 
-    .line 285
+    .line 569
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 286
+    .line 571
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpStartIp:Ljava/lang/String;
@@ -2707,13 +2747,13 @@
 
     goto/16 :goto_1
 
-    .line 288
+    .line 575
     :cond_9
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->showDialog(I)V
+    invoke-virtual {p0, v2}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto/16 :goto_1
 
-    .line 291
+    .line 581
     :cond_a
     const-string v4, "WifiApLanSettings"
 
@@ -2721,7 +2761,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 292
+    .line 583
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v4, v6, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -2730,7 +2770,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 293
+    .line 585
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v2, v2, Landroid/net/DhcpServerConfiguration;->ipRangeStart:Ljava/lang/String;
@@ -2739,7 +2779,7 @@
 
     goto/16 :goto_1
 
-    .line 295
+    .line 589
     .restart local p2
     :cond_b
     const-string v4, "wifiap_dhcp_end_ip"
@@ -2750,13 +2790,13 @@
 
     if-eqz v4, :cond_e
 
-    .line 296
+    .line 591
     check-cast p2, Ljava/lang/String;
 
     .end local p2
     iput-object p2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    .line 297
+    .line 593
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
     invoke-direct {p0, v4}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->isIpAddress(Ljava/lang/String;)Z
@@ -2765,7 +2805,7 @@
 
     if-eqz v4, :cond_d
 
-    .line 298
+    .line 595
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mLocalIp:Ljava/lang/String;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
@@ -2778,14 +2818,14 @@
 
     if-eqz v2, :cond_c
 
-    .line 299
+    .line 597
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 300
+    .line 599
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIpETPref:Landroid/preference/EditTextPreference;
 
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpEndIp:Ljava/lang/String;
@@ -2794,13 +2834,13 @@
 
     goto/16 :goto_1
 
-    .line 302
+    .line 603
     :cond_c
-    invoke-virtual {p0, v7}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->showDialog(I)V
+    invoke-virtual {p0, v7}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto/16 :goto_1
 
-    .line 305
+    .line 609
     :cond_d
     const-string v4, "WifiApLanSettings"
 
@@ -2808,7 +2848,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 306
+    .line 611
     iget-object v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mContext:Landroid/content/Context;
 
     invoke-static {v4, v6, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -2817,7 +2857,7 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 307
+    .line 613
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
 
     iget-object v2, v2, Landroid/net/DhcpServerConfiguration;->ipRangeEnd:Ljava/lang/String;
@@ -2826,7 +2866,7 @@
 
     goto/16 :goto_1
 
-    .line 309
+    .line 617
     .restart local p2
     :cond_e
     const-string v2, "wifiap_dhcp_lease_time"
@@ -2837,7 +2877,7 @@
 
     if-eqz v2, :cond_10
 
-    .line 311
+    .line 621
     :try_start_0
     check-cast p2, Ljava/lang/String;
 
@@ -2848,12 +2888,12 @@
 
     iput v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTime:I
 
-    .line 312
+    .line 623
     iget v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTime:I
 
     if-lt v2, v7, :cond_f
 
-    .line 313
+    .line 625
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
     iget v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTime:I
@@ -2864,10 +2904,10 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    .line 314
+    .line 627
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpLeaseTimeETPref:Landroid/preference/EditTextPreference;
 
-    const v4, 0x7f090423
+    const v4, 0x7f09045d
 
     const/4 v5, 0x1
 
@@ -2883,25 +2923,25 @@
 
     aput-object v7, v5, v6
 
-    invoke-virtual {p0, v4, v5}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v4, v5}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_1
 
-    .line 318
+    .line 635
     :catch_0
     move-exception v0
 
     .local v0, e:Ljava/lang/NumberFormatException;
     move v2, v3
 
-    .line 319
+    .line 637
     goto/16 :goto_0
 
-    .line 316
+    .line 631
     .end local v0           #e:Ljava/lang/NumberFormatException;
     :cond_f
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;
@@ -2914,7 +2954,7 @@
 
     goto/16 :goto_1
 
-    .line 321
+    .line 641
     .restart local p2
     :cond_10
     const-string v2, "wifiap_dhcp_max_user"
@@ -2925,7 +2965,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 323
+    .line 645
     :try_start_1
     check-cast p2, Ljava/lang/String;
 
@@ -2936,12 +2976,12 @@
 
     iput v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
 
-    .line 324
+    .line 647
     iget v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
 
     if-lez v2, :cond_11
 
-    .line 325
+    .line 649
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUserETPref:Landroid/preference/EditTextPreference;
 
     iget v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
@@ -2950,9 +2990,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Landroid/preference/EditTextPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 326
+    .line 651
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUserETPref:Landroid/preference/EditTextPreference;
 
     iget v4, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mDhcpMaxUser:I
@@ -2965,17 +3005,17 @@
 
     goto/16 :goto_1
 
-    .line 330
+    .line 659
     :catch_1
     move-exception v0
 
     .restart local v0       #e:Ljava/lang/NumberFormatException;
     move v2, v3
 
-    .line 331
+    .line 661
     goto/16 :goto_0
 
-    .line 328
+    .line 655
     .end local v0           #e:Ljava/lang/NumberFormatException;
     :cond_11
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->mServerConfig:Landroid/net/DhcpServerConfiguration;

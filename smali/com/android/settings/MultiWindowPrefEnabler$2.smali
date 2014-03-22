@@ -30,7 +30,7 @@
     .line 158
     iput-object p1, p0, Lcom/android/settings/MultiWindowPrefEnabler$2;->this$0:Lcom/android/settings/MultiWindowPrefEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -72,7 +72,7 @@
     if-ne v2, v0, :cond_0
 
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 163
     return-void

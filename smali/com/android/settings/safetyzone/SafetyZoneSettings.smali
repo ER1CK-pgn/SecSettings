@@ -69,7 +69,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -114,7 +114,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -174,7 +174,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -187,7 +187,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -211,7 +211,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -224,7 +224,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -235,22 +235,22 @@
     .locals 3
 
     .prologue
-    .line 510
+    .line 508
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090c10
+    const v1, 0x7f090d1d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090c18
+    const v1, 0x7f090d25
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -282,7 +282,7 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 524
+    .line 522
     return-void
 .end method
 
@@ -290,22 +290,22 @@
     .locals 3
 
     .prologue
-    .line 583
+    .line 581
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090c14
+    const v1, 0x7f090d21
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090050
+    const v1, 0x7f090064
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -339,7 +339,7 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 604
+    .line 602
     return-void
 .end method
 
@@ -349,32 +349,32 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 608
+    .line 606
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
     invoke-direct {v0, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 610
+    .line 608
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSafetyZoneInfoDialog:Landroid/app/AlertDialog;
 
     if-eqz v4, :cond_0
 
-    .line 611
+    .line 609
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSafetyZoneInfoDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v4}, Landroid/app/Dialog;->dismiss()V
 
-    .line 612
+    .line 610
     iput-object v6, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSafetyZoneInfoDialog:Landroid/app/AlertDialog;
 
-    .line 615
+    .line 613
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -386,17 +386,17 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 616
+    .line 614
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f040069
+    const v4, 0x7f04006e
 
     invoke-virtual {v1, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    .line 617
+    .line 615
     .local v2, layout:Landroid/view/View;
-    const v4, 0x7f0b0078
+    const v4, 0x7f0b007e
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -404,47 +404,47 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 619
+    .line 617
     .local v3, message:Landroid/widget/TextView;
-    const v4, 0x7f090c13
+    const v4, 0x7f090d20
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 620
+    .line 618
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 621
-    const v4, 0x7f090c0d
+    .line 619
+    const v4, 0x7f090d1a
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 622
-    const v4, 0x7f09074c
+    .line 620
+    const v4, 0x7f09079f
 
     invoke-virtual {v0, v4, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 623
+    .line 621
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSafetyZoneInfoDialog:Landroid/app/AlertDialog;
 
-    .line 624
+    .line 622
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSafetyZoneInfoDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v4}, Landroid/app/Dialog;->show()V
 
-    .line 625
+    .line 623
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSafetyZoneInfoDialog:Landroid/app/AlertDialog;
 
     new-instance v5, Lcom/android/settings/safetyzone/SafetyZoneSettings$8;
 
     invoke-direct {v5, p0, v2}, Lcom/android/settings/safetyzone/SafetyZoneSettings$8;-><init>(Lcom/android/settings/safetyzone/SafetyZoneSettings;Landroid/view/View;)V
 
-    invoke-virtual {v4, v5}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v4, v5}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 644
+    .line 642
     return-void
 .end method
 
@@ -456,13 +456,13 @@
 
     const/4 v5, 0x1
 
-    .line 438
+    .line 436
     iget-object v7, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mLocationCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v7}, Landroid/preference/PreferenceCategory;->removeAll()V
+    invoke-virtual {v7}, Landroid/preference/PreferenceGroup;->removeAll()V
 
-    .line 439
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 437
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -472,7 +472,7 @@
 
     move-result-object v2
 
-    .line 440
+    .line 438
     .local v2, apName:Ljava/lang/String;
     const-string v7, "SafetyZoneSettings"
 
@@ -496,7 +496,7 @@
 
     invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 441
+    .line 439
     if-eqz v2, :cond_0
 
     const-string v7, ""
@@ -507,7 +507,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 442
+    .line 440
     :cond_0
     const-string v5, "SafetyZoneSettings"
 
@@ -517,11 +517,11 @@
 
     move v5, v6
 
-    .line 462
+    .line 460
     :cond_1
     return v5
 
-    .line 446
+    .line 444
     :cond_2
     const-string v7, ";and;"
 
@@ -529,7 +529,7 @@
 
     move-result-object v1
 
-    .line 447
+    .line 445
     .local v1, activeAps:[Ljava/lang/String;
     const/4 v3, 0x0
 
@@ -539,7 +539,7 @@
 
     if-ge v3, v7, :cond_1
 
-    .line 448
+    .line 446
     aget-object v7, v1, v3
 
     const-string v8, "/and/"
@@ -548,7 +548,7 @@
 
     move-result-object v0
 
-    .line 449
+    .line 447
     .local v0, activeApinfo:[Ljava/lang/String;
     array-length v7, v0
 
@@ -556,7 +556,7 @@
 
     if-ne v7, v8, :cond_3
 
-    .line 450
+    .line 448
     const-string v7, "SafetyZoneSettings"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -631,44 +631,44 @@
 
     invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 451
+    .line 449
     new-instance v4, Lcom/android/settings/safetyzone/AccessPointPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
     invoke-direct {v4, v7, v3, v5}, Lcom/android/settings/safetyzone/AccessPointPreference;-><init>(Landroid/content/Context;IZ)V
 
-    .line 452
+    .line 450
     .local v4, tmpPref:Landroid/preference/Preference;
     aget-object v7, v0, v6
 
     invoke-virtual {v4, v7}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 453
+    .line 451
     aget-object v7, v0, v5
 
     invoke-virtual {v4, v7}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    .line 454
+    .line 452
     aget-object v7, v0, v5
 
     invoke-virtual {v4, v7}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 455
+    .line 453
     iget-object v7, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mLocationCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v7, v4}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v7, v4}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 447
+    .line 445
     .end local v4           #tmpPref:Landroid/preference/Preference;
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 457
+    .line 455
     :cond_3
     const-string v7, "SafetyZoneSettings"
 
@@ -715,15 +715,15 @@
 
     const/4 v2, 0x0
 
-    .line 159
+    .line 158
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
 
     if-eqz v0, :cond_0
 
-    .line 160
+    .line 159
     iget-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -738,18 +738,18 @@
     move v0, v1
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 162
+    .line 161
     :cond_0
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
 
     if-eqz v0, :cond_1
 
-    .line 163
+    .line 162
     iget-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -764,13 +764,13 @@
     move v0, v1
 
     :goto_1
-    invoke-virtual {v3, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 165
+    .line 164
     :cond_1
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -785,28 +785,28 @@
     :goto_2
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 167
+    .line 166
     invoke-direct {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->updateAccessPointList()Z
 
-    .line 168
+    .line 167
     return-void
 
     :cond_2
     move v0, v2
 
-    .line 160
+    .line 159
     goto :goto_0
 
     :cond_3
     move v0, v2
 
-    .line 163
+    .line 162
     goto :goto_1
 
     :cond_4
     move v1, v2
 
-    .line 165
+    .line 164
     goto :goto_2
 .end method
 
@@ -823,22 +823,22 @@
 
     const/4 v5, 0x0
 
-    .line 128
+    .line 127
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 129
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getListView()Landroid/widget/ListView;
+    .line 128
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->registerForContextMenu(Landroid/view/View;)V
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->registerForContextMenu(Landroid/view/View;)V
 
-    .line 130
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    .line 129
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 131
+    .line 130
     .local v0, activity:Landroid/app/Activity;
     new-instance v3, Landroid/widget/Switch;
 
@@ -846,17 +846,17 @@
 
     iput-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 133
+    .line 132
     instance-of v3, v0, Landroid/preference/PreferenceActivity;
 
     if-eqz v3, :cond_1
 
     move-object v2, v0
 
-    .line 134
+    .line 133
     check-cast v2, Landroid/preference/PreferenceActivity;
 
-    .line 135
+    .line 134
     .local v2, preferenceActivity:Landroid/preference/PreferenceActivity;
     invoke-virtual {v2}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
@@ -870,32 +870,32 @@
 
     if-nez v3, :cond_1
 
-    .line 136
+    .line 135
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 138
+    .line 137
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 139
+    .line 138
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3, v6, v6}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 141
+    .line 140
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -910,15 +910,15 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 148
+    .line 147
     .end local v1           #padding:I
     .end local v2           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_1
     iget-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 150
+    .line 149
     return-void
 .end method
 
@@ -929,7 +929,7 @@
     .parameter "data"
 
     .prologue
-    .line 306
+    .line 304
     const-string v10, "SafetyZoneSettings"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -978,27 +978,27 @@
 
     invoke-static {v10, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 307
+    .line 305
     const/4 v10, 0x1
 
     move/from16 v0, p1
 
     if-ne v0, v10, :cond_2
 
-    .line 308
+    .line 306
     const/4 v10, -0x1
 
     move/from16 v0, p2
 
     if-ne v0, v10, :cond_1
 
-    .line 309
+    .line 307
     move-object/from16 v0, p3
 
     iput-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->apData:Landroid/content/Intent;
 
-    .line 311
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 309
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v10
 
@@ -1008,7 +1008,7 @@
 
     move-result-object v9
 
-    .line 312
+    .line 310
     .local v9, zoneList:Ljava/lang/String;
     iget-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->apData:Landroid/content/Intent;
 
@@ -1018,7 +1018,7 @@
 
     move-result-object v3
 
-    .line 313
+    .line 311
     .local v3, bssid:Ljava/lang/String;
     if-eqz v3, :cond_0
 
@@ -1028,34 +1028,34 @@
 
     if-eqz v10, :cond_0
 
-    .line 315
+    .line 313
     invoke-direct {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->showDuplicatedNameDialog()V
 
-    .line 398
+    .line 396
     .end local v3           #bssid:Ljava/lang/String;
     .end local v9           #zoneList:Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 320
+    .line 318
     .restart local v3       #bssid:Ljava/lang/String;
     .restart local v9       #zoneList:Ljava/lang/String;
     :cond_0
     const-string v10, "input_method"
 
-    invoke-virtual {p0, v10}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v10}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 322
+    .line 320
     .local v6, imm:Landroid/view/inputmethod/InputMethodManager;
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
-    const v11, 0x7f04015b
+    const v11, 0x7f040192
 
     const/4 v12, 0x0
 
@@ -1063,9 +1063,9 @@
 
     move-result-object v8
 
-    .line 323
+    .line 321
     .local v8, view:Landroid/view/View;
-    const v10, 0x7f0b024f
+    const v10, 0x7f0b028b
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1075,7 +1075,7 @@
 
     iput-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditName:Landroid/widget/TextView;
 
-    .line 324
+    .line 322
     iget-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditName:Landroid/widget/TextView;
 
     const-string v11, "ssid"
@@ -1088,8 +1088,8 @@
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 325
-    const v10, 0x7f0b03c0
+    .line 323
+    const v10, 0x7f0b0426
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1099,10 +1099,10 @@
 
     iput-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDescriptionText:Landroid/widget/TextView;
 
-    .line 326
+    .line 324
     iget-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDescriptionText:Landroid/widget/TextView;
 
-    const v11, 0x7f090c1c
+    const v11, 0x7f090d29
 
     const/4 v12, 0x1
 
@@ -1120,13 +1120,13 @@
 
     aput-object v14, v12, v13
 
-    invoke-virtual {p0, v11, v12}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v11, v12}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v11
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 327
+    .line 325
     iget-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditName:Landroid/widget/TextView;
 
     check-cast v10, Landroid/widget/EditText;
@@ -1139,10 +1139,10 @@
 
     invoke-virtual {v10, v11}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 329
+    .line 327
     new-instance v10, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v11
 
@@ -1152,7 +1152,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f090c18
+    const v11, 0x7f090d25
 
     invoke-virtual {v10, v11}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1168,7 +1168,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f090ad8
+    const v11, 0x7f090bbc
 
     new-instance v12, Lcom/android/settings/safetyzone/SafetyZoneSettings$3;
 
@@ -1184,10 +1184,10 @@
 
     iput-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    .line 357
+    .line 355
     iget-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v10}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v10
 
@@ -1195,12 +1195,12 @@
 
     invoke-virtual {v10, v11}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 358
+    .line 356
     iget-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v10}, Landroid/app/Dialog;->show()V
 
-    .line 397
+    .line 395
     .end local v3           #bssid:Ljava/lang/String;
     .end local v6           #imm:Landroid/view/inputmethod/InputMethodManager;
     .end local v8           #view:Landroid/view/View;
@@ -1211,7 +1211,7 @@
 
     goto/16 :goto_0
 
-    .line 361
+    .line 359
     :cond_2
     const/4 v10, 0x2
 
@@ -1219,20 +1219,20 @@
 
     if-ne v0, v10, :cond_1
 
-    .line 362
+    .line 360
     const/4 v10, -0x1
 
     move/from16 v0, p2
 
     if-ne v0, v10, :cond_7
 
-    .line 363
+    .line 361
     move-object/from16 v0, p3
 
     iput-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->apData:Landroid/content/Intent;
 
-    .line 364
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 362
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v10
 
@@ -1242,11 +1242,11 @@
 
     move-result-object v7
 
-    .line 365
+    .line 363
     .local v7, safety_zone_list:Ljava/lang/String;
     const-string v4, ""
 
-    .line 366
+    .line 364
     .local v4, combinedString:Ljava/lang/String;
     const-string v10, ";and;"
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v2
 
-    .line 367
+    .line 365
     .local v2, activeAps:[Ljava/lang/String;
     const-string v10, "SafetyZoneSettings"
 
@@ -1280,7 +1280,7 @@
 
     invoke-static {v10, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 369
+    .line 367
     const/4 v5, 0x0
 
     .local v5, i:I
@@ -1289,7 +1289,7 @@
 
     if-ge v5, v10, :cond_6
 
-    .line 370
+    .line 368
     aget-object v10, v2, v5
 
     const-string v11, "/and/"
@@ -1298,7 +1298,7 @@
 
     move-result-object v1
 
-    .line 371
+    .line 369
     .local v1, activeApinfo:[Ljava/lang/String;
     array-length v10, v1
 
@@ -1306,7 +1306,7 @@
 
     if-ne v10, v11, :cond_5
 
-    .line 372
+    .line 370
     const-string v10, "SafetyZoneSettings"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -1385,7 +1385,7 @@
 
     invoke-static {v10, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 373
+    .line 371
     if-eqz v4, :cond_3
 
     const-string v10, ""
@@ -1396,7 +1396,7 @@
 
     if-nez v10, :cond_3
 
-    .line 374
+    .line 372
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -1415,13 +1415,13 @@
 
     move-result-object v4
 
-    .line 376
+    .line 374
     :cond_3
     sget v10, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
 
     if-ne v5, v10, :cond_4
 
-    .line 377
+    .line 375
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -1498,13 +1498,13 @@
 
     move-result-object v4
 
-    .line 369
+    .line 367
     :goto_3
     add-int/lit8 v5, v5, 0x1
 
     goto/16 :goto_2
 
-    .line 380
+    .line 378
     :cond_4
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1570,7 +1570,7 @@
 
     goto :goto_3
 
-    .line 384
+    .line 382
     :cond_5
     const-string v10, "SafetyZoneSettings"
 
@@ -1608,14 +1608,14 @@
 
     goto :goto_3
 
-    .line 387
+    .line 385
     .end local v1           #activeApinfo:[Ljava/lang/String;
     :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v10
 
-    invoke-virtual {v10}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v10}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v10
 
@@ -1623,22 +1623,22 @@
 
     invoke-static {v10, v11, v4}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 389
+    .line 387
     invoke-direct {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->updateAccessPointList()Z
 
-    .line 390
+    .line 388
     const/4 v10, 0x0
 
     iput-object v10, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->apData:Landroid/content/Intent;
 
-    .line 391
+    .line 389
     const/4 v10, -0x1
 
     sput v10, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
 
     goto/16 :goto_1
 
-    .line 392
+    .line 390
     .end local v2           #activeAps:[Ljava/lang/String;
     .end local v4           #combinedString:Ljava/lang/String;
     .end local v5           #i:I
@@ -1646,7 +1646,7 @@
     :cond_7
     if-nez p2, :cond_1
 
-    .line 393
+    .line 391
     const/4 v10, -0x1
 
     sput v10, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
@@ -1664,7 +1664,7 @@
 
     const/4 v5, 0x0
 
-    .line 550
+    .line 548
     const-string v6, "SafetyZoneSettings"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1687,8 +1687,8 @@
 
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 552
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 550
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -1702,19 +1702,19 @@
 
     move v1, v4
 
-    .line 553
+    .line 551
     .local v1, currentValeu:Z
     :goto_0
     if-ne v1, p2, :cond_2
 
-    .line 554
+    .line 552
     const-string v4, "SafetyZoneSettings"
 
     const-string v5, "onCheckChanged : desiredState and currentValeu are same, so ignored"
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 580
+    .line 578
     :cond_0
     :goto_1
     return-void
@@ -1723,33 +1723,33 @@
     :cond_1
     move v1, v5
 
-    .line 552
+    .line 550
     goto :goto_0
 
-    .line 558
+    .line 556
     .restart local v1       #currentValeu:Z
     :cond_2
     if-eqz p2, :cond_5
 
-    .line 559
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    .line 557
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
     const-string v7, "safetyzone_settings"
 
-    invoke-virtual {v6, v7, v4}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v6, v7, v4}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    .line 560
+    .line 558
     .local v0, ReverbSharedPrefs:Landroid/content/SharedPreferences;
     if-eqz v0, :cond_0
 
-    .line 561
+    .line 559
     const/4 v2, 0x0
 
-    .line 562
+    .line 560
     .local v2, doNotShow:Z
     const-string v6, "DoNotShowDialogOn"
 
@@ -1757,17 +1757,17 @@
 
     move-result v2
 
-    .line 563
+    .line 561
     if-nez v2, :cond_3
 
-    .line 564
+    .line 562
     invoke-direct {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->showSafetyZoneInfoDialog()V
 
     goto :goto_1
 
-    .line 566
+    .line 564
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1777,7 +1777,7 @@
 
     move-result-object v3
 
-    .line 567
+    .line 565
     .local v3, safety_zone_list:Ljava/lang/String;
     const-string v5, ""
 
@@ -1787,14 +1787,14 @@
 
     if-eqz v5, :cond_4
 
-    .line 568
+    .line 566
     invoke-direct {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->showSafetyZoneEnableDialog()V
 
     goto :goto_1
 
-    .line 570
+    .line 568
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1804,12 +1804,12 @@
 
     goto :goto_1
 
-    .line 574
+    .line 572
     .end local v0           #ReverbSharedPrefs:Landroid/content/SharedPreferences;
     .end local v2           #doNotShow:Z
     .end local v3           #safety_zone_list:Ljava/lang/String;
     :cond_5
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -1821,14 +1821,14 @@
 
     if-eqz v6, :cond_7
 
-    .line 575
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    .line 573
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    const v7, 0x7f090c16
+    const v7, 0x7f090d23
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -1838,8 +1838,8 @@
 
     invoke-virtual {v6}, Landroid/widget/Toast;->show()V
 
-    .line 576
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 574
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -1857,9 +1857,9 @@
 
     goto :goto_2
 
-    .line 578
+    .line 576
     :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -1893,34 +1893,27 @@
 
     const/4 v6, 0x0
 
-    .line 199
+    .line 198
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSelectedPreference:Lcom/android/settings/safetyzone/AccessPointPreference;
 
     if-nez v0, :cond_0
 
-    .line 200
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onContextItemSelected(Landroid/view/MenuItem;)Z
+    .line 199
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onContextItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    .line 301
+    .line 299
     :goto_0
     return v0
 
-    .line 203
+    .line 202
     :cond_0
-    invoke-interface {p1}, Landroid/view/MenuItem;->getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/AdapterView$AdapterContextMenuInfo;
-
-    .line 204
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    .line 205
+    .line 203
     const-string v1, "SafetyZoneSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1949,7 +1942,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 206
+    .line 204
     iget-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSelectedPreference:Lcom/android/settings/safetyzone/AccessPointPreference;
 
     invoke-virtual {v1}, Lcom/android/settings/safetyzone/AccessPointPreference;->getPreferenceId()I
@@ -1958,16 +1951,16 @@
 
     sput v1, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
 
-    .line 208
+    .line 206
     packed-switch v0, :pswitch_data_0
 
     :goto_1
     move v0, v7
 
-    .line 301
+    .line 299
     goto :goto_0
 
-    .line 210
+    .line 208
     :pswitch_0
     const-string v0, "SafetyZoneSettings"
 
@@ -1993,19 +1986,19 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 211
+    .line 209
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 212
-    invoke-virtual {p0, v0, v11}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    .line 210
+    invoke-virtual {p0, v0, v11}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_1
 
-    .line 216
+    .line 214
     :pswitch_1
     const-string v0, "SafetyZoneSettings"
 
@@ -2031,33 +2024,33 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
+    .line 215
     new-instance v2, Landroid/os/Bundle;
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    .line 218
+    .line 216
     const-string v0, "id"
 
     sget v1, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
 
     invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 220
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    .line 218
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity;
 
-    .line 221
+    .line 219
     const-class v1, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    const v3, 0x7f090c1b
+    const v3, 0x7f090d28
 
     move-object v5, p0
 
@@ -2065,7 +2058,7 @@
 
     goto :goto_1
 
-    .line 225
+    .line 223
     :pswitch_2
     const-string v0, "SafetyZoneSettings"
 
@@ -2073,28 +2066,28 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 226
+    .line 224
     const-string v0, "input_method"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 227
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    .line 225
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f04015b
+    const v2, 0x7f040192
 
     invoke-static {v1, v2, v4}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v3
 
-    .line 228
-    const v1, 0x7f0b024f
+    .line 226
+    const v1, 0x7f0b028b
 
     invoke-virtual {v3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2104,8 +2097,8 @@
 
     iput-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditName:Landroid/widget/TextView;
 
-    .line 229
-    const v1, 0x7f0b03c0
+    .line 227
+    const v1, 0x7f0b0426
 
     invoke-virtual {v3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2115,8 +2108,8 @@
 
     iput-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDescriptionText:Landroid/widget/TextView;
 
-    .line 231
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 229
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -2126,10 +2119,10 @@
 
     move-result-object v2
 
-    .line 232
+    .line 230
     const-string v1, ""
 
-    .line 233
+    .line 231
     const-string v4, ";and;"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -2138,13 +2131,13 @@
 
     move v2, v6
 
-    .line 234
+    .line 232
     :goto_2
     array-length v5, v4
 
     if-ge v2, v5, :cond_3
 
-    .line 235
+    .line 233
     aget-object v5, v4, v2
 
     const-string v8, "/and/"
@@ -2153,14 +2146,14 @@
 
     move-result-object v5
 
-    .line 236
+    .line 234
     array-length v8, v5
 
     const/4 v9, 0x4
 
     if-ne v8, v9, :cond_2
 
-    .line 237
+    .line 235
     const-string v8, "SafetyZoneSettings"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2231,12 +2224,12 @@
 
     invoke-static {v8, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 238
+    .line 236
     sget v8, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
 
     if-ne v2, v8, :cond_1
 
-    .line 239
+    .line 237
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -2299,17 +2292,17 @@
 
     move-result-object v1
 
-    .line 240
+    .line 238
     iget-object v8, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditName:Landroid/widget/TextView;
 
     aget-object v9, v5, v6
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 241
+    .line 239
     iget-object v8, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDescriptionText:Landroid/widget/TextView;
 
-    const v9, 0x7f090c1c
+    const v9, 0x7f090d29
 
     new-array v10, v7, [Ljava/lang/Object;
 
@@ -2317,20 +2310,20 @@
 
     aput-object v5, v10, v6
 
-    invoke-virtual {p0, v9, v10}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v9, v10}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v8, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 234
+    .line 232
     :cond_1
     :goto_3
     add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_2
 
-    .line 244
+    .line 242
     :cond_2
     const-string v8, "SafetyZoneSettings"
 
@@ -2368,7 +2361,7 @@
 
     goto :goto_3
 
-    .line 248
+    .line 246
     :cond_3
     iget-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditName:Landroid/widget/TextView;
 
@@ -2382,10 +2375,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 250
+    .line 248
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -2395,7 +2388,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090c1a
+    const v2, 0x7f090d27
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2411,7 +2404,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090ad8
+    const v1, 0x7f090bbc
 
     new-instance v2, Lcom/android/settings/safetyzone/SafetyZoneSettings$1;
 
@@ -2427,10 +2420,10 @@
 
     iput-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    .line 296
+    .line 294
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
@@ -2438,14 +2431,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 297
+    .line 295
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto/16 :goto_1
 
-    .line 208
+    .line 206
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0
@@ -2455,156 +2448,146 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 6
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
     .line 101
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 102
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    const v2, 0x7f0700a0
 
-    move-result-object v3
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    .line 104
+    const-string v2, "safety_zone_notification"
+
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
-    .line 103
-    .local v2, resolver:Landroid/content/ContentResolver;
-    const v3, 0x7f07007c
+    check-cast v2, Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->addPreferencesFromResource(I)V
+    iput-object v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
 
     .line 105
-    const-string v3, "safety_zone_notification"
+    const-string v2, "safety_zone_add_current_location"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/preference/CheckBoxPreference;
+    check-cast v2, Landroid/preference/PreferenceScreen;
 
-    iput-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
+    iput-object v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mAddCurrentLocation:Landroid/preference/PreferenceScreen;
 
     .line 106
-    const-string v3, "safety_zone_add_current_location"
+    iget-object v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mAddCurrentLocation:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    const v3, 0x7f04001e
 
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/PreferenceScreen;
-
-    iput-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mAddCurrentLocation:Landroid/preference/PreferenceScreen;
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 107
-    iget-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mAddCurrentLocation:Landroid/preference/PreferenceScreen;
+    const-string v2, "safety_zone_location"
 
-    const v4, 0x7f04001c
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->setWidgetLayoutResource(I)V
+    move-result-object v2
+
+    check-cast v2, Landroid/preference/PreferenceCategory;
+
+    iput-object v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mLocationCategory:Landroid/preference/PreferenceCategory;
 
     .line 108
-    const-string v3, "safety_zone_location"
+    const-string v2, "vibrate"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v2}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/preference/PreferenceCategory;
+    check-cast v2, Landroid/preference/CheckBoxPreference;
 
-    iput-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mLocationCategory:Landroid/preference/PreferenceCategory;
+    iput-object v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
 
-    .line 109
-    const-string v3, "vibrate"
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/CheckBoxPreference;
-
-    iput-object v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
+    .line 110
+    invoke-virtual {p0, v5}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 111
-    invoke-virtual {p0, v6}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->setHasOptionsMenu(Z)V
+    const/4 v2, -0x1
 
-    .line 112
-    const/4 v3, -0x1
+    sput v2, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
 
-    sput v3, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mEditPosition:I
-
-    .line 114
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getArguments()Landroid/os/Bundle;
+    .line 113
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 115
+    .line 114
     .local v0, args:Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
+    .line 115
+    const-string v2, "first_mode"
+
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mFirst:Z
+
     .line 116
-    const-string v3, "first_mode"
+    const-string v2, "SafetyZoneSettings"
 
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result v3
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iput-boolean v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mFirst:Z
+    const-string v4, "edit mode is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-boolean v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mFirst:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 117
-    const-string v3, "SafetyZoneSettings"
+    iget-boolean v2, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mFirst:Z
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "edit mode is "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-boolean v5, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mFirst:Z
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v2, :cond_0
 
     .line 118
-    iget-boolean v3, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mFirst:Z
+    const-string v2, "SafetyZoneSettings"
 
-    if-eqz v3, :cond_0
+    const-string v3, "mAddCurrentLocation is clicked. start wifi network picker"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 119
-    const-string v3, "SafetyZoneSettings"
-
-    const-string v4, "mAddCurrentLocation is clicked. start wifi network picker"
-
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 120
     new-instance v1, Landroid/content/Intent;
 
-    const-string v3, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
+    const-string v2, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
 
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 121
+    .line 120
     .local v1, intent:Landroid/content/Intent;
-    invoke-virtual {p0, v1, v6}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v1, v5}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 124
+    .line 123
     .end local v1           #intent:Landroid/content/Intent;
     :cond_0
     return-void
@@ -2619,8 +2602,8 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 182
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getListView()Landroid/widget/ListView;
+    .line 181
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
@@ -2629,55 +2612,55 @@
     .end local p3
     iget v2, p3, Landroid/widget/AdapterView$AdapterContextMenuInfo;->position:I
 
-    invoke-virtual {v1, v2}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/Preference;
 
-    .line 185
+    .line 184
     .local v0, preference:Landroid/preference/Preference;
     instance-of v1, v0, Lcom/android/settings/safetyzone/AccessPointPreference;
 
     if-eqz v1, :cond_0
 
-    .line 186
+    .line 185
     check-cast v0, Lcom/android/settings/safetyzone/AccessPointPreference;
 
     .end local v0           #preference:Landroid/preference/Preference;
     iput-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSelectedPreference:Lcom/android/settings/safetyzone/AccessPointPreference;
 
-    .line 187
+    .line 186
     iget-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mSelectedPreference:Lcom/android/settings/safetyzone/AccessPointPreference;
 
-    invoke-virtual {v1}, Lcom/android/settings/safetyzone/AccessPointPreference;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v1
 
     invoke-interface {p1, v1}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
-    .line 188
+    .line 187
     const/4 v1, 0x2
 
-    const v2, 0x7f090c20
+    const v2, 0x7f090d2d
+
+    invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+
+    .line 188
+    const/4 v1, 0x3
+
+    const v2, 0x7f090105
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
     .line 189
-    const/4 v1, 0x3
-
-    const v2, 0x7f0900e6
-
-    invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
-
-    .line 190
     const/4 v1, 0x4
 
-    const v2, 0x7f090991
+    const v2, 0x7f090a6f
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    .line 195
+    .line 194
     :cond_0
     return-void
 .end method
@@ -2690,23 +2673,23 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 402
+    .line 400
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 404
+    .line 402
     const/4 v0, 0x1
 
-    const v1, 0x7f090991
+    const v1, 0x7f090a6f
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0200e4
+    const v1, 0x7f020124
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 406
+    .line 404
     return-void
 .end method
 
@@ -2716,27 +2699,27 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 172
+    .line 171
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 173
+    .line 172
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 174
+    .line 173
     iput-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mDialog:Landroid/app/AlertDialog;
 
-    .line 175
+    .line 174
     iput-object v1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->apData:Landroid/content/Intent;
 
-    .line 177
+    .line 176
     :cond_0
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
-    .line 178
+    .line 177
     return-void
 .end method
 
@@ -2749,33 +2732,33 @@
 
     const/4 v6, 0x0
 
-    .line 410
+    .line 408
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 418
+    .line 416
     :goto_0
     return v6
 
-    .line 413
+    .line 411
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity;
 
-    .line 414
+    .line 412
     const-class v1, Lcom/android/settings/safetyzone/SafetyZoneListDelelete;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    const v3, 0x7f090c1b
+    const v3, 0x7f090d28
 
     move-object v4, v2
 
@@ -2783,12 +2766,12 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 415
+    .line 413
     const/4 v6, 0x1
 
     goto :goto_0
 
-    .line 410
+    .line 408
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2805,10 +2788,10 @@
 
     const/4 v5, 0x1
 
-    .line 467
+    .line 465
     const/4 v3, 0x0
 
-    .line 469
+    .line 467
     .local v3, isAccessPoint:Z
     :try_start_0
     move-object v0, p2
@@ -2823,7 +2806,7 @@
 
     move-result v3
 
-    .line 473
+    .line 471
     :goto_0
     const-string v4, "SafetyZoneSettings"
 
@@ -2857,7 +2840,7 @@
 
     invoke-static {v4, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 475
+    .line 473
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mAddCurrentLocation:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {p2, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -2866,45 +2849,45 @@
 
     if-eqz v4, :cond_1
 
-    .line 476
+    .line 474
     const-string v4, "SafetyZoneSettings"
 
     const-string v6, "mAddCurrentLocation is clicked. start wifi network picker"
 
     invoke-static {v4, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 477
+    .line 475
     new-instance v2, Landroid/content/Intent;
 
     const-string v4, "android.net.wifi.PICK_WIFI_NETWORK_RESULT"
 
     invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 478
+    .line 476
     .local v2, intent:Landroid/content/Intent;
-    invoke-virtual {p0, v2, v5}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v2, v5}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 495
+    .line 493
     .end local v2           #intent:Landroid/content/Intent;
     :cond_0
     :goto_1
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v4
 
     return v4
 
-    .line 470
+    .line 468
     :catch_0
     move-exception v1
 
-    .line 471
+    .line 469
     .local v1, e:Ljava/lang/Exception;
     const/4 v3, 0x0
 
     goto :goto_0
 
-    .line 479
+    .line 477
     .end local v1           #e:Ljava/lang/Exception;
     :cond_1
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
@@ -2915,7 +2898,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 480
+    .line 478
     const-string v4, "SafetyZoneSettings"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2930,7 +2913,7 @@
 
     iget-object v8, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v8}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v8}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v8
 
@@ -2944,8 +2927,8 @@
 
     invoke-static {v4, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 481
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 479
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -2953,7 +2936,7 @@
 
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mNotification:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v4}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v4}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -2971,7 +2954,7 @@
 
     goto :goto_2
 
-    .line 483
+    .line 481
     :cond_3
     iget-object v4, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
 
@@ -2981,7 +2964,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 484
+    .line 482
     const-string v4, "SafetyZoneSettings"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2996,7 +2979,7 @@
 
     iget-object v8, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v8}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v8}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v8
 
@@ -3010,8 +2993,8 @@
 
     invoke-static {v4, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 485
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 483
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -3019,7 +3002,7 @@
 
     iget-object v8, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings;->mVibrate:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v8}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v8}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v8
 
@@ -3045,17 +3028,17 @@
 
     const/4 v4, 0x1
 
-    .line 423
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
+    .line 421
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    .line 425
+    .line 423
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    .line 426
+    .line 424
     .local v1, menuDel:Landroid/view/MenuItem;
-    invoke-virtual {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -3065,7 +3048,7 @@
 
     move-result-object v0
 
-    .line 427
+    .line 425
     .local v0, apName:Ljava/lang/String;
     if-eqz v0, :cond_0
 
@@ -3077,16 +3060,16 @@
 
     if-eqz v2, :cond_1
 
-    .line 428
+    .line 426
     :cond_0
     invoke-interface {v1, v5}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 429
+    .line 427
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f0200e3
+    const v3, 0x7f020123
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3094,17 +3077,17 @@
 
     invoke-interface {v2, v5}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 434
+    .line 432
     :goto_0
     return-void
 
-    .line 431
+    .line 429
     :cond_1
     invoke-interface {p1, v4}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f0200e4
+    const v3, 0x7f020124
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3119,12 +3102,12 @@
     .locals 0
 
     .prologue
-    .line 154
+    .line 153
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 155
+    .line 154
     invoke-direct {p0}, Lcom/android/settings/safetyzone/SafetyZoneSettings;->updateState()V
 
-    .line 156
+    .line 155
     return-void
 .end method

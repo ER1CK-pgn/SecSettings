@@ -25,13 +25,13 @@
     .parameter "handler"
 
     .prologue
-    .line 110
+    .line 112
     iput-object p1, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
-    .line 111
+    .line 113
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 112
+    .line 114
     return-void
 .end method
 
@@ -46,13 +46,13 @@
 
     const/4 v3, 0x0
 
-    .line 115
+    .line 117
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 116
+    .line 118
     iget-object v4, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
-    invoke-virtual {v4}, Lcom/android/settings/DateTimeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -66,12 +66,12 @@
 
     move v1, v2
 
-    .line 119
+    .line 121
     .local v1, isSettingWizard:Z
     :goto_0
     iget-object v4, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
-    invoke-virtual {v4}, Lcom/android/settings/DateTimeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v4}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -79,7 +79,7 @@
 
     if-nez v1, :cond_0
 
-    .line 120
+    .line 122
     iget-object v4, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
     const-string v5, "auto_time"
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    .line 121
+    .line 123
     .local v0, autoEnabled:Z
     const-string v4, "DateTimeSettings"
 
@@ -113,7 +113,7 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
+    .line 124
     iget-object v4, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
     #getter for: Lcom/android/settings/DateTimeSettings;->mAutoTimePref:Landroid/preference/CheckBoxPreference;
@@ -121,9 +121,9 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v4, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 123
+    .line 125
     iget-object v4, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
     #getter for: Lcom/android/settings/DateTimeSettings;->mTimePref:Landroid/preference/Preference;
@@ -138,7 +138,7 @@
     :goto_1
     invoke-virtual {v5, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 124
+    .line 126
     iget-object v4, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
     #getter for: Lcom/android/settings/DateTimeSettings;->mDatePref:Landroid/preference/Preference;
@@ -151,13 +151,13 @@
     :goto_2
     invoke-virtual {v4, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 126
+    .line 128
     iget-object v2, p0, Lcom/android/settings/DateTimeSettings$SettingsObserver;->this$0:Lcom/android/settings/DateTimeSettings;
 
     #calls: Lcom/android/settings/DateTimeSettings;->applyEDMDateTimeChangePolicy()V
     invoke-static {v2}, Lcom/android/settings/DateTimeSettings;->access$400(Lcom/android/settings/DateTimeSettings;)V
 
-    .line 128
+    .line 130
     .end local v0           #autoEnabled:Z
     :cond_0
     return-void
@@ -166,7 +166,7 @@
     :cond_1
     move v1, v3
 
-    .line 116
+    .line 118
     goto :goto_0
 
     .restart local v0       #autoEnabled:Z
@@ -174,12 +174,12 @@
     :cond_2
     move v4, v3
 
-    .line 123
+    .line 125
     goto :goto_1
 
     :cond_3
     move v2, v3
 
-    .line 124
+    .line 126
     goto :goto_2
 .end method

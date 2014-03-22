@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 56
+    .line 57
     const/4 v0, 0x3
 
     new-array v0, v0, [I
@@ -55,9 +55,9 @@
 
     :array_0
     .array-data 0x4
-        0x43t 0x3t 0xbt 0x7ft
-        0x45t 0x3t 0xbt 0x7ft
-        0x47t 0x3t 0xbt 0x7ft
+        0x88t 0x3t 0xbt 0x7ft
+        0x8at 0x3t 0xbt 0x7ft
+        0x8ct 0x3t 0xbt 0x7ft
     .end array-data
 .end method
 
@@ -67,27 +67,27 @@
     .parameter "attrs"
 
     .prologue
-    .line 70
+    .line 71
     invoke-direct {p0, p1, p2}, Landroid/preference/SeekBarDialogPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 62
+    .line 63
     new-instance v0, Landroid/os/SystemVibrator;
 
     invoke-direct {v0}, Landroid/os/SystemVibrator;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mVibrator:Landroid/os/SystemVibrator;
 
-    .line 67
+    .line 68
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
-    .line 71
-    const v0, 0x7f040120
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/VibrationFeedbackPreference;->setDialogLayoutResource(I)V
-
     .line 72
+    const v0, 0x7f04014b
+
+    invoke-virtual {p0, v0}, Landroid/preference/DialogPreference;->setDialogLayoutResource(I)V
+
+    .line 73
     return-void
 .end method
 
@@ -98,17 +98,17 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 229
+    .line 233
     if-nez p1, :cond_1
 
     move-object v2, v4
 
-    .line 250
+    .line 254
     :cond_0
     :goto_0
     return-object v2
 
-    .line 232
+    .line 236
     :cond_1
     const-string v5, ", "
 
@@ -116,7 +116,7 @@
 
     move-result-object v3
 
-    .line 235
+    .line 239
     .local v3, temp:[Ljava/lang/String;
     array-length v5, v3
 
@@ -124,16 +124,16 @@
 
     move-object v2, v4
 
-    .line 237
+    .line 241
     goto :goto_0
 
-    .line 240
+    .line 244
     :cond_2
     array-length v5, v3
 
     new-array v2, v5, [J
 
-    .line 242
+    .line 246
     .local v2, ret:[J
     const/4 v1, 0x0
 
@@ -144,7 +144,7 @@
 
     if-ge v1, v5, :cond_0
 
-    .line 243
+    .line 247
     aget-object v5, v3, v1
 
     invoke-static {v5}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
@@ -159,19 +159,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 242
+    .line 246
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 246
+    .line 250
     :catch_0
     move-exception v0
 
     .local v0, e:Ljava/lang/Exception;
     move-object v2, v4
 
-    .line 248
+    .line 252
     goto :goto_0
 .end method
 
@@ -180,8 +180,8 @@
     .parameter "vibrationIntensityLevel"
 
     .prologue
-    .line 224
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 228
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -193,7 +193,7 @@
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 225
+    .line 229
     const-string v0, "VibrationFeedbackPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -222,7 +222,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 226
+    .line 230
     return-void
 .end method
 
@@ -231,8 +231,8 @@
     .parameter "vibrationIntensityLevel"
 
     .prologue
-    .line 214
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 218
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -244,7 +244,7 @@
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 215
+    .line 219
     const-string v0, "VibrationFeedbackPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -273,7 +273,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
+    .line 220
     return-void
 .end method
 
@@ -282,8 +282,8 @@
     .parameter "vibrationIntensityLevel"
 
     .prologue
-    .line 219
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 223
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -295,7 +295,7 @@
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 220
+    .line 224
     const-string v0, "VibrationFeedbackPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -324,299 +324,313 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 221
+    .line 225
     return-void
 .end method
 
 
 # virtual methods
 .method protected onBindDialogView(Landroid/view/View;)V
-    .locals 8
+    .locals 9
     .parameter "view"
 
     .prologue
-    const/16 v7, 0x8
+    const/16 v8, 0x8
 
-    const/4 v5, 0x5
+    const/4 v6, 0x5
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    .line 76
+    .line 77
     invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onBindDialogView(Landroid/view/View;)V
 
-    .line 78
-    sget-object v3, Lcom/android/settings/VibrationFeedbackPreference;->SEEKBAR_ID:[I
-
-    const/4 v4, 0x0
-
-    aget v3, v3, v4
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/SeekBar;
-
-    iput-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
-
     .line 79
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
+    sget-object v4, Lcom/android/settings/VibrationFeedbackPreference;->SEEKBAR_ID:[I
 
-    invoke-virtual {v3, v6}, Landroid/widget/SeekBar;->setSoundEffectsEnabled(Z)V
+    const/4 v5, 0x0
 
-    .line 80
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    aget v4, v4, v5
 
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    .line 81
-    :cond_0
-    const v3, 0x7f0b0342
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    .line 82
-    .local v2, incomingCallText:Landroid/widget/TextView;
-    invoke-virtual {v2, v7}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 83
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, v7}, Landroid/widget/SeekBar;->setVisibility(I)V
-
-    .line 84
-    const v3, 0x7f0b0344
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 85
-    .local v0, IncomingCallDivider:Landroid/view/View;
-    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
-
-    .line 88
-    .end local v0           #IncomingCallDivider:Landroid/view/View;
-    .end local v2           #incomingCallText:Landroid/widget/TextView;
-    :cond_1
-    sget-object v3, Lcom/android/settings/VibrationFeedbackPreference;->SEEKBAR_ID:[I
-
-    aget v3, v3, v6
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/SeekBar;
-
-    iput-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
-
-    .line 89
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, v6}, Landroid/widget/SeekBar;->setSoundEffectsEnabled(Z)V
-
-    .line 90
-    sget-object v3, Lcom/android/settings/VibrationFeedbackPreference;->SEEKBAR_ID:[I
-
-    const/4 v4, 0x2
-
-    aget v3, v3, v4
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/SeekBar;
-
-    iput-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
-
-    .line 91
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, v6}, Landroid/widget/SeekBar;->setSoundEffectsEnabled(Z)V
-
-    .line 93
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, v5}, Landroid/widget/SeekBar;->setMax(I)V
-
-    .line 95
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "VIB_RECVCALL_MAGNITUDE"
-
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldIncomingCallVibrationSlideLevel:I
-
-    .line 96
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
-
-    iget v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldIncomingCallVibrationSlideLevel:I
-
-    invoke-virtual {v3, v4}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    .line 97
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-
-    .line 99
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, v5}, Landroid/widget/SeekBar;->setMax(I)V
-
-    .line 100
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "VIB_NOTIFICATION_MAGNITUDE"
-
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldNotificationVibrationSlideLevel:I
-
-    .line 101
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
-
-    iget v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldNotificationVibrationSlideLevel:I
-
-    invoke-virtual {v3, v4}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    .line 102
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-
-    .line 104
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, v5}, Landroid/widget/SeekBar;->setMax(I)V
-
-    .line 105
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v3
-
-    const-string v4, "VIB_FEEDBACK_MAGNITUDE"
-
-    const/4 v5, 0x3
-
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
-
-    .line 106
-    iget v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
-
-    iput v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
-
-    .line 107
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
-
-    iget v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
-
-    invoke-virtual {v3, v4}, Landroid/widget/SeekBar;->setProgress(I)V
-
-    .line 108
-    iget-object v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
-
-    invoke-virtual {v3, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-
-    .line 112
-    invoke-virtual {p1, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    .line 113
-    invoke-virtual {p1, v6}, Landroid/view/View;->setFocusableInTouchMode(Z)V
-
-    .line 114
-    invoke-virtual {p1}, Landroid/view/View;->requestFocus()Z
-
-    .line 116
-    const-string v3, "DCM"
-
-    const-string v4, "ro.csc.sales_code"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    check-cast v4, Landroid/widget/SeekBar;
 
-    move-result v3
+    iput-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
 
-    if-eqz v3, :cond_2
+    .line 80
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v7}, Landroid/view/View;->setSoundEffectsEnabled(Z)V
+
+    .line 81
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    .line 82
+    :cond_0
+    const v4, 0x7f0b0386
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/LinearLayout;
+
+    .line 83
+    .local v2, incomingCall:Landroid/widget/LinearLayout;
+    invoke-virtual {v2, v8}, Landroid/view/View;->setVisibility(I)V
+
+    .line 85
+    const v4, 0x7f0b0387
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    .line 86
+    .local v3, incomingCallText:Landroid/widget/TextView;
+    invoke-virtual {v3, v8}, Landroid/view/View;->setVisibility(I)V
+
+    .line 87
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v8}, Landroid/widget/ProgressBar;->setVisibility(I)V
+
+    .line 88
+    const v4, 0x7f0b0389
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 89
+    .local v0, IncomingCallDivider:Landroid/view/View;
+    invoke-virtual {v0, v8}, Landroid/view/View;->setVisibility(I)V
+
+    .line 92
+    .end local v0           #IncomingCallDivider:Landroid/view/View;
+    .end local v2           #incomingCall:Landroid/widget/LinearLayout;
+    .end local v3           #incomingCallText:Landroid/widget/TextView;
+    :cond_1
+    sget-object v4, Lcom/android/settings/VibrationFeedbackPreference;->SEEKBAR_ID:[I
+
+    aget v4, v4, v7
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/SeekBar;
+
+    iput-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
+
+    .line 93
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v7}, Landroid/view/View;->setSoundEffectsEnabled(Z)V
+
+    .line 94
+    sget-object v4, Lcom/android/settings/VibrationFeedbackPreference;->SEEKBAR_ID:[I
+
+    const/4 v5, 0x2
+
+    aget v4, v4, v5
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/SeekBar;
+
+    iput-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
+
+    .line 95
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v7}, Landroid/view/View;->setSoundEffectsEnabled(Z)V
+
+    .line 97
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v6}, Landroid/widget/AbsSeekBar;->setMax(I)V
+
+    .line 99
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "VIB_RECVCALL_MAGNITUDE"
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldIncomingCallVibrationSlideLevel:I
+
+    .line 100
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
+
+    iget v5, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldIncomingCallVibrationSlideLevel:I
+
+    invoke-virtual {v4, v5}, Landroid/widget/ProgressBar;->setProgress(I)V
+
+    .line 101
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+
+    .line 103
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v6}, Landroid/widget/AbsSeekBar;->setMax(I)V
+
+    .line 104
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "VIB_NOTIFICATION_MAGNITUDE"
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldNotificationVibrationSlideLevel:I
+
+    .line 105
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
+
+    iget v5, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldNotificationVibrationSlideLevel:I
+
+    invoke-virtual {v4, v5}, Landroid/widget/ProgressBar;->setProgress(I)V
+
+    .line 106
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+
+    .line 108
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, v6}, Landroid/widget/AbsSeekBar;->setMax(I)V
+
+    .line 109
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "VIB_FEEDBACK_MAGNITUDE"
+
+    const/4 v6, 0x3
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
+
+    .line 110
+    iget v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
+
+    iput v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
+
+    .line 111
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
+
+    iget v5, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
+
+    invoke-virtual {v4, v5}, Landroid/widget/ProgressBar;->setProgress(I)V
+
+    .line 112
+    iget-object v4, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
+
+    invoke-virtual {v4, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+
+    .line 116
+    invoke-virtual {p1, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
     .line 117
-    const v3, 0x7f0b0346
+    invoke-virtual {p1, v7}, Landroid/view/View;->setFocusableInTouchMode(Z)V
 
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 118
+    invoke-virtual {p1}, Landroid/view/View;->requestFocus()Z
+
+    .line 120
+    const-string v4, "DCM"
+
+    const-string v5, "ro.csc.sales_code"
+
+    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 121
+    const v4, 0x7f0b038b
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 118
+    .line 122
     .local v1, hapticFeedbackText:Landroid/widget/TextView;
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v4
 
-    const v4, 0x7f090543
+    const v5, 0x7f090570
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 120
+    .line 124
     .end local v1           #hapticFeedbackText:Landroid/widget/TextView;
     :cond_2
     return-void
@@ -627,23 +641,23 @@
     .parameter "positiveResult"
 
     .prologue
-    .line 188
-    invoke-super {p0, p1}, Landroid/preference/SeekBarDialogPreference;->onDialogClosed(Z)V
+    .line 192
+    invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onDialogClosed(Z)V
 
-    .line 189
+    .line 193
     if-eqz p1, :cond_0
 
-    .line 190
+    .line 194
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v0}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallVibrationIntensity:I
 
-    .line 191
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 195
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -657,7 +671,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 192
+    .line 196
     const-string v0, "VibrationFeedbackPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -688,17 +702,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 195
+    .line 199
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v0}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationVibrationIntensity:I
 
-    .line 196
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 200
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -712,7 +726,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 197
+    .line 201
     const-string v0, "VibrationFeedbackPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -743,17 +757,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 200
+    .line 204
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
 
-    invoke-virtual {v0}, Landroid/widget/SeekBar;->getProgress()I
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getProgress()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackVibrationIntensity:I
 
-    .line 201
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 205
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -767,7 +781,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 202
+    .line 206
     const-string v0, "VibrationFeedbackPreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -798,27 +812,27 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 210
+    .line 214
     :goto_0
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mVibrator:Landroid/os/SystemVibrator;
 
     invoke-virtual {v0}, Landroid/os/SystemVibrator;->cancel()V
 
-    .line 211
+    .line 215
     return-void
 
-    .line 205
+    .line 209
     :cond_0
     iget v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldIncomingCallVibrationSlideLevel:I
 
     invoke-direct {p0, v0}, Lcom/android/settings/VibrationFeedbackPreference;->setIncomingCallVibrationIntensity(I)V
 
-    .line 206
+    .line 210
     iget v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldNotificationVibrationSlideLevel:I
 
     invoke-direct {p0, v0}, Lcom/android/settings/VibrationFeedbackPreference;->setNotificationVibrationIntensity(I)V
 
-    .line 207
+    .line 211
     iget v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mOldHapticFeedbackVibrationSlideLevel:I
 
     invoke-direct {p0, v0}, Lcom/android/settings/VibrationFeedbackPreference;->setHapticFeedbackVibrationIntensity(I)V
@@ -837,7 +851,7 @@
 
     const/4 v1, 0x1
 
-    .line 125
+    .line 129
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v3
@@ -846,14 +860,14 @@
 
     move v0, v1
 
-    .line 126
+    .line 130
     .local v0, isdown:Z
     :goto_0
     packed-switch p2, :pswitch_data_0
 
     move v1, v2
 
-    .line 142
+    .line 146
     :cond_0
     :goto_1
     return v1
@@ -862,10 +876,10 @@
     :cond_1
     move v0, v2
 
-    .line 125
+    .line 129
     goto :goto_0
 
-    .line 128
+    .line 132
     .restart local v0       #isdown:Z
     :pswitch_0
     if-eqz v0, :cond_0
@@ -874,28 +888,28 @@
 
     if-lez v2, :cond_0
 
-    .line 129
+    .line 133
     iget v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
     add-int/lit8 v2, v2, -0x1
 
     iput v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
-    .line 130
+    .line 134
     iget-object v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
 
     if-eqz v2, :cond_0
 
-    .line 131
+    .line 135
     iget-object v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
 
     iget v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
-    invoke-virtual {v2, v3}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     goto :goto_1
 
-    .line 135
+    .line 139
     :pswitch_1
     if-eqz v0, :cond_0
 
@@ -905,28 +919,28 @@
 
     if-ge v2, v3, :cond_0
 
-    .line 136
+    .line 140
     iget v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
-    .line 137
+    .line 141
     iget-object v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
 
     if-eqz v2, :cond_0
 
-    .line 138
+    .line 142
     iget-object v2, p0, Lcom/android/settings/VibrationFeedbackPreference;->mHapticFeedbackSeekBar:Landroid/widget/SeekBar;
 
     iget v3, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
-    invoke-virtual {v2, v3}, Landroid/widget/SeekBar;->setProgress(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setProgress(I)V
 
     goto :goto_1
 
-    .line 126
+    .line 130
     nop
 
     :pswitch_data_0
@@ -945,7 +959,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 149
+    .line 153
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mIncomingCallSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -954,11 +968,11 @@
 
     if-eqz v0, :cond_3
 
-    .line 150
+    .line 154
     invoke-direct {p0, p2}, Lcom/android/settings/VibrationFeedbackPreference;->setIncomingCallVibrationIntensity(I)V
 
-    .line 152
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    .line 156
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -972,16 +986,16 @@
 
     move-result-object v9
 
-    .line 153
+    .line 157
     .local v9, temp:Ljava/lang/String;
     if-nez v9, :cond_0
 
-    .line 154
+    .line 158
     const-string v9, "content://com.android.settings.personalvibration.PersonalVibrationProvider/1"
 
-    .line 156
+    .line 160
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/VibrationFeedbackPreference;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -1003,18 +1017,18 @@
 
     move-result-object v6
 
-    .line 157
+    .line 161
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_2
 
-    .line 158
+    .line 162
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 159
+    .line 163
     const-string v0, "vibration_pattern"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -1025,17 +1039,17 @@
 
     move-result-object v8
 
-    .line 160
+    .line 164
     .local v8, patternStr:Ljava/lang/String;
     invoke-direct {p0, v8}, Lcom/android/settings/VibrationFeedbackPreference;->StringToLongArray(Ljava/lang/String;)[J
 
     move-result-object v7
 
-    .line 161
+    .line 165
     .local v7, pattern:[J
     if-eqz v7, :cond_1
 
-    .line 162
+    .line 166
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mVibrator:Landroid/os/SystemVibrator;
 
     const/4 v1, -0x1
@@ -1044,20 +1058,20 @@
 
     invoke-virtual {v0, v7, v1, v2}, Landroid/os/SystemVibrator;->vibrate([JILandroid/os/SystemVibrator$MagnitudeType;)V
 
-    .line 164
+    .line 168
     .end local v7           #pattern:[J
     .end local v8           #patternStr:Ljava/lang/String;
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 176
+    .line 180
     .end local v6           #c:Landroid/database/Cursor;
     .end local v9           #temp:Ljava/lang/String;
     :cond_2
     :goto_0
     return-void
 
-    .line 167
+    .line 171
     :cond_3
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mNotificationSeekBar:Landroid/widget/SeekBar;
 
@@ -1067,10 +1081,10 @@
 
     if-eqz v0, :cond_4
 
-    .line 168
+    .line 172
     invoke-direct {p0, p2}, Lcom/android/settings/VibrationFeedbackPreference;->setNotificationVibrationIntensity(I)V
 
-    .line 169
+    .line 173
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mVibrator:Landroid/os/SystemVibrator;
 
     const/16 v1, 0x11
@@ -1079,14 +1093,14 @@
 
     goto :goto_0
 
-    .line 172
+    .line 176
     :cond_4
     iput p2, p0, Lcom/android/settings/VibrationFeedbackPreference;->currentLevel:I
 
-    .line 173
+    .line 177
     invoke-direct {p0, p2}, Lcom/android/settings/VibrationFeedbackPreference;->setHapticFeedbackVibrationIntensity(I)V
 
-    .line 174
+    .line 178
     iget-object v0, p0, Lcom/android/settings/VibrationFeedbackPreference;->mVibrator:Landroid/os/SystemVibrator;
 
     const/16 v1, 0x9
@@ -1101,7 +1115,7 @@
     .parameter "seekBar"
 
     .prologue
-    .line 180
+    .line 184
     return-void
 .end method
 
@@ -1110,6 +1124,6 @@
     .parameter "seekBar"
 
     .prologue
-    .line 184
+    .line 188
     return-void
 .end method

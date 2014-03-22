@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1057
+    .line 1076
     iput-object p1, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 1059
+    .line 1078
     iget-object v2, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     iget-object v1, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
@@ -55,7 +55,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0499
+    const v3, 0x7f0b04f7
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -66,7 +66,7 @@
     #setter for: Lcom/android/settings/wifi/WifiApDialog;->mHideSsidDoNotShowAgain:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-static {v2, v1}, Lcom/android/settings/wifi/WifiApDialog;->access$2002(Lcom/android/settings/wifi/WifiApDialog;Lcom/sec/android/touchwiz/widget/TwCheckBox;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 1060
+    .line 1079
     iget-object v1, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #getter for: Lcom/android/settings/wifi/WifiApDialog;->mHideSsidDoNotShowAgain:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -80,14 +80,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 1061
+    .line 1080
     const-string v1, "WifiApDialog"
 
     const-string v2, "mHideSsidDoNotShowAgain is Checked"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1062
+    .line 1081
     iget-object v1, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #getter for: Lcom/android/settings/wifi/WifiApDialog;->mSharedPref:Landroid/content/SharedPreferences;
@@ -97,7 +97,7 @@
 
     if-nez v1, :cond_0
 
-    .line 1063
+    .line 1082
     iget-object v1, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     iget-object v2, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
@@ -121,7 +121,7 @@
     #setter for: Lcom/android/settings/wifi/WifiApDialog;->mSharedPref:Landroid/content/SharedPreferences;
     invoke-static {v1, v2}, Lcom/android/settings/wifi/WifiApDialog;->access$2202(Lcom/android/settings/wifi/WifiApDialog;Landroid/content/SharedPreferences;)Landroid/content/SharedPreferences;
 
-    .line 1064
+    .line 1083
     :cond_0
     iget-object v1, p0, Lcom/android/settings/wifi/WifiApDialog$5;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
@@ -134,16 +134,16 @@
 
     move-result-object v0
 
-    .line 1065
+    .line 1084
     .local v0, ed:Landroid/content/SharedPreferences$Editor;
     const-string v1, "HIDE_SSID_DO_NOTSHOW_AGAIN"
 
     invoke-interface {v0, v1, v5}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1066
+    .line 1085
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1068
+    .line 1087
     .end local v0           #ed:Landroid/content/SharedPreferences$Editor;
     :cond_1
     return-void

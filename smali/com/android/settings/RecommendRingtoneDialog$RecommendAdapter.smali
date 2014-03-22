@@ -116,14 +116,14 @@
     if-nez p1, :cond_2
 
     .line 145
-    const v5, 0x7f090ba5
+    const v5, 0x7f090cad
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
     .line 146
     const/16 v5, 0x8
 
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
     .line 152
     :goto_1
@@ -139,7 +139,7 @@
     const/4 v4, 0x1
 
     :cond_0
-    invoke-virtual {v0, v4}, Landroid/widget/RadioButton;->setChecked(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 154
     return-object v3
@@ -157,7 +157,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f040148
+    const v6, 0x7f04017d
 
     invoke-virtual {v5, v6, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -171,15 +171,15 @@
     .restart local v2       #text2:Landroid/widget/TextView;
     .restart local v3       #view:Landroid/view/View;
     :cond_2
-    const v5, 0x7f090ba6
+    const v5, 0x7f090cae
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
     .line 149
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 150
-    const v5, 0x7f090ba7
+    const v5, 0x7f090caf
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(I)V
 

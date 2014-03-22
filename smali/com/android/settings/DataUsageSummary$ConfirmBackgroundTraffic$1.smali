@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 2855
+    .line 3125
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$ConfirmBackgroundTraffic$1;->this$0:Lcom/android/settings/DataUsageSummary$ConfirmBackgroundTraffic;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,31 +43,31 @@
     .parameter "which"
 
     .prologue
-    .line 2858
+    .line 3128
     const-string v1, "DataUsage"
 
     const-string v2, "ConfirmBackgroundTraffic PositiveButton"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2859
+    .line 3129
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$ConfirmBackgroundTraffic$1;->this$0:Lcom/android/settings/DataUsageSummary$ConfirmBackgroundTraffic;
 
-    invoke-virtual {v1}, Lcom/android/settings/DataUsageSummary$ConfirmBackgroundTraffic;->getTargetFragment()Landroid/app/Fragment;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/DataUsageSummary;
 
-    .line 2860
+    .line 3130
     .local v0, target:Lcom/android/settings/DataUsageSummary;
     if-eqz v0, :cond_0
 
-    .line 2861
+    .line 3131
     #calls: Lcom/android/settings/DataUsageSummary;->setBackgroundTrafficOn()V
-    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$3800(Lcom/android/settings/DataUsageSummary;)V
+    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$4100(Lcom/android/settings/DataUsageSummary;)V
 
-    .line 2863
+    .line 3133
     :cond_0
     return-void
 .end method

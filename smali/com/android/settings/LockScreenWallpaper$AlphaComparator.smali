@@ -39,12 +39,12 @@
     .parameter
 
     .prologue
-    .line 347
+    .line 348
     iput-object p1, p0, Lcom/android/settings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 348
+    .line 349
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v0
@@ -62,7 +62,7 @@
     .parameter "b"
 
     .prologue
-    .line 353
+    .line 354
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/LockScreenWallpaper$AlphaComparator;->this$0:Lcom/android/settings/LockScreenWallpaper;
@@ -81,11 +81,11 @@
     :cond_0
     const/4 v0, -0x1
 
-    .line 356
+    .line 357
     :goto_0
     return v0
 
-    .line 354
+    .line 355
     :cond_1
     if-eqz p2, :cond_2
 
@@ -107,7 +107,7 @@
 
     goto :goto_0
 
-    .line 356
+    .line 357
     :cond_3
     iget-object v0, p0, Lcom/android/settings/LockScreenWallpaper$AlphaComparator;->sCollator:Ljava/text/Collator;
 
@@ -154,7 +154,7 @@
     .parameter "x1"
 
     .prologue
-    .line 347
+    .line 348
     check-cast p1, Landroid/content/pm/ResolveInfo;
 
     .end local p1

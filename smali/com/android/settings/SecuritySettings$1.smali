@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 272
+    .line 300
     iput-object p1, p0, Lcom/android/settings/SecuritySettings$1;->this$0:Lcom/android/settings/SecuritySettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -44,10 +44,10 @@
 
     const/4 v0, 0x0
 
-    .line 275
+    .line 303
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$1;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/SecuritySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -61,12 +61,12 @@
 
     move v0, v1
 
-    .line 276
+    .line 304
     .local v0, Enabled:Z
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 277
+    .line 305
     const-string v2, "SecuritySettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -89,7 +89,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 278
+    .line 306
     iget-object v2, p0, Lcom/android/settings/SecuritySettings$1;->this$0:Lcom/android/settings/SecuritySettings;
 
     #getter for: Lcom/android/settings/SecuritySettings;->mLockMyMobile:Landroid/preference/CheckBoxPreference;
@@ -97,9 +97,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 280
+    .line 308
     :cond_1
     return-void
 .end method

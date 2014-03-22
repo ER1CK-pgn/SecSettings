@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 157
+    .line 174
     iput-object p1, p0, Lcom/android/settings/MasterClear$1;->this$0:Lcom/android/settings/MasterClear;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,25 +42,47 @@
     .parameter "v"
 
     .prologue
-    .line 160
+    .line 177
+    iget-object v0, p0, Lcom/android/settings/MasterClear$1;->this$0:Lcom/android/settings/MasterClear;
+
+    const/4 v1, 0x0
+
+    #setter for: Lcom/android/settings/MasterClear;->mPinConfirmed:Z
+    invoke-static {v0, v1}, Lcom/android/settings/MasterClear;->access$002(Lcom/android/settings/MasterClear;Z)Z
+
+    .line 178
+    iget-object v0, p0, Lcom/android/settings/MasterClear$1;->this$0:Lcom/android/settings/MasterClear;
+
+    #calls: Lcom/android/settings/MasterClear;->runRestrictionsChallenge()Z
+    invoke-static {v0}, Lcom/android/settings/MasterClear;->access$100(Lcom/android/settings/MasterClear;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 191
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 181
+    :cond_1
     iget-object v0, p0, Lcom/android/settings/MasterClear$1;->this$0:Lcom/android/settings/MasterClear;
 
     const/16 v1, 0x37
 
     #calls: Lcom/android/settings/MasterClear;->runKeyguardConfirmation(I)Z
-    invoke-static {v0, v1}, Lcom/android/settings/MasterClear;->access$000(Lcom/android/settings/MasterClear;I)Z
+    invoke-static {v0, v1}, Lcom/android/settings/MasterClear;->access$200(Lcom/android/settings/MasterClear;I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 167
+    .line 188
     iget-object v0, p0, Lcom/android/settings/MasterClear$1;->this$0:Lcom/android/settings/MasterClear;
 
     #calls: Lcom/android/settings/MasterClear;->showFinalConfirmation()V
-    invoke-static {v0}, Lcom/android/settings/MasterClear;->access$100(Lcom/android/settings/MasterClear;)V
+    invoke-static {v0}, Lcom/android/settings/MasterClear;->access$300(Lcom/android/settings/MasterClear;)V
 
-    .line 170
-    :cond_0
-    return-void
+    goto :goto_0
 .end method

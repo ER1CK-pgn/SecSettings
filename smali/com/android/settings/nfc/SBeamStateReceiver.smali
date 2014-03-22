@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 10
+    .line 9
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -28,12 +28,12 @@
 
     const/4 v8, 0x0
 
-    .line 18
+    .line 22
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 20
+    .line 24
     .local v0, action:Ljava/lang/String;
     const-string v5, "android.nfc.action.ABEAM_STATE_CHANGED"
 
@@ -43,15 +43,15 @@
 
     if-eqz v5, :cond_1
 
-    .line 21
+    .line 26
     invoke-static {p1, p2}, Lcom/android/settings/nfc/SBeamEnabler;->procAbeamChanged(Landroid/content/Context;Landroid/content/Intent;)V
 
-    .line 96
+    .line 157
     :cond_0
     :goto_0
     return-void
 
-    .line 25
+    .line 32
     :cond_1
     const-string v5, "android.intent.action.BOOT_COMPLETED"
 
@@ -61,12 +61,12 @@
 
     if-eqz v5, :cond_2
 
-    .line 26
+    .line 34
     invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->initPreferenceForSbeam(Landroid/content/Context;)V
 
     goto :goto_0
 
-    .line 30
+    .line 40
     :cond_2
     const-string v5, "android.nfc.action.ADAPTER_STATE_CHANGED"
 
@@ -76,18 +76,18 @@
 
     if-eqz v5, :cond_4
 
-    .line 31
+    .line 42
     const-string v5, "android.nfc.extra.ADAPTER_STATE"
 
     invoke-virtual {p2, v5, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 32
+    .line 44
     .local v2, newState:I
     if-ne v9, v2, :cond_0
 
-    .line 33
+    .line 46
     const-string v5, "android.nfc.extra.PREF_ADAPTER_STATE"
 
     invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -102,7 +102,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 35
+    .line 51
     :cond_3
     const-string v5, "[SBeam]"
 
@@ -110,12 +110,12 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 36
+    .line 53
     invoke-static {p1, v8, v8}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
     goto :goto_0
 
-    .line 41
+    .line 61
     .end local v2           #newState:I
     :cond_4
     const-string v5, "android.nfc.action.ADAPTER_STATE_CHANGE_READER"
@@ -126,30 +126,30 @@
 
     if-eqz v5, :cond_5
 
-    .line 42
+    .line 63
     const-string v5, "android.nfc.extra.ADAPTER_STATE"
 
     invoke-virtual {p2, v5, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 43
+    .line 65
     .restart local v2       #newState:I
     if-ne v10, v2, :cond_0
 
-    .line 44
+    .line 67
     const-string v5, "[SBeam]"
 
     const-string v6, "SBeamStateReceiver : R/W P2P turn off"
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 45
+    .line 69
     invoke-static {p1, v8, v8}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
     goto :goto_0
 
-    .line 50
+    .line 77
     .end local v2           #newState:I
     :cond_5
     const-string v5, "com.android.settings.action.SBEAM_STATE_UPDATED"
@@ -158,16 +158,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_c
 
-    .line 51
+    .line 79
     const-string v5, "turn_on"
 
     invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
-    .line 52
+    .line 81
     .local v1, bOn:Z
     const-string v5, "[SBeam]"
 
@@ -197,28 +197,28 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 54
+    .line 83
     invoke-static {p1, v1, v9}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
-    .line 56
+    .line 85
     if-eqz v1, :cond_0
 
-    .line 57
+    .line 87
     invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->isAllowWifiByDevicePolicy(Landroid/content/Context;)Z
 
     move-result v5
 
     if-nez v5, :cond_6
 
-    .line 58
+    .line 89
     invoke-static {p1, v8, v9}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
-    .line 59
+    .line 91
     invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->showNotAllowWifi(Landroid/content/Context;)V
 
     goto/16 :goto_0
 
-    .line 64
+    .line 97
     :cond_6
     invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->isAllowSBeamOnOperatorAirplaneMode(Landroid/content/Context;)Z
 
@@ -226,66 +226,123 @@
 
     if-nez v5, :cond_7
 
-    .line 66
+    .line 99
     invoke-static {p1, v8, v9}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
-    .line 68
+    .line 101
     invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->showAirplaneMode(Landroid/content/Context;)V
 
     goto/16 :goto_0
 
-    .line 76
+    .line 107
     :cond_7
     invoke-static {p1}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
     move-result-object v3
 
-    .line 77
+    .line 109
     .local v3, nfcAdapter:Landroid/nfc/NfcAdapter;
+    if-nez v3, :cond_8
+
+    .line 110
+    const-string v5, "[SBeam]"
+
+    const-string v6, "SBeamStateReceiver : can\'t load nfcadpater(nfcAdapter is null)"
+
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 111
+    invoke-static {p1, v8, v9}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
+
+    goto/16 :goto_0
+
+    .line 115
+    :cond_8
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->enable()Z
 
-    .line 78
+    .line 117
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->readerEnable()Z
 
-    .line 79
+    .line 119
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->enableNdefPush()Z
 
-    .line 82
+    .line 123
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->getAdapterState()I
 
     move-result v4
 
-    .line 83
+    .line 125
     .local v4, state:I
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_8
+    if-ne v4, v5, :cond_9
 
     const/4 v5, 0x2
 
-    if-eq v4, v5, :cond_9
+    if-eq v4, v5, :cond_a
 
-    .line 84
-    :cond_8
+    .line 127
+    :cond_9
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->enable()Z
 
-    .line 86
-    :cond_9
-    if-ne v4, v10, :cond_a
+    .line 131
+    :cond_a
+    if-ne v4, v10, :cond_b
 
-    .line 87
+    .line 133
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->readerEnable()Z
 
-    .line 89
-    :cond_a
+    .line 137
+    :cond_b
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->isNdefPushEnabled()Z
 
     move-result v5
 
     if-nez v5, :cond_0
 
-    .line 90
+    .line 139
     invoke-virtual {v3}, Landroid/nfc/NfcAdapter;->enableNdefPush()Z
+
+    goto/16 :goto_0
+
+    .line 149
+    .end local v1           #bOn:Z
+    .end local v3           #nfcAdapter:Landroid/nfc/NfcAdapter;
+    .end local v4           #state:I
+    :cond_c
+    const-string v5, "com.android.nfc.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    .line 150
+    invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->isSBeamOn(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->isAllowWifiByDevicePolicy(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    .line 151
+    const-string v5, "[SBeam]"
+
+    const-string v6, "SBeamStateReceiver : apply eas policy"
+
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 152
+    invoke-static {p1, v8, v9}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
+
+    .line 153
+    invoke-static {p1}, Lcom/android/settings/nfc/SBeamEnabler;->showNotAllowWifi(Landroid/content/Context;)V
 
     goto/16 :goto_0
 .end method

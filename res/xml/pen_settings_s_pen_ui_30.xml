@@ -9,9 +9,7 @@
     <SwitchPreferenceScreen android:title="@string/hovering_pointer" android:key="key_spen_pointer" android:summary="@string/pen_settings_pointer_msg" android:fragment="com.android.settings.PenAirViewHelp">
         <extra android:name="type" android:value="pointer" />
     </SwitchPreferenceScreen>
-    <SwitchPreferenceScreen android:title="@string/pen_settings_pen_input" android:key="key_writing_buddy" android:summary="@string/pen_settings_pen_input_summary">
-        <intent android:targetPackage="com.samsung.android.writingbuddyservice" android:action="android.intent.action.VIEW" android:targetClass="com.samsung.android.writingbuddyservice.WritingBuddyServiceSettings" />
-    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/pen_settings_pen_input" android:key="key_writing_buddy" android:summary="@string/pen_settings_pen_input_summary" android:fragment="com.android.settings.DirectPenInputSettings" />
     <PreferenceCategory android:title="@string/pen_settings_hovering_section_title" android:key="pen_hover" />
     <SwitchPreferenceScreen android:title="@string/hovering_title" android:key="pen_air_view" android:summary="@string/hovering_msg" android:fragment="com.android.settings.PenAirViewSettingsMenu" />
     <SwitchPreferenceScreen android:title="@string/air_button_title" android:key="key_air_button" android:summary="@string/air_button_summary" android:fragment="com.android.settings.AirButtonHelp" />

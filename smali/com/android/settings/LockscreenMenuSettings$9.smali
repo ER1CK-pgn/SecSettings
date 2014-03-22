@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1889
+    .line 2123
     iput-object p1, p0, Lcom/android/settings/LockscreenMenuSettings$9;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
     iput-object p2, p0, Lcom/android/settings/LockscreenMenuSettings$9;->val$layout:Landroid/view/View;
@@ -49,10 +49,10 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 1892
+    .line 2126
     iget-object v4, p0, Lcom/android/settings/LockscreenMenuSettings$9;->val$layout:Landroid/view/View;
 
-    const v5, 0x7f0b0138
+    const v5, 0x7f0b0147
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -60,7 +60,7 @@
 
     check-cast v1, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 1893
+    .line 2127
     .local v1, check:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
@@ -68,7 +68,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 1894
+    .line 2128
     iget-object v4, p0, Lcom/android/settings/LockscreenMenuSettings$9;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
     invoke-virtual {v4}, Lcom/android/settings/LockscreenMenuSettings;->getActivity()Landroid/app/Activity;
@@ -81,22 +81,22 @@
 
     move-result-object v0
 
-    .line 1895
+    .line 2129
     .local v0, ReverbSharedPrefs:Landroid/content/SharedPreferences;
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 1896
+    .line 2130
     .local v2, ed:Landroid/content/SharedPreferences$Editor;
     const-string v4, "DoNotShowDialogOn"
 
     invoke-interface {v2, v4, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 1897
+    .line 2131
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1900
+    .line 2134
     .end local v0           #ReverbSharedPrefs:Landroid/content/SharedPreferences;
     .end local v2           #ed:Landroid/content/SharedPreferences$Editor;
     :cond_0
@@ -112,7 +112,7 @@
 
     move-result-object v3
 
-    .line 1901
+    .line 2135
     .local v3, safety_zone_list:Ljava/lang/String;
     const-string v4, ""
 
@@ -122,17 +122,17 @@
 
     if-eqz v4, :cond_1
 
-    .line 1902
+    .line 2136
     iget-object v4, p0, Lcom/android/settings/LockscreenMenuSettings$9;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 
     #calls: Lcom/android/settings/LockscreenMenuSettings;->showSafetyZoneEnableDialog()V
     invoke-static {v4}, Lcom/android/settings/LockscreenMenuSettings;->access$200(Lcom/android/settings/LockscreenMenuSettings;)V
 
-    .line 1906
+    .line 2140
     :goto_0
     return-void
 
-    .line 1904
+    .line 2138
     :cond_1
     iget-object v4, p0, Lcom/android/settings/LockscreenMenuSettings$9;->this$0:Lcom/android/settings/LockscreenMenuSettings;
 

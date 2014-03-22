@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 449
+    .line 450
     iput-object p1, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$2;->this$1:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
 
     iput-object p2, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$2;->val$row:Landroid/view/View;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
     .parameter "v"
 
     .prologue
-    .line 452
+    .line 453
     const-string v0, "layout layout"
 
     const/4 v1, 0x0
@@ -57,12 +57,12 @@
     #calls: Lcom/android/settings/DreamSettings;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-static {v0, v1}, Lcom/android/settings/DreamSettings;->access$800(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 453
+    .line 454
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setPressed(Z)V
 
-    .line 454
+    .line 455
     iget-object v1, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$2;->this$1:Lcom/android/settings/DreamSettings$DreamInfoAdapter;
 
     iget-object v0, p0, Lcom/android/settings/DreamSettings$DreamInfoAdapter$2;->val$row:Landroid/view/View;
@@ -76,6 +76,6 @@
     #calls: Lcom/android/settings/DreamSettings$DreamInfoAdapter;->activate(Lcom/android/settings/DreamBackend$DreamInfo;)V
     invoke-static {v1, v0}, Lcom/android/settings/DreamSettings$DreamInfoAdapter;->access$700(Lcom/android/settings/DreamSettings$DreamInfoAdapter;Lcom/android/settings/DreamBackend$DreamInfo;)V
 
-    .line 455
+    .line 456
     return-void
 .end method

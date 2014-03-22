@@ -53,7 +53,7 @@
 
     .prologue
     .line 101
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 102
     iput-object p2, p0, Lcom/android/settings/bluetooth/HidProfile;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
@@ -162,7 +162,7 @@
     .parameter "btClass"
 
     .prologue
-    const v0, 0x7f020159
+    const v0, 0x7f02019d
 
     .line 196
     invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getPeripheralMinorClass()I
@@ -174,7 +174,7 @@
     if-ne v1, v2, :cond_1
 
     .line 197
-    const v0, 0x7f02015a
+    const v0, 0x7f02019e
 
     .line 209
     :cond_0
@@ -192,7 +192,7 @@
     if-ne v1, v2, :cond_2
 
     .line 199
-    const v0, 0x7f02015c
+    const v0, 0x7f0201a0
 
     goto :goto_0
 
@@ -207,7 +207,7 @@
     if-ne v1, v2, :cond_3
 
     .line 201
-    const v0, 0x7f020164
+    const v0, 0x7f0201a9
 
     goto :goto_0
 
@@ -240,7 +240,7 @@
     if-eq v1, v2, :cond_0
 
     .line 209
-    const v0, 0x7f020156
+    const v0, 0x7f020199
 
     goto :goto_0
 .end method
@@ -335,7 +335,7 @@
     if-nez p1, :cond_0
 
     .line 189
-    const v0, 0x7f020156
+    const v0, 0x7f020199
 
     .line 191
     :goto_0
@@ -355,7 +355,7 @@
 
     .prologue
     .line 165
-    const v0, 0x7f090267
+    const v0, 0x7f09028c
 
     return v0
 .end method
@@ -401,7 +401,7 @@
     .parameter "device"
 
     .prologue
-    const v1, 0x7f090284
+    const v1, 0x7f0902ab
 
     .line 170
     iget-object v2, p0, Lcom/android/settings/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothInputDevice;
@@ -435,7 +435,7 @@
 
     .line 180
     :pswitch_2
-    const v1, 0x7f09027d
+    const v1, 0x7f0902a4
 
     goto :goto_0
 

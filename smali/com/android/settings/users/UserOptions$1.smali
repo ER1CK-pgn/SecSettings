@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 127
+    .line 138
     iput-object p1, p0, Lcom/android/settings/users/UserOptions$1;->this$0:Lcom/android/settings/users/UserOptions;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "which"
 
     .prologue
-    .line 129
+    .line 140
     iget-object v0, p0, Lcom/android/settings/users/UserOptions$1;->this$0:Lcom/android/settings/users/UserOptions;
 
     #calls: Lcom/android/settings/users/UserOptions;->removeThisUser()V
     invoke-static {v0}, Lcom/android/settings/users/UserOptions;->access$000(Lcom/android/settings/users/UserOptions;)V
 
-    .line 130
+    .line 141
     return-void
 .end method

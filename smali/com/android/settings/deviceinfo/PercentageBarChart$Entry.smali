@@ -44,7 +44,7 @@
 
     .prologue
     .line 47
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
     iput p1, p0, Lcom/android/settings/deviceinfo/PercentageBarChart$Entry;->order:I

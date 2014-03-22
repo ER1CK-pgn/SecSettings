@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 61
+    .line 62
     new-instance v0, Lcom/android/settings/ConfirmLockPattern$Stage;
 
     const-string v1, "NeedToUnlock"
@@ -53,7 +53,7 @@
 
     sput-object v0, Lcom/android/settings/ConfirmLockPattern$Stage;->NeedToUnlock:Lcom/android/settings/ConfirmLockPattern$Stage;
 
-    .line 62
+    .line 63
     new-instance v0, Lcom/android/settings/ConfirmLockPattern$Stage;
 
     const-string v1, "NeedToUnlockWrong"
@@ -62,7 +62,7 @@
 
     sput-object v0, Lcom/android/settings/ConfirmLockPattern$Stage;->NeedToUnlockWrong:Lcom/android/settings/ConfirmLockPattern$Stage;
 
-    .line 63
+    .line 64
     new-instance v0, Lcom/android/settings/ConfirmLockPattern$Stage;
 
     const-string v1, "LockedOut"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lcom/android/settings/ConfirmLockPattern$Stage;->LockedOut:Lcom/android/settings/ConfirmLockPattern$Stage;
 
-    .line 60
+    .line 61
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/settings/ConfirmLockPattern$Stage;
@@ -104,7 +104,7 @@
     .end annotation
 
     .prologue
-    .line 60
+    .line 61
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -115,7 +115,7 @@
     .parameter
 
     .prologue
-    .line 60
+    .line 61
     const-class v0, Lcom/android/settings/ConfirmLockPattern$Stage;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -131,10 +131,10 @@
     .locals 1
 
     .prologue
-    .line 60
+    .line 61
     sget-object v0, Lcom/android/settings/ConfirmLockPattern$Stage;->$VALUES:[Lcom/android/settings/ConfirmLockPattern$Stage;
 
-    invoke-virtual {v0}, [Lcom/android/settings/ConfirmLockPattern$Stage;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

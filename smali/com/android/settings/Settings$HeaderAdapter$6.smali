@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/Settings$HeaderAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/Settings$HeaderAdapter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,24 +27,42 @@
     .parameter
 
     .prologue
-    .line 2645
+    .line 4230
     iput-object p1, p0, Lcom/android/settings/Settings$HeaderAdapter$6;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 0
-    .parameter "arg0"
+.method public declared-synchronized onClick(Landroid/view/View;)V
+    .locals 1
+    .parameter "v"
 
     .prologue
-    .line 2648
-    invoke-static {}, Lcom/android/settings/Settings;->callSearchMenu()V
+    .line 4234
+    monitor-enter p0
 
-    .line 2649
+    :try_start_0
+    iget-object v0, p0, Lcom/android/settings/Settings$HeaderAdapter$6;->this$0:Lcom/android/settings/Settings$HeaderAdapter;
+
+    #calls: Lcom/android/settings/Settings$HeaderAdapter;->setCheckBoxTypeValue(Landroid/view/View;)V
+    invoke-static {v0, p1}, Lcom/android/settings/Settings$HeaderAdapter;->access$400(Lcom/android/settings/Settings$HeaderAdapter;Landroid/view/View;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 4235
+    monitor-exit p0
+
     return-void
+
+    .line 4234
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method

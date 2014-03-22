@@ -47,7 +47,7 @@
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-class v1, Lcom/android/settings/ChooseLockGeneric;
+    const-class v1, Lcom/android/settings/ChooseLockGeneric$InternalActivity;
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
@@ -73,21 +73,21 @@
     .line 52
     const-string v1, ":android:show_fragment_title"
 
-    const v2, 0x7f0901cb
+    const v2, 0x7f0901f0
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 55
-    invoke-virtual {p0, v0}, Lcom/android/settings/ChooseLockBLock;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     .line 57
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockBLock;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
     .line 62
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockBLock;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -95,7 +95,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0b009d
+    .packed-switch 0x7f0b00a8
         :pswitch_1
         :pswitch_0
     .end packed-switch
@@ -107,7 +107,7 @@
 
     .prologue
     .line 25
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockBLock;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -119,9 +119,9 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 29
-    const v2, 0x7f040034
+    const v2, 0x7f040039
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockBLock;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 31
     new-instance v2, Lcom/android/internal/widget/LockPatternUtils;
@@ -131,9 +131,9 @@
     iput-object v2, p0, Lcom/android/settings/ChooseLockBLock;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     .line 33
-    const v2, 0x7f0b009d
+    const v2, 0x7f0b00a8
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockBLock;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -141,9 +141,9 @@
 
     .line 34
     .local v0, cancelBtn:Landroid/widget/Button;
-    const v2, 0x7f0b009e
+    const v2, 0x7f0b00a9
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ChooseLockBLock;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -151,10 +151,10 @@
 
     .line 37
     .local v1, continueBtn:Landroid/widget/Button;
-    invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 38
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 40
     return-void

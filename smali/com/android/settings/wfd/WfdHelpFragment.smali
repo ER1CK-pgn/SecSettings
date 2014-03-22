@@ -65,7 +65,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 41
-    const v4, 0x7f0401a6
+    const v4, 0x7f0401e4
 
     const/4 v5, 0x0
 
@@ -75,7 +75,7 @@
 
     .line 43
     .local v3, v:Landroid/view/View;
-    const v4, 0x7f0b0474
+    const v4, 0x7f0b04dc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -88,16 +88,16 @@
     invoke-virtual {v0, v7}, Lcom/android/settings/wfd/IndexedTextLayout;->setIsTablet(Z)V
 
     .line 46
-    const v4, 0x7f0904ea
+    const v4, 0x7f090516
 
     invoke-virtual {v0, v4}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
     .line 48
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0904eb
+    const v5, 0x7f090517
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -122,16 +122,16 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(Ljava/lang/String;)V
 
     .line 51
-    const v4, 0x7f0904ec
+    const v4, 0x7f090518
 
     invoke-virtual {v0, v4}, Lcom/android/settings/wfd/IndexedTextLayout;->addContent(I)V
 
     .line 53
-    invoke-virtual {p0}, Lcom/android/settings/wfd/WfdHelpFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0904ed
+    const v5, 0x7f090519
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

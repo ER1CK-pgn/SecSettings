@@ -277,10 +277,10 @@
 
     .line 49
     .local v7, thread:Lcom/android/settings/search/SearchIntentReceiver$InitSerachDBThread;
-    invoke-virtual {v7, v8}, Lcom/android/settings/search/SearchIntentReceiver$InitSerachDBThread;->setDaemon(Z)V
+    invoke-virtual {v7, v8}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 50
-    invoke-virtual {v7}, Lcom/android/settings/search/SearchIntentReceiver$InitSerachDBThread;->start()V
+    invoke-virtual {v7}, Ljava/lang/Thread;->start()V
 
     .line 85
     .end local v7           #thread:Lcom/android/settings/search/SearchIntentReceiver$InitSerachDBThread;
@@ -322,10 +322,10 @@
 
     .line 56
     .local v7, thread:Lcom/android/settings/search/SearchIntentReceiver$InitTitleDBThread;
-    invoke-virtual {v7, v8}, Lcom/android/settings/search/SearchIntentReceiver$InitTitleDBThread;->setDaemon(Z)V
+    invoke-virtual {v7, v8}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 57
-    invoke-virtual {v7}, Lcom/android/settings/search/SearchIntentReceiver$InitTitleDBThread;->start()V
+    invoke-virtual {v7}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 
@@ -487,10 +487,10 @@
 
     .line 77
     .restart local v7       #thread:Lcom/android/settings/search/SearchIntentReceiver$InitTitleDBThread;
-    invoke-virtual {v7, v8}, Lcom/android/settings/search/SearchIntentReceiver$InitTitleDBThread;->setDaemon(Z)V
+    invoke-virtual {v7, v8}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 78
-    invoke-virtual {v7}, Lcom/android/settings/search/SearchIntentReceiver$InitTitleDBThread;->start()V
+    invoke-virtual {v7}, Ljava/lang/Thread;->start()V
 
     goto/16 :goto_0
 

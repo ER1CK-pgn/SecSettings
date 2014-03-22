@@ -15,7 +15,7 @@
     .locals 1
 
     .prologue
-    .line 16
+    .line 18
     const-class v0, Lcom/android/settings/AccessibilitySettingsSetupWizard;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -31,9 +31,51 @@
     .locals 0
 
     .prologue
-    .line 15
+    .line 17
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
+    return-void
+.end method
+
+.method private setIndicatorTransparency()V
+    .locals 4
+
+    .prologue
+    .line 73
+    const/16 v0, 0x400
+
+    .line 74
+    .local v0, visibility:I
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    .line 76
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    .line 77
+    .local v1, wmLp:Landroid/view/WindowManager$LayoutParams;
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const v3, 0x4000c00
+
+    or-int/2addr v2, v3
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    .line 79
     return-void
 .end method
 
@@ -47,17 +89,17 @@
     .parameter
 
     .prologue
-    .line 52
+    .line 57
     invoke-super {p0, p1, p2, p3, p4}, Landroid/preference/PreferenceActivity;->onBuildStartFragmentIntent(Ljava/lang/String;Landroid/os/Bundle;II)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 55
+    .line 60
     const-class v1, Lcom/android/settings/SubSettings;
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 56
+    .line 61
     return-object v0
 .end method
 
@@ -66,15 +108,15 @@
     .parameter "v"
 
     .prologue
-    .line 45
+    .line 50
     const/4 v0, -0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->setResult(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
 
-    .line 46
-    invoke-virtual {p0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->finish()V
+    .line 51
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 47
+    .line 52
     return-void
 .end method
 
@@ -83,46 +125,46 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 21
+    .line 23
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 22
-    invoke-virtual {p0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->getActionBar()Landroid/app/ActionBar;
+    .line 24
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
-    .line 23
-    invoke-virtual {p0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->getActionBar()Landroid/app/ActionBar;
+    .line 25
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3}, Landroid/app/ActionBar;->hide()V
 
-    .line 26
+    .line 28
     :cond_0
     const v3, 0x7f040001
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->setContentView(I)V
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 28
+    .line 30
     const v3, 0x7f0b000c
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 29
+    .line 31
     .local v0, button:Landroid/view/View;
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 30
+    .line 32
     instance-of v3, v0, Landroid/widget/Button;
 
     if-eqz v3, :cond_2
 
-    .line 31
+    .line 33
     sget-object v3, Lcom/android/settings/AccessibilitySettingsSetupWizard;->TAG:Ljava/lang/String;
 
     const-string v4, "Next is Button instance"
@@ -131,14 +173,14 @@
 
     move-object v1, v0
 
-    .line 32
+    .line 34
     check-cast v1, Landroid/widget/Button;
 
-    .line 33
+    .line 35
     .local v1, nextBtn:Landroid/widget/Button;
     const-string v3, ""
 
-    invoke-virtual {v1}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v4
 
@@ -148,24 +190,24 @@
 
     if-eqz v3, :cond_1
 
-    .line 34
-    invoke-virtual {p0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->getResources()Landroid/content/res/Resources;
+    .line 36
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f090704
+    const v4, 0x7f090757
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 35
+    .line 37
     .local v2, original_str:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0203dc
+    const v4, 0x7f02045c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -177,16 +219,19 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 40
+    .line 43
     .end local v1           #nextBtn:Landroid/widget/Button;
     .end local v2           #original_str:Ljava/lang/String;
     :cond_1
     :goto_0
+    invoke-direct {p0}, Lcom/android/settings/AccessibilitySettingsSetupWizard;->setIndicatorTransparency()V
+
+    .line 45
     return-void
 
-    .line 38
+    .line 40
     :cond_2
     sget-object v3, Lcom/android/settings/AccessibilitySettingsSetupWizard;->TAG:Ljava/lang/String;
 
@@ -201,7 +246,7 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 66
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -210,10 +255,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 62
+    .line 67
     const/4 v0, 0x0
 
-    .line 64
+    .line 69
     :goto_0
     return v0
 

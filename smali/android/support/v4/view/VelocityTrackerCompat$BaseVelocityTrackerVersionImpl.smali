@@ -23,7 +23,7 @@
 
     .prologue
     .line 37
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,6 +38,20 @@
     .prologue
     .line 40
     invoke-virtual {p1}, Landroid/view/VelocityTracker;->getXVelocity()F
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getYVelocity(Landroid/view/VelocityTracker;I)F
+    .locals 1
+    .parameter "tracker"
+    .parameter "pointerId"
+
+    .prologue
+    .line 44
+    invoke-virtual {p1}, Landroid/view/VelocityTracker;->getYVelocity()F
 
     move-result v0
 

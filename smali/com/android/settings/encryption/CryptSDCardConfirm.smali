@@ -32,7 +32,7 @@
     .locals 3
 
     .prologue
-    .line 42
+    .line 43
     const-string v0, "true"
 
     const-string v1, "ro.sec.fle.encryption"
@@ -58,30 +58,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 38
+    .line 39
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 41
+    .line 42
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->DEBUG:Z
 
-    .line 47
+    .line 48
     iput-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
-    .line 48
+    .line 49
     iput-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
 
-    .line 50
+    .line 51
     iput-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
-    .line 51
+    .line 52
     iput-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessages:Landroid/widget/TextView;
 
-    .line 52
+    .line 53
     iput-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mButtonEncSdCard:Landroid/widget/Button;
 
-    .line 54
+    .line 55
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mPassword:Ljava/lang/String;
@@ -94,7 +94,7 @@
     .parameter "x0"
 
     .prologue
-    .line 38
+    .line 39
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mPassword:Ljava/lang/String;
 
     return-object v0
@@ -106,7 +106,7 @@
     .parameter "x1"
 
     .prologue
-    .line 38
+    .line 39
     invoke-direct {p0, p1}, Lcom/android/settings/encryption/CryptSDCardConfirm;->applySDEncryption(Ljava/lang/String;)V
 
     return-void
@@ -117,7 +117,7 @@
     .parameter "password"
 
     .prologue
-    .line 175
+    .line 181
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
 
     iget-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
@@ -134,7 +134,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/dirEncryption/DirEncryptionManager;->setStorageCardEncryptionPolicy(III)I
 
-    .line 176
+    .line 182
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
 
     iget-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
@@ -145,24 +145,24 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/dirEncryption/DirEncryptionManager;->encryptStorage(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 178
+    .line 184
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
     if-eqz v0, :cond_0
 
-    .line 179
+    .line 185
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setResult(I)V
 
-    .line 180
+    .line 186
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 182
+    .line 188
     :cond_0
     return-void
 .end method
@@ -171,22 +171,22 @@
     .locals 6
 
     .prologue
-    const v4, 0x7f090be7
+    const v4, 0x7f090cf2
 
     const/4 v5, 0x2
 
-    .line 118
+    .line 119
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 119
+    .line 120
     .local v0, fullText:Ljava/lang/StringBuilder;
-    invoke-virtual {p0}, Lcom/android/settings/encryption/CryptSDCardConfirm;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 121
+    .line 122
     .local v1, res:Landroid/content/res/Resources;
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
@@ -196,12 +196,12 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 122
+    .line 123
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 123
+    .line 124
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -212,7 +212,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090bf6
+    const v3, 0x7f090d02
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -234,7 +234,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 125
+    .line 126
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessages:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -243,11 +243,11 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 172
+    .line 178
     :goto_0
     return-void
 
-    .line 129
+    .line 130
     :cond_0
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
@@ -255,12 +255,12 @@
 
     if-ne v2, v5, :cond_4
 
-    .line 130
+    .line 131
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 131
+    .line 132
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -271,7 +271,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090be9
+    const v3, 0x7f090cf4
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 139
+    .line 140
     :goto_1
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
@@ -303,7 +303,7 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 140
+    .line 141
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -314,7 +314,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090bed
+    const v3, 0x7f090cf8
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -336,7 +336,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 144
+    .line 145
     :cond_1
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
@@ -346,7 +346,7 @@
 
     if-ne v2, v3, :cond_5
 
-    .line 145
+    .line 146
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -357,7 +357,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090beb
+    const v3, 0x7f090cf6
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090bf3
+    const v4, 0x7f090cff
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -413,7 +413,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 157
+    .line 158
     :cond_2
     :goto_2
     new-instance v2, Ljava/lang/StringBuilder;
@@ -426,7 +426,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090bee
+    const v3, 0x7f090cf9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -460,7 +460,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090bef
+    const v4, 0x7f090cfa
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -494,7 +494,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090bf0
+    const v4, 0x7f090cfb
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -528,7 +528,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090bf1
+    const v4, 0x7f090cfc
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -550,14 +550,21 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 166
+    .line 167
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     iget v2, v2, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
-    if-eq v2, v5, :cond_3
+    if-ne v2, v5, :cond_6
 
-    .line 167
+    .line 168
+    invoke-static {}, Landroid/os/UserManager;->supportsMultipleUsers()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 169
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -568,7 +575,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090bf2
+    const v3, 0x7f090cfe
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -590,8 +597,9 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 171
+    .line 177
     :cond_3
+    :goto_3
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessages:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -602,15 +610,15 @@
 
     goto/16 :goto_0
 
-    .line 134
+    .line 135
     :cond_4
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f090be8
+    const v3, 0x7f090cf3
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 135
+    .line 136
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -621,7 +629,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090bea
+    const v3, 0x7f090cf5
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -645,7 +653,7 @@
 
     goto/16 :goto_1
 
-    .line 149
+    .line 150
     :cond_5
     iget-object v2, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
@@ -665,7 +673,7 @@
 
     if-eq v2, v5, :cond_2
 
-    .line 151
+    .line 152
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -676,7 +684,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090bec
+    const v3, 0x7f090cf7
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -710,7 +718,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090bf4
+    const v4, 0x7f090d00
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -733,6 +741,42 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto/16 :goto_2
+
+    .line 173
+    :cond_6
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "\u2022\t"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const v3, 0x7f090cfd
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "\n\n"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_3
 .end method
 
 
@@ -742,20 +786,20 @@
     .parameter "parent"
 
     .prologue
-    .line 74
+    .line 75
     invoke-super {p0, p1}, Landroid/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 75
+    .line 76
     iput-object p1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
 
-    .line 76
+    .line 77
     const-string v0, "CryptSDCardEncStatus"
 
     const-string v1, "onAttach"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 77
+    .line 78
     return-void
 .end method
 
@@ -768,8 +812,8 @@
     .prologue
     const/4 v3, -0x1
 
-    .line 81
-    const v0, 0x7f04004d
+    .line 82
+    const v0, 0x7f040053
 
     const/4 v1, 0x0
 
@@ -779,7 +823,7 @@
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    .line 83
+    .line 84
     new-instance v0, Landroid/dirEncryption/DirEncryptionManager;
 
     iget-object v1, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mParent:Landroid/app/Activity;
@@ -788,10 +832,10 @@
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mDem:Landroid/dirEncryption/DirEncryptionManager;
 
-    .line 85
+    .line 86
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0b00de
+    const v1, 0x7f0b00ed
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -801,10 +845,10 @@
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessageTitle:Landroid/widget/TextView;
 
-    .line 86
+    .line 87
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0b00df
+    const v1, 0x7f0b00ee
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -814,10 +858,10 @@
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mSdCardEncMessages:Landroid/widget/TextView;
 
-    .line 87
+    .line 88
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0b00e0
+    const v1, 0x7f0b00ef
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -827,13 +871,13 @@
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mButtonEncSdCard:Landroid/widget/Button;
 
-    .line 88
+    .line 89
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mButtonEncSdCard:Landroid/widget/Button;
 
-    invoke-virtual {v0}, Landroid/widget/Button;->requestFocus()Z
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    .line 90
-    invoke-virtual {p0}, Lcom/android/settings/encryption/CryptSDCardConfirm;->getArguments()Landroid/os/Bundle;
+    .line 91
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -845,17 +889,17 @@
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mPassword:Ljava/lang/String;
 
-    .line 92
+    .line 93
     new-instance v0, Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     invoke-direct {v0}, Landroid/dirEncryption/SDCardEncryptionPolicies;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
-    .line 93
+    .line 94
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
-    invoke-virtual {p0}, Lcom/android/settings/encryption/CryptSDCardConfirm;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -867,10 +911,10 @@
 
     iput v1, v0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
-    .line 94
+    .line 95
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
-    invoke-virtual {p0}, Lcom/android/settings/encryption/CryptSDCardConfirm;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -882,10 +926,10 @@
 
     iput v1, v0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
 
-    .line 95
+    .line 96
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
-    invoke-virtual {p0}, Lcom/android/settings/encryption/CryptSDCardConfirm;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -897,7 +941,7 @@
 
     iput v1, v0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
 
-    .line 96
+    .line 97
     const-string v0, "CryptSDCardEncStatus"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -952,7 +996,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 98
+    .line 99
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mUserPolicies:Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     iget v0, v0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
@@ -971,7 +1015,7 @@
 
     if-ne v0, v3, :cond_1
 
-    .line 99
+    .line 100
     :cond_0
     const-string v0, "CryptSDCardEncStatus"
 
@@ -979,14 +1023,14 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
+    .line 101
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mButtonEncSdCard:Landroid/widget/Button;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 105
+    .line 106
     :goto_0
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mButtonEncSdCard:Landroid/widget/Button;
 
@@ -994,20 +1038,20 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/encryption/CryptSDCardConfirm$1;-><init>(Lcom/android/settings/encryption/CryptSDCardConfirm;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 113
+    .line 114
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mContentView:Landroid/view/View;
 
     return-object v0
 
-    .line 102
+    .line 103
     :cond_1
     iget-object v0, p0, Lcom/android/settings/encryption/CryptSDCardConfirm;->mButtonEncSdCard:Landroid/widget/Button;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -1016,10 +1060,10 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 70
     invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 70
+    .line 71
     return-void
 .end method
 
@@ -1027,12 +1071,12 @@
     .locals 0
 
     .prologue
-    .line 63
+    .line 64
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 64
+    .line 65
     invoke-direct {p0}, Lcom/android/settings/encryption/CryptSDCardConfirm;->restoreUI()V
 
-    .line 65
+    .line 66
     return-void
 .end method

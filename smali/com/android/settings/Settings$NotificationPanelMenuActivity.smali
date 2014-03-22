@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 3872
+    .line 4922
     invoke-direct {p0}, Lcom/android/settings/Settings;-><init>()V
 
     return-void
@@ -33,8 +33,8 @@
     .parameter "event"
 
     .prologue
-    .line 3876
-    invoke-virtual {p0}, Lcom/android/settings/Settings$NotificationPanelMenuActivity;->getIntent()Landroid/content/Intent;
+    .line 4926
+    invoke-virtual {p0}, Lcom/android/settings/Settings;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
 
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    .line 3877
+    .line 4927
     .local v0, isFromQuickPanel:Z
     const-string v2, "Settings"
 
@@ -80,30 +80,30 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3878
+    .line 4928
     if-eqz v0, :cond_0
 
     const/4 v2, 0x4
 
     if-ne p1, v2, :cond_0
 
-    .line 3879
+    .line 4929
     const-string v2, "statusbar"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/Settings$NotificationPanelMenuActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/app/StatusBarManager;
 
-    .line 3880
+    .line 4930
     .local v1, mStatusBar:Landroid/app/StatusBarManager;
     if-eqz v1, :cond_0
 
-    .line 3881
+    .line 4931
     invoke-virtual {v1}, Landroid/app/StatusBarManager;->expandSettingsPanel()V
 
-    .line 3884
+    .line 4934
     .end local v1           #mStatusBar:Landroid/app/StatusBarManager;
     :cond_0
     invoke-super {p0, p1, p2}, Lcom/android/settings/Settings;->onKeyUp(ILandroid/view/KeyEvent;)Z

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 327
+    .line 335
     iput-object p1, p0, Lcom/android/settings/vpn2/VpnSettings$1;->this$0:Lcom/android/settings/vpn2/VpnSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,9 +43,9 @@
     .parameter "which"
 
     .prologue
-    .line 329
+    .line 337
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 330
+    .line 338
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 520
+    .line 600
     iput-object p1, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
 
     const/4 v2, 0x1
 
-    .line 522
+    .line 602
     iget-object v0, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
     #getter for: Lcom/android/settings/SoundSettings;->mRingtonePreference:Landroid/preference/Preference;
@@ -55,7 +55,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 523
+    .line 603
     iget-object v0, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
     iget-object v1, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
@@ -68,7 +68,7 @@
     #calls: Lcom/android/settings/SoundSettings;->updateRingtoneName(ILandroid/preference/Preference;I)V
     invoke-static {v0, v2, v1, v2}, Lcom/android/settings/SoundSettings;->access$700(Lcom/android/settings/SoundSettings;ILandroid/preference/Preference;I)V
 
-    .line 526
+    .line 606
     :cond_0
     iget-object v0, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -79,7 +79,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 527
+    .line 607
     iget-object v0, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
     iget-object v1, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
@@ -92,7 +92,7 @@
     #calls: Lcom/android/settings/SoundSettings;->updateRingtoneName(ILandroid/preference/Preference;I)V
     invoke-static {v0, v3, v1, v3}, Lcom/android/settings/SoundSettings;->access$700(Lcom/android/settings/SoundSettings;ILandroid/preference/Preference;I)V
 
-    .line 530
+    .line 610
     :cond_1
     iget-object v0, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -103,7 +103,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 531
+    .line 611
     iget-object v0, p0, Lcom/android/settings/SoundSettings$3;->this$0:Lcom/android/settings/SoundSettings;
 
     const/16 v1, 0x8
@@ -120,7 +120,7 @@
     #calls: Lcom/android/settings/SoundSettings;->updateRingtoneName(ILandroid/preference/Preference;I)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/settings/SoundSettings;->access$700(Lcom/android/settings/SoundSettings;ILandroid/preference/Preference;I)V
 
-    .line 534
+    .line 614
     :cond_2
     return-void
 .end method

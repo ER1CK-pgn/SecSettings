@@ -30,7 +30,7 @@
     .line 49
     iput-object p1, p0, Lcom/android/settings/fmm/RecipientsMinusView$1;->this$0:Lcom/android/settings/fmm/RecipientsMinusView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
     .line 53
     iget-object v2, p0, Lcom/android/settings/fmm/RecipientsMinusView$1;->this$0:Lcom/android/settings/fmm/RecipientsMinusView;
 
-    invoke-virtual {v2}, Lcom/android/settings/fmm/RecipientsMinusView;->getContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -63,9 +63,9 @@
     .local v1, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v2, p0, Lcom/android/settings/fmm/RecipientsMinusView$1;->this$0:Lcom/android/settings/fmm/RecipientsMinusView;
 
-    const v3, 0x7f0b01ff
+    const v3, 0x7f0b0237
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -77,14 +77,14 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->hasFocus()Z
+    invoke-virtual {v0}, Landroid/view/View;->hasFocus()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
     .line 57
-    invoke-virtual {v0}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v2
 
@@ -99,7 +99,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->removeAllViews()V
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->removeAllViews()V
 
     .line 60
     iget-object v2, p0, Lcom/android/settings/fmm/RecipientsMinusView$1;->this$0:Lcom/android/settings/fmm/RecipientsMinusView;

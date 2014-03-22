@@ -49,16 +49,16 @@
     .end annotation
 
     .prologue
-    .line 259
+    .line 266
     .local p3, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/applications/UninstallMultipleScreen$PInfo;>;"
     iput-object p1, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->this$0:Lcom/android/settings/applications/UninstallMultipleScreen;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 260
+    .line 267
     iput-object p3, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->mList:Ljava/util/ArrayList;
 
-    .line 261
+    .line 268
     const-string v0, "layout_inflater"
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -69,7 +69,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 262
+    .line 269
     return-void
 .end method
 
@@ -79,7 +79,7 @@
     .locals 1
 
     .prologue
-    .line 267
+    .line 274
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->mList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -94,7 +94,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 273
+    .line 280
     iget-object v0, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->mList:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -109,7 +109,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 279
+    .line 286
     int-to-long v0, p1
 
     return-wide v0
@@ -122,10 +122,10 @@
     .parameter "arg2"
 
     .prologue
-    .line 285
+    .line 292
     iget-object v3, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f04018b
+    const v4, 0x7f0401c9
 
     const/4 v5, 0x0
 
@@ -135,13 +135,13 @@
 
     move-result-object v2
 
-    .line 286
+    .line 293
     .local v2, view:Landroid/view/View;
     move v1, p1
 
-    .line 287
+    .line 294
     .local v1, listposition:I
-    const v3, 0x7f0b041a
+    const v3, 0x7f0b0483
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 288
+    .line 295
     .local v0, checkBox:Landroid/widget/CheckBox;
     iget-object v3, p0, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;->mList:Ljava/util/ArrayList;
 
@@ -164,15 +164,15 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroid/widget/CheckBox;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 289
+    .line 296
     new-instance v3, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;
 
     invoke-direct {v3, p0, v1}, Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter$1;-><init>(Lcom/android/settings/applications/UninstallMultipleScreen$AppAdapter;I)V
 
-    invoke-virtual {v0, v3}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v3}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 303
+    .line 310
     return-object v2
 .end method

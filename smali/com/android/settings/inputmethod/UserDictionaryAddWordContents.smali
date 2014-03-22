@@ -24,6 +24,10 @@
 
 .field private final mOldWord:Ljava/lang/String;
 
+.field private mSavedShortcut:Ljava/lang/String;
+
+.field private mSavedWord:Ljava/lang/String;
+
 .field private final mShortcutEditText:Landroid/widget/EditText;
 
 .field private final mWordEditText:Landroid/widget/EditText;
@@ -34,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 153
+    .line 169
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/String;
@@ -56,11 +60,11 @@
     .parameter "args"
 
     .prologue
-    .line 61
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 63
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
-    const v2, 0x7f0b0427
+    .line 64
+    const v2, 0x7f0b048f
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -70,8 +74,8 @@
 
     iput-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
 
-    .line 63
-    const v2, 0x7f0b042b
+    .line 65
+    const v2, 0x7f0b0492
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -81,32 +85,38 @@
 
     iput-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
 
-    .line 64
+    .line 66
     const-string v2, "word"
 
     invoke-virtual {p2, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 65
+    .line 67
     .local v1, word:Ljava/lang/String;
     if-eqz v1, :cond_0
 
-    .line 66
+    .line 68
     iget-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v2, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 67
+    .line 71
     iget-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    iget-object v3, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
+
+    invoke-virtual {v3}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Landroid/text/Editable;->length()I
 
     move-result v3
 
     invoke-virtual {v2, v3}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 69
+    .line 73
     :cond_0
     const-string v2, "shortcut"
 
@@ -114,7 +124,7 @@
 
     move-result-object v0
 
-    .line 70
+    .line 74
     .local v0, shortcut:Ljava/lang/String;
     if-eqz v0, :cond_1
 
@@ -122,12 +132,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 71
+    .line 75
     iget-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v2, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 73
+    .line 77
     :cond_1
     const-string v2, "mode"
 
@@ -137,7 +147,7 @@
 
     iput v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mMode:I
 
-    .line 74
+    .line 78
     const-string v2, "word"
 
     invoke-virtual {p2, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -146,7 +156,7 @@
 
     iput-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldWord:Ljava/lang/String;
 
-    .line 75
+    .line 79
     const-string v2, "shortcut"
 
     invoke-virtual {p2, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -155,7 +165,7 @@
 
     iput-object v2, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldShortcut:Ljava/lang/String;
 
-    .line 76
+    .line 80
     const-string v2, "locale"
 
     invoke-virtual {p2, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -164,7 +174,62 @@
 
     invoke-virtual {p0, v2}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->updateLocale(Ljava/lang/String;)V
 
-    .line 77
+    .line 81
+    return-void
+.end method
+
+.method constructor <init>(Landroid/view/View;Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;)V
+    .locals 1
+    .parameter "view"
+    .parameter "oldInstanceToBeEdited"
+
+    .prologue
+    .line 84
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 85
+    const v0, 0x7f0b048f
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
+
+    .line 86
+    const v0, 0x7f0b0492
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
+
+    .line 87
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mMode:I
+
+    .line 88
+    iget-object v0, p2, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mSavedWord:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldWord:Ljava/lang/String;
+
+    .line 89
+    iget-object v0, p2, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mSavedShortcut:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldShortcut:Ljava/lang/String;
+
+    .line 90
+    iget-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->updateLocale(Ljava/lang/String;)V
+
+    .line 91
     return-void
 .end method
 
@@ -187,18 +252,18 @@
     .end annotation
 
     .prologue
-    .line 208
+    .line 224
     .local p1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/inputmethod/UserDictionaryAddWordContents$LocaleRenderer;>;"
     if-eqz p2, :cond_0
 
-    .line 209
+    .line 225
     new-instance v0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents$LocaleRenderer;
 
     invoke-direct {v0, p0, p2}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents$LocaleRenderer;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 211
+    .line 227
     :cond_0
     return-void
 .end method
@@ -215,7 +280,7 @@
 
     const/4 v8, 0x0
 
-    .line 162
+    .line 178
     const-string v0, ""
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
@@ -226,7 +291,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 163
+    .line 179
     invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -245,12 +310,12 @@
 
     move-result-object v6
 
-    .line 172
+    .line 188
     .local v6, cursor:Landroid/database/Cursor;
     :goto_0
     if-nez v6, :cond_2
 
-    .line 175
+    .line 191
     if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -259,7 +324,7 @@
     :goto_1
     return v8
 
-    .line 167
+    .line 183
     .end local v6           #cursor:Landroid/database/Cursor;
     :cond_1
     invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -289,7 +354,7 @@
     .restart local v6       #cursor:Landroid/database/Cursor;
     goto :goto_0
 
-    .line 173
+    .line 189
     :cond_2
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
@@ -302,7 +367,7 @@
 
     move v0, v7
 
-    .line 175
+    .line 191
     :goto_2
     if-eqz v6, :cond_3
 
@@ -316,10 +381,10 @@
     :cond_4
     move v0, v8
 
-    .line 173
+    .line 189
     goto :goto_2
 
-    .line 175
+    .line 191
     :catchall_0
     move-exception v0
 
@@ -341,18 +406,18 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 107
+    .line 121
     if-eqz p2, :cond_0
 
     invoke-virtual {p0, p2}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->saveStateIntoBundle(Landroid/os/Bundle;)V
 
-    .line 108
+    .line 122
     :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 109
+    .line 123
     .local v2, resolver:Landroid/content/ContentResolver;
     iget v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mMode:I
 
@@ -366,14 +431,14 @@
 
     if-nez v5, :cond_1
 
-    .line 111
+    .line 125
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldWord:Ljava/lang/String;
 
     iget-object v6, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldShortcut:Ljava/lang/String;
 
     invoke-static {v5, v6, v2}, Lcom/android/settings/UserDictionarySettings;->deleteWord(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentResolver;)V
 
-    .line 113
+    .line 127
     :cond_1
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
 
@@ -385,16 +450,16 @@
 
     move-result-object v1
 
-    .line 115
+    .line 129
     .local v1, newWord:Ljava/lang/String;
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
 
     if-nez v5, :cond_2
 
-    .line 116
+    .line 130
     const/4 v0, 0x0
 
-    .line 125
+    .line 139
     .local v0, newShortcut:Ljava/lang/String;
     :goto_0
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -403,14 +468,14 @@
 
     if-eqz v5, :cond_4
 
-    .line 127
+    .line 141
     const/4 v4, 0x1
 
-    .line 150
+    .line 166
     :goto_1
     return v4
 
-    .line 118
+    .line 132
     .end local v0           #newShortcut:Ljava/lang/String;
     :cond_2
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
@@ -423,7 +488,7 @@
 
     move-result-object v3
 
-    .line 119
+    .line 133
     .local v3, tmpShortcut:Ljava/lang/String;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -431,13 +496,13 @@
 
     if-eqz v5, :cond_3
 
-    .line 120
+    .line 134
     const/4 v0, 0x0
 
     .restart local v0       #newShortcut:Ljava/lang/String;
     goto :goto_0
 
-    .line 122
+    .line 136
     .end local v0           #newShortcut:Ljava/lang/String;
     :cond_3
     move-object v0, v3
@@ -445,9 +510,15 @@
     .restart local v0       #newShortcut:Ljava/lang/String;
     goto :goto_0
 
-    .line 133
+    .line 143
     .end local v3           #tmpShortcut:Ljava/lang/String;
     :cond_4
+    iput-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mSavedWord:Ljava/lang/String;
+
+    .line 144
+    iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mSavedShortcut:Ljava/lang/String;
+
+    .line 149
     invoke-direct {p0, v1, p1}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->hasWord(Ljava/lang/String;Landroid/content/Context;)Z
 
     move-result v5
@@ -458,21 +529,21 @@
 
     goto :goto_1
 
-    .line 138
+    .line 154
     :cond_5
     invoke-static {v1, v4, v2}, Lcom/android/settings/UserDictionarySettings;->deleteWord(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentResolver;)V
 
-    .line 139
+    .line 155
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_6
 
-    .line 141
+    .line 157
     invoke-static {v1, v0, v2}, Lcom/android/settings/UserDictionarySettings;->deleteWord(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentResolver;)V
 
-    .line 146
+    .line 162
     :cond_6
     invoke-virtual {v1}, Ljava/lang/String;->toString()Ljava/lang/String;
 
@@ -491,12 +562,12 @@
     :goto_2
     invoke-static {p1, v5, v6, v0, v4}, Landroid/provider/UserDictionary$Words;->addWord(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;Ljava/util/Locale;)V
 
-    .line 150
+    .line 166
     const/4 v4, 0x0
 
     goto :goto_1
 
-    .line 146
+    .line 162
     :cond_7
     iget-object v4, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
 
@@ -512,7 +583,7 @@
     .parameter "context"
 
     .prologue
-    .line 98
+    .line 112
     iget v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mMode:I
 
     if-nez v1, :cond_0
@@ -525,12 +596,12 @@
 
     if-nez v1, :cond_0
 
-    .line 100
+    .line 114
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 101
+    .line 115
     .local v0, resolver:Landroid/content/ContentResolver;
     iget-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldWord:Ljava/lang/String;
 
@@ -538,10 +609,20 @@
 
     invoke-static {v1, v2, v0}, Lcom/android/settings/UserDictionarySettings;->deleteWord(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentResolver;)V
 
-    .line 104
+    .line 118
     .end local v0           #resolver:Landroid/content/ContentResolver;
     :cond_0
     return-void
+.end method
+
+.method public getCurrentUserDictionaryLocale()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 258
+    iget-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public getLocalesList(Landroid/app/Activity;)Ljava/util/ArrayList;
@@ -560,18 +641,18 @@
     .end annotation
 
     .prologue
-    .line 215
+    .line 231
     invoke-static {p1}, Lcom/android/settings/inputmethod/UserDictionaryList;->getUserDictionaryLocalesSet(Landroid/app/Activity;)Ljava/util/TreeSet;
 
     move-result-object v2
 
-    .line 217
+    .line 233
     .local v2, locales:Ljava/util/TreeSet;,"Ljava/util/TreeSet<Ljava/lang/String;>;"
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
 
     invoke-virtual {v2, v5}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    .line 218
+    .line 234
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v5
@@ -580,27 +661,27 @@
 
     move-result-object v4
 
-    .line 220
+    .line 236
     .local v4, systemLocale:Ljava/lang/String;
     invoke-virtual {v2, v4}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    .line 221
+    .line 237
     const-string v5, ""
 
     invoke-virtual {v2, v5}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    .line 222
+    .line 238
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 225
+    .line 241
     .local v3, localesList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/inputmethod/UserDictionaryAddWordContents$LocaleRenderer;>;"
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
 
     invoke-static {p1, v3, v5}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->addLocaleDisplayNameToList(Landroid/content/Context;Ljava/util/ArrayList;Ljava/lang/String;)V
 
-    .line 226
+    .line 242
     iget-object v5, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -609,10 +690,10 @@
 
     if-nez v5, :cond_0
 
-    .line 227
+    .line 243
     invoke-static {p1, v3, v4}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->addLocaleDisplayNameToList(Landroid/content/Context;Ljava/util/ArrayList;Ljava/lang/String;)V
 
-    .line 229
+    .line 245
     :cond_0
     invoke-virtual {v2}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
 
@@ -632,13 +713,13 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 231
+    .line 247
     .local v1, l:Ljava/lang/String;
     invoke-static {p1, v3, v1}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->addLocaleDisplayNameToList(Landroid/content/Context;Ljava/util/ArrayList;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 233
+    .line 249
     .end local v1           #l:Ljava/lang/String;
     :cond_1
     const-string v5, ""
@@ -651,12 +732,12 @@
 
     if-nez v5, :cond_2
 
-    .line 235
+    .line 251
     const-string v5, ""
 
     invoke-static {p1, v3, v5}, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->addLocaleDisplayNameToList(Landroid/content/Context;Ljava/util/ArrayList;Ljava/lang/String;)V
 
-    .line 237
+    .line 253
     :cond_2
     new-instance v5, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents$LocaleRenderer;
 
@@ -666,7 +747,7 @@
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 238
+    .line 254
     return-object v3
 .end method
 
@@ -675,7 +756,7 @@
     .parameter "outState"
 
     .prologue
-    .line 86
+    .line 100
     const-string v0, "word"
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
@@ -690,19 +771,19 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 87
+    .line 101
     const-string v0, "originalWord"
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldWord:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 88
+    .line 102
     iget-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
 
-    .line 89
+    .line 103
     const-string v0, "shortcut"
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
@@ -717,20 +798,20 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 91
+    .line 105
     :cond_0
     iget-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldShortcut:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
-    .line 92
+    .line 106
     const-string v0, "originalShortcut"
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mOldShortcut:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 94
+    .line 108
     :cond_1
     const-string v0, "locale"
 
@@ -738,7 +819,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 95
+    .line 109
     return-void
 .end method
 
@@ -747,7 +828,7 @@
     .parameter "locale"
 
     .prologue
-    .line 82
+    .line 96
     if-nez p1, :cond_0
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -762,6 +843,6 @@
     :cond_0
     iput-object p1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mLocale:Ljava/lang/String;
 
-    .line 83
+    .line 97
     return-void
 .end method

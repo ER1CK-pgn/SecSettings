@@ -60,13 +60,9 @@
 
 .field private final mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
 
-.field private final mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
 .field private final mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
 .field private final mPremiumWatchEnabler:Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
-
-.field private final mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
 
 .field private mTetheredData:I
 
@@ -74,14 +70,14 @@
 
 .field private final mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
-.field private final mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
+.field private final mWifiCallingEnabler:Lcom/android/settings/wifi/WifiCallingEnabler;
 
 .field private final mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;Lcom/android/settings/accounts/AuthenticatorHelper;)V
-    .locals 11
+    .locals 6
     .parameter "context"
     .parameter
     .parameter "authenticatorHelper"
@@ -100,334 +96,296 @@
 
     .prologue
     .local p2, objects:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
-    const/4 v9, 0x1
+    const/4 v2, 0x0
 
-    const/4 v10, 0x0
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    .line 1318
-    invoke-direct {p0, p1, v10, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
-
-    .line 1214
-    iput v10, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTetheredData:I
-
-    .line 1319
-    iput-object p1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mContext:Landroid/content/Context;
-
-    .line 1320
-    iput-object p3, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAuthHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
-
-    .line 1321
-    const-string v0, "layout_inflater"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/LayoutInflater;
-
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
-
-    .line 1325
-    new-instance v0, Lcom/android/settings/wifi/WifiEnabler;
-
-    new-instance v1, Landroid/widget/Switch;
-
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/wifi/WifiEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
-
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
-
-    .line 1339
-    iput-object v3, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    .line 1342
-    new-instance v0, Lcom/android/settings/AirplaneModeSwitchEnabler;
-
-    new-instance v1, Landroid/widget/Switch;
-
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/AirplaneModeSwitchEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
-
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirplaneModeSwitchEnabler:Lcom/android/settings/AirplaneModeSwitchEnabler;
+    .line 1460
+    invoke-direct {p0, p1, v4, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
     .line 1344
-    new-instance v0, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
+    iput v4, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTetheredData:I
 
-    new-instance v1, Landroid/widget/Switch;
+    .line 1461
+    iput-object p1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    .line 1462
+    iput-object p3, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAuthHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    .line 1463
+    const-string v1, "layout_inflater"
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPremiumWatchEnabler:Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1345
-    new-instance v0, Lcom/android/settings/bluetooth/BluetoothEnabler;
+    move-result-object v1
 
-    new-instance v1, Landroid/widget/Switch;
+    check-cast v1, Landroid/view/LayoutInflater;
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/bluetooth/BluetoothEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    .line 1467
+    new-instance v1, Lcom/android/settings/wifi/WifiEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    .line 1346
-    new-instance v0, Lcom/android/settings/dormantmode/DormantModeEnabler;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/wifi/WifiEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/dormantmode/DormantModeEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    .line 1472
+    iput-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiCallingEnabler:Lcom/android/settings/wifi/WifiCallingEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
+    .line 1491
+    new-instance v1, Lcom/android/settings/AirplaneModeSwitchEnabler;
 
-    .line 1347
-    new-instance v0, Lcom/android/settings/DrivingModeEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/AirplaneModeSwitchEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/DrivingModeEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirplaneModeSwitchEnabler:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
+    .line 1493
+    new-instance v1, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
 
-    .line 1348
-    new-instance v0, Lcom/android/settings/launchcamera/LaunchCameraEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/launchcamera/LaunchCameraEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPremiumWatchEnabler:Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mLaunchCameraEnabler:Lcom/android/settings/launchcamera/LaunchCameraEnabler;
+    .line 1494
+    new-instance v1, Lcom/android/settings/bluetooth/BluetoothEnabler;
 
-    .line 1349
-    new-instance v0, Lcom/android/settings/powersavingmode/PowerSavingEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/bluetooth/BluetoothEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
+    .line 1495
+    new-instance v1, Lcom/android/settings/dormantmode/DormantModeEnabler;
 
-    .line 1350
-    new-instance v0, Lcom/android/settings/motion/MotionEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/dormantmode/DormantModeEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/motion/MotionEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mMotionEnabler:Lcom/android/settings/motion/MotionEnabler;
+    .line 1496
+    new-instance v1, Lcom/android/settings/DrivingModeEnabler;
 
-    .line 1351
-    new-instance v0, Lcom/android/settings/FingerAirViewEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/DrivingModeEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/FingerAirViewEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mFingerAirViewEnabler:Lcom/android/settings/FingerAirViewEnabler;
+    .line 1497
+    new-instance v1, Lcom/android/settings/launchcamera/LaunchCameraEnabler;
 
-    .line 1352
-    new-instance v0, Lcom/android/settings/AirViewEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/launchcamera/LaunchCameraEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/AirViewEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mLaunchCameraEnabler:Lcom/android/settings/launchcamera/LaunchCameraEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirViewEnabler:Lcom/android/settings/AirViewEnabler;
+    .line 1498
+    new-instance v1, Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
-    .line 1353
-    new-instance v0, Lcom/android/settings/torchlight/TorchlightEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    new-instance v1, Landroid/widget/Switch;
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/torchlight/TorchlightEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTorchlightEnabler:Lcom/android/settings/torchlight/TorchlightEnabler;
+    .line 1499
+    new-instance v1, Lcom/android/settings/motion/MotionEnabler;
 
-    .line 1355
-    new-instance v0, Lcom/android/settings/nearby/NearbyEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
-    invoke-direct {v0, p1}, Lcom/android/settings/nearby/NearbyEnabler;-><init>(Landroid/content/Context;)V
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/motion/MotionEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    .line 1357
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mContext:Landroid/content/Context;
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mMotionEnabler:Lcom/android/settings/motion/MotionEnabler;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 1500
+    new-instance v1, Lcom/android/settings/FingerAirViewEnabler;
 
-    move-result-object v0
+    new-instance v5, Landroid/widget/Switch;
 
-    const-string v1, "android.hardware.nfc"
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/FingerAirViewEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    move-result v0
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mFingerAirViewEnabler:Lcom/android/settings/FingerAirViewEnabler;
 
-    if-eqz v0, :cond_1
+    .line 1501
+    new-instance v1, Lcom/android/settings/AirViewEnabler;
 
-    .line 1358
-    new-instance v0, Lcom/android/settings/nfc/NfcEnabler;
+    new-instance v5, Landroid/widget/Switch;
 
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/AirViewEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirViewEnabler:Lcom/android/settings/AirViewEnabler;
+
+    .line 1502
+    new-instance v1, Lcom/android/settings/torchlight/TorchlightEnabler;
+
+    new-instance v5, Landroid/widget/Switch;
+
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/torchlight/TorchlightEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTorchlightEnabler:Lcom/android/settings/torchlight/TorchlightEnabler;
+
+    .line 1504
+    new-instance v1, Lcom/android/settings/nearby/NearbyEnabler;
+
+    invoke-direct {v1, p1}, Lcom/android/settings/nearby/NearbyEnabler;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
+
+    .line 1506
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mContext:Landroid/content/Context;
 
-    new-instance v2, Landroid/widget/Switch;
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    invoke-direct {v2, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    move-result-object v1
 
-    move-object v4, v3
+    const-string v5, "android.hardware.nfc"
 
-    move-object v5, v3
+    invoke-virtual {v1, v5}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-object v6, v3
+    move-result v1
 
-    move-object v7, v3
+    if-eqz v1, :cond_0
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/settings/nfc/NfcEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;Landroid/preference/SwitchPreferenceScreen;Landroid/preference/SwitchPreferenceScreen;Landroid/preference/PreferenceScreen;Landroid/preference/PreferenceScreen;Lcom/android/settings/nfc/NfcEnabler$INfcHelpController;)V
-
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    .line 1364
-    :goto_0
-    new-instance v0, Lcom/android/settings/nfc/SBeamEnabler;
-
-    new-instance v1, Landroid/widget/Switch;
-
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    invoke-direct {v0, p1, v1, v3}, Lcom/android/settings/nfc/SBeamEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;)V
-
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    .line 1369
-    new-instance v0, Lcom/android/settings/VoiceInputControlEnabler;
-
-    new-instance v1, Landroid/widget/Switch;
-
-    invoke-direct {v1, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
-
-    invoke-direct {v0, p1, v1}, Lcom/android/settings/VoiceInputControlEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
-
-    iput-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
-
-    .line 1371
-    instance-of v0, p1, Landroid/app/Activity;
-
-    if-eqz v0, :cond_2
-
-    move-object v0, p1
-
-    check-cast v0, Landroid/app/Activity;
-
-    :goto_1
-    invoke-static {v0}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
-
-    move-result v0
-
-    if-ne v0, v9, :cond_0
-
-    move-object v0, p1
-
-    .line 1372
-    check-cast v0, Landroid/app/Activity;
-
-    iget-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
-
-    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
-
-    invoke-static {v0, v1, v2}, Lcom/android/settings/guide/GuideFragment;->setEnablersForGuide(Landroid/app/Activity;Lcom/android/settings/wifi/WifiEnabler;Lcom/android/settings/bluetooth/BluetoothEnabler;)V
-
-    .line 1375
+    .line 1518
     :cond_0
-    sget-object v0, Lcom/android/internal/R$styleable;->Theme:[I
+    new-instance v1, Lcom/android/settings/VoiceInputControlEnabler;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    new-instance v5, Landroid/widget/Switch;
 
-    move-result-object v8
+    invoke-direct {v5, p1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    .line 1376
-    .local v8, a:Landroid/content/res/TypedArray;
-    const/16 v0, 0x111
+    invoke-direct {v1, p1, v5}, Lcom/android/settings/VoiceInputControlEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
 
-    const v1, 0x10900c9
+    iput-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
-    invoke-virtual {v8, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    .line 1520
+    instance-of v1, p1, Landroid/app/Activity;
 
-    move-result v0
+    if-eqz v1, :cond_2
 
-    iput v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
+    move-object v1, p1
 
-    .line 1377
-    const/16 v0, 0x135
+    check-cast v1, Landroid/app/Activity;
 
-    invoke-virtual {v8, v0, v10}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    :goto_0
+    invoke-static {v1}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode(Landroid/app/Activity;)Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->isDeviceDefault:Z
+    if-ne v1, v3, :cond_1
 
-    .line 1379
+    move-object v1, p1
+
+    .line 1521
+    check-cast v1, Landroid/app/Activity;
+
+    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
+
+    iget-object v5, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
+
+    invoke-static {v1, v2, v5}, Lcom/android/settings/guide/GuideFragment;->setEnablersForGuide(Landroid/app/Activity;Lcom/android/settings/wifi/WifiEnabler;Lcom/android/settings/bluetooth/BluetoothEnabler;)V
+
+    .line 1524
+    :cond_1
+    sget-object v1, Lcom/android/internal/R$styleable;->Theme:[I
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    .line 1525
+    .local v0, a:Landroid/content/res/TypedArray;
+    const/16 v1, 0x109
+
+    const v2, 0x109009b
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
+
+    .line 1526
+    const/16 v1, 0x13b
+
+    invoke-virtual {v0, v1, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->isDeviceDefault:Z
+
+    .line 1528
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget v0, v0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+    iget v1, v1, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    const/16 v1, 0x258
+    const/16 v2, 0x258
 
-    if-lt v0, v1, :cond_3
+    if-lt v1, v2, :cond_3
 
-    move v0, v9
+    move v1, v3
 
-    :goto_2
-    iput-boolean v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->isTablet:Z
+    :goto_1
+    iput-boolean v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->isTablet:Z
 
-    .line 1380
+    .line 1529
     return-void
 
-    .line 1360
-    .end local v8           #a:Landroid/content/res/TypedArray;
-    :cond_1
-    iput-object v3, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
+    .end local v0           #a:Landroid/content/res/TypedArray;
+    :cond_2
+    move-object v1, v2
 
+    .line 1520
     goto :goto_0
 
-    :cond_2
-    move-object v0, v3
-
-    .line 1371
-    goto :goto_1
-
-    .restart local v8       #a:Landroid/content/res/TypedArray;
+    .restart local v0       #a:Landroid/content/res/TypedArray;
     :cond_3
-    move v0, v10
+    move v1, v4
 
-    .line 1379
-    goto :goto_2
+    .line 1528
+    goto :goto_1
 .end method
 
 .method static synthetic access$200(Lcom/android/settings/SettingsTabActivity$HeaderAdapter;)Landroid/content/Context;
@@ -435,7 +393,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1174
+    .line 1301
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -446,11 +404,11 @@
     .parameter "header"
 
     .prologue
-    const-wide/32 v5, 0x7f0b057d
+    const-wide/32 v5, 0x7f0b05e4
 
     const/4 v4, 0x0
 
-    .line 1254
+    .line 1387
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
 
     if-nez v0, :cond_0
@@ -465,18 +423,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 1255
+    .line 1394
     const/4 v0, 0x0
 
-    .line 1279
+    .line 1421
     :goto_0
     return v0
 
-    .line 1256
+    .line 1395
     :cond_0
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b0579
+    const-wide/32 v2, 0x7f0b05e0
 
     cmp-long v0, v0, v2
 
@@ -484,7 +442,15 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b057b
+    const-wide/32 v2, 0x7f0b05e2
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_3
+
+    iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    const-wide/32 v2, 0x7f0b05df
 
     cmp-long v0, v0, v2
 
@@ -498,7 +464,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b0594
+    const-wide/32 v2, 0x7f0b05fc
 
     cmp-long v0, v0, v2
 
@@ -506,7 +472,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b059a
+    const-wide/32 v2, 0x7f0b0602
 
     cmp-long v0, v0, v2
 
@@ -514,7 +480,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b059b
+    const-wide/32 v2, 0x7f0b0603
 
     cmp-long v0, v0, v2
 
@@ -522,7 +488,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b0598
+    const-wide/32 v2, 0x7f0b0600
 
     cmp-long v0, v0, v2
 
@@ -530,7 +496,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b059f
+    const-wide/32 v2, 0x7f0b0607
 
     cmp-long v0, v0, v2
 
@@ -538,7 +504,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b05a0
+    const-wide/32 v2, 0x7f0b0608
 
     cmp-long v0, v0, v2
 
@@ -553,7 +519,7 @@
     :cond_1
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b05ab
+    const-wide/32 v2, 0x7f0b0613
 
     cmp-long v0, v0, v2
 
@@ -561,7 +527,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b05ac
+    const-wide/32 v2, 0x7f0b0614
 
     cmp-long v0, v0, v2
 
@@ -569,7 +535,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b05a8
+    const-wide/32 v2, 0x7f0b0610
 
     cmp-long v0, v0, v2
 
@@ -584,7 +550,7 @@
     :cond_2
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b05da
+    const-wide/32 v2, 0x7f0b0655
 
     cmp-long v0, v0, v2
 
@@ -592,7 +558,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b057a
+    const-wide/32 v2, 0x7f0b05e1
 
     cmp-long v0, v0, v2
 
@@ -600,7 +566,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b0588
+    const-wide/32 v2, 0x7f0b05f0
 
     cmp-long v0, v0, v2
 
@@ -608,7 +574,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b058a
+    const-wide/32 v2, 0x7f0b05f2
 
     cmp-long v0, v0, v2
 
@@ -616,7 +582,7 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b05ad
+    const-wide/32 v2, 0x7f0b0615
 
     cmp-long v0, v0, v2
 
@@ -624,34 +590,34 @@
 
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b058b
+    const-wide/32 v2, 0x7f0b05f3
 
     cmp-long v0, v0, v2
 
     if-nez v0, :cond_4
 
-    .line 1275
+    .line 1417
     :cond_3
     const/4 v0, 0x2
 
     goto/16 :goto_0
 
-    .line 1276
+    .line 1418
     :cond_4
     iget-wide v0, p0, Landroid/preference/PreferenceActivity$Header;->id:J
 
-    const-wide/32 v2, 0x7f0b0572
+    const-wide/32 v2, 0x7f0b05d8
 
     cmp-long v0, v0, v2
 
     if-nez v0, :cond_5
 
-    .line 1277
+    .line 1419
     const/4 v0, 0x3
 
     goto/16 :goto_0
 
-    .line 1279
+    .line 1421
     :cond_5
     const/4 v0, 0x1
 
@@ -667,254 +633,239 @@
 
     const/4 v1, 0x0
 
-    .line 1797
+    .line 1961
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$600()I
 
     move-result v2
 
-    if-ne v2, v0, :cond_0
+    if-ne v2, v0, :cond_1
 
-    .line 1798
+    .line 1962
     :goto_0
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b0579
-
-    cmp-long v2, v2, v4
-
-    if-nez v2, :cond_1
-
-    .line 1799
-    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
-
-    invoke-virtual {v2, p1, v0}, Lcom/android/settings/wifi/WifiEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-
-    .line 1825
-    :goto_1
-    invoke-static {v1}, Lcom/android/settings/SettingsTabActivity;->access$502(Z)Z
-
-    .line 1826
-    return-void
-
-    :cond_0
-    move v0, v1
-
-    .line 1797
-    goto :goto_0
-
-    .line 1800
-    :cond_1
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
-
-    move-result-wide v2
-
-    const-wide/32 v4, 0x7f0b057b
+    const-wide/32 v4, 0x7f0b05e0
 
     cmp-long v2, v2, v4
 
     if-nez v2, :cond_2
 
-    .line 1801
+    .line 1963
+    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
+
+    invoke-virtual {v2, p1, v0}, Lcom/android/settings/wifi/WifiEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+
+    .line 1989
+    :cond_0
+    :goto_1
+    invoke-static {v1}, Lcom/android/settings/SettingsTabActivity;->access$402(Z)Z
+
+    .line 1990
+    return-void
+
+    :cond_1
+    move v0, v1
+
+    .line 1961
+    goto :goto_0
+
+    .line 1964
+    :cond_2
+    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
+
+    move-result-wide v2
+
+    const-wide/32 v4, 0x7f0b05e2
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_3
+
+    .line 1965
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/bluetooth/BluetoothEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto :goto_1
 
-    .line 1802
-    :cond_2
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
-
-    move-result-wide v2
-
-    const-wide/32 v4, 0x7f0b0588
-
-    cmp-long v2, v2, v4
-
-    if-nez v2, :cond_3
-
-    .line 1803
-    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    invoke-virtual {v2, p1, v0}, Lcom/android/settings/nfc/NfcEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-
-    goto :goto_1
-
-    .line 1804
+    .line 1966
     :cond_3
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b058a
+    const-wide/32 v4, 0x7f0b05f0
+
+    cmp-long v2, v2, v4
+
+    if-eqz v2, :cond_0
+
+    .line 1968
+    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
+
+    move-result-wide v2
+
+    const-wide/32 v4, 0x7f0b05f2
+
+    cmp-long v2, v2, v4
+
+    if-eqz v2, :cond_0
+
+    .line 1970
+    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
+
+    move-result-wide v2
+
+    const-wide/32 v4, 0x7f0b0602
 
     cmp-long v2, v2, v4
 
     if-nez v2, :cond_4
 
-    .line 1805
-    iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    invoke-virtual {v2, p1, v0}, Lcom/android/settings/nfc/SBeamEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-
-    goto :goto_1
-
-    .line 1806
-    :cond_4
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
-
-    move-result-wide v2
-
-    const-wide/32 v4, 0x7f0b059a
-
-    cmp-long v2, v2, v4
-
-    if-nez v2, :cond_5
-
-    .line 1807
+    .line 1971
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/dormantmode/DormantModeEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto :goto_1
 
-    .line 1808
-    :cond_5
+    .line 1972
+    :cond_4
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b059b
+    const-wide/32 v4, 0x7f0b0603
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_5
 
-    .line 1809
+    .line 1973
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/DrivingModeEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto :goto_1
 
-    .line 1810
-    :cond_6
+    .line 1974
+    :cond_5
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b0594
+    const-wide/32 v4, 0x7f0b05fc
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
-    .line 1811
+    .line 1975
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPremiumWatchEnabler:Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto :goto_1
 
-    .line 1812
-    :cond_7
+    .line 1976
+    :cond_6
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b05a0
+    const-wide/32 v4, 0x7f0b0608
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_7
 
-    .line 1813
+    .line 1977
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto :goto_1
 
-    .line 1814
-    :cond_8
+    .line 1978
+    :cond_7
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b05ac
+    const-wide/32 v4, 0x7f0b0614
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_8
 
-    .line 1815
+    .line 1979
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirViewEnabler:Lcom/android/settings/AirViewEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/AirViewEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto/16 :goto_1
 
-    .line 1816
-    :cond_9
+    .line 1980
+    :cond_8
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b05ad
+    const-wide/32 v4, 0x7f0b0615
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_9
 
-    .line 1817
+    .line 1981
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
     invoke-virtual {v2, v0}, Lcom/android/settings/VoiceInputControlEnabler;->updateSwitch(Z)V
 
     goto/16 :goto_1
 
-    .line 1818
-    :cond_a
+    .line 1982
+    :cond_9
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b059f
+    const-wide/32 v4, 0x7f0b0607
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_a
 
-    .line 1819
+    .line 1983
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTorchlightEnabler:Lcom/android/settings/torchlight/TorchlightEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/torchlight/TorchlightEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto/16 :goto_1
 
-    .line 1820
-    :cond_b
+    .line 1984
+    :cond_a
     invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$700()J
 
     move-result-wide v2
 
-    const-wide/32 v4, 0x7f0b05ab
+    const-wide/32 v4, 0x7f0b0613
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_b
 
-    .line 1821
+    .line 1985
     iget-object v2, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mFingerAirViewEnabler:Lcom/android/settings/FingerAirViewEnabler;
 
     invoke-virtual {v2, p1, v0}, Lcom/android/settings/FingerAirViewEnabler;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     goto/16 :goto_1
 
-    .line 1823
-    :cond_c
+    .line 1987
+    :cond_b
     const-string v0, "SettingsTapActivity"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -950,7 +901,7 @@
     .locals 1
 
     .prologue
-    .line 1292
+    .line 1434
     const/4 v0, 0x0
 
     return v0
@@ -961,14 +912,14 @@
     .parameter "position"
 
     .prologue
-    .line 1286
+    .line 1428
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceActivity$Header;
 
-    .line 1287
+    .line 1429
     .local v0, header:Landroid/preference/PreferenceActivity$Header;
     invoke-static {v0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
 
@@ -984,28 +935,28 @@
     .parameter "parent"
 
     .prologue
-    .line 1385
+    .line 1534
     invoke-virtual/range {p0 .. p1}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/preference/PreferenceActivity$Header;
 
-    .line 1386
+    .line 1535
     .local v6, header:Landroid/preference/PreferenceActivity$Header;
     invoke-static {v6}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getHeaderType(Landroid/preference/PreferenceActivity$Header;)I
 
     move-result v7
 
-    .line 1387
+    .line 1536
     .local v7, headerType:I
     const/16 v16, 0x0
 
-    .line 1389
+    .line 1538
     .local v16, view:Landroid/view/View;
     if-nez p2, :cond_8
 
-    .line 1390
+    .line 1539
     new-instance v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;
 
     const/16 v17, 0x0
@@ -1014,38 +965,38 @@
 
     invoke-direct {v8, v0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;-><init>(Lcom/android/settings/SettingsTabActivity$1;)V
 
-    .line 1391
+    .line 1540
     .local v8, holder:Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;
     packed-switch v7, :pswitch_data_0
 
-    .line 1487
+    .line 1636
     :goto_0
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v8}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 1494
+    .line 1643
     :goto_1
     packed-switch v7, :pswitch_data_1
 
-    .line 1705
+    .line 1857
     :cond_0
     :goto_2
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b057a
+    const-wide/32 v19, 0x7f0b05e1
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_1
 
-    .line 1716
+    .line 1868
     :cond_1
     return-object v16
 
-    .line 1393
+    .line 1542
     :pswitch_0
     move-object/from16 v0, p0
 
@@ -1063,14 +1014,14 @@
 
     if-eqz v17, :cond_3
 
-    .line 1394
+    .line 1543
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
 
     move/from16 v17, v0
 
-    const v18, 0x1090135
+    const v18, 0x1090106
 
     move/from16 v0, v17
 
@@ -1078,14 +1029,14 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 1395
+    .line 1544
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     move-object/from16 v17, v0
 
-    const v18, 0x1090132
+    const v18, 0x1090103
 
     const/16 v19, 0x0
 
@@ -1104,7 +1055,7 @@
     :goto_3
     move-object/from16 v17, v16
 
-    .line 1401
+    .line 1550
     check-cast v17, Landroid/widget/TextView;
 
     move-object/from16 v0, v17
@@ -1113,7 +1064,7 @@
 
     goto :goto_0
 
-    .line 1397
+    .line 1546
     :cond_2
     move-object/from16 v0, p0
 
@@ -1121,7 +1072,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x1090133
+    const v18, 0x1090104
 
     const/16 v19, 0x0
 
@@ -1139,7 +1090,7 @@
 
     goto :goto_3
 
-    .line 1399
+    .line 1548
     :cond_3
     new-instance v16, Landroid/widget/TextView;
 
@@ -1157,7 +1108,7 @@
     .restart local v16       #view:Landroid/view/View;
     goto :goto_3
 
-    .line 1405
+    .line 1554
     :pswitch_1
     move-object/from16 v0, p0
 
@@ -1171,14 +1122,14 @@
 
     if-eqz v17, :cond_4
 
-    .line 1406
+    .line 1555
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f040183
+    const v18, 0x7f0401c3
 
     const/16 v19, 0x0
 
@@ -1194,8 +1145,8 @@
 
     move-result-object v16
 
-    .line 1407
-    const v17, 0x7f0b008a
+    .line 1556
+    const v17, 0x7f0b0093
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1207,7 +1158,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1408
+    .line 1557
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1220,7 +1171,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1409
+    .line 1558
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1233,8 +1184,8 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 1410
-    const v17, 0x7f0b004e
+    .line 1559
+    const v17, 0x7f0b0057
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1248,7 +1199,7 @@
 
     goto/16 :goto_0
 
-    .line 1411
+    .line 1560
     :cond_4
     move-object/from16 v0, p0
 
@@ -1258,14 +1209,14 @@
 
     if-eqz v17, :cond_6
 
-    .line 1412
+    .line 1561
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
 
     move/from16 v17, v0
 
-    const v18, 0x1090135
+    const v18, 0x1090106
 
     move/from16 v0, v17
 
@@ -1273,14 +1224,14 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 1413
+    .line 1562
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     move-object/from16 v17, v0
 
-    const v18, 0x1090137
+    const v18, 0x1090108
 
     const/16 v19, 0x0
 
@@ -1296,7 +1247,7 @@
 
     move-result-object v16
 
-    .line 1417
+    .line 1566
     :goto_4
     const v17, 0x1020006
 
@@ -1310,7 +1261,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1418
+    .line 1567
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1323,7 +1274,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1419
+    .line 1568
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1336,8 +1287,8 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 1420
-    const v17, 0x102043d
+    .line 1569
+    const v17, 0x1020393
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1351,7 +1302,7 @@
 
     goto/16 :goto_0
 
-    .line 1415
+    .line 1564
     :cond_5
     move-object/from16 v0, p0
 
@@ -1359,7 +1310,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x1090138
+    const v18, 0x1090109
 
     const/16 v19, 0x0
 
@@ -1377,7 +1328,7 @@
 
     goto :goto_4
 
-    .line 1422
+    .line 1571
     :cond_6
     move-object/from16 v0, p0
 
@@ -1385,7 +1336,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f040123
+    const v18, 0x7f040151
 
     const/16 v19, 0x0
 
@@ -1401,8 +1352,8 @@
 
     move-result-object v16
 
-    .line 1423
-    const v17, 0x7f0b008a
+    .line 1572
+    const v17, 0x7f0b0093
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1414,7 +1365,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1424
+    .line 1573
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1427,7 +1378,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1426
+    .line 1575
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1440,8 +1391,8 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 1428
-    const v17, 0x7f0b004e
+    .line 1577
+    const v17, 0x7f0b0057
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1455,7 +1406,7 @@
 
     goto/16 :goto_0
 
-    .line 1433
+    .line 1582
     :pswitch_2
     move-object/from16 v0, p0
 
@@ -1465,7 +1416,7 @@
 
     if-eqz v17, :cond_7
 
-    .line 1434
+    .line 1583
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -1492,7 +1443,7 @@
 
     move-result-object v16
 
-    .line 1437
+    .line 1586
     :goto_5
     const v17, 0x1020006
 
@@ -1506,7 +1457,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1438
+    .line 1587
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1519,7 +1470,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1440
+    .line 1589
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1534,7 +1485,7 @@
 
     goto/16 :goto_0
 
-    .line 1436
+    .line 1585
     :cond_7
     move-object/from16 v0, p0
 
@@ -1542,7 +1493,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x10900c9
+    const v18, 0x109009b
 
     const/16 v19, 0x0
 
@@ -1560,7 +1511,7 @@
 
     goto :goto_5
 
-    .line 1444
+    .line 1593
     :pswitch_3
     move-object/from16 v0, p0
 
@@ -1568,7 +1519,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f04015f
+    const v18, 0x7f040198
 
     const/16 v19, 0x0
 
@@ -1584,8 +1535,8 @@
 
     move-result-object v16
 
-    .line 1445
-    const v17, 0x7f0b03c5
+    .line 1594
+    const v17, 0x7f0b042c
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1593,7 +1544,7 @@
 
     check-cast v12, Landroid/widget/LinearLayout;
 
-    .line 1446
+    .line 1595
     .local v12, searchLayout:Landroid/widget/LinearLayout;
     const/high16 v17, 0x6
 
@@ -1601,8 +1552,8 @@
 
     invoke-virtual {v12, v0}, Landroid/widget/LinearLayout;->setDescendantFocusability(I)V
 
-    .line 1447
-    const v17, 0x7f0b03c6
+    .line 1596
+    const v17, 0x7f0b042d
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1610,7 +1561,7 @@
 
     check-cast v13, Landroid/widget/LinearLayout;
 
-    .line 1448
+    .line 1597
     .local v13, searchViewLayout:Landroid/widget/LinearLayout;
     new-instance v17, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$1;
 
@@ -1624,7 +1575,7 @@
 
     invoke-virtual {v13, v0}, Landroid/widget/LinearLayout;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 1457
+    .line 1606
     new-instance v17, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$2;
 
     move-object/from16 v0, v17
@@ -1637,7 +1588,7 @@
 
     invoke-virtual {v13, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1463
+    .line 1612
     new-instance v11, Landroid/widget/SearchView;
 
     move-object/from16 v0, p0
@@ -1650,7 +1601,7 @@
 
     invoke-direct {v11, v0}, Landroid/widget/SearchView;-><init>(Landroid/content/Context;)V
 
-    .line 1464
+    .line 1613
     .local v11, mSearchView:Landroid/widget/SearchView;
     move-object/from16 v0, p0
 
@@ -1658,7 +1609,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f090569
+    const v18, 0x7f090598
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1668,77 +1619,29 @@
 
     invoke-virtual {v11, v0}, Landroid/widget/SearchView;->setQueryHint(Ljava/lang/CharSequence;)V
 
-    .line 1465
+    .line 1614
     const/16 v17, 0x0
 
     move/from16 v0, v17
 
     invoke-virtual {v11, v0}, Landroid/widget/SearchView;->setIconified(Z)V
 
-    .line 1466
+    .line 1615
     invoke-virtual {v11}, Landroid/widget/SearchView;->clearFocus()V
 
-    .line 1467
+    .line 1616
     const/16 v17, 0x0
 
     move/from16 v0, v17
 
     invoke-virtual {v11, v0}, Landroid/widget/SearchView;->setFocusable(Z)V
 
-    .line 1468
-    iget-object v0, v11, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-virtual/range {v17 .. v18}, Landroid/widget/SearchView$SearchAutoComplete;->setFocusable(Z)V
-
-    .line 1469
-    iget-object v0, v11, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    invoke-virtual/range {v17 .. v18}, Landroid/widget/SearchView$SearchAutoComplete;->setFocusableInTouchMode(Z)V
-
-    .line 1470
-    iget-object v0, v11, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
-
-    move-object/from16 v17, v0
-
-    new-instance v18, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$3;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1, v13}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$3;-><init>(Lcom/android/settings/SettingsTabActivity$HeaderAdapter;Landroid/widget/LinearLayout;)V
-
-    invoke-virtual/range {v17 .. v18}, Landroid/widget/SearchView$SearchAutoComplete;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 1476
-    iget-object v0, v11, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
-
-    move-object/from16 v17, v0
-
-    new-instance v18, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$4;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1, v13}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$4;-><init>(Lcom/android/settings/SettingsTabActivity$HeaderAdapter;Landroid/widget/LinearLayout;)V
-
-    invoke-virtual/range {v17 .. v18}, Landroid/widget/SearchView$SearchAutoComplete;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
-
-    .line 1483
+    .line 1632
     invoke-virtual {v13, v11}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     goto/16 :goto_0
 
-    .line 1489
+    .line 1638
     .end local v8           #holder:Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;
     .end local v11           #mSearchView:Landroid/widget/SearchView;
     .end local v12           #searchLayout:Landroid/widget/LinearLayout;
@@ -1746,7 +1649,7 @@
     :cond_8
     move-object/from16 v16, p2
 
-    .line 1490
+    .line 1639
     invoke-virtual/range {v16 .. v16}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v8
@@ -1756,7 +1659,7 @@
     .restart local v8       #holder:Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;
     goto/16 :goto_1
 
-    .line 1496
+    .line 1645
     :pswitch_4
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
@@ -1780,7 +1683,7 @@
 
     goto/16 :goto_2
 
-    .line 1502
+    .line 1651
     :pswitch_5
     move-object/from16 v0, p0
 
@@ -1794,14 +1697,14 @@
 
     if-eqz v17, :cond_10
 
-    .line 1503
+    .line 1652
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f040183
+    const v18, 0x7f0401c3
 
     const/16 v19, 0x0
 
@@ -1817,8 +1720,8 @@
 
     move-result-object v16
 
-    .line 1504
-    const v17, 0x7f0b008a
+    .line 1653
+    const v17, 0x7f0b0093
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1830,7 +1733,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1505
+    .line 1654
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1843,7 +1746,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1506
+    .line 1655
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1856,8 +1759,8 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 1507
-    const v17, 0x7f0b004e
+    .line 1656
+    const v17, 0x7f0b0057
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1869,19 +1772,19 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    .line 1508
+    .line 1657
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v8}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 1510
-    const v17, 0x7f0b03e1
+    .line 1659
+    const v17, 0x7f0b0449
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v15
 
-    .line 1511
+    .line 1660
     .local v15, textLayout:Landroid/view/View;
     if-eqz v15, :cond_9
 
@@ -1891,8 +1794,8 @@
 
     if-eqz v17, :cond_9
 
-    .line 1512
-    const v17, 0x7f0b008a
+    .line 1661
+    const v17, 0x7f0b0093
 
     invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1904,20 +1807,20 @@
 
     invoke-virtual {v15, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 1513
-    new-instance v17, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$5;
+    .line 1662
+    new-instance v17, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$3;
 
     move-object/from16 v0, v17
 
     move-object/from16 v1, p0
 
-    invoke-direct {v0, v1}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$5;-><init>(Lcom/android/settings/SettingsTabActivity$HeaderAdapter;)V
+    invoke-direct {v0, v1}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$3;-><init>(Lcom/android/settings/SettingsTabActivity$HeaderAdapter;)V
 
     move-object/from16 v0, v17
 
     invoke-virtual {v15, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1557
+    .line 1706
     .end local v15           #textLayout:Landroid/view/View;
     :cond_9
     :goto_6
@@ -1925,13 +1828,13 @@
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b0579
+    const-wide/32 v19, 0x7f0b05e0
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_13
 
-    .line 1558
+    .line 1707
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
@@ -1944,7 +1847,7 @@
 
     invoke-virtual/range {v17 .. v18}, Lcom/android/settings/wifi/WifiEnabler;->setSwitch(Landroid/widget/Switch;)V
 
-    .line 1608
+    .line 1762
     :cond_a
     :goto_7
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
@@ -1953,15 +1856,15 @@
 
     if-eqz v17, :cond_b
 
-    .line 1609
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$400()Z
+    .line 1763
+    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$300()Z
 
     move-result v17
 
     if-eqz v17, :cond_b
 
-    .line 1610
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$500()Z
+    .line 1764
+    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$400()Z
 
     move-result v17
 
@@ -1973,7 +1876,7 @@
 
     if-ne v0, v1, :cond_b
 
-    .line 1611
+    .line 1765
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
     move-object/from16 v17, v0
@@ -1984,15 +1887,15 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->setDirectSettingValue(Landroid/widget/Switch;)V
 
-    .line 1616
+    .line 1770
     :cond_b
-    const v17, 0x102032b
+    const v17, 0x102031d
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
-    .line 1617
+    .line 1771
     .local v5, dynamicDivider:Landroid/view/View;
     if-eqz v5, :cond_c
 
@@ -2012,14 +1915,14 @@
 
     if-eqz v17, :cond_c
 
-    .line 1618
+    .line 1772
     const/16 v17, 0x8
 
     move/from16 v0, v17
 
     invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1622
+    .line 1776
     :cond_c
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
@@ -2041,7 +1944,7 @@
 
     if-eqz v17, :cond_d
 
-    .line 1626
+    .line 1780
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
     move-object/from16 v17, v0
@@ -2052,7 +1955,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/Switch;->setClickable(Z)V
 
-    .line 1633
+    .line 1787
     .end local v5           #dynamicDivider:Landroid/view/View;
     :cond_d
     :pswitch_6
@@ -2060,7 +1963,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_24
+    if-eqz v17, :cond_21
 
     iget-object v0, v6, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
@@ -2072,9 +1975,9 @@
 
     move-result v17
 
-    if-eqz v17, :cond_24
+    if-eqz v17, :cond_21
 
-    .line 1635
+    .line 1789
     iget-object v0, v6, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
     move-object/from16 v17, v0
@@ -2085,7 +1988,7 @@
 
     move-result-object v4
 
-    .line 1637
+    .line 1791
     .local v4, accType:Ljava/lang/String;
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
@@ -2095,7 +1998,7 @@
 
     move-result-object v10
 
-    .line 1638
+    .line 1792
     .local v10, lp:Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getContext()Landroid/content/Context;
 
@@ -2105,7 +2008,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f0f0030
+    const v18, 0x7f0f004c
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2115,7 +2018,7 @@
 
     iput v0, v10, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1640
+    .line 1794
     iget v0, v10, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     move/from16 v17, v0
@@ -2124,7 +2027,7 @@
 
     iput v0, v10, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 1641
+    .line 1795
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
     move-object/from16 v17, v0
@@ -2133,7 +2036,7 @@
 
     invoke-virtual {v0, v10}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1642
+    .line 1796
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAuthHelper:Lcom/android/settings/accounts/AuthenticatorHelper;
@@ -2152,7 +2055,7 @@
 
     move-result-object v9
 
-    .line 1643
+    .line 1797
     .local v9, icon:Landroid/graphics/drawable/Drawable;
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
@@ -2162,7 +2065,7 @@
 
     invoke-virtual {v0, v9}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1647
+    .line 1801
     .end local v4           #accType:Ljava/lang/String;
     .end local v9           #icon:Landroid/graphics/drawable/Drawable;
     .end local v10           #lp:Landroid/view/ViewGroup$LayoutParams;
@@ -2187,18 +2090,18 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1649
+    .line 1803
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b059d
+    const-wide/32 v19, 0x7f0b0605
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_e
 
-    .line 1650
+    .line 1804
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v17
@@ -2211,7 +2114,7 @@
 
     if-eqz v17, :cond_e
 
-    .line 1657
+    .line 1811
     :cond_e
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getContext()Landroid/content/Context;
 
@@ -2227,15 +2130,15 @@
 
     move-result-object v14
 
-    .line 1658
+    .line 1812
     .local v14, summary:Ljava/lang/CharSequence;
     invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v17
 
-    if-nez v17, :cond_26
+    if-nez v17, :cond_23
 
-    .line 1659
+    .line 1813
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
     move-object/from16 v17, v0
@@ -2244,7 +2147,7 @@
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1682
+    .line 1836
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
     move-object/from16 v17, v0
@@ -2253,10 +2156,10 @@
 
     invoke-virtual {v0, v14}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1684
+    .line 1838
     const-string v17, "VZW"
 
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$500()Ljava/lang/String;
 
     move-result-object v18
 
@@ -2264,13 +2167,13 @@
 
     move-result v17
 
-    if-nez v17, :cond_25
+    if-nez v17, :cond_22
 
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b0579
+    const-wide/32 v19, 0x7f0b05e0
 
     cmp-long v17, v17, v19
 
@@ -2280,13 +2183,13 @@
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b057b
+    const-wide/32 v19, 0x7f0b05e2
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_25
+    if-nez v17, :cond_22
 
-    .line 1686
+    .line 1840
     :cond_f
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
@@ -2298,7 +2201,7 @@
 
     goto/16 :goto_2
 
-    .line 1536
+    .line 1685
     .end local v14           #summary:Ljava/lang/CharSequence;
     :cond_10
     move-object/from16 v0, p0
@@ -2309,14 +2212,14 @@
 
     if-eqz v17, :cond_12
 
-    .line 1537
+    .line 1686
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
 
     move/from16 v17, v0
 
-    const v18, 0x1090135
+    const v18, 0x1090106
 
     move/from16 v0, v17
 
@@ -2324,14 +2227,14 @@
 
     if-ne v0, v1, :cond_11
 
-    .line 1538
+    .line 1687
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     move-object/from16 v17, v0
 
-    const v18, 0x1090137
+    const v18, 0x1090108
 
     const/16 v19, 0x0
 
@@ -2347,7 +2250,7 @@
 
     move-result-object v16
 
-    .line 1542
+    .line 1691
     :goto_9
     const v17, 0x1020006
 
@@ -2361,7 +2264,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1543
+    .line 1692
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2374,7 +2277,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1544
+    .line 1693
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2387,8 +2290,8 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 1545
-    const v17, 0x102043d
+    .line 1694
+    const v17, 0x1020393
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2400,14 +2303,14 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    .line 1546
+    .line 1695
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v8}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     goto/16 :goto_6
 
-    .line 1540
+    .line 1689
     :cond_11
     move-object/from16 v0, p0
 
@@ -2415,7 +2318,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x1090138
+    const v18, 0x1090109
 
     const/16 v19, 0x0
 
@@ -2433,7 +2336,7 @@
 
     goto :goto_9
 
-    .line 1548
+    .line 1697
     :cond_12
     move-object/from16 v0, p0
 
@@ -2441,7 +2344,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f040123
+    const v18, 0x7f040151
 
     const/16 v19, 0x0
 
@@ -2457,8 +2360,8 @@
 
     move-result-object v16
 
-    .line 1549
-    const v17, 0x7f0b008a
+    .line 1698
+    const v17, 0x7f0b0093
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2470,7 +2373,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 1550
+    .line 1699
     const v17, 0x1020016
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2483,7 +2386,7 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 1551
+    .line 1700
     const v17, 0x1020010
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -2496,8 +2399,8 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 1552
-    const v17, 0x7f0b004e
+    .line 1701
+    const v17, 0x7f0b0057
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2509,38 +2412,50 @@
 
     iput-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
 
-    .line 1553
+    .line 1702
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v8}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     goto/16 :goto_6
 
-    .line 1559
+    .line 1709
     :cond_13
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b057a
+    const-wide/32 v19, 0x7f0b05df
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_14
 
-    .line 1566
+    .line 1714
     :cond_14
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b057d
+    const-wide/32 v19, 0x7f0b05e1
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_15
 
-    .line 1567
+    .line 1721
+    :cond_15
+    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    move-wide/from16 v17, v0
+
+    const-wide/32 v19, 0x7f0b05e4
+
+    cmp-long v17, v17, v19
+
+    if-nez v17, :cond_16
+
+    .line 1722
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirplaneModeSwitchEnabler:Lcom/android/settings/AirplaneModeSwitchEnabler;
@@ -2555,19 +2470,19 @@
 
     goto/16 :goto_7
 
-    .line 1569
-    :cond_15
+    .line 1724
+    :cond_16
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b0594
+    const-wide/32 v19, 0x7f0b05fc
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_16
+    if-nez v17, :cond_17
 
-    .line 1570
+    .line 1725
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPremiumWatchEnabler:Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
@@ -2582,19 +2497,19 @@
 
     goto/16 :goto_7
 
-    .line 1571
-    :cond_16
+    .line 1726
+    :cond_17
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b059a
+    const-wide/32 v19, 0x7f0b0602
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_17
+    if-nez v17, :cond_18
 
-    .line 1572
+    .line 1727
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
@@ -2609,19 +2524,19 @@
 
     goto/16 :goto_7
 
-    .line 1573
-    :cond_17
+    .line 1728
+    :cond_18
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b059b
+    const-wide/32 v19, 0x7f0b0603
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_18
+    if-nez v17, :cond_19
 
-    .line 1574
+    .line 1729
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
@@ -2636,19 +2551,19 @@
 
     goto/16 :goto_7
 
-    .line 1575
-    :cond_18
+    .line 1730
+    :cond_19
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b0598
+    const-wide/32 v19, 0x7f0b0600
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_19
+    if-nez v17, :cond_1a
 
-    .line 1576
+    .line 1731
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mLaunchCameraEnabler:Lcom/android/settings/launchcamera/LaunchCameraEnabler;
@@ -2663,19 +2578,19 @@
 
     goto/16 :goto_7
 
-    .line 1577
-    :cond_19
+    .line 1732
+    :cond_1a
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b059f
+    const-wide/32 v19, 0x7f0b0607
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_1a
+    if-nez v17, :cond_1b
 
-    .line 1578
+    .line 1733
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTorchlightEnabler:Lcom/android/settings/torchlight/TorchlightEnabler;
@@ -2690,19 +2605,19 @@
 
     goto/16 :goto_7
 
-    .line 1579
-    :cond_1a
+    .line 1734
+    :cond_1b
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b05a0
+    const-wide/32 v19, 0x7f0b0608
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_1b
+    if-nez v17, :cond_1c
 
-    .line 1580
+    .line 1735
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
@@ -2717,19 +2632,19 @@
 
     goto/16 :goto_7
 
-    .line 1581
-    :cond_1b
+    .line 1736
+    :cond_1c
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b05a8
+    const-wide/32 v19, 0x7f0b0610
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_1c
+    if-nez v17, :cond_1d
 
-    .line 1582
+    .line 1737
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mMotionEnabler:Lcom/android/settings/motion/MotionEnabler;
@@ -2744,19 +2659,19 @@
 
     goto/16 :goto_7
 
-    .line 1583
-    :cond_1c
+    .line 1738
+    :cond_1d
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b05ab
+    const-wide/32 v19, 0x7f0b0613
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_1d
+    if-nez v17, :cond_1e
 
-    .line 1584
+    .line 1739
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mFingerAirViewEnabler:Lcom/android/settings/FingerAirViewEnabler;
@@ -2771,155 +2686,52 @@
 
     goto/16 :goto_7
 
-    .line 1585
-    :cond_1d
-    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    move-wide/from16 v17, v0
-
-    const-wide/32 v19, 0x7f0b05ac
-
-    cmp-long v17, v17, v19
-
-    if-nez v17, :cond_1e
-
-    .line 1586
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirViewEnabler:Lcom/android/settings/AirViewEnabler;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/settings/AirViewEnabler;->setSwitch(Landroid/widget/Switch;)V
-
-    goto/16 :goto_7
-
-    .line 1587
+    .line 1740
     :cond_1e
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b0588
+    const-wide/32 v19, 0x7f0b0614
+
+    cmp-long v17, v17, v19
+
+    if-eqz v17, :cond_a
+
+    .line 1742
+    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    move-wide/from16 v17, v0
+
+    const-wide/32 v19, 0x7f0b05f0
+
+    cmp-long v17, v17, v19
+
+    if-eqz v17, :cond_a
+
+    .line 1744
+    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    move-wide/from16 v17, v0
+
+    const-wide/32 v19, 0x7f0b05f2
+
+    cmp-long v17, v17, v19
+
+    if-eqz v17, :cond_a
+
+    .line 1746
+    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
+
+    move-wide/from16 v17, v0
+
+    const-wide/32 v19, 0x7f0b05e2
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_1f
 
-    .line 1588
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/settings/nfc/NfcEnabler;->setSwitch(Landroid/widget/Switch;)V
-
-    goto/16 :goto_7
-
-    .line 1589
-    :cond_1f
-    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    move-wide/from16 v17, v0
-
-    const-wide/32 v19, 0x7f0b058a
-
-    cmp-long v17, v17, v19
-
-    if-nez v17, :cond_20
-
-    .line 1590
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/settings/nfc/SBeamEnabler;->setSwitch(Landroid/widget/Switch;)V
-
-    goto/16 :goto_7
-
-    .line 1591
-    :cond_20
-    iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    move-wide/from16 v17, v0
-
-    const-wide/32 v19, 0x7f0b057b
-
-    cmp-long v17, v17, v19
-
-    if-nez v17, :cond_22
-
-    .line 1594
-    const-string v17, "VZW"
-
-    invoke-static {}, Lcom/android/settings/SettingsTabActivity;->access$300()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_21
-
-    .line 1596
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->switch_:Landroid/widget/Switch;
-
-    move-object/from16 v18, v0
-
-    iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
-
-    move-object/from16 v19, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move-object/from16 v2, v19
-
-    invoke-virtual {v0, v1, v6, v2}, Lcom/android/settings/bluetooth/BluetoothEnabler;->setSwitch(Landroid/widget/Switch;Landroid/preference/PreferenceActivity$Header;Landroid/widget/TextView;)V
-
-    goto/16 :goto_7
-
-    .line 1598
-    :cond_21
+    .line 1752
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
@@ -2934,19 +2746,19 @@
 
     goto/16 :goto_7
 
-    .line 1601
-    :cond_22
+    .line 1755
+    :cond_1f
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b05ad
+    const-wide/32 v19, 0x7f0b0615
 
     cmp-long v17, v17, v19
 
-    if-nez v17, :cond_23
+    if-nez v17, :cond_20
 
-    .line 1602
+    .line 1756
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
@@ -2969,19 +2781,19 @@
 
     goto/16 :goto_7
 
-    .line 1603
-    :cond_23
+    .line 1757
+    :cond_20
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b058b
+    const-wide/32 v19, 0x7f0b05f3
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_a
 
-    .line 1604
+    .line 1758
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
@@ -3004,8 +2816,8 @@
 
     goto/16 :goto_7
 
-    .line 1645
-    :cond_24
+    .line 1799
+    :cond_21
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
     move-object/from16 v17, v0
@@ -3018,20 +2830,20 @@
 
     goto/16 :goto_8
 
-    .line 1691
+    .line 1844
     .restart local v14       #summary:Ljava/lang/CharSequence;
-    :cond_25
+    :cond_22
     iget-wide v0, v6, Landroid/preference/PreferenceActivity$Header;->id:J
 
     move-wide/from16 v17, v0
 
-    const-wide/32 v19, 0x7f0b057b
+    const-wide/32 v19, 0x7f0b05e2
 
     cmp-long v17, v17, v19
 
     if-nez v17, :cond_0
 
-    .line 1692
+    .line 1845
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
     move-object/from16 v17, v0
@@ -3044,8 +2856,8 @@
 
     goto/16 :goto_2
 
-    .line 1698
-    :cond_26
+    .line 1850
+    :cond_23
     iget-object v0, v8, Lcom/android/settings/SettingsTabActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
     move-object/from16 v17, v0
@@ -3056,9 +2868,7 @@
 
     goto/16 :goto_2
 
-    .line 1391
-    nop
-
+    .line 1540
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -3067,7 +2877,7 @@
         :pswitch_3
     .end packed-switch
 
-    .line 1494
+    .line 1643
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_4
@@ -3080,17 +2890,17 @@
     .locals 1
 
     .prologue
-    .line 1304
+    .line 1446
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1305
+    .line 1447
     const/4 v0, 0x4
 
-    .line 1307
+    .line 1449
     :goto_0
     return v0
 
@@ -3104,7 +2914,7 @@
     .locals 1
 
     .prologue
-    .line 1313
+    .line 1455
     const/4 v0, 0x1
 
     return v0
@@ -3117,14 +2927,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1297
+    .line 1439
     invoke-virtual {p0}, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->getCount()I
 
     move-result v1
 
     if-gt v1, p1, :cond_1
 
-    .line 1299
+    .line 1441
     :cond_0
     :goto_0
     return v0
@@ -3145,98 +2955,67 @@
     .locals 1
 
     .prologue
-    .line 1752
+    .line 1910
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/WifiEnabler;->pause()V
 
-    .line 1753
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    if-eqz v0, :cond_0
-
-    .line 1759
-    :cond_0
+    .line 1923
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirplaneModeSwitchEnabler:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->pause()V
 
-    .line 1761
+    .line 1925
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothEnabler;->pause()V
 
-    .line 1762
+    .line 1926
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->pause()V
 
-    .line 1763
+    .line 1927
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/dormantmode/DormantModeEnabler;->pause()V
 
-    .line 1764
+    .line 1928
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/DrivingModeEnabler;->pause()V
 
-    .line 1765
+    .line 1929
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mMotionEnabler:Lcom/android/settings/motion/MotionEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/motion/MotionEnabler;->pause()V
 
-    .line 1766
+    .line 1930
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mFingerAirViewEnabler:Lcom/android/settings/FingerAirViewEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/FingerAirViewEnabler;->pause()V
 
-    .line 1767
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirViewEnabler:Lcom/android/settings/AirViewEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/AirViewEnabler;->pause()V
-
-    .line 1768
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/nfc/NfcEnabler;->pause()V
-
-    .line 1769
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/nfc/SBeamEnabler;->procOnPause()V
-
-    .line 1770
-    :cond_2
+    .line 1934
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlEnabler;->pause()V
 
-    .line 1771
-    :cond_3
+    .line 1935
+    :cond_0
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/nearby/NearbyEnabler;->pause()V
 
-    .line 1772
-    :cond_4
+    .line 1936
+    :cond_1
     return-void
 .end method
 
@@ -3244,113 +3023,82 @@
     .locals 1
 
     .prologue
-    .line 1720
+    .line 1872
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/WifiEnabler;->resume()V
 
-    .line 1728
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    if-eqz v0, :cond_0
-
-    .line 1734
-    :cond_0
+    .line 1892
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirplaneModeSwitchEnabler:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->resume()V
 
-    .line 1736
+    .line 1894
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothEnabler;->resume()V
 
-    .line 1737
+    .line 1895
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/dormantmode/DormantModeEnabler;->resume()V
 
-    .line 1738
+    .line 1896
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/DrivingModeEnabler;->resume()V
 
-    .line 1739
+    .line 1897
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->resume()V
 
-    .line 1740
+    .line 1898
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mMotionEnabler:Lcom/android/settings/motion/MotionEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/motion/MotionEnabler;->resume()V
 
-    .line 1741
+    .line 1899
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mFingerAirViewEnabler:Lcom/android/settings/FingerAirViewEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/FingerAirViewEnabler;->resume()V
 
-    .line 1742
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mAirViewEnabler:Lcom/android/settings/AirViewEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/AirViewEnabler;->resume()V
-
-    .line 1743
+    .line 1901
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mTorchlightEnabler:Lcom/android/settings/torchlight/TorchlightEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/torchlight/TorchlightEnabler;->resume()V
 
-    .line 1744
+    .line 1902
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mLaunchCameraEnabler:Lcom/android/settings/launchcamera/LaunchCameraEnabler;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mLaunchCameraEnabler:Lcom/android/settings/launchcamera/LaunchCameraEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/launchcamera/LaunchCameraEnabler;->resume()V
 
-    .line 1745
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNfcEnabler:Lcom/android/settings/nfc/NfcEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/nfc/NfcEnabler;->resume()V
-
-    .line 1746
-    :cond_2
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mSBeamEnabler:Lcom/android/settings/nfc/SBeamEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/nfc/SBeamEnabler;->procOnResume()V
-
-    .line 1747
-    :cond_3
+    .line 1905
+    :cond_0
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mVoiceInputEnabler:Lcom/android/settings/VoiceInputControlEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlEnabler;->resume()V
 
-    .line 1748
-    :cond_4
+    .line 1906
+    :cond_1
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mNearbyEnabler:Lcom/android/settings/nearby/NearbyEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/nearby/NearbyEnabler;->resume()V
 
-    .line 1749
-    :cond_5
+    .line 1907
+    :cond_2
     return-void
 .end method
 
@@ -3359,115 +3107,22 @@
     .parameter "settings"
 
     .prologue
-    .line 1792
+    .line 1956
     iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiEnabler:Lcom/android/settings/wifi/WifiEnabler;
 
     iget-object v1, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
 
     invoke-static {p1, v0, v1}, Lcom/android/settings/guide/GuideFragment;->setEnablersForGuide(Landroid/app/Activity;Lcom/android/settings/wifi/WifiEnabler;Lcom/android/settings/bluetooth/BluetoothEnabler;)V
 
-    .line 1793
+    .line 1957
     return-void
 .end method
 
 .method public setSoftapEnabled(Z)V
-    .locals 3
+    .locals 0
     .parameter "enabled"
 
     .prologue
-    const/4 v2, 0x1
-
-    .line 1775
-    if-eqz p1, :cond_0
-
-    .line 1776
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    invoke-virtual {v0, v2}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->secSetSoftapEnabled(Z)V
-
-    .line 1781
-    :goto_0
+    .line 1945
     return-void
-
-    .line 1778
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->setChecked(Z)V
-
-    .line 1779
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mWifiApEnabler:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
-
-    invoke-virtual {v0, v2}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->setEnabled(Z)V
-
-    goto :goto_0
-.end method
-
-.method public setSwitchOnOff(I)V
-    .locals 1
-    .parameter "headerId"
-
-    .prologue
-    .line 1830
-    sparse-switch p1, :sswitch_data_0
-
-    .line 1856
-    :goto_0
-    :sswitch_0
-    return-void
-
-    .line 1835
-    :sswitch_1
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mBluetoothEnabler:Lcom/android/settings/bluetooth/BluetoothEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/bluetooth/BluetoothEnabler;->setSwitchOnOff()V
-
-    goto :goto_0
-
-    .line 1844
-    :sswitch_2
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPremiumWatchEnabler:Lcom/android/settings/premiumwatch/PremiumWatchEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/premiumwatch/PremiumWatchEnabler;->setSwitchOnOff()V
-
-    goto :goto_0
-
-    .line 1847
-    :sswitch_3
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDormantModeEnabler:Lcom/android/settings/dormantmode/DormantModeEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/dormantmode/DormantModeEnabler;->setSwitchOnOff()V
-
-    goto :goto_0
-
-    .line 1850
-    :sswitch_4
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mDrivingModeEnabler:Lcom/android/settings/DrivingModeEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/DrivingModeEnabler;->setSwitchOnOff()V
-
-    goto :goto_0
-
-    .line 1853
-    :sswitch_5
-    iget-object v0, p0, Lcom/android/settings/SettingsTabActivity$HeaderAdapter;->mPowerSavingEnabler:Lcom/android/settings/powersavingmode/PowerSavingEnabler;
-
-    invoke-virtual {v0}, Lcom/android/settings/powersavingmode/PowerSavingEnabler;->setSwitchOnOff()V
-
-    goto :goto_0
-
-    .line 1830
-    :sswitch_data_0
-    .sparse-switch
-        0x7f0b0579 -> :sswitch_0
-        0x7f0b057b -> :sswitch_1
-        0x7f0b0588 -> :sswitch_0
-        0x7f0b058a -> :sswitch_0
-        0x7f0b0594 -> :sswitch_2
-        0x7f0b059a -> :sswitch_3
-        0x7f0b059b -> :sswitch_4
-        0x7f0b05a0 -> :sswitch_5
-    .end sparse-switch
 .end method

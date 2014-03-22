@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 626
+    .line 639
     iput-object p1, p0, Lcom/android/settings/LockScreenSettings$2;->this$0:Lcom/android/settings/LockScreenSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,6 @@
     .parameter "arg1"
 
     .prologue
-    .line 629
+    .line 642
     return-void
 .end method

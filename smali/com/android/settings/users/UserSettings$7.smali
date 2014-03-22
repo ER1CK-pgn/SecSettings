@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 551
+    .line 664
     iput-object p1, p0, Lcom/android/settings/users/UserSettings$7;->this$0:Lcom/android/settings/users/UserSettings;
 
     iput p2, p0, Lcom/android/settings/users/UserSettings$7;->val$userType:I
@@ -45,7 +45,7 @@
 
     iput-object p4, p0, Lcom/android/settings/users/UserSettings$7;->val$preferences:Landroid/content/SharedPreferences;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -58,20 +58,20 @@
     .parameter "which"
 
     .prologue
-    .line 553
+    .line 666
     iget-object v0, p0, Lcom/android/settings/users/UserSettings$7;->this$0:Lcom/android/settings/users/UserSettings;
 
     iget v1, p0, Lcom/android/settings/users/UserSettings$7;->val$userType:I
 
     #calls: Lcom/android/settings/users/UserSettings;->addUserNow(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/users/UserSettings;->access$1100(Lcom/android/settings/users/UserSettings;I)V
+    invoke-static {v0, v1}, Lcom/android/settings/users/UserSettings;->access$1500(Lcom/android/settings/users/UserSettings;I)V
 
-    .line 554
+    .line 667
     iget-boolean v0, p0, Lcom/android/settings/users/UserSettings$7;->val$longMessageDisplayed:Z
 
     if-nez v0, :cond_0
 
-    .line 555
+    .line 668
     iget-object v0, p0, Lcom/android/settings/users/UserSettings$7;->val$preferences:Landroid/content/SharedPreferences;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -88,7 +88,7 @@
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 558
+    .line 671
     :cond_0
     return-void
 .end method

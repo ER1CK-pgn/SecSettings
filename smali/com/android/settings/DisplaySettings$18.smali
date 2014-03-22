@@ -1,14 +1,11 @@
 .class Lcom/android/settings/DisplaySettings$18;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "DisplaySettings.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/DisplaySettings;->showTalkBackDisablePopup()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/DisplaySettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,34 +24,56 @@
     .parameter
 
     .prologue
-    .line 1600
+    .line 1707
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$18;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .parameter "dialog"
-    .parameter "which"
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 1602
-    iget-object v0, p0, Lcom/android/settings/DisplaySettings$18;->this$0:Lcom/android/settings/DisplaySettings;
-
-    #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
-    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$400(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
+    .line 1710
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const-string v1, "android.hardware.display.action.WIFI_DISPLAY_STATUS_CHANGED"
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 1603
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1711
+    iget-object v1, p0, Lcom/android/settings/DisplaySettings$18;->this$0:Lcom/android/settings/DisplaySettings;
+
+    const-string v0, "android.hardware.display.extra.WIFI_DISPLAY_STATUS"
+
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/display/WifiDisplayStatus;
+
+    #setter for: Lcom/android/settings/DisplaySettings;->mWifiDisplayStatus:Landroid/hardware/display/WifiDisplayStatus;
+    invoke-static {v1, v0}, Lcom/android/settings/DisplaySettings;->access$1302(Lcom/android/settings/DisplaySettings;Landroid/hardware/display/WifiDisplayStatus;)Landroid/hardware/display/WifiDisplayStatus;
+
+    .line 1713
+    iget-object v0, p0, Lcom/android/settings/DisplaySettings$18;->this$0:Lcom/android/settings/DisplaySettings;
+
+    #calls: Lcom/android/settings/DisplaySettings;->updateWifiDisplaySummary()V
+    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$1400(Lcom/android/settings/DisplaySettings;)V
+
+    .line 1715
+    :cond_0
     return-void
 .end method

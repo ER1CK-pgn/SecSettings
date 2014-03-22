@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 56
+    .line 61
     iput-object p1, p0, Lcom/android/settings/search/SearchMain$UpdateListThread$1;->this$1:Lcom/android/settings/search/SearchMain$UpdateListThread;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,21 +41,21 @@
     .locals 3
 
     .prologue
-    .line 59
+    .line 64
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$000()Ljava/util/ArrayList;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 61
+    .line 66
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$100()Lcom/android/settings/search/SettingSearchManager;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 62
+    .line 67
     new-instance v0, Lcom/android/settings/search/SettingSearchManager;
 
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$200()Landroid/content/Context;
@@ -66,7 +66,7 @@
 
     invoke-static {v0}, Lcom/android/settings/search/SearchMain;->access$102(Lcom/android/settings/search/SettingSearchManager;)Lcom/android/settings/search/SettingSearchManager;
 
-    .line 65
+    .line 70
     :cond_0
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$300()Ljava/lang/String;
 
@@ -74,12 +74,12 @@
 
     if-nez v0, :cond_1
 
-    .line 66
+    .line 71
     const-string v0, ""
 
     invoke-static {v0}, Lcom/android/settings/search/SearchMain;->access$302(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 69
+    .line 74
     :cond_1
     invoke-static {}, Lcom/android/settings/search/SearchMain;->access$100()Lcom/android/settings/search/SettingSearchManager;
 
@@ -99,7 +99,7 @@
 
     invoke-static {v0}, Lcom/android/settings/search/SearchMain;->access$002(Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
-    .line 70
+    .line 75
     iget-object v0, p0, Lcom/android/settings/search/SearchMain$UpdateListThread$1;->this$1:Lcom/android/settings/search/SearchMain$UpdateListThread;
 
     iget-object v0, v0, Lcom/android/settings/search/SearchMain$UpdateListThread;->this$0:Lcom/android/settings/search/SearchMain;
@@ -115,6 +115,6 @@
     #calls: Lcom/android/settings/search/SearchMain;->updateList(Ljava/util/ArrayList;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/android/settings/search/SearchMain;->access$400(Lcom/android/settings/search/SearchMain;Ljava/util/ArrayList;Ljava/lang/String;)V
 
-    .line 71
+    .line 76
     return-void
 .end method

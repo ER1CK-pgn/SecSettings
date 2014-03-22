@@ -30,7 +30,7 @@
     .line 607
     iput-object p1, p0, Lcom/android/settings/wifi/WifiSettingsForSetupWizardXL$1;->this$0:Lcom/android/settings/wifi/WifiSettingsForSetupWizardXL;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

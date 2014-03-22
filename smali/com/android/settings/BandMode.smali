@@ -307,7 +307,7 @@
     :cond_3
     iget-object v5, p0, Lcom/android/settings/BandMode;->mBandList:Landroid/widget/ListView;
 
-    invoke-virtual {v5}, Landroid/widget/ListView;->requestFocus()Z
+    invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
 
     .line 165
     return-void
@@ -357,9 +357,9 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v2, 0x7f090155
+    const v2, 0x7f090177
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -406,9 +406,9 @@
 
     move-result-object v1
 
-    const v2, 0x7f090156
+    const v2, 0x7f090178
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -457,9 +457,9 @@
 
     move-result-object v1
 
-    const v2, 0x7f090157
+    const v2, 0x7f090179
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -479,9 +479,9 @@
 
     .prologue
     .line 117
-    const v2, 0x7f090154
+    const v2, 0x7f090176
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -533,24 +533,24 @@
     .line 60
     const/4 v0, 0x5
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->requestWindowFeature(I)Z
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
     .line 62
-    const v0, 0x7f040021
+    const v0, 0x7f040023
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 64
-    const v0, 0x7f090153
+    const v0, 0x7f090175
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 65
-    invoke-virtual {p0}, Lcom/android/settings/BandMode;->getWindow()Landroid/view/Window;
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
@@ -568,9 +568,9 @@
     iput-object v0, p0, Lcom/android/settings/BandMode;->mPhone:Lcom/android/internal/telephony/Phone;
 
     .line 70
-    const v0, 0x7f0b006b
+    const v0, 0x7f0b0074
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BandMode;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -599,7 +599,7 @@
 
     iget-object v1, p0, Lcom/android/settings/BandMode;->mBandSelectionHandler:Landroid/widget/AdapterView$OnItemClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 78
     invoke-direct {p0}, Lcom/android/settings/BandMode;->loadBandList()V

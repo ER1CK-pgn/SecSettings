@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 198
+    .line 199
     iput-object p1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 201
+    .line 202
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->Activityresult:Z
@@ -52,7 +52,7 @@
 
     if-nez v0, :cond_5
 
-    .line 202
+    .line 203
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutButton:Ljava/util/ArrayList;
@@ -62,7 +62,7 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 203
+    .line 204
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mPositionBar:Ljava/util/ArrayList;
@@ -72,7 +72,7 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 204
+    .line 205
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mShortCutList:Ljava/util/ArrayList;
@@ -82,7 +82,7 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 205
+    .line 206
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mMainLayout:Landroid/widget/LinearLayout;
@@ -90,9 +90,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->removeAllViews()V
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    .line 206
+    .line 207
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #getter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mAddButton:Landroid/widget/ImageView;
@@ -102,13 +102,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 207
+    .line 208
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mAddButton:Landroid/widget/ImageView;
     invoke-static {v0, v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$502(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Landroid/widget/ImageView;)Landroid/widget/ImageView;
 
-    .line 209
+    .line 210
     :cond_0
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
@@ -119,13 +119,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 210
+    .line 211
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     #setter for: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->mAddButtonPositionBar:Landroid/widget/ImageView;
     invoke-static {v0, v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$602(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Landroid/widget/ImageView;)Landroid/widget/ImageView;
 
-    .line 212
+    .line 213
     :cond_1
     const-string v0, "com.samsung.android.intent.action.SECRET_MODE_ON"
 
@@ -139,7 +139,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 213
+    .line 214
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -157,7 +157,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->MakeShortcutList(Ljava/util/List;)V
 
-    .line 217
+    .line 218
     :cond_2
     :goto_0
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -171,7 +171,7 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 218
+    .line 219
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     const/4 v1, 0x1
@@ -179,12 +179,12 @@
     #calls: Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->showAddButton(Z)V
     invoke-static {v0, v1}, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;->access$900(Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;Z)V
 
-    .line 223
+    .line 224
     :cond_3
     :goto_1
     return-void
 
-    .line 214
+    .line 215
     :cond_4
     const-string v0, "com.samsung.android.intent.action.SECRET_MODE_OFF"
 
@@ -198,7 +198,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 215
+    .line 216
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
@@ -218,7 +218,7 @@
 
     goto :goto_0
 
-    .line 221
+    .line 222
     :cond_5
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings$1;->this$0:Lcom/android/settings/lockscreenshortcut/LockScreenShortcutSettings;
 

@@ -42,7 +42,7 @@
     .line 131
     iput-object p1, p0, Lcom/android/settings/wifi/WifiBackupRestore$WifiBRthread;->this$0:Lcom/android/settings/wifi/WifiBackupRestore;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 132
     iput-object p2, p0, Lcom/android/settings/wifi/WifiBackupRestore$WifiBRthread;->mContext:Landroid/content/Context;
@@ -219,7 +219,7 @@
 
     .line 314
     .local v0, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v4, v5
 
@@ -1122,7 +1122,7 @@
 
     .line 357
     :try_start_2
-    invoke-virtual {v4}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v4}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -1148,7 +1148,7 @@
 
     .line 359
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 360
     const/4 v1, -0x1
@@ -1203,7 +1203,7 @@
 
     .line 357
     :try_start_4
-    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
@@ -1215,7 +1215,7 @@
 
     .line 359
     .local v0, e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 360
     const/4 v1, -0x1
@@ -1234,7 +1234,7 @@
 
     .line 357
     :try_start_5
-    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
@@ -1249,7 +1249,7 @@
 
     .line 359
     .restart local v0       #e:Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 360
     const/4 v1, -0x1
@@ -1549,7 +1549,7 @@
 
     .line 417
     :try_start_3
-    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_4
 
@@ -1695,7 +1695,7 @@
 
     .line 417
     :try_start_6
-    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
 
@@ -1780,7 +1780,7 @@
 
     .line 417
     :try_start_8
-    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v6}, Ljava/io/InputStreamReader;->close()V
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
 
@@ -1846,7 +1846,7 @@
 
     .line 417
     :try_start_9
-    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
     :try_end_9
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_5
 

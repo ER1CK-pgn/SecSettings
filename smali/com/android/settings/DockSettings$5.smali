@@ -3,12 +3,12 @@
 .source "DockSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/DockSettings;->showEnableCoverNote()V
+    value = Lcom/android/settings/DockSettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,52 +27,33 @@
     .parameter
 
     .prologue
-    .line 557
+    .line 513
     iput-object p1, p0, Lcom/android/settings/DockSettings$5;->this$0:Lcom/android/settings/DockSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+.method public onCancel(Landroid/content/DialogInterface;)V
+    .locals 2
     .parameter "dialog"
-    .parameter "which"
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 559
+    .line 515
     iget-object v0, p0, Lcom/android/settings/DockSettings$5;->this$0:Lcom/android/settings/DockSettings;
 
-    #getter for: Lcom/android/settings/DockSettings;->mCoverNote:Landroid/preference/CheckBoxPreference;
+    #getter for: Lcom/android/settings/DockSettings;->mDeskHomeScreen:Landroid/preference/CheckBoxPreference;
     invoke-static {v0}, Lcom/android/settings/DockSettings;->access$400(Lcom/android/settings/DockSettings;)Landroid/preference/CheckBoxPreference;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    const/4 v1, 0x0
 
-    .line 560
-    iget-object v0, p0, Lcom/android/settings/DockSettings$5;->this$0:Lcom/android/settings/DockSettings;
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    invoke-virtual {v0}, Lcom/android/settings/DockSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "cover_note"
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 561
-    const-string v0, "DockSettings"
-
-    const-string v1, "showEnableCoverNote() - No : set disable"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 562
+    .line 516
     return-void
 .end method

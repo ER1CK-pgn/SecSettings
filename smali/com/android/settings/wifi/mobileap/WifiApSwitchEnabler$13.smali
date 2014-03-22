@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 543
+    .line 591
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$13;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
     const/4 v5, 0x0
 
-    .line 545
+    .line 593
     iget-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$13;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -61,7 +61,7 @@
 
     move-result v2
 
-    .line 546
+    .line 594
     .local v2, wifiState:I
     if-eq v2, v4, :cond_0
 
@@ -80,13 +80,13 @@
 
     if-eqz v3, :cond_3
 
-    .line 549
+    .line 597
     :cond_0
     if-eq v2, v4, :cond_1
 
     if-ne v2, v6, :cond_2
 
-    .line 551
+    .line 599
     :cond_1
     iget-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$13;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
@@ -99,7 +99,7 @@
 
     move-result-object v0
 
-    .line 552
+    .line 600
     .local v0, cr:Landroid/content/ContentResolver;
     const-string v3, "wifi_saved_state"
 
@@ -107,7 +107,7 @@
 
     invoke-static {v0, v3, v4}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 554
+    .line 602
     .end local v0           #cr:Landroid/content/ContentResolver;
     :cond_2
     iget-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$13;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
@@ -119,7 +119,7 @@
 
     invoke-virtual {v3, v5}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 556
+    .line 604
     const-wide/16 v3, 0x258
 
     :try_start_0
@@ -127,7 +127,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 561
+    .line 609
     :cond_3
     :goto_0
     iget-object v3, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$13;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
@@ -135,16 +135,16 @@
     #calls: Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->startProvisioningIfNecessary(I)V
     invoke-static {v3, v5}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->access$600(Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;I)V
 
-    .line 562
+    .line 610
     return-void
 
-    .line 557
+    .line 605
     :catch_0
     move-exception v1
 
-    .line 558
+    .line 606
     .local v1, e:Ljava/lang/InterruptedException;
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

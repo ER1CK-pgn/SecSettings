@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 598
+    .line 623
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$3;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -40,7 +40,7 @@
     .locals 4
 
     .prologue
-    .line 602
+    .line 627
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$3;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mScanClicked:Z
@@ -52,7 +52,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 603
+    .line 628
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$3;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
@@ -75,7 +75,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->discoverPeers(Landroid/net/wifi/p2p/WifiP2pManager$Channel;ILandroid/net/wifi/p2p/WifiP2pManager$ActionListener;)V
 
-    .line 612
+    .line 637
     :cond_0
     return-void
 .end method
@@ -85,6 +85,6 @@
     .parameter "millisUntilFinished"
 
     .prologue
-    .line 600
+    .line 625
     return-void
 .end method

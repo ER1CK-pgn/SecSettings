@@ -98,7 +98,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 95
     :cond_1

@@ -47,7 +47,7 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
     .line 71
-    invoke-virtual {p0}, Lcom/android/settings/PenHelpPopup;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 72
     return-void
@@ -148,7 +148,7 @@
     .local v0, isFactoryMode:Z
     const-string v3, "phone"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenHelpPopup;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -204,7 +204,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 45
-    invoke-virtual {p0}, Lcom/android/settings/PenHelpPopup;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -294,14 +294,14 @@
 
     .line 56
     :cond_1
-    const v0, 0x7f0400fe
+    const v0, 0x7f040123
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpPopup;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 58
-    const v0, 0x7f0b02ae
+    const v0, 0x7f0b02ea
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenHelpPopup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -312,7 +312,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/PenHelpPopup$1;-><init>(Lcom/android/settings/PenHelpPopup;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 67
     return-void

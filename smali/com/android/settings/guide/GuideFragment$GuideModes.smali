@@ -48,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 149
+    .line 153
     new-instance v0, Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     const-string v1, "WIFI"
@@ -57,7 +57,7 @@
 
     sput-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->WIFI:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 150
+    .line 154
     new-instance v0, Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     const-string v1, "WIFI_SETTINGS"
@@ -66,7 +66,7 @@
 
     sput-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->WIFI_SETTINGS:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 151
+    .line 155
     new-instance v0, Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     const-string v1, "BLUETOOTH"
@@ -75,7 +75,7 @@
 
     sput-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->BLUETOOTH:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 152
+    .line 156
     new-instance v0, Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     const-string v1, "BLUETOOTH_SETTING"
@@ -84,7 +84,7 @@
 
     sput-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->BLUETOOTH_SETTING:Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    .line 148
+    .line 152
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/android/settings/guide/GuideFragment$GuideModes;
@@ -121,7 +121,7 @@
     .end annotation
 
     .prologue
-    .line 148
+    .line 152
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -132,7 +132,7 @@
     .parameter
 
     .prologue
-    .line 148
+    .line 152
     const-class v0, Lcom/android/settings/guide/GuideFragment$GuideModes;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -148,10 +148,10 @@
     .locals 1
 
     .prologue
-    .line 148
+    .line 152
     sget-object v0, Lcom/android/settings/guide/GuideFragment$GuideModes;->$VALUES:[Lcom/android/settings/guide/GuideFragment$GuideModes;
 
-    invoke-virtual {v0}, [Lcom/android/settings/guide/GuideFragment$GuideModes;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

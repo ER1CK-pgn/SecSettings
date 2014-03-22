@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 99
+    .line 103
     iput-object p1, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$1;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,36 +40,36 @@
     .parameter "selfChange"
 
     .prologue
-    .line 102
+    .line 106
     const-string v1, "MenuPowerSavingModeSettings"
 
     const-string v2, "onChange() "
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 103
+    .line 107
     iget-object v1, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$1;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
     #calls: Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->updateUIPowerSaving()V
     invoke-static {v1}, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->access$000(Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;)V
 
-    .line 104
+    .line 108
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.settings.POWERSAVING_SWITCH_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 105
+    .line 109
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$1;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 106
+    .line 110
     return-void
 .end method

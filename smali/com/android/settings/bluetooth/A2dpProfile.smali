@@ -72,7 +72,7 @@
 
     .prologue
     .line 99
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 100
     iput-object p2, p0, Lcom/android/settings/bluetooth/A2dpProfile;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
@@ -341,7 +341,7 @@
 
     .prologue
     .line 215
-    const v0, 0x7f020157
+    const v0, 0x7f02019a
 
     return v0
 .end method
@@ -352,7 +352,7 @@
 
     .prologue
     .line 192
-    const v0, 0x7f090264
+    const v0, 0x7f090289
 
     return v0
 .end method
@@ -398,7 +398,7 @@
     .parameter "device"
 
     .prologue
-    const v1, 0x7f090281
+    const v1, 0x7f0902a8
 
     .line 197
     iget-object v2, p0, Lcom/android/settings/bluetooth/A2dpProfile;->mService:Landroid/bluetooth/BluetoothA2dp;
@@ -432,7 +432,7 @@
 
     .line 207
     :pswitch_2
-    const v1, 0x7f090277
+    const v1, 0x7f09029d
 
     goto :goto_0
 

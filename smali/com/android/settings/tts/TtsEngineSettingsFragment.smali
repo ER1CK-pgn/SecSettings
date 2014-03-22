@@ -20,6 +20,10 @@
 
 .field private mLocalePreference:Landroid/preference/ListPreference;
 
+.field private mSelectedLocaleIndex:I
+
+.field private mSystemLocaleIndex:I
+
 .field private mTts:Landroid/speech/tts/TextToSpeech;
 
 .field private final mTtsInitListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
@@ -32,24 +36,32 @@
     .locals 1
 
     .prologue
-    .line 92
+    const/4 v0, -0x1
+
+    .line 99
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 65
+    .line 69
+    iput v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSelectedLocaleIndex:I
+
+    .line 70
+    iput v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSystemLocaleIndex:I
+
+    .line 72
     new-instance v0, Lcom/android/settings/tts/TtsEngineSettingsFragment$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment$1;-><init>(Lcom/android/settings/tts/TtsEngineSettingsFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTtsInitListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
 
-    .line 81
+    .line 88
     new-instance v0, Lcom/android/settings/tts/TtsEngineSettingsFragment$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment$2;-><init>(Lcom/android/settings/tts/TtsEngineSettingsFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLanguagesChangedReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 93
+    .line 100
     return-void
 .end method
 
@@ -58,7 +70,7 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 48
     iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
     return-object v0
@@ -69,24 +81,36 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 48
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->checkTtsData()V
 
     return-void
+.end method
+
+.method private checkReactivationLockInSetupWizard()Z
+    .locals 1
+
+    .prologue
+    .line 357
+    const/4 v0, 0x0
+
+    .line 378
+    .local v0, ret:Z
+    return v0
 .end method
 
 .method private final checkTtsData()V
     .locals 5
 
     .prologue
-    .line 153
+    .line 155
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.speech.tts.engine.CHECK_TTS_DATA"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 154
+    .line 156
     .local v1, intent:Landroid/content/Intent;
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
 
@@ -94,23 +118,23 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 157
+    .line 159
     const/16 v2, 0x7b9
 
     :try_start_0
-    invoke-virtual {p0, v1, v2}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v1, v2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 161
+    .line 163
     :goto_0
     return-void
 
-    .line 158
+    .line 160
     :catch_0
     move-exception v0
 
-    .line 159
+    .line 161
     .local v0, ex:Landroid/content/ActivityNotFoundException;
     const-string v2, "TtsEngineSettings"
 
@@ -147,8 +171,8 @@
     .locals 2
 
     .prologue
-    .line 315
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getArguments()Landroid/os/Bundle;
+    .line 345
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -165,8 +189,8 @@
     .locals 2
 
     .prologue
-    .line 311
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getArguments()Landroid/os/Bundle;
+    .line 341
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -183,7 +207,7 @@
     .locals 5
 
     .prologue
-    .line 265
+    .line 275
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
 
     move-result-object v2
@@ -194,11 +218,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 275
+    .line 285
     :goto_0
     return-void
 
-    .line 266
+    .line 276
     :cond_0
     new-instance v1, Landroid/content/Intent;
 
@@ -206,20 +230,20 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 267
+    .line 277
     .local v1, intent:Landroid/content/Intent;
     const/high16 v2, 0x1000
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 268
+    .line 278
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 270
+    .line 280
     :try_start_0
     const-string v2, "TtsEngineSettings"
 
@@ -249,18 +273,18 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
-    invoke-virtual {p0, v1}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->startActivity(Landroid/content/Intent;)V
+    .line 281
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 272
+    .line 282
     :catch_0
     move-exception v0
 
-    .line 273
+    .line 283
     .local v0, ex:Landroid/content/ActivityNotFoundException;
     const-string v2, "TtsEngineSettings"
 
@@ -293,6 +317,54 @@
     goto :goto_0
 .end method
 
+.method private setLocalePreference(I)V
+    .locals 2
+    .parameter "index"
+
+    .prologue
+    .line 261
+    if-gez p1, :cond_0
+
+    .line 262
+    iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    const-string v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setValue(Ljava/lang/String;)V
+
+    .line 263
+    iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    const v1, 0x7f0909ab
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
+
+    .line 268
+    :goto_0
+    return-void
+
+    .line 265
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v0, p1}, Landroid/preference/ListPreference;->setValueIndex(I)V
+
+    .line 266
+    iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v1}, Landroid/preference/ListPreference;->getEntries()[Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    aget-object v1, v1, p1
+
+    invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+.end method
+
 .method private updateDefaultLocalePref(Ljava/util/ArrayList;)V
     .locals 14
     .parameter
@@ -307,8 +379,30 @@
     .end annotation
 
     .prologue
-    .line 207
+    .line 200
     .local p1, availableLangs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v11
+
+    if-nez v11, :cond_1
+
+    .line 201
+    :cond_0
+    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v11, v12}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 257
+    :goto_0
+    return-void
+
+    .line 204
+    :cond_1
     iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
@@ -319,30 +413,30 @@
 
     move-result-object v0
 
-    .line 210
+    .line 207
     .local v0, currentLocale:Ljava/lang/String;
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    invoke-direct {v3, v11}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v4, v11}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 212
-    .local v3, entryPairs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;>;"
-    const/4 v5, 0x0
+    .line 209
+    .local v4, entryPairs:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;>;"
+    const/4 v6, 0x0
 
-    .local v5, i:I
-    :goto_0
+    .local v6, i:I
+    :goto_1
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    if-ge v5, v11, :cond_4
+    if-ge v6, v11, :cond_6
 
-    .line 213
-    invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    .line 210
+    invoke-virtual {p1, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v11
 
@@ -352,166 +446,180 @@
 
     invoke-virtual {v11, v12}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    .line 214
-    .local v8, langCountryVariant:[Ljava/lang/String;
-    const/4 v9, 0x0
+    .line 211
+    .local v9, langCountryVariant:[Ljava/lang/String;
+    const/4 v10, 0x0
 
-    .line 215
-    .local v9, loc:Ljava/util/Locale;
-    array-length v11, v8
+    .line 212
+    .local v10, loc:Ljava/util/Locale;
+    array-length v11, v9
 
     const/4 v12, 0x1
 
-    if-ne v11, v12, :cond_2
+    if-ne v11, v12, :cond_4
 
-    .line 216
-    new-instance v9, Ljava/util/Locale;
+    .line 213
+    new-instance v10, Ljava/util/Locale;
 
-    .end local v9           #loc:Ljava/util/Locale;
+    .end local v10           #loc:Ljava/util/Locale;
     const/4 v11, 0x0
 
-    aget-object v11, v8, v11
+    aget-object v11, v9, v11
 
-    invoke-direct {v9, v11}, Ljava/util/Locale;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v11}, Ljava/util/Locale;-><init>(Ljava/lang/String;)V
 
-    .line 223
-    .restart local v9       #loc:Ljava/util/Locale;
-    :cond_0
-    :goto_1
-    if-eqz v9, :cond_1
+    .line 220
+    .restart local v10       #loc:Ljava/util/Locale;
+    :cond_2
+    :goto_2
+    if-eqz v10, :cond_3
 
-    .line 224
+    .line 221
     new-instance v11, Landroid/util/Pair;
 
-    invoke-virtual {v9}, Ljava/util/Locale;->getDisplayName()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/util/Locale;->getDisplayName()Ljava/lang/String;
 
     move-result-object v12
 
-    invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v13
 
     invoke-direct {v11, v12, v13}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-virtual {v3, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 212
-    :cond_1
-    add-int/lit8 v5, v5, 0x1
+    .line 209
+    :cond_3
+    add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 217
-    :cond_2
-    array-length v11, v8
+    .line 214
+    :cond_4
+    array-length v11, v9
 
     const/4 v12, 0x2
 
-    if-ne v11, v12, :cond_3
+    if-ne v11, v12, :cond_5
 
-    .line 218
-    new-instance v9, Ljava/util/Locale;
+    .line 215
+    new-instance v10, Ljava/util/Locale;
 
-    .end local v9           #loc:Ljava/util/Locale;
+    .end local v10           #loc:Ljava/util/Locale;
     const/4 v11, 0x0
 
-    aget-object v11, v8, v11
+    aget-object v11, v9, v11
 
     const/4 v12, 0x1
 
-    aget-object v12, v8, v12
+    aget-object v12, v9, v12
 
-    invoke-direct {v9, v11, v12}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v10, v11, v12}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .restart local v9       #loc:Ljava/util/Locale;
-    goto :goto_1
+    .restart local v10       #loc:Ljava/util/Locale;
+    goto :goto_2
 
-    .line 219
-    :cond_3
-    array-length v11, v8
+    .line 216
+    :cond_5
+    array-length v11, v9
 
     const/4 v12, 0x3
 
-    if-ne v11, v12, :cond_0
+    if-ne v11, v12, :cond_2
 
-    .line 220
-    new-instance v9, Ljava/util/Locale;
+    .line 217
+    new-instance v10, Ljava/util/Locale;
 
-    .end local v9           #loc:Ljava/util/Locale;
+    .end local v10           #loc:Ljava/util/Locale;
     const/4 v11, 0x0
 
-    aget-object v11, v8, v11
+    aget-object v11, v9, v11
 
     const/4 v12, 0x1
 
-    aget-object v12, v8, v12
+    aget-object v12, v9, v12
 
     const/4 v13, 0x2
 
-    aget-object v13, v8, v13
+    aget-object v13, v9, v13
 
-    invoke-direct {v9, v11, v12, v13}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v10, v11, v12, v13}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .restart local v9       #loc:Ljava/util/Locale;
-    goto :goto_1
+    .restart local v10       #loc:Ljava/util/Locale;
+    goto :goto_2
 
-    .line 230
-    .end local v8           #langCountryVariant:[Ljava/lang/String;
-    .end local v9           #loc:Ljava/util/Locale;
-    :cond_4
+    .line 227
+    .end local v9           #langCountryVariant:[Ljava/lang/String;
+    .end local v10           #loc:Ljava/util/Locale;
+    :cond_6
     new-instance v11, Lcom/android/settings/tts/TtsEngineSettingsFragment$3;
 
     invoke-direct {v11, p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment$3;-><init>(Lcom/android/settings/tts/TtsEngineSettingsFragment;)V
 
-    invoke-static {v3, v11}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    invoke-static {v4, v11}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    .line 234
+    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
+
+    invoke-virtual {v11}, Landroid/speech/tts/TtsEngines;->getDefaultLocale()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 237
+    .local v1, defaultLocaleStr:Ljava/lang/String;
+    const/4 v11, -0x1
+
+    iput v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSelectedLocaleIndex:I
 
     .line 238
-    const/4 v10, -0x1
+    const/4 v11, -0x1
+
+    iput v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSystemLocaleIndex:I
 
     .line 239
-    .local v10, selectedLanguageIndex:I
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    new-array v1, v11, [Ljava/lang/CharSequence;
+    new-array v2, v11, [Ljava/lang/CharSequence;
 
     .line 240
-    .local v1, entries:[Ljava/lang/CharSequence;
+    .local v2, entries:[Ljava/lang/CharSequence;
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    new-array v4, v11, [Ljava/lang/CharSequence;
+    new-array v5, v11, [Ljava/lang/CharSequence;
 
     .line 241
-    .local v4, entryValues:[Ljava/lang/CharSequence;
-    const/4 v5, 0x0
+    .local v5, entryValues:[Ljava/lang/CharSequence;
+    const/4 v6, 0x0
 
     .line 242
-    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
+    move-result-object v8
 
-    .local v7, i$:Ljava/util/Iterator;
-    :goto_2
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    .local v8, i$:Ljava/util/Iterator;
+    :goto_3
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_9
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Landroid/util/Pair;
+    check-cast v3, Landroid/util/Pair;
 
     .line 243
-    .local v2, entry:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v11, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    .local v3, entry:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    iget-object v11, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v11, Ljava/lang/String;
 
@@ -519,169 +627,263 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_7
 
     .line 244
-    move v10, v5
+    iput v6, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSelectedLocaleIndex:I
 
     .line 246
-    :cond_5
-    iget-object v11, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v11, Ljava/lang/CharSequence;
-
-    aput-object v11, v1, v5
-
-    .line 247
-    add-int/lit8 v6, v5, 0x1
-
-    .end local v5           #i:I
-    .local v6, i:I
-    iget-object v11, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v11, Ljava/lang/CharSequence;
-
-    aput-object v11, v4, v5
-
-    move v5, v6
-
-    .end local v6           #i:I
-    .restart local v5       #i:I
-    goto :goto_2
-
-    .line 250
-    .end local v2           #entry:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
-    :cond_6
-    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v11, v1}, Landroid/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
-
-    .line 251
-    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v11, v4}, Landroid/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
-
-    .line 252
-    const/4 v11, -0x1
-
-    if-le v10, v11, :cond_7
-
-    .line 253
-    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v11, v10}, Landroid/preference/ListPreference;->setValueIndex(I)V
-
-    .line 258
-    :goto_3
-    return-void
-
-    .line 255
     :cond_7
-    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    const/4 v12, 0x0
-
-    invoke-virtual {v11, v12}, Landroid/preference/ListPreference;->setValueIndex(I)V
-
-    .line 256
-    const/4 v11, 0x0
-
-    invoke-virtual {p1, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v11
+    iget-object v11, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v11, Ljava/lang/String;
 
-    invoke-direct {p0, v11}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->updateLanguageTo(Ljava/lang/String;)V
+    invoke-virtual {v11, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
+    move-result v11
+
+    if-eqz v11, :cond_8
+
+    .line 247
+    iput v6, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSystemLocaleIndex:I
+
+    .line 249
+    :cond_8
+    iget-object v11, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v11, Ljava/lang/CharSequence;
+
+    aput-object v11, v2, v6
+
+    .line 250
+    add-int/lit8 v7, v6, 0x1
+
+    .end local v6           #i:I
+    .local v7, i:I
+    iget-object v11, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v11, Ljava/lang/CharSequence;
+
+    aput-object v11, v5, v6
+
+    move v6, v7
+
+    .end local v7           #i:I
+    .restart local v6       #i:I
     goto :goto_3
+
+    .line 253
+    .end local v3           #entry:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
+    :cond_9
+    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v11, v2}, Landroid/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
+
+    .line 254
+    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v11, v5}, Landroid/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
+
+    .line 255
+    iget-object v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    const/4 v12, 0x1
+
+    invoke-virtual {v11, v12}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 256
+    iget v11, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSelectedLocaleIndex:I
+
+    invoke-direct {p0, v11}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->setLocalePreference(I)V
+
+    goto/16 :goto_0
 .end method
 
 .method private updateLanguageTo(Ljava/lang/String;)V
-    .locals 6
+    .locals 8
     .parameter "locale"
 
     .prologue
-    .line 301
-    iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
+    .line 310
+    const/4 v2, -0x1
+
+    .line 311
+    .local v2, selectedLocaleIndex:I
+    const/4 v0, 0x0
+
+    .local v0, i:I
+    :goto_0
+    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v3}, Landroid/preference/ListPreference;->getEntryValues()[Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    array-length v3, v3
+
+    if-ge v0, v3, :cond_0
+
+    .line 312
+    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v3}, Landroid/preference/ListPreference;->getEntryValues()[Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    aget-object v3, v3, v0
+
+    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 313
+    move v2, v0
+
+    .line 318
+    :cond_0
+    const/4 v3, -0x1
+
+    if-ne v2, v3, :cond_3
+
+    .line 319
+    const-string v3, "TtsEngineSettings"
+
+    const-string v4, "updateLanguageTo called with unknown locale argument"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 338
+    :cond_1
+    :goto_1
+    return-void
+
+    .line 311
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 322
+    :cond_3
+    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    iget-object v4, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
+
+    invoke-virtual {v4}, Landroid/preference/ListPreference;->getEntries()[Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    aget-object v4, v4, v2
+
+    invoke-virtual {v3, v4}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 323
+    iput v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSelectedLocaleIndex:I
+
+    .line 325
+    iget v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSelectedLocaleIndex:I
+
+    iget v4, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mSystemLocaleIndex:I
+
+    if-ne v3, v4, :cond_4
+
+    .line 327
+    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v1, v2, p1}, Landroid/speech/tts/TtsEngines;->updateLocalePrefForEngine(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v5, ""
 
-    .line 302
+    invoke-virtual {v3, v4, v5}, Landroid/speech/tts/TtsEngines;->updateLocalePrefForEngine(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 332
+    :goto_2
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTts:Landroid/speech/tts/TextToSpeech;
+
+    invoke-virtual {v4}, Landroid/speech/tts/TextToSpeech;->getCurrentEngine()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 333
+    invoke-static {p1}, Landroid/speech/tts/TtsEngines;->parseLocalePref(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTts:Landroid/speech/tts/TextToSpeech;
+    .line 334
+    .local v1, localeArray:[Ljava/lang/String;
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v2}, Landroid/speech/tts/TextToSpeech;->getCurrentEngine()Ljava/lang/String;
+    .line 335
+    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    move-result-object v2
+    new-instance v4, Ljava/util/Locale;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/4 v5, 0x0
 
-    move-result v1
+    aget-object v5, v1, v5
 
-    if-eqz v1, :cond_0
+    const/4 v6, 0x1
 
-    .line 303
-    invoke-static {p1}, Landroid/speech/tts/TtsEngines;->parseLocalePref(Ljava/lang/String;)[Ljava/lang/String;
+    aget-object v6, v1, v6
 
-    move-result-object v0
+    const/4 v7, 0x2
 
-    .line 304
-    .local v0, localeArray:[Ljava/lang/String;
-    if-eqz v0, :cond_0
+    aget-object v7, v1, v7
 
-    .line 305
-    iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTts:Landroid/speech/tts/TextToSpeech;
+    invoke-direct {v4, v5, v6, v7}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v2, Ljava/util/Locale;
+    invoke-virtual {v3, v4}, Landroid/speech/tts/TextToSpeech;->setLanguage(Ljava/util/Locale;)I
 
-    const/4 v3, 0x0
+    goto :goto_1
 
-    aget-object v3, v0, v3
+    .line 329
+    .end local v1           #localeArray:[Ljava/lang/String;
+    :cond_4
+    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
-    const/4 v4, 0x1
+    invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
 
-    aget-object v4, v0, v4
+    move-result-object v4
 
-    const/4 v5, 0x2
+    invoke-virtual {v3, v4, p1}, Landroid/speech/tts/TtsEngines;->updateLocalePrefForEngine(Ljava/lang/String;Ljava/lang/String;)V
 
-    aget-object v5, v0, v5
-
-    invoke-direct {v2, v3, v4, v5}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v1, v2}, Landroid/speech/tts/TextToSpeech;->setLanguage(Ljava/util/Locale;)I
-
-    .line 308
-    .end local v0           #localeArray:[Ljava/lang/String;
-    :cond_0
-    return-void
+    goto :goto_2
 .end method
 
 .method private updateVoiceDetails()V
-    .locals 6
+    .locals 5
 
     .prologue
-    const/4 v5, 0x1
-
     const/4 v4, 0x0
 
-    .line 174
+    .line 176
     iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mVoiceDataDetails:Landroid/content/Intent;
 
     if-nez v2, :cond_0
 
-    .line 204
+    .line 197
     :goto_0
     return-void
 
-    .line 177
+    .line 179
     :cond_0
     iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mVoiceDataDetails:Landroid/content/Intent;
 
@@ -691,7 +893,7 @@
 
     move-result-object v0
 
-    .line 179
+    .line 181
     .local v0, available:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mVoiceDataDetails:Landroid/content/Intent;
 
@@ -701,110 +903,58 @@
 
     move-result-object v1
 
-    .line 182
+    .line 184
     .local v1, unavailable:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-nez v0, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 183
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-lez v2, :cond_1
+
+    invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->checkReactivationLockInSetupWizard()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 185
+    iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 190
+    :goto_1
+    if-nez v0, :cond_2
+
+    .line 191
     const-string v2, "TtsEngineSettings"
 
     const-string v3, "TTS data check failed (available == null)."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 184
+    .line 192
     iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
-    invoke-virtual {v2, v4}, Landroid/preference/ListPreference;->setEnabled(Z)V
-
-    .line 185
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 189
+    .line 187
     :cond_1
-    if-eqz v1, :cond_2
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-lez v2, :cond_2
-
-    .line 190
     iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
 
-    invoke-virtual {v2, v5}, Landroid/preference/Preference;->setEnabled(Z)V
-
-    .line 191
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
-
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 196
-    :goto_1
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-lez v2, :cond_3
-
-    .line 197
-    iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v2, v5}, Landroid/preference/ListPreference;->setEnabled(Z)V
-
-    .line 198
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 199
-    invoke-direct {p0, v0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->updateDefaultLocalePref(Ljava/util/ArrayList;)V
-
-    goto :goto_0
-
-    .line 193
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
-
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v2, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_1
 
-    .line 201
-    :cond_3
-    iget-object v2, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v2, v4}, Landroid/preference/ListPreference;->setEnabled(Z)V
-
-    .line 202
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    .line 195
+    :cond_2
+    invoke-direct {p0, v0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->updateDefaultLocalePref(Ljava/util/ArrayList;)V
 
     goto :goto_0
 .end method
@@ -818,18 +968,18 @@
     .parameter "data"
 
     .prologue
-    .line 165
+    .line 167
     const/16 v0, 0x7b9
 
     if-ne p1, v0, :cond_0
 
-    .line 166
+    .line 168
     iput-object p3, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mVoiceDataDetails:Landroid/content/Intent;
 
-    .line 167
+    .line 169
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->updateVoiceDetails()V
 
-    .line 169
+    .line 171
     :cond_0
     return-void
 .end method
@@ -841,18 +991,18 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 97
+    .line 104
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 98
-    const v1, 0x7f0700ac
+    .line 105
+    const v1, 0x7f0700d1
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 99
+    .line 106
     new-instance v1, Landroid/speech/tts/TtsEngines;
 
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -860,16 +1010,16 @@
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
-    .line 101
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 108
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 102
+    .line 109
     .local v0, root:Landroid/preference/PreferenceScreen;
     const-string v1, "tts_default_lang"
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -877,50 +1027,40 @@
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
-    .line 103
+    .line 110
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 104
+    .line 111
     const-string v1, "tts_engine_settings"
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsPreference:Landroid/preference/Preference;
 
-    .line 105
+    .line 112
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsPreference:Landroid/preference/Preference;
 
     invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
-    .line 106
+    .line 113
     const-string v1, "tts_install_data"
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
 
-    .line 107
+    .line 114
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
 
     invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
-    .line 109
-    iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 111
-    iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 113
+    .line 116
     const/4 v1, 0x0
 
     invoke-static {v1}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -929,8 +1069,8 @@
 
     if-nez v1, :cond_0
 
-    .line 114
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getActivity()Landroid/app/Activity;
+    .line 117
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -944,29 +1084,29 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 117
+    .line 120
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineLabel()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 118
+    .line 121
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    .line 119
+    .line 122
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsPreference:Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0908e5
+    const v3, 0x7f0909c3
 
     const/4 v4, 0x1
 
@@ -984,7 +1124,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 122
+    .line 125
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getEngineName()Ljava/lang/String;
@@ -997,43 +1137,43 @@
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsIntent:Landroid/content/Intent;
 
-    .line 123
+    .line 126
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsIntent:Landroid/content/Intent;
 
     if-nez v1, :cond_1
 
-    .line 124
+    .line 127
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsPreference:Landroid/preference/Preference;
 
     invoke-virtual {v1, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 126
+    .line 129
     :cond_1
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
 
     invoke-virtual {v1, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 128
+    .line 130
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
-    invoke-virtual {v1, v6}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 129
+    .line 132
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
     new-array v2, v6, [Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
-    .line 130
+    .line 133
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
     new-array v2, v6, [Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
-    .line 132
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getArguments()Landroid/os/Bundle;
+    .line 135
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -1047,14 +1187,14 @@
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mVoiceDataDetails:Landroid/content/Intent;
 
-    .line 134
+    .line 137
     new-instance v1, Landroid/speech/tts/TextToSpeech;
 
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -1068,11 +1208,11 @@
 
     iput-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    .line 139
+    .line 141
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->checkTtsData()V
 
-    .line 141
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getActivity()Landroid/app/Activity;
+    .line 143
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1084,9 +1224,9 @@
 
     invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2, v3}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v3}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 143
+    .line 145
     return-void
 .end method
 
@@ -1094,24 +1234,24 @@
     .locals 2
 
     .prologue
-    .line 147
-    invoke-virtual {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->getActivity()Landroid/app/Activity;
+    .line 149
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLanguagesChangedReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 148
+    .line 150
     iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->shutdown()V
 
-    .line 149
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    .line 151
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
-    .line 150
+    .line 152
     return-void
 .end method
 
@@ -1121,21 +1261,21 @@
     .parameter "newValue"
 
     .prologue
-    .line 292
+    .line 302
     iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
     if-ne p1, v0, :cond_0
 
-    .line 293
+    .line 303
     check-cast p2, Ljava/lang/String;
 
     .end local p2
     invoke-direct {p0, p2}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->updateLanguageTo(Ljava/lang/String;)V
 
-    .line 294
+    .line 304
     const/4 v0, 0x1
 
-    .line 297
+    .line 306
     :goto_0
     return v0
 
@@ -1153,32 +1293,32 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 279
+    .line 289
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mInstallVoicesPreference:Landroid/preference/Preference;
 
     if-ne p1, v1, :cond_0
 
-    .line 280
+    .line 290
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->installVoiceData()V
 
-    .line 287
+    .line 297
     :goto_0
     return v0
 
-    .line 282
+    .line 292
     :cond_0
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsPreference:Landroid/preference/Preference;
 
     if-ne p1, v1, :cond_1
 
-    .line 283
+    .line 293
     iget-object v1, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mEngineSettingsIntent:Landroid/content/Intent;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 287
+    .line 297
     :cond_1
     const/4 v0, 0x0
 
@@ -1189,12 +1329,12 @@
     .locals 0
 
     .prologue
-    .line 320
+    .line 350
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 321
+    .line 351
     invoke-direct {p0}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->updateVoiceDetails()V
 
-    .line 322
+    .line 352
     return-void
 .end method

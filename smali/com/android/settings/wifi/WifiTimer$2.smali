@@ -70,29 +70,29 @@
     .line 111
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$2;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
-    #calls: Lcom/android/settings/wifi/WifiTimer;->hideKeypad()V
-    invoke-static {v0}, Lcom/android/settings/wifi/WifiTimer;->access$100(Lcom/android/settings/wifi/WifiTimer;)V
+    iget-object v0, v0, Lcom/android/settings/wifi/WifiTimer;->mStartTimePickerView:Landroid/widget/TimePicker;
+
+    invoke-virtual {v0, v2}, Landroid/widget/TimePicker;->setVisibility(I)V
 
     .line 112
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$2;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
-    iget-object v0, v0, Lcom/android/settings/wifi/WifiTimer;->mEndTimePickerView:Landroid/widget/TimePicker;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TimePicker;->setEnabled(Z)V
+    #calls: Lcom/android/settings/wifi/WifiTimer;->hideKeypad()V
+    invoke-static {v0}, Lcom/android/settings/wifi/WifiTimer;->access$100(Lcom/android/settings/wifi/WifiTimer;)V
 
     .line 113
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$2;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
     iget-object v0, v0, Lcom/android/settings/wifi/WifiTimer;->mEndTimePickerView:Landroid/widget/TimePicker;
 
-    invoke-virtual {v0}, Landroid/widget/TimePicker;->clearFocus()V
+    invoke-virtual {v0, v2}, Landroid/widget/TimePicker;->setEnabled(Z)V
 
     .line 114
     iget-object v0, p0, Lcom/android/settings/wifi/WifiTimer$2;->this$0:Lcom/android/settings/wifi/WifiTimer;
 
-    iget-object v0, v0, Lcom/android/settings/wifi/WifiTimer;->mStartTimePickerView:Landroid/widget/TimePicker;
+    iget-object v0, v0, Lcom/android/settings/wifi/WifiTimer;->mEndTimePickerView:Landroid/widget/TimePicker;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TimePicker;->setVisibility(I)V
+    invoke-virtual {v0}, Landroid/widget/TimePicker;->clearFocus()V
 
     .line 118
     :goto_0

@@ -3,6 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
   xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <ListPreference android:entries="@array/sound_mode_entries" android:title="@string/sound_mode" android:key="sound_mode" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/sound_mode_values" />
     <com.android.settings.RingerVolumePreference android:persistent="false" android:title="@string/all_volume_title" android:key="ring_volume" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/all_volume_title" android:streamType="ring" />
     <com.android.settings.VibrationFeedbackPreference android:title="@string/vibration_intensity" android:key="vibration_feedback_intensity" android:summary="" android:widgetLayout="@layout/round_more_icon" android:dialogTitle="@string/vibration_intensity" />
     <PreferenceScreen android:title="@string/phone_profile" android:key="phone_profile" android:summary="@string/normal" android:fragment="com.android.settings.phoneprofile.PhoneProfileSettings" />
@@ -25,6 +26,7 @@
     <CheckBoxPreference android:title="@string/dtmf_tone_enable_title" android:key="dtmf_tone" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:defaultValue="true" android:summaryOn="@string/dtmf_tone_enable_summary_on" android:summaryOff="@string/dtmf_tone_enable_summary_off" />
     <CheckBoxPreference android:title="@string/sound_effects_enable_title" android:key="sound_effects" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:defaultValue="true" android:summaryOn="@string/sound_effects_enable_summary_on" android:summaryOff="@string/sound_effects_enable_summary_off" />
     <CheckBoxPreference android:title="@string/lock_sounds_enable_title" android:key="lock_sounds" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:defaultValue="true" android:summaryOn="@string/lock_sounds_enable_summary_on" android:summaryOff="@string/lock_sounds_enable_summary_off" />
+    <CheckBoxPreference android:title="@string/folder_sounds" android:key="folder_sounds" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:defaultValue="true" android:summaryOn="@string/folder_sounds_summary" android:summaryOff="@string/folder_sounds_summary" />
     <CheckBoxPreference android:title="@string/gps_notification_sounds_title" android:key="gps_notification_sounds" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <CheckBoxPreference android:title="@string/haptic_feedback_enable_title" android:key="haptic_feedback" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" android:defaultValue="true" android:summaryOn="@string/haptic_feedback_enable_summary_on" android:summaryOff="@string/haptic_feedback_enable_summary_off" />
     <SwitchPreferenceScreen android:title="@string/haptic_feedback_enable_title" android:key="haptic_feedback_switch" android:summaryOn="@string/haptic_feedback_enable_summary_on" android:summaryOff="@string/haptic_feedback_enable_summary_off" android:fragment="com.android.settings.AssistiveHapticSettings" />
@@ -35,6 +37,11 @@
             <extra android:name="previousStage" android:value="sound_settings" />
         </intent>
     </PreferenceScreen>
+    <PreferenceCategory android:title="@string/samsung_applications" android:key="sound_applications" />
+    <PreferenceScreen android:title="@string/call_settings" android:key="sound_call" android:summary="" />
+    <PreferenceScreen android:title="@string/message" android:key="sound_message" android:summary="" />
+    <PreferenceScreen android:title="@string/help_smart_scroll_email" android:key="sound_email" android:summary="" />
+    <PreferenceScreen android:title="@string/finger_air_view_help_information_priview_splanner_title" android:key="sound_splanner" android:summary="" />
     <PreferenceCategory android:title="@string/onehand_activate_samsung_keypad_title" android:key="sip_category" />
     <CheckBoxPreference android:title="@string/key_tap_sound" android:key="sip_feedback_sound" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <CheckBoxPreference android:title="@string/key_tap_vibration" android:key="sip_feedback_vibration" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />

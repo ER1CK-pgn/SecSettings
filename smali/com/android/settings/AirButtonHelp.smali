@@ -89,22 +89,22 @@
     .locals 1
 
     .prologue
-    .line 176
+    .line 181
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 177
+    .line 182
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 178
+    .line 183
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/AirButtonHelp;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    .line 180
+    .line 185
     :cond_0
     return-void
 .end method
@@ -113,23 +113,23 @@
     .locals 3
 
     .prologue
-    .line 150
+    .line 155
     invoke-direct {p0}, Lcom/android/settings/AirButtonHelp;->dismissAllDialog()V
 
-    .line 152
+    .line 157
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e64
+    const v1, 0x7f090f9d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -161,150 +161,214 @@
 
     iput-object v0, p0, Lcom/android/settings/AirButtonHelp;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    .line 172
+    .line 177
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp;->mEnableAirCommandDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 173
+    .line 178
     return-void
 .end method
 
 .method private turnOnPenInfoPreview()V
-    .locals 7
+    .locals 8
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    .line 184
+    .line 189
     invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_3
 
-    .line 185
+    .line 190
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "air_view_master_onoff"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    move v1, v4
+
+    .line 191
+    .local v1, airViewState:Z
+    :goto_0
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "air_view_mode"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 192
+    .local v0, airViewMode:I
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "pen_hovering"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    move v2, v4
+
+    .line 193
+    .local v2, penHover:Z
+    :goto_1
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "pen_hovering_information_preview"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    move v3, v4
+
+    .line 194
+    .local v3, penInforPreview:Z
+    :goto_2
+    if-nez v1, :cond_0
+
+    .line 196
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
     const-string v6, "air_view_master_onoff"
 
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    move-result v5
+    .line 198
+    :cond_0
+    sget v5, Lcom/android/settings/Utils;->FINGER_AIR_VIEW_MODE:I
 
-    if-eqz v5, :cond_3
+    if-ne v0, v5, :cond_1
 
-    move v1, v3
-
-    .line 186
-    .local v1, airViewState:Z
-    :goto_0
+    .line 199
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
     const-string v6, "air_view_mode"
 
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    sget v7, Lcom/android/settings/Utils;->AUTO_AIR_VIEW_MODE:I
 
-    move-result v0
+    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 187
-    .local v0, airViewMode:I
+    .line 200
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 201
+    iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "finger_air_view"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 203
+    :cond_1
+    if-nez v2, :cond_2
+
+    .line 204
+    iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 206
+    :cond_2
+    if-nez v3, :cond_3
+
+    .line 207
+    iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
     const-string v6, "pen_hovering_information_preview"
 
-    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    move v2, v3
-
-    .line 188
-    .local v2, penInforPreview:Z
-    :goto_1
-    if-nez v1, :cond_0
-
-    .line 190
-    iget-object v4, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
-
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "air_view_master_onoff"
-
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 192
-    :cond_0
-    sget v4, Lcom/android/settings/Utils;->FINGER_AIR_VIEW_MODE:I
-
-    if-ne v0, v4, :cond_1
-
-    .line 193
-    iget-object v4, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
-
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "air_view_mode"
-
-    sget v6, Lcom/android/settings/Utils;->AUTO_AIR_VIEW_MODE:I
-
-    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 195
-    :cond_1
-    if-nez v2, :cond_2
-
-    .line 196
-    iget-object v4, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
-
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string v5, "pen_hovering_information_preview"
-
-    invoke-static {v4, v5, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 199
+    .line 210
     .end local v0           #airViewMode:I
     .end local v1           #airViewState:Z
-    .end local v2           #penInforPreview:Z
-    :cond_2
+    .end local v2           #penHover:Z
+    .end local v3           #penInforPreview:Z
+    :cond_3
     return-void
 
-    :cond_3
-    move v1, v4
+    :cond_4
+    move v1, v5
 
-    .line 185
+    .line 190
     goto :goto_0
 
     .restart local v0       #airViewMode:I
     .restart local v1       #airViewState:Z
-    :cond_4
-    move v2, v4
+    :cond_5
+    move v2, v5
 
-    .line 187
+    .line 192
     goto :goto_1
+
+    .restart local v2       #penHover:Z
+    :cond_6
+    move v3, v5
+
+    .line 193
+    goto :goto_2
 .end method
 
 
@@ -320,12 +384,25 @@
     const/4 v4, 0x0
 
     .line 135
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_6
 
     .line 136
-    iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+    const/4 v1, 0x0
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    .line 137
+    .local v1, airViewState:Z
+    invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    .line 138
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -339,12 +416,11 @@
 
     move v1, v3
 
-    .line 137
-    .local v1, airViewState:Z
+    .line 142
     :goto_0
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -354,11 +430,11 @@
 
     move-result v0
 
-    .line 138
+    .line 143
     .local v0, airViewMode:I
     iget-object v5, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -368,11 +444,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4
 
     move v2, v3
 
-    .line 139
+    .line 144
     .local v2, penInforPreview:Z
     :goto_1
     if-eqz v1, :cond_0
@@ -381,39 +457,67 @@
 
     if-eq v0, v4, :cond_0
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5
 
-    .line 140
+    .line 145
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/AirButtonHelp;->showAirCommandEnabledPopup()V
 
-    .line 147
+    .line 152
     .end local v0           #airViewMode:I
     .end local v1           #airViewState:Z
     .end local v2           #penInforPreview:Z
     :goto_2
     return-void
 
+    .restart local v1       #airViewState:Z
     :cond_1
     move v1, v4
 
-    .line 136
+    .line 138
     goto :goto_0
 
-    .restart local v0       #airViewMode:I
-    .restart local v1       #airViewState:Z
+    .line 140
     :cond_2
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "pen_hovering"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    move v1, v3
+
+    :goto_3
+    goto :goto_0
+
+    :cond_3
+    move v1, v4
+
+    goto :goto_3
+
+    .restart local v0       #airViewMode:I
+    :cond_4
     move v2, v4
 
-    .line 138
+    .line 143
     goto :goto_1
 
-    .line 142
+    .line 147
     .restart local v2       #penInforPreview:Z
-    :cond_3
+    :cond_5
     iget-object v4, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -423,14 +527,14 @@
 
     goto :goto_2
 
-    .line 145
+    .line 150
     .end local v0           #airViewMode:I
     .end local v1           #airViewState:Z
     .end local v2           #penInforPreview:Z
-    :cond_4
+    :cond_6
     iget-object v3, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -445,76 +549,172 @@
     .locals 0
 
     .prologue
-    .line 364
+    .line 392
     return-void
 .end method
 
 .method public onClickEnableSettingsButtonOK(I)V
-    .locals 4
+    .locals 8
     .parameter "clickedButton"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    .line 339
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    const/4 v5, 0x0
 
-    move-result-object v1
+    .line 357
+    invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    move-result v6
 
-    move-result-object v1
+    if-eqz v6, :cond_1
 
-    const-string v2, "air_button_onoff"
+    .line 358
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 341
-    new-instance v0, Landroid/content/Intent;
+    move-result-object v6
 
-    const-string v1, "com.sec.gesture.AIR_VIEW_SETTINGS_CHANGED"
+    const-string v7, "air_view_master_onoff"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 342
-    .local v0, air_view_changed:Landroid/content/Intent;
-    const-string v1, "isEnable"
+    move-result v6
 
-    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    if-eqz v6, :cond_2
 
-    .line 343
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    move v1, v4
 
-    move-result-object v1
+    .line 359
+    .local v1, airViewState:Z
+    :goto_0
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 344
-    packed-switch p1, :pswitch_data_0
+    move-result-object v6
+
+    const-string v7, "air_view_mode"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
 
     .line 360
-    :goto_0
+    .local v0, airViewMode:I
+    iget-object v6, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "pen_hovering_information_preview"
+
+    invoke-static {v6, v7, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    move v3, v4
+
+    .line 361
+    .local v3, penInforPreview:Z
+    :goto_1
+    if-eqz v1, :cond_0
+
+    sget v5, Lcom/android/settings/Utils;->FINGER_AIR_VIEW_MODE:I
+
+    if-eq v0, v5, :cond_0
+
+    if-nez v3, :cond_1
+
+    .line 362
+    :cond_0
+    invoke-direct {p0}, Lcom/android/settings/AirButtonHelp;->turnOnPenInfoPreview()V
+
+    .line 367
+    .end local v0           #airViewMode:I
+    .end local v1           #airViewState:Z
+    .end local v3           #penInforPreview:Z
+    :cond_1
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "air_button_onoff"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 369
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v5, "com.sec.gesture.AIR_VIEW_SETTINGS_CHANGED"
+
+    invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 370
+    .local v2, air_view_changed:Landroid/content/Intent;
+    const-string v5, "isEnable"
+
+    invoke-virtual {v2, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 371
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 372
+    packed-switch p1, :pswitch_data_0
+
+    .line 388
+    :goto_2
     return-void
 
-    .line 346
+    .end local v2           #air_view_changed:Landroid/content/Intent;
+    :cond_2
+    move v1, v5
+
+    .line 358
+    goto :goto_0
+
+    .restart local v0       #airViewMode:I
+    .restart local v1       #airViewState:Z
+    :cond_3
+    move v3, v5
+
+    .line 360
+    goto :goto_1
+
+    .line 374
+    .end local v0           #airViewMode:I
+    .end local v1           #airViewState:Z
+    .restart local v2       #air_view_changed:Landroid/content/Intent;
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->startTutorialInsertingContent()V
 
-    goto :goto_0
+    goto :goto_2
 
-    .line 350
+    .line 378
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->startTutorialAddingRecipients()V
 
-    goto :goto_0
+    goto :goto_2
 
-    .line 354
+    .line 382
     :pswitch_2
     invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->startTutorialDisplayFuncionalMenu()V
 
-    goto :goto_0
+    goto :goto_2
 
-    .line 344
+    .line 372
     nop
 
     :pswitch_data_0
@@ -542,10 +742,10 @@
     .line 82
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/AirButtonHelp;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
 
     .line 84
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -583,11 +783,11 @@
     .line 90
     iget-object v1, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0f0019
+    const v2, 0x7f0f0034
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -597,7 +797,7 @@
     .local v0, padding:I
     iget-object v1, p0, Lcom/android/settings/AirButtonHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3, v3, v0, v3}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v1, v3, v3, v0, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 93
     iget-object v1, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
@@ -652,11 +852,11 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 390
+    .line 432
     invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 392
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    .line 434
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -666,16 +866,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 393
+    .line 435
     const/4 v0, 0x1
 
-    const v1, 0x7f090e59
+    const v1, 0x7f090f92
 
     invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201db
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -683,7 +883,7 @@
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 397
+    .line 439
     :cond_0
     return-void
 .end method
@@ -695,12 +895,12 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 203
+    .line 214
     const/4 v13, 0x0
 
-    .line 204
+    .line 215
     .local v13, view:Landroid/view/View;
-    const v14, 0x7f04000e
+    const v14, 0x7f040010
 
     const/4 v15, 0x0
 
@@ -710,8 +910,8 @@
 
     move-result-object v13
 
-    .line 206
-    const v14, 0x7f0b0027
+    .line 217
+    const v14, 0x7f0b002f
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -719,9 +919,9 @@
 
     check-cast v12, Landroid/widget/TextView;
 
-    .line 207
+    .line 218
     .local v12, tv:Landroid/widget/TextView;
-    const v14, 0x7f090e47
+    const v14, 0x7f090f80
 
     const/4 v15, 0x1
 
@@ -739,14 +939,14 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v14, v15}, Lcom/android/settings/AirButtonHelp;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v0, v14, v15}, Landroid/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v14
 
     invoke-virtual {v12, v14}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 209
-    const v14, 0x7f0b0036
+    .line 220
+    const v14, 0x7f0b003e
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +954,7 @@
 
     check-cast v1, Landroid/widget/Button;
 
-    .line 210
+    .line 221
     .local v1, button1:Landroid/widget/Button;
     new-instance v14, Lcom/android/settings/AirButtonHelp$4;
 
@@ -762,10 +962,10 @@
 
     invoke-direct {v14, v0}, Lcom/android/settings/AirButtonHelp$4;-><init>(Lcom/android/settings/AirButtonHelp;)V
 
-    invoke-virtual {v1, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v14}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 245
-    const v14, 0x7f0b003a
+    .line 256
+    const v14, 0x7f0b0042
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -773,7 +973,7 @@
 
     check-cast v2, Landroid/widget/Button;
 
-    .line 246
+    .line 257
     .local v2, button2:Landroid/widget/Button;
     new-instance v14, Lcom/android/settings/AirButtonHelp$5;
 
@@ -781,10 +981,10 @@
 
     invoke-direct {v14, v0}, Lcom/android/settings/AirButtonHelp$5;-><init>(Lcom/android/settings/AirButtonHelp;)V
 
-    invoke-virtual {v2, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v14}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 280
-    const v14, 0x7f0b003e
+    .line 291
+    const v14, 0x7f0b0046
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -792,7 +992,7 @@
 
     check-cast v3, Landroid/widget/Button;
 
-    .line 281
+    .line 292
     .local v3, button3:Landroid/widget/Button;
     new-instance v14, Lcom/android/settings/AirButtonHelp$6;
 
@@ -800,10 +1000,10 @@
 
     invoke-direct {v14, v0}, Lcom/android/settings/AirButtonHelp$6;-><init>(Lcom/android/settings/AirButtonHelp;)V
 
-    invoke-virtual {v3, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, v14}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 315
-    const v14, 0x7f0b0033
+    .line 326
+    const v14, 0x7f0b003b
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -811,9 +1011,9 @@
 
     check-cast v10, Landroid/widget/TextView;
 
-    .line 316
+    .line 327
     .local v10, mAttachingText:Landroid/widget/TextView;
-    const v14, 0x7f0b0034
+    const v14, 0x7f0b003c
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -821,9 +1021,9 @@
 
     check-cast v11, Landroid/widget/TextView;
 
-    .line 317
+    .line 328
     .local v11, mAttachingText2:Landroid/widget/TextView;
-    const v14, 0x7f0b0035
+    const v14, 0x7f0b003d
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -831,9 +1031,9 @@
 
     check-cast v9, Landroid/widget/ImageView;
 
-    .line 318
+    .line 329
     .local v9, mAttachingImage:Landroid/widget/ImageView;
-    const v14, 0x7f0b0036
+    const v14, 0x7f0b003e
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -841,9 +1041,9 @@
 
     check-cast v8, Landroid/widget/Button;
 
-    .line 319
+    .line 330
     .local v8, mAttachingButton:Landroid/widget/Button;
-    const v14, 0x7f0b0037
+    const v14, 0x7f0b003f
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -851,9 +1051,9 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    .line 320
+    .line 331
     .local v6, mAddingText:Landroid/widget/TextView;
-    const v14, 0x7f0b0038
+    const v14, 0x7f0b0040
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -861,9 +1061,9 @@
 
     check-cast v7, Landroid/widget/TextView;
 
-    .line 321
+    .line 332
     .local v7, mAddingText2:Landroid/widget/TextView;
-    const v14, 0x7f0b0039
+    const v14, 0x7f0b0041
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -871,9 +1071,9 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    .line 322
+    .line 333
     .local v5, mAddingImage:Landroid/widget/ImageView;
-    const v14, 0x7f0b003a
+    const v14, 0x7f0b0042
 
     invoke-virtual {v13, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -881,8 +1081,79 @@
 
     check-cast v4, Landroid/widget/Button;
 
-    .line 324
+    .line 335
     .local v4, mAddingButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
+
+    invoke-static {v14}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_0
+
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v14
+
+    const-string v15, "com.android.mms"
+
+    invoke-static {v14, v15}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_1
+
+    .line 336
+    :cond_0
+    const v14, 0x7f02017c
+
+    invoke-virtual {v9, v14}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    .line 337
+    const v14, 0x7f02017d
+
+    invoke-virtual {v5, v14}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    .line 339
+    const/16 v14, 0x8
+
+    invoke-virtual {v8, v14}, Landroid/view/View;->setVisibility(I)V
+
+    .line 340
+    const/16 v14, 0x8
+
+    invoke-virtual {v4, v14}, Landroid/view/View;->setVisibility(I)V
+
+    .line 343
+    :cond_1
+    const-string v14, "DCM"
+
+    const-string v15, "ro.csc.sales_code"
+
+    invoke-static {v15}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_3
+
+    .line 344
+    const/16 v14, 0x8
+
+    invoke-virtual {v8, v14}, Landroid/view/View;->setVisibility(I)V
+
+    .line 351
+    :cond_2
+    :goto_0
+    return-object v13
+
+    .line 346
+    :cond_3
     const-string v14, "KDI"
 
     const-string v15, "ro.csc.sales_code"
@@ -895,51 +1166,19 @@
 
     move-result v14
 
-    if-eqz v14, :cond_0
+    if-eqz v14, :cond_2
 
-    .line 325
+    .line 347
     const/16 v14, 0x8
 
-    invoke-virtual {v10, v14}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v8, v14}, Landroid/view/View;->setVisibility(I)V
 
-    .line 326
+    .line 348
     const/16 v14, 0x8
 
-    invoke-virtual {v11, v14}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v4, v14}, Landroid/view/View;->setVisibility(I)V
 
-    .line 327
-    const/16 v14, 0x8
-
-    invoke-virtual {v9, v14}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    .line 328
-    const/16 v14, 0x8
-
-    invoke-virtual {v8, v14}, Landroid/widget/Button;->setVisibility(I)V
-
-    .line 329
-    const/16 v14, 0x8
-
-    invoke-virtual {v6, v14}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 330
-    const/16 v14, 0x8
-
-    invoke-virtual {v7, v14}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 331
-    const/16 v14, 0x8
-
-    invoke-virtual {v5, v14}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    .line 332
-    const/16 v14, 0x8
-
-    invoke-virtual {v4, v14}, Landroid/widget/Button;->setVisibility(I)V
-
-    .line 334
-    :cond_0
-    return-object v13
+    goto :goto_0
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
@@ -947,14 +1186,14 @@
     .parameter "item"
 
     .prologue
-    .line 401
+    .line 443
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 407
+    .line 449
     invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -962,16 +1201,16 @@
     :goto_0
     return v0
 
-    .line 403
+    .line 445
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->startHelpActivity()V
 
-    .line 404
+    .line 446
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 401
+    .line 443
     nop
 
     :pswitch_data_0
@@ -990,7 +1229,7 @@
     .line 121
     iget-object v0, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1024,7 +1263,7 @@
     invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 108
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -1038,7 +1277,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -1062,12 +1301,12 @@
     .line 113
     iget-object v2, p0, Lcom/android/settings/AirButtonHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 115
     iget-object v2, p0, Lcom/android/settings/AirButtonHelp;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -1105,7 +1344,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 129
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1126,14 +1365,14 @@
     .locals 3
 
     .prologue
-    .line 412
+    .line 454
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.helphub.HELP"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 413
+    .line 455
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "helphub:section"
 
@@ -1141,110 +1380,191 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 414
-    invoke-virtual {p0}, Lcom/android/settings/AirButtonHelp;->getActivity()Landroid/app/Activity;
+    .line 456
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 415
+    .line 457
     return-void
 .end method
 
 .method protected startTutorialAddingRecipients()V
-    .locals 3
+    .locals 5
 
     .prologue
-    .line 374
-    new-instance v0, Landroid/content/Intent;
+    const/4 v4, 0x1
 
-    const-string v1, "com.android.mms.help.AirButtonMainActivity"
+    .line 406
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    .line 375
-    .local v0, intent:Landroid/content/Intent;
-    const-string v1, "helpContactTutorial"
+    const-string v3, "com.android.mms"
 
-    const/4 v2, 0x1
+    invoke-static {v2, v3}, Lcom/android/settings/Utils;->checkPackageState(Landroid/content/Context;Ljava/lang/String;)Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    move-result v0
 
-    .line 376
-    invoke-virtual {p0, v0}, Lcom/android/settings/AirButtonHelp;->startActivity(Landroid/content/Intent;)V
+    .line 407
+    .local v0, flag:Z
+    if-ne v0, v4, :cond_0
 
-    .line 377
+    .line 408
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.android.mms.help.AirButtonMainActivity"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 409
+    .local v1, intent:Landroid/content/Intent;
+    const-string v2, "helpContactTutorial"
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 410
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 414
+    .end local v1           #intent:Landroid/content/Intent;
+    :goto_0
     return-void
+
+    .line 412
+    :cond_0
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/settings/Utils;->showDialogPopup(Landroid/content/Context;)V
+
+    goto :goto_0
 .end method
 
 .method protected startTutorialDisplayFuncionalMenu()V
-    .locals 3
+    .locals 5
 
     .prologue
-    .line 380
-    new-instance v0, Landroid/content/Intent;
+    const/4 v4, 0x1
 
-    const-string v1, "android.intent.action.VIEW"
+    .line 417
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    .line 381
-    .local v0, intent:Landroid/content/Intent;
-    const-string v1, "image/jpg"
+    const-string v3, "com.sec.android.gallery3d"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {v2, v3}, Lcom/android/settings/Utils;->checkPackageState(Landroid/content/Context;Ljava/lang/String;)Z
 
-    .line 382
-    const-string v1, "com.sec.android.gallery3d"
+    move-result v0
 
-    const-string v2, "com.sec.android.gallery3d.app.Gallery"
+    .line 418
+    .local v0, flag:Z
+    if-ne v0, v4, :cond_0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    .line 419
+    new-instance v1, Landroid/content/Intent;
 
-    .line 383
-    const-string v1, "IsHelpMode"
+    const-string v2, "android.intent.action.VIEW"
 
-    const/4 v2, 0x1
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    .line 420
+    .local v1, intent:Landroid/content/Intent;
+    const-string v2, "image/jpg"
 
-    .line 384
-    const-string v1, "HelpMode"
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v2, "AIR_BUTTON"
+    .line 421
+    const-string v2, "com.sec.android.gallery3d"
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string v3, "com.sec.android.gallery3d.app.Gallery"
 
-    .line 385
-    invoke-virtual {p0, v0}, Lcom/android/settings/AirButtonHelp;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 386
+    .line 422
+    const-string v2, "IsHelpMode"
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 423
+    const-string v2, "HelpMode"
+
+    const-string v3, "AIR_BUTTON"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 424
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 428
+    .end local v1           #intent:Landroid/content/Intent;
+    :goto_0
     return-void
+
+    .line 426
+    :cond_0
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/settings/Utils;->showDialogPopup(Landroid/content/Context;)V
+
+    goto :goto_0
 .end method
 
 .method protected startTutorialInsertingContent()V
-    .locals 3
+    .locals 5
 
     .prologue
-    .line 368
-    new-instance v0, Landroid/content/Intent;
+    const/4 v4, 0x1
 
-    const-string v1, "com.android.mms.help.AirButtonMainActivity"
+    .line 395
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    .line 369
-    .local v0, intent:Landroid/content/Intent;
-    const-string v1, "helpAttachTutorial"
+    const-string v3, "com.android.mms"
 
-    const/4 v2, 0x1
+    invoke-static {v2, v3}, Lcom/android/settings/Utils;->checkPackageState(Landroid/content/Context;Ljava/lang/String;)Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    move-result v0
 
-    .line 370
-    invoke-virtual {p0, v0}, Lcom/android/settings/AirButtonHelp;->startActivity(Landroid/content/Intent;)V
+    .line 396
+    .local v0, flag:Z
+    if-ne v0, v4, :cond_0
 
-    .line 371
+    .line 397
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.android.mms.help.AirButtonMainActivity"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 398
+    .local v1, intent:Landroid/content/Intent;
+    const-string v2, "helpAttachTutorial"
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 399
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 403
+    .end local v1           #intent:Landroid/content/Intent;
+    :goto_0
     return-void
+
+    .line 401
+    :cond_0
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/settings/Utils;->showDialogPopup(Landroid/content/Context;)V
+
+    goto :goto_0
 .end method

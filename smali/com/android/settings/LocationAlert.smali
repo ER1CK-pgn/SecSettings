@@ -141,7 +141,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0400c3
+    const v4, 0x7f0400e5
 
     const/4 v5, 0x0
 
@@ -151,7 +151,7 @@
 
     .line 38
     .local v1, entryView:Landroid/view/View;
-    const v3, 0x7f0b0213
+    const v3, 0x7f0b0252
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -222,7 +222,7 @@
 
     invoke-direct {v3, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f091229
+    const v4, 0x7f091393
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -242,7 +242,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09109b
+    const v4, 0x7f0911dc
 
     new-instance v5, Lcom/android/settings/LocationAlert$1;
 

@@ -32,7 +32,7 @@
 
     .prologue
     .line 47
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 65
     new-instance v0, Ljava/util/ArrayList;
@@ -462,7 +462,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f090a7b
+    const v15, 0x7f090b5f
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -864,7 +864,7 @@
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 245
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 

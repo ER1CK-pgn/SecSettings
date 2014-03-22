@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 139
+    .line 142
     iput-object p1, p0, Lcom/android/settings/bluetooth/LocalBluetoothPreferences$1;->val$context:Landroid/content/Context;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 141
+    .line 144
     iget-object v1, p0, Lcom/android/settings/bluetooth/LocalBluetoothPreferences$1;->val$context:Landroid/content/Context;
 
     #calls: Lcom/android/settings/bluetooth/LocalBluetoothPreferences;->getSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
@@ -53,7 +53,7 @@
 
     move-result-object v0
 
-    .line 142
+    .line 145
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "last_discovering_time"
 
@@ -63,9 +63,9 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
-    .line 145
+    .line 148
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 146
+    .line 149
     return-void
 .end method

@@ -83,9 +83,9 @@
     .line 494
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$6;->this$0:Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;
 
-    const v1, 0x7f090d57
+    const v1, 0x7f090e80
 
-    const v2, 0x7f090fbc
+    const v2, 0x7f0910fa
 
     #calls: Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->showAllOptionDisabledDialog(II)V
     invoke-static {v0, v1, v2}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->access$1800(Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;II)V

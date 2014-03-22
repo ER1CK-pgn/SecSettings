@@ -110,7 +110,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0020
+    const v4, 0x7f0a0025
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -194,7 +194,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0020
+    const v5, 0x7f0a0025
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a001e
+    const v5, 0x7f0a0023
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -353,7 +353,7 @@
     iput-object v3, p0, Lcom/android/settings/FontMenu;->mContext:Landroid/content/Context;
 
     .line 94
-    const v3, 0x7f070042
+    const v3, 0x7f070053
 
     invoke-virtual {p0, v3}, Lcom/android/settings/FontMenu;->addPreferencesFromResource(I)V
 
@@ -608,7 +608,7 @@
 
     .line 305
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v6, 0x7f040115
+    const v6, 0x7f04013e
 
     invoke-virtual {v1, v6, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -616,7 +616,7 @@
 
     .line 306
     .local v2, layout:Landroid/view/View;
-    const v6, 0x7f0b0138
+    const v6, 0x7f0b0147
 
     invoke-virtual {v2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -645,7 +645,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f090050
+    const v6, 0x7f090064
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -691,7 +691,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0900a9
+    const v6, 0x7f0900c8
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -701,7 +701,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0900a8
+    const v6, 0x7f0900c7
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -742,7 +742,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090b0d
+    const v6, 0x7f090bf9
 
     new-instance v7, Lcom/android/settings/FontMenu$4;
 
@@ -1103,9 +1103,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     .line 133
+    :cond_0
     iget-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
     .line 134
@@ -1114,7 +1121,7 @@
     iput-boolean v1, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
     .line 138
-    :cond_0
+    :cond_1
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
     .line 140
@@ -1125,7 +1132,7 @@
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_5
 
     .line 142
     iget-object v1, p0, Lcom/android/settings/FontMenu;->mFontSizePref:Lcom/android/settings/FontSizeListPreference;
@@ -1133,31 +1140,38 @@
     invoke-virtual {v1}, Lcom/android/settings/FontSizeListPreference;->directFontsize()V
 
     .line 148
-    :cond_1
+    :cond_2
     :goto_0
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-nez v1, :cond_3
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
 
     .line 149
+    :cond_3
     iput-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
     .line 150
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->openSearchDetailMenu()V
 
     .line 153
-    :cond_2
+    :cond_4
     return-void
 
     .line 143
-    :cond_3
+    :cond_5
     iget v1, p0, Lcom/android/settings/FontMenu;->mDirect:I
 
     const/16 v2, 0x9
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_2
 
     .line 144
     iget-object v1, p0, Lcom/android/settings/FontMenu;->mFontList:Lcom/android/settings/flipfont/FontListPreference;
@@ -1316,7 +1330,7 @@
     if-ne v6, v10, :cond_1
 
     .line 409
-    const v6, 0x7f0a001f
+    const v6, 0x7f0a0024
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1329,7 +1343,7 @@
 
     .line 414
     .local v5, summary:Ljava/lang/String;
-    const v6, 0x7f090583
+    const v6, 0x7f0905b2
 
     :try_start_1
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -1385,7 +1399,7 @@
     .restart local v3       #index:I
     .restart local v4       #res:Landroid/content/res/Resources;
     :cond_1
-    const v6, 0x7f0a001d
+    const v6, 0x7f0a0022
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

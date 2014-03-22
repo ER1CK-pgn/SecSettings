@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 277
+    .line 276
     iput-object p1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$4;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,11 +43,11 @@
     .parameter "id"
 
     .prologue
-    .line 279
+    .line 278
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity$4;->this$0:Lcom/android/settings/bluetooth/DevicePickerActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 280
+    .line 279
     return-void
 .end method

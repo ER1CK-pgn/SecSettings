@@ -101,7 +101,7 @@
 
     .line 203
     .local v0, count:I
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -161,7 +161,7 @@
     move-result-object p1
 
     .line 177
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -206,7 +206,7 @@
 
     .prologue
     .line 125
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -218,7 +218,7 @@
 
     .line 127
     .local v1, dbHelper:Lcom/android/settings/personalvibration/PersonalVibrationProvider$DatabaseHelper;
-    invoke-virtual {v1}, Lcom/android/settings/personalvibration/PersonalVibrationProvider$DatabaseHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
@@ -300,7 +300,7 @@
 
     .line 159
     .local v8, c:Landroid/database/Cursor;
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -363,7 +363,7 @@
 
     .line 145
     .restart local v8       #c:Landroid/database/Cursor;
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -455,7 +455,7 @@
     move-result v0
 
     .line 214
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibrationProvider;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
 

@@ -23,7 +23,7 @@
 
     .prologue
     .line 44
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -220,4 +220,13 @@
     and-int/lit16 v0, p1, 0xf7
 
     return v0
+.end method
+
+.method public startTracking(Landroid/view/KeyEvent;)V
+    .locals 0
+    .parameter "event"
+
+    .prologue
+    .line 99
+    return-void
 .end method

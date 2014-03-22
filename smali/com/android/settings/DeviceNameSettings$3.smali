@@ -30,7 +30,7 @@
     .line 160
     iput-object p1, p0, Lcom/android/settings/DeviceNameSettings$3;->this$0:Lcom/android/settings/DeviceNameSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -50,7 +50,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
 

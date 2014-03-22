@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 196
+    .line 195
     iput-object p1, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$2;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 199
+    .line 198
     const/16 v2, 0x42
 
     if-eq p2, v2, :cond_0
@@ -55,25 +55,25 @@
 
     if-ne p2, v2, :cond_2
 
-    .line 200
+    .line 199
     :cond_0
     const/4 v0, 0x0
 
-    .line 201
+    .line 200
     .local v0, powersavingState:I
     iget-object v2, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$2;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
-    #calls: Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v2}, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->access$100(Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;)Landroid/content/ContentResolver;
 
     move-result-object v2
 
     if-eqz v2, :cond_1
 
-    .line 202
+    .line 201
     iget-object v2, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$2;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
-    #calls: Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v2}, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->access$200(Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;)Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -84,7 +84,7 @@
 
     move-result v0
 
-    .line 204
+    .line 203
     :cond_1
     iget-object v2, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$2;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
@@ -97,14 +97,14 @@
 
     if-nez v0, :cond_2
 
-    .line 205
+    .line 204
     iget-object v2, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$2;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    const v3, 0x7f091206
+    const v3, 0x7f091370
 
     invoke-static {v2, v3, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -112,10 +112,10 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 206
+    .line 205
     const/4 v1, 0x1
 
-    .line 209
+    .line 208
     .end local v0           #powersavingState:I
     :cond_2
     return v1

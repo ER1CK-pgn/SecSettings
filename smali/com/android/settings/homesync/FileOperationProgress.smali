@@ -212,7 +212,7 @@
     .line 354
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/FileOperationProgress;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -224,7 +224,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090ad8
+    const v2, 0x7f090bbc
 
     new-instance v3, Lcom/android/settings/homesync/FileOperationProgress$4;
 
@@ -261,7 +261,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 79
-    invoke-virtual {p0}, Lcom/android/settings/homesync/FileOperationProgress;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -324,7 +324,7 @@
 
     .prologue
     .line 114
-    const v2, 0x7f04008d
+    const v2, 0x7f04009d
 
     const/4 v3, 0x0
 
@@ -337,7 +337,7 @@
     .line 116
     new-instance v1, Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/FileOperationProgress;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -353,7 +353,7 @@
     .local v0, i:Landroid/content/Intent;
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01a5
+    const v3, 0x7f0b01c4
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -366,7 +366,7 @@
     .line 120
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01a6
+    const v3, 0x7f0b01c5
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -379,7 +379,7 @@
     .line 121
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01a7
+    const v3, 0x7f0b01c6
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -392,7 +392,7 @@
     .line 124
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01a8
+    const v3, 0x7f0b01c7
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -405,7 +405,7 @@
     .line 125
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01a9
+    const v3, 0x7f0b01c8
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -418,7 +418,7 @@
     .line 126
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01aa
+    const v3, 0x7f0b01c9
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -431,7 +431,7 @@
     .line 127
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01ab
+    const v3, 0x7f0b01ca
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -444,7 +444,7 @@
     .line 129
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
 
-    const v3, 0x7f0b01ac
+    const v3, 0x7f0b01cb
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -461,7 +461,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/settings/homesync/FileOperationProgress$1;-><init>(Lcom/android/settings/homesync/FileOperationProgress;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 137
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->rootView:Landroid/view/View;
@@ -501,14 +501,14 @@
     if-ne v0, v1, :cond_3
 
     .line 99
-    invoke-virtual {p0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
     .line 100
-    invoke-virtual {p0}, Lcom/android/settings/homesync/FileOperationProgress;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
@@ -554,7 +554,7 @@
 
     .prologue
     .line 142
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/homesync/FileOperationProgress;->getArguments()Landroid/os/Bundle;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v8
 
@@ -596,7 +596,7 @@
 
     .line 147
     .local v12, isPrivateChecked:Ljava/lang/Boolean;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/homesync/FileOperationProgress;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -611,7 +611,7 @@
     .line 150
     sget-object v1, Lcom/android/settings/homesync/FileOperationProgress;->titleView:Landroid/widget/TextView;
 
-    const v2, 0x7f0914a1
+    const v2, 0x7f0915f5
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1240,7 +1240,7 @@
     :cond_4
     new-instance v1, Lcom/android/settings/homesync/FileOperationProgress$2;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/homesync/FileOperationProgress;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1266,7 +1266,7 @@
     .line 246
     sget-object v1, Lcom/android/settings/homesync/FileOperationProgress;->fop:Lcom/android/settings/homesync/FileOperationPaste;
 
-    invoke-virtual {v1}, Lcom/android/settings/homesync/FileOperationPaste;->execute()V
+    invoke-virtual {v1}, Lcom/android/settings/homesync/FileOperation;->execute()V
 
     goto/16 :goto_0
 .end method
@@ -1276,7 +1276,7 @@
 
     .prologue
     .line 256
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/homesync/FileOperationProgress;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -1291,7 +1291,7 @@
     .line 259
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->titleView:Landroid/widget/TextView;
 
-    const v3, 0x7f0914a1
+    const v3, 0x7f0915f5
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -1301,7 +1301,7 @@
 
     .line 263
     :cond_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/homesync/FileOperationProgress;->getArguments()Landroid/os/Bundle;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v9
 
@@ -1683,7 +1683,7 @@
     :cond_7
     new-instance v2, Lcom/android/settings/homesync/FileOperationProgress$3;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/homesync/FileOperationProgress;->getActivity()Landroid/app/Activity;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1707,7 +1707,7 @@
     .line 349
     sget-object v2, Lcom/android/settings/homesync/FileOperationProgress;->fop:Lcom/android/settings/homesync/FileOperationPaste;
 
-    invoke-virtual {v2}, Lcom/android/settings/homesync/FileOperationPaste;->execute()V
+    invoke-virtual {v2}, Lcom/android/settings/homesync/FileOperation;->execute()V
 
     goto/16 :goto_0
 .end method

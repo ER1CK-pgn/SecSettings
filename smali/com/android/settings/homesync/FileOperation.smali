@@ -71,7 +71,7 @@
     const/4 v1, 0x0
 
     .line 94
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 65
     iput-object v2, p0, Lcom/android/settings/homesync/FileOperation;->mPartialWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -283,7 +283,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09149b
+    const v4, 0x7f0915ef
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -374,7 +374,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09149c
+    const v4, 0x7f0915f0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -486,7 +486,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {v4, v5, v6}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v3
 

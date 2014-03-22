@@ -89,11 +89,11 @@
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setDither(Z)V
 
     .line 69
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020068
+    const v1, 0x7f020071
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -102,11 +102,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapStandBy:Landroid/graphics/Bitmap;
 
     .line 71
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020067
+    const v1, 0x7f020070
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -115,11 +115,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapConfirm:Landroid/graphics/Bitmap;
 
     .line 73
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020066
+    const v1, 0x7f02006f
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -128,11 +128,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapHoldStandBy:Landroid/graphics/Bitmap;
 
     .line 75
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020065
+    const v1, 0x7f02006e
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -205,11 +205,11 @@
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setDither(Z)V
 
     .line 56
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020068
+    const v1, 0x7f020071
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -218,11 +218,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapStandBy:Landroid/graphics/Bitmap;
 
     .line 58
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020067
+    const v1, 0x7f020070
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -231,11 +231,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapConfirm:Landroid/graphics/Bitmap;
 
     .line 60
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020066
+    const v1, 0x7f02006f
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -244,11 +244,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapHoldStandBy:Landroid/graphics/Bitmap;
 
     .line 62
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020065
+    const v1, 0x7f02006e
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -322,11 +322,11 @@
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setDither(Z)V
 
     .line 43
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020068
+    const v1, 0x7f020071
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -335,11 +335,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapStandBy:Landroid/graphics/Bitmap;
 
     .line 45
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020067
+    const v1, 0x7f020070
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -348,11 +348,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapConfirm:Landroid/graphics/Bitmap;
 
     .line 47
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020066
+    const v1, 0x7f02006f
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -361,11 +361,11 @@
     iput-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapHoldStandBy:Landroid/graphics/Bitmap;
 
     .line 49
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020065
+    const v1, 0x7f02006e
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -398,7 +398,7 @@
 
     .prologue
     .line 82
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->draw(Landroid/graphics/Canvas;)V
+    invoke-super {p0, p1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     .line 83
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
@@ -417,7 +417,7 @@
 
     .line 110
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 111
     return-void
@@ -426,7 +426,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->mBitmapTapStandBy:Landroid/graphics/Bitmap;
 
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v1
 
@@ -442,7 +442,7 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->getHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v2
 
@@ -711,7 +711,7 @@
 
     .line 134
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 135
     return v4
@@ -783,7 +783,7 @@
     iput-boolean v0, p0, Lcom/android/settings/touchsensibility/TapAndHoldView;->blockLongPress:Z
 
     .line 163
-    invoke-virtual {p0}, Lcom/android/settings/touchsensibility/TapAndHoldView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     .line 164
     return-void

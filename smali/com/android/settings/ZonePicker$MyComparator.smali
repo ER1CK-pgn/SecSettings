@@ -37,13 +37,13 @@
     .parameter "sortingKey"
 
     .prologue
-    .line 376
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 378
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 377
+    .line 379
     iput-object p1, p0, Lcom/android/settings/ZonePicker$MyComparator;->mSortingKey:Ljava/lang/String;
 
-    .line 378
+    .line 380
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .parameter "value"
 
     .prologue
-    .line 420
+    .line 422
     if-eqz p1, :cond_0
 
     instance-of v0, p1, Ljava/lang/Comparable;
@@ -78,7 +78,7 @@
     .parameter "x1"
 
     .prologue
-    .line 373
+    .line 375
     check-cast p1, Ljava/util/HashMap;
 
     .end local p1
@@ -113,14 +113,14 @@
 
     const/4 v6, -0x1
 
-    .line 385
+    .line 387
     iget-object v7, p0, Lcom/android/settings/ZonePicker$MyComparator;->mSortingKey:Ljava/lang/String;
 
     invoke-virtual {p1, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 386
+    .line 388
     .local v3, value1:Ljava/lang/Object;
     iget-object v7, p0, Lcom/android/settings/ZonePicker$MyComparator;->mSortingKey:Ljava/lang/String;
 
@@ -128,7 +128,7 @@
 
     move-result-object v4
 
-    .line 387
+    .line 389
     .local v4, value2:Ljava/lang/Object;
     invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
 
@@ -136,7 +136,7 @@
 
     if-eqz v7, :cond_5
 
-    .line 388
+    .line 390
     const-string v7, "name"
 
     iget-object v8, p0, Lcom/android/settings/ZonePicker$MyComparator;->mSortingKey:Ljava/lang/String;
@@ -147,42 +147,42 @@
 
     if-eqz v7, :cond_5
 
-    .line 389
+    .line 391
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v2
 
-    .line 391
+    .line 393
     .local v2, sCollator:Ljava/text/Collator;
     const/4 v0, 0x0
 
-    .line 392
+    .line 394
     .local v0, alabel:Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 393
+    .line 395
     .local v1, blabel:Ljava/lang/String;
     if-eqz v3, :cond_0
 
-    .line 394
+    .line 396
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 396
+    .line 398
     :cond_0
     if-eqz v4, :cond_1
 
-    .line 397
+    .line 399
     invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 400
+    .line 402
     :cond_1
     if-nez v0, :cond_3
 
-    .line 416
+    .line 418
     .end local v0           #alabel:Ljava/lang/String;
     .end local v1           #blabel:Ljava/lang/String;
     .end local v2           #sCollator:Ljava/text/Collator;
@@ -191,7 +191,7 @@
     :goto_0
     return v5
 
-    .line 401
+    .line 403
     .restart local v0       #alabel:Ljava/lang/String;
     .restart local v1       #blabel:Ljava/lang/String;
     .restart local v2       #sCollator:Ljava/text/Collator;
@@ -203,7 +203,7 @@
 
     goto :goto_0
 
-    .line 403
+    .line 405
     :cond_4
     invoke-virtual {v2, v0, v1}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -211,7 +211,7 @@
 
     goto :goto_0
 
-    .line 410
+    .line 412
     .end local v0           #alabel:Ljava/lang/String;
     .end local v1           #blabel:Ljava/lang/String;
     .end local v2           #sCollator:Ljava/text/Collator;
@@ -222,7 +222,7 @@
 
     if-nez v7, :cond_6
 
-    .line 411
+    .line 413
     invoke-direct {p0, v4}, Lcom/android/settings/ZonePicker$MyComparator;->isComparable(Ljava/lang/Object;)Z
 
     move-result v6
@@ -233,7 +233,7 @@
 
     goto :goto_0
 
-    .line 412
+    .line 414
     :cond_6
     invoke-direct {p0, v4}, Lcom/android/settings/ZonePicker$MyComparator;->isComparable(Ljava/lang/Object;)Z
 
@@ -243,10 +243,10 @@
 
     move v5, v6
 
-    .line 413
+    .line 415
     goto :goto_0
 
-    .line 416
+    .line 418
     :cond_7
     check-cast v3, Ljava/lang/Comparable;
 

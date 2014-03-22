@@ -21,17 +21,17 @@
     .parameter "titleRes"
 
     .prologue
-    .line 732
+    .line 762
     const/4 v0, 0x0
 
     const v1, 0x101008c
 
     invoke-direct {p0, p1, v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 733
-    invoke-virtual {p0, p2}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory$PreferenceHeader;->setTitle(I)V
+    .line 763
+    invoke-virtual {p0, p2}, Landroid/preference/Preference;->setTitle(I)V
 
-    .line 734
+    .line 764
     return-void
 .end method
 
@@ -41,17 +41,17 @@
     .parameter "title"
 
     .prologue
-    .line 737
+    .line 767
     const/4 v0, 0x0
 
     const v1, 0x101008c
 
     invoke-direct {p0, p1, v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 738
-    invoke-virtual {p0, p2}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory$PreferenceHeader;->setTitle(Ljava/lang/CharSequence;)V
+    .line 768
+    invoke-virtual {p0, p2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 739
+    .line 769
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .locals 1
 
     .prologue
-    .line 743
+    .line 773
     const/4 v0, 0x0
 
     return v0

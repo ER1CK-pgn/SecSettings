@@ -86,9 +86,9 @@
 
     .prologue
     .line 95
-    const v0, 0x7f040129
+    const v0, 0x7f040159
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myplace/MyPlaceGpsPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 96
     return-void
@@ -103,7 +103,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 87
-    const v0, 0x7f0b034e
+    const v0, 0x7f0b0398
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

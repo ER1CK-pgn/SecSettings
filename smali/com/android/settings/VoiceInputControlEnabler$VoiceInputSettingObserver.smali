@@ -28,16 +28,16 @@
     .parameter "context"
 
     .prologue
-    .line 286
+    .line 304
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlEnabler$VoiceInputSettingObserver;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
-    .line 287
+    .line 305
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 288
+    .line 306
     iput-object p3, p0, Lcom/android/settings/VoiceInputControlEnabler$VoiceInputSettingObserver;->mContext:Landroid/content/Context;
 
-    .line 289
+    .line 307
     return-void
 .end method
 
@@ -48,19 +48,19 @@
     .parameter "selfChange"
 
     .prologue
-    .line 302
+    .line 320
     const-string v0, "VoiceInputControlEnabler"
 
     const-string v1, "VoiceInputSettingObserver - onChange"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 303
+    .line 321
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$VoiceInputSettingObserver;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlEnabler;->updateSwitch()V
 
-    .line 304
+    .line 322
     return-void
 .end method
 
@@ -68,14 +68,14 @@
     .locals 3
 
     .prologue
-    .line 292
+    .line 310
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlEnabler$VoiceInputSettingObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 293
+    .line 311
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "voice_input_control"
 
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 294
+    .line 312
     return-void
 .end method
 
@@ -95,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 297
+    .line 315
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlEnabler$VoiceInputSettingObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -104,6 +104,6 @@
 
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 298
+    .line 316
     return-void
 .end method

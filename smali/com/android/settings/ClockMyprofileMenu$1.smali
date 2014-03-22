@@ -30,7 +30,7 @@
     .line 73
     iput-object p1, p0, Lcom/android/settings/ClockMyprofileMenu$1;->this$0:Lcom/android/settings/ClockMyprofileMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .line 75
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu$1;->this$0:Lcom/android/settings/ClockMyprofileMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/ClockMyprofileMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -58,7 +58,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v2}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v2
 
@@ -94,7 +94,7 @@
     .line 79
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu$1;->this$0:Lcom/android/settings/ClockMyprofileMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/ClockMyprofileMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -108,7 +108,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ClockMyprofileMenu$1;->this$0:Lcom/android/settings/ClockMyprofileMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/ClockMyprofileMenu;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 83
     return-void

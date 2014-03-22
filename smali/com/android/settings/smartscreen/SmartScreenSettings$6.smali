@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 536
+    .line 588
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$6;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 538
+    .line 590
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$6;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     iget-object v0, v0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
@@ -53,7 +53,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 539
+    .line 591
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$6;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->isAllOptionDisabled()Z
@@ -77,7 +77,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 540
+    .line 592
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$6;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #calls: Lcom/android/settings/smartscreen/SmartScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
@@ -89,7 +89,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 541
+    .line 593
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$6;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     const-string v1, "com.sec.SMART_SCROLL_CHANGED"
@@ -97,7 +97,7 @@
     #calls: Lcom/android/settings/smartscreen/SmartScreenSettings;->broadcastStatusChanged(Ljava/lang/String;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/settings/smartscreen/SmartScreenSettings;->access$500(Lcom/android/settings/smartscreen/SmartScreenSettings;Ljava/lang/String;Z)V
 
-    .line 544
+    .line 596
     :cond_0
     return-void
 .end method

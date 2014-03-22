@@ -35,7 +35,7 @@
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/SpellCheckersPreference;->setChecked(Z)V
+    invoke-virtual {p0, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 31
     return-void
@@ -51,7 +51,7 @@
     invoke-super {p0}, Lcom/android/settings/inputmethod/CheckBoxAndSettingsPreference;->onCheckBoxClicked()V
 
     .line 36
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/SpellCheckersPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 

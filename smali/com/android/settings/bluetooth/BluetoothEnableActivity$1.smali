@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 48
+    .line 56
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothEnableActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 51
+    .line 59
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 52
+    .line 60
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.bluetooth.adapter.action.STATE_CHANGED"
 
@@ -55,7 +55,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 53
+    .line 61
     const-string v2, "android.bluetooth.adapter.extra.STATE"
 
     const/high16 v3, -0x8000
@@ -64,23 +64,23 @@
 
     move-result v1
 
-    .line 54
+    .line 62
     .local v1, state:I
     const/16 v2, 0xc
 
     if-ne v1, v2, :cond_0
 
-    .line 55
+    .line 63
     const/4 v2, 0x1
 
     sput-boolean v2, Lcom/android/settings/bluetooth/DevicePickerActivity;->canLaunchQuickBtView:Z
 
-    .line 56
+    .line 64
     iget-object v2, p0, Lcom/android/settings/bluetooth/BluetoothEnableActivity$1;->this$0:Lcom/android/settings/bluetooth/BluetoothEnableActivity;
 
-    invoke-virtual {v2}, Lcom/android/settings/bluetooth/BluetoothEnableActivity;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
-    .line 59
+    .line 67
     .end local v1           #state:I
     :cond_0
     return-void

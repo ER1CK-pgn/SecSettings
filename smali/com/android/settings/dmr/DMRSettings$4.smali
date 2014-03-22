@@ -119,7 +119,7 @@
 
     const-string v9, "wifip2p"
 
-    #calls: Lcom/android/settings/dmr/DMRSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     invoke-static {v8, v9}, Lcom/android/settings/dmr/DMRSettings;->access$300(Lcom/android/settings/dmr/DMRSettings;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v7

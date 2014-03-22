@@ -1,14 +1,11 @@
 .class Lcom/android/settings/PenAirViewSettingsMenu$1;
-.super Ljava/lang/Object;
+.super Landroid/database/ContentObserver;
 .source "PenAirViewSettingsMenu.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/PenAirViewSettingsMenu;->showAirViewDialog(Landroid/preference/Preference;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/PenAirViewSettingsMenu;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,27 +19,40 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
+.method constructor <init>(Lcom/android/settings/PenAirViewSettingsMenu;Landroid/os/Handler;)V
     .locals 0
     .parameter
+    .parameter "x0"
 
     .prologue
-    .line 250
+    .line 104
     iput-object p1, p0, Lcom/android/settings/PenAirViewSettingsMenu$1;->this$0:Lcom/android/settings/PenAirViewSettingsMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
-    .parameter "dialog"
-    .parameter "which"
+.method public onChange(Z)V
+    .locals 2
+    .parameter "selfChange"
 
     .prologue
-    .line 252
+    .line 107
+    const-string v0, "PenAirViewSettings"
+
+    const-string v1, "onChange() PenAirView Changed"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 108
+    iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu$1;->this$0:Lcom/android/settings/PenAirViewSettingsMenu;
+
+    #calls: Lcom/android/settings/PenAirViewSettingsMenu;->updatePenAirViewSettingsMenu()V
+    invoke-static {v0}, Lcom/android/settings/PenAirViewSettingsMenu;->access$000(Lcom/android/settings/PenAirViewSettingsMenu;)V
+
+    .line 109
     return-void
 .end method

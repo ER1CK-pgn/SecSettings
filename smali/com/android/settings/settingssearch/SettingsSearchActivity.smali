@@ -3,1157 +3,1353 @@
 .source "SettingsSearchActivity.java"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/widget/SearchView$OnQueryTextListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;,
-        Lcom/android/settings/settingssearch/SettingsSearchActivity$ViewHolder;,
-        Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultComparator;
+        Lcom/android/settings/settingssearch/SettingsSearchActivity$UpdateListThread;
     }
 .end annotation
 
 
-# instance fields
-.field private mFullMenuList:Ljava/util/ArrayList;
+# static fields
+.field private static RESTORE_DB:Z
+
+.field private static mArrayResultList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/android/settings/settingssearch/SearchList;",
+            "Lcom/android/settings/settingssearch/SettingsSearchItem;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+.field private static mContext:Landroid/content/Context;
 
-.field private mSearchResultComparator:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultComparator;
+.field private static mKeyWord:Ljava/lang/String;
 
-.field private mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+.field private static mSearchListAdapter:Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
 
-.field mkeywordInputTextWatcher:Landroid/text/TextWatcher;
+.field private static mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+
+# instance fields
+.field mOnKeyListener:Landroid/view/View$OnKeyListener;
+
+.field private mProgressDialog:Landroid/app/ProgressDialog;
+
+.field private final mReceiver:Landroid/content/BroadcastReceiver;
+
+.field private mSearchListView:Landroid/widget/ListView;
+
+.field private mSearchView:Landroid/widget/SearchView;
+
+.field mSearchViewOnKeyListener:Landroid/view/View$OnKeyListener;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 45
+    sput-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListAdapter:Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
+
+    .line 47
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    sput-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mArrayResultList:Ljava/util/ArrayList;
+
+    .line 49
+    sput-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
+
+    .line 50
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->RESTORE_DB:Z
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
     .prologue
-    .line 32
+    const/4 v0, 0x0
+
+    .line 31
     invoke-direct {p0}, Landroid/preference/PreferenceActivity;-><init>()V
 
-    .line 277
+    .line 37
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
+
+    .line 39
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    .line 78
     new-instance v0, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity$1;-><init>(Lcom/android/settings/settingssearch/SettingsSearchActivity;)V
 
-    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mkeywordInputTextWatcher:Landroid/text/TextWatcher;
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 334
+    .line 200
+    new-instance v0, Lcom/android/settings/settingssearch/SettingsSearchActivity$2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity$2;-><init>(Lcom/android/settings/settingssearch/SettingsSearchActivity;)V
+
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mOnKeyListener:Landroid/view/View$OnKeyListener;
+
+    .line 220
+    new-instance v0, Lcom/android/settings/settingssearch/SettingsSearchActivity$3;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity$3;-><init>(Lcom/android/settings/settingssearch/SettingsSearchActivity;)V
+
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchViewOnKeyListener:Landroid/view/View$OnKeyListener;
+
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/settingssearch/SettingsSearchActivity;)Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
-    .locals 1
-    .parameter "x0"
+.method private SearchDB()V
+    .locals 4
 
     .prologue
-    .line 32
-    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    const/4 v3, 0x1
+
+    .line 342
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    invoke-virtual {v0}, Lcom/android/settings/settingssearch/SettingsSearchManager;->getCount_searchinfo()I
+
+    move-result v0
+
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    invoke-virtual {v1}, Lcom/android/settings/settingssearch/SettingsSearchManager;->getCount_titleinfo()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    invoke-virtual {v0}, Lcom/android/settings/settingssearch/SettingsSearchManager;->getCount_titleinfo()I
+
+    move-result v0
+
+    if-ge v0, v3, :cond_1
+
+    .line 343
+    :cond_0
+    const-string v0, "SearchMain"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, " searchinfo count : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    invoke-virtual {v2}, Lcom/android/settings/settingssearch/SettingsSearchManager;->getCount_searchinfo()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " title count : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    invoke-virtual {v2}, Lcom/android/settings/settingssearch/SettingsSearchManager;->getCount_titleinfo()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 344
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.intent.action.RESTORE_SEARCH_DB"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
+
+    .line 345
+    sput-boolean v3, Lcom/android/settings/settingssearch/SettingsSearchActivity;->RESTORE_DB:Z
+
+    .line 349
+    :goto_0
+    return-void
+
+    .line 347
+    :cond_1
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->RESTORE_DB:Z
+
+    goto :goto_0
+.end method
+
+.method static synthetic access$000()Ljava/util/ArrayList;
+    .locals 1
+
+    .prologue
+    .line 31
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mArrayResultList:Ljava/util/ArrayList;
 
     return-object v0
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/settingssearch/SettingsSearchActivity;Ljava/lang/String;)V
+.method static synthetic access$002(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 31
+    sput-object p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mArrayResultList:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static synthetic access$100()Lcom/android/settings/settingssearch/SettingsSearchManager;
+    .locals 1
+
+    .prologue
+    .line 31
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    return-object v0
+.end method
+
+.method static synthetic access$102(Lcom/android/settings/settingssearch/SettingsSearchManager;)Lcom/android/settings/settingssearch/SettingsSearchManager;
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 31
+    sput-object p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    return-object p0
+.end method
+
+.method static synthetic access$200()Landroid/content/Context;
+    .locals 1
+
+    .prologue
+    .line 31
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 31
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$302(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 31
+    sput-object p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static synthetic access$400(Lcom/android/settings/settingssearch/SettingsSearchActivity;Ljava/util/ArrayList;Ljava/lang/String;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
+    .parameter "x2"
 
     .prologue
-    .line 32
-    invoke-direct {p0, p1}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->search(Ljava/lang/String;)V
+    .line 31
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->updateList(Ljava/util/ArrayList;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method private makeSearchList()V
-    .locals 13
+.method static synthetic access$502(Z)Z
+    .locals 0
+    .parameter "x0"
 
     .prologue
-    .line 62
-    const-string v10, "SettingsSearchActivity"
+    .line 31
+    sput-boolean p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->RESTORE_DB:Z
 
-    const-string v11, "=== makeSearchList start ==="
+    return p0
+.end method
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+.method static synthetic access$600(Lcom/android/settings/settingssearch/SettingsSearchActivity;)V
+    .locals 0
+    .parameter "x0"
 
-    .line 63
-    new-instance v10, Ljava/util/ArrayList;
+    .prologue
+    .line 31
+    invoke-direct {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->displayProgressDialog()V
 
-    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+    return-void
+.end method
 
-    iput-object v10, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+.method static synthetic access$700(Lcom/android/settings/settingssearch/SettingsSearchActivity;)Landroid/widget/ListView;
+    .locals 1
+    .parameter "x0"
 
-    .line 64
-    new-instance v4, Ljava/util/ArrayList;
+    .prologue
+    .line 31
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    return-object v0
+.end method
 
-    .line 66
-    .local v4, headerList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/PreferenceActivity$Header;>;"
-    const v10, 0x7f070023
+.method static synthetic access$800()Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
+    .locals 1
 
-    invoke-virtual {p0, v10, v4}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->loadHeadersFromResource(ILjava/util/List;)V
+    .prologue
+    .line 31
+    sget-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListAdapter:Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
 
-    .line 67
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    return-object v0
+.end method
 
-    move-result v1
+.method static synthetic access$900(Lcom/android/settings/settingssearch/SettingsSearchActivity;)Landroid/widget/SearchView;
+    .locals 1
+    .parameter "x0"
 
-    .line 68
-    .local v1, connection_index:I
-    const v10, 0x7f07002a
+    .prologue
+    .line 31
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
 
-    invoke-virtual {p0, v10, v4}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->loadHeadersFromResource(ILjava/util/List;)V
+    return-object v0
+.end method
 
-    .line 69
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+.method private dismisProgressDialog()V
+    .locals 1
 
-    move-result v2
+    .prologue
+    .line 327
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 70
-    .local v2, device_index:I
-    const v10, 0x7f070006
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v10, v4}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->loadHeadersFromResource(ILjava/util/List;)V
+    .line 328
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 71
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    move-result v0
+    .line 329
+    const/4 v0, 0x0
 
-    .line 72
-    .local v0, accounts_index:I
-    const v10, 0x7f070053
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-virtual {p0, v10, v4}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->loadHeadersFromResource(ILjava/util/List;)V
-
-    .line 73
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    .line 75
-    .local v7, management_index:I
-    const/4 v5, 0x0
-
-    .local v5, i:I
-    :goto_0
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v10
-
-    if-ge v5, v10, :cond_8
-
-    .line 76
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/preference/PreferenceActivity$Header;
-
-    .line 77
-    .local v3, header:Landroid/preference/PreferenceActivity$Header;
-    iget-object v10, v3, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
-
-    if-nez v10, :cond_0
-
-    iget-object v10, v3, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
-
-    if-eqz v10, :cond_1
-
+    .line 331
     :cond_0
-    iget v10, v3, Landroid/preference/PreferenceActivity$Header;->titleRes:I
+    return-void
+.end method
 
-    if-nez v10, :cond_2
+.method private displayProgressDialog()V
+    .locals 1
 
-    .line 75
-    :cond_1
-    :goto_1
-    add-int/lit8 v5, v5, 0x1
+    .prologue
+    .line 334
+    sget-boolean v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->RESTORE_DB:Z
+
+    if-eqz v0, :cond_0
+
+    .line 335
+    invoke-direct {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->showProgressDialog()V
+
+    .line 339
+    :goto_0
+    return-void
+
+    .line 337
+    :cond_0
+    invoke-direct {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->dismisProgressDialog()V
 
     goto :goto_0
+.end method
 
-    .line 80
-    :cond_2
-    iget-object v10, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+.method private showProgressDialog()V
+    .locals 3
 
-    invoke-virtual {v10, v3}, Lcom/android/settings/settingssearch/SettingsSearchUtils;->isAvailableHeader(Landroid/preference/PreferenceActivity$Header;)Z
+    .prologue
+    .line 319
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    move-result v10
+    if-nez v0, :cond_0
 
-    if-eqz v10, :cond_1
+    .line 320
+    const-string v0, ""
 
-    .line 85
-    const/4 v9, 0x0
+    const v1, 0x7f0915f0
 
-    .line 86
-    .local v9, tap_index:I
-    if-ge v5, v1, :cond_5
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
-    .line 87
-    const/4 v9, 0x0
+    move-result-object v1
 
-    .line 95
-    :cond_3
-    :goto_2
-    iget-object v10, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    const/4 v2, 0x1
 
-    iget-wide v11, v3, Landroid/preference/PreferenceActivity$Header;->id:J
+    invoke-static {p0, v0, v1, v2}, Landroid/app/ProgressDialog;->show(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Landroid/app/ProgressDialog;
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/settings/settingssearch/SettingsSearchUtils;->getPreferenceListRes(J)I
+    move-result-object v0
 
-    move-result v8
+    iput-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 97
-    .local v8, preference_resID:I
-    new-instance v6, Lcom/android/settings/settingssearch/SearchList;
+    .line 321
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    invoke-direct {v6, v9, v3}, Lcom/android/settings/settingssearch/SearchList;-><init>(ILandroid/preference/PreferenceActivity$Header;)V
+    const/4 v1, 0x0
 
-    .line 98
-    .local v6, list:Lcom/android/settings/settingssearch/SearchList;
-    const/4 v10, -0x1
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setCancelable(Z)V
 
-    if-eq v8, v10, :cond_4
+    .line 322
+    iget-object v0, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 99
-    invoke-virtual {v6, p0, v8}, Lcom/android/settings/settingssearch/SearchList;->parsingPreferenceMenutree(Landroid/content/Context;I)Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 100
-    iget-object v10, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    invoke-virtual {v10, v6}, Lcom/android/settings/settingssearch/SettingsSearchUtils;->addOrRemoveSearchableOptions(Lcom/android/settings/settingssearch/SearchList;)V
-
-    .line 102
-    :cond_4
-    iget-object v10, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v10, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    .line 88
-    .end local v6           #list:Lcom/android/settings/settingssearch/SearchList;
-    .end local v8           #preference_resID:I
-    :cond_5
-    if-ge v5, v2, :cond_6
-
-    .line 89
-    const/4 v9, 0x1
-
-    goto :goto_2
-
-    .line 90
-    :cond_6
-    if-ge v5, v0, :cond_7
-
-    .line 91
-    const/4 v9, 0x2
-
-    goto :goto_2
-
-    .line 92
-    :cond_7
-    if-ge v5, v7, :cond_3
-
-    .line 93
-    const/4 v9, 0x3
-
-    goto :goto_2
-
-    .line 106
-    .end local v3           #header:Landroid/preference/PreferenceActivity$Header;
-    .end local v9           #tap_index:I
-    :cond_8
-    const-string v10, "SettingsSearchActivity"
-
-    const-string v11, "=== makeSearchList finish ==="
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 107
+    .line 324
+    :cond_0
     return-void
 .end method
 
-.method private search(Ljava/lang/String;)V
-    .locals 12
-    .parameter "str"
+.method private updateList(Ljava/util/ArrayList;Ljava/lang/String;)V
+    .locals 7
+    .parameter
+    .parameter "keyWord"
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/settings/settingssearch/SettingsSearchItem;",
+            ">;",
+            "Ljava/lang/String;",
+            ")V"
+        }
+    .end annotation
 
     .prologue
-    .line 110
-    const-string v9, "SettingsSearchActivity"
+    .line 274
+    .local p1, arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/settingssearch/SettingsSearchItem;>;"
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    const-string v10, "=== search start ==="
+    move-result v4
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-array v3, v4, [Lcom/android/settings/settingssearch/SettingsSearchItem;
 
-    .line 111
-    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    .line 275
+    .local v3, searchResultItem:[Lcom/android/settings/settingssearch/SettingsSearchItem;
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result-object v3
+    move-result v4
 
-    .line 112
-    .local v3, keyword:Ljava/lang/String;
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    if-nez v4, :cond_0
 
-    invoke-virtual {v9}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->clear()V
+    .line 276
+    iget-object v4, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
 
-    .line 113
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    const/4 v5, 0x0
 
-    invoke-virtual {v9, v3}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->setKeyword(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 115
-    const/4 v1, 0x0
-
-    .local v1, i:I
+    .line 292
     :goto_0
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    return-void
 
-    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
+    .line 278
+    :cond_0
+    const/4 v0, 0x0
 
-    move-result v9
+    .local v0, i:I
+    :goto_1
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    if-ge v1, v9, :cond_7
+    move-result v4
 
-    .line 117
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    if-ge v0, v4, :cond_1
 
-    invoke-virtual {v9, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    .line 279
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/settings/settingssearch/SearchList;
+    check-cast v4, Lcom/android/settings/settingssearch/SettingsSearchItem;
 
-    .line 119
-    .local v4, list:Lcom/android/settings/settingssearch/SearchList;
-    const/4 v0, 0x0
+    aput-object v4, v3, v0
 
-    .line 120
-    .local v0, headerMatchFlag:Z
-    iget-object v9, v4, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget v9, v9, Landroid/preference/PreferenceActivity$Header;->titleRes:I
-
-    if-eqz v9, :cond_0
-
-    .line 121
-    iget-object v9, v4, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget v9, v9, Landroid/preference/PreferenceActivity$Header;->titleRes:I
-
-    invoke-virtual {p0, v9}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 122
-    .local v8, title:Ljava/lang/String;
-    invoke-virtual {v8, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 123
-    const/4 v0, 0x1
-
-    .line 126
-    .end local v8           #title:Ljava/lang/String;
-    :cond_0
-    iget-object v9, v4, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget v9, v9, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
-
-    if-eqz v9, :cond_1
-
-    .line 127
-    iget-object v9, v4, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget v9, v9, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
-
-    invoke-virtual {p0, v9}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 128
-    .local v7, summary:Ljava/lang/String;
-    invoke-virtual {v7, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_1
-
-    .line 129
-    const/4 v0, 0x1
-
-    .line 132
-    .end local v7           #summary:Ljava/lang/String;
-    :cond_1
-    if-eqz v0, :cond_2
-
-    .line 133
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
-
-    new-instance v10, Lcom/android/settings/settingssearch/SearchItem;
-
-    iget-object v11, v4, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    invoke-direct {v10, v11}, Lcom/android/settings/settingssearch/SearchItem;-><init>(Landroid/preference/PreferenceActivity$Header;)V
-
-    invoke-virtual {v9, v10}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->add(Ljava/lang/Object;)V
-
-    .line 138
-    :cond_2
-    const/4 v2, 0x0
-
-    .local v2, j:I
-    :goto_1
-    iget-object v9, v4, Lcom/android/settings/settingssearch/SearchList;->menuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
-
-    move-result v9
-
-    if-ge v2, v9, :cond_6
-
-    .line 139
-    iget-object v9, v4, Lcom/android/settings/settingssearch/SearchList;->menuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v9, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Lcom/android/settings/settingssearch/SearchItem;
-
-    iget-object v5, v9, Lcom/android/settings/settingssearch/SearchItem;->preference:Landroid/preference/Preference;
-
-    .line 140
-    .local v5, pref:Landroid/preference/Preference;
-    const/4 v6, 0x0
-
-    .line 141
-    .local v6, prefMatchFlag:Z
-    invoke-virtual {v5}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object v9
-
-    if-eqz v9, :cond_3
-
-    .line 142
-    invoke-virtual {v5}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 143
-    .restart local v8       #title:Ljava/lang/String;
-    invoke-virtual {v8, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_3
-
-    .line 144
-    const/4 v6, 0x1
-
-    .line 147
-    .end local v8           #title:Ljava/lang/String;
-    :cond_3
-    invoke-virtual {v5}, Landroid/preference/Preference;->getSummary()Ljava/lang/CharSequence;
-
-    move-result-object v9
-
-    if-eqz v9, :cond_4
-
-    .line 148
-    invoke-virtual {v5}, Landroid/preference/Preference;->getSummary()Ljava/lang/CharSequence;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 149
-    .restart local v7       #summary:Ljava/lang/String;
-    invoke-virtual {v7, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_4
-
-    .line 150
-    const/4 v6, 0x1
-
-    .line 153
-    .end local v7           #summary:Ljava/lang/String;
-    :cond_4
-    if-eqz v6, :cond_5
-
-    .line 154
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
-
-    iget-object v10, v4, Lcom/android/settings/settingssearch/SearchList;->menuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v10, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->add(Ljava/lang/Object;)V
-
-    .line 138
-    :cond_5
-    add-int/lit8 v2, v2, 0x1
+    .line 278
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 115
-    .end local v5           #pref:Landroid/preference/Preference;
-    .end local v6           #prefMatchFlag:Z
-    :cond_6
-    add-int/lit8 v1, v1, 0x1
+    .line 281
+    :cond_1
+    new-instance v4, Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
 
-    goto/16 :goto_0
+    sget-object v5, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    .line 160
-    .end local v0           #headerMatchFlag:Z
-    .end local v2           #j:I
-    .end local v4           #list:Lcom/android/settings/settingssearch/SearchList;
-    :cond_7
-    iget-object v9, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    const v6, 0x7f04019a
 
-    iget-object v10, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultComparator:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultComparator;
+    invoke-direct {v4, v5, v6, v3, p2}, Lcom/android/settings/settingssearch/SettingsSearchListAdapter;-><init>(Landroid/content/Context;I[Lcom/android/settings/settingssearch/SettingsSearchItem;Ljava/lang/String;)V
 
-    invoke-virtual {v9, v10}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->sort(Ljava/util/Comparator;)V
+    sput-object v4, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListAdapter:Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
 
-    .line 161
-    const-string v9, "SettingsSearchActivity"
+    .line 283
+    sget-object v4, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListAdapter:Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
 
-    const-string v10, "=== search finish ==="
+    invoke-virtual {v4}, Lcom/android/settings/settingssearch/SettingsSearchListAdapter;->getCount()I
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v4
 
-    .line 162
-    return-void
+    if-nez v4, :cond_2
+
+    .line 284
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    .line 285
+    .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f090921
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 286
+    new-instance v2, Landroid/widget/ArrayAdapter;
+
+    sget-object v4, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
+
+    const v5, 0x1090003
+
+    invoke-direct {v2, v4, v5, v1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+
+    .line 287
+    .local v2, mNoResult:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
+    iget-object v4, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
+
+    invoke-virtual {v4, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    goto :goto_0
+
+    .line 289
+    .end local v1           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v2           #mNoResult:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
+    :cond_2
+    iget-object v4, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
+
+    sget-object v5, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListAdapter:Lcom/android/settings/settingssearch/SettingsSearchListAdapter;
+
+    invoke-virtual {v4, v5}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public onCreate(Landroid/os/Bundle;)V
-    .locals 7
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 9
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v6, 0x0
+    const/16 v7, 0x8
 
-    .line 42
+    const/4 v8, 0x0
+
+    .line 95
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 44
-    new-instance v3, Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    .line 96
+    sput-object p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/settingssearch/SettingsSearchUtils;-><init>(Landroid/content/Context;)V
+    .line 98
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
-    iput-object v3, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    move-result-object v0
 
-    .line 45
-    new-instance v3, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    .line 99
+    .local v0, actionBar:Landroid/app/ActionBar;
+    sget-object v6, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    invoke-direct {v3, p0, p0, v6}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;-><init>(Lcom/android/settings/settingssearch/SettingsSearchActivity;Landroid/content/Context;I)V
+    invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
-    iput-object v3, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    move-result v6
 
-    .line 46
-    new-instance v3, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultComparator;
+    if-eqz v6, :cond_0
 
-    invoke-direct {v3, p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultComparator;-><init>(Landroid/content/Context;)V
+    .line 100
+    invoke-virtual {v0, v8}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
-    iput-object v3, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultComparator:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultComparator;
+    .line 101
+    const/4 v6, 0x1
 
-    .line 48
-    invoke-virtual {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v0, v6}, Landroid/app/ActionBar;->setDisplayShowTitleEnabled(Z)V
 
-    move-result-object v2
+    .line 106
+    :goto_0
+    new-instance v6, Landroid/widget/SearchView;
 
-    .line 49
-    .local v2, listview:Landroid/widget/ListView;
-    iget-object v3, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
+    sget-object v7, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v3}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-direct {v6, v7}, Landroid/widget/SearchView;-><init>(Landroid/content/Context;)V
 
-    .line 50
-    invoke-virtual {v2, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    iput-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
 
-    .line 52
-    const v3, 0x1020435
+    .line 107
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v6, v8}, Landroid/widget/SearchView;->setIconified(Z)V
+
+    .line 108
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    const v7, 0x7f090598
+
+    invoke-virtual {p0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/widget/SearchView;->setQueryHint(Ljava/lang/CharSequence;)V
+
+    .line 109
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v6, p0}, Landroid/widget/SearchView;->setOnQueryTextListener(Landroid/widget/SearchView$OnQueryTextListener;)V
+
+    .line 110
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v6}, Landroid/widget/SearchView;->onActionViewExpanded()V
+
+    .line 112
+    const-string v6, "layout_inflater"
+
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 53
-    .local v1, listHeader:Landroid/widget/LinearLayout;
-    new-instance v0, Landroid/widget/EditText;
+    .line 113
+    .local v1, inflater:Landroid/view/LayoutInflater;
+    const v6, 0x7f040198
 
-    invoke-direct {v0, p0}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
+    const/4 v7, 0x0
 
-    .line 54
-    .local v0, keywordInput:Landroid/widget/EditText;
-    new-instance v3, Landroid/view/ViewGroup$LayoutParams;
-
-    const/4 v4, -0x1
-
-    const/4 v5, -0x2
-
-    invoke-direct {v3, v4, v5}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v0, v3}, Landroid/widget/EditText;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 55
-    iget-object v3, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mkeywordInputTextWatcher:Landroid/text/TextWatcher;
-
-    invoke-virtual {v0, v3}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 56
-    invoke-virtual {v1, v0, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
-
-    .line 57
-    invoke-direct {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->makeSearchList()V
-
-    .line 59
-    return-void
-.end method
-
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 12
-    .parameter "parent"
-    .parameter "v"
-    .parameter "position"
-    .parameter "id"
-
-    .prologue
-    .line 166
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchResultAdapter:Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;
-
-    invoke-virtual {v7, p3}, Lcom/android/settings/settingssearch/SettingsSearchActivity$SearchResultAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v1, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/settings/settingssearch/SearchItem;
+    .line 114
+    .local v3, row:Landroid/view/View;
+    const v6, 0x7f0b042c
 
-    .line 168
-    .local v3, item:Lcom/android/settings/settingssearch/SearchItem;
-    new-instance v2, Landroid/content/Intent;
+    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    const-string v7, "android.intent.action.MAIN"
+    move-result-object v4
 
-    invoke-direct {v2, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    check-cast v4, Landroid/widget/LinearLayout;
 
+    .line 115
+    .local v4, searchLayout:Landroid/widget/LinearLayout;
+    const v6, 0x7f0b042d
+
+    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/LinearLayout;
+
+    .line 116
+    .local v5, searchViewLayout:Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
+    .line 117
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchViewOnKeyListener:Landroid/view/View$OnKeyListener;
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    .line 119
+    const v6, 0x102038b
+
+    invoke-virtual {p0, v6}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/LinearLayout;
+
+    .line 120
+    .local v2, listHeader:Landroid/widget/LinearLayout;
+    invoke-virtual {v2, v4, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+
+    .line 122
+    invoke-virtual {p0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
+
+    .line 123
+    iget-object v6, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchListView:Landroid/widget/ListView;
+
+    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mOnKeyListener:Landroid/view/View$OnKeyListener;
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    .line 126
+    new-instance v6, Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    sget-object v7, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
+
+    invoke-direct {v6, v7}, Lcom/android/settings/settingssearch/SettingsSearchManager;-><init>(Landroid/content/Context;)V
+
+    sput-object v6, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
+
+    .line 127
+    invoke-direct {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->SearchDB()V
+
+    .line 128
+    return-void
+
+    .line 103
+    .end local v1           #inflater:Landroid/view/LayoutInflater;
+    .end local v2           #listHeader:Landroid/widget/LinearLayout;
+    .end local v3           #row:Landroid/view/View;
+    .end local v4           #searchLayout:Landroid/widget/LinearLayout;
+    .end local v5           #searchViewLayout:Landroid/widget/LinearLayout;
+    :cond_0
+    invoke-virtual {v0, v7, v7}, Landroid/app/ActionBar;->setDisplayOptions(II)V
+
+    goto :goto_0
+.end method
+
+.method public onDestroy()V
+    .locals 2
+
+    .prologue
+    .line 162
+    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onDestroy()V
+
+    .line 163
+    const-string v0, "SearchMain"
+
+    const-string v1, "onDestory() "
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 164
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
+
+    .line 165
+    return-void
+.end method
+
+.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+    .locals 4
+    .parameter "keyCode"
+    .parameter "event"
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 258
+    const-string v1, "SearchMain"
+
+    const-string v2, "onKeyDown() return true"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 260
+    invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 261
+    const/16 v1, 0x14
+
+    if-ne p1, v1, :cond_0
+
+    .line 262
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 263
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setFocusable(Z)V
+
+    .line 264
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
+
+    const-string v2, "input_method"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+
+    .line 265
+    .local v0, inputManager:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
+
+    .line 270
+    .end local v0           #inputManager:Landroid/view/inputmethod/InputMethodManager;
+    :cond_0
+    return v3
+.end method
+
+.method public onKeyLongPress(ILandroid/view/KeyEvent;)Z
+    .locals 5
+    .parameter "keyCode"
+    .parameter "event"
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 232
+    const/4 v2, 0x4
+
+    if-ne p1, v2, :cond_1
+
+    .line 233
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "multi_window_enabled"
+
+    const/4 v4, 0x0
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 234
+    .local v0, multiWindowValue:I
+    if-ne v0, v1, :cond_0
+
+    .line 235
+    const-string v2, "SearchMain"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "onKeyLongPress() multiWindowValue = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 241
+    .end local v0           #multiWindowValue:I
+    :goto_0
+    return v1
+
+    .line 238
+    .restart local v0       #multiWindowValue:I
+    :cond_0
+    const-string v1, "SearchMain"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "onKeyLongPress() multiWindowValue = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 241
+    .end local v0           #multiWindowValue:I
+    :cond_1
+    invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyLongPress(ILandroid/view/KeyEvent;)Z
+
+    move-result v1
+
+    goto :goto_0
+.end method
+
+.method public onKeyUp(ILandroid/view/KeyEvent;)Z
+    .locals 2
+    .parameter "keyCode"
+    .parameter "event"
+
+    .prologue
+    .line 246
+    const/4 v0, 0x4
+
+    if-ne p1, v0, :cond_0
+
+    .line 247
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->isCanceled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 248
+    const-string v0, "SearchMain"
+
+    const-string v1, "onKeyUp() call onToBackMenu()"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 249
+    invoke-virtual {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->onToBackMenu()V
+
+    .line 250
+    const/4 v0, 0x1
+
+    .line 253
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyUp(ILandroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .locals 1
+    .parameter "item"
+
+    .prologue
     .line 169
-    .local v2, intent:Landroid/content/Intent;
-    const-string v7, "com.android.settings"
+    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
-    const-string v8, "com.android.settings.SettingsTabActivity"
+    move-result v0
 
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 170
-    const v7, 0x10008000
-
-    invoke-virtual {v2, v7}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    .line 172
-    iget v7, v3, Lcom/android/settings/settingssearch/SearchItem;->parentType:I
-
-    if-nez v7, :cond_3
+    packed-switch v0, :pswitch_data_0
 
     .line 174
-    const/4 v6, 0x0
+    invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    .line 175
-    .local v6, tab_index:I
-    const/4 v1, 0x0
+    move-result v0
 
-    .local v1, i:I
     :goto_0
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    return v0
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    .line 171
+    :pswitch_0
+    invoke-virtual {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->onToBackMenu()V
 
-    move-result v7
-
-    if-ge v1, v7, :cond_1
-
-    .line 176
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
-
-    iget-object v7, v7, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget-wide v7, v7, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    iget-object v9, v3, Lcom/android/settings/settingssearch/SearchItem;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget-wide v9, v9, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    cmp-long v7, v7, v9
-
-    if-nez v7, :cond_0
-
-    .line 177
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
-
-    iget v6, v7, Lcom/android/settings/settingssearch/SearchList;->parentTap:I
-
-    .line 175
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
+    .line 172
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 181
-    :cond_1
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    .line 169
+    nop
 
-    const-string v7, "extra_from_search"
+    :pswitch_data_0
+    .packed-switch 0x102002c
+        :pswitch_0
+    .end packed-switch
+.end method
 
-    const/4 v8, 0x1
+.method public onPause()V
+    .locals 3
 
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    .prologue
+    .line 152
+    const-string v1, "SearchMain"
 
-    .line 182
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    const-string v2, "onPause() "
 
-    const-string v7, "extra_parent_type"
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v8, v3, Lcom/android/settings/settingssearch/SearchItem;->parentType:I
+    .line 153
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    const-string v2, "input_method"
 
-    .line 183
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    const-string v7, "extra_tab_id"
+    move-result-object v0
 
-    invoke-virtual {v2, v7, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 184
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    .line 155
+    .local v0, inputManager:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
 
-    const-string v7, "extra_header_id"
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
-    iget-object v8, v3, Lcom/android/settings/settingssearch/SearchItem;->header:Landroid/preference/PreferenceActivity$Header;
+    move-result-object v1
 
-    iget-wide v8, v8, Landroid/preference/PreferenceActivity$Header;->id:J
+    const/4 v2, 0x0
 
-    invoke-virtual {v2, v7, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 186
-    invoke-virtual {p0, v2}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->startActivity(Landroid/content/Intent;)V
+    .line 156
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    .line 275
-    .end local v1           #i:I
-    .end local v6           #tab_index:I
-    :cond_2
-    :goto_1
+    iget-object v2, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    .line 157
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+
+    .line 158
     return-void
+.end method
 
-    .line 205
-    :cond_3
-    iget v7, v3, Lcom/android/settings/settingssearch/SearchItem;->parentType:I
+.method public onQueryTextChange(Ljava/lang/String;)Z
+    .locals 2
+    .parameter "keyWord"
 
-    const/4 v8, 0x1
+    .prologue
+    .line 304
+    sput-object p1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
 
-    if-ne v7, v8, :cond_6
+    .line 305
+    new-instance v0, Lcom/android/settings/settingssearch/SettingsSearchActivity$UpdateListThread;
 
-    .line 207
-    const/4 v4, 0x0
+    invoke-direct {v0, p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity$UpdateListThread;-><init>(Lcom/android/settings/settingssearch/SettingsSearchActivity;)V
 
-    .line 208
-    .local v4, parentHeader:Landroid/preference/PreferenceActivity$Header;
-    const/4 v6, 0x0
+    .line 306
+    .local v0, mThread:Lcom/android/settings/settingssearch/SettingsSearchActivity$UpdateListThread;
+    const/4 v1, 0x1
 
-    .line 209
-    .restart local v6       #tab_index:I
+    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
+
+    .line 307
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    .line 309
     const/4 v1, 0x0
 
-    .restart local v1       #i:I
-    :goto_2
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    return v1
+.end method
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+.method public onQueryTextSubmit(Ljava/lang/String;)Z
+    .locals 1
+    .parameter "arg0"
 
-    move-result v7
+    .prologue
+    .line 315
+    const/4 v0, 0x0
 
-    if-ge v1, v7, :cond_4
+    return v0
+.end method
 
-    .line 210
-    iget-wide v8, v3, Lcom/android/settings/settingssearch/SearchItem;->parentHeaderID:J
+.method public onResume()V
+    .locals 5
 
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    .prologue
+    .line 132
+    const-string v1, "SearchMain"
 
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    const-string v2, "onResume() "
 
-    move-result-object v7
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
+    .line 133
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    iget-object v7, v7, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
+    .line 134
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    iget-wide v10, v7, Landroid/preference/PreferenceActivity$Header;->id:J
+    iget-object v2, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    cmp-long v7, v8, v10
+    new-instance v3, Landroid/content/IntentFilter;
 
-    if-nez v7, :cond_5
+    const-string v4, "android.settings.SETTING_SEARCH_DB_UPDATE"
 
-    .line 211
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    move-result-object v7
+    .line 137
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
 
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
+    iget-object v1, v1, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
-    iget-object v4, v7, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
+    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
 
-    .line 212
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
+    move-result v1
 
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    if-eqz v1, :cond_0
 
-    move-result-object v7
+    .line 138
+    const-string v1, "input_method"
 
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iget v6, v7, Lcom/android/settings/settingssearch/SearchList;->parentTap:I
+    move-result-object v0
 
-    .line 216
-    :cond_4
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    const-string v7, "extra_from_search"
+    .line 139
+    .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v1, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchView:Landroid/widget/SearchView;
 
-    const/4 v8, 0x1
+    iget-object v1, v1, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    const/4 v2, 0x0
 
-    .line 217
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    const-string v7, "extra_parent_type"
+    .line 142
+    .end local v0           #imm:Landroid/view/inputmethod/InputMethodManager;
+    :cond_0
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
 
-    iget v8, v3, Lcom/android/settings/settingssearch/SearchItem;->parentType:I
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    .line 143
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mArrayResultList:Ljava/util/ArrayList;
 
-    .line 218
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
-    const-string v7, "extra_tab_id"
+    .line 144
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchManger:Lcom/android/settings/settingssearch/SettingsSearchManager;
 
-    invoke-virtual {v2, v7, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    sget-object v2, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
 
-    .line 219
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    invoke-virtual {v1, v2}, Lcom/android/settings/settingssearch/SettingsSearchManager;->getTitleInfoDB(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    const-string v7, "extra_header_id"
+    move-result-object v1
 
-    iget-wide v8, v4, Landroid/preference/PreferenceActivity$Header;->id:J
+    sput-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mArrayResultList:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v7, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+    .line 145
+    sget-object v1, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mArrayResultList:Ljava/util/ArrayList;
 
-    .line 221
-    new-instance v0, Landroid/os/Bundle;
+    sget-object v2, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mKeyWord:Ljava/lang/String;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {p0, v1, v2}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->updateList(Ljava/util/ArrayList;Ljava/lang/String;)V
 
-    .line 223
-    .local v0, fragment_bundle:Landroid/os/Bundle;
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    .line 147
+    :cond_1
+    invoke-direct {p0}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->displayProgressDialog()V
 
-    const-string v7, "extra_parent_preference_key"
+    .line 148
+    return-void
+.end method
 
-    iget-object v8, v3, Lcom/android/settings/settingssearch/SearchItem;->preference:Landroid/preference/Preference;
+.method public onToBackMenu()V
+    .locals 6
 
-    invoke-virtual {v8}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+    .prologue
+    const/4 v3, 0x1
 
-    move-result-object v8
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v7, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    .line 178
+    sget-object v4, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mContext:Landroid/content/Context;
 
-    .line 224
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    const-string v7, "extra_fragment_bundle_key"
+    move-result-object v4
 
-    invoke-virtual {v2, v7, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+    const v5, 0x7f0c0020
 
-    .line 226
-    invoke-virtual {p0, v2}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v2
+
+    .line 180
+    .local v2, mSettingActivity:Z
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    .line 181
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v4, "android.intent.action.MAIN"
+
+    invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 182
+    .local v0, intent:Landroid/content/Intent;
+    invoke-static {}, Lcom/android/settings/Utils;->isGridSettingEnabed()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 183
+    const-string v4, "com.android.settings.GridSettings"
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "settings_listui"
+
+    invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-ne v4, v3, :cond_0
+
+    .line 185
+    .local v1, isGridView:Z
+    :goto_0
+    if-eqz v1, :cond_1
+
+    .line 186
+    const-string v3, "com.android.settings"
+
+    const-string v4, "com.android.settings.GridSettings"
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 197
+    .end local v1           #isGridView:Z
+    :goto_1
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+
+    .line 198
+    return-void
+
+    :cond_0
+    move v1, v3
+
+    .line 183
+    goto :goto_0
+
+    .line 188
+    .restart local v1       #isGridView:Z
+    :cond_1
+    const-string v3, "com.android.settings"
+
+    const-string v4, "com.android.settings.Settings"
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     goto :goto_1
 
-    .line 209
-    .end local v0           #fragment_bundle:Landroid/os/Bundle;
-    :cond_5
-    add-int/lit8 v1, v1, 0x1
+    .line 191
+    .end local v1           #isGridView:Z
+    :cond_2
+    if-eqz v2, :cond_3
 
-    goto :goto_2
+    .line 192
+    const-string v3, "com.android.settings"
 
-    .line 245
-    .end local v1           #i:I
-    .end local v4           #parentHeader:Landroid/preference/PreferenceActivity$Header;
-    .end local v6           #tab_index:I
-    :cond_6
-    iget v7, v3, Lcom/android/settings/settingssearch/SearchItem;->parentType:I
+    const-string v4, "com.android.settings.Settings"
 
-    const/4 v8, 0x2
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    if-ne v7, v8, :cond_2
+    goto :goto_1
 
-    .line 247
-    const/4 v4, 0x0
+    .line 194
+    :cond_3
+    const-string v3, "com.android.settings"
 
-    .line 248
-    .restart local v4       #parentHeader:Landroid/preference/PreferenceActivity$Header;
-    const/4 v6, 0x0
+    const-string v4, "com.android.settings.SettingsTabActivity"
 
-    .line 249
-    .restart local v6       #tab_index:I
-    const/4 v1, 0x0
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .restart local v1       #i:I
-    :goto_3
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    if-ge v1, v7, :cond_7
-
-    .line 250
-    iget-wide v8, v3, Lcom/android/settings/settingssearch/SearchItem;->parentHeaderID:J
-
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
-
-    iget-object v7, v7, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    iget-wide v10, v7, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    cmp-long v7, v8, v10
-
-    if-nez v7, :cond_8
-
-    .line 251
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
-
-    iget-object v4, v7, Lcom/android/settings/settingssearch/SearchList;->header:Landroid/preference/PreferenceActivity$Header;
-
-    .line 252
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mFullMenuList:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/settings/settingssearch/SearchList;
-
-    iget v6, v7, Lcom/android/settings/settingssearch/SearchList;->parentTap:I
-
-    .line 256
-    :cond_7
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_from_search"
-
-    const/4 v8, 0x1
-
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    .line 257
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_parent_type"
-
-    iget v8, v3, Lcom/android/settings/settingssearch/SearchItem;->parentType:I
-
-    invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 258
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_tab_id"
-
-    invoke-virtual {v2, v7, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 259
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_header_id"
-
-    iget-wide v8, v4, Landroid/preference/PreferenceActivity$Header;->id:J
-
-    invoke-virtual {v2, v7, v8, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
-
-    .line 261
-    new-instance v5, Landroid/os/Bundle;
-
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
-
-    .line 262
-    .local v5, parent_fragment_bundle:Landroid/os/Bundle;
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_parent_preference_key"
-
-    iget-object v8, v3, Lcom/android/settings/settingssearch/SearchItem;->parentKey:Ljava/lang/String;
-
-    invoke-virtual {v5, v7, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 263
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_fragment_bundle_key"
-
-    invoke-virtual {v2, v7, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
-
-    .line 265
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    .line 266
-    .restart local v0       #fragment_bundle:Landroid/os/Bundle;
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_parent_preference_key"
-
-    iget-object v8, v3, Lcom/android/settings/settingssearch/SearchItem;->preference:Landroid/preference/Preference;
-
-    invoke-virtual {v8}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v0, v7, v8}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 267
-    iget-object v7, p0, Lcom/android/settings/settingssearch/SettingsSearchActivity;->mSearchUtils:Lcom/android/settings/settingssearch/SettingsSearchUtils;
-
-    const-string v7, "extra_second_fragment_bundle_key"
-
-    invoke-virtual {v2, v7, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
-
-    .line 269
-    invoke-virtual {p0, v2}, Lcom/android/settings/settingssearch/SettingsSearchActivity;->startActivity(Landroid/content/Intent;)V
-
-    .line 271
-    const-string v7, "SettingsSearchActivity"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "PARENT_TYPE_PREFERENCE, parent key : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, v3, Lcom/android/settings/settingssearch/SearchItem;->parentKey:Ljava/lang/String;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string v9, " , key : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, v3, Lcom/android/settings/settingssearch/SearchItem;->preference:Landroid/preference/Preference;
-
-    invoke-virtual {v9}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    .line 249
-    .end local v0           #fragment_bundle:Landroid/os/Bundle;
-    .end local v5           #parent_fragment_bundle:Landroid/os/Bundle;
-    :cond_8
-    add-int/lit8 v1, v1, 0x1
-
-    goto/16 :goto_3
+    goto :goto_1
 .end method

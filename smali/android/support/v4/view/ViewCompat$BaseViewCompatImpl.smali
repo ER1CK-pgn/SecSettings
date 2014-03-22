@@ -22,8 +22,8 @@
     .locals 0
 
     .prologue
-    .line 166
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 234
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
     .parameter "direction"
 
     .prologue
-    .line 168
+    .line 236
     const/4 v0, 0x0
 
     return v0
@@ -46,7 +46,7 @@
     .locals 2
 
     .prologue
-    .line 211
+    .line 279
     const-wide/16 v0, 0xa
 
     return-wide v0
@@ -57,7 +57,18 @@
     .parameter "view"
 
     .prologue
-    .line 214
+    .line 282
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public getLayoutDirection(Landroid/view/View;)I
+    .locals 1
+    .parameter "view"
+
+    .prologue
+    .line 314
     const/4 v0, 0x0
 
     return v0
@@ -68,10 +79,23 @@
     .parameter "v"
 
     .prologue
-    .line 174
+    .line 242
     const/4 v0, 0x2
 
     return v0
+.end method
+
+.method public getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
+    .locals 1
+    .parameter "view"
+
+    .prologue
+    .line 324
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public postInvalidateOnAnimation(Landroid/view/View;)V
@@ -79,14 +103,14 @@
     .parameter "view"
 
     .prologue
-    .line 199
+    .line 267
     invoke-virtual {p0}, Landroid/support/v4/view/ViewCompat$BaseViewCompatImpl;->getFrameTime()J
 
     move-result-wide v0
 
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->postInvalidateDelayed(J)V
 
-    .line 200
+    .line 268
     return-void
 .end method
 
@@ -96,14 +120,14 @@
     .parameter "action"
 
     .prologue
-    .line 205
+    .line 273
     invoke-virtual {p0}, Landroid/support/v4/view/ViewCompat$BaseViewCompatImpl;->getFrameTime()J
 
     move-result-wide v0
 
     invoke-virtual {p1, p2, v0, v1}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 206
+    .line 274
     return-void
 .end method
 
@@ -113,7 +137,7 @@
     .parameter "delegate"
 
     .prologue
-    .line 181
+    .line 249
     return-void
 .end method
 
@@ -123,7 +147,7 @@
     .parameter "mode"
 
     .prologue
-    .line 218
+    .line 286
     return-void
 .end method
 
@@ -134,6 +158,6 @@
     .parameter "paint"
 
     .prologue
-    .line 227
+    .line 298
     return-void
 .end method

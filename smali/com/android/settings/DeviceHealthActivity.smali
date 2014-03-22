@@ -65,9 +65,9 @@
 
     check-cast v0, Ljava/lang/String;
 
-    const v1, 0x7f0915be
+    const v1, 0x7f091726
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/DeviceHealthActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -93,9 +93,9 @@
 
     check-cast v0, Ljava/lang/String;
 
-    const v1, 0x7f0915bf
+    const v1, 0x7f091727
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/DeviceHealthActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -119,9 +119,9 @@
 
     check-cast v0, Ljava/lang/String;
 
-    const v1, 0x7f0915c0
+    const v1, 0x7f091728
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/DeviceHealthActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -236,7 +236,7 @@
 
     .prologue
     .line 189
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onBackPressed()V
+    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
 
     .line 190
     iget v0, p0, Lcom/android/settings/DeviceHealthActivity;->mBackStackCount:I
@@ -285,12 +285,12 @@
     if-ne v4, v7, :cond_4
 
     .line 53
-    const v4, 0x7f040066
+    const v4, 0x7f04006b
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/DeviceHealthActivity;->setContentView(I)V
+    invoke-virtual {p0, v4}, Landroid/app/Activity;->setContentView(I)V
 
     .line 54
-    invoke-virtual {p0}, Lcom/android/settings/DeviceHealthActivity;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v4
 
@@ -299,7 +299,7 @@
     .line 55
     iget-object v4, p0, Lcom/android/settings/DeviceHealthActivity;->mActionBar:Landroid/app/ActionBar;
 
-    const v5, 0x7f0915bd
+    const v5, 0x7f091725
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -310,7 +310,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0915be
+    const v5, 0x7f091726
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar$Tab;->setText(I)Landroid/app/ActionBar$Tab;
 
@@ -328,7 +328,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0915bf
+    const v5, 0x7f091727
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar$Tab;->setText(I)Landroid/app/ActionBar$Tab;
 
@@ -346,7 +346,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0915c0
+    const v5, 0x7f091728
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar$Tab;->setText(I)Landroid/app/ActionBar$Tab;
 
@@ -440,7 +440,7 @@
     .restart local v2       #tabBattery:Landroid/app/ActionBar$Tab;
     .restart local v3       #tabData:Landroid/app/ActionBar$Tab;
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/DeviceHealthActivity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v4
 
@@ -453,7 +453,7 @@
     iput-object v4, p0, Lcom/android/settings/DeviceHealthActivity;->mFragmentBattery:Landroid/app/Fragment;
 
     .line 79
-    invoke-virtual {p0}, Lcom/android/settings/DeviceHealthActivity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v4
 
@@ -466,7 +466,7 @@
     iput-object v4, p0, Lcom/android/settings/DeviceHealthActivity;->mFragmentApps:Landroid/app/Fragment;
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/DeviceHealthActivity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v4
 
@@ -615,7 +615,7 @@
     .end local v2           #tabBattery:Landroid/app/ActionBar$Tab;
     .end local v3           #tabData:Landroid/app/ActionBar$Tab;
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/DeviceHealthActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto/16 :goto_0
 .end method
@@ -744,9 +744,9 @@
 
     check-cast v1, Ljava/lang/String;
 
-    const v2, 0x7f0915be
+    const v2, 0x7f091726
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/DeviceHealthActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -768,9 +768,9 @@
 
     check-cast v1, Ljava/lang/String;
 
-    const v2, 0x7f0915bf
+    const v2, 0x7f091727
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/DeviceHealthActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -792,9 +792,9 @@
 
     check-cast v1, Ljava/lang/String;
 
-    const v2, 0x7f0915c0
+    const v2, 0x7f091728
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/DeviceHealthActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -821,7 +821,7 @@
 
     if-nez v1, :cond_3
 
-    const v1, 0x7f0b0134
+    const v1, 0x7f0b0143
 
     invoke-direct {p0, p1}, Lcom/android/settings/DeviceHealthActivity;->findFragmentByTab(Landroid/app/ActionBar$Tab;)Landroid/app/Fragment;
 
@@ -861,7 +861,7 @@
 
     .line 172
     .local v0, f:Landroid/app/Fragment;
-    invoke-virtual {p0}, Lcom/android/settings/DeviceHealthActivity;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v2
 
@@ -871,7 +871,7 @@
 
     .line 173
     .local v1, transaction:Landroid/app/FragmentTransaction;
-    const v2, 0x7f0b0134
+    const v2, 0x7f0b0143
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 

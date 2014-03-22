@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 3841
+    .line 4892
     invoke-direct {p0}, Lcom/android/settings/Settings;-><init>()V
 
     return-void
@@ -34,31 +34,31 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 3844
+    .line 4895
     invoke-super {p0, p1}, Lcom/android/settings/Settings;->onCreate(Landroid/os/Bundle;)V
 
-    .line 3846
-    invoke-virtual {p0}, Lcom/android/settings/Settings$CloudSettingActivity;->getActionBar()Landroid/app/ActionBar;
+    .line 4897
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 3847
-    invoke-virtual {p0}, Lcom/android/settings/Settings$CloudSettingActivity;->getActionBar()Landroid/app/ActionBar;
+    .line 4898
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
-    .line 3848
-    invoke-virtual {p0}, Lcom/android/settings/Settings$CloudSettingActivity;->getActionBar()Landroid/app/ActionBar;
+    .line 4899
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
-    .line 3850
+    .line 4901
     :cond_0
     return-void
 .end method
@@ -68,14 +68,14 @@
     .parameter "item"
 
     .prologue
-    .line 3854
+    .line 4905
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 3859
+    .line 4910
     invoke-super {p0, p1}, Lcom/android/settings/Settings;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -83,16 +83,16 @@
     :goto_0
     return v0
 
-    .line 3856
+    .line 4907
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/Settings$CloudSettingActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 3857
+    .line 4908
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 3854
+    .line 4905
     nop
 
     :pswitch_data_0

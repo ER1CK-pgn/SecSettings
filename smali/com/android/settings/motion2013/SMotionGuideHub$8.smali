@@ -3,12 +3,12 @@
 .source "SMotionGuideHub.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/motion2013/SMotionGuideHub;->showFolderDialog()V
+    value = Lcom/android/settings/motion2013/SMotionGuideHub;->showUseRingDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,29 +27,30 @@
     .parameter
 
     .prologue
-    .line 1199
+    .line 1253
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionGuideHub$8;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .parameter "arg0"
+    .parameter "dialog"
+    .parameter "which"
 
     .prologue
-    .line 1202
+    .line 1255
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionGuideHub$8;->this$0:Lcom/android/settings/motion2013/SMotionGuideHub;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    #setter for: Lcom/android/settings/motion2013/SMotionGuideHub;->mFolderDialog:Landroid/app/AlertDialog;
-    invoke-static {v0, v1}, Lcom/android/settings/motion2013/SMotionGuideHub;->access$1302(Lcom/android/settings/motion2013/SMotionGuideHub;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    #calls: Lcom/android/settings/motion2013/SMotionGuideHub;->startTurnOverTryActually(Z)V
+    invoke-static {v0, v1}, Lcom/android/settings/motion2013/SMotionGuideHub;->access$1200(Lcom/android/settings/motion2013/SMotionGuideHub;Z)V
 
-    .line 1203
+    .line 1256
     return-void
 .end method

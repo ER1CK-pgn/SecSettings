@@ -1,11 +1,14 @@
 .class Lcom/android/settings/DisplaySettings$20;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "DisplaySettings.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/DisplaySettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/DisplaySettings;->showTalkBackDisablePopup()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,33 +27,34 @@
     .parameter
 
     .prologue
-    .line 1704
+    .line 1786
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$20;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .parameter "msg"
+    .parameter "dialog"
+    .parameter "which"
 
     .prologue
-    .line 1706
+    .line 1788
     iget-object v0, p0, Lcom/android/settings/DisplaySettings$20;->this$0:Lcom/android/settings/DisplaySettings;
 
-    #getter for: Lcom/android/settings/DisplaySettings;->mContextualPage:Landroid/preference/SwitchPreferenceScreen;
-    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$1200(Lcom/android/settings/DisplaySettings;)Landroid/preference/SwitchPreferenceScreen;
+    #getter for: Lcom/android/settings/DisplaySettings;->mMultiWindowPref:Landroid/preference/CheckBoxPreference;
+    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$400(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 1707
+    .line 1789
     return-void
 .end method

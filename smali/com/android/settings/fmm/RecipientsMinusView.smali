@@ -65,9 +65,9 @@
 
     .prologue
     .line 66
-    const v1, 0x7f0b01ff
+    const v1, 0x7f0b0237
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -101,7 +101,7 @@
 
     .prologue
     .line 42
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
+    invoke-super {p0}, Landroid/view/View;->onFinishInflate()V
 
     .line 44
     const/4 v1, 0x1
@@ -109,9 +109,9 @@
     iput-boolean v1, p0, Lcom/android/settings/fmm/RecipientsMinusView;->VisibleView:Z
 
     .line 46
-    const v1, 0x7f0b0214
+    const v1, 0x7f0b0253
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -120,9 +120,9 @@
     iput-object v1, p0, Lcom/android/settings/fmm/RecipientsMinusView;->CurrentView:Landroid/widget/LinearLayout;
 
     .line 48
-    const v1, 0x7f0b0217
+    const v1, 0x7f0b0256
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -134,7 +134,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/fmm/RecipientsMinusView$1;-><init>(Lcom/android/settings/fmm/RecipientsMinusView;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 63
     return-void
@@ -145,9 +145,9 @@
 
     .prologue
     .line 76
-    const v1, 0x7f0b01ff
+    const v1, 0x7f0b0237
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -155,7 +155,7 @@
 
     .line 77
     .local v0, PhoneNumber:Landroid/widget/EditText;
-    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     .line 78
     const/4 v1, 0x0
@@ -172,9 +172,9 @@
 
     .prologue
     .line 71
-    const v1, 0x7f0b01ff
+    const v1, 0x7f0b0237
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/fmm/RecipientsMinusView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -182,7 +182,7 @@
 
     .line 72
     .local v0, PhoneNumber:Landroid/widget/EditText;
-    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 73
     return-void

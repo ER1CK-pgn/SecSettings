@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 465
+    .line 456
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$10;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "arg1"
 
     .prologue
-    .line 467
+    .line 458
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApWarning$10;->this$0:Lcom/android/settings/wifi/mobileap/WifiApWarning;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApWarning;->preProvisioning()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApWarning;->access$1000(Lcom/android/settings/wifi/mobileap/WifiApWarning;)V
 
-    .line 468
+    .line 459
     return-void
 .end method

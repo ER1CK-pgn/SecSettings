@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 237
+    .line 238
     iput-object p1, p0, Lcom/android/settings/AirViewPreferenceEnabler$8;->this$0:Lcom/android/settings/AirViewPreferenceEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,11 +42,11 @@
     .parameter "dialog"
 
     .prologue
-    .line 241
+    .line 242
     iget-object v0, p0, Lcom/android/settings/AirViewPreferenceEnabler$8;->this$0:Lcom/android/settings/AirViewPreferenceEnabler;
 
     invoke-virtual {v0}, Lcom/android/settings/AirViewPreferenceEnabler;->updateSwitch()V
 
-    .line 242
+    .line 243
     return-void
 .end method

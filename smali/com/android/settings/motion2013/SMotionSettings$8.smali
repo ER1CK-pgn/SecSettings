@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/motion2013/SMotionSettings;->showGuideDialog(Z)V
+    value = Lcom/android/settings/motion2013/SMotionSettings;->showTalkBackDisableDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
-.field final synthetic val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/motion2013/SMotionSettings;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
+.method constructor <init>(Lcom/android/settings/motion2013/SMotionSettings;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 400
+    .line 412
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionSettings$8;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    iput-object p2, p0, Lcom/android/settings/motion2013/SMotionSettings$8;->val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,46 +43,17 @@
     .parameter "which"
 
     .prologue
-    .line 402
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$8;->val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    .line 414
+    iget-object v0, p0, Lcom/android/settings/motion2013/SMotionSettings$8;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
-    invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+    iget-object v0, v0, Lcom/android/settings/motion2013/SMotionSettings;->mSwitchUncheckHandler:Landroid/os/Handler;
 
-    move-result v2
+    const/4 v1, 0x0
 
-    if-eqz v2, :cond_0
+    const-wide/16 v2, 0xa
 
-    .line 403
-    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$8;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    invoke-virtual {v2}, Lcom/android/settings/motion2013/SMotionSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    .line 404
-    .local v1, sharedPreferences:Landroid/content/SharedPreferences;
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    .line 405
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
-    const-string v2, "pref_air_motion_sensor_noti"
-
-    const/4 v3, 0x1
-
-    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 406
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 408
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
-    .end local v1           #sharedPreferences:Landroid/content/SharedPreferences;
-    :cond_0
+    .line 415
     return-void
 .end method

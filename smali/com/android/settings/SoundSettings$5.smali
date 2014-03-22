@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 545
+    .line 625
     iput-object p1, p0, Lcom/android/settings/SoundSettings$5;->this$0:Lcom/android/settings/SoundSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,14 +41,14 @@
     .locals 2
 
     .prologue
-    .line 547
+    .line 627
     const-string v0, "SoundSettings"
 
     const-string v1, "SoundSettings unloadSoundEffect() call"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 548
+    .line 628
     iget-object v0, p0, Lcom/android/settings/SoundSettings$5;->this$0:Lcom/android/settings/SoundSettings;
 
     #getter for: Lcom/android/settings/SoundSettings;->mAudioManager:Landroid/media/AudioManager;
@@ -58,6 +58,6 @@
 
     invoke-virtual {v0}, Landroid/media/AudioManager;->unloadSoundEffects()V
 
-    .line 549
+    .line 629
     return-void
 .end method

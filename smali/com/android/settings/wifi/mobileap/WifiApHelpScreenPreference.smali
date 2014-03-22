@@ -42,9 +42,9 @@
     iput v0, p0, Lcom/android/settings/wifi/mobileap/WifiApHelpScreenPreference;->mMaxClient:I
 
     .line 41
-    const v0, 0x7f0401b8
+    const v0, 0x7f0401f3
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/mobileap/WifiApHelpScreenPreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 42
     return-void
@@ -61,7 +61,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 54
-    const v2, 0x7f0b04c5
+    const v2, 0x7f0b0523
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -71,7 +71,7 @@
 
     .line 55
     .local v0, tetherImg:Landroid/widget/ImageView;
-    const v2, 0x7f0b016c
+    const v2, 0x7f0b017d
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -81,12 +81,12 @@
 
     .line 60
     .local v1, tv:Landroid/widget/TextView;
-    const v2, 0x7f02042c
+    const v2, 0x7f0204ab
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 69
-    const v2, 0x7f090408
+    const v2, 0x7f090442
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

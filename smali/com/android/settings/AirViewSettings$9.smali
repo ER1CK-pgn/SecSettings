@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 526
+    .line 527
     iput-object p1, p0, Lcom/android/settings/AirViewSettings$9;->this$0:Lcom/android/settings/AirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 528
+    .line 529
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$9;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mResolver:Landroid/content/ContentResolver;
@@ -57,7 +57,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 529
+    .line 530
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$9;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mContext:Landroid/content/Context;
@@ -69,7 +69,7 @@
 
     invoke-static {v0, v1}, Lcom/android/settings/Utils;->SetAirViewMasterValue(Landroid/content/Context;I)V
 
-    .line 531
+    .line 532
     const-string v0, "AirViewSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -94,7 +94,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 532
+    .line 533
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$9;->this$0:Lcom/android/settings/AirViewSettings;
 
     #getter for: Lcom/android/settings/AirViewSettings;->mAirViewModeListPref:Landroid/preference/ListPreference;
@@ -106,18 +106,18 @@
 
     invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setValueIndex(I)V
 
-    .line 533
+    .line 534
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$9;->this$0:Lcom/android/settings/AirViewSettings;
 
     #calls: Lcom/android/settings/AirViewSettings;->updateAirViewModeSummary()V
     invoke-static {v0}, Lcom/android/settings/AirViewSettings;->access$1000(Lcom/android/settings/AirViewSettings;)V
 
-    .line 534
+    .line 535
     iget-object v0, p0, Lcom/android/settings/AirViewSettings$9;->this$0:Lcom/android/settings/AirViewSettings;
 
     #calls: Lcom/android/settings/AirViewSettings;->updateMenuEnableState()V
     invoke-static {v0}, Lcom/android/settings/AirViewSettings;->access$500(Lcom/android/settings/AirViewSettings;)V
 
-    .line 535
+    .line 536
     return-void
 .end method

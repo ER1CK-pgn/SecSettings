@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 296
+    .line 298
     iput-object p1, p0, Lcom/android/settings/FingerAirViewSettings$3;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 300
+    .line 302
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings$3;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
     #getter for: Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -53,7 +53,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 301
+    .line 303
     iget-object v0, p0, Lcom/android/settings/FingerAirViewSettings$3;->this$0:Lcom/android/settings/FingerAirViewSettings;
 
     #getter for: Lcom/android/settings/FingerAirViewSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -65,7 +65,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 302
+    .line 304
     :cond_0
     return-void
 .end method

@@ -52,7 +52,7 @@
     .line 736
     iget-object v3, p0, Lcom/android/settings/InformationTicker$7;->val$layout:Landroid/view/View;
 
-    const v4, 0x7f0b0143
+    const v4, 0x7f0b0152
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -20,17 +20,22 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/VoiceInputControlSettings;
 
+.field final synthetic val$check:Landroid/widget/CheckBox;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/VoiceInputControlSettings;)V
+.method constructor <init>(Lcom/android/settings/VoiceInputControlSettings;Landroid/widget/CheckBox;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 217
+    .line 308
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlSettings$4;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/settings/VoiceInputControlSettings$4;->val$check:Landroid/widget/CheckBox;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,29 +48,29 @@
     .parameter "arg1"
 
     .prologue
-    const/4 v2, 0x0
+    .line 311
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$4;->val$check:Landroid/widget/CheckBox;
 
-    .line 220
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 312
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$4;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-    #getter for: Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
-    invoke-static {v0}, Lcom/android/settings/VoiceInputControlSettings;->access$100(Lcom/android/settings/VoiceInputControlSettings;)Landroid/widget/Switch;
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
+    const-string v1, "voiceinputcontrol_showNeverAgain"
 
-    .line 221
-    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$4;->this$0:Lcom/android/settings/VoiceInputControlSettings;
-
-    invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "voice_input_control"
+    const/4 v2, 0x1
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 222
+    .line 313
+    :cond_0
     return-void
 .end method

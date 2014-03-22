@@ -64,11 +64,11 @@
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/PenHovering$1;->this$0:Lcom/android/settings/PenHovering;
 
-    invoke-virtual {v1}, Lcom/android/settings/PenHovering;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 66
     return-void

@@ -54,10 +54,10 @@
     .parameter "id"
 
     .prologue
-    .line 118
+    .line 119
     invoke-direct {p0}, Lcom/android/settings/applications/ApplicationsState$SizeInfo;-><init>()V
 
-    .line 119
+    .line 120
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p2, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
@@ -66,26 +66,26 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->apkFile:Ljava/io/File;
 
-    .line 120
+    .line 121
     iput-wide p3, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->id:J
 
-    .line 121
+    .line 122
     iput-object p2, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 
-    .line 122
+    .line 123
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->size:J
 
-    .line 123
+    .line 124
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->sizeStale:Z
 
-    .line 124
+    .line 125
     invoke-virtual {p0, p1}, Lcom/android/settings/applications/ApplicationsState$AppEntry;->ensureLabel(Landroid/content/Context;)V
 
-    .line 125
+    .line 126
     return-void
 .end method
 
@@ -101,12 +101,12 @@
 
     const/4 v0, 0x1
 
-    .line 141
+    .line 142
     iget-object v2, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->icon:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_2
 
-    .line 142
+    .line 143
     iget-object v2, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->apkFile:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
@@ -115,29 +115,29 @@
 
     if-eqz v2, :cond_0
 
-    .line 143
+    .line 144
     iget-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v1, p2}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, p2}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->icon:Landroid/graphics/drawable/Drawable;
 
-    .line 159
+    .line 160
     :goto_0
     return v0
 
-    .line 146
+    .line 147
     :cond_0
     iput-boolean v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->mounted:Z
 
-    .line 147
+    .line 148
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v2, 0x10808a7
+    const v2, 0x10807e7
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -148,16 +148,16 @@
     :cond_1
     move v0, v1
 
-    .line 159
+    .line 160
     goto :goto_0
 
-    .line 150
+    .line 151
     :cond_2
     iget-boolean v2, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->mounted:Z
 
     if-nez v2, :cond_1
 
-    .line 153
+    .line 154
     iget-object v2, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->apkFile:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
@@ -166,13 +166,13 @@
 
     if-eqz v2, :cond_1
 
-    .line 154
+    .line 155
     iput-boolean v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->mounted:Z
 
-    .line 155
+    .line 156
     iget-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v1, p2}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, p2}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -186,7 +186,7 @@
     .parameter "context"
 
     .prologue
-    .line 128
+    .line 129
     iget-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->label:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -195,7 +195,7 @@
 
     if-nez v1, :cond_1
 
-    .line 129
+    .line 130
     :cond_0
     iget-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->apkFile:Ljava/io/File;
 
@@ -205,41 +205,41 @@
 
     if-nez v1, :cond_2
 
-    .line 130
+    .line 131
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->mounted:Z
 
-    .line 131
+    .line 132
     iget-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 
     iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iput-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->label:Ljava/lang/String;
 
-    .line 138
+    .line 139
     :cond_1
     :goto_0
     return-void
 
-    .line 133
+    .line 134
     :cond_2
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->mounted:Z
 
-    .line 134
+    .line 135
     iget-object v1, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->info:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 135
+    .line 136
     .local v0, label:Ljava/lang/CharSequence;
     if-eqz v0, :cond_3
 
@@ -264,19 +264,19 @@
     .locals 1
 
     .prologue
-    .line 100
+    .line 101
     iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->normalizedLabel:Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
-    .line 101
+    .line 102
     iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->normalizedLabel:Ljava/lang/String;
 
-    .line 104
+    .line 105
     :goto_0
     return-object v0
 
-    .line 103
+    .line 104
     :cond_0
     iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->label:Ljava/lang/String;
 
@@ -286,7 +286,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->normalizedLabel:Ljava/lang/String;
 
-    .line 104
+    .line 105
     iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$AppEntry;->normalizedLabel:Ljava/lang/String;
 
     goto :goto_0

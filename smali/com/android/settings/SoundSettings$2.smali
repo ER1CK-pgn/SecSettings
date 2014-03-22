@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 274
+    .line 296
     iput-object p1, p0, Lcom/android/settings/SoundSettings$2;->this$0:Lcom/android/settings/SoundSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,7 +44,7 @@
 
     const/4 v4, 0x0
 
-    .line 277
+    .line 299
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -57,18 +57,18 @@
 
     if-eqz v1, :cond_1
 
-    .line 278
+    .line 300
     iget-object v1, p0, Lcom/android/settings/SoundSettings$2;->this$0:Lcom/android/settings/SoundSettings;
 
     #calls: Lcom/android/settings/SoundSettings;->handleDockChange(Landroid/content/Intent;)V
     invoke-static {v1, p2}, Lcom/android/settings/SoundSettings;->access$500(Lcom/android/settings/SoundSettings;Landroid/content/Intent;)V
 
-    .line 291
+    .line 313
     :cond_0
     :goto_0
     return-void
 
-    .line 279
+    .line 301
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -82,14 +82,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 280
+    .line 302
     const-string v1, "state"
 
     invoke-virtual {p2, v1, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 281
+    .line 303
     .local v0, state:I
     const-string v1, "SoundSettings"
 
@@ -113,10 +113,10 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 283
+    .line 305
     if-ne v0, v5, :cond_3
 
-    .line 284
+    .line 306
     iget-object v1, p0, Lcom/android/settings/SoundSettings$2;->this$0:Lcom/android/settings/SoundSettings;
 
     #getter for: Lcom/android/settings/SoundSettings;->mAudioOutput:Landroid/preference/ListPreference;
@@ -124,13 +124,13 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/ListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    .line 285
+    .line 307
     iget-object v1, p0, Lcom/android/settings/SoundSettings$2;->this$0:Lcom/android/settings/SoundSettings;
 
     #getter for: Lcom/android/settings/SoundSettings;->mAudioOutput:Landroid/preference/ListPreference;
@@ -138,13 +138,13 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/preference/ListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v1}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 286
+    .line 308
     :cond_2
     iget-object v1, p0, Lcom/android/settings/SoundSettings$2;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -153,11 +153,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
-    .line 288
+    .line 310
     :cond_3
     iget-object v1, p0, Lcom/android/settings/SoundSettings$2;->this$0:Lcom/android/settings/SoundSettings;
 
@@ -166,7 +166,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method

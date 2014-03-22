@@ -320,10 +320,10 @@
     .line 267
     iget-object v1, p0, Lcom/android/settings/ASensorSettings;->btn_cal:Landroid/widget/Button;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 268
-    const v1, 0x7f090aaf
+    const v1, 0x7f090b93
 
     invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -342,11 +342,11 @@
 
     .prologue
     .line 136
-    invoke-virtual {p0}, Lcom/android/settings/ASensorSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f02039c
+    const v2, 0x7f020418
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -372,7 +372,7 @@
     .line 116
     const-string v0, "sensor"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ASensorSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -390,9 +390,9 @@
     iput-object v0, p0, Lcom/android/settings/ASensorSettings;->mAccelerometerSensor:Landroid/hardware/Sensor;
 
     .line 119
-    const v0, 0x7f0b0056
+    const v0, 0x7f0b005f
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ASensorSettings;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -403,19 +403,19 @@
     .line 120
     iget-object v0, p0, Lcom/android/settings/ASensorSettings;->btn_cal:Landroid/widget/Button;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 121
     iget-object v0, p0, Lcom/android/settings/ASensorSettings;->btn_cal:Landroid/widget/Button;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 123
-    const v0, 0x7f0b0054
+    const v0, 0x7f0b005d
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ASensorSettings;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -519,7 +519,7 @@
     const/16 v4, 0x31
 
     :try_start_1
-    invoke-virtual {v3, v4}, Ljava/io/OutputStream;->write(I)V
+    invoke-virtual {v3, v4}, Ljava/io/FileOutputStream;->write(I)V
 
     .line 152
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
@@ -548,7 +548,7 @@
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 148
-    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -562,7 +562,7 @@
     .line 154
     .local v0, e:Ljava/io/IOException;
     :goto_1
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 156
     :try_start_3
@@ -578,7 +578,7 @@
 
     .line 158
     .local v1, err:Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -611,7 +611,7 @@
 
     .line 307
     .local v0, outMetris:Landroid/util/DisplayMetrics;
-    invoke-virtual {p0}, Lcom/android/settings/ASensorSettings;->getWindowManager()Landroid/view/WindowManager;
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v2
 
@@ -640,7 +640,7 @@
     .line 279
     const-string v2, "window"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ASensorSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -668,7 +668,7 @@
     .line 273
     const-string v2, "window"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ASensorSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -721,7 +721,7 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 169
     new-instance v0, Landroid/os/Message;
@@ -739,7 +739,7 @@
 
     const-wide/16 v2, 0x32
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/settings/ASensorSettings$setHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
 
@@ -747,7 +747,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0b0056
+    .packed-switch 0x7f0b005f
         :pswitch_0
     .end packed-switch
 .end method
@@ -837,9 +837,9 @@
     iput-object v0, p0, Lcom/android/settings/ASensorSettings;->mHandler:Lcom/android/settings/ASensorSettings$setHandler;
 
     .line 105
-    const v0, 0x7f04001b
+    const v0, 0x7f04001d
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ASensorSettings;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     .line 106
     new-instance v0, Lcom/android/settings/ASensorSettings$ASensorSettingsView;
@@ -849,9 +849,9 @@
     iput-object v0, p0, Lcom/android/settings/ASensorSettings;->drawView:Lcom/android/settings/ASensorSettings$ASensorSettingsView;
 
     .line 107
-    const v0, 0x7f0b0055
+    const v0, 0x7f0b005e
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ASensorSettings;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -864,7 +864,7 @@
 
     iget-object v1, p0, Lcom/android/settings/ASensorSettings;->drawView:Lcom/android/settings/ASensorSettings$ASensorSettingsView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 109
     invoke-direct {p0}, Lcom/android/settings/ASensorSettings;->init()V
@@ -896,14 +896,14 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/ASensorSettings$setHandler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 199
     iget-object v0, p0, Lcom/android/settings/ASensorSettings;->mHandler:Lcom/android/settings/ASensorSettings$setHandler;
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/ASensorSettings$setHandler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 200
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
@@ -946,7 +946,7 @@
     .line 184
     iget-object v0, p0, Lcom/android/settings/ASensorSettings;->text:Landroid/widget/TextView;
 
-    const v1, 0x7f090aad
+    const v1, 0x7f090b91
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -954,7 +954,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/ASensorSettings;->btn_cal:Landroid/widget/Button;
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     .line 189
     iget-object v0, p0, Lcom/android/settings/ASensorSettings;->mSensorManager:Landroid/hardware/SensorManager;

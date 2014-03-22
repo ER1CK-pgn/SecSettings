@@ -87,8 +87,8 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 76
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 77
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
     const-string v0, "SettingHeaderXmlParser"
@@ -126,7 +126,7 @@
     iput-object v0, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu:[I
 
     .line 61
-    const/16 v0, 0xe
+    const/16 v0, 0xf
 
     new-array v0, v0, [I
 
@@ -143,16 +143,16 @@
 
     iput-object v0, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerCheckMenu2013:[I
 
-    .line 72
+    .line 73
     iput v1, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mExceptionCount:I
 
-    .line 74
+    .line 75
     iput v1, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mCheckingExceptionCount:I
 
-    .line 77
+    .line 78
     sput-object p1, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    .line 78
+    .line 79
     new-instance v0, Lcom/android/settings/search/SettingSearchManager;
 
     sget-object v1, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
@@ -161,7 +161,7 @@
 
     iput-object v0, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mSearchManager:Lcom/android/settings/search/SettingSearchManager;
 
-    .line 79
+    .line 80
     return-void
 
     .line 55
@@ -169,46 +169,47 @@
 
     :array_0
     .array-data 0x4
-        0x79t 0x5t 0xbt 0x7ft
-        0x7bt 0x5t 0xbt 0x7ft
-        0x88t 0x5t 0xbt 0x7ft
-        0x8at 0x5t 0xbt 0x7ft
-        0x9at 0x5t 0xbt 0x7ft
-        0x9bt 0x5t 0xbt 0x7ft
-        0xa0t 0x5t 0xbt 0x7ft
-        0xact 0x5t 0xbt 0x7ft
-        0xadt 0x5t 0xbt 0x7ft
+        0xe0t 0x5t 0xbt 0x7ft
+        0xe2t 0x5t 0xbt 0x7ft
+        0xf0t 0x5t 0xbt 0x7ft
+        0xf2t 0x5t 0xbt 0x7ft
+        0x2t 0x6t 0xbt 0x7ft
+        0x3t 0x6t 0xbt 0x7ft
+        0x8t 0x6t 0xbt 0x7ft
+        0x14t 0x6t 0xbt 0x7ft
+        0x15t 0x6t 0xbt 0x7ft
     .end array-data
 
     .line 61
     :array_1
     .array-data 0x4
-        0x79t 0x5t 0xbt 0x7ft
-        0x7bt 0x5t 0xbt 0x7ft
-        0x88t 0x5t 0xbt 0x7ft
-        0x8at 0x5t 0xbt 0x7ft
-        0xadt 0x5t 0xbt 0x7ft
-        0x9bt 0x5t 0xbt 0x7ft
-        0xc6t 0x5t 0xbt 0x7ft
-        0xc8t 0x5t 0xbt 0x7ft
-        0xc9t 0x5t 0xbt 0x7ft
-        0xact 0x5t 0xbt 0x7ft
-        0x9at 0x5t 0xbt 0x7ft
-        0xa0t 0x5t 0xbt 0x7ft
-        0xc7t 0x5t 0xbt 0x7ft
-        0xb0t 0x5t 0xbt 0x7ft
+        0xe0t 0x5t 0xbt 0x7ft
+        0xe2t 0x5t 0xbt 0x7ft
+        0xf0t 0x5t 0xbt 0x7ft
+        0xf2t 0x5t 0xbt 0x7ft
+        0x15t 0x6t 0xbt 0x7ft
+        0x3t 0x6t 0xbt 0x7ft
+        0x48t 0x6t 0xbt 0x7ft
+        0x4at 0x6t 0xbt 0x7ft
+        0x4bt 0x6t 0xbt 0x7ft
+        0x14t 0x6t 0xbt 0x7ft
+        0x2t 0x6t 0xbt 0x7ft
+        0x8t 0x6t 0xbt 0x7ft
+        0x49t 0x6t 0xbt 0x7ft
+        0x1at 0x6t 0xbt 0x7ft
+        0xe4t 0x5t 0xbt 0x7ft
     .end array-data
 
     .line 68
     :array_2
     .array-data 0x4
-        0x7et 0x5t 0xbt 0x7ft
-        0xcbt 0x5t 0xbt 0x7ft
+        0xe5t 0x5t 0xbt 0x7ft
+        0x40t 0x6t 0xbt 0x7ft
     .end array-data
 .end method
 
 .method private addHeaderPreferencesFromRes(I)Ljava/util/ArrayList;
-    .locals 26
+    .locals 20
     .parameter "resid"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -221,500 +222,441 @@
     .end annotation
 
     .prologue
+    .line 214
+    const/4 v12, 0x0
+
     .line 216
-    const/16 v17, 0x0
+    .local v12, parser:Landroid/content/res/XmlResourceParser;
+    new-instance v2, Ljava/util/ArrayList;
 
-    .line 218
-    .local v17, parser:Landroid/content/res/XmlResourceParser;
-    sget-object v23, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
-
-    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v18
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 219
-    .local v18, resource:Landroid/content/res/Resources;
-    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v4
-
-    .line 220
-    .local v4, assets:Landroid/content/res/AssetManager;
-    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v14
-
-    .line 221
-    .local v14, metrics:Landroid/util/DisplayMetrics;
-    new-instance v7, Landroid/content/res/Configuration;
-
-    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    invoke-direct {v7, v0}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
-
-    .line 222
-    .local v7, config:Landroid/content/res/Configuration;
-    sget-object v23, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    move-object/from16 v0, v23
-
-    iput-object v0, v7, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    .line 223
-    new-instance v9, Landroid/content/res/Resources;
-
-    invoke-direct {v9, v4, v14, v7}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
-
-    .line 225
-    .local v9, defaultResources:Landroid/content/res/Resources;
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    .line 227
-    .local v3, addItemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
+    .local v2, addItemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     :try_start_0
-    sget-object v23, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v17
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
-    move-result-object v17
+    move-result-object v12
 
-    .line 228
-    invoke-static/range {v17 .. v17}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
+    .line 220
+    invoke-static {v12}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
-    move-result-object v5
+    move-result-object v3
 
-    .line 232
-    .local v5, attrs:Landroid/util/AttributeSet;
+    .line 224
+    .local v3, attrs:Landroid/util/AttributeSet;
     :cond_0
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->next()I
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->next()I
 
-    move-result v22
+    move-result v16
 
-    .local v22, type:I
-    const/16 v23, 0x1
+    .local v16, type:I
+    const/16 v17, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v16
 
-    move/from16 v1, v23
+    move/from16 v1, v17
 
     if-eq v0, v1, :cond_1
 
-    const/16 v23, 0x2
+    const/16 v17, 0x2
 
-    move/from16 v0, v22
+    move/from16 v0, v16
 
-    move/from16 v1, v23
+    move/from16 v1, v17
 
     if-ne v0, v1, :cond_0
 
-    .line 235
+    .line 227
     :cond_1
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v10
 
-    .line 236
-    .local v15, nodeName:Ljava/lang/String;
-    const-string v23, "preference-headers"
+    .line 228
+    .local v10, nodeName:Ljava/lang/String;
+    const-string v17, "preference-headers"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v23
+    move-result v17
 
-    if-nez v23, :cond_3
+    if-nez v17, :cond_3
 
-    .line 237
-    new-instance v23, Ljava/lang/RuntimeException;
+    .line 229
+    new-instance v17, Ljava/lang/RuntimeException;
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v25, "XML document must start with <preference-headers> tag; found"
+    const-string v19, "XML document must start with <preference-headers> tag; found"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v18
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v18
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v18
 
-    const-string v25, " at "
+    const-string v19, " at "
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v18
 
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->getPositionDescription()Ljava/lang/String;
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getPositionDescription()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v19
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v18
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v18
 
-    invoke-direct/range {v23 .. v24}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v17 .. v18}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v23
+    throw v17
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 378
-    .end local v5           #attrs:Landroid/util/AttributeSet;
-    .end local v15           #nodeName:Ljava/lang/String;
-    .end local v22           #type:I
+    .line 370
+    .end local v3           #attrs:Landroid/util/AttributeSet;
+    .end local v10           #nodeName:Ljava/lang/String;
+    .end local v16           #type:I
     :catch_0
-    move-exception v10
+    move-exception v6
 
-    .line 379
-    .local v10, e:Ljava/lang/Exception;
+    .line 371
+    .local v6, e:Ljava/lang/Exception;
     :try_start_1
-    const-string v23, "SettingHeaderXmlParser"
+    const-string v17, "SettingHeaderXmlParser"
 
-    new-instance v24, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v25, "Exception!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! xml id : "
+    const-string v19, "Exception!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! xml id : "
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v18
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v18
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v18
 
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v18
 
-    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 381
-    if-eqz v17, :cond_2
+    .line 373
+    if-eqz v12, :cond_2
 
-    .line 382
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->close()V
+    .line 374
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 384
-    .end local v10           #e:Ljava/lang/Exception;
+    .line 376
+    .end local v6           #e:Ljava/lang/Exception;
     :cond_2
     :goto_0
-    return-object v3
+    return-object v2
 
-    .line 242
-    .restart local v5       #attrs:Landroid/util/AttributeSet;
-    .restart local v15       #nodeName:Ljava/lang/String;
-    .restart local v22       #type:I
+    .line 234
+    .restart local v3       #attrs:Landroid/util/AttributeSet;
+    .restart local v10       #nodeName:Ljava/lang/String;
+    .restart local v16       #type:I
     :cond_3
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
-    .line 244
-    .local v8, curBundle:Landroid/os/Bundle;
+    .line 236
+    .local v5, curBundle:Landroid/os/Bundle;
     :try_start_2
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getDepth()I
+
+    move-result v11
+
+    .line 238
+    .local v11, outerDepth:I
+    :cond_4
+    :goto_1
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v16
 
-    .line 246
-    .local v16, outerDepth:I
-    :cond_4
-    :goto_1
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->next()I
+    const/16 v17, 0x1
 
-    move-result v22
+    move/from16 v0, v16
 
-    const/16 v23, 0x1
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
+    move/from16 v1, v17
 
     if-eq v0, v1, :cond_19
 
-    const/16 v23, 0x3
+    const/16 v17, 0x3
 
-    move/from16 v0, v22
+    move/from16 v0, v16
 
-    move/from16 v1, v23
+    move/from16 v1, v17
 
     if-ne v0, v1, :cond_5
 
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
-    move-result v23
+    move-result v17
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    move/from16 v1, v16
+    if-le v0, v11, :cond_19
 
-    if-le v0, v1, :cond_19
-
-    .line 247
+    .line 239
     :cond_5
-    const/16 v23, 0x3
+    const/16 v17, 0x3
 
-    move/from16 v0, v22
+    move/from16 v0, v16
 
-    move/from16 v1, v23
-
-    if-eq v0, v1, :cond_4
-
-    const/16 v23, 0x4
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
+    move/from16 v1, v17
 
     if-eq v0, v1, :cond_4
 
-    .line 251
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
+    const/16 v17, 0x4
 
-    move-result-object v15
+    move/from16 v0, v16
 
-    .line 252
-    const-string v23, "header"
+    move/from16 v1, v17
 
-    move-object/from16 v0, v23
+    if-eq v0, v1, :cond_4
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 243
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
-    move-result v23
+    move-result-object v10
 
-    if-eqz v23, :cond_4
+    .line 244
+    const-string v17, "header"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_4
+
+    .line 245
+    new-instance v14, Lcom/android/settings/search/SearchItem;
+
+    invoke-direct {v14}, Lcom/android/settings/search/SearchItem;-><init>()V
+
+    .line 248
+    .local v14, searchItem:Lcom/android/settings/search/SearchItem;
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    sget-object v18, Lcom/android/internal/R$styleable;->PreferenceHeader:[I
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v3, v1}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+
+    move-result-object v13
+
+    .line 250
+    .local v13, sa:Landroid/content/res/TypedArray;
+    const/16 v17, 0x1
+
+    const/16 v18, -0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    invoke-virtual {v13, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v8
 
     .line 253
-    new-instance v20, Lcom/android/settings/search/SearchItem;
+    .local v8, id_key_num:I
+    invoke-static {v8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-direct/range {v20 .. v20}, Lcom/android/settings/search/SearchItem;-><init>()V
+    move-result-object v17
 
-    .line 256
-    .local v20, searchItem:Lcom/android/settings/search/SearchItem;
-    sget-object v23, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+    move-object/from16 v0, v17
 
-    invoke-virtual/range {v23 .. v23}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    move-result-object v23
+    .line 254
+    const v17, 0x7f0b0606
 
-    sget-object v24, Lcom/android/internal/R$styleable;->PreferenceHeader:[I
+    move/from16 v0, v17
 
-    move-object/from16 v0, v23
+    if-ne v8, v0, :cond_8
 
-    move-object/from16 v1, v24
+    .line 255
+    const-string v17, "Safety assistance"
 
-    invoke-virtual {v0, v5, v1}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    move-object/from16 v0, v17
 
-    move-result-object v19
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    .line 258
-    .local v19, sa:Landroid/content/res/TypedArray;
-    const/16 v23, 0x1
-
-    const/16 v24, -0x1
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v23
-
-    move/from16 v2, v24
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v12
-
-    .line 261
-    .local v12, id_key_num:I
-    invoke-static {v12}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
-
-    .line 262
-    const v23, 0x7f0b059e
-
-    move/from16 v0, v23
-
-    if-ne v12, v0, :cond_8
-
-    .line 263
-    const-string v23, "Safety assistance"
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
-
-    .line 268
+    .line 260
     :cond_6
     :goto_2
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
-    move-result v23
+    move-result v17
 
-    if-eqz v23, :cond_c
+    if-eqz v17, :cond_c
 
-    .line 269
-    const/16 v23, 0x0
+    .line 261
+    const/16 v17, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput v0, v14, Lcom/android/settings/search/SearchItem;->menuType:I
 
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    .line 262
+    const/4 v7, 0x0
 
-    .line 270
-    const/4 v11, 0x0
-
-    .local v11, i:I
+    .local v7, i:I
     :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu2013:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     array-length v0, v0
 
-    move/from16 v23, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ge v11, v0, :cond_a
+    if-ge v7, v0, :cond_a
 
-    .line 271
+    .line 263
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu2013:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    aget v23, v23, v11
+    aget v17, v17, v7
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ne v0, v12, :cond_7
+    if-ne v0, v8, :cond_7
 
-    .line 272
-    const/16 v23, 0x1
+    .line 264
+    const/16 v17, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput v0, v14, Lcom/android/settings/search/SearchItem;->menuType:I
 
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
-
-    .line 273
+    .line 265
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu2013:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    array-length v11, v0
+    array-length v7, v0
 
-    .line 270
+    .line 262
     :cond_7
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_3
 
-    .line 264
-    .end local v11           #i:I
+    .line 256
+    .end local v7           #i:I
     :cond_8
-    const v23, 0x7f0b0599
+    const v17, 0x7f0b0601
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ne v12, v0, :cond_6
+    if-ne v8, v0, :cond_6
 
-    .line 265
-    const-string v23, "Call settings"
+    .line 257
+    const-string v17, "Call settings"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_2
 
-    .line 381
-    .end local v5           #attrs:Landroid/util/AttributeSet;
-    .end local v8           #curBundle:Landroid/os/Bundle;
-    .end local v12           #id_key_num:I
-    .end local v15           #nodeName:Ljava/lang/String;
-    .end local v16           #outerDepth:I
-    .end local v19           #sa:Landroid/content/res/TypedArray;
-    .end local v20           #searchItem:Lcom/android/settings/search/SearchItem;
-    .end local v22           #type:I
+    .line 373
+    .end local v3           #attrs:Landroid/util/AttributeSet;
+    .end local v5           #curBundle:Landroid/os/Bundle;
+    .end local v8           #id_key_num:I
+    .end local v10           #nodeName:Ljava/lang/String;
+    .end local v11           #outerDepth:I
+    .end local v13           #sa:Landroid/content/res/TypedArray;
+    .end local v14           #searchItem:Lcom/android/settings/search/SearchItem;
+    .end local v16           #type:I
     :catchall_0
-    move-exception v23
+    move-exception v17
 
-    if-eqz v17, :cond_9
+    if-eqz v12, :cond_9
 
-    .line 382
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->close()V
+    .line 374
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
     :cond_9
-    throw v23
+    throw v17
 
-    .line 277
-    .restart local v5       #attrs:Landroid/util/AttributeSet;
-    .restart local v8       #curBundle:Landroid/os/Bundle;
-    .restart local v11       #i:I
-    .restart local v12       #id_key_num:I
-    .restart local v15       #nodeName:Ljava/lang/String;
-    .restart local v16       #outerDepth:I
-    .restart local v19       #sa:Landroid/content/res/TypedArray;
-    .restart local v20       #searchItem:Lcom/android/settings/search/SearchItem;
-    .restart local v22       #type:I
+    .line 269
+    .restart local v3       #attrs:Landroid/util/AttributeSet;
+    .restart local v5       #curBundle:Landroid/os/Bundle;
+    .restart local v7       #i:I
+    .restart local v8       #id_key_num:I
+    .restart local v10       #nodeName:Ljava/lang/String;
+    .restart local v11       #outerDepth:I
+    .restart local v13       #sa:Landroid/content/res/TypedArray;
+    .restart local v14       #searchItem:Lcom/android/settings/search/SearchItem;
+    .restart local v16       #type:I
     :cond_a
-    const/4 v11, 0x0
+    const/4 v7, 0x0
 
     :goto_4
     :try_start_3
@@ -722,679 +664,617 @@
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerCheckMenu2013:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     array-length v0, v0
 
-    move/from16 v23, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ge v11, v0, :cond_e
+    if-ge v7, v0, :cond_e
 
-    .line 278
+    .line 270
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerCheckMenu2013:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    aget v23, v23, v11
+    aget v17, v17, v7
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ne v0, v12, :cond_b
+    if-ne v0, v8, :cond_b
 
-    .line 279
-    const/16 v23, 0x2
+    .line 271
+    const/16 v17, 0x2
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput v0, v14, Lcom/android/settings/search/SearchItem;->menuType:I
 
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
-
-    .line 280
+    .line 272
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerCheckMenu2013:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    array-length v11, v0
+    array-length v7, v0
 
-    .line 277
+    .line 269
     :cond_b
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_4
 
-    .line 291
-    .end local v11           #i:I
+    .line 283
+    .end local v7           #i:I
     :cond_c
-    const/4 v11, 0x0
+    const/4 v7, 0x0
 
-    .restart local v11       #i:I
+    .restart local v7       #i:I
     :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     array-length v0, v0
 
-    move/from16 v23, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ge v11, v0, :cond_e
+    if-ge v7, v0, :cond_e
 
-    .line 292
+    .line 284
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    aget v23, v23, v11
+    aget v17, v17, v7
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ne v0, v12, :cond_d
+    if-ne v0, v8, :cond_d
 
-    .line 293
-    const/16 v23, 0x1
+    .line 285
+    const/16 v17, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput v0, v14, Lcom/android/settings/search/SearchItem;->menuType:I
 
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
-
-    .line 294
+    .line 286
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->headerSwitchMenu:[I
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    array-length v11, v0
+    array-length v7, v0
 
-    .line 291
+    .line 283
     :goto_6
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_5
 
-    .line 296
+    .line 288
     :cond_d
-    const/16 v23, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    move-object/from16 v1, v20
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    iput v0, v14, Lcom/android/settings/search/SearchItem;->menuType:I
 
     goto :goto_6
 
-    .line 302
+    .line 294
     :cond_e
-    const/16 v23, 0x2
+    const/16 v17, 0x2
 
-    move-object/from16 v0, v19
+    move/from16 v0, v17
 
-    move/from16 v1, v23
+    invoke-virtual {v13, v0}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
-    invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+    move-result-object v15
 
-    move-result-object v21
+    .line 296
+    .local v15, tv:Landroid/util/TypedValue;
+    if-eqz v15, :cond_10
 
-    .line 304
-    .local v21, tv:Landroid/util/TypedValue;
-    if-eqz v21, :cond_10
+    iget v0, v15, Landroid/util/TypedValue;->type:I
 
-    move-object/from16 v0, v21
+    move/from16 v17, v0
 
-    iget v0, v0, Landroid/util/TypedValue;->type:I
+    const/16 v18, 0x3
 
-    move/from16 v23, v0
+    move/from16 v0, v17
 
-    const/16 v24, 0x3
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
+    move/from16 v1, v18
 
     if-eq v0, v1, :cond_f
 
-    move-object/from16 v0, v21
+    iget v0, v15, Landroid/util/TypedValue;->type:I
 
-    iget v0, v0, Landroid/util/TypedValue;->type:I
+    move/from16 v17, v0
 
-    move/from16 v23, v0
+    const/16 v18, 0x1
 
-    const/16 v24, 0x1
+    move/from16 v0, v17
 
-    move/from16 v0, v23
-
-    move/from16 v1, v24
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_10
 
-    .line 306
+    .line 298
     :cond_f
-    move-object/from16 v0, v21
+    iget v0, v15, Landroid/util/TypedValue;->resourceId:I
 
-    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
+    move/from16 v17, v0
 
-    move/from16 v23, v0
+    if-eqz v17, :cond_14
 
-    if-eqz v23, :cond_14
+    .line 299
+    iget v0, v15, Landroid/util/TypedValue;->resourceId:I
 
-    .line 307
-    move-object/from16 v0, v21
+    move/from16 v17, v0
 
-    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
-
-    move/from16 v23, v0
-
-    move/from16 v0, v23
+    move/from16 v0, v17
 
     int-to-long v0, v0
 
-    move-wide/from16 v23, v0
+    move-wide/from16 v17, v0
 
-    move-wide/from16 v0, v23
+    move-wide/from16 v0, v17
 
-    move-object/from16 v2, v20
+    iput-wide v0, v14, Lcom/android/settings/search/SearchItem;->titleResId:J
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->titleResId:J
+    .line 300
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    .line 308
-    move-object/from16 v0, v21
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
+    move-result-object v17
 
-    move/from16 v23, v0
+    iget v0, v15, Landroid/util/TypedValue;->resourceId:I
 
-    move/from16 v0, v23
+    move/from16 v18, v0
 
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v17
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
-
-    .line 318
+    .line 310
     :cond_10
     :goto_7
-    move-object/from16 v0, v20
+    iget-object v0, v14, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
-
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v17
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/SettingHeaderXmlParser;->isBlockSummaryMenu(Ljava/lang/String;)Z
 
-    move-result v23
+    move-result v17
 
-    if-eqz v23, :cond_15
+    if-eqz v17, :cond_15
 
-    .line 319
-    const-wide/16 v23, -0x1
+    .line 311
+    const-wide/16 v17, -0x1
 
-    move-wide/from16 v0, v23
+    move-wide/from16 v0, v17
 
-    move-object/from16 v2, v20
+    iput-wide v0, v14, Lcom/android/settings/search/SearchItem;->summaryResId:J
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->summaryResId:J
+    .line 312
+    const-string v17, ""
 
-    .line 320
-    const-string v23, ""
+    move-object/from16 v0, v17
 
-    move-object/from16 v0, v23
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
-
-    .line 336
+    .line 328
     :cond_11
     :goto_8
-    const v23, 0x7f0b057c
+    const v17, 0x7f0b05e3
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ne v12, v0, :cond_12
+    if-ne v8, v0, :cond_12
 
-    .line 337
-    sget-object v23, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+    .line 329
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    const-string v24, "connectivity"
+    const-string v18, "connectivity"
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v4
 
-    check-cast v6, Landroid/net/ConnectivityManager;
+    check-cast v4, Landroid/net/ConnectivityManager;
 
-    .line 347
-    .local v6, cm:Landroid/net/ConnectivityManager;
-    const-wide/32 v23, 0x7f090696
+    .line 339
+    .local v4, cm:Landroid/net/ConnectivityManager;
+    const-wide/32 v17, 0x7f0906d1
 
-    move-wide/from16 v0, v23
+    move-wide/from16 v0, v17
 
-    move-object/from16 v2, v20
+    iput-wide v0, v14, Lcom/android/settings/search/SearchItem;->titleResId:J
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->titleResId:J
+    .line 340
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    .line 348
-    const v23, 0x7f090696
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move/from16 v0, v23
+    move-result-object v17
 
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v18, 0x7f0906d1
 
-    move-result-object v23
+    invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-object/from16 v0, v23
+    move-result-object v17
 
-    move-object/from16 v1, v20
+    move-object/from16 v0, v17
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
 
-    .line 353
-    invoke-static {v6}, Lcom/android/settings/Utils;->getTetheringSummary(Landroid/net/ConnectivityManager;)I
+    .line 345
+    invoke-static {v4}, Lcom/android/settings/Utils;->getTetheringSummary(Landroid/net/ConnectivityManager;)I
 
-    move-result v23
+    move-result v17
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
     int-to-long v0, v0
 
-    move-wide/from16 v23, v0
+    move-wide/from16 v17, v0
 
-    move-wide/from16 v0, v23
+    move-wide/from16 v0, v17
 
-    move-object/from16 v2, v20
+    iput-wide v0, v14, Lcom/android/settings/search/SearchItem;->summaryResId:J
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->summaryResId:J
+    .line 346
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    .line 354
-    invoke-static {v6}, Lcom/android/settings/Utils;->getTetheringSummary(Landroid/net/ConnectivityManager;)I
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v23
+    move-result-object v17
 
-    move/from16 v0, v23
+    invoke-static {v4}, Lcom/android/settings/Utils;->getTetheringSummary(Landroid/net/ConnectivityManager;)I
 
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result v18
 
-    move-result-object v23
+    invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-object/from16 v0, v23
+    move-result-object v17
 
-    move-object/from16 v1, v20
+    move-object/from16 v0, v17
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
-    .line 359
-    .end local v6           #cm:Landroid/net/ConnectivityManager;
+    .line 351
+    .end local v4           #cm:Landroid/net/ConnectivityManager;
     :cond_12
-    const/16 v23, 0x0
+    const/16 v17, 0x0
 
-    const/16 v24, -0x1
+    const/16 v18, -0x1
 
-    move-object/from16 v0, v19
+    move/from16 v0, v17
 
-    move/from16 v1, v23
+    move/from16 v1, v18
 
-    move/from16 v2, v24
+    invoke-virtual {v13, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    move-result v17
 
-    move-result v23
+    move/from16 v0, v17
 
-    move/from16 v0, v23
+    iput v0, v14, Lcom/android/settings/search/SearchItem;->iconResId:I
 
-    move-object/from16 v1, v20
+    .line 355
+    const-string v17, "com.android.settings"
 
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->iconResId:I
+    move-object/from16 v0, v17
 
-    .line 363
-    const-string v23, "com.android.settings"
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->pakageName:Ljava/lang/String;
 
-    move-object/from16 v0, v23
+    .line 357
+    iget v0, v14, Lcom/android/settings/search/SearchItem;->iconResId:I
 
-    move-object/from16 v1, v20
+    move/from16 v17, v0
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->pakageName:Ljava/lang/String;
+    const/16 v18, -0x1
 
-    .line 365
-    move-object/from16 v0, v20
+    move/from16 v0, v17
 
-    iget v0, v0, Lcom/android/settings/search/SearchItem;->iconResId:I
-
-    move/from16 v23, v0
-
-    const/16 v24, -0x1
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
+    move/from16 v1, v18
 
     if-eq v0, v1, :cond_13
 
-    .line 366
-    const/4 v13, 0x0
+    .line 358
+    const/4 v9, 0x0
 
-    .local v13, index:I
+    .local v9, index:I
     :goto_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v17 .. v17}, Ljava/util/ArrayList;->size()I
 
-    move-result v23
+    move-result v17
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
-    if-ge v13, v0, :cond_13
+    if-ge v9, v0, :cond_13
 
-    .line 367
+    .line 359
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v17
 
-    check-cast v23, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+    check-cast v17, Lcom/android/settings/search/SearchItem$MenuInfoItem;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/settings/search/SearchItem$MenuInfoItem;->id_key:Ljava/lang/String;
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v20
+    iget-object v0, v14, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    move-object/from16 v18, v0
 
-    move-object/from16 v24, v0
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v17
 
-    move-result v23
-
-    if-eqz v23, :cond_18
+    if-eqz v17, :cond_18
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v17
 
-    check-cast v23, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+    check-cast v17, Lcom/android/settings/search/SearchItem$MenuInfoItem;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     iget v0, v0, Lcom/android/settings/search/SearchItem$MenuInfoItem;->fileId:I
 
-    move/from16 v23, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v23
+    move/from16 v0, v17
 
     move/from16 v1, p1
 
     if-ne v0, v1, :cond_18
 
-    .line 369
+    .line 361
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v17
 
-    check-cast v23, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+    check-cast v17, Lcom/android/settings/search/SearchItem$MenuInfoItem;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Lcom/android/settings/search/SearchItem$MenuInfoItem;->parentKey:Ljava/lang/String;
 
-    move-object/from16 v23, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->parentsKey:Ljava/lang/String;
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->parentsKey:Ljava/lang/String;
+    .line 362
+    invoke-virtual {v2, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 370
-    move-object/from16 v0, v20
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 375
-    .end local v13           #index:I
+    .line 367
+    .end local v9           #index:I
     :cond_13
-    invoke-virtual/range {v19 .. v19}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v13}, Landroid/content/res/TypedArray;->recycle()V
 
     goto/16 :goto_1
 
-    .line 313
+    .line 305
     :cond_14
-    move-object/from16 v0, v21
+    iget-object v0, v15, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    iget-object v0, v0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
+    move-object/from16 v17, v0
 
-    move-object/from16 v23, v0
+    check-cast v17, Ljava/lang/String;
 
-    check-cast v23, Ljava/lang/String;
+    move-object/from16 v0, v17
 
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
 
     goto/16 :goto_7
 
-    .line 322
+    .line 314
     :cond_15
-    const/16 v23, 0x3
+    const/16 v17, 0x3
 
-    move-object/from16 v0, v19
+    move/from16 v0, v17
 
-    move/from16 v1, v23
+    invoke-virtual {v13, v0}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
-    invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+    move-result-object v15
 
-    move-result-object v21
+    .line 315
+    if-eqz v15, :cond_11
 
-    .line 323
-    if-eqz v21, :cond_11
+    iget v0, v15, Landroid/util/TypedValue;->type:I
 
-    move-object/from16 v0, v21
+    move/from16 v17, v0
 
-    iget v0, v0, Landroid/util/TypedValue;->type:I
+    const/16 v18, 0x3
 
-    move/from16 v23, v0
+    move/from16 v0, v17
 
-    const/16 v24, 0x3
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
+    move/from16 v1, v18
 
     if-eq v0, v1, :cond_16
 
-    move-object/from16 v0, v21
+    iget v0, v15, Landroid/util/TypedValue;->type:I
 
-    iget v0, v0, Landroid/util/TypedValue;->type:I
+    move/from16 v17, v0
 
-    move/from16 v23, v0
+    const/16 v18, 0x1
 
-    const/16 v24, 0x1
+    move/from16 v0, v17
 
-    move/from16 v0, v23
-
-    move/from16 v1, v24
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_11
 
-    .line 325
+    .line 317
     :cond_16
-    move-object/from16 v0, v21
+    iget v0, v15, Landroid/util/TypedValue;->resourceId:I
 
-    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
+    move/from16 v17, v0
 
-    move/from16 v23, v0
+    if-eqz v17, :cond_17
 
-    if-eqz v23, :cond_17
+    .line 318
+    iget v0, v15, Landroid/util/TypedValue;->resourceId:I
 
-    .line 326
-    move-object/from16 v0, v21
+    move/from16 v17, v0
 
-    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
-
-    move/from16 v23, v0
-
-    move/from16 v0, v23
+    move/from16 v0, v17
 
     int-to-long v0, v0
 
-    move-wide/from16 v23, v0
+    move-wide/from16 v17, v0
 
-    move-wide/from16 v0, v23
+    move-wide/from16 v0, v17
 
-    move-object/from16 v2, v20
+    iput-wide v0, v14, Lcom/android/settings/search/SearchItem;->summaryResId:J
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->summaryResId:J
+    .line 319
+    sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    .line 327
-    move-object/from16 v0, v21
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget v0, v0, Landroid/util/TypedValue;->resourceId:I
+    move-result-object v17
 
-    move/from16 v23, v0
+    iget v0, v15, Landroid/util/TypedValue;->resourceId:I
 
-    move/from16 v0, v23
+    move/from16 v18, v0
 
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v17
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v20
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
-
-    .line 331
+    .line 323
     :goto_a
-    move-object/from16 v0, v20
+    iget-object v0, v14, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+    move-object/from16 v17, v0
 
-    move-object/from16 v23, v0
+    if-nez v17, :cond_11
 
-    if-nez v23, :cond_11
+    .line 324
+    const-string v17, ""
 
-    .line 332
-    const-string v23, ""
+    move-object/from16 v0, v17
 
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
     goto/16 :goto_8
 
-    .line 329
+    .line 321
     :cond_17
-    move-object/from16 v0, v21
+    iget-object v0, v15, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    iget-object v0, v0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
+    move-object/from16 v17, v0
 
-    move-object/from16 v23, v0
+    check-cast v17, Ljava/lang/String;
 
-    check-cast v23, Ljava/lang/String;
+    move-object/from16 v0, v17
 
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+    iput-object v0, v14, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
 
     goto :goto_a
 
-    .line 366
-    .restart local v13       #index:I
+    .line 358
+    .restart local v9       #index:I
     :cond_18
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto/16 :goto_9
 
-    .line 381
-    .end local v11           #i:I
-    .end local v12           #id_key_num:I
-    .end local v13           #index:I
-    .end local v19           #sa:Landroid/content/res/TypedArray;
-    .end local v20           #searchItem:Lcom/android/settings/search/SearchItem;
-    .end local v21           #tv:Landroid/util/TypedValue;
+    .line 373
+    .end local v7           #i:I
+    .end local v8           #id_key_num:I
+    .end local v9           #index:I
+    .end local v13           #sa:Landroid/content/res/TypedArray;
+    .end local v14           #searchItem:Lcom/android/settings/search/SearchItem;
+    .end local v15           #tv:Landroid/util/TypedValue;
     :cond_19
-    if-eqz v17, :cond_2
+    if-eqz v12, :cond_2
 
-    .line 382
-    invoke-interface/range {v17 .. v17}, Landroid/content/res/XmlResourceParser;->close()V
+    .line 374
+    invoke-interface {v12}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto/16 :goto_0
 .end method
 
 .method private addPreferencesScreenFromRes(I)Ljava/util/ArrayList;
-    .locals 25
+    .locals 18
     .parameter "resid"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1407,1034 +1287,790 @@
     .end annotation
 
     .prologue
-    .line 417
-    const/16 v16, 0x0
+    .line 409
+    const/4 v10, 0x0
 
-    .line 419
-    .local v16, parser:Landroid/content/res/XmlResourceParser;
-    sget-object v21, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+    .line 411
+    .local v10, parser:Landroid/content/res/XmlResourceParser;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    move-result-object v17
-
-    .line 420
-    .local v17, resource:Landroid/content/res/Resources;
-    invoke-virtual/range {v17 .. v17}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v4
-
-    .line 421
-    .local v4, assets:Landroid/content/res/AssetManager;
-    invoke-virtual/range {v17 .. v17}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v13
-
-    .line 422
-    .local v13, metrics:Landroid/util/DisplayMetrics;
-    new-instance v7, Landroid/content/res/Configuration;
-
-    invoke-virtual/range {v17 .. v17}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-direct {v7, v0}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
-
-    .line 423
-    .local v7, config:Landroid/content/res/Configuration;
-    sget-object v21, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    move-object/from16 v0, v21
-
-    iput-object v0, v7, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    .line 424
-    new-instance v9, Landroid/content/res/Resources;
-
-    invoke-direct {v9, v4, v13, v7}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
-
-    .line 425
-    .local v9, defaultResources:Landroid/content/res/Resources;
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    .line 427
-    .local v3, addItemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
+    .line 413
+    .local v1, addItemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     :try_start_0
-    sget-object v21, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+    sget-object v14, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v16
-
-    .line 428
-    invoke-static/range {v16 .. v16}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
-
-    move-result-object v6
-
-    .line 432
-    .local v6, attrs:Landroid/util/AttributeSet;
-    :cond_0
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->next()I
-
-    move-result v20
-
-    .local v20, type:I
-    const/16 v21, 0x1
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-eq v0, v1, :cond_1
-
-    const/16 v21, 0x2
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-ne v0, v1, :cond_0
-
-    .line 435
-    :cond_1
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
+    invoke-virtual {v14}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v14
 
-    .line 436
-    .local v14, nodeName:Ljava/lang/String;
-    const-string v21, "PreferenceScreen"
+    move/from16 v0, p1
 
-    move-object/from16 v0, v21
+    invoke-virtual {v14, v0}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
-    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v10
 
-    move-result v21
+    .line 414
+    invoke-static {v10}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
-    if-nez v21, :cond_3
+    move-result-object v3
 
-    .line 437
-    new-instance v21, Ljava/lang/RuntimeException;
+    .line 418
+    .local v3, attrs:Landroid/util/AttributeSet;
+    :cond_0
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->next()I
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    move-result v13
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    .local v13, type:I
+    const/4 v14, 0x1
 
-    const-string v23, "XML document must start with <preference-headers> tag; found"
+    if-eq v13, v14, :cond_1
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v14, 0x2
 
-    move-result-object v22
+    if-ne v13, v14, :cond_0
 
-    move-object/from16 v0, v22
+    .line 421
+    :cond_1
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    move-result-object v22
+    .line 422
+    .local v8, nodeName:Ljava/lang/String;
+    const-string v14, "PreferenceScreen"
 
-    const-string v23, " at "
+    invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v14
 
-    move-result-object v22
+    if-nez v14, :cond_3
 
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->getPositionDescription()Ljava/lang/String;
+    .line 423
+    new-instance v14, Ljava/lang/RuntimeException;
 
-    move-result-object v23
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v22
+    const-string v16, "XML document must start with <preference-headers> tag; found"
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v15
 
-    invoke-direct/range {v21 .. v22}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v15, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v21
+    move-result-object v15
+
+    const-string v16, " at "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getPositionDescription()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-direct {v14, v15}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v14
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 543
-    .end local v6           #attrs:Landroid/util/AttributeSet;
-    .end local v14           #nodeName:Ljava/lang/String;
-    .end local v20           #type:I
+    .line 536
+    .end local v3           #attrs:Landroid/util/AttributeSet;
+    .end local v8           #nodeName:Ljava/lang/String;
+    .end local v13           #type:I
     :catch_0
-    move-exception v10
+    move-exception v5
 
-    .line 544
-    .local v10, e:Ljava/lang/Exception;
+    .line 537
+    .local v5, e:Ljava/lang/Exception;
     :try_start_1
-    const-string v21, "SettingHeaderXmlParser"
+    const-string v14, "SettingHeaderXmlParser"
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v23, "Exception!!!!!!!!!!!!!!!!!!!!!! xml id : "
+    const-string v16, "Exception!!!!!!!!!!!!!!!!!!!!!! xml id : "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v15
 
-    move-object/from16 v0, v22
+    move/from16 v0, p1
 
-    move/from16 v1, p1
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    move-result-object v22
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v15
 
-    move-result-object v22
+    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 545
-    invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
+    .line 538
+    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 547
-    if-eqz v16, :cond_2
+    .line 540
+    if-eqz v10, :cond_2
 
-    .line 548
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->close()V
+    .line 541
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 550
-    .end local v10           #e:Ljava/lang/Exception;
+    .line 543
+    .end local v5           #e:Ljava/lang/Exception;
     :cond_2
     :goto_0
-    return-object v3
+    return-object v1
 
-    .line 442
-    .restart local v6       #attrs:Landroid/util/AttributeSet;
-    .restart local v14       #nodeName:Ljava/lang/String;
-    .restart local v20       #type:I
+    .line 428
+    .restart local v3       #attrs:Landroid/util/AttributeSet;
+    .restart local v8       #nodeName:Ljava/lang/String;
+    .restart local v13       #type:I
     :cond_3
-    const/4 v8, 0x0
+    const/4 v4, 0x0
 
-    .line 443
-    .local v8, curBundle:Landroid/os/Bundle;
+    .line 429
+    .local v4, curBundle:Landroid/os/Bundle;
     :try_start_2
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
-    move-result v15
+    move-result v9
 
-    .line 445
-    .local v15, outerDepth:I
+    .line 431
+    .local v9, outerDepth:I
     :cond_4
     :goto_1
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->next()I
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->next()I
 
-    move-result v20
+    move-result v13
 
-    const/16 v21, 0x1
+    const/4 v14, 0x1
 
-    move/from16 v0, v20
+    if-eq v13, v14, :cond_17
 
-    move/from16 v1, v21
+    const/4 v14, 0x3
 
-    if-eq v0, v1, :cond_16
+    if-ne v13, v14, :cond_5
 
-    const/16 v21, 0x3
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
-    move/from16 v0, v20
+    move-result v14
 
-    move/from16 v1, v21
+    if-le v14, v9, :cond_17
 
-    if-ne v0, v1, :cond_5
-
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->getDepth()I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    if-le v0, v15, :cond_16
-
-    .line 446
+    .line 432
     :cond_5
-    const/16 v21, 0x3
+    const/4 v14, 0x3
 
-    move/from16 v0, v20
+    if-eq v13, v14, :cond_4
 
-    move/from16 v1, v21
+    const/4 v14, 0x4
 
-    if-eq v0, v1, :cond_4
+    if-eq v13, v14, :cond_4
 
-    const/16 v21, 0x4
+    .line 436
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
-    move/from16 v0, v20
+    move-result-object v8
 
-    move/from16 v1, v21
+    .line 437
+    const-string v14, "PreferenceCategory"
 
-    if-eq v0, v1, :cond_4
+    invoke-virtual {v8, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_4
+
+    .line 439
+    new-instance v12, Lcom/android/settings/search/SearchItem;
+
+    invoke-direct {v12}, Lcom/android/settings/search/SearchItem;-><init>()V
+
+    .line 441
+    .local v12, searchItem:Lcom/android/settings/search/SearchItem;
+    const-string v14, "CheckBoxPreference"
+
+    invoke-virtual {v8, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_7
+
+    .line 442
+    const/4 v14, 0x2
+
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
 
     .line 450
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
+    :goto_2
+    sget-object v14, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    move-result-object v14
+    sget-object v15, Lcom/android/internal/R$styleable;->Preference:[I
 
-    .line 451
-    const-string v21, "PreferenceCategory"
+    invoke-virtual {v14, v3, v15}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-object/from16 v0, v21
+    move-result-object v11
 
-    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 452
+    .local v11, sa:Landroid/content/res/TypedArray;
+    invoke-virtual {v11}, Landroid/content/res/TypedArray;->getIndexCount()I
 
-    move-result v21
+    move-result v6
 
-    if-nez v21, :cond_4
+    .local v6, i:I
+    :goto_3
+    if-ltz v6, :cond_d
 
     .line 453
-    new-instance v19, Lcom/android/settings/search/SearchItem;
+    invoke-virtual {v11, v6}, Landroid/content/res/TypedArray;->getIndex(I)I
 
-    invoke-direct/range {v19 .. v19}, Lcom/android/settings/search/SearchItem;-><init>()V
+    move-result v2
 
-    .line 455
-    .local v19, searchItem:Lcom/android/settings/search/SearchItem;
-    const-string v21, "CheckBoxPreference"
+    .line 454
+    .local v2, attr:I
+    packed-switch v2, :pswitch_data_0
 
-    move-object/from16 v0, v21
-
-    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_7
-
-    .line 456
-    const/16 v21, 0x2
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
-
-    .line 464
-    :goto_2
-    sget-object v21, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
-
-    sget-object v22, Lcom/android/internal/R$styleable;->Preference:[I
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v6, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v18
-
-    .line 466
-    .local v18, sa:Landroid/content/res/TypedArray;
-    invoke-virtual/range {v18 .. v18}, Landroid/content/res/TypedArray;->getIndexCount()I
-
-    move-result v11
-
-    .local v11, i:I
-    :goto_3
-    if-ltz v11, :cond_d
-
-    .line 467
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v11}, Landroid/content/res/TypedArray;->getIndex(I)I
-
-    move-result v5
-
-    .line 468
-    .local v5, attr:I
-    packed-switch v5, :pswitch_data_0
-
-    .line 466
+    .line 452
     :cond_6
     :goto_4
     :pswitch_0
-    add-int/lit8 v11, v11, -0x1
+    add-int/lit8 v6, v6, -0x1
 
     goto :goto_3
 
-    .line 457
-    .end local v5           #attr:I
-    .end local v11           #i:I
-    .end local v18           #sa:Landroid/content/res/TypedArray;
+    .line 443
+    .end local v2           #attr:I
+    .end local v6           #i:I
+    .end local v11           #sa:Landroid/content/res/TypedArray;
     :cond_7
-    const-string v21, "SwitchPreferenceScreen"
+    const-string v14, "SwitchPreferenceScreen"
 
-    move-object/from16 v0, v21
+    invoke-virtual {v8, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v14
 
-    move-result v21
+    if-nez v14, :cond_8
 
-    if-nez v21, :cond_8
+    const-string v14, "com.android.settings.SettingsSwitchPreference"
 
-    const-string v21, "com.android.settings.SettingsSwitchPreference"
+    invoke-virtual {v8, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v21
+    move-result v14
 
-    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v14, :cond_a
 
-    move-result v21
-
-    if-eqz v21, :cond_a
-
-    .line 459
+    .line 445
     :cond_8
-    const/16 v21, 0x1
+    const/4 v14, 0x1
 
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_2
 
-    .line 547
-    .end local v6           #attrs:Landroid/util/AttributeSet;
-    .end local v8           #curBundle:Landroid/os/Bundle;
-    .end local v14           #nodeName:Ljava/lang/String;
-    .end local v15           #outerDepth:I
-    .end local v19           #searchItem:Lcom/android/settings/search/SearchItem;
-    .end local v20           #type:I
+    .line 540
+    .end local v3           #attrs:Landroid/util/AttributeSet;
+    .end local v4           #curBundle:Landroid/os/Bundle;
+    .end local v8           #nodeName:Ljava/lang/String;
+    .end local v9           #outerDepth:I
+    .end local v12           #searchItem:Lcom/android/settings/search/SearchItem;
+    .end local v13           #type:I
     :catchall_0
-    move-exception v21
+    move-exception v14
 
-    if-eqz v16, :cond_9
+    if-eqz v10, :cond_9
 
-    .line 548
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->close()V
+    .line 541
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->close()V
 
     :cond_9
-    throw v21
+    throw v14
 
-    .line 461
-    .restart local v6       #attrs:Landroid/util/AttributeSet;
-    .restart local v8       #curBundle:Landroid/os/Bundle;
-    .restart local v14       #nodeName:Ljava/lang/String;
-    .restart local v15       #outerDepth:I
-    .restart local v19       #searchItem:Lcom/android/settings/search/SearchItem;
-    .restart local v20       #type:I
+    .line 447
+    .restart local v3       #attrs:Landroid/util/AttributeSet;
+    .restart local v4       #curBundle:Landroid/os/Bundle;
+    .restart local v8       #nodeName:Ljava/lang/String;
+    .restart local v9       #outerDepth:I
+    .restart local v12       #searchItem:Lcom/android/settings/search/SearchItem;
+    .restart local v13       #type:I
     :cond_a
-    const/16 v21, 0x0
+    const/4 v14, 0x0
 
     :try_start_3
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
 
     goto :goto_2
 
-    .line 470
-    .restart local v5       #attr:I
-    .restart local v11       #i:I
-    .restart local v18       #sa:Landroid/content/res/TypedArray;
+    .line 456
+    .restart local v2       #attr:I
+    .restart local v6       #i:I
+    .restart local v11       #sa:Landroid/content/res/TypedArray;
     :pswitch_1
-    const/16 v21, -0x1
+    const/4 v14, -0x1
 
-    move-object/from16 v0, v18
+    invoke-virtual {v11, v2, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move/from16 v1, v21
+    move-result v14
 
-    invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->iconResId:I
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->iconResId:I
 
     goto :goto_4
 
-    .line 473
+    .line 459
     :pswitch_2
-    move-object/from16 v0, v18
+    invoke-virtual {v11, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v21
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    move-object/from16 v0, v21
+    goto :goto_4
 
-    move-object/from16 v1, v19
+    .line 462
+    :pswitch_3
+    const/4 v14, -0x1
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    invoke-virtual {v11, v2, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v14
+
+    int-to-long v14, v14
+
+    iput-wide v14, v12, Lcom/android/settings/search/SearchItem;->titleResId:J
+
+    .line 463
+    iget-wide v14, v12, Lcom/android/settings/search/SearchItem;->titleResId:J
+
+    const-wide/16 v16, -0x1
+
+    cmp-long v14, v14, v16
+
+    if-eqz v14, :cond_b
+
+    .line 464
+    sget-object v14, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v14}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v14
+
+    iget-wide v15, v12, Lcom/android/settings/search/SearchItem;->titleResId:J
+
+    long-to-int v15, v15
+
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
+
+    goto :goto_4
+
+    .line 467
+    :cond_b
+    invoke-virtual {v11, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
+
+    goto :goto_4
+
+    .line 471
+    :pswitch_4
+    const/4 v14, -0x1
+
+    invoke-virtual {v11, v2, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v14
+
+    int-to-long v14, v14
+
+    iput-wide v14, v12, Lcom/android/settings/search/SearchItem;->summaryResId:J
+
+    .line 472
+    iget-wide v14, v12, Lcom/android/settings/search/SearchItem;->summaryResId:J
+
+    const-wide/16 v16, -0x1
+
+    cmp-long v14, v14, v16
+
+    if-eqz v14, :cond_c
+
+    .line 473
+    sget-object v14, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v14}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v14
+
+    iget-wide v15, v12, Lcom/android/settings/search/SearchItem;->summaryResId:J
+
+    long-to-int v15, v15
+
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+
+    .line 478
+    :goto_5
+    iget-object v14, v12, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+
+    if-nez v14, :cond_6
+
+    .line 479
+    const-string v14, ""
+
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
     goto :goto_4
 
     .line 476
-    :pswitch_3
-    const/16 v21, -0x1
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v21
-
-    invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    int-to-long v0, v0
-
-    move-wide/from16 v21, v0
-
-    move-wide/from16 v0, v21
-
-    move-object/from16 v2, v19
-
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->titleResId:J
-
-    .line 477
-    move-object/from16 v0, v19
-
-    iget-wide v0, v0, Lcom/android/settings/search/SearchItem;->titleResId:J
-
-    move-wide/from16 v21, v0
-
-    const-wide/16 v23, -0x1
-
-    cmp-long v21, v21, v23
-
-    if-eqz v21, :cond_b
-
-    .line 478
-    move-object/from16 v0, v19
-
-    iget-wide v0, v0, Lcom/android/settings/search/SearchItem;->titleResId:J
-
-    move-wide/from16 v21, v0
-
-    move-wide/from16 v0, v21
-
-    long-to-int v0, v0
-
-    move/from16 v21, v0
-
-    move/from16 v0, v21
-
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
-
-    goto/16 :goto_4
-
-    .line 481
-    :cond_b
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
-
-    goto/16 :goto_4
-
-    .line 485
-    :pswitch_4
-    const/16 v21, -0x1
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v21
-
-    invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    int-to-long v0, v0
-
-    move-wide/from16 v21, v0
-
-    move-wide/from16 v0, v21
-
-    move-object/from16 v2, v19
-
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->summaryResId:J
-
-    .line 486
-    move-object/from16 v0, v19
-
-    iget-wide v0, v0, Lcom/android/settings/search/SearchItem;->summaryResId:J
-
-    move-wide/from16 v21, v0
-
-    const-wide/16 v23, -0x1
-
-    cmp-long v21, v21, v23
-
-    if-eqz v21, :cond_c
-
-    .line 487
-    move-object/from16 v0, v19
-
-    iget-wide v0, v0, Lcom/android/settings/search/SearchItem;->summaryResId:J
-
-    move-wide/from16 v21, v0
-
-    move-wide/from16 v0, v21
-
-    long-to-int v0, v0
-
-    move/from16 v21, v0
-
-    move/from16 v0, v21
-
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
-
-    .line 492
-    :goto_5
-    move-object/from16 v0, v19
-
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    if-nez v21, :cond_6
-
-    .line 493
-    const-string v21, ""
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
-
-    goto/16 :goto_4
-
-    .line 490
     :cond_c
-    move-object/from16 v0, v18
+    invoke-virtual {v11, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
     goto :goto_5
 
-    .line 498
+    .line 484
     :pswitch_5
-    const/16 v21, 0x0
+    const/4 v14, 0x0
 
-    move-object/from16 v0, v18
+    invoke-virtual {v11, v2, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move/from16 v1, v21
+    move-result v14
 
-    invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    const v15, 0x7f040187
 
-    move-result v21
+    if-ne v14, v15, :cond_6
 
-    const v22, 0x7f040151
+    .line 485
+    const/4 v14, 0x3
 
-    move/from16 v0, v21
-
-    move/from16 v1, v22
-
-    if-ne v0, v1, :cond_6
-
-    .line 499
-    const/16 v21, 0x3
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
 
     goto/16 :goto_4
 
-    .line 505
-    .end local v5           #attr:I
+    .line 491
+    .end local v2           #attr:I
     :cond_d
-    const-string v21, "location_network"
+    const-string v14, "location_network"
 
-    move-object/from16 v0, v19
+    iget-object v15, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v22, v0
+    move-result v14
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v14, :cond_14
 
-    move-result v21
+    .line 492
+    const/4 v14, 0x2
 
-    if-eqz v21, :cond_13
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
 
-    .line 506
-    const/16 v21, 0x2
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
-
-    .line 513
+    .line 499
     :cond_e
     :goto_6
-    const-string v21, "lock_after_timeout"
+    const-string v14, "lock_after_timeout"
 
-    move-object/from16 v0, v19
+    iget-object v15, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v22, v0
+    move-result v14
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v14, :cond_f
 
-    move-result v21
-
-    if-eqz v21, :cond_f
-
-    .line 514
-    const-string v21, "DeviceLockTime"
+    .line 500
+    const-string v14, "DeviceLockTime"
 
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v22
+    move-result-object v15
 
-    const-string v23, "CscFeature_Setting_ReplaceMenuLockAutoAs"
+    const-string v16, "CscFeature_Setting_ReplaceMenuLockAutoAs"
 
-    invoke-virtual/range {v22 .. v23}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v15 .. v16}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v15
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v14
 
-    if-eqz v21, :cond_f
+    if-eqz v14, :cond_f
 
-    .line 515
-    const-wide/32 v21, 0x7f090056
+    .line 501
+    const-wide/32 v14, 0x7f09006a
 
-    move-wide/from16 v0, v21
+    iput-wide v14, v12, Lcom/android/settings/search/SearchItem;->titleResId:J
 
-    move-object/from16 v2, v19
+    .line 502
+    sget-object v14, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->titleResId:J
+    invoke-virtual {v14}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    .line 516
-    const v21, 0x7f090056
+    move-result-object v14
 
-    move/from16 v0, v21
+    const v15, 0x7f09006a
 
-    invoke-virtual {v9, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v14
 
-    move-object/from16 v0, v21
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
 
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
-
-    .line 520
+    .line 506
     :cond_f
-    move-object/from16 v0, v19
+    const-string v14, "usb_tether_settings"
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    iget-object v15, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_10
+
+    .line 507
+    const-string v14, "VZW"
+
+    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_10
+
+    .line 508
+    const-wide/32 v14, 0x7f0906d4
+
+    iput-wide v14, v12, Lcom/android/settings/search/SearchItem;->titleResId:J
+
+    .line 509
+    sget-object v14, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v14}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v14
+
+    const v15, 0x7f0906d4
+
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
+
+    .line 513
+    :cond_10
+    iget-object v14, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    invoke-direct {v0, v14}, Lcom/android/settings/search/SettingHeaderXmlParser;->isBlockSummaryMenu(Ljava/lang/String;)Z
 
-    invoke-direct {v0, v1}, Lcom/android/settings/search/SettingHeaderXmlParser;->isBlockSummaryMenu(Ljava/lang/String;)Z
+    move-result v14
 
-    move-result v21
+    if-eqz v14, :cond_11
 
-    if-eqz v21, :cond_10
+    .line 514
+    const-wide/16 v14, -0x1
 
-    .line 521
-    const-wide/16 v21, -0x1
+    iput-wide v14, v12, Lcom/android/settings/search/SearchItem;->summaryResId:J
 
-    move-wide/from16 v0, v21
+    .line 515
+    const-string v14, ""
 
-    move-object/from16 v2, v19
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
 
-    iput-wide v0, v2, Lcom/android/settings/search/SearchItem;->summaryResId:J
+    .line 518
+    :cond_11
+    if-nez v4, :cond_12
+
+    .line 519
+    new-instance v4, Landroid/os/Bundle;
+
+    .end local v4           #curBundle:Landroid/os/Bundle;
+    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
     .line 522
-    const-string v21, ""
+    .restart local v4       #curBundle:Landroid/os/Bundle;
+    :cond_12
+    const-string v14, "com.android.settings"
 
-    move-object/from16 v0, v21
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->pakageName:Ljava/lang/String;
 
-    move-object/from16 v1, v19
+    .line 524
+    const/4 v7, 0x0
 
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->summary:Ljava/lang/String;
-
-    .line 525
-    :cond_10
-    if-nez v8, :cond_11
-
-    .line 526
-    new-instance v8, Landroid/os/Bundle;
-
-    .end local v8           #curBundle:Landroid/os/Bundle;
-    invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
-
-    .line 529
-    .restart local v8       #curBundle:Landroid/os/Bundle;
-    :cond_11
-    const-string v21, "com.android.settings"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->pakageName:Ljava/lang/String;
-
-    .line 531
-    const/4 v12, 0x0
-
-    .local v12, index:I
+    .local v7, index:I
     :goto_7
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+    move-result v14
 
-    move-result v21
+    if-ge v7, v14, :cond_13
 
-    move/from16 v0, v21
-
-    if-ge v12, v0, :cond_12
-
-    .line 532
+    .line 525
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v14, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v0, v21
+    move-result-object v14
 
-    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    check-cast v14, Lcom/android/settings/search/SearchItem$MenuInfoItem;
 
-    move-result-object v21
+    iget-object v14, v14, Lcom/android/settings/search/SearchItem$MenuInfoItem;->id_key:Ljava/lang/String;
 
-    check-cast v21, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+    iget-object v15, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    move-object/from16 v0, v21
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem$MenuInfoItem;->id_key:Ljava/lang/String;
+    move-result v14
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v19
-
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_15
+    if-eqz v14, :cond_16
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v14, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v0, v21
+    move-result-object v14
 
-    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    check-cast v14, Lcom/android/settings/search/SearchItem$MenuInfoItem;
 
-    move-result-object v21
+    iget v14, v14, Lcom/android/settings/search/SearchItem$MenuInfoItem;->fileId:I
 
-    check-cast v21, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+    move/from16 v0, p1
 
-    move-object/from16 v0, v21
+    if-ne v14, v0, :cond_16
 
-    iget v0, v0, Lcom/android/settings/search/SearchItem$MenuInfoItem;->fileId:I
-
-    move/from16 v21, v0
-
-    move/from16 v0, v21
-
-    move/from16 v1, p1
-
-    if-ne v0, v1, :cond_15
-
-    .line 534
+    .line 527
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
+    iget-object v14, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    invoke-virtual {v14, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v0, v21
+    move-result-object v14
 
-    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    check-cast v14, Lcom/android/settings/search/SearchItem$MenuInfoItem;
 
-    move-result-object v21
+    iget-object v14, v14, Lcom/android/settings/search/SearchItem$MenuInfoItem;->parentKey:Ljava/lang/String;
 
-    check-cast v21, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+    iput-object v14, v12, Lcom/android/settings/search/SearchItem;->parentsKey:Ljava/lang/String;
 
-    move-object/from16 v0, v21
+    .line 528
+    invoke-virtual {v1, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem$MenuInfoItem;->parentKey:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput-object v0, v1, Lcom/android/settings/search/SearchItem;->parentsKey:Ljava/lang/String;
-
-    .line 535
-    move-object/from16 v0, v19
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 540
-    :cond_12
-    invoke-virtual/range {v18 .. v18}, Landroid/content/res/TypedArray;->recycle()V
+    .line 533
+    :cond_13
+    invoke-virtual {v11}, Landroid/content/res/TypedArray;->recycle()V
 
     goto/16 :goto_1
 
-    .line 507
-    .end local v12           #index:I
-    :cond_13
-    const-string v21, "location_vzw_gps"
+    .line 493
+    .end local v7           #index:I
+    :cond_14
+    const-string v14, "location_vzw_gps"
 
-    move-object/from16 v0, v19
+    iget-object v15, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v22, v0
+    move-result v14
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v14, :cond_15
 
-    move-result v21
+    .line 494
+    const/4 v14, 0x2
 
-    if-eqz v21, :cond_14
-
-    .line 508
-    const/16 v21, 0x2
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
 
     goto/16 :goto_6
 
-    .line 509
-    :cond_14
-    const-string v21, "location_vzw_network"
+    .line 495
+    :cond_15
+    const-string v14, "location_vzw_network"
 
-    move-object/from16 v0, v19
+    iget-object v15, v12, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v22, v0
+    move-result v14
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v14, :cond_e
 
-    move-result v21
+    .line 496
+    const/4 v14, 0x2
 
-    if-eqz v21, :cond_e
-
-    .line 510
-    const/16 v21, 0x2
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    iput v0, v1, Lcom/android/settings/search/SearchItem;->menuType:I
+    iput v14, v12, Lcom/android/settings/search/SearchItem;->menuType:I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
 
     goto/16 :goto_6
 
-    .line 531
-    .restart local v12       #index:I
-    :cond_15
-    add-int/lit8 v12, v12, 0x1
-
-    goto/16 :goto_7
-
-    .line 547
-    .end local v11           #i:I
-    .end local v12           #index:I
-    .end local v18           #sa:Landroid/content/res/TypedArray;
-    .end local v19           #searchItem:Lcom/android/settings/search/SearchItem;
+    .line 524
+    .restart local v7       #index:I
     :cond_16
-    if-eqz v16, :cond_2
+    add-int/lit8 v7, v7, 0x1
 
-    .line 548
-    invoke-interface/range {v16 .. v16}, Landroid/content/res/XmlResourceParser;->close()V
+    goto :goto_7
+
+    .line 540
+    .end local v6           #i:I
+    .end local v7           #index:I
+    .end local v11           #sa:Landroid/content/res/TypedArray;
+    .end local v12           #searchItem:Lcom/android/settings/search/SearchItem;
+    :cond_17
+    if-eqz v10, :cond_2
+
+    .line 541
+    invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto/16 :goto_0
 
-    .line 468
+    .line 454
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -2463,12 +2099,12 @@
 
     const/4 v3, 0x0
 
-    .line 555
-    const/16 v4, 0x1d
+    .line 548
+    const/16 v4, 0x1e
 
     new-array v0, v4, [Ljava/lang/String;
 
-    const v4, 0x7f0b0579
+    const v4, 0x7f0b05e0
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2476,7 +2112,7 @@
 
     aput-object v4, v0, v3
 
-    const v4, 0x7f0b057b
+    const v4, 0x7f0b05e2
 
     invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
@@ -2486,167 +2122,177 @@
 
     const/4 v4, 0x2
 
-    const-string v5, "unlock_set_or_change"
+    const v5, 0x7f0b05e4
+
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v5
 
     aput-object v5, v0, v4
 
     const/4 v4, 0x3
 
-    const-string v5, "screen_timeout"
+    const-string v5, "unlock_set_or_change"
 
     aput-object v5, v0, v4
 
     const/4 v4, 0x4
 
-    const-string v5, "touch_key_light"
+    const-string v5, "screen_timeout"
 
     aput-object v5, v0, v4
 
     const/4 v4, 0x5
 
-    const-string v5, "MONOTYPE"
+    const-string v5, "touch_key_light"
 
     aput-object v5, v0, v4
 
     const/4 v4, 0x6
 
-    const-string v5, "font_size"
+    const-string v5, "MONOTYPE"
 
     aput-object v5, v0, v4
 
     const/4 v4, 0x7
 
-    const-string v5, "tts_settings_preference"
+    const-string v5, "font_size"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x8
 
-    const-string v5, "air_view_mode"
+    const-string v5, "tts_settings_preference"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x9
 
-    const-string v5, "date"
+    const-string v5, "air_view_mode"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0xa
 
-    const-string v5, "time"
+    const-string v5, "date"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0xb
 
-    const-string v5, "timezone"
+    const-string v5, "time"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0xc
 
-    const-string v5, "date_format"
+    const-string v5, "timezone"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0xd
 
-    const-string v5, "device_name"
+    const-string v5, "date_format"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0xe
 
-    const-string v5, "device_model"
+    const-string v5, "device_name"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0xf
 
-    const-string v5, "firmware_version"
+    const-string v5, "device_model"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x10
 
-    const-string v5, "baseband_version"
+    const-string v5, "firmware_version"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x11
 
-    const-string v5, "kernel_version"
+    const-string v5, "baseband_version"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x12
 
-    const-string v5, "build_number"
+    const-string v5, "kernel_version"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x13
 
-    const-string v5, "selinux_status"
+    const-string v5, "build_number"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x14
 
-    const-string v5, "lock_after_timeout"
+    const-string v5, "selinux_status"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x15
 
-    const-string v5, "voice_input_control_incomming_calls"
+    const-string v5, "lock_after_timeout"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x16
 
-    const-string v5, "voice_input_control_chatonv"
+    const-string v5, "voice_input_control_incomming_calls"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x17
 
-    const-string v5, "voice_input_control_alarm"
+    const-string v5, "voice_input_control_chatonv"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x18
 
-    const-string v5, "voice_input_control_camera"
+    const-string v5, "voice_input_control_alarm"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x19
 
-    const-string v5, "voice_input_control_music"
+    const-string v5, "voice_input_control_camera"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x1a
 
-    const-string v5, "phone_vibration"
+    const-string v5, "voice_input_control_music"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x1b
 
-    const-string v5, "signature_verification_level"
+    const-string v5, "phone_vibration"
 
     aput-object v5, v0, v4
 
     const/16 v4, 0x1c
 
+    const-string v5, "signature_verification_level"
+
+    aput-object v5, v0, v4
+
+    const/16 v4, 0x1d
+
     const-string v5, "power_saving_auto_turn_on"
 
     aput-object v5, v0, v4
 
-    .line 567
+    .line 560
     .local v0, blockSummaryMenuKey:[Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -2656,7 +2302,7 @@
 
     if-ge v1, v4, :cond_1
 
-    .line 568
+    .line 561
     aget-object v4, v0, v1
 
     invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2665,11 +2311,11 @@
 
     if-eqz v4, :cond_0
 
-    .line 571
+    .line 564
     :goto_1
     return v2
 
-    .line 567
+    .line 560
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
@@ -2678,7 +2324,7 @@
     :cond_1
     move v2, v3
 
-    .line 571
+    .line 564
     goto :goto_1
 .end method
 
@@ -2688,27 +2334,27 @@
     .locals 12
 
     .prologue
-    .line 82
+    .line 83
     new-instance v8, Lcom/android/settings/search/SettingsSearchUtils;
 
     sget-object v9, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
     invoke-direct {v8, v9}, Lcom/android/settings/search/SettingsSearchUtils;-><init>(Landroid/content/Context;)V
 
-    .line 83
+    .line 84
     .local v8, searchUtils:Lcom/android/settings/search/SettingsSearchUtils;
     iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
     invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
 
-    .line 84
+    .line 85
     invoke-virtual {v8}, Lcom/android/settings/search/SettingsSearchUtils;->getSearchMenuInfo()Ljava/util/ArrayList;
 
     move-result-object v9
 
     iput-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
-    .line 86
+    .line 87
     iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mSearchManager:Lcom/android/settings/search/SettingSearchManager;
 
     iget-object v10, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mSearchManager:Lcom/android/settings/search/SettingSearchManager;
@@ -2721,7 +2367,7 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/settings/search/SettingSearchManager;->Delete(ILjava/lang/String;)V
 
-    .line 88
+    .line 89
     const/4 v3, 0x0
 
     .local v3, index:I
@@ -2734,7 +2380,7 @@
 
     if-ge v3, v9, :cond_2
 
-    .line 89
+    .line 90
     iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2746,29 +2392,6 @@
     iget v9, v9, Lcom/android/settings/search/SearchItem$MenuInfoItem;->parentType:I
 
     if-nez v9, :cond_1
-
-    .line 90
-    iget-object v10, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserHeadFile:Ljava/util/ArrayList;
-
-    iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
-
-    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Lcom/android/settings/search/SearchItem$MenuInfoItem;
-
-    iget v9, v9, Lcom/android/settings/search/SearchItem$MenuInfoItem;->fileId:I
-
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    invoke-virtual {v10, v9}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_0
 
     .line 91
     iget-object v10, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserHeadFile:Ljava/util/ArrayList;
@@ -2787,16 +2410,39 @@
 
     move-result-object v9
 
+    invoke-virtual {v10, v9}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    .line 92
+    iget-object v10, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserHeadFile:Ljava/util/ArrayList;
+
+    iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
+
+    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Lcom/android/settings/search/SearchItem$MenuInfoItem;
+
+    iget v9, v9, Lcom/android/settings/search/SearchItem$MenuInfoItem;->fileId:I
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v9
+
     invoke-virtual {v10, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 88
+    .line 89
     :cond_0
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 94
+    .line 95
     :cond_1
     iget-object v10, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserPreferenceFile:Ljava/util/ArrayList;
 
@@ -2820,7 +2466,7 @@
 
     if-nez v9, :cond_0
 
-    .line 95
+    .line 96
     iget-object v10, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserPreferenceFile:Ljava/util/ArrayList;
 
     iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->mMenuInfoItem:Ljava/util/ArrayList;
@@ -2841,13 +2487,13 @@
 
     goto :goto_1
 
-    .line 100
+    .line 101
     :cond_2
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    .line 101
+    .line 102
     .local v7, searchItemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;>;"
     const/4 v0, 0x0
 
@@ -2861,7 +2507,7 @@
 
     if-ge v0, v9, :cond_3
 
-    .line 102
+    .line 103
     iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserHeadFile:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2880,12 +2526,12 @@
 
     invoke-virtual {v7, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 101
+    .line 102
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    .line 104
+    .line 105
     :cond_3
     const/4 v3, 0x0
 
@@ -2898,7 +2544,7 @@
 
     if-ge v3, v9, :cond_4
 
-    .line 105
+    .line 106
     iget-object v9, p0, Lcom/android/settings/search/SettingHeaderXmlParser;->xmlParserPreferenceFile:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2917,12 +2563,12 @@
 
     invoke-virtual {v7, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 104
+    .line 105
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
-    .line 108
+    .line 109
     :cond_4
     invoke-virtual {v8}, Lcom/android/settings/search/SettingsSearchUtils;->getAddSearchMenuInCode()Ljava/util/ArrayList;
 
@@ -2930,12 +2576,12 @@
 
     invoke-virtual {v7, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 110
+    .line 111
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    .line 111
+    .line 112
     .local v6, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -2954,7 +2600,7 @@
 
     check-cast v5, Ljava/util/ArrayList;
 
-    .line 112
+    .line 113
     .local v5, itemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -2974,13 +2620,13 @@
 
     check-cast v4, Lcom/android/settings/search/SearchItem;
 
-    .line 113
+    .line 114
     .local v4, item:Lcom/android/settings/search/SearchItem;
     invoke-virtual {v6, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_4
 
-    .line 116
+    .line 117
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v4           #item:Lcom/android/settings/search/SearchItem;
     .end local v5           #itemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
@@ -2989,7 +2635,7 @@
 
     invoke-virtual {v9, v6}, Lcom/android/settings/search/SettingSearchManager;->addSearchInfoDB(Ljava/util/ArrayList;)V
 
-    .line 117
+    .line 118
     const-string v9, "SettingHeaderXmlParser"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -3026,7 +2672,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 119
+    .line 120
     return-void
 .end method
 
@@ -3036,23 +2682,17 @@
 
     .prologue
     .line 123
-    new-instance v13, Ljava/util/ArrayList;
-
-    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
-
-    .line 124
-    .local v13, searchItem:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 126
+    .line 125
     .local v2, ItemList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v5
 
-    .line 128
+    .line 127
     .local v5, defaultLocale:Ljava/util/Locale;
     sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
@@ -3060,19 +2700,19 @@
 
     move-result-object v12
 
-    .line 129
+    .line 128
     .local v12, resource:Landroid/content/res/Resources;
     invoke-virtual {v12}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v3
 
-    .line 130
+    .line 129
     .local v3, assets:Landroid/content/res/AssetManager;
     invoke-virtual {v12}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v10
 
-    .line 131
+    .line 130
     .local v10, metrics:Landroid/util/DisplayMetrics;
     new-instance v4, Landroid/content/res/Configuration;
 
@@ -3084,22 +2724,22 @@
 
     invoke-direct {v4, v0}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
 
-    .line 132
+    .line 131
     .local v4, config:Landroid/content/res/Configuration;
     iput-object v5, v4, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    .line 133
+    .line 132
     new-instance v6, Landroid/content/res/Resources;
 
     invoke-direct {v6, v3, v10, v4}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
 
-    .line 135
+    .line 134
     .local v6, defaultResources:Landroid/content/res/Resources;
     invoke-virtual {v5}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 138
+    .line 136
     .local v9, language:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -3115,7 +2755,8 @@
 
     move-result-object v13
 
-    .line 139
+    .line 137
+    .local v13, searchItem:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/search/SearchItem;>;"
     const-string v17, "SettingHeaderXmlParser"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -3142,7 +2783,7 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 140
+    .line 138
     const/4 v8, 0x0
 
     .local v8, i:I
@@ -3155,12 +2796,12 @@
 
     if-ge v8, v0, :cond_1
 
-    .line 142
+    .line 140
     new-instance v15, Lcom/android/settings/search/SearchItem;
 
     invoke-direct {v15}, Lcom/android/settings/search/SearchItem;-><init>()V
 
-    .line 143
+    .line 141
     .local v15, textInfoItem:Lcom/android/settings/search/SearchItem;
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -3182,14 +2823,14 @@
 
     if-nez v17, :cond_0
 
-    .line 145
+    .line 143
     sget-object v17, Lcom/android/settings/search/SettingHeaderXmlParser;->mContext:Landroid/content/Context;
 
     invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v11
 
-    .line 148
+    .line 146
     .local v11, pm:Landroid/content/pm/PackageManager;
     :try_start_0
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -3212,7 +2853,7 @@
 
     move-result-object v6
 
-    .line 158
+    .line 156
     .end local v11           #pm:Landroid/content/pm/PackageManager;
     :cond_0
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -3231,7 +2872,7 @@
 
     iput-object v0, v15, Lcom/android/settings/search/SearchItem;->id_key:Ljava/lang/String;
 
-    .line 159
+    .line 157
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -3250,7 +2891,7 @@
 
     move/from16 v16, v0
 
-    .line 160
+    .line 158
     .local v16, titleId:I
     const/16 v17, -0x1
 
@@ -3260,7 +2901,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 162
+    .line 160
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -3277,7 +2918,7 @@
 
     iput-object v0, v15, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
 
-    .line 179
+    .line 177
     :goto_1
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -3295,7 +2936,7 @@
 
     iput v0, v15, Lcom/android/settings/search/SearchItem;->iconResId:I
 
-    .line 181
+    .line 179
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -3312,7 +2953,7 @@
 
     long-to-int v14, v0
 
-    .line 182
+    .line 180
     .local v14, summaryId:I
     const/16 v17, -0x1
 
@@ -3320,7 +2961,7 @@
 
     if-eq v14, v0, :cond_4
 
-    .line 185
+    .line 183
     :try_start_1
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -3352,7 +2993,7 @@
     :try_end_1
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 200
+    .line 198
     :goto_2
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -3370,7 +3011,7 @@
 
     iput v0, v15, Lcom/android/settings/search/SearchItem;->menuType:I
 
-    .line 202
+    .line 200
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/search/SettingHeaderXmlParser;->mSearchManager:Lcom/android/settings/search/SettingSearchManager;
@@ -3401,7 +3042,7 @@
 
     iput-object v0, v15, Lcom/android/settings/search/SearchItem;->menuPath:Ljava/lang/String;
 
-    .line 204
+    .line 202
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -3418,25 +3059,25 @@
 
     iput-object v0, v15, Lcom/android/settings/search/SearchItem;->pakageName:Ljava/lang/String;
 
-    .line 206
+    .line 204
     iput-object v9, v15, Lcom/android/settings/search/SearchItem;->language:Ljava/lang/String;
 
-    .line 208
+    .line 206
     invoke-virtual {v2, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 140
+    .line 138
     add-int/lit8 v8, v8, 0x1
 
     goto/16 :goto_0
 
-    .line 150
+    .line 148
     .end local v14           #summaryId:I
     .end local v16           #titleId:I
     .restart local v11       #pm:Landroid/content/pm/PackageManager;
     :catch_0
     move-exception v7
 
-    .line 152
+    .line 150
     .local v7, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v18, "SettingHeaderXmlParser"
 
@@ -3484,10 +3125,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 153
-    invoke-virtual {v7}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    .line 151
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 211
+    .line 209
     .end local v7           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     .end local v11           #pm:Landroid/content/pm/PackageManager;
     .end local v15           #textInfoItem:Lcom/android/settings/search/SearchItem;
@@ -3503,17 +3144,17 @@
 
     invoke-virtual {v0, v2}, Lcom/android/settings/search/SettingSearchManager;->addTextInfoDB(Ljava/util/ArrayList;)V
 
-    .line 212
+    .line 210
     const-string v17, "SettingHeaderXmlParser"
 
     const-string v18, " SEARCH MANAGER --> finish text write"
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 213
+    .line 211
     return-void
 
-    .line 165
+    .line 163
     .restart local v15       #textInfoItem:Lcom/android/settings/search/SearchItem;
     .restart local v16       #titleId:I
     :cond_2
@@ -3550,11 +3191,11 @@
 
     goto/16 :goto_1
 
-    .line 166
+    .line 164
     :catch_1
     move-exception v7
 
-    .line 167
+    .line 165
     .local v7, e:Landroid/content/res/Resources$NotFoundException;
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -3570,7 +3211,7 @@
 
     if-eqz v17, :cond_3
 
-    .line 169
+    .line 167
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -3587,7 +3228,7 @@
 
     iput-object v0, v15, Lcom/android/settings/search/SearchItem;->title:Ljava/lang/String;
 
-    .line 173
+    .line 171
     :goto_4
     const-string v18, "SettingHeaderXmlParser"
 
@@ -3647,12 +3288,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 174
-    invoke-virtual {v7}, Landroid/content/res/Resources$NotFoundException;->printStackTrace()V
+    .line 172
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_3
 
-    .line 171
+    .line 169
     :cond_3
     const-string v17, ""
 
@@ -3662,13 +3303,13 @@
 
     goto :goto_4
 
-    .line 186
+    .line 184
     .end local v7           #e:Landroid/content/res/Resources$NotFoundException;
     .restart local v14       #summaryId:I
     :catch_2
     move-exception v7
 
-    .line 187
+    .line 185
     .restart local v7       #e:Landroid/content/res/Resources$NotFoundException;
     const-string v18, "SettingHeaderXmlParser"
 
@@ -3728,10 +3369,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
-    invoke-virtual {v7}, Landroid/content/res/Resources$NotFoundException;->printStackTrace()V
+    .line 186
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 189
+    .line 187
     const/16 v17, 0x0
 
     move-object/from16 v0, v17
@@ -3740,7 +3381,7 @@
 
     goto/16 :goto_3
 
-    .line 193
+    .line 191
     .end local v7           #e:Landroid/content/res/Resources$NotFoundException;
     :cond_4
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -3757,7 +3398,7 @@
 
     if-eqz v17, :cond_5
 
-    .line 194
+    .line 192
     invoke-virtual {v13, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v17
@@ -3776,7 +3417,7 @@
 
     goto/16 :goto_2
 
-    .line 196
+    .line 194
     :cond_5
     const/16 v17, 0x0
 

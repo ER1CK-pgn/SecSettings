@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 53
+    .line 58
     iput-object p1, p0, Lcom/android/settings/search/SearchMain$UpdateListThread;->this$0:Lcom/android/settings/search/SearchMain;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,15 +38,15 @@
     .locals 2
 
     .prologue
-    .line 56
+    .line 61
     iget-object v0, p0, Lcom/android/settings/search/SearchMain$UpdateListThread;->this$0:Lcom/android/settings/search/SearchMain;
 
     new-instance v1, Lcom/android/settings/search/SearchMain$UpdateListThread$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/search/SearchMain$UpdateListThread$1;-><init>(Lcom/android/settings/search/SearchMain$UpdateListThread;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/search/SearchMain;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 73
+    .line 78
     return-void
 .end method

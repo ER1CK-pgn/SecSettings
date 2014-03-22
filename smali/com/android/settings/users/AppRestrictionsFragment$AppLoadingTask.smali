@@ -35,7 +35,7 @@
     .parameter
 
     .prologue
-    .line 477
+    .line 661
     iput-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -49,7 +49,7 @@
     .parameter "x1"
 
     .prologue
-    .line 477
+    .line 661
     invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;-><init>(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
     return-void
@@ -62,7 +62,7 @@
     .parameter "x0"
 
     .prologue
-    .line 477
+    .line 661
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -78,13 +78,13 @@
     .parameter "params"
 
     .prologue
-    .line 481
+    .line 665
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
     #calls: Lcom/android/settings/users/AppRestrictionsFragment;->fetchAndMergeApps()V
-    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$400(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$500(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
-    .line 482
+    .line 666
     const/4 v0, 0x0
 
     return-object v0
@@ -95,7 +95,7 @@
     .parameter "x0"
 
     .prologue
-    .line 477
+    .line 661
     check-cast p1, Ljava/lang/Void;
 
     .end local p1
@@ -109,13 +109,13 @@
     .parameter "result"
 
     .prologue
-    .line 487
+    .line 671
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$AppLoadingTask;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
     #calls: Lcom/android/settings/users/AppRestrictionsFragment;->populateApps()V
-    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$500(Lcom/android/settings/users/AppRestrictionsFragment;)V
+    invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$600(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
-    .line 488
+    .line 672
     return-void
 .end method
 
@@ -123,6 +123,6 @@
     .locals 0
 
     .prologue
-    .line 492
+    .line 676
     return-void
 .end method

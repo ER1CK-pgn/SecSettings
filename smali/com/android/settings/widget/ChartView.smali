@@ -104,10 +104,10 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 68
-    invoke-virtual {p0, v3}, Lcom/android/settings/widget/ChartView;->setClipToPadding(Z)V
+    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->setClipToPadding(Z)V
 
     .line 69
-    invoke-virtual {p0, v3}, Lcom/android/settings/widget/ChartView;->setClipChildren(Z)V
+    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->setClipChildren(Z)V
 
     .line 70
     return-void
@@ -178,7 +178,7 @@
 
     iget v5, v0, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {p1, v2, v3, v4, v5}, Lcom/android/settings/widget/ChartSweepView;->layout(IIII)V
+    invoke-virtual {p1, v2, v3, v4, v5}, Landroid/view/View;->layout(IIII)V
 
     .line 134
     return-void
@@ -253,7 +253,7 @@
 
     move-result v1
 
-    invoke-virtual {p1}, Lcom/android/settings/widget/ChartSweepView;->getMeasuredHeight()I
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v2
 
@@ -305,7 +305,7 @@
     iput v1, p2, Landroid/graphics/Rect;->bottom:I
 
     .line 153
-    invoke-virtual {p1}, Lcom/android/settings/widget/ChartSweepView;->getMeasuredWidth()I
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v1
 
@@ -330,17 +330,17 @@
     .line 97
     iget-object v7, p0, Lcom/android/settings/widget/ChartView;->mContent:Landroid/graphics/Rect;
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v8
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v9
 
     sub-int v10, p4, p2
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v11
 
@@ -348,7 +348,7 @@
 
     sub-int v11, p5, p3
 
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->getPaddingBottom()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
 
     move-result v12
 
@@ -403,14 +403,14 @@
 
     .local v3, i:I
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->getChildCount()I
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v7
 
     if-ge v3, v7, :cond_3
 
     .line 110
-    invoke-virtual {p0, v3}, Lcom/android/settings/widget/ChartView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -504,7 +504,7 @@
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
     .line 87
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->getMeasuredWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v2
 
@@ -565,7 +565,7 @@
     iput p2, p0, Lcom/android/settings/widget/ChartView;->mOptimalWidthWeight:F
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/widget/ChartView;->requestLayout()V
+    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
     .line 81
     return-void

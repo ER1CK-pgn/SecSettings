@@ -30,7 +30,7 @@
     .line 38
     iput-object p1, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -110,7 +110,7 @@
     .line 49
     iget-object v3, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    const v4, 0x7f09092b
+    const v4, 0x7f090a09
 
     invoke-static {v3, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -149,7 +149,7 @@
     .line 60
     iget-object v3, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    const v4, 0x7f09092a
+    const v4, 0x7f090a08
 
     invoke-static {v3, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -160,7 +160,7 @@
     .line 63
     iget-object v3, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    invoke-virtual {v3}, Lcom/android/settings/SetFullBackupPassword;->finish()V
+    invoke-virtual {v3}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
@@ -175,7 +175,7 @@
     .line 67
     iget-object v3, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    const v4, 0x7f09092c
+    const v4, 0x7f090a0a
 
     invoke-static {v3, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -199,7 +199,7 @@
     .line 72
     iget-object v3, p0, Lcom/android/settings/SetFullBackupPassword$1;->this$0:Lcom/android/settings/SetFullBackupPassword;
 
-    invoke-virtual {v3}, Lcom/android/settings/SetFullBackupPassword;->finish()V
+    invoke-virtual {v3}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 

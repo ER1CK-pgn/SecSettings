@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 1198
+    .line 1271
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     iput-object p2, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -50,14 +50,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1200
-    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3600()Landroid/net/wifi/p2p/WifiP2pDevice;
+    .line 1273
+    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3700()Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 1201
+    .line 1274
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #getter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mEditDeviceName:Landroid/widget/EditText;
@@ -65,22 +65,22 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3600()Landroid/net/wifi/p2p/WifiP2pDevice;
+    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3700()Landroid/net/wifi/p2p/WifiP2pDevice;
 
     move-result-object v1
 
     iget-object v1, v1, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1203
+    .line 1276
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #setter for: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isBtnEnabled:Z
-    invoke-static {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4202(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)Z
+    invoke-static {v0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4302(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Z)Z
 
-    .line 1205
+    .line 1278
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$15;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
@@ -90,15 +90,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 1206
+    .line 1279
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 1207
+    .line 1280
     return-void
 .end method

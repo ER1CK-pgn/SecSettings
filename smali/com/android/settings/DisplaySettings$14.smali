@@ -3,12 +3,12 @@
 .source "DisplaySettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/DisplaySettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+    value = Lcom/android/settings/DisplaySettings;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,56 +27,56 @@
     .parameter
 
     .prologue
-    .line 1487
+    .line 1459
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$14;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 3
-    .parameter "arg0"
-    .parameter "arg1"
+    .parameter "dialog"
 
     .prologue
-    .line 1490
-    iget-object v0, p0, Lcom/android/settings/DisplaySettings$14;->this$0:Lcom/android/settings/DisplaySettings;
+    .line 1462
+    const-string v1, "persist.sys.font_clarity"
 
-    invoke-virtual {v0}, Lcom/android/settings/DisplaySettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "desk_home_screen_display"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 1491
-    new-instance v0, Lcom/android/settings/DreamBackend;
-
+    .line 1463
+    .local v0, Cfont:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/settings/DisplaySettings$14;->this$0:Lcom/android/settings/DisplaySettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/DisplaySettings;->getActivity()Landroid/app/Activity;
+    #getter for: Lcom/android/settings/DisplaySettings;->mClearfont:Landroid/preference/CheckBoxPreference;
+    invoke-static {v1}, Lcom/android/settings/DisplaySettings;->access$1000(Lcom/android/settings/DisplaySettings;)Landroid/preference/CheckBoxPreference;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lcom/android/settings/DreamBackend;-><init>(Landroid/content/Context;)V
+    const-string v1, "1"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/DreamBackend;->setEnabled(Z)V
+    :goto_0
+    invoke-virtual {v2, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 1492
-    iget-object v0, p0, Lcom/android/settings/DisplaySettings$14;->this$0:Lcom/android/settings/DisplaySettings;
-
-    #calls: Lcom/android/settings/DisplaySettings;->updateScreenSaverSummary()V
-    invoke-static {v0}, Lcom/android/settings/DisplaySettings;->access$800(Lcom/android/settings/DisplaySettings;)V
-
-    .line 1493
+    .line 1464
     return-void
+
+    .line 1463
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method

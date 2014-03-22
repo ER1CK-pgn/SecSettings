@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:baselineAligned="true" android:baselineAlignedChildIndex="0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentLeft="true">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/knox_icon" android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="4.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="4.0dip" android:src="@drawable/security_noti_icon_security" />
+            <TextView android:textSize="21.0sp" android:textColor="#fff5f5f5" android:layout_gravity="center_vertical" android:id="@id/knox_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentRight="true">
+            <Button android:textSize="19.0sp" android:textColor="#fff5f5f5" android:layout_gravity="center_vertical" android:id="@id/knox_uninstall_btn" android:layout_width="105.0dip" android:layout_height="40.0dip" android:layout_marginLeft="13.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="12.0dip" android:layout_marginBottom="8.0dip" android:text="@string/knox_uninstall" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

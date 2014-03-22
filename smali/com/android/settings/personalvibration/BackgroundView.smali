@@ -226,7 +226,7 @@
     .parameter "paint"
 
     .prologue
-    .line 175
+    .line 184
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->bm01:Landroid/graphics/Bitmap;
 
     const/4 v1, 0x0
@@ -237,16 +237,16 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    .line 176
+    .line 185
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_5
 
-    .line 177
+    .line 186
     const/4 v6, 0x0
 
     .local v6, i:I
@@ -257,9 +257,9 @@
 
     move-result v0
 
-    if-ge v6, v0, :cond_1
+    if-ge v6, v0, :cond_3
 
-    .line 178
+    .line 187
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -274,9 +274,81 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    .line 179
+    .line 188
+    iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-ne v0, v1, :cond_1
+
+    .line 189
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/personalvibration/BackgroundView$floatValue;
+
+    iget v0, v0, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->down:F
+
+    const/high16 v1, -0x3d4c
+
+    add-float v2, v0, v1
+
+    iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/personalvibration/BackgroundView$floatValue;
+
+    iget v1, v0, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->up:F
+
+    iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settings/personalvibration/BackgroundView$floatValue;
+
+    iget v0, v0, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->down:F
+
+    sub-float v3, v1, v0
+
+    iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v1, 0x7
+
+    aget-object v5, v0, v1
+
+    move-object v0, p1
+
+    move-object v1, p2
+
+    move v4, p3
+
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
+
+    .line 186
+    :goto_1
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    .line 192
+    :cond_1
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -327,14 +399,10 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    .line 177
-    :goto_1
-    add-int/lit8 v6, v6, 0x1
+    goto :goto_1
 
-    goto :goto_0
-
-    .line 184
-    :cond_0
+    .line 197
+    :cond_2
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -377,7 +445,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    .line 186
+    .line 199
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->bm02:Landroid/graphics/Bitmap;
 
     const/4 v1, 0x0
@@ -390,15 +458,15 @@
 
     goto :goto_1
 
-    .line 189
-    :cond_1
+    .line 202
+    :cond_3
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_5
 
-    .line 190
+    .line 203
     const/4 v6, 0x0
 
     :goto_2
@@ -408,9 +476,9 @@
 
     move-result v0
 
-    if-ge v6, v0, :cond_3
+    if-ge v6, v0, :cond_5
 
-    .line 191
+    .line 204
     iget v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
@@ -425,9 +493,9 @@
 
     cmpl-float v0, v1, v0
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_4
 
-    .line 192
+    .line 205
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -478,14 +546,14 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    .line 190
+    .line 203
     :goto_3
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
-    .line 196
-    :cond_2
+    .line 209
+    :cond_4
     iget v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
@@ -500,9 +568,9 @@
 
     cmpl-float v0, v1, v0
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_5
 
-    .line 197
+    .line 210
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -547,23 +615,23 @@
 
     goto :goto_3
 
-    .line 206
+    .line 219
     .end local v6           #i:I
-    :cond_3
+    :cond_5
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Recording:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    if-eq v0, v1, :cond_4
+    if-eq v0, v1, :cond_6
 
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_8
 
-    .line 208
-    :cond_4
+    .line 221
+    :cond_6
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSmallOval:Landroid/graphics/RectF;
 
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mStart:F
@@ -586,7 +654,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    .line 209
+    .line 222
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSmallOval:Landroid/graphics/RectF;
 
     iget v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->mStart:F
@@ -605,20 +673,20 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    .line 216
-    :cond_5
+    .line 229
+    :cond_7
     :goto_4
     return-void
 
-    .line 211
-    :cond_6
+    .line 224
+    :cond_8
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_7
 
-    .line 213
+    .line 226
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSmallOval:Landroid/graphics/RectF;
 
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mStart:F
@@ -641,7 +709,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
 
-    .line 214
+    .line 227
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSmallOval:Landroid/graphics/RectF;
 
     iget v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->mStart:F
@@ -669,7 +737,7 @@
     .locals 3
 
     .prologue
-    .line 359
+    .line 372
     const-string v0, "PersonalVibration"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -694,7 +762,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 360
+    .line 373
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->patternString:Ljava/lang/String;
 
     return-object v0
@@ -704,7 +772,7 @@
     .locals 3
 
     .prologue
-    .line 365
+    .line 378
     const-string v0, "PersonalVibration"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -729,705 +797,792 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 366
+    .line 379
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     return-object v0
 .end method
 
 .method init(Landroid/graphics/Canvas;)V
-    .locals 13
+    .locals 15
     .parameter "canvas"
 
     .prologue
     .line 97
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getMeasuredHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v1
 
     .line 98
     .local v1, Height:I
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getMeasuredWidth()I
+    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
 
-    move-result v3
+    move-result v4
 
     .line 99
-    .local v3, Width:I
-    new-instance v6, Landroid/util/DisplayMetrics;
+    .local v4, Width:I
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {v6}, Landroid/util/DisplayMetrics;-><init>()V
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v7
 
     .line 100
-    .local v6, metrics:Landroid/util/DisplayMetrics;
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
+    .local v7, metrics:Landroid/util/DisplayMetrics;
+    iget v10, v7, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    move-result-object v8
-
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v6
+    int-to-float v5, v10
 
     .line 101
-    iget v8, v6, Landroid/util/DisplayMetrics;->densityDpi:I
+    .local v5, dpi:F
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
-    int-to-float v4, v8
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v10
+
+    iget v9, v10, Landroid/util/DisplayMetrics;->widthPixels:I
 
     .line 102
-    .local v4, dpi:F
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
+    .local v9, width:I
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v10}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v8
+    move-result-object v10
 
-    iget v7, v8, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v6, v10, Landroid/util/DisplayMetrics;->heightPixels:I
 
     .line 103
-    .local v7, width:I
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
+    .local v6, height:I
+    const-string v10, "PersonalVibration"
 
-    move-result-object v8
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v8
+    const-string v12, "canvas height : "
 
-    iget v5, v8, Landroid/util/DisplayMetrics;->heightPixels:I
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 104
-    .local v5, height:I
-    const-string v8, "PersonalVibration"
+    move-result-object v11
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v11
 
-    const-string v10, "canvas height : "
+    const-string v12, ", width : "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v11
 
-    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v11
 
-    const-string v10, ", width : "
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v9
-
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 105
-    const/4 v8, 0x7
-
-    new-array v8, v8, [Landroid/graphics/Paint;
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+    invoke-static {v10, v11}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 107
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+    int-to-double v10, v1
 
-    const/4 v9, 0x0
+    const-wide/high16 v12, 0x4029
 
-    new-instance v10, Landroid/graphics/Paint;
+    div-double/2addr v10, v12
 
-    invoke-direct {v10}, Landroid/graphics/Paint;-><init>()V
-
-    aput-object v10, v8, v9
+    double-to-float v3, v10
 
     .line 108
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+    .local v3, Thickness:F
+    const/16 v10, 0x39
 
-    const/4 v9, 0x0
+    const/16 v11, 0xab
 
-    aget-object v8, v8, v9
+    const/16 v12, 0xda
 
-    const/4 v9, 0x1
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setAntiAlias(Z)V
-
-    .line 109
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x0
-
-    aget-object v8, v8, v9
-
-    sget-object v9, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 110
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x0
-
-    aget-object v8, v8, v9
-
-    const/4 v9, -0x1
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 111
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x0
-
-    aget-object v8, v8, v9
-
-    const/16 v9, 0x32
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    .line 112
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x0
-
-    aget-object v8, v8, v9
-
-    int-to-double v9, v1
-
-    const-wide/high16 v11, 0x4029
-
-    div-double/2addr v9, v11
-
-    double-to-float v9, v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStrokeWidth(F)V
-
-    .line 114
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x1
-
-    new-instance v10, Landroid/graphics/Paint;
-
-    iget-object v11, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v12, 0x0
-
-    aget-object v11, v11, v12
-
-    invoke-direct {v10, v11}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
-
-    aput-object v10, v8, v9
-
-    .line 115
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x1
-
-    aget-object v8, v8, v9
-
-    sget-object v9, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 116
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x1
-
-    aget-object v8, v8, v9
-
-    const/16 v9, 0x39
-
-    const/16 v10, 0xab
-
-    const/16 v11, 0xda
-
-    invoke-static {v9, v10, v11}, Landroid/graphics/Color;->rgb(III)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 117
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x1
-
-    aget-object v8, v8, v9
-
-    const/16 v9, 0x32
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    .line 119
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x2
-
-    new-instance v10, Landroid/graphics/Paint;
-
-    iget-object v11, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v12, 0x0
-
-    aget-object v11, v11, v12
-
-    invoke-direct {v10, v11}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
-
-    aput-object v10, v8, v9
-
-    .line 120
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x2
-
-    aget-object v8, v8, v9
-
-    sget-object v9, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 121
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x2
-
-    aget-object v8, v8, v9
-
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0d0003
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 123
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x3
-
-    new-instance v10, Landroid/graphics/Paint;
-
-    iget-object v11, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v12, 0x0
-
-    aget-object v11, v11, v12
-
-    invoke-direct {v10, v11}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
-
-    aput-object v10, v8, v9
-
-    .line 124
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x3
-
-    aget-object v8, v8, v9
-
-    sget-object v9, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 125
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x3
-
-    aget-object v8, v8, v9
-
-    const/high16 v9, 0x4040
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStrokeWidth(F)V
-
-    .line 126
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x3
-
-    aget-object v8, v8, v9
-
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0d0004
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 128
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x4
-
-    new-instance v10, Landroid/graphics/Paint;
-
-    iget-object v11, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v12, 0x3
-
-    aget-object v11, v11, v12
-
-    invoke-direct {v10, v11}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
-
-    aput-object v10, v8, v9
-
-    .line 129
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x4
-
-    aget-object v8, v8, v9
-
-    const/16 v9, 0x39
-
-    const/16 v10, 0xab
-
-    const/16 v11, 0xda
-
-    invoke-static {v9, v10, v11}, Landroid/graphics/Color;->rgb(III)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 131
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x5
-
-    new-instance v10, Landroid/graphics/Paint;
-
-    iget-object v11, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v12, 0x0
-
-    aget-object v11, v11, v12
-
-    invoke-direct {v10, v11}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
-
-    aput-object v10, v8, v9
-
-    .line 132
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x5
-
-    aget-object v8, v8, v9
-
-    sget-object v9, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 133
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x5
-
-    aget-object v8, v8, v9
-
-    const/16 v9, 0x39
-
-    const/16 v10, 0xab
-
-    const/16 v11, 0xda
-
-    invoke-static {v9, v10, v11}, Landroid/graphics/Color;->rgb(III)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 135
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x6
-
-    new-instance v10, Landroid/graphics/Paint;
-
-    iget-object v11, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v12, 0x0
-
-    aget-object v11, v11, v12
-
-    invoke-direct {v10, v11}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
-
-    aput-object v10, v8, v9
-
-    .line 136
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x6
-
-    aget-object v8, v8, v9
-
-    sget-object v9, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    .line 137
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x6
-
-    aget-object v8, v8, v9
-
-    const/high16 v9, 0x4040
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setStrokeWidth(F)V
-
-    .line 138
-    iget-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
-
-    const/4 v9, 0x6
-
-    aget-object v8, v8, v9
-
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0d0005
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v9
-
-    invoke-virtual {v8, v9}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 142
-    const/4 v8, 0x0
-
-    invoke-static {v8}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+    invoke-static {v10, v11, v12}, Landroid/graphics/Color;->rgb(III)I
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    .line 110
+    .local v8, play_color:I
+    const/high16 v10, 0x43a0
+
+    cmpl-float v10, v5, v10
+
+    if-nez v10, :cond_2
+
+    const/16 v10, 0xa00
+
+    if-ne v9, v10, :cond_0
+
+    const/16 v10, 0x640
+
+    if-eq v6, v10, :cond_1
+
+    :cond_0
+    const/16 v10, 0x640
+
+    if-ne v9, v10, :cond_2
+
+    const/16 v10, 0xa00
+
+    if-ne v6, v10, :cond_2
+
+    .line 111
+    :cond_1
+    const/high16 v0, 0x4278
+
+    .line 112
+    .local v0, BigOvalOffset:F
+    const/high16 v2, 0x4220
+
+    .line 113
+    .local v2, SmallOvalOffset:F
+    const/high16 v3, 0x4234
+
+    .line 114
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x7f0d0003
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v8
+
+    .line 126
+    :goto_0
+    new-instance v10, Landroid/graphics/RectF;
+
+    int-to-float v11, v4
+
+    sub-float/2addr v11, v0
+
+    int-to-float v12, v1
+
+    sub-float/2addr v12, v0
+
+    invoke-direct {v10, v0, v0, v11, v12}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBigOval:Landroid/graphics/RectF;
+
+    .line 127
+    new-instance v10, Landroid/graphics/RectF;
+
+    int-to-float v11, v4
+
+    sub-float/2addr v11, v2
+
+    int-to-float v12, v1
+
+    sub-float/2addr v12, v2
+
+    invoke-direct {v10, v2, v2, v11, v12}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSmallOval:Landroid/graphics/RectF;
+
+    .line 130
+    new-instance v10, Landroid/graphics/RectF;
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    int-to-float v13, v1
+
+    int-to-float v14, v4
+
+    invoke-direct {v10, v11, v12, v13, v14}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBG:Landroid/graphics/RectF;
+
+    .line 132
+    const/16 v10, 0x8
+
+    new-array v10, v10, [Landroid/graphics/Paint;
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    .line 133
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x0
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    invoke-direct {v12}, Landroid/graphics/Paint;-><init>()V
+
+    aput-object v12, v10, v11
+
+    .line 134
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x0
+
+    aget-object v10, v10, v11
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    .line 135
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x0
+
+    aget-object v10, v10, v11
+
+    sget-object v11, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 136
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x0
+
+    aget-object v10, v10, v11
+
+    const/4 v11, -0x1
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 137
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x0
+
+    aget-object v10, v10, v11
+
+    const/16 v11, 0x32
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    .line 138
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x0
+
+    aget-object v10, v10, v11
+
+    invoke-virtual {v10, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    .line 140
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v14, 0x0
+
+    aget-object v13, v13, v14
+
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    aput-object v12, v10, v11
+
+    .line 141
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    aget-object v10, v10, v11
+
+    sget-object v11, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 142
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    aget-object v10, v10, v11
+
+    const/16 v11, 0x39
+
+    const/16 v12, 0xab
+
+    const/16 v13, 0xda
+
+    invoke-static {v11, v12, v13}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 143
-    mul-int/lit8 v8, v1, 0xb
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
 
-    div-int/lit16 v8, v8, 0x90
+    const/4 v11, 0x1
 
-    int-to-float v0, v8
+    aget-object v10, v10, v11
 
-    .line 144
-    .local v0, BigOvalOffset:F
-    div-int/lit8 v8, v1, 0x1d
+    const/16 v11, 0x32
 
-    int-to-float v2, v8
-
-    .line 153
-    .local v2, SmallOvalOffset:F
-    :goto_0
-    new-instance v8, Landroid/graphics/RectF;
-
-    int-to-float v9, v3
-
-    sub-float/2addr v9, v0
-
-    int-to-float v10, v1
-
-    sub-float/2addr v10, v0
-
-    invoke-direct {v8, v0, v0, v9, v10}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBigOval:Landroid/graphics/RectF;
-
-    .line 154
-    new-instance v8, Landroid/graphics/RectF;
-
-    int-to-float v9, v3
-
-    sub-float/2addr v9, v2
-
-    int-to-float v10, v1
-
-    sub-float/2addr v10, v2
-
-    invoke-direct {v8, v2, v2, v9, v10}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSmallOval:Landroid/graphics/RectF;
-
-    .line 157
-    new-instance v8, Landroid/graphics/RectF;
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    int-to-float v11, v1
-
-    int-to-float v12, v3
-
-    invoke-direct {v8, v9, v10, v11, v12}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBG:Landroid/graphics/RectF;
-
-    .line 160
-    new-instance v8, Landroid/os/Handler;
-
-    invoke-direct {v8}, Landroid/os/Handler;-><init>()V
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->handler:Landroid/os/Handler;
-
-    .line 162
-    const/4 v8, 0x0
-
-    sput-boolean v8, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
-
-    .line 164
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x7f020525
-
-    invoke-static {v8, v9}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->bm01:Landroid/graphics/Bitmap;
-
-    .line 165
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x7f02052a
-
-    invoke-static {v8, v9}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->bm02:Landroid/graphics/Bitmap;
-
-    .line 167
-    new-instance v8, Landroid/os/SystemVibrator;
-
-    invoke-direct {v8}, Landroid/os/SystemVibrator;-><init>()V
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
-
-    .line 168
-    sget-object v8, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Standby:Lcom/android/settings/personalvibration/BackgroundView$Stage;
-
-    iput-object v8, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
-
-    .line 170
-    return-void
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 145
-    .end local v0           #BigOvalOffset:F
-    .end local v2           #SmallOvalOffset:F
-    :cond_0
-    const/high16 v8, 0x4370
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
 
-    cmpl-float v8, v4, v8
+    const/4 v11, 0x2
 
-    if-nez v8, :cond_5
+    new-instance v12, Landroid/graphics/Paint;
 
-    const/16 v8, 0x21c
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
 
-    if-ne v7, v8, :cond_1
+    const/4 v14, 0x0
 
-    const/16 v8, 0x3c0
+    aget-object v13, v13, v14
 
-    if-eq v5, v8, :cond_4
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
 
-    :cond_1
-    const/16 v8, 0x3c0
+    aput-object v12, v10, v11
 
-    if-ne v7, v8, :cond_2
+    .line 146
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
 
-    const/16 v8, 0x21c
+    const/4 v11, 0x2
 
-    if-eq v5, v8, :cond_4
+    aget-object v10, v10, v11
 
-    :cond_2
-    const/16 v8, 0x1e0
+    sget-object v11, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    if-ne v7, v8, :cond_3
-
-    const/16 v8, 0x320
-
-    if-eq v5, v8, :cond_4
-
-    :cond_3
-    const/16 v8, 0x320
-
-    if-ne v7, v8, :cond_5
-
-    const/16 v8, 0x1e0
-
-    if-ne v5, v8, :cond_5
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 147
-    :cond_4
-    mul-int/lit8 v8, v1, 0xb
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
 
-    div-int/lit16 v8, v8, 0x90
+    const/4 v11, 0x2
 
-    int-to-float v8, v8
+    aget-object v10, v10, v11
 
-    const/high16 v9, 0x3f80
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
-    sub-float v0, v8, v9
+    move-result-object v11
 
-    .line 148
+    const v12, 0x7f0d0003
+
+    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 149
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x3
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v14, 0x0
+
+    aget-object v13, v13, v14
+
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    aput-object v12, v10, v11
+
+    .line 150
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x3
+
+    aget-object v10, v10, v11
+
+    sget-object v11, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 151
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x3
+
+    aget-object v10, v10, v11
+
+    const/high16 v11, 0x4040
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    .line 152
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x3
+
+    aget-object v10, v10, v11
+
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    const v12, 0x7f0d0004
+
+    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 154
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x4
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v14, 0x3
+
+    aget-object v13, v13, v14
+
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    aput-object v12, v10, v11
+
+    .line 155
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x4
+
+    aget-object v10, v10, v11
+
+    const/16 v11, 0x39
+
+    const/16 v12, 0xab
+
+    const/16 v13, 0xda
+
+    invoke-static {v11, v12, v13}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 157
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x5
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v14, 0x0
+
+    aget-object v13, v13, v14
+
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    aput-object v12, v10, v11
+
+    .line 158
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x5
+
+    aget-object v10, v10, v11
+
+    sget-object v11, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 159
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x5
+
+    aget-object v10, v10, v11
+
+    invoke-virtual {v10, v8}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 161
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x6
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v14, 0x0
+
+    aget-object v13, v13, v14
+
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    aput-object v12, v10, v11
+
+    .line 162
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x6
+
+    aget-object v10, v10, v11
+
+    sget-object v11, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    .line 163
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x6
+
+    aget-object v10, v10, v11
+
+    const/high16 v11, 0x4040
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    .line 164
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x6
+
+    aget-object v10, v10, v11
+
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    const v12, 0x7f0d0006
+
+    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 166
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x7
+
+    new-instance v12, Landroid/graphics/Paint;
+
+    iget-object v13, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v14, 0x2
+
+    aget-object v13, v13, v14
+
+    invoke-direct {v12, v13}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    aput-object v12, v10, v11
+
+    .line 167
+    iget-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
+
+    const/4 v11, 0x7
+
+    aget-object v10, v10, v11
+
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    const v12, 0x7f0d0005
+
+    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColor(I)V
+
+    .line 169
+    new-instance v10, Landroid/os/Handler;
+
+    invoke-direct {v10}, Landroid/os/Handler;-><init>()V
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->handler:Landroid/os/Handler;
+
+    .line 171
+    const/4 v10, 0x0
+
+    sput-boolean v10, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
+
+    .line 173
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x7f0205b4
+
+    invoke-static {v10, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->bm01:Landroid/graphics/Bitmap;
+
+    .line 174
+    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x7f0205b9
+
+    invoke-static {v10, v11}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->bm02:Landroid/graphics/Bitmap;
+
+    .line 176
+    new-instance v10, Landroid/os/SystemVibrator;
+
+    invoke-direct {v10}, Landroid/os/SystemVibrator;-><init>()V
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
+
+    .line 177
+    sget-object v10, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Standby:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    iput-object v10, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    .line 179
+    return-void
+
+    .line 115
+    .end local v0           #BigOvalOffset:F
+    .end local v2           #SmallOvalOffset:F
+    :cond_2
+    const/4 v10, 0x0
+
+    invoke-static {v10}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_3
+
+    .line 116
+    mul-int/lit8 v10, v1, 0xb
+
+    div-int/lit16 v10, v10, 0x90
+
+    int-to-float v0, v10
+
+    .line 117
     .restart local v0       #BigOvalOffset:F
-    div-int/lit8 v8, v1, 0x1d
+    div-int/lit8 v10, v1, 0x1d
 
-    int-to-float v8, v8
-
-    const/high16 v9, 0x3f80
-
-    sub-float v2, v8, v9
+    int-to-float v2, v10
 
     .restart local v2       #SmallOvalOffset:F
     goto/16 :goto_0
 
-    .line 150
+    .line 118
     .end local v0           #BigOvalOffset:F
     .end local v2           #SmallOvalOffset:F
+    :cond_3
+    const/high16 v10, 0x4370
+
+    cmpl-float v10, v5, v10
+
+    if-nez v10, :cond_8
+
+    const/16 v10, 0x21c
+
+    if-ne v9, v10, :cond_4
+
+    const/16 v10, 0x3c0
+
+    if-eq v6, v10, :cond_7
+
+    :cond_4
+    const/16 v10, 0x3c0
+
+    if-ne v9, v10, :cond_5
+
+    const/16 v10, 0x21c
+
+    if-eq v6, v10, :cond_7
+
     :cond_5
-    mul-int/lit8 v8, v1, 0xb
+    const/16 v10, 0x1e0
 
-    div-int/lit16 v8, v8, 0x90
+    if-ne v9, v10, :cond_6
 
-    int-to-float v8, v8
+    const/16 v10, 0x320
 
-    const/high16 v9, 0x4020
+    if-eq v6, v10, :cond_7
 
-    sub-float v0, v8, v9
+    :cond_6
+    const/16 v10, 0x320
 
-    .line 151
+    if-ne v9, v10, :cond_8
+
+    const/16 v10, 0x1e0
+
+    if-ne v6, v10, :cond_8
+
+    .line 120
+    :cond_7
+    mul-int/lit8 v10, v1, 0xb
+
+    div-int/lit16 v10, v10, 0x90
+
+    int-to-float v10, v10
+
+    const/high16 v11, 0x3f80
+
+    sub-float v0, v10, v11
+
+    .line 121
     .restart local v0       #BigOvalOffset:F
-    div-int/lit8 v8, v1, 0x1d
+    div-int/lit8 v10, v1, 0x1d
 
-    int-to-float v8, v8
+    int-to-float v10, v10
 
-    const/high16 v9, 0x4020
+    const/high16 v11, 0x3f80
 
-    sub-float v2, v8, v9
+    sub-float v2, v10, v11
+
+    .restart local v2       #SmallOvalOffset:F
+    goto/16 :goto_0
+
+    .line 123
+    .end local v0           #BigOvalOffset:F
+    .end local v2           #SmallOvalOffset:F
+    :cond_8
+    mul-int/lit8 v10, v1, 0xb
+
+    div-int/lit16 v10, v10, 0x90
+
+    int-to-float v10, v10
+
+    const/high16 v11, 0x4020
+
+    sub-float v0, v10, v11
+
+    .line 124
+    .restart local v0       #BigOvalOffset:F
+    div-int/lit8 v10, v1, 0x1d
+
+    int-to-float v10, v10
+
+    const/high16 v11, 0x4020
+
+    sub-float v2, v10, v11
 
     .restart local v2       #SmallOvalOffset:F
     goto/16 :goto_0
@@ -1437,7 +1592,7 @@
     .locals 1
 
     .prologue
-    .line 327
+    .line 340
     sget-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
     return v0
@@ -1491,18 +1646,18 @@
 
     const/4 v2, 0x0
 
-    .line 220
+    .line 233
     iget-boolean v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSizeChanged:Z
 
     if-eqz v0, :cond_0
 
-    .line 221
+    .line 234
     invoke-virtual {p0, p1}, Lcom/android/settings/personalvibration/BackgroundView;->init(Landroid/graphics/Canvas;)V
 
-    .line 222
+    .line 235
     iput-boolean v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSizeChanged:Z
 
-    .line 225
+    .line 238
     :cond_0
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBigOval:Landroid/graphics/RectF;
 
@@ -1512,21 +1667,21 @@
 
     invoke-direct {p0, p1, v0, v2, v1}, Lcom/android/settings/personalvibration/BackgroundView;->drawArcs(Landroid/graphics/Canvas;Landroid/graphics/RectF;ZLandroid/graphics/Paint;)V
 
-    .line 227
+    .line 240
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Recording:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     if-ne v0, v1, :cond_2
 
-    .line 228
+    .line 241
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     add-float/2addr v0, v7
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 229
+    .line 242
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     const/high16 v1, 0x4120
@@ -1545,20 +1700,20 @@
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 230
+    .line 243
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     cmpl-float v0, v0, v3
 
     if-ltz v0, :cond_1
 
-    .line 231
+    .line 244
     iput v3, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 232
+    .line 245
     invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->setPauseTimer()V
 
-    .line 233
+    .line 246
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBigOval:Landroid/graphics/RectF;
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
@@ -1567,12 +1722,12 @@
 
     invoke-direct {p0, p1, v0, v2, v1}, Lcom/android/settings/personalvibration/BackgroundView;->drawArcs(Landroid/graphics/Canvas;Landroid/graphics/RectF;ZLandroid/graphics/Paint;)V
 
-    .line 244
+    .line 257
     :cond_1
     :goto_0
     return-void
 
-    .line 235
+    .line 248
     :cond_2
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
@@ -1580,14 +1735,14 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 236
+    .line 249
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     add-float/2addr v0, v7
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 237
+    .line 250
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     const/high16 v1, 0x4120
@@ -1606,7 +1761,7 @@
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 238
+    .line 251
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iget v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPauseSweep:F
@@ -1615,13 +1770,13 @@
 
     if-ltz v0, :cond_1
 
-    .line 239
+    .line 252
     iput v3, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 240
+    .line 253
     invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->setPauseTimer()V
 
-    .line 241
+    .line 254
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mBigOval:Landroid/graphics/RectF;
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPaints:[Landroid/graphics/Paint;
@@ -1638,14 +1793,14 @@
     .parameter "event"
 
     .prologue
-    .line 373
+    .line 386
     const-string v4, "PersonalVibration"
 
     const-string v5, "onTouchEvent()"
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 374
+    .line 387
     invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRunning()Z
 
     move-result v4
@@ -1658,7 +1813,7 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 376
+    .line 389
     :cond_0
     const-string v4, "PersonalVibration"
 
@@ -1698,20 +1853,20 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 379
+    .line 392
     const/4 v4, 0x0
 
-    .line 428
+    .line 441
     :goto_0
     return v4
 
-    .line 382
+    .line 395
     :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 384
+    .line 397
     .local v0, action:I
     const-string v4, "PersonalVibration"
 
@@ -1735,10 +1890,10 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 385
+    .line 398
     packed-switch v0, :pswitch_data_0
 
-    .line 428
+    .line 441
     :cond_2
     :goto_1
     :pswitch_0
@@ -1746,7 +1901,7 @@
 
     goto :goto_0
 
-    .line 387
+    .line 400
     :pswitch_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -1754,7 +1909,7 @@
 
     iput-wide v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->downtime:J
 
-    .line 389
+    .line 402
     const-string v4, "PersonalVibration"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1779,7 +1934,7 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 390
+    .line 403
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
 
     const-wide/16 v5, 0x2710
@@ -1788,7 +1943,7 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/os/SystemVibrator;->vibrate(JLandroid/os/SystemVibrator$MagnitudeType;)V
 
-    .line 392
+    .line 405
     iget-wide v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->uptime:J
 
     const-wide/16 v6, 0x0
@@ -1797,7 +1952,7 @@
 
     if-nez v4, :cond_3
 
-    .line 393
+    .line 406
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1830,31 +1985,31 @@
 
     iput-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->patternString:Ljava/lang/String;
 
-    .line 399
+    .line 412
     :goto_2
     new-instance v2, Lcom/android/settings/personalvibration/BackgroundView$floatValue;
 
     invoke-direct {v2}, Lcom/android/settings/personalvibration/BackgroundView$floatValue;-><init>()V
 
-    .line 400
+    .line 413
     .local v2, temp:Lcom/android/settings/personalvibration/BackgroundView$floatValue;
     iget v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iput v4, v2, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->down:F
 
-    .line 401
+    .line 414
     const/high16 v4, -0x4080
 
     iput v4, v2, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->up:F
 
-    .line 402
+    .line 415
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 396
+    .line 409
     .end local v2           #temp:Lcom/android/settings/personalvibration/BackgroundView$floatValue;
     :cond_3
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1891,7 +2046,7 @@
 
     goto :goto_2
 
-    .line 408
+    .line 421
     :pswitch_2
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
@@ -1901,11 +2056,11 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    .line 409
+    .line 422
     .local v1, i:I
     if-ltz v1, :cond_2
 
-    .line 411
+    .line 424
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1914,13 +2069,13 @@
 
     check-cast v3, Lcom/android/settings/personalvibration/BackgroundView$floatValue;
 
-    .line 412
+    .line 425
     .local v3, temp2:Lcom/android/settings/personalvibration/BackgroundView$floatValue;
     iget v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iput v4, v3, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->up:F
 
-    .line 414
+    .line 427
     const-string v4, "PersonalVibration"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1945,19 +2100,19 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 415
+    .line 428
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v1, v3}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 417
+    .line 430
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
     iput-wide v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->uptime:J
 
-    .line 419
+    .line 432
     const-string v4, "PersonalVibration"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1986,12 +2141,12 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 420
+    .line 433
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
 
     invoke-virtual {v4}, Landroid/os/SystemVibrator;->cancel()V
 
-    .line 422
+    .line 435
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -2024,14 +2179,14 @@
 
     iput-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->patternString:Ljava/lang/String;
 
-    .line 424
+    .line 437
     iget-object v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
 
     invoke-virtual {v4}, Landroid/os/SystemVibrator;->cancel()V
 
     goto/16 :goto_1
 
-    .line 385
+    .line 398
     nop
 
     :pswitch_data_0
@@ -2048,10 +2203,10 @@
     .parameter "handler"
 
     .prologue
-    .line 354
+    .line 367
     iput-object p1, p0, Lcom/android/settings/personalvibration/BackgroundView;->mHandler:Landroid/os/Handler;
 
-    .line 355
+    .line 368
     return-void
 .end method
 
@@ -2059,42 +2214,42 @@
     .locals 3
 
     .prologue
-    .line 298
+    .line 311
     sget-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
     if-nez v0, :cond_0
 
-    .line 300
+    .line 313
     const-string v0, "PersonalVibration"
 
     const-string v1, "setPauseTimer, timer has already stopped"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 324
+    .line 337
     :goto_0
     return-void
 
-    .line 303
+    .line 316
     :cond_0
     invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->validateLastValue()Z
 
-    .line 305
+    .line 318
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
 
-    .line 306
+    .line 319
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->purge()I
 
-    .line 307
+    .line 320
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
-    .line 309
+    .line 322
     const-string v0, "PersonalVibration"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2119,49 +2274,49 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 311
+    .line 324
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
-    .line 313
+    .line 326
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Recording:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     if-ne v0, v1, :cond_3
 
-    .line 314
+    .line 327
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPauseSweep:F
 
-    .line 318
+    .line 331
     :cond_1
     :goto_1
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     iput-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    .line 320
+    .line 333
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_2
 
-    .line 321
+    .line 334
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x70
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 323
+    .line 336
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     goto :goto_0
 
-    .line 315
+    .line 328
     :cond_3
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
@@ -2169,7 +2324,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 316
+    .line 329
     iget v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mPauseSweep:F
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
@@ -2181,19 +2336,19 @@
     .locals 6
 
     .prologue
-    .line 263
+    .line 276
     sget-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
     if-nez v0, :cond_0
 
-    .line 264
+    .line 277
     new-instance v0, Ljava/util/Timer;
 
     invoke-direct {v0}, Ljava/util/Timer;-><init>()V
 
     sput-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
-    .line 265
+    .line 278
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
     new-instance v1, Lcom/android/settings/personalvibration/BackgroundView$UpdateTimeTask;
@@ -2206,22 +2361,22 @@
 
     invoke-virtual/range {v0 .. v5}, Ljava/util/Timer;->schedule(Ljava/util/TimerTask;JJ)V
 
-    .line 266
+    .line 279
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
-    .line 267
+    .line 280
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     iput-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    .line 268
+    .line 281
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 270
+    .line 283
     const-string v0, "PersonalVibration"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2246,7 +2401,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 272
+    .line 285
     :cond_0
     return-void
 .end method
@@ -2257,19 +2412,19 @@
     .prologue
     const-wide/16 v6, 0x0
 
-    .line 247
+    .line 260
     sget-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
     if-nez v0, :cond_0
 
-    .line 248
+    .line 261
     new-instance v0, Ljava/util/Timer;
 
     invoke-direct {v0}, Ljava/util/Timer;-><init>()V
 
     sput-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
-    .line 249
+    .line 262
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
     new-instance v1, Lcom/android/settings/personalvibration/BackgroundView$UpdateTimeTask;
@@ -2282,47 +2437,47 @@
 
     invoke-virtual/range {v0 .. v5}, Ljava/util/Timer;->schedule(Ljava/util/TimerTask;JJ)V
 
-    .line 250
+    .line 263
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
-    .line 252
+    .line 265
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->startTime:J
 
-    .line 253
+    .line 266
     iput-wide v6, p0, Lcom/android/settings/personalvibration/BackgroundView;->uptime:J
 
-    .line 254
+    .line 267
     iput-wide v6, p0, Lcom/android/settings/personalvibration/BackgroundView;->downtime:J
 
-    .line 255
+    .line 268
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->patternString:Ljava/lang/String;
 
-    .line 256
+    .line 269
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Recording:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     iput-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    .line 257
+    .line 270
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 258
+    .line 271
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, v1}, Ljava/util/AbstractCollection;->removeAll(Ljava/util/Collection;)Z
 
-    .line 260
+    .line 273
     :cond_0
     return-void
 .end method
@@ -2333,33 +2488,33 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 275
+    .line 288
     sget-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
     if-eqz v0, :cond_0
 
-    .line 276
+    .line 289
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
 
-    .line 277
+    .line 290
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->purge()I
 
-    .line 278
+    .line 291
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/settings/personalvibration/BackgroundView;->timer:Ljava/util/Timer;
 
-    .line 280
+    .line 293
     :cond_0
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/settings/personalvibration/BackgroundView;->isTimerRun:Z
 
-    .line 281
+    .line 294
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
 
     if-eqz v0, :cond_1
@@ -2368,47 +2523,47 @@
 
     invoke-virtual {v0}, Landroid/os/SystemVibrator;->cancel()V
 
-    .line 283
+    .line 296
     :cond_1
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
-    .line 284
+    .line 297
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, v1}, Ljava/util/AbstractCollection;->removeAll(Ljava/util/Collection;)Z
 
-    .line 286
+    .line 299
     iput-wide v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->uptime:J
 
-    .line 287
+    .line 300
     iput-wide v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->downtime:J
 
-    .line 289
+    .line 302
     sget-object v0, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Standby:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     iput-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->stage:Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    .line 291
+    .line 304
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_2
 
-    .line 292
+    .line 305
     iget-object v0, p0, Lcom/android/settings/personalvibration/BackgroundView;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6f
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 294
+    .line 307
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/BackgroundView;->invalidate()V
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    .line 295
+    .line 308
     return-void
 .end method
 
@@ -2418,7 +2573,7 @@
     .prologue
     const/high16 v4, 0x43b4
 
-    .line 332
+    .line 345
     iget-object v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -2427,18 +2582,18 @@
 
     add-int/lit8 v0, v2, -0x1
 
-    .line 333
+    .line 346
     .local v0, i:I
     if-gez v0, :cond_0
 
-    .line 334
+    .line 347
     const/4 v2, 0x0
 
-    .line 350
+    .line 363
     :goto_0
     return v2
 
-    .line 335
+    .line 348
     :cond_0
     iget-object v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
@@ -2448,7 +2603,7 @@
 
     check-cast v1, Lcom/android/settings/personalvibration/BackgroundView$floatValue;
 
-    .line 337
+    .line 350
     .local v1, temp2:Lcom/android/settings/personalvibration/BackgroundView$floatValue;
     iget v2, v1, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->up:F
 
@@ -2458,37 +2613,37 @@
 
     if-nez v2, :cond_1
 
-    .line 338
+    .line 351
     iget v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     cmpl-float v2, v2, v4
 
     if-lez v2, :cond_2
 
-    .line 339
+    .line 352
     iput v4, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 
     iput v4, v1, Lcom/android/settings/personalvibration/BackgroundView$floatValue;->up:F
 
-    .line 343
+    .line 356
     :goto_1
     iget-object v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->pressedValue:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0, v1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 344
+    .line 357
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->uptime:J
 
-    .line 345
+    .line 358
     iget-object v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->vib:Landroid/os/SystemVibrator;
 
     invoke-virtual {v2}, Landroid/os/SystemVibrator;->cancel()V
 
-    .line 346
+    .line 359
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2521,7 +2676,7 @@
 
     iput-object v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->patternString:Ljava/lang/String;
 
-    .line 348
+    .line 361
     const-string v2, "PersonalVibration"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2546,13 +2701,13 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 350
+    .line 363
     :cond_1
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 341
+    .line 354
     :cond_2
     iget v2, p0, Lcom/android/settings/personalvibration/BackgroundView;->mSweep:F
 

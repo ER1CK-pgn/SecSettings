@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 262
+    .line 351
     iput-object p1, p0, Lcom/android/settings/deviceinfo/UsbSettings$5;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 265
+    .line 354
     iget-object v0, p0, Lcom/android/settings/deviceinfo/UsbSettings$5;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     #getter for: Lcom/android/settings/deviceinfo/UsbSettings;->mUsbManager:Landroid/hardware/usb/UsbManager;
@@ -57,7 +57,7 @@
 
     if-nez v0, :cond_0
 
-    .line 266
+    .line 355
     iget-object v0, p0, Lcom/android/settings/deviceinfo/UsbSettings$5;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     #getter for: Lcom/android/settings/deviceinfo/UsbSettings;->mMtpUsb3:Landroid/preference/CheckBoxPreference;
@@ -67,9 +67,9 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 267
+    .line 356
     :cond_0
     return-void
 .end method

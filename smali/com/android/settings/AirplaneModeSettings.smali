@@ -18,17 +18,17 @@
     .locals 2
 
     .prologue
-    .line 38
+    .line 42
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 45
+    .line 49
     new-instance v0, Lcom/android/settings/AirplaneModeSettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/AirplaneModeSettings$1;-><init>(Lcom/android/settings/AirplaneModeSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/AirplaneModeSettings;->mHandler:Landroid/os/Handler;
 
-    .line 56
+    .line 60
     new-instance v0, Lcom/android/settings/AirplaneModeSettings$2;
 
     new-instance v1, Landroid/os/Handler;
@@ -47,7 +47,7 @@
     .parameter "x0"
 
     .prologue
-    .line 38
+    .line 42
     invoke-direct {p0}, Lcom/android/settings/AirplaneModeSettings;->onAirplaneModeChanged()V
 
     return-void
@@ -60,7 +60,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 124
+    .line 154
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -87,27 +87,27 @@
 
     const/4 v4, 0x0
 
-    .line 105
+    .line 135
     const-string v5, "AirplaneModeSettings"
 
     const-string v6, "onAirplaneModeChanged()"
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 107
+    .line 137
     iget-object v5, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v5}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->getServiceState()Landroid/telephony/ServiceState;
 
     move-result-object v2
 
-    .line 108
+    .line 138
     .local v2, serviceState:Landroid/telephony/ServiceState;
     const/4 v0, 0x0
 
-    .line 109
+    .line 139
     .local v0, airplaneModeEnabled:Z
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -117,8 +117,8 @@
 
     if-eqz v5, :cond_1
 
-    .line 110
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    .line 140
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -126,15 +126,15 @@
 
     move-result v0
 
-    .line 111
+    .line 141
     invoke-direct {p0, v0}, Lcom/android/settings/AirplaneModeSettings;->updateAirplaneModeInfo(Z)V
 
-    .line 121
+    .line 151
     :cond_0
     :goto_0
     return-void
 
-    .line 113
+    .line 143
     :cond_1
     invoke-virtual {v2}, Landroid/telephony/ServiceState;->getState()I
 
@@ -146,7 +146,7 @@
 
     move v0, v3
 
-    .line 114
+    .line 144
     :goto_1
     const-string v5, "AirplaneModeSettings"
 
@@ -174,7 +174,7 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 115
+    .line 145
     const-string v5, "AirplaneModeSettings"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -197,12 +197,12 @@
 
     invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 116
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    .line 146
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -216,12 +216,12 @@
 
     move v1, v3
 
-    .line 117
+    .line 147
     .local v1, expectAirplaneModeOn:Z
     :goto_2
     if-ne v0, v1, :cond_0
 
-    .line 118
+    .line 148
     invoke-direct {p0, v0}, Lcom/android/settings/AirplaneModeSettings;->updateAirplaneModeInfo(Z)V
 
     goto :goto_0
@@ -230,13 +230,13 @@
     :cond_2
     move v0, v4
 
-    .line 113
+    .line 143
     goto :goto_1
 
     :cond_3
     move v1, v4
 
-    .line 116
+    .line 146
     goto :goto_2
 .end method
 
@@ -245,7 +245,7 @@
     .parameter "airplaneModeEnabled"
 
     .prologue
-    .line 128
+    .line 158
     const-string v2, "AirplaneModeSettings"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -268,76 +268,76 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 132
+    .line 162
     if-eqz p1, :cond_0
 
-    .line 133
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getResources()Landroid/content/res/Resources;
+    .line 163
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0913ad
+    const v3, 0x7f09151d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 134
+    .line 164
     .local v0, info:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0d0027
+    const v3, 0x7f0d0032
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    .line 139
+    .line 169
     .local v1, textColor:I
     :goto_0
     iget-object v2, p0, Lcom/android/settings/AirplaneModeSettings;->airplaneModeInfo:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 140
+    .line 170
     iget-object v2, p0, Lcom/android/settings/AirplaneModeSettings;->airplaneModeInfo:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 141
+    .line 171
     return-void
 
-    .line 136
+    .line 166
     .end local v0           #info:Ljava/lang/String;
     .end local v1           #textColor:I
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0913ae
+    const v3, 0x7f09151e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 137
+    .line 167
     .restart local v0       #info:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0d0028
+    const v3, 0x7f0d0033
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -354,79 +354,219 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 65
+    .line 69
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 66
+    .line 70
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 4
+    .locals 6
     .parameter "inflater"
     .parameter "container"
     .parameter "savedInstanceState"
 
     .prologue
-    .line 70
-    const v1, 0x7f04000f
+    .line 74
+    const v3, 0x7f040011
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p1, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 71
-    .local v0, view:Landroid/view/View;
-    const v1, 0x7f0b003f
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/android/settings/AirplaneModeSettings;->airplaneModeInfo:Landroid/widget/TextView;
-
-    .line 73
-    new-instance v1, Lcom/android/internal/telephony/PhoneStateIntentReceiver;
-
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p1, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/settings/AirplaneModeSettings;->mHandler:Landroid/os/Handler;
+    .line 75
+    .local v2, view:Landroid/view/View;
+    const v3, 0x7f0b0048
 
-    invoke-direct {v1, v2, v3}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    iput-object v1, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
+    move-result-object v3
 
-    .line 74
-    iget-object v1, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
+    check-cast v3, Landroid/widget/TextView;
 
-    const/4 v2, 0x3
+    iput-object v3, p0, Lcom/android/settings/AirplaneModeSettings;->airplaneModeInfo:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->notifyServiceState(I)V
+    .line 77
+    const v3, 0x7f0b0047
 
-    .line 76
-    return-object v0
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    .line 78
+    .local v0, airplaneModeDesc:Landroid/widget/TextView;
+    const v1, 0x7f090c85
+
+    .line 79
+    .local v1, resEnableMsg:I
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 80
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    const-string v4, "com.android.mms"
+
+    invoke-static {v3, v4}, Lcom/android/settings/Utils;->hasPackage(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 81
+    const v1, 0x7f090c88
+
+    .line 86
+    :cond_0
+    :goto_0
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v3
+
+    const-string v4, "CscFeature_BT_EnableSeparateSettingWithAirplainMode"
+
+    invoke-virtual {v3, v4}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    .line 87
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    .line 88
+    const v1, 0x7f090c89
+
+    .line 101
+    :cond_1
+    :goto_1
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    .line 103
+    new-instance v3, Lcom/android/internal/telephony/PhoneStateIntentReceiver;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/AirplaneModeSettings;->mHandler:Landroid/os/Handler;
+
+    invoke-direct {v3, v4, v5}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+
+    iput-object v3, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
+
+    .line 104
+    iget-object v3, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
+
+    const/4 v4, 0x3
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->notifyServiceState(I)V
+
+    .line 106
+    return-object v2
+
+    .line 83
+    :cond_2
+    const v1, 0x7f090c89
+
+    goto :goto_0
+
+    .line 90
+    :cond_3
+    const-string v3, "CHM"
+
+    const-string v4, "ro.csc.sales_code"
+
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    const-string v3, "CHC"
+
+    const-string v4, "ro.csc.sales_code"
+
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    .line 91
+    :cond_4
+    const v1, 0x7f090c86
+
+    goto :goto_1
+
+    .line 93
+    :cond_5
+    const v1, 0x7f090c87
+
+    goto :goto_1
+
+    .line 97
+    :cond_6
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    .line 98
+    const v1, 0x7f090c8a
+
+    goto :goto_1
 .end method
 
 .method public onPause()V
     .locals 2
 
     .prologue
-    .line 93
+    .line 123
     invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 95
+    .line 125
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->unregisterIntent()V
 
-    .line 96
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    .line 126
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -436,12 +576,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 97
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    .line 127
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -449,7 +589,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 99
+    .line 129
     :cond_0
     return-void
 .end method
@@ -458,16 +598,16 @@
     .locals 4
 
     .prologue
-    .line 81
+    .line 111
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
-    .line 83
+    .line 113
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSettings;->mPhoneStateReceiver:Lcom/android/internal/telephony/PhoneStateIntentReceiver;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneStateIntentReceiver;->registerIntent()V
 
-    .line 84
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    .line 114
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -477,12 +617,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 85
-    invoke-virtual {p0}, Lcom/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
+    .line 115
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -498,7 +638,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 89
+    .line 119
     :cond_0
     return-void
 .end method

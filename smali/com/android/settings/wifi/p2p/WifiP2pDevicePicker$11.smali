@@ -3,12 +3,12 @@
 .source "WifiP2pDevicePicker.java"
 
 # interfaces
-.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
+.implements Landroid/speech/tts/TextToSpeech$OnInitListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->setScanTimer(ZZ)V
+    value = Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->onResume()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,75 +27,92 @@
     .parameter
 
     .prologue
-    .line 1167
+    .line 708
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$11;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFailure(I)V
+.method public onInit(I)V
     .locals 3
-    .parameter "reason"
+    .parameter "status"
 
     .prologue
-    .line 1173
-    const-string v0, "WifiP2pDevicePicker"
+    .line 711
+    if-nez p1, :cond_1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 712
+    iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$11;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, " discover fail "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    #getter for: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
+    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$3900(Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;)Landroid/speech/tts/TextToSpeech;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/speech/tts/TextToSpeech;->isLanguageAvailable(Ljava/util/Locale;)I
 
-    move-result-object v1
+    move-result v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 713
+    .local v0, result:I
+    const/4 v1, -0x1
 
-    .line 1174
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$11;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
+    if-eq v0, v1, :cond_0
 
-    const/4 v1, 0x3
+    const/4 v1, -0x2
 
-    #calls: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$1000(Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;I)V
+    if-ne v0, v1, :cond_2
 
-    .line 1175
+    .line 715
+    :cond_0
+    const-string v1, "WifiP2pDevicePicker"
+
+    const-string v2, "TTS : This Language is not supported"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 723
+    .end local v0           #result:I
+    :cond_1
+    :goto_0
     return-void
-.end method
 
-.method public onSuccess()V
-    .locals 2
+    .line 716
+    .restart local v0       #result:I
+    :cond_2
+    const/4 v1, 0x1
 
-    .prologue
-    .line 1169
-    const-string v0, "WifiP2pDevicePicker"
+    if-eq v0, v1, :cond_3
 
-    const-string v1, " discover success"
+    const/4 v1, 0x2
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-ne v0, v1, :cond_4
 
-    .line 1170
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$11;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
+    .line 718
+    :cond_3
+    const-string v1, "WifiP2pDevicePicker"
 
-    const/4 v1, 0x3
+    const-string v2, "TTS : This Language is not downloaded"
 
-    #calls: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->setP2pMenu(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$1000(Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;I)V
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1171
-    return-void
+    goto :goto_0
+
+    .line 720
+    :cond_4
+    const-string v1, "WifiP2pDevicePicker"
+
+    const-string v2, "TTS : Initilization Failed!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

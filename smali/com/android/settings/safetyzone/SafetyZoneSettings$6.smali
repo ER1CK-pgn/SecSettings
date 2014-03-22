@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 597
+    .line 595
     iput-object p1, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$6;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,14 @@
     .parameter "which"
 
     .prologue
-    .line 599
+    .line 597
     const-string v0, "SafetyZoneSettings"
 
     const-string v1, "showSafetyZoneEnableDialog(), cancel"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 600
+    .line 598
     iget-object v0, p0, Lcom/android/settings/safetyzone/SafetyZoneSettings$6;->this$0:Lcom/android/settings/safetyzone/SafetyZoneSettings;
 
     #getter for: Lcom/android/settings/safetyzone/SafetyZoneSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -62,6 +62,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 601
+    .line 599
     return-void
 .end method

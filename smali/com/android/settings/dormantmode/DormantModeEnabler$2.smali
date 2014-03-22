@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 192
+    .line 180
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantModeEnabler$2;->this$0:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 194
+    .line 182
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantModeEnabler$2;->this$0:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     #getter for: Lcom/android/settings/dormantmode/DormantModeEnabler;->mContext:Landroid/content/Context;
@@ -63,7 +63,7 @@
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 195
+    .line 183
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantModeEnabler$2;->this$0:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     #getter for: Lcom/android/settings/dormantmode/DormantModeEnabler;->mContext:Landroid/content/Context;
@@ -73,7 +73,7 @@
 
     check-cast v0, Landroid/preference/PreferenceActivity;
 
-    .line 196
+    .line 184
     invoke-virtual {v0}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
     move-result v1
@@ -86,7 +86,7 @@
 
     if-nez v1, :cond_2
 
-    .line 197
+    .line 185
     :cond_0
     const-class v1, Lcom/android/settings/dormantmode/DormantmodeSettings;
 
@@ -94,7 +94,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f091268
+    const v3, 0x7f0913d2
 
     const/4 v6, 0x0
 
@@ -104,12 +104,12 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 203
+    .line 191
     :cond_1
     :goto_0
     return-void
 
-    .line 199
+    .line 187
     :cond_2
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantModeEnabler$2;->this$0:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
@@ -120,7 +120,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 200
+    .line 188
     iget-object v1, p0, Lcom/android/settings/dormantmode/DormantModeEnabler$2;->this$0:Lcom/android/settings/dormantmode/DormantModeEnabler;
 
     #getter for: Lcom/android/settings/dormantmode/DormantModeEnabler;->mHeader:Landroid/preference/PreferenceActivity$Header;

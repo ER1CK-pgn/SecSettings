@@ -278,7 +278,7 @@
     invoke-virtual {p1, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 438
-    const v5, 0x7f090053
+    const v5, 0x7f090067
 
     invoke-static {p1, v5, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

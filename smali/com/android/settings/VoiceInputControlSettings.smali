@@ -6,10 +6,22 @@
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
+# static fields
+.field private static voiceInputControlSettings:Lcom/android/settings/VoiceInputControlSettings;
+
+
 # instance fields
 .field private final KEY_EASY_MODE_SWITCH:Ljava/lang/String;
 
 .field private final KEY_VOICE_INPUT_CONTROL:Ljava/lang/String;
+
+.field private dialog:Landroid/app/AlertDialog;
+
+.field private foundVoiceControlView:Landroid/view/View;
+
+.field private headerView:Landroid/view/View;
+
+.field private isTablet:Z
 
 .field private mActionBarLayout:Landroid/view/View;
 
@@ -25,11 +37,17 @@
 
 .field private mChatonV:Landroid/preference/CheckBoxPreference;
 
+.field mHelpHandler:Landroid/os/Handler;
+
+.field private mHelpState:I
+
 .field private mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
 .field private mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
 .field private mIncommingCalls:Landroid/preference/CheckBoxPreference;
+
+.field private mIndex:I
 
 .field private mIsAutoHapticDialogShowing:Z
 
@@ -39,12 +57,28 @@
 
 .field private mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
+.field private mRotation:I
+
 .field private mVoiceInputCategory:Landroid/preference/PreferenceCategory;
 
 .field private mVoiceInputControlObserver:Landroid/database/ContentObserver;
 
+.field private r:Landroid/graphics/Rect;
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 112
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/settings/VoiceInputControlSettings;->voiceInputControlSettings:Lcom/android/settings/VoiceInputControlSettings;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 3
 
@@ -53,32 +87,51 @@
 
     const/4 v1, 0x0
 
-    .line 53
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 56
+    .line 70
     const-string v0, "voice_input_control"
 
     iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->KEY_VOICE_INPUT_CONTROL:Ljava/lang/String;
 
-    .line 58
+    .line 72
     const-string v0, "easy_mode_switch"
 
     iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->KEY_EASY_MODE_SWITCH:Ljava/lang/String;
 
-    .line 75
+    .line 89
     iput-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsAutoHapticDialogShowing:Z
 
-    .line 77
+    .line 94
+    iput-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->isTablet:Z
+
+    .line 95
+    iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->dialog:Landroid/app/AlertDialog;
+
+    .line 96
     iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 78
+    .line 97
     iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 79
+    .line 98
     iput-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
 
-    .line 87
+    .line 106
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    .line 109
+    iput v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpState:I
+
+    .line 110
+    iput v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIndex:I
+
+    .line 113
     new-instance v0, Lcom/android/settings/VoiceInputControlSettings$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -89,6 +142,13 @@
 
     iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mVoiceInputControlObserver:Landroid/database/ContentObserver;
 
+    .line 240
+    new-instance v0, Lcom/android/settings/VoiceInputControlSettings$2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/VoiceInputControlSettings$2;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
     return-void
 .end method
 
@@ -97,63 +157,117 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 67
     invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->updateUIVoiceInputControl()V
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/settings/VoiceInputControlSettings;)Landroid/widget/Switch;
+.method static synthetic access$102(Lcom/android/settings/VoiceInputControlSettings;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 67
+    iput p1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpState:I
+
+    return p1
+.end method
+
+.method static synthetic access$200(Lcom/android/settings/VoiceInputControlSettings;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 67
+    invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->showHelpStep1Dialog()V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/settings/VoiceInputControlSettings;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 67
+    iget-boolean v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
+
+    return v0
+.end method
+
+.method static synthetic access$400(Lcom/android/settings/VoiceInputControlSettings;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 67
+    invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->showHelpStep2Dialog()V
+
+    return-void
+.end method
+
+.method static synthetic access$500(Lcom/android/settings/VoiceInputControlSettings;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 67
+    invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->setTabletView()V
+
+    return-void
+.end method
+
+.method static synthetic access$600(Lcom/android/settings/VoiceInputControlSettings;)Landroid/widget/Switch;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 67
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/VoiceInputControlSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
+.method static synthetic access$700(Lcom/android/settings/VoiceInputControlSettings;)Lcom/android/settings/helpdialog/TwHelpDialog;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 67
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/settings/VoiceInputControlSettings;Lcom/android/settings/helpdialog/TwHelpDialog;)Lcom/android/settings/helpdialog/TwHelpDialog;
+.method static synthetic access$802(Lcom/android/settings/VoiceInputControlSettings;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 53
-    iput-object p1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
-
-    return-object p1
-.end method
-
-.method static synthetic access$302(Lcom/android/settings/VoiceInputControlSettings;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 53
+    .line 67
     iput-boolean p1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsAutoHapticDialogShowing:Z
 
     return p1
+.end method
+
+.method public static getInstance()Lcom/android/settings/VoiceInputControlSettings;
+    .locals 1
+
+    .prologue
+    .line 122
+    sget-object v0, Lcom/android/settings/VoiceInputControlSettings;->voiceInputControlSettings:Lcom/android/settings/VoiceInputControlSettings;
+
+    return-object v0
 .end method
 
 .method public static getSalesCodeProperty()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 449
+    .line 590
     const-string v0, "ro.csc.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -167,20 +281,20 @@
     .locals 3
 
     .prologue
-    .line 434
+    .line 575
     const/4 v0, 0x1
 
-    .line 435
+    .line 576
     .local v0, isChatONV:Z
     invoke-static {}, Lcom/android/settings/VoiceInputControlSettings;->getSalesCodeProperty()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 436
+    .line 577
     .local v1, value:Ljava/lang/String;
     if-eqz v1, :cond_1
 
-    .line 437
+    .line 578
     const-string v2, "VZW"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -253,6 +367,14 @@
 
     if-nez v2, :cond_0
 
+    const-string v2, "DCM"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     const-string v2, "CHC"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -261,11 +383,11 @@
 
     if-eqz v2, :cond_1
 
-    .line 442
+    .line 583
     :cond_0
     const/4 v0, 0x0
 
-    .line 445
+    .line 586
     :cond_1
     return v0
 .end method
@@ -276,12 +398,12 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 165
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 262
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
-    .line 168
+    .line 265
     .local v0, pm:Landroid/content/pm/PackageManager;
     :try_start_0
     const-string v2, "com.coolots.chaton"
@@ -292,15 +414,15 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 188
+    .line 285
     :goto_0
     return v1
 
-    .line 171
+    .line 268
     :catch_0
     move-exception v2
 
-    .line 179
+    .line 276
     :try_start_1
     const-string v2, "com.coolots.chatonforcanada"
 
@@ -312,11 +434,11 @@
 
     goto :goto_0
 
-    .line 182
+    .line 279
     :catch_1
     move-exception v1
 
-    .line 188
+    .line 285
     const/4 v1, 0x0
 
     goto :goto_0
@@ -326,8 +448,8 @@
     .locals 3
 
     .prologue
-    .line 307
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 414
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -347,82 +469,380 @@
     .parameter "mPref"
 
     .prologue
-    .line 312
+    .line 419
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
     if-ne v0, p1, :cond_0
 
-    .line 313
+    .line 420
     invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->isEasyModeOn()I
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 314
+    .line 421
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {p1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 318
+    .line 425
     :cond_0
     :goto_0
     return-void
 
-    .line 316
+    .line 423
     :cond_1
     const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {p1, v0}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method
 
-.method private showHelpStep1Dialog()V
-    .locals 4
+.method private setTabletView()V
+    .locals 11
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v10, 0x0
 
-    .line 554
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    const v9, 0x7f0b0615
 
-    if-eqz v1, :cond_0
+    const/4 v8, 0x2
 
-    .line 555
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    const/4 v7, 0x1
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    const/4 v1, 0x0
 
-    .line 556
-    iput-object v3, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 855
+    iget v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpState:I
 
-    .line 559
+    if-ne v0, v7, :cond_0
+
+    .line 858
     :cond_0
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+    new-instance v2, Landroid/graphics/Point;
 
-    if-nez v1, :cond_1
+    invoke-direct {v2}, Landroid/graphics/Point;-><init>()V
 
-    .line 560
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v1
-
-    const v2, 0x7f0400a5
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    .line 859
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 562
-    .local v0, view:Landroid/view/View;
+    const-string v3, "window"
+
+    invoke-virtual {v0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/WindowManager;
+
+    .line 861
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
+
+    .line 863
+    iget v2, v2, Landroid/graphics/Point;->y:I
+
+    .line 864
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v3, 0x7f0f0142
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    .line 867
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ListActivity;
+
+    .line 868
+    invoke-virtual {v0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
+
+    move-result-object v4
+
+    .line 869
+    invoke-virtual {v4, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    .line 870
+    invoke-virtual {v4, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->foundVoiceControlView:Landroid/view/View;
+
+    .line 872
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v5
+
+    move v0, v1
+
+    .line 874
+    :goto_0
+    if-ge v0, v5, :cond_1
+
+    .line 875
+    invoke-virtual {v4, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/view/View;->getId()I
+
+    move-result v6
+
+    if-ne v6, v9, :cond_3
+
+    .line 876
+    invoke-virtual {v4, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    .line 881
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getId()I
+
+    move-result v0
+
+    if-eq v0, v9, :cond_5
+
+    .line 882
+    iget v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mIndex:I
+
+    if-eqz v0, :cond_4
+
+    .line 883
+    invoke-virtual {v4}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+
+    move-result v0
+
+    invoke-virtual {v4, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    .line 884
+    invoke-virtual {v4}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+
+    move-result v0
+
+    invoke-virtual {v4, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    .line 886
+    invoke-virtual {v4}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+
+    move-result v0
+
+    iget v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mIndex:I
+
+    if-ge v0, v2, :cond_2
+
+    .line 887
+    invoke-virtual {v4}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
+
+    move-result v0
+
+    invoke-virtual {v4, v0, v1}, Landroid/widget/AbsListView;->smoothScrollToPositionFromTop(II)V
+
+    .line 889
+    :cond_2
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const-wide/16 v1, 0x32
+
+    invoke-virtual {v0, v8, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    .line 912
+    :goto_1
+    return-void
+
+    .line 874
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 892
+    :cond_4
+    iput-object v10, p0, Lcom/android/settings/VoiceInputControlSettings;->foundVoiceControlView:Landroid/view/View;
+
+    .line 893
+    iput-object v10, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    .line 894
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const-wide/16 v1, 0x32
+
+    invoke-virtual {v0, v8, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_1
+
+    .line 898
+    :cond_5
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->foundVoiceControlView:Landroid/view/View;
+
+    .line 899
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->foundVoiceControlView:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
+
+    .line 900
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    invoke-virtual {v4, v0}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
+
+    move-result v0
+
+    .line 901
+    iput v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mIndex:I
+
+    .line 903
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getFocusedChild()Landroid/view/View;
+
+    .line 904
+    invoke-virtual {v4}, Landroid/widget/AbsListView;->getSelectedView()Landroid/view/View;
+
+    .line 905
+    iget v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpState:I
+
+    if-ne v1, v7, :cond_7
+
+    .line 906
+    div-int/lit8 v1, v2, 0x2
+
+    invoke-virtual {v4, v0, v1}, Landroid/widget/AbsListView;->smoothScrollToPositionFromTop(II)V
+
+    .line 910
+    :cond_6
+    :goto_2
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v7}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 911
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const-wide/16 v1, 0x3e8
+
+    invoke-virtual {v0, v7, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_1
+
+    .line 907
+    :cond_7
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
+
+    sub-int v1, v2, v1
+
+    mul-int/lit8 v3, v3, 0x3
+
+    if-gt v1, v3, :cond_6
+
+    .line 908
+    div-int/lit8 v1, v2, 0x2
+
+    invoke-virtual {v4, v0, v1}, Landroid/widget/AbsListView;->smoothScrollToPositionFromTop(II)V
+
+    goto :goto_2
+.end method
+
+.method private showHelpStep1Dialog()V
+    .locals 10
+
+    .prologue
+    const v9, 0x7f0f0150
+
+    const/4 v2, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v8, 0x1
+
+    .line 698
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "voice_input_control"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 700
+    if-ne v0, v8, :cond_1
+
+    .line 806
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 703
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    if-eqz v0, :cond_2
+
+    .line 704
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    .line 705
+    iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    .line 708
+    :cond_2
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    if-nez v0, :cond_0
+
+    .line 709
+    iget-boolean v0, p0, Lcom/android/settings/VoiceInputControlSettings;->isTablet:Z
+
+    if-nez v0, :cond_3
+
+    .line 710
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f0400c2
+
+    invoke-virtual {v0, v1, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 712
     new-instance v1, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -430,169 +850,575 @@
 
     iput-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 563
+    .line 713
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v1, v0}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    .line 564
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+    .line 715
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    sget-object v2, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+    sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
 
-    .line 565
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+    .line 716
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, v8}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setShowWrongInputToast(Z)V
+    .line 717
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 566
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setOwnerActivity(Landroid/app/Activity;)V
-
-    .line 567
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->show()V
-
-    .line 570
-    .end local v0           #view:Landroid/view/View;
-    :cond_1
-    return-void
-.end method
-
-.method private showHelpStep2Dialog()V
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 573
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    if-eqz v2, :cond_0
-
-    .line 574
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    invoke-virtual {v2}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
-
-    .line 575
-    iput-object v4, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    .line 579
-    :cond_0
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
-
-    if-nez v2, :cond_1
-
-    .line 580
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v2
-
-    const v3, 0x7f0400a6
-
-    invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 581
-    .local v1, view:Landroid/view/View;
-    const v2, 0x7f0b010b
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 718
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+
+    goto :goto_0
+
+    .line 720
+    :cond_3
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f0400c3
+
+    invoke-virtual {v0, v1, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    .line 722
+    new-instance v0, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    .line 723
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0, v3}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+
+    .line 725
+    new-instance v1, Landroid/graphics/Point;
+
+    invoke-direct {v1}, Landroid/graphics/Point;-><init>()V
+
+    .line 726
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    const-string v4, "window"
+
+    invoke-virtual {v0, v4}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/WindowManager;
+
+    .line 728
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
+
+    .line 729
+    iget v4, v1, Landroid/graphics/Point;->x:I
+
+    .line 730
+    iget v0, v1, Landroid/graphics/Point;->y:I
+
+    .line 732
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->foundVoiceControlView:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    .line 735
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->foundVoiceControlView:Landroid/view/View;
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    .line 736
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v1
+
+    .line 737
+    add-int/lit8 v1, v1, -0x1
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 738
+    iget v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mRotation:I
+
+    if-ne v5, v8, :cond_7
+
+    .line 740
+    instance-of v0, v1, Landroid/widget/RelativeLayout;
+
+    if-nez v0, :cond_4
+
+    .line 741
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    .line 742
+    iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    goto/16 :goto_0
+
+    :cond_4
+    move-object v0, v1
+
+    .line 745
+    check-cast v0, Landroid/widget/RelativeLayout;
+
+    .line 746
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v1
+
+    .line 747
+    :goto_1
+    if-ge v2, v1, :cond_5
+
+    .line 748
+    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v5
+
+    instance-of v5, v5, Landroid/widget/Switch;
+
+    if-eqz v5, :cond_6
+
+    .line 749
+    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    .line 767
+    :cond_5
+    :goto_2
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
+
+    .line 770
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v0, v1
+
+    .line 771
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
+
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v2, v2, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v1, v2
+
+    .line 773
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v5, 0x7f0f0142
+
+    invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    .line 775
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0f014a
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    .line 777
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v6
+
+    .line 780
+    iget-object v7, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v7, v7, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v0, v2
+
+    div-int/lit8 v0, v0, 0x2
+
+    add-int/2addr v0, v7
+
+    .line 782
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    sub-int v0, v4, v0
+
+    .line 783
+    iget-object v4, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v4, v4, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v1, v2
+
+    div-int/lit8 v1, v1, 0x2
+
+    add-int/2addr v1, v4
+
+    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getStatusBarHeight()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
+
+    .line 785
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v2, v2, Landroid/graphics/Rect;->right:I
+
+    sub-int v2, v0, v2
+
+    .line 786
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->r:Landroid/graphics/Rect;
+
+    iget v2, v2, Landroid/graphics/Rect;->right:I
+
+    .line 788
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v2, v3}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+
+    .line 790
+    iget v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mRotation:I
+
+    if-ne v2, v8, :cond_a
+
+    .line 791
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    add-int/2addr v0, v3
+
+    invoke-virtual {v2, v0, v1, v5}, Lcom/android/settings/helpdialog/TwHelpDialog;->setLayoutMarginDialogCenter(III)V
+
+    .line 799
+    :goto_3
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+
+    invoke-virtual {v0, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
+
+    .line 800
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0, v8}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
+
+    .line 801
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
+
+    .line 802
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+
+    goto/16 :goto_0
+
+    .line 747
+    :cond_6
+    add-int/lit8 v2, v2, 0x1
+
+    goto/16 :goto_1
+
+    :cond_7
+    move v1, v2
+
+    .line 754
+    :goto_4
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_5
+
+    .line 755
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
+
+    move-result v2
+
+    const v5, 0x1020018
+
+    if-ne v2, v5, :cond_8
+
+    .line 756
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->headerView:Landroid/view/View;
+
+    goto/16 :goto_2
+
+    .line 759
+    :cond_8
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-ne v1, v2, :cond_9
+
+    .line 760
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    .line 761
+    iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    goto/16 :goto_0
+
+    .line 754
+    :cond_9
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_4
+
+    .line 795
+    :cond_a
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0f0171
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    sub-int/2addr v0, v3
+
+    invoke-virtual {v2, v0, v1, v5, v6}, Lcom/android/settings/helpdialog/TwHelpDialog;->setLayoutMarginDialogRight(IIII)V
+
+    goto :goto_3
+.end method
+
+.method private showHelpStep2Dialog()V
+    .locals 4
+
+    .prologue
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    .line 809
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "voice_input_control"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 811
+    if-nez v0, :cond_1
+
+    .line 842
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 815
+    :cond_1
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    if-eqz v0, :cond_2
+
+    .line 816
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    .line 817
+    iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    .line 820
+    :cond_2
+    iput v3, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpState:I
+
+    .line 821
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 822
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f0400c4
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 823
+    const v0, 0x7f0b011a
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 583
-    .local v0, closeBtn:Landroid/widget/ImageView;
-    new-instance v2, Lcom/android/settings/VoiceInputControlSettings$7;
+    .line 825
+    new-instance v2, Lcom/android/settings/VoiceInputControlSettings$8;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/VoiceInputControlSettings$7;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/VoiceInputControlSettings$8;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
 
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 592
-    new-instance v2, Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 834
+    new-instance v0, Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v2}, Lcom/android/settings/helpdialog/TwHelpDialog;-><init>(Landroid/content/Context;)V
 
-    iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 593
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 835
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v2, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    .line 594
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 836
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->TRANSPARENT:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+    sget-object v1, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->TRANSPARENT:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
 
-    .line 595
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 837
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
+    .line 838
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 596
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setOwnerActivity(Landroid/app/Activity;)V
+    .line 839
+    iget-boolean v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsAutoHapticDialogShowing:Z
 
-    .line 597
-    iget-boolean v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsAutoHapticDialogShowing:Z
+    if-nez v0, :cond_0
 
-    if-nez v2, :cond_1
+    .line 840
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 598
-    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    invoke-virtual {v2}, Lcom/android/settings/helpdialog/TwHelpDialog;->show()V
-
-    .line 600
-    .end local v0           #closeBtn:Landroid/widget/ImageView;
-    .end local v1           #view:Landroid/view/View;
-    :cond_1
-    return-void
+    goto :goto_0
 .end method
 
 .method private updateUIVoiceInputControl()V
-    .locals 5
+    .locals 7
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v6, 0x0
+
+    const/4 v5, 0x2
 
     const/4 v3, 0x0
 
-    .line 321
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    const/4 v4, 0x1
+
+    .line 428
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -602,149 +1428,324 @@
 
     move-result v0
 
-    .line 324
-    .local v0, voiceInputControState:I
-    if-ne v0, v4, :cond_1
+    .line 431
+    .local v0, voiceInputControlState:I
+    if-ne v0, v4, :cond_7
 
-    .line 325
+    .line 432
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 326
+    .line 433
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_0
 
-    .line 327
+    .line 434
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 435
+    :cond_0
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_1
 
-    .line 328
+    .line 436
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 437
+    :cond_1
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_2
 
-    .line 330
+    .line 438
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 440
+    :cond_2
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v1, :cond_3
+
+    .line 441
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
     invoke-direct {p0, v1}, Lcom/android/settings/VoiceInputControlSettings;->setPreferenceStatusBasedOnEasyMode(Landroid/preference/CheckBoxPreference;)V
 
-    .line 331
+    .line 442
+    :cond_3
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v4}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_4
 
-    .line 333
+    .line 443
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 445
+    :cond_4
     iget-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5
 
-    .line 334
-    invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->showHelpStep2Dialog()V
+    .line 446
+    iget-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->isTablet:Z
 
-    .line 348
-    :cond_0
+    if-eqz v1, :cond_6
+
+    .line 447
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    if-eqz v1, :cond_5
+
+    .line 448
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
+
+    .line 449
+    iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    .line 482
+    :cond_5
     :goto_0
     return-void
 
-    .line 337
-    :cond_1
+    .line 452
+    :cond_6
+    invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->showHelpStep2Dialog()V
+
+    goto :goto_0
+
+    .line 456
+    :cond_7
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 338
+    .line 457
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_8
 
-    .line 339
+    .line 458
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 459
+    :cond_8
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_9
 
-    .line 340
+    .line 460
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 461
+    :cond_9
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_a
 
-    .line 341
+    .line 462
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 463
+    :cond_a
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_b
 
-    .line 342
+    .line 464
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 465
+    :cond_b
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1, v3}, Landroid/preference/CheckBoxPreference;->setEnabled(Z)V
+    if-eqz v1, :cond_c
 
-    .line 344
+    .line 466
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 468
+    :cond_c
     iget-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5
 
-    .line 345
-    invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->showHelpStep1Dialog()V
+    .line 469
+    iget-boolean v1, p0, Lcom/android/settings/VoiceInputControlSettings;->isTablet:Z
+
+    if-eqz v1, :cond_d
+
+    .line 470
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v5}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 471
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const-wide/16 v2, 0xc8
+
+    invoke-virtual {v1, v5, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_0
+
+    .line 473
+    :cond_d
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    if-eqz v1, :cond_e
+
+    .line 474
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
+
+    .line 475
+    iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    .line 477
+    :cond_e
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 478
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const-wide/16 v2, 0x12c
+
+    invoke-virtual {v1, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
 .end method
 
 
 # virtual methods
-.method public isAllOptionDisabled()Z
-    .locals 8
+.method public getHelpHandler()Landroid/os/Handler;
+    .locals 1
 
     .prologue
-    const/4 v6, 0x0
+    .line 126
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
 
-    .line 419
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    return-object v0
+.end method
 
-    move-result-object v4
+.method public getStatusBarHeight()I
+    .locals 5
 
-    .line 420
-    .local v4, cr:Landroid/content/ContentResolver;
-    const-string v7, "voice_input_control_incomming_calls"
+    .prologue
+    .line 845
+    const/4 v0, 0x0
 
-    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    .line 846
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const-string v2, "status_bar_height"
+
+    const-string v3, "dimen"
+
+    const-string v4, "android"
+
+    invoke-virtual {v1, v2, v3, v4}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v1
 
-    .line 421
-    .local v1, call:I
-    const-string v7, "voice_input_control_alarm"
+    .line 847
+    if-lez v1, :cond_0
 
-    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    .line 848
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    .line 422
-    .local v0, alarm:I
-    const-string v7, "voice_input_control_camera"
+    .line 850
+    :cond_0
+    return v0
+.end method
 
-    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+.method public isAllOptionDisabled()Z
+    .locals 9
+
+    .prologue
+    const/4 v7, 0x0
+
+    const/4 v6, 0x1
+
+    .line 559
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    .line 560
+    .local v4, cr:Landroid/content/ContentResolver;
+    const-string v8, "voice_input_control_incomming_calls"
+
+    invoke-static {v4, v8, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 561
+    .local v1, call:I
+    const-string v8, "voice_input_control_alarm"
+
+    invoke-static {v4, v8, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 562
+    .local v0, alarm:I
+    const-string v8, "voice_input_control_camera"
+
+    invoke-static {v4, v8, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 423
+    .line 563
     .local v2, camera:I
-    const-string v7, "voice_input_control_music"
+    const-string v8, "voice_input_control_music"
 
-    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v4, v8, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
-    .line 424
+    .line 564
     .local v5, music:I
-    const-string v7, "voice_input_control_chatonv"
+    const-string v8, "voice_input_control_chatonv"
 
-    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v4, v8, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 
-    .line 426
+    .line 566
     .local v3, chatonv:I
     if-nez v1, :cond_0
 
@@ -756,12 +1757,29 @@
 
     if-nez v3, :cond_0
 
-    .line 427
-    const/4 v6, 0x1
+    .line 567
+    const-string v8, "voice_input_control"
 
-    .line 429
-    :cond_0
+    invoke-static {v4, v8, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 570
+    :goto_0
     return v6
+
+    :cond_0
+    move v6, v7
+
+    goto :goto_0
+.end method
+
+.method public isFromHelpApp()Z
+    .locals 1
+
+    .prologue
+    .line 130
+    iget-boolean v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
+
+    return v0
 .end method
 
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
@@ -774,8 +1792,8 @@
 
     const/4 v6, 0x0
 
-    .line 192
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 289
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -785,9 +1803,9 @@
 
     move-result v3
 
-    .line 193
+    .line 290
     .local v3, showNeverAgain:I
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -797,19 +1815,19 @@
 
     move-result v5
 
-    .line 194
+    .line 291
     .local v5, voiceState:I
     const-string v8, "vibrator"
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/VoiceInputControlSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v8}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/os/Vibrator;
 
-    .line 196
+    .line 293
     .local v4, vibrator:Landroid/os/Vibrator;
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -822,7 +1840,7 @@
     :cond_0
     invoke-static {v8, v9, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 199
+    .line 296
     if-eqz p2, :cond_1
 
     if-nez v5, :cond_1
@@ -835,18 +1853,18 @@
 
     if-eqz v6, :cond_1
 
-    .line 200
+    .line 297
     const-string v6, "layout_inflater"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/VoiceInputControlSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 201
+    .line 298
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v6, 0x7f040052
+    const v6, 0x7f040058
 
     const/4 v8, 0x0
 
@@ -854,9 +1872,9 @@
 
     move-result-object v2
 
-    .line 202
+    .line 299
     .local v2, layout:Landroid/view/View;
-    const v6, 0x7f0b00ee
+    const v6, 0x7f0b00ff
 
     invoke-virtual {v2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -864,18 +1882,52 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 203
+    .line 300
     .local v0, check:Landroid/widget/CheckBox;
-    new-instance v6, Lcom/android/settings/VoiceInputControlSettings$2;
+    const v6, 0x7f0b00fe
 
-    invoke-direct {v6, p0}, Lcom/android/settings/VoiceInputControlSettings$2;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
+    invoke-virtual {v2, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v6}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-result-object v6
 
-    .line 208
+    check-cast v6, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    const v8, 0x7f091203
+
+    :goto_0
+    invoke-virtual {v6, v8}, Landroid/widget/TextView;->setText(I)V
+
+    .line 301
+    new-instance v6, Lcom/android/settings/VoiceInputControlSettings$3;
+
+    invoke-direct {v6, p0}, Lcom/android/settings/VoiceInputControlSettings$3;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 306
     new-instance v6, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -883,75 +1935,88 @@
 
     iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
 
-    .line 209
+    .line 307
     iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
 
-    const v8, 0x7f0910c1
+    const v8, 0x7f091202
 
     invoke-virtual {v6, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 210
+    .line 308
     iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
 
-    const v8, 0x7f0910c3
-
-    new-instance v9, Lcom/android/settings/VoiceInputControlSettings$3;
-
-    invoke-direct {v9, p0, v0}, Lcom/android/settings/VoiceInputControlSettings$3;-><init>(Lcom/android/settings/VoiceInputControlSettings;Landroid/widget/CheckBox;)V
-
-    invoke-virtual {v6, v8, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 217
-    iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
-
-    const v8, 0x7f0910c4
+    const v8, 0x7f091205
 
     new-instance v9, Lcom/android/settings/VoiceInputControlSettings$4;
 
-    invoke-direct {v9, p0}, Lcom/android/settings/VoiceInputControlSettings$4;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
+    invoke-direct {v9, p0, v0}, Lcom/android/settings/VoiceInputControlSettings$4;-><init>(Lcom/android/settings/VoiceInputControlSettings;Landroid/widget/CheckBox;)V
+
+    invoke-virtual {v6, v8, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 315
+    iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
+
+    const v8, 0x7f091206
+
+    new-instance v9, Lcom/android/settings/VoiceInputControlSettings$5;
+
+    invoke-direct {v9, p0}, Lcom/android/settings/VoiceInputControlSettings$5;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
 
     invoke-virtual {v6, v8, v9}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 224
+    .line 322
     iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {v6, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 225
-    iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
-
-    new-instance v8, Lcom/android/settings/VoiceInputControlSettings$5;
-
-    invoke-direct {v8, p0}, Lcom/android/settings/VoiceInputControlSettings$5;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
-
-    invoke-virtual {v6, v8}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 233
+    .line 323
     iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
 
     new-instance v8, Lcom/android/settings/VoiceInputControlSettings$6;
 
     invoke-direct {v8, p0}, Lcom/android/settings/VoiceInputControlSettings$6;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
 
+    invoke-virtual {v6, v8}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 331
+    iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
+
+    new-instance v8, Lcom/android/settings/VoiceInputControlSettings$7;
+
+    invoke-direct {v8, p0}, Lcom/android/settings/VoiceInputControlSettings$7;-><init>(Lcom/android/settings/VoiceInputControlSettings;)V
+
     invoke-virtual {v6, v8}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 244
+    .line 342
     iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mAutoHapticDialog:Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {v6}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 245
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->dialog:Landroid/app/AlertDialog;
+
+    .line 343
     iput-boolean v7, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsAutoHapticDialogShowing:Z
 
-    .line 247
+    .line 345
     .end local v0           #check:Landroid/widget/CheckBox;
     .end local v1           #inflater:Landroid/view/LayoutInflater;
     .end local v2           #layout:Landroid/view/View;
     :cond_1
     invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->updateUIVoiceInputControl()V
 
-    .line 248
+    .line 346
     return-void
+
+    .line 300
+    .restart local v0       #check:Landroid/widget/CheckBox;
+    .restart local v1       #inflater:Landroid/view/LayoutInflater;
+    .restart local v2       #layout:Landroid/view/View;
+    :cond_2
+    const v8, 0x7f091204
+
+    goto :goto_0
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -959,29 +2024,42 @@
     .parameter "newConfig"
 
     .prologue
-    .line 530
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .line 669
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 531
+    .line 670
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v0, :cond_0
 
-    .line 532
+    .line 671
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 533
+    .line 672
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 535
+    .line 674
     :cond_0
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mRotation:I
+
+    .line 675
     invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->updateUIVoiceInputControl()V
 
-    .line 536
+    .line 676
     return-void
 .end method
 
@@ -998,21 +2076,34 @@
 
     const/4 v7, 0x0
 
-    .line 97
+    .line 135
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 98
-    invoke-virtual {p0, v6}, Lcom/android/settings/VoiceInputControlSettings;->setHasOptionsMenu(Z)V
+    .line 136
+    sput-object p0, Lcom/android/settings/VoiceInputControlSettings;->voiceInputControlSettings:Lcom/android/settings/VoiceInputControlSettings;
 
-    .line 100
+    .line 137
     new-instance v5, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
 
     invoke-direct {v5}, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;-><init>()V
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mBargeInRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
 
-    .line 103
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 138
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v5
+
+    iget v5, v5, Landroid/content/res/Configuration;->orientation:I
+
+    iput v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mRotation:I
+
+    .line 141
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -1020,11 +2111,11 @@
 
     move-result-object v2
 
-    .line 104
+    .line 142
     .local v2, intent:Landroid/content/Intent;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 105
+    .line 143
     const-string v5, "fromHelp"
 
     invoke-virtual {v2, v5, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -1033,41 +2124,54 @@
 
     iput-boolean v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
 
-    .line 107
+    .line 144
+    if-eqz p1, :cond_0
+
+    .line 146
+    const-string v5, "isfromhelp"
+
+    invoke-virtual {p1, v5, v7}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v5
+
+    iput-boolean v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
+
+    .line 148
+    :cond_0
     const-string v5, "fromHelp"
 
     invoke-virtual {v2, v5, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 108
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 149
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
     invoke-virtual {v5, v2}, Landroid/app/Activity;->setIntent(Landroid/content/Intent;)V
 
-    .line 112
-    :cond_0
-    const v5, 0x7f0700b1
+    .line 153
+    :cond_1
+    const v5, 0x7f0700d6
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 114
+    .line 155
     invoke-static {}, Lcom/android/settings/VoiceInputControlSettings;->isChatONVPhone()Z
 
     move-result v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_b
 
     move v1, v6
 
-    .line 116
+    .line 157
     .local v1, chatONVHide1:Z
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 117
+    .line 158
     .local v0, activity:Landroid/app/Activity;
     new-instance v5, Landroid/widget/Switch;
 
@@ -1075,56 +2179,69 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 119
-    instance-of v5, v0, Landroid/preference/PreferenceActivity;
+    .line 160
+    const/4 v5, 0x0
+
+    invoke-static {v5}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v5
 
     if-eqz v5, :cond_2
 
+    .line 161
+    iput-boolean v6, p0, Lcom/android/settings/VoiceInputControlSettings;->isTablet:Z
+
+    .line 163
+    :cond_2
+    instance-of v5, v0, Landroid/preference/PreferenceActivity;
+
+    if-eqz v5, :cond_4
+
     move-object v4, v0
 
-    .line 120
+    .line 164
     check-cast v4, Landroid/preference/PreferenceActivity;
 
-    .line 121
+    .line 165
     .local v4, preferenceActivity:Landroid/preference/PreferenceActivity;
     invoke-virtual {v4}, Landroid/preference/PreferenceActivity;->onIsHidingHeaders()Z
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_3
 
     invoke-virtual {v4}, Landroid/preference/PreferenceActivity;->onIsMultiPane()Z
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_4
 
-    .line 122
-    :cond_1
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    .line 166
+    :cond_3
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v8, 0x7f0f0019
+    const v8, 0x7f0f0034
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    .line 124
+    .line 168
     .local v3, padding:I
     iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v5, v7, v7, v3, v7}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v5, v7, v7, v3, v7}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 125
+    .line 169
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v5
 
     invoke-virtual {v5, v9, v9}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 127
+    .line 171
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v5
@@ -1139,7 +2256,7 @@
 
     invoke-virtual {v5, v8, v9}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 132
+    .line 176
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v5
@@ -1150,18 +2267,18 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
 
-    .line 135
+    .line 179
     .end local v3           #padding:I
     .end local v4           #preferenceActivity:Landroid/preference/PreferenceActivity;
-    :cond_2
+    :cond_4
     iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v5, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v5, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 137
+    .line 181
     const-string v5, "voice_input_control"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1169,27 +2286,27 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mVoiceInputCategory:Landroid/preference/PreferenceCategory;
 
-    .line 138
+    .line 182
     invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5
 
-    .line 139
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 183
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v5
 
     iget-object v8, p0, Lcom/android/settings/VoiceInputControlSettings;->mVoiceInputCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v5, v8}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 142
-    :cond_3
+    .line 186
+    :cond_5
     const-string v5, "voice_input_control_incomming_calls"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1197,10 +2314,10 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    .line 143
+    .line 187
     const-string v5, "voice_input_control_chatonv"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1208,10 +2325,10 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    .line 144
+    .line 188
     const-string v5, "voice_input_control_alarm"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1219,10 +2336,10 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    .line 145
+    .line 189
     const-string v5, "voice_input_control_camera"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1230,10 +2347,10 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
-    .line 146
+    .line 190
     const-string v5, "voice_input_control_music"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v5}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
@@ -1241,11 +2358,8 @@
 
     iput-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
 
-    .line 148
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->setBargeInSummary()V
-
-    .line 150
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 194
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -1253,9 +2367,9 @@
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -1263,20 +2377,20 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_7
 
-    .line 151
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 195
+    :cond_6
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v5
 
     iget-object v8, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v5, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v5, v8}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 152
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 196
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -1284,45 +2398,64 @@
 
     invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 155
-    :cond_5
-    if-eq v1, v6, :cond_6
+    .line 199
+    :cond_7
+    if-eq v1, v6, :cond_8
 
     invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->isChatOnVInstalled()Z
 
     move-result v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_9
 
-    .line 156
-    :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
-
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 157
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 200
+    :cond_8
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v5
 
-    const-string v6, "voice_input_control_chatonv"
+    iget-object v8, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-virtual {v5, v8}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 160
-    :cond_7
+    .line 201
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v8, "voice_input_control_chatonv"
+
+    invoke-static {v5, v8, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 205
+    :cond_9
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/settings/Utils;->isSupportHelpMenu(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_a
+
+    iget-boolean v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
+
+    if-nez v5, :cond_a
+
+    .line 206
+    invoke-virtual {p0, v6}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
+
+    .line 210
+    :cond_a
     return-void
 
     .end local v0           #activity:Landroid/app/Activity;
     .end local v1           #chatONVHide1:Z
-    :cond_8
+    :cond_b
     move v1, v7
 
-    .line 114
+    .line 155
     goto/16 :goto_0
 .end method
 
@@ -1334,39 +2467,23 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 604
+    .line 214
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 605
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->isSupportHelpMenu(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 606
+    .line 216
     const/4 v0, 0x1
 
-    const v1, 0x7f090b0f
+    const v1, 0x7f091291
 
-    invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
+    invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201c8
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    move-result-object v0
-
-    invoke-interface {v0, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    .line 610
-    :cond_0
+    .line 218
     return-void
 .end method
 
@@ -1376,38 +2493,52 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 540
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
-
-    .line 542
+    .line 682
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v0, :cond_0
 
-    .line 543
+    .line 683
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 544
+    .line 684
     iput-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 546
+    .line 686
     :cond_0
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
     if-eqz v0, :cond_1
 
-    .line 547
+    .line 687
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 548
+    .line 688
     iput-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 550
+    .line 691
     :cond_1
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 692
+    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 693
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
+
+    .line 694
     return-void
 .end method
 
@@ -1416,22 +2547,20 @@
     .parameter "item"
 
     .prologue
-    .line 614
+    .line 222
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 621
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
-
-    move-result v1
+    .line 229
+    const/4 v1, 0x0
 
     :goto_0
     return v1
 
-    .line 616
+    .line 224
     :pswitch_0
     new-instance v0, Landroid/content/Intent;
 
@@ -1439,7 +2568,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 617
+    .line 225
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "helphub:section"
 
@@ -1447,38 +2576,31 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 618
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 226
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
-
-    .line 619
+    .line 227
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 614
-    nop
-
+    .line 222
     :pswitch_data_0
-    .packed-switch 0x0
+    .packed-switch 0x1
         :pswitch_0
     .end packed-switch
 .end method
 
 .method public onPause()V
-    .locals 4
+    .locals 5
 
     .prologue
+    const/4 v4, 0x1
+
     const/4 v3, 0x0
 
-    .line 352
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
-
-    .line 354
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 488
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1488,7 +2610,7 @@
 
     move-result v0
 
-    .line 355
+    .line 489
     .local v0, state:I
     invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->isAllOptionDisabled()Z
 
@@ -1496,16 +2618,14 @@
 
     if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    if-ne v4, v0, :cond_0
 
-    if-ne v1, v0, :cond_0
-
-    .line 356
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 490
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f090d18
+    const v2, 0x7f090e3f
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1513,12 +2633,12 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 357
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 491
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -1530,14 +2650,14 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 358
+    .line 492
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 360
+    .line 494
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1545,7 +2665,25 @@
 
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 361
+    .line 496
+    iput v3, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpState:I
+
+    .line 498
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 499
+    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 500
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
+
+    .line 501
     return-void
 .end method
 
@@ -1559,7 +2697,7 @@
 
     const/4 v3, 0x0
 
-    .line 383
+    .line 523
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -1568,8 +2706,8 @@
 
     if-eqz v1, :cond_3
 
-    .line 384
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 524
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -1577,7 +2715,7 @@
 
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -1588,7 +2726,7 @@
     :goto_0
     invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 401
+    .line 541
     :cond_0
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->isAllOptionDisabled()Z
@@ -1637,13 +2775,13 @@
 
     if-eqz v1, :cond_b
 
-    .line 406
+    .line 546
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -1655,12 +2793,12 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 407
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 547
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f090d18
+    const v2, 0x7f090e3f
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1668,12 +2806,12 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 408
+    .line 548
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 412
+    .line 552
     :goto_2
     new-instance v0, Landroid/content/Intent;
 
@@ -1681,20 +2819,20 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 413
+    .line 553
     .local v0, intent:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 415
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    .line 555
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v1
 
@@ -1704,10 +2842,10 @@
     :cond_2
     move v1, v3
 
-    .line 384
+    .line 524
     goto :goto_0
 
-    .line 387
+    .line 527
     :cond_3
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
@@ -1717,8 +2855,8 @@
 
     if-eqz v1, :cond_5
 
-    .line 388
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 528
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -1726,7 +2864,7 @@
 
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -1744,7 +2882,7 @@
 
     goto :goto_3
 
-    .line 390
+    .line 530
     :cond_5
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
@@ -1754,8 +2892,8 @@
 
     if-eqz v1, :cond_7
 
-    .line 391
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 531
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -1763,7 +2901,7 @@
 
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -1781,7 +2919,7 @@
 
     goto :goto_4
 
-    .line 393
+    .line 533
     :cond_7
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
@@ -1791,8 +2929,8 @@
 
     if-eqz v1, :cond_9
 
-    .line 394
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 534
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -1800,7 +2938,7 @@
 
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -1818,7 +2956,7 @@
 
     goto :goto_5
 
-    .line 396
+    .line 536
     :cond_9
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
 
@@ -1828,8 +2966,8 @@
 
     if-eqz v1, :cond_0
 
-    .line 397
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 537
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -1837,7 +2975,7 @@
 
     iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v1}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
@@ -1855,13 +2993,13 @@
 
     goto :goto_6
 
-    .line 410
+    .line 550
     :cond_b
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -1877,251 +3015,314 @@
 .end method
 
 .method public onResume()V
-    .locals 6
+    .locals 7
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    .line 252
+    .line 350
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 254
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
+    .line 351
+    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->setBargeInSummary()V
 
-    if-eqz v1, :cond_0
+    .line 353
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
 
-    .line 255
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
+    .line 354
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
 
-    .line 258
+    invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
+
+    .line 357
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v4, "enterprise_policy"
+    const-string v5, "enterprise_policy"
 
-    invoke-virtual {v1, v4}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v5}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 261
+    .line 360
     .local v0, mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+    iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
-    .line 263
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+    .line 362
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
-    invoke-virtual {v1, v3}, Landroid/app/enterprise/RestrictionPolicy;->isMicrophoneEnabled(Z)Z
+    invoke-virtual {v2, v4}, Landroid/app/enterprise/RestrictionPolicy;->isMicrophoneEnabled(Z)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
-    .line 265
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->finish()V
+    .line 364
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 302
+    .line 409
     :cond_1
     :goto_0
     return-void
 
-    .line 270
+    .line 369
     :cond_2
     invoke-direct {p0}, Lcom/android/settings/VoiceInputControlSettings;->updateUIVoiceInputControl()V
 
-    .line 271
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
+    .line 370
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 273
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 372
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v4, "voice_input_control"
+    const-string v5, "voice_input_control"
 
-    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v5}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v4
+    move-result-object v5
 
-    iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mVoiceInputControlObserver:Landroid/database/ContentObserver;
+    iget-object v6, p0, Lcom/android/settings/VoiceInputControlSettings;->mVoiceInputControlObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {v1, v4, v3, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v2, v5, v4, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 277
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
+    .line 376
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    .line 278
-    iget-object v4, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
+    .line 377
+    iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v5, "voice_input_control_incomming_calls"
+    const-string v6, "voice_input_control_incomming_calls"
 
-    invoke-static {v1, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v6, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_7
+    if-eqz v2, :cond_8
 
-    move v1, v2
+    move v2, v3
 
     :goto_1
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 283
+    .line 382
     :cond_3
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
-    .line 284
-    iget-object v4, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
+    .line 383
+    iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v5, "voice_input_control_chatonv"
+    const-string v6, "voice_input_control_chatonv"
 
-    invoke-static {v1, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v6, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_8
+    if-eqz v2, :cond_9
 
-    move v1, v2
+    move v2, v3
 
     :goto_2
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 288
+    .line 387
     :cond_4
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    .line 289
-    iget-object v4, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
+    .line 388
+    iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v5, "voice_input_control_alarm"
+    const-string v6, "voice_input_control_alarm"
 
-    invoke-static {v1, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v6, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_9
+    if-eqz v2, :cond_a
 
-    move v1, v2
+    move v2, v3
 
     :goto_3
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 293
+    .line 392
     :cond_5
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
-    if-eqz v1, :cond_6
+    if-eqz v2, :cond_6
 
-    .line 294
-    iget-object v4, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
+    .line 393
+    iget-object v5, p0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v5, "voice_input_control_camera"
+    const-string v6, "voice_input_control_camera"
 
-    invoke-static {v1, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v6, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    move v2, v3
+
+    :goto_4
+    invoke-virtual {v5, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 397
+    :cond_6
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+
+    if-eqz v2, :cond_7
+
+    .line 398
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "voice_input_control_music"
+
+    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    :goto_5
+    invoke-virtual {v2, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 401
+    :cond_7
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "voice_input_control"
+
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    .line 404
+    .local v1, voiceInputControlState:I
+    if-nez v1, :cond_1
 
-    move v1, v2
+    .line 405
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->dialog:Landroid/app/AlertDialog;
 
-    :goto_4
-    invoke-virtual {v4, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    if-eqz v2, :cond_1
 
-    .line 298
-    :cond_6
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->dialog:Landroid/app/AlertDialog;
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v2}, Landroid/app/Dialog;->isShowing()Z
 
-    .line 299
-    iget-object v1, p0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+    move-result v2
 
-    invoke-virtual {p0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
+    if-eqz v2, :cond_1
 
-    move-result-object v4
+    .line 406
+    iget-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->dialog:Landroid/app/AlertDialog;
 
-    const-string v5, "voice_input_control_music"
-
-    invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
-    :goto_5
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v2}, Landroid/app/Dialog;->dismiss()V
 
     goto/16 :goto_0
 
-    :cond_7
-    move v1, v3
+    .end local v1           #voiceInputControlState:I
+    :cond_8
+    move v2, v4
 
-    .line 278
+    .line 377
     goto :goto_1
 
-    :cond_8
-    move v1, v3
+    :cond_9
+    move v2, v4
 
-    .line 284
+    .line 383
     goto :goto_2
 
-    :cond_9
-    move v1, v3
+    :cond_a
+    move v2, v4
 
-    .line 289
+    .line 388
     goto :goto_3
 
-    :cond_a
-    move v1, v3
+    :cond_b
+    move v2, v4
 
-    .line 294
+    .line 393
     goto :goto_4
 
-    :cond_b
-    move v2, v3
+    :cond_c
+    move v3, v4
 
-    .line 299
+    .line 398
     goto :goto_5
+.end method
+
+.method public onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+    .parameter "outState"
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 234
+    invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    .line 235
+    iget-boolean v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mIsFromHelp:Z
+
+    if-ne v0, v1, :cond_0
+
+    .line 236
+    const-string v0, "isfromhelp"
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 238
+    :cond_0
+    return-void
 .end method
 
 .method public onStop()V
@@ -2130,696 +3331,692 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 365
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    .line 505
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
-    .line 367
+    .line 507
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 368
+    .line 508
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 370
+    .line 510
     :cond_0
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v0, :cond_1
 
-    .line 371
+    .line 511
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 372
+    .line 512
     iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep1Dialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 374
+    .line 514
     :cond_1
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
     if-eqz v0, :cond_2
 
-    .line 375
+    .line 515
     iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 376
+    .line 516
     iput-object v2, p0, Lcom/android/settings/VoiceInputControlSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 378
+    .line 518
     :cond_2
     return-void
 .end method
 
 .method public setBargeInSummary()V
-    .locals 26
+    .locals 28
 
     .prologue
-    .line 453
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/VoiceInputControlSettings;->getActivity()Landroid/app/Activity;
+    .line 595
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v23
+    move-result-object v25
 
-    invoke-virtual/range {v23 .. v23}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual/range {v25 .. v25}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v9
 
-    .line 454
+    .line 596
     .local v9, context:Landroid/content/Context;
     invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v15
+    move-result-object v16
 
-    .line 455
-    .local v15, resources:Landroid/content/res/Resources;
-    invoke-virtual {v15}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    .line 597
+    .local v16, resources:Landroid/content/res/Resources;
+    invoke-virtual/range {v16 .. v16}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v8
 
-    .line 456
+    .line 598
     .local v8, configuration:Landroid/content/res/Configuration;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v14
+    move-result-object v15
 
-    .line 458
-    .local v14, previousLocale:Ljava/util/Locale;
+    .line 600
+    .local v15, previousLocale:Ljava/util/Locale;
     invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v25
+
+    const-string v26, "voicetalk_language"
+
+    invoke-static/range {v25 .. v26}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v23
 
-    const-string v24, "voicetalk_language"
+    .line 602
+    .local v23, voiceLocale:Ljava/lang/String;
+    if-nez v23, :cond_a
 
-    invoke-static/range {v23 .. v24}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    .line 603
+    invoke-virtual {v15}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v23
 
-    .line 460
-    .local v21, voiceLocale:Ljava/lang/String;
-    if-nez v21, :cond_5
-
-    .line 461
-    invoke-virtual {v14}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v21
-
-    .line 471
+    .line 613
     :cond_0
     :goto_0
-    const-string v23, "en-gb_GB"
+    const-string v25, "en-gb_GB"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v25
+
+    if-eqz v25, :cond_1
+
+    .line 614
+    const-string v23, "en_GB"
+
+    .line 616
+    :cond_1
+    new-instance v24, Ljava/util/Locale;
+
+    invoke-virtual {v15}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual {v15}, Ljava/util/Locale;->getVariant()Ljava/lang/String;
+
+    move-result-object v26
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v25
+
+    move-object/from16 v3, v26
+
+    invoke-direct {v0, v1, v2, v3}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 618
+    .local v24, voicetalkLocale:Ljava/util/Locale;
+    const-string v25, "pt-BR"
+
+    move-object/from16 v0, v25
 
     move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v23
+    move-result v25
 
-    if-eqz v23, :cond_1
+    if-eqz v25, :cond_2
 
-    .line 472
-    const-string v21, "en_GB"
+    .line 619
+    const-string v25, "-"
 
-    .line 474
-    :cond_1
-    new-instance v22, Ljava/util/Locale;
+    move-object/from16 v0, v23
 
-    invoke-virtual {v14}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    move-object/from16 v1, v25
 
-    move-result-object v23
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {v14}, Ljava/util/Locale;->getVariant()Ljava/lang/String;
+    move-result-object v17
 
-    move-result-object v24
+    .line 620
+    .local v17, splitVoiceLocale:[Ljava/lang/String;
+    new-instance v24, Ljava/util/Locale;
 
-    move-object/from16 v0, v22
+    .end local v24           #voicetalkLocale:Ljava/util/Locale;
+    const/16 v25, 0x0
 
-    move-object/from16 v1, v21
+    aget-object v25, v17, v25
 
-    move-object/from16 v2, v23
+    const/16 v26, 0x1
 
-    move-object/from16 v3, v24
+    aget-object v26, v17, v26
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v24 .. v26}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 475
-    .local v22, voicetalkLocale:Ljava/util/Locale;
+    .line 623
+    .end local v17           #splitVoiceLocale:[Ljava/lang/String;
+    .restart local v24       #voicetalkLocale:Ljava/util/Locale;
+    :cond_2
+    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
+
+    move-result v25
+
+    if-eqz v25, :cond_3
+
+    const-string v25, "zh-CN"
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v25
+
+    if-eqz v25, :cond_3
+
+    .line 624
+    sget-object v24, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
+
+    .line 626
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mBargeInRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v23 .. v23}, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;->isUseChineseModel()Z
+    invoke-virtual/range {v25 .. v25}, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;->isUseChineseModel()Z
 
-    move-result v23
+    move-result v25
 
-    if-nez v23, :cond_2
+    if-nez v25, :cond_4
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/Locale;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    const-string v24, "zh_CN"
+    const-string v26, "zh_CN"
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v23
+    move-result v25
 
-    if-eqz v23, :cond_2
+    if-eqz v25, :cond_4
 
-    .line 476
-    const-string v23, "VoiceInputControl"
+    .line 627
+    sget-object v24, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const-string v24, "not chinese model, so voice input control language set as en_US"
-
-    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 477
-    sget-object v22, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    .line 480
-    :cond_2
-    const-string v23, "pt-BR"
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_3
-
-    .line 481
-    const-string v23, "-"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v16
-
-    .line 482
-    .local v16, splitVoiceLocale:[Ljava/lang/String;
-    new-instance v22, Ljava/util/Locale;
-
-    .end local v22           #voicetalkLocale:Ljava/util/Locale;
-    const/16 v23, 0x0
-
-    aget-object v23, v16, v23
-
-    const/16 v24, 0x1
-
-    aget-object v24, v16, v24
-
-    invoke-direct/range {v22 .. v24}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 485
-    .end local v16           #splitVoiceLocale:[Ljava/lang/String;
-    .restart local v22       #voicetalkLocale:Ljava/util/Locale;
-    :cond_3
-    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
-
-    move-result v23
-
-    if-eqz v23, :cond_4
-
-    const-string v23, "zh-CN"
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_4
-
-    .line 486
-    sget-object v22, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
-
-    .line 489
+    .line 630
     :cond_4
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
     iput-object v0, v8, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    .line 490
-    const/16 v23, 0x0
+    .line 631
+    const/16 v25, 0x0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v8, v0}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V
+    move-object/from16 v1, v25
 
-    .line 492
-    const-string v23, "voice_input_control_incomming_calls"
+    invoke-virtual {v0, v8, v1}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v23
-
-    check-cast v23, Landroid/preference/CheckBoxPreference;
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
-
-    .line 493
-    const-string v23, "voice_input_control_chatonv"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v23
-
-    check-cast v23, Landroid/preference/CheckBoxPreference;
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
-
-    .line 494
-    const-string v23, "voice_input_control_alarm"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v23
-
-    check-cast v23, Landroid/preference/CheckBoxPreference;
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
-
-    .line 495
-    const-string v23, "voice_input_control_camera"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v23
-
-    check-cast v23, Landroid/preference/CheckBoxPreference;
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
-
-    .line 496
-    const-string v23, "voice_input_control_music"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/VoiceInputControlSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v23
-
-    check-cast v23, Landroid/preference/CheckBoxPreference;
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
-
-    .line 498
+    .line 633
     invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f0a000a
+    const v26, 0x7f0a000f
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 501
+    .line 634
     .local v5, bargeInCallCommands:[Ljava/lang/String;
     invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f0a000b
+    const v26, 0x7f0a0010
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 502
+    .line 635
     .local v4, bargeInAlarmCommands:[Ljava/lang/String;
     invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f0a000c
+    const v26, 0x7f0a0011
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v6
 
-    .line 503
+    .line 636
     .local v6, bargeInCameraCommands:[Ljava/lang/String;
     invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f0a000d
+    const v26, 0x7f0a0012
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v7
 
-    .line 508
+    .line 639
     .local v7, bargeInMusicCommands:[Ljava/lang/String;
-    iput-object v14, v8, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    iput-object v15, v8, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    .line 509
-    const/16 v23, 0x0
+    .line 640
+    const/16 v25, 0x0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v8, v0}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V
+    move-object/from16 v1, v25
 
-    .line 511
-    const v23, 0x7f0910c9
+    invoke-virtual {v0, v8, v1}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V
 
-    move/from16 v0, v23
+    .line 642
+    const v25, 0x7f091214
 
-    invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v18
-
-    .line 512
-    .local v18, tempForCall:Ljava/lang/String;
-    const v23, 0x7f0910cb
-
-    move/from16 v0, v23
-
-    invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v17
-
-    .line 513
-    .local v17, tempForAlarm:Ljava/lang/String;
-    const v23, 0x7f0910cd
-
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v19
 
-    .line 514
-    .local v19, tempForCamera:Ljava/lang/String;
-    const v23, 0x7f0910cf
+    .line 643
+    .local v19, tempForCall:Ljava/lang/String;
+    const v25, 0x7f091215
 
-    move/from16 v0, v23
+    move/from16 v0, v25
+
+    invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v21
+
+    .line 644
+    .local v21, tempForChatOn:Ljava/lang/String;
+    const v25, 0x7f091216
+
+    move/from16 v0, v25
+
+    invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    .line 645
+    .local v18, tempForAlarm:Ljava/lang/String;
+    const v25, 0x7f091217
+
+    move/from16 v0, v25
 
     invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v20
 
-    .line 516
-    .local v20, tempForMusic:Ljava/lang/String;
-    const/16 v23, 0x2
+    .line 646
+    .local v20, tempForCamera:Ljava/lang/String;
+    const v25, 0x7f091219
 
-    move/from16 v0, v23
+    move/from16 v0, v25
+
+    invoke-virtual {v9, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    .line 649
+    .local v22, tempForMusic:Ljava/lang/String;
+    const/16 v25, 0x2
+
+    move/from16 v0, v25
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    const/16 v24, 0x0
+    const/16 v26, 0x0
 
-    const/16 v25, 0x0
+    const/16 v27, 0x0
 
-    aget-object v25, v5, v25
+    aget-object v27, v5, v27
 
-    aput-object v25, v23, v24
+    aput-object v27, v25, v26
 
-    const/16 v24, 0x1
+    const/16 v26, 0x1
 
-    const/16 v25, 0x1
+    const/16 v27, 0x1
 
-    aget-object v25, v5, v25
+    aget-object v27, v5, v27
 
-    aput-object v25, v23, v24
+    aput-object v27, v25, v26
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v11
 
-    .line 517
+    .line 650
     .local v11, guideCallString:Ljava/lang/String;
-    const/16 v23, 0x2
-
-    move/from16 v0, v23
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x0
-
-    const/16 v25, 0x0
-
-    aget-object v25, v4, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x1
-
-    const/16 v25, 0x1
-
-    aget-object v25, v4, v25
-
-    aput-object v25, v23, v24
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 518
-    .local v10, guideAlarmString:Ljava/lang/String;
-    const/16 v23, 0x4
-
-    move/from16 v0, v23
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v23, v0
-
-    const/16 v24, 0x0
-
-    const/16 v25, 0x0
-
-    aget-object v25, v6, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x1
-
-    const/16 v25, 0x1
-
-    aget-object v25, v6, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x2
-
     const/16 v25, 0x2
 
-    aget-object v25, v6, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x3
-
-    const/16 v25, 0x3
-
-    aget-object v25, v6, v25
-
-    aput-object v25, v23, v24
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v23
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 519
-    .local v12, guideCameraString:Ljava/lang/String;
-    const/16 v23, 0x6
-
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    const/16 v24, 0x0
+    const/16 v26, 0x0
 
-    const/16 v25, 0x0
+    const/16 v27, 0x0
 
-    aget-object v25, v7, v25
+    aget-object v27, v5, v27
 
-    aput-object v25, v23, v24
+    aput-object v27, v25, v26
 
-    const/16 v24, 0x1
+    const/16 v26, 0x1
 
-    const/16 v25, 0x1
+    const/16 v27, 0x1
 
-    aget-object v25, v7, v25
+    aget-object v27, v5, v27
 
-    aput-object v25, v23, v24
+    aput-object v27, v25, v26
 
-    const/16 v24, 0x2
+    move-object/from16 v0, v21
 
-    const/16 v25, 0x2
-
-    aget-object v25, v7, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x3
-
-    const/16 v25, 0x3
-
-    aget-object v25, v7, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x4
-
-    const/16 v25, 0x4
-
-    aget-object v25, v7, v25
-
-    aput-object v25, v23, v24
-
-    const/16 v24, 0x5
-
-    const/16 v25, 0x5
-
-    aget-object v25, v7, v25
-
-    aput-object v25, v23, v24
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v23
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v13
 
-    .line 521
-    .local v13, guideMusicString:Ljava/lang/String;
+    .line 651
+    .local v13, guideChatOnVString:Ljava/lang/String;
+    const/16 v25, 0x2
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x0
+
+    aget-object v27, v4, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x1
+
+    const/16 v27, 0x1
+
+    aget-object v27, v4, v27
+
+    aput-object v27, v25, v26
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    .line 652
+    .local v10, guideAlarmString:Ljava/lang/String;
+    const/16 v25, 0x4
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x0
+
+    aget-object v27, v6, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x1
+
+    const/16 v27, 0x1
+
+    aget-object v27, v6, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x2
+
+    const/16 v27, 0x2
+
+    aget-object v27, v6, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x3
+
+    const/16 v27, 0x3
+
+    aget-object v27, v6, v27
+
+    aput-object v27, v25, v26
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 653
+    .local v12, guideCameraString:Ljava/lang/String;
+    const/16 v25, 0x6
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x0
+
+    aget-object v27, v7, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x1
+
+    const/16 v27, 0x1
+
+    aget-object v27, v7, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x2
+
+    const/16 v27, 0x2
+
+    aget-object v27, v7, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x3
+
+    const/16 v27, 0x3
+
+    aget-object v27, v7, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x4
+
+    const/16 v27, 0x4
+
+    aget-object v27, v7, v27
+
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x5
+
+    const/16 v27, 0x5
+
+    aget-object v27, v7, v27
+
+    aput-object v27, v25, v26
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v25
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v14
+
+    .line 655
+    .local v14, guideMusicString:Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v23
+    if-eqz v25, :cond_5
 
-    invoke-virtual {v0, v11}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 656
+    move-object/from16 v0, p0
 
-    .line 522
+    iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mIncommingCalls:Landroid/preference/CheckBoxPreference;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v11}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 657
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v23
+    if-eqz v25, :cond_6
 
-    invoke-virtual {v0, v11}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 658
+    move-object/from16 v0, p0
 
-    .line 523
+    iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mChatonV:Landroid/preference/CheckBoxPreference;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v13}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 659
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v23
+    if-eqz v25, :cond_7
 
-    invoke-virtual {v0, v10}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 660
+    move-object/from16 v0, p0
 
-    .line 524
+    iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mAlarm:Landroid/preference/CheckBoxPreference;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v10}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 661
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v23
+    if-eqz v25, :cond_8
 
-    invoke-virtual {v0, v12}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 662
+    move-object/from16 v0, p0
 
-    .line 525
+    iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mCamera:Landroid/preference/CheckBoxPreference;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 663
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v23
+    if-eqz v25, :cond_9
 
-    invoke-virtual {v0, v13}, Landroid/preference/CheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 664
+    move-object/from16 v0, p0
 
-    .line 526
+    iget-object v0, v0, Lcom/android/settings/VoiceInputControlSettings;->mMusic:Landroid/preference/CheckBoxPreference;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v14}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    .line 665
+    :cond_9
     return-void
 
-    .line 462
+    .line 604
     .end local v4           #bargeInAlarmCommands:[Ljava/lang/String;
     .end local v5           #bargeInCallCommands:[Ljava/lang/String;
     .end local v6           #bargeInCameraCommands:[Ljava/lang/String;
@@ -2827,27 +4024,29 @@
     .end local v10           #guideAlarmString:Ljava/lang/String;
     .end local v11           #guideCallString:Ljava/lang/String;
     .end local v12           #guideCameraString:Ljava/lang/String;
-    .end local v13           #guideMusicString:Ljava/lang/String;
-    .end local v17           #tempForAlarm:Ljava/lang/String;
-    .end local v18           #tempForCall:Ljava/lang/String;
-    .end local v19           #tempForCamera:Ljava/lang/String;
-    .end local v20           #tempForMusic:Ljava/lang/String;
-    .end local v22           #voicetalkLocale:Ljava/util/Locale;
-    :cond_5
-    const-string v23, "v-es-LA"
+    .end local v13           #guideChatOnVString:Ljava/lang/String;
+    .end local v14           #guideMusicString:Ljava/lang/String;
+    .end local v18           #tempForAlarm:Ljava/lang/String;
+    .end local v19           #tempForCall:Ljava/lang/String;
+    .end local v20           #tempForCamera:Ljava/lang/String;
+    .end local v21           #tempForChatOn:Ljava/lang/String;
+    .end local v22           #tempForMusic:Ljava/lang/String;
+    .end local v24           #voicetalkLocale:Ljava/util/Locale;
+    :cond_a
+    const-string v25, "v-es-LA"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v23
+    move-result v25
 
-    if-eqz v23, :cond_0
+    if-eqz v25, :cond_0
 
-    .line 463
-    const-string v21, "es"
+    .line 605
+    const-string v23, "es"
 
     goto/16 :goto_0
 .end method

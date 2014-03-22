@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 320
+    .line 323
     iput-object p1, p0, Lcom/android/settings/personalvibration/PersonalVibration$2;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     iput-object p2, p0, Lcom/android/settings/personalvibration/PersonalVibration$2;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .parameter "whichButton"
 
     .prologue
-    .line 322
+    .line 325
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$2;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration$2;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
@@ -58,7 +58,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -66,13 +66,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 323
+    .line 326
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration$2;->this$0:Lcom/android/settings/personalvibration/PersonalVibration;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
 
-    .line 324
+    .line 327
     return-void
 .end method

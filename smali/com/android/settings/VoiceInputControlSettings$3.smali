@@ -3,7 +3,7 @@
 .source "VoiceInputControlSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -20,57 +20,28 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-.field final synthetic val$check:Landroid/widget/CheckBox;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/VoiceInputControlSettings;Landroid/widget/CheckBox;)V
+.method constructor <init>(Lcom/android/settings/VoiceInputControlSettings;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 210
+    .line 301
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlSettings$3;->this$0:Lcom/android/settings/VoiceInputControlSettings;
 
-    iput-object p2, p0, Lcom/android/settings/VoiceInputControlSettings$3;->val$check:Landroid/widget/CheckBox;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+.method public onClick(Landroid/view/View;)V
+    .locals 0
     .parameter "arg0"
-    .parameter "arg1"
 
     .prologue
-    .line 213
-    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$3;->val$check:Landroid/widget/CheckBox;
-
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 214
-    iget-object v0, p0, Lcom/android/settings/VoiceInputControlSettings$3;->this$0:Lcom/android/settings/VoiceInputControlSettings;
-
-    invoke-virtual {v0}, Lcom/android/settings/VoiceInputControlSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "voiceinputcontrol_showNeverAgain"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 215
-    :cond_0
+    .line 303
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 600
+    .line 636
     iput-object p1, p0, Lcom/android/settings/accounts/AccountSyncSettings$3;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 603
+    .line 639
     iget-object v0, p0, Lcom/android/settings/accounts/AccountSyncSettings$3;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
 
     #getter for: Lcom/android/settings/accounts/AccountSyncSettings;->mNeedToUpdateState:Z
@@ -53,12 +53,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 604
+    .line 640
     iget-object v0, p0, Lcom/android/settings/accounts/AccountSyncSettings$3;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/accounts/AccountSyncSettings;->onSyncStateUpdated()V
 
-    .line 606
+    .line 642
     :cond_0
     return-void
 .end method

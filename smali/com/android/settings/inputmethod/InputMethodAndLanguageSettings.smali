@@ -23,6 +23,8 @@
 
 
 # instance fields
+.field final knoxV1Enabled:Z
+
 .field private mDefaultInputMethodSelectorVisibility:I
 
 .field private mGameControllerCategory:Landroid/preference/PreferenceCategory;
@@ -50,17 +52,6 @@
 
 .field private mIm:Landroid/hardware/input/InputManager;
 
-.field private mImis:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/inputmethod/InputMethodInfo;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mImm:Landroid/view/inputmethod/InputMethodManager;
 
 .field private final mInputMethodPreferenceList:Ljava/util/ArrayList;
@@ -74,6 +65,8 @@
     .end annotation
 .end field
 
+.field private mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
+
 .field private mIntentWaitingForResult:Landroid/content/Intent;
 
 .field private mIsOnlyImeSettings:Z
@@ -82,6 +75,8 @@
 
 .field private mLanguagePref:Landroid/preference/Preference;
 
+.field private final mOnImePreferenceChangedListener:Landroid/preference/Preference$OnPreferenceChangeListener;
+
 .field private mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
 
 .field private uspLevel:I
@@ -89,48 +84,18 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 2
 
     .prologue
-    const/4 v5, 0x3
+    const/4 v1, 0x0
 
-    const/4 v4, 0x2
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    .line 93
-    new-array v0, v5, [Ljava/lang/String;
-
-    const-string v1, "auto_replace"
-
-    aput-object v1, v0, v2
-
-    const-string v1, "auto_caps"
-
-    aput-object v1, v0, v3
-
-    const-string v1, "auto_punctuate"
-
-    aput-object v1, v0, v4
+    .line 99
+    new-array v0, v1, [Ljava/lang/String;
 
     sput-object v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sSystemSettingNames:[Ljava/lang/String;
 
-    .line 97
-    new-array v0, v5, [Ljava/lang/String;
-
-    const-string v1, "auto_replace"
-
-    aput-object v1, v0, v2
-
-    const-string v1, "auto_caps"
-
-    aput-object v1, v0, v3
-
-    const-string v1, "auto_punctuate"
-
-    aput-object v1, v0, v4
+    .line 103
+    new-array v0, v1, [Ljava/lang/String;
 
     sput-object v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
 
@@ -138,35 +103,52 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
 
-    .line 78
+    .line 84
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 101
+    .line 107
     iput v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mDefaultInputMethodSelectorVisibility:I
 
-    .line 107
+    .line 113
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
 
-    .line 109
+    .line 115
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
 
-    .line 123
+    .line 128
     iput v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->uspLevel:I
 
-    .line 127
+    .line 132
+    const-string v0, "1"
+
+    const-string v1, "ro.config.knox"
+
+    const-string v2, "0"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->knoxV1Enabled:Z
+
+    .line 134
     new-instance v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -177,7 +159,14 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguageObserver:Landroid/database/ContentObserver;
 
-    .line 692
+    .line 141
+    new-instance v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$2;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$2;-><init>(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
+
+    iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mOnImePreferenceChangedListener:Landroid/preference/Preference$OnPreferenceChangeListener;
+
+    .line 765
     return-void
 .end method
 
@@ -186,7 +175,7 @@
     .parameter "x0"
 
     .prologue
-    .line 78
+    .line 84
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSelectLanguage()Ljava/lang/String;
 
     move-result-object v0
@@ -199,30 +188,41 @@
     .parameter "x0"
 
     .prologue
-    .line 78
+    .line 84
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
 
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)V
+.method static synthetic access$200(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 84
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputMethodPreferenceViews()V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 78
+    .line 84
     invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->showKeyboardLayoutDialog(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
+.method static synthetic access$400(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 78
+    .line 84
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateCurrentImeName()V
 
     return-void
@@ -233,26 +233,26 @@
     .parameter "language"
 
     .prologue
-    .line 750
+    .line 823
     const/4 v0, 0x0
 
-    .line 751
+    .line 824
     .local v0, bCheck:Z
     new-instance v2, Lcom/android/settings/handwritingsearch/RMHelper;
 
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
     invoke-direct {v2, v4}, Lcom/android/settings/handwritingsearch/RMHelper;-><init>(Landroid/content/Context;)V
 
-    .line 752
+    .line 825
     .local v2, mHelper:Lcom/android/settings/handwritingsearch/RMHelper;
     invoke-virtual {v2}, Lcom/android/settings/handwritingsearch/RMHelper;->getLangList()[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 754
+    .line 827
     .local v3, mLangList:[Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -262,7 +262,7 @@
 
     if-ge v1, v4, :cond_0
 
-    .line 755
+    .line 828
     aget-object v4, v3, v1
 
     if-eqz v4, :cond_1
@@ -275,185 +275,272 @@
 
     if-eqz v4, :cond_1
 
-    .line 756
+    .line 829
     const/4 v0, 0x1
 
-    .line 760
+    .line 833
     :cond_0
     return v0
 
-    .line 754
+    .line 827
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method
 
-.method private getInputMethodPreference(Landroid/view/inputmethod/InputMethodInfo;I)Lcom/android/settings/inputmethod/InputMethodPreference;
-    .locals 9
-    .parameter "imi"
-    .parameter "imiSize"
+.method private getDisplayLanguage(Ljava/util/Locale;[Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
+    .locals 5
+    .parameter "l"
+    .parameter "specialLocaleCodes"
+    .parameter "specialLanguageNames"
 
     .prologue
-    .line 549
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPackageManager()Landroid/content/pm/PackageManager;
+    const/4 v2, 0x1
 
-    move-result-object v7
+    const/4 v3, 0x0
 
-    .line 550
-    .local v7, pm:Landroid/content/pm/PackageManager;
-    invoke-virtual {p1, v7}, Landroid/view/inputmethod/InputMethodInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    .line 515
+    invoke-virtual {p1}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    .line 553
-    .local v6, label:Ljava/lang/CharSequence;
+    .line 517
+    .local v0, code:Ljava/lang/String;
+    if-eqz p2, :cond_0
+
+    move v4, v2
+
+    :goto_0
+    if-eqz p3, :cond_1
+
+    :goto_1
+    and-int/2addr v2, v4
+
+    if-eqz v2, :cond_3
+
+    .line 518
+    const/4 v1, 0x0
+
+    .local v1, i:I
+    :goto_2
+    array-length v2, p2
+
+    if-ge v1, v2, :cond_3
+
+    .line 519
+    aget-object v2, p2, v1
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 520
+    aget-object v2, p3, v1
+
+    .line 522
+    .end local v1           #i:I
+    :goto_3
+    return-object v2
+
+    :cond_0
+    move v4, v3
+
+    .line 517
+    goto :goto_0
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_1
+
+    .line 518
+    .restart local v1       #i:I
+    :cond_2
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    .line 522
+    .end local v1           #i:I
+    :cond_3
+    invoke-virtual {p1, p1}, Ljava/util/Locale;->getDisplayLanguage(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_3
+.end method
+
+.method private getInputMethodPreference(Landroid/view/inputmethod/InputMethodInfo;)Lcom/android/settings/inputmethod/InputMethodPreference;
+    .locals 6
+    .parameter "imi"
+
+    .prologue
+    .line 616
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    .line 617
+    .local v2, pm:Landroid/content/pm/PackageManager;
+    invoke-virtual {p1, v2}, Landroid/view/inputmethod/InputMethodInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    .line 620
+    .local v1, label:Ljava/lang/CharSequence;
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getSettingsActivity()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v4
 
-    .line 554
-    .local v8, settingsActivity:Ljava/lang/String;
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 621
+    .local v4, settingsActivity:Ljava/lang/String;
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v5
 
-    if-nez v1, :cond_0
+    if-nez v5, :cond_0
 
-    .line 555
-    new-instance v2, Landroid/content/Intent;
+    .line 622
+    new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.MAIN"
+    const-string v5, "android.intent.action.MAIN"
 
-    invoke-direct {v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 556
-    .local v2, intent:Landroid/content/Intent;
+    .line 623
+    .local v0, intent:Landroid/content/Intent;
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v2, v1, v8}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v5, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 562
+    .line 629
     :goto_0
-    new-instance v0, Lcom/android/settings/inputmethod/InputMethodPreference;
+    new-instance v3, Lcom/android/settings/inputmethod/InputMethodPreference;
 
-    iget-object v3, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
+    iget-object v5, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
 
-    move-object v1, p0
+    invoke-direct {v3, p0, v0, v5, p1}, Lcom/android/settings/inputmethod/InputMethodPreference;-><init>(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/Intent;Landroid/view/inputmethod/InputMethodManager;Landroid/view/inputmethod/InputMethodInfo;)V
 
-    move-object v4, p1
-
-    move v5, p2
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/inputmethod/InputMethodPreference;-><init>(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/Intent;Landroid/view/inputmethod/InputMethodManager;Landroid/view/inputmethod/InputMethodInfo;I)V
-
-    .line 563
-    .local v0, pref:Lcom/android/settings/inputmethod/InputMethodPreference;
+    .line 631
+    .local v3, pref:Lcom/android/settings/inputmethod/InputMethodPreference;
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/inputmethod/InputMethodPreference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v3, v5}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    .line 564
-    invoke-virtual {v0, v6}, Lcom/android/settings/inputmethod/InputMethodPreference;->setTitle(Ljava/lang/CharSequence;)V
+    .line 632
+    invoke-virtual {v3, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 565
-    return-object v0
+    .line 633
+    return-object v3
 
-    .line 558
-    .end local v0           #pref:Lcom/android/settings/inputmethod/InputMethodPreference;
-    .end local v2           #intent:Landroid/content/Intent;
+    .line 625
+    .end local v0           #intent:Landroid/content/Intent;
+    .end local v3           #pref:Lcom/android/settings/inputmethod/InputMethodPreference;
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    .restart local v2       #intent:Landroid/content/Intent;
+    .restart local v0       #intent:Landroid/content/Intent;
     goto :goto_0
 .end method
 
 .method private getSelectLanguage()Ljava/lang/String;
-    .locals 5
+    .locals 6
 
     .prologue
-    .line 718
+    .line 791
+    const/4 v3, 0x0
+
+    .line 792
+    .local v3, language:Ljava/lang/String;
+    const/4 v0, 0x0
+
+    .line 793
+    .local v0, currentLang:Ljava/lang/String;
     const/4 v2, 0x0
 
-    .line 721
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 794
+    .local v2, langInfo:[Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "handwriting_language"
+
+    invoke-static {v4, v5}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "handwriting_language"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 722
+    .line 795
     if-nez v0, :cond_1
 
-    .line 723
-    const-string v1, "en_GB"
+    .line 796
+    const-string v4, "en_GB"
 
-    invoke-direct {p0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->checkVOLanguage(Ljava/lang/String;)Z
+    invoke-direct {p0, v4}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->checkVOLanguage(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_2
+    if-eqz v4, :cond_3
 
-    .line 724
+    .line 797
     const-string v0, "en_GB"
 
-    .line 729
+    .line 802
     :cond_0
     :goto_0
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 730
-    const-string v1, "ko_KR"
+    .line 803
+    const-string v4, "ko_KR"
 
-    invoke-direct {p0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->checkVOLanguage(Ljava/lang/String;)Z
+    invoke-direct {p0, v4}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->checkVOLanguage(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 731
+    .line 804
     const-string v0, "ko_KR"
 
-    .line 736
+    .line 809
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-static {v1}, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;->getLocaleInfoAdapter(Landroid/content/Context;)[Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;
+    invoke-static {v4}, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference;->getLocaleInfoAdapter(Landroid/content/Context;)[Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 737
+    .line 810
     const/4 v1, 0x0
 
+    .local v1, i:I
     :goto_1
-    array-length v4, v3
+    array-length v4, v2
 
-    if-ge v1, v4, :cond_4
+    if-ge v1, v4, :cond_2
 
-    .line 738
-    if-eqz v0, :cond_3
+    .line 811
+    if-eqz v0, :cond_4
 
-    .line 739
-    aget-object v4, v3, v1
+    .line 812
+    aget-object v4, v2, v1
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
-    aget-object v4, v3, v1
+    aget-object v4, v2, v1
 
     invoke-virtual {v4}, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;->getLanguage()Ljava/lang/String;
 
@@ -463,44 +550,41 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
-    .line 740
-    aget-object v0, v3, v1
+    .line 813
+    aget-object v4, v2, v1
 
-    invoke-virtual {v0}, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;->getTitle()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/android/settings/handwritingsearch/HandwritingLanguagePreference$LanguageInfo;->getTitle()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    .line 746
-    :goto_2
-    return-object v0
-
-    .line 725
+    .line 819
     :cond_2
-    const-string v1, "en_US"
+    return-object v3
 
-    invoke-direct {p0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->checkVOLanguage(Ljava/lang/String;)Z
+    .line 798
+    .end local v1           #i:I
+    :cond_3
+    const-string v4, "en_US"
 
-    move-result v1
+    invoke-direct {p0, v4}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->checkVOLanguage(Ljava/lang/String;)Z
 
-    if-eqz v1, :cond_0
+    move-result v4
 
-    .line 726
+    if-eqz v4, :cond_0
+
+    .line 799
     const-string v0, "en_US"
 
     goto :goto_0
 
-    .line 737
-    :cond_3
+    .line 810
+    .restart local v1       #i:I
+    :cond_4
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
-
-    :cond_4
-    move-object v0, v2
-
-    goto :goto_2
 .end method
 
 .method private hasOnlyOneLanguageInstance(Ljava/lang/String;[Ljava/lang/String;)Z
@@ -513,10 +597,10 @@
 
     const/4 v5, 0x1
 
-    .line 482
+    .line 526
     const/4 v1, 0x0
 
-    .line 483
+    .line 527
     .local v1, count:I
     move-object v0, p2
 
@@ -532,7 +616,7 @@
 
     aget-object v4, v0, v2
 
-    .line 484
+    .line 528
     .local v4, localeCode:Ljava/lang/String;
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
@@ -548,25 +632,25 @@
 
     if-eqz v7, :cond_0
 
-    .line 486
+    .line 530
     add-int/lit8 v1, v1, 0x1
 
-    .line 487
+    .line 531
     if-le v1, v5, :cond_0
 
-    .line 492
+    .line 536
     .end local v4           #localeCode:Ljava/lang/String;
     :goto_1
     return v6
 
-    .line 483
+    .line 527
     .restart local v4       #localeCode:Ljava/lang/String;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 492
+    .line 536
     .end local v4           #localeCode:Ljava/lang/String;
     :cond_1
     if-ne v1, v5, :cond_2
@@ -586,12 +670,12 @@
     .locals 4
 
     .prologue
-    .line 682
+    .line 755
     invoke-static {}, Landroid/view/InputDevice;->getDeviceIds()[I
 
     move-result-object v1
 
-    .line 683
+    .line 756
     .local v1, devices:[I
     const/4 v2, 0x0
 
@@ -601,14 +685,14 @@
 
     if-ge v2, v3, :cond_1
 
-    .line 684
+    .line 757
     aget v3, v1, v2
 
     invoke-static {v3}, Landroid/view/InputDevice;->getDevice(I)Landroid/view/InputDevice;
 
     move-result-object v0
 
-    .line 685
+    .line 758
     .local v0, device:Landroid/view/InputDevice;
     if-eqz v0, :cond_0
 
@@ -628,22 +712,22 @@
 
     if-eqz v3, :cond_0
 
-    .line 686
+    .line 759
     const/4 v3, 0x1
 
-    .line 689
+    .line 762
     .end local v0           #device:Landroid/view/InputDevice;
     :goto_1
     return v3
 
-    .line 683
+    .line 756
     .restart local v0       #device:Landroid/view/InputDevice;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 689
+    .line 762
     .end local v0           #device:Landroid/view/InputDevice;
     :cond_1
     const/4 v3, 0x0
@@ -656,19 +740,19 @@
     .parameter "inputDeviceDescriptor"
 
     .prologue
-    .line 640
+    .line 713
     new-instance v0, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;
 
     invoke-direct {v0, p1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;-><init>(Ljava/lang/String;)V
 
-    .line 642
+    .line 715
     .local v0, fragment:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;
     const/4 v1, 0x0
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->setTargetFragment(Landroid/app/Fragment;I)V
+    invoke-virtual {v0, p0, v1}, Landroid/app/Fragment;->setTargetFragment(Landroid/app/Fragment;I)V
 
-    .line 643
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 716
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -678,70 +762,22 @@
 
     const-string v2, "keyboardLayout"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
-    .line 644
-    return-void
-.end method
-
-.method private updateActiveInputMethodsSummary()V
-    .locals 3
-
-    .prologue
-    .line 525
-    iget-object v2, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    .local v0, i$:Ljava/util/Iterator;
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/inputmethod/InputMethodPreference;
-
-    .line 526
-    .local v1, pref:Landroid/preference/Preference;
-    instance-of v2, v1, Lcom/android/settings/inputmethod/InputMethodPreference;
-
-    if-eqz v2, :cond_0
-
-    .line 527
-    check-cast v1, Lcom/android/settings/inputmethod/InputMethodPreference;
-
-    .end local v1           #pref:Landroid/preference/Preference;
-    invoke-virtual {v1}, Lcom/android/settings/inputmethod/InputMethodPreference;->updateSummary()V
-
-    goto :goto_0
-
-    .line 530
-    :cond_1
-    invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateCurrentImeName()V
-
-    .line 531
+    .line 717
     return-void
 .end method
 
 .method private updateCurrentImeName()V
-    .locals 7
+    .locals 5
 
     .prologue
-    .line 534
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 601
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 535
+    .line 602
     .local v0, context:Landroid/content/Context;
     if-eqz v0, :cond_0
 
@@ -749,45 +785,35 @@
 
     if-nez v3, :cond_1
 
-    .line 546
+    .line 613
     :cond_0
     :goto_0
     return-void
 
-    .line 536
+    .line 603
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     const-string v4, "current_input_method"
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v2
 
-    .line 537
+    .line 604
     .local v2, curPref:Landroid/preference/Preference;
     if-eqz v2, :cond_0
 
-    .line 538
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 605
+    iget-object v3, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
 
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
-
-    iget-object v5, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v6
-
-    invoke-static {v0, v3, v4, v5, v6}, Lcom/android/settings/inputmethod/InputMethodAndSubtypeUtil;->getCurrentInputMethodName(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/view/inputmethod/InputMethodManager;Ljava/util/List;Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v0}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->getCurrentInputMethodName(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 540
+    .line 607
     .local v1, curIme:Ljava/lang/CharSequence;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -795,14 +821,14 @@
 
     if-nez v3, :cond_0
 
-    .line 541
+    .line 608
     monitor-enter p0
 
-    .line 542
+    .line 609
     :try_start_0
     invoke-virtual {v2, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 543
+    .line 610
     monitor-exit p0
 
     goto :goto_0
@@ -823,36 +849,36 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 669
+    .line 742
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->haveInputDeviceWithVibrator()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 670
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 743
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mGameControllerCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 672
+    .line 745
     iget-object v2, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mGameControllerCategory:Landroid/preference/PreferenceCategory;
 
     const-string v3, "vibrate_input_devices"
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceCategory;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 674
+    .line 747
     .local v0, chkPref:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -865,558 +891,343 @@
     if-lez v2, :cond_0
 
     :goto_0
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 679
+    .line 752
     .end local v0           #chkPref:Landroid/preference/CheckBoxPreference;
     :goto_1
     return-void
 
-    .line 674
+    .line 747
     .restart local v0       #chkPref:Landroid/preference/CheckBoxPreference;
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 677
+    .line 750
     .end local v0           #chkPref:Landroid/preference/CheckBoxPreference;
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mGameControllerCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v2}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     goto :goto_1
 .end method
 
 .method private updateHardKeyboards()V
-    .locals 13
+    .locals 2
 
     .prologue
-    const/4 v10, 0x0
+    .line 642
+    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
 
-    .line 574
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    invoke-virtual {v11}, Ljava/util/ArrayList;->clear()V
+    .line 644
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    .line 575
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getResources()Landroid/content/res/Resources;
+    move-result-object v0
 
-    move-result-object v11
+    iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v11}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    move-result-object v11
-
-    iget v11, v11, Landroid/content/res/Configuration;->keyboard:I
-
-    const/4 v12, 0x2
-
-    if-ne v11, v12, :cond_3
-
-    .line 576
-    invoke-static {}, Landroid/view/InputDevice;->getDeviceIds()[I
-
-    move-result-object v3
-
-    .line 577
-    .local v3, devices:[I
-    const/4 v4, 0x0
-
-    .local v4, i:I
-    :goto_0
-    array-length v11, v3
-
-    if-ge v4, v11, :cond_3
-
-    .line 578
-    aget v11, v3, v4
-
-    invoke-static {v11}, Landroid/view/InputDevice;->getDevice(I)Landroid/view/InputDevice;
-
-    move-result-object v1
-
-    .line 579
-    .local v1, device:Landroid/view/InputDevice;
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Landroid/view/InputDevice;->isVirtual()Z
-
-    move-result v11
-
-    if-nez v11, :cond_0
-
-    invoke-virtual {v1}, Landroid/view/InputDevice;->isFullKeyboard()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_0
-
-    .line 582
-    invoke-virtual {v1}, Landroid/view/InputDevice;->getDescriptor()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 583
-    .local v6, inputDeviceDescriptor:Ljava/lang/String;
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
-
-    invoke-virtual {v11, v6}, Landroid/hardware/input/InputManager;->getCurrentKeyboardLayoutForInputDevice(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 585
-    .local v8, keyboardLayoutDescriptor:Ljava/lang/String;
-    if-eqz v8, :cond_1
-
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
-
-    invoke-virtual {v11, v8}, Landroid/hardware/input/InputManager;->getKeyboardLayout(Ljava/lang/String;)Landroid/hardware/input/KeyboardLayout;
-
-    move-result-object v7
-
-    .line 588
-    .local v7, keyboardLayout:Landroid/hardware/input/KeyboardLayout;
-    :goto_1
-    new-instance v9, Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v11
-
-    invoke-direct {v9, v11, v10}, Landroid/preference/PreferenceScreen;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    .line 589
-    .local v9, pref:Landroid/preference/PreferenceScreen;
-    invoke-virtual {v1}, Landroid/view/InputDevice;->getName()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {p0, v11}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getHardKeyboardTitle(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 591
-    .local v2, deviceName:Ljava/lang/String;
-    invoke-virtual {v9, v2}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 592
-    if-eqz v7, :cond_2
-
-    .line 593
-    invoke-virtual {v7}, Landroid/hardware/input/KeyboardLayout;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v11}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
-
-    .line 597
-    :goto_2
-    new-instance v11, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$2;
-
-    invoke-direct {v11, p0, v6}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$2;-><init>(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)V
-
-    invoke-virtual {v9, v11}, Landroid/preference/PreferenceScreen;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
-
-    .line 604
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v11, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 577
-    .end local v2           #deviceName:Ljava/lang/String;
-    .end local v6           #inputDeviceDescriptor:Ljava/lang/String;
-    .end local v7           #keyboardLayout:Landroid/hardware/input/KeyboardLayout;
-    .end local v8           #keyboardLayoutDescriptor:Ljava/lang/String;
-    .end local v9           #pref:Landroid/preference/PreferenceScreen;
-    :cond_0
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    .restart local v6       #inputDeviceDescriptor:Ljava/lang/String;
-    .restart local v8       #keyboardLayoutDescriptor:Ljava/lang/String;
-    :cond_1
-    move-object v7, v10
-
-    .line 585
-    goto :goto_1
-
-    .line 595
-    .restart local v2       #deviceName:Ljava/lang/String;
-    .restart local v7       #keyboardLayout:Landroid/hardware/input/KeyboardLayout;
-    .restart local v9       #pref:Landroid/preference/PreferenceScreen;
-    :cond_2
-    const v11, 0x7f0907b7
-
-    invoke-virtual {v9, v11}, Landroid/preference/PreferenceScreen;->setSummary(I)V
-
-    goto :goto_2
-
-    .line 609
-    .end local v1           #device:Landroid/view/InputDevice;
-    .end local v2           #deviceName:Ljava/lang/String;
-    .end local v3           #devices:[I
-    .end local v4           #i:I
-    .end local v6           #inputDeviceDescriptor:Ljava/lang/String;
-    .end local v7           #keyboardLayout:Landroid/hardware/input/KeyboardLayout;
-    .end local v8           #keyboardLayoutDescriptor:Ljava/lang/String;
-    .end local v9           #pref:Landroid/preference/PreferenceScreen;
-    :cond_3
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v10}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v10
-
-    if-nez v10, :cond_7
-
-    .line 610
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v10}, Landroid/preference/PreferenceCategory;->getPreferenceCount()I
-
-    move-result v4
-
-    .restart local v4       #i:I
-    move v5, v4
-
-    .end local v4           #i:I
-    .local v5, i:I
-    :goto_3
-    add-int/lit8 v4, v5, -0x1
-
-    .end local v5           #i:I
-    .restart local v4       #i:I
-    if-lez v5, :cond_5
-
-    .line 611
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v10, v4}, Landroid/preference/PreferenceCategory;->getPreference(I)Landroid/preference/Preference;
-
-    move-result-object v9
-
-    .line 612
-    .local v9, pref:Landroid/preference/Preference;
-    invoke-virtual {v9}, Landroid/preference/Preference;->getOrder()I
-
-    move-result v10
-
-    const/16 v11, 0x3e8
-
-    if-ge v10, v11, :cond_4
-
-    .line 613
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v10, v9}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
-
-    :cond_4
-    move v5, v4
-
-    .line 615
-    .end local v4           #i:I
-    .restart local v5       #i:I
-    goto :goto_3
-
-    .line 617
-    .end local v5           #i:I
-    .end local v9           #pref:Landroid/preference/Preference;
-    .restart local v4       #i:I
-    :cond_5
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
-
-    invoke-static {v10}, Ljava/util/Collections;->sort(Ljava/util/List;)V
-
-    .line 618
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    .line 619
-    .local v0, count:I
-    const/4 v4, 0x0
-
-    :goto_4
-    if-ge v4, v0, :cond_6
-
-    .line 620
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v10, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Landroid/preference/Preference;
-
-    .line 621
-    .restart local v9       #pref:Landroid/preference/Preference;
-    invoke-virtual {v9, v4}, Landroid/preference/Preference;->setOrder(I)V
-
-    .line 622
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v10, v9}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 619
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_4
-
-    .line 625
-    .end local v9           #pref:Landroid/preference/Preference;
-    :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v10, v11}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 629
-    .end local v0           #count:I
-    .end local v4           #i:I
-    :goto_5
+    .line 645
     return-void
-
-    .line 627
-    :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v10, v11}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    goto :goto_5
 .end method
 
 .method private updateInputDevices()V
     .locals 0
 
     .prologue
-    .line 569
+    .line 637
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateHardKeyboards()V
 
-    .line 570
+    .line 638
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateGameControllers()V
 
-    .line 571
+    .line 639
     return-void
 .end method
 
-.method private updateUserDictionaryPreference(Landroid/preference/Preference;)V
-    .locals 4
-    .parameter
+.method private updateInputMethodPreferenceViews()V
+    .locals 10
 
     .prologue
-    const/4 v3, 0x1
+    .line 568
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
 
-    .line 275
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    monitor-enter v8
 
-    move-result-object v0
+    .line 570
+    :try_start_0
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
 
-    .line 276
-    invoke-static {v0}, Lcom/android/settings/inputmethod/UserDictionaryList;->getUserDictionaryLocalesSet(Landroid/app/Activity;)Ljava/util/TreeSet;
+    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v2
 
-    .line 277
-    if-nez v0, :cond_1
-
-    .line 280
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 302
-    :cond_0
+    .local v2, i$:Ljava/util/Iterator;
     :goto_0
-    return-void
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 281
-    :cond_1
-    invoke-virtual {v0}, Ljava/util/TreeSet;->size()I
+    move-result v7
 
-    move-result v1
+    if-eqz v7, :cond_0
 
-    if-gt v1, v3, :cond_2
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    .line 282
-    new-instance v1, Landroid/content/Intent;
+    move-result-object v5
 
-    const-string v2, "android.settings.USER_DICTIONARY_SETTINGS"
+    check-cast v5, Lcom/android/settings/inputmethod/InputMethodPreference;
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    .line 571
+    .local v5, imp:Lcom/android/settings/inputmethod/InputMethodPreference;
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
 
-    .line 284
-    const v2, 0x7f0907ba
+    invoke-virtual {v7, v5}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    invoke-virtual {p1, v2}, Landroid/preference/Preference;->setTitle(I)V
+    goto :goto_0
 
-    .line 285
-    invoke-virtual {p1, v1}, Landroid/preference/Preference;->setIntent(Landroid/content/Intent;)V
+    .line 596
+    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v5           #imp:Lcom/android/settings/inputmethod/InputMethodPreference;
+    :catchall_0
+    move-exception v7
 
-    .line 286
-    const-class v1, Lcom/android/settings/UserDictionarySettings;
+    monitor-exit v8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    throw v7
 
-    move-result-object v1
+    .line 573
+    .restart local v2       #i$:Ljava/util/Iterator;
+    :cond_0
+    :try_start_1
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, v1}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
+    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
 
-    .line 294
-    invoke-virtual {v0}, Ljava/util/TreeSet;->size()I
+    .line 574
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
 
-    move-result v1
+    invoke-virtual {v7}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->getInputMethodList()Ljava/util/List;
 
-    if-ne v1, v3, :cond_0
+    move-result-object v4
 
-    .line 295
-    invoke-virtual {v0}, Ljava/util/TreeSet;->toArray()[Ljava/lang/Object;
+    .line 575
+    .local v4, imis:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
+    if-nez v4, :cond_1
 
-    move-result-object v0
+    const/4 v0, 0x0
 
+    .line 576
+    .local v0, N:I
+    :goto_1
     const/4 v1, 0x0
 
-    aget-object v0, v0, v1
+    .local v1, i:I
+    :goto_2
+    if-ge v1, v0, :cond_2
 
-    check-cast v0, Ljava/lang/String;
+    .line 577
+    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    .line 296
-    invoke-virtual {p1}, Landroid/preference/Preference;->getExtras()Landroid/os/Bundle;
+    move-result-object v3
 
-    move-result-object v1
+    check-cast v3, Landroid/view/inputmethod/InputMethodInfo;
 
-    const-string v2, "locale"
+    .line 578
+    .local v3, imi:Landroid/view/inputmethod/InputMethodInfo;
+    invoke-direct {p0, v3}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getInputMethodPreference(Landroid/view/inputmethod/InputMethodInfo;)Lcom/android/settings/inputmethod/InputMethodPreference;
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v6
 
-    goto :goto_0
+    .line 579
+    .local v6, pref:Lcom/android/settings/inputmethod/InputMethodPreference;
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mOnImePreferenceChangedListener:Landroid/preference/Preference$OnPreferenceChangeListener;
 
-    .line 299
+    invoke-virtual {v6, v7}, Lcom/android/settings/inputmethod/InputMethodPreference;->setOnImePreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    .line 580
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 576
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    .line 575
+    .end local v0           #N:I
+    .end local v1           #i:I
+    .end local v3           #imi:Landroid/view/inputmethod/InputMethodInfo;
+    .end local v6           #pref:Lcom/android/settings/inputmethod/InputMethodPreference;
+    :cond_1
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    goto :goto_1
+
+    .line 583
+    .restart local v0       #N:I
+    .restart local v1       #i:I
     :cond_2
-    const v0, 0x7f0907bb
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, v0}, Landroid/preference/Preference;->setTitle(I)V
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
 
-    .line 300
-    const-class v0, Lcom/android/settings/inputmethod/UserDictionaryList;
+    move-result v7
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    if-nez v7, :cond_3
 
-    move-result-object v0
+    .line 584
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, v0}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
+    invoke-static {v7}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    goto :goto_0
+    .line 585
+    const/4 v1, 0x0
+
+    :goto_3
+    if-ge v1, v0, :cond_3
+
+    .line 586
+    iget-object v9, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
+
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/preference/Preference;
+
+    invoke-virtual {v9, v7}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+
+    .line 585
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_3
+
+    .line 591
+    :cond_3
+    iget-object v7, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_4
+    :goto_4
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/settings/inputmethod/InputMethodPreference;
+
+    .line 592
+    .local v6, pref:Landroid/preference/Preference;
+    instance-of v7, v6, Lcom/android/settings/inputmethod/InputMethodPreference;
+
+    if-eqz v7, :cond_4
+
+    .line 593
+    check-cast v6, Lcom/android/settings/inputmethod/InputMethodPreference;
+
+    .end local v6           #pref:Landroid/preference/Preference;
+    invoke-virtual {v6}, Lcom/android/settings/inputmethod/InputMethodPreference;->updatePreferenceViews()V
+
+    goto :goto_4
+
+    .line 596
+    :cond_5
+    monitor-exit v8
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 597
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateCurrentImeName()V
+
+    .line 598
+    return-void
 .end method
 
 
 # virtual methods
-.method public getHardKeyboardTitle(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .parameter "deviceName"
+.method public onActivityResult(IILandroid/content/Intent;)V
+    .locals 3
+    .parameter "requestCode"
+    .parameter "resultCode"
+    .parameter "data"
 
     .prologue
-    .line 632
-    move-object v0, p1
+    .line 731
+    invoke-super {p0, p1, p2, p3}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 633
-    .local v0, ret:Ljava/lang/String;
-    const-string v1, "sec_keypad"
-
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
+    .line 733
+    iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIntentWaitingForResult:Landroid/content/Intent;
 
     if-eqz v1, :cond_0
 
-    .line 634
-    const v1, 0x7f0907ec
+    .line 734
+    iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIntentWaitingForResult:Landroid/content/Intent;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getString(I)Ljava/lang/String;
+    const-string v2, "input_device_descriptor"
 
-    move-result-object v0
-
-    .line 636
-    :cond_0
-    return-object v0
-.end method
-
-.method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 2
-    .parameter
-    .parameter
-    .parameter
-
-    .prologue
-    .line 658
-    invoke-super {p0, p1, p2, p3}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityResult(IILandroid/content/Intent;)V
-
-    .line 660
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIntentWaitingForResult:Landroid/content/Intent;
-
-    if-eqz v0, :cond_0
-
-    .line 661
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIntentWaitingForResult:Landroid/content/Intent;
-
-    const-string v1, "input_device_descriptor"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 663
+    .line 736
+    .local v0, inputDeviceDescriptor:Ljava/lang/String;
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIntentWaitingForResult:Landroid/content/Intent;
 
-    .line 664
+    .line 737
     invoke-direct {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->showKeyboardLayoutDialog(Ljava/lang/String;)V
 
-    .line 666
+    .line 739
+    .end local v0           #inputDeviceDescriptor:Ljava/lang/String;
     :cond_0
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 4
     .parameter
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
-
-    .line 136
+    .line 155
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 138
-    const v0, 0x7f07004b
+    .line 157
+    const v0, 0x7f070062
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 141
+    .line 160
     const v0, 0x7f090016
 
     :try_start_0
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1432,13 +1243,13 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 146
+    .line 165
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v0
 
@@ -1450,22 +1261,22 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_2
 
-    .line 148
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 167
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const-string v1, "phone_language"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 160
+    .line 179
     :goto_1
     new-instance v0, Lcom/android/settings/VoiceInputOutputSettings;
 
@@ -1473,10 +1284,10 @@
 
     invoke-virtual {v0}, Lcom/android/settings/VoiceInputOutputSettings;->onCreate()V
 
-    .line 163
+    .line 182
     const-string v0, "hard_keyboard"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1484,10 +1295,10 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
 
-    .line 164
+    .line 183
     const-string v0, "keyboard_settings_category"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1495,10 +1306,10 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
 
-    .line 166
+    .line 185
     const-string v0, "game_controller_settings_category"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1506,10 +1317,10 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mGameControllerCategory:Landroid/preference/PreferenceCategory;
 
-    .line 170
+    .line 189
     const-string v0, "android.settings.INPUT_METHOD_SETTINGS"
 
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1527,8 +1338,8 @@
 
     iput-boolean v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIsOnlyImeSettings:Z
 
-    .line 172
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 191
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1536,43 +1347,43 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v5}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 173
+    .line 192
     iget-boolean v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIsOnlyImeSettings:Z
 
     if-eqz v0, :cond_0
 
-    .line 174
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 193
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->removeAll()V
 
-    .line 175
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 194
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 179
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 198
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 183
+    .line 202
     :cond_0
     const-string v0, "input_method"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1580,177 +1391,76 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
 
-    .line 184
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
-
-    invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->getInputMethodList()Ljava/util/List;
+    .line 203
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
+    invoke-static {v0}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->getInstance(Landroid/content/Context;)Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
 
-    .line 187
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
+    move-result-object v0
 
-    if-eqz v0, :cond_4
+    iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
 
-    .line 188
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
+    .line 206
+    iget-boolean v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->knoxV1Enabled:Z
 
+    if-eqz v0, :cond_3
+
+    .line 208
+    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
+
+    invoke-virtual {v0}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->getInputMethodList()Ljava/util/List;
+
+    move-result-object v0
+
+    .line 209
+    if-eqz v0, :cond_3
+
+    .line 210
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .line 189
+    .line 211
     :cond_1
     :goto_2
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
-    .line 190
+    .line 212
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 191
+    .line 213
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "com.sevenknowledge.sevennotesproduct.samsung"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v3, "com.sec.android.inputmethod/.SamsungKeypad"
+    const-string v2, "sec_container_1"
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "CHN"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "CHM"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "CHC"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "CHU"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "CTC"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "DCM"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "KDI"
-
-    const-string v3, "ro.csc.sales_code"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 200
-    :cond_2
+    .line 214
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
-    goto/16 :goto_2
+    goto :goto_2
 
-    .line 150
-    :cond_3
+    .line 169
+    :cond_2
     const-string v0, "phone_language"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -1758,152 +1468,57 @@
 
     goto/16 :goto_1
 
-    .line 205
-    :cond_4
+    .line 221
+    :cond_3
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v0}, Landroid/preference/PreferenceCategory;->removeAll()V
-
-    .line 206
-    iget-boolean v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIsOnlyImeSettings:Z
-
-    if-nez v0, :cond_5
-
-    .line 207
-    new-instance v0, Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1, v5}, Landroid/preference/PreferenceScreen;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    .line 208
-    const-string v1, "current_input_method"
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setKey(Ljava/lang/String;)V
-
-    .line 209
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v3, 0x7f0907df
-
-    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 210
-    const v1, 0x7f040151
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setWidgetLayoutResource(I)V
-
-    .line 211
-    iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v1, v0}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 214
-    :cond_5
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-
-    .line 215
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
-
-    if-nez v0, :cond_6
-
-    move v1, v2
-
-    :goto_3
-    move v3, v2
-
-    .line 216
-    :goto_4
-    if-ge v3, v1, :cond_7
-
-    .line 217
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
-
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/inputmethod/InputMethodInfo;
-
-    .line 218
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getInputMethodPreference(Landroid/view/inputmethod/InputMethodInfo;I)Lcom/android/settings/inputmethod/InputMethodPreference;
-
-    move-result-object v0
-
-    .line 219
-    iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 216
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
-
-    goto :goto_4
-
-    .line 215
-    :cond_6
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    move v1, v0
-
-    goto :goto_3
+    invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->removeAll()V
 
     .line 222
-    :cond_7
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
+    iget-boolean v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIsOnlyImeSettings:Z
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_8
+    if-nez v0, :cond_4
 
     .line 223
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
+    new-instance v0, Landroid/preference/PreferenceScreen;
 
-    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1, v3}, Landroid/preference/PreferenceScreen;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 224
-    :goto_5
-    if-ge v2, v1, :cond_8
+    const-string v1, "current_input_method"
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
     .line 225
-    iget-object v3, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
-    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodPreferenceList:Ljava/util/ArrayList;
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    const v2, 0x7f090830
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    check-cast v0, Landroid/preference/Preference;
+    move-result-object v1
 
-    invoke-virtual {v3, v0}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 224
-    add-int/lit8 v2, v2, 0x1
+    .line 226
+    const v1, 0x7f040187
 
-    goto :goto_5
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
-    .line 230
-    :cond_8
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 227
+    iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
+
+    invoke-virtual {v1, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+
+    .line 231
+    :cond_4
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1917,18 +1532,18 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
 
-    .line 231
+    .line 232
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
 
-    .line 234
+    .line 235
     new-instance v1, Landroid/content/Intent;
 
     const-string v0, "android.intent.action.MAIN"
 
     invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 235
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 236
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1936,35 +1551,35 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 236
+    .line 237
     const-string v0, "spellcheckers_settings"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/settings/inputmethod/SpellCheckersPreference;
 
-    .line 238
-    if-eqz v0, :cond_9
-
     .line 239
-    invoke-virtual {v0, p0, v1}, Lcom/android/settings/inputmethod/SpellCheckersPreference;->setFragmentIntent(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/Intent;)V
+    if-eqz v0, :cond_5
 
-    .line 242
-    :cond_9
+    .line 240
+    invoke-virtual {v0, p0, v1}, Lcom/android/settings/inputmethod/CheckBoxAndSettingsPreference;->setFragmentIntent(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/Intent;)V
+
+    .line 243
+    :cond_5
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandler:Landroid/os/Handler;
 
-    .line 243
+    .line 244
     new-instance v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -1972,45 +1587,30 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
 
-    .line 245
-    const-string v0, "VZW"
-
-    const-string v1, "ro.csc.sales_code"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    .line 246
+    .line 248
     const-string v0, "key_user_dictionary_settings"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     check-cast v0, Landroid/preference/PreferenceScreen;
 
-    .line 247
-    if-eqz v0, :cond_a
+    .line 249
+    if-eqz v0, :cond_6
 
-    .line 248
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 250
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v1, v0}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 252
-    :cond_a
+    .line 254
+    :cond_6
     const-string v0, "handwriting_search_category"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -2018,21 +1618,21 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingSearchCategory:Landroid/preference/PreferenceCategory;
 
-    .line 253
+    .line 255
     const-string v0, "handwriting_language"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
 
-    .line 255
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 257
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -2044,41 +1644,41 @@
 
     iput v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->uspLevel:I
 
-    .line 256
+    .line 258
     iget v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->uspLevel:I
 
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_7
 
-    .line 257
+    .line 259
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_7
 
-    .line 258
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 260
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 259
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 261
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingSearchCategory:Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 263
-    :cond_b
+    .line 265
+    :cond_7
     return-void
 
-    .line 143
+    .line 162
     :catch_0
     move-exception v0
 
@@ -2090,10 +1690,10 @@
     .parameter "deviceId"
 
     .prologue
-    .line 434
+    .line 458
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
 
-    .line 435
+    .line 459
     return-void
 .end method
 
@@ -2102,10 +1702,10 @@
     .parameter "deviceId"
 
     .prologue
-    .line 439
+    .line 463
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
 
-    .line 440
+    .line 464
     return-void
 .end method
 
@@ -2114,10 +1714,10 @@
     .parameter "deviceId"
 
     .prologue
-    .line 444
+    .line 468
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
 
-    .line 445
+    .line 469
     return-void
 .end method
 
@@ -2127,25 +1727,29 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 415
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 437
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 417
+    .line 439
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
 
     invoke-virtual {v0, p0}, Landroid/hardware/input/InputManager;->unregisterInputDeviceListener(Landroid/hardware/input/InputManager$InputDeviceListener;)V
 
-    .line 418
+    .line 440
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
 
     invoke-virtual {v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;->pause()V
 
-    .line 423
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 446
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
+
+    invoke-virtual {v0}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->getInputMethodList()Ljava/util/List;
+
+    move-result-object v3
 
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
 
@@ -2160,13 +1764,13 @@
     :goto_0
     invoke-static {p0, v2, v3, v0}, Lcom/android/settings/inputmethod/InputMethodAndSubtypeUtil;->saveInputMethodSubtypeList(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/ContentResolver;Ljava/util/List;Z)V
 
-    .line 426
+    .line 450
     iget v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->uspLevel:I
 
     if-le v0, v1, :cond_0
 
-    .line 427
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 451
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -2174,11 +1778,11 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 430
+    .line 454
     :cond_0
     return-void
 
-    .line 423
+    .line 446
     :cond_1
     const/4 v0, 0x0
 
@@ -2191,749 +1795,915 @@
     .parameter "value"
 
     .prologue
-    .line 521
+    .line 564
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 8
+    .locals 9
     .parameter "preferenceScreen"
     .parameter "preference"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    .line 450
+    .line 474
     invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
-    move v4, v3
+    move v5, v4
 
-    .line 478
+    .line 510
     :goto_0
-    return v4
+    return v5
 
-    .line 453
+    .line 477
     :cond_0
-    instance-of v5, p2, Landroid/preference/PreferenceScreen;
+    instance-of v6, p2, Landroid/preference/PreferenceScreen;
 
-    if-eqz v5, :cond_3
-
-    .line 454
-    invoke-virtual {p2}, Landroid/preference/Preference;->getFragment()Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_2
+    if-eqz v6, :cond_3
 
     .line 478
-    :cond_1
-    :goto_1
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-
-    move-result v4
-
-    goto :goto_0
-
-    .line 456
-    :cond_2
-    const-string v3, "current_input_method"
-
-    invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/preference/Preference;->getFragment()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v4, :cond_2
 
-    move-result v3
+    .line 503
+    :cond_1
+    :goto_1
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    if-eqz v3, :cond_1
+    move-result-object v4
 
-    .line 457
-    const-string v3, "input_method"
+    invoke-static {v4}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    .line 504
+    iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
+
+    invoke-virtual {p2, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    .line 505
+    new-instance v3, Landroid/content/Intent;
+
+    const-string v4, "com.android.settings.handwritingsearch.HandwritingLanguageTablet"
+
+    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 506
+    .local v3, intent:Landroid/content/Intent;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
+
+    .line 480
+    .end local v3           #intent:Landroid/content/Intent;
+    :cond_2
+    const-string v4, "current_input_method"
+
+    invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 481
+    const-string v4, "input_method"
+
+    invoke-virtual {p0, v4}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 459
+    .line 483
     .local v2, imm:Landroid/view/inputmethod/InputMethodManager;
     invoke-virtual {v2}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker()V
 
     goto :goto_1
 
-    .line 461
+    .line 485
     .end local v2           #imm:Landroid/view/inputmethod/InputMethodManager;
     :cond_3
-    instance-of v5, p2, Landroid/preference/CheckBoxPreference;
+    instance-of v6, p2, Landroid/preference/CheckBoxPreference;
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_1
 
     move-object v0, p2
 
-    .line 462
+    .line 486
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 463
+    .line 487
     .local v0, chkPref:Landroid/preference/CheckBoxPreference;
-    iget-object v5, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
 
-    invoke-virtual {v5}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v6}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_6
+    if-nez v6, :cond_6
 
-    .line 464
+    .line 488
     const/4 v1, 0x0
 
     .local v1, i:I
     :goto_2
-    sget-object v5, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
-
-    array-length v5, v5
-
-    if-ge v1, v5, :cond_6
-
-    .line 465
-    iget-object v5, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
     sget-object v6, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
 
-    aget-object v6, v6, v1
+    array-length v6, v6
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceCategory;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    if-ge v1, v6, :cond_6
 
-    move-result-object v5
+    .line 489
+    iget-object v6, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
 
-    if-ne v0, v5, :cond_5
+    sget-object v7, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
 
-    .line 466
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    aget-object v7, v7, v1
 
-    move-result-object v5
+    invoke-virtual {v6, v7}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    sget-object v6, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sSystemSettingNames:[Ljava/lang/String;
+    move-result-object v6
 
-    aget-object v6, v6, v1
+    if-ne v0, v6, :cond_5
 
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    .line 490
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result v7
+    move-result-object v6
 
-    if-eqz v7, :cond_4
+    sget-object v7, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sSystemSettingNames:[Ljava/lang/String;
 
-    move v3, v4
+    aget-object v7, v7, v1
+
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    move v4, v5
 
     :cond_4
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 
-    .line 464
+    .line 488
     :cond_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    .line 472
+    .line 496
     .end local v1           #i:I
     :cond_6
-    iget-object v5, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mGameControllerCategory:Landroid/preference/PreferenceCategory;
+    iget-object v6, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mGameControllerCategory:Landroid/preference/PreferenceCategory;
 
-    const-string v6, "vibrate_input_devices"
+    const-string v7, "vibrate_input_devices"
 
-    invoke-virtual {v5, v6}, Landroid/preference/PreferenceCategory;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    if-ne v0, v5, :cond_1
-
-    .line 473
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    const-string v6, "vibrate_input_devices"
-
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isChecked()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    move v3, v4
-
-    :cond_7
-    invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto :goto_0
-.end method
-
-.method public onResume()V
-    .locals 17
-
-    .prologue
-    .line 306
-    invoke-super/range {p0 .. p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
-
-    .line 308
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
-
-    invoke-virtual {v13}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;->resume()V
-
-    .line 309
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v13, v0, v14}, Landroid/hardware/input/InputManager;->registerInputDeviceListener(Landroid/hardware/input/InputManager$InputDeviceListener;Landroid/os/Handler;)V
-
-    .line 311
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v13
-
-    const-string v14, "CscFeature_Framework_ReplaceCountryName"
-
-    invoke-virtual {v13, v14}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 312
-    .local v5, countryFeature:Ljava/lang/String;
-    const-string v1, ""
-
-    .line 313
-    .local v1, ISO_Code:Ljava/lang/String;
-    const-string v6, ""
-
-    .line 315
-    .local v6, coutryReplaceName:Ljava/lang/String;
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_0
-
-    .line 316
-    const/4 v13, 0x0
-
-    const/4 v14, 0x5
-
-    invoke-virtual {v5, v13, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 317
-    const/4 v13, 0x6
-
-    invoke-virtual {v5, v13}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
+    if-ne v0, v6, :cond_1
+
+    .line 497
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string v7, "vibrate_input_devices"
+
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_7
+
+    move v4, v5
+
+    :cond_7
+    invoke-static {v6, v7, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_0
+
+    .line 510
+    .end local v0           #chkPref:Landroid/preference/CheckBoxPreference;
+    :cond_8
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+
+    move-result v5
+
+    goto/16 :goto_0
+.end method
+
+.method public onResume()V
+    .locals 22
+
+    .prologue
+    .line 318
+    invoke-super/range {p0 .. p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
+
     .line 320
-    :cond_0
     move-object/from16 v0, p0
 
-    iget-boolean v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIsOnlyImeSettings:Z
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
 
-    if-nez v13, :cond_2
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;->resume()V
 
     .line 321
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
 
-    if-eqz v13, :cond_1
+    move-object/from16 v18, v0
 
-    .line 322
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getResources()Landroid/content/res/Resources;
+    const/16 v19, 0x0
 
-    move-result-object v13
+    move-object/from16 v0, v18
 
-    invoke-virtual {v13}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    move-object/from16 v1, p0
 
-    move-result-object v3
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Landroid/hardware/input/InputManager;->registerInputDeviceListener(Landroid/hardware/input/InputManager$InputDeviceListener;Landroid/os/Handler;)V
 
     .line 323
-    .local v3, conf:Landroid/content/res/Configuration;
-    iget-object v13, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    invoke-virtual {v13}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    move-result-object v18
+
+    const-string v19, "CscFeature_Framework_ReplaceCountryName"
+
+    invoke-virtual/range {v18 .. v19}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
     .line 324
-    .local v8, language:Ljava/lang/String;
-    new-instance v13, Ljava/lang/StringBuilder;
+    .local v8, countryFeature:Ljava/lang/String;
+    const-string v4, ""
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    .line 325
+    .local v4, ISO_Code:Ljava/lang/String;
+    const-string v9, ""
 
-    iget-object v14, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    .line 327
+    .local v9, coutryReplaceName:Ljava/lang/String;
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v14}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    move-result v18
 
-    move-result-object v14
+    if-nez v18, :cond_0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 328
+    const/16 v18, 0x0
 
-    move-result-object v13
+    const/16 v19, 0x5
 
-    const-string v14, "_"
+    move/from16 v0, v18
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v1, v19
 
-    move-result-object v13
-
-    iget-object v14, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-virtual {v14}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 331
-    .local v12, s:Ljava/lang/String;
-    const-string v13, "zz"
-
-    invoke-virtual {v8, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_5
-
-    .line 332
-    iget-object v13, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-virtual {v13}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    invoke-virtual {v8, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 333
-    .local v4, country:Ljava/lang/String;
-    const-string v13, "ZZ"
+    .line 329
+    const/16 v18, 0x6
 
-    invoke-virtual {v4, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move/from16 v0, v18
 
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    .line 334
-    const-string v9, "[Developer] Accented English (zz_ZZ)"
-
-    .line 346
-    .end local v4           #country:Ljava/lang/String;
-    .local v9, localeString:Ljava/lang/String;
-    :goto_0
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    const/4 v14, 0x1
-
-    if-le v13, v14, :cond_1
-
-    .line 347
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v9, v14}, Ljava/lang/String;->charAt(I)C
-
-    move-result v14
-
-    invoke-static {v14}, Ljava/lang/Character;->toUpperCase(C)C
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v9, v14}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v9
 
-    .line 350
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 332
+    :cond_0
+    move-object/from16 v0, p0
 
-    move-result v13
+    iget-boolean v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIsOnlyImeSettings:Z
 
-    if-nez v13, :cond_8
+    move/from16 v18, v0
 
-    invoke-virtual {v12, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v18, :cond_2
 
-    move-result v13
+    .line 333
+    move-object/from16 v0, p0
 
-    if-eqz v13, :cond_8
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
 
-    .line 351
-    const-string v11, ""
+    move-object/from16 v18, v0
 
-    .line 352
-    .local v11, numeric:Ljava/lang/String;
-    const-string v10, ""
+    if-eqz v18, :cond_1
 
-    .line 354
-    .local v10, mcc:Ljava/lang/String;
-    const-string v13, "gsm.sim.operator.numeric"
+    .line 334
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
-    const-string v14, "none"
+    move-result-object v18
 
-    invoke-static {v13, v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v6
+
+    .line 335
+    .local v6, conf:Landroid/content/res/Configuration;
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 356
-    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 336
+    .local v11, language:Ljava/lang/String;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    move-result v13
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v13, :cond_7
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    .line 361
-    move-object/from16 v0, p0
+    move-object/from16 v19, v0
 
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+    invoke-virtual/range {v19 .. v19}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    invoke-virtual {v13, v6}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    move-result-object v19
 
-    .line 374
-    .end local v3           #conf:Landroid/content/res/Configuration;
-    .end local v8           #language:Ljava/lang/String;
-    .end local v9           #localeString:Ljava/lang/String;
-    .end local v10           #mcc:Ljava/lang/String;
-    .end local v11           #numeric:Ljava/lang/String;
-    .end local v12           #s:Ljava/lang/String;
-    :cond_1
-    :goto_1
-    const-string v13, "VZW"
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v14, "ro.csc.sales_code"
+    move-result-object v18
 
-    invoke-static {v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string v19, "_"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    .line 340
+    .local v15, s:Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    const v19, 0x7f0a005d
+
+    invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v16
+
+    .line 341
+    .local v16, specialLocaleCodes:[Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    const v19, 0x7f0a00d5
+
+    invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v17
+
+    .line 348
+    .local v17, specialLocaleLanguages:[Ljava/lang/String;
+    const-string v18, "zz"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v11, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_5
+
+    .line 349
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 350
+    .local v7, country:Ljava/lang/String;
+    const-string v18, "ZZ"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_3
+
+    .line 351
+    const-string v12, "[Developer] Accented English (zz_ZZ)"
+
+    .line 363
+    .end local v7           #country:Ljava/lang/String;
+    .local v12, localeString:Ljava/lang/String;
+    :goto_0
+    invoke-virtual {v12}, Ljava/lang/String;->length()I
+
+    move-result v18
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-le v0, v1, :cond_1
+
+    .line 364
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/16 v19, 0x0
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v19
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Character;->toUpperCase(C)C
+
+    move-result v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    .line 367
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v18
+
+    if-nez v18, :cond_8
+
+    invoke-virtual {v15, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_8
+
+    .line 368
+    const-string v14, ""
+
+    .line 369
+    .local v14, numeric:Ljava/lang/String;
+    const-string v13, ""
+
+    .line 371
+    .local v13, mcc:Ljava/lang/String;
+    const-string v18, "gsm.sim.operator.numeric"
+
+    const-string v19, "none"
+
+    invoke-static/range {v18 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 373
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v13
+    move-result v18
 
-    if-eqz v13, :cond_2
+    if-nez v18, :cond_7
 
-    .line 375
-    const-string v13, "key_user_dictionary_settings"
-
+    .line 378
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
 
-    move-result-object v13
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v18
 
-    invoke-direct {v0, v13}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateUserDictionaryPreference(Landroid/preference/Preference;)V
+    invoke-virtual {v0, v9}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 388
+    .line 391
+    .end local v6           #conf:Landroid/content/res/Configuration;
+    .end local v11           #language:Ljava/lang/String;
+    .end local v12           #localeString:Ljava/lang/String;
+    .end local v13           #mcc:Ljava/lang/String;
+    .end local v14           #numeric:Ljava/lang/String;
+    .end local v15           #s:Ljava/lang/String;
+    .end local v16           #specialLocaleCodes:[Ljava/lang/String;
+    .end local v17           #specialLocaleLanguages:[Ljava/lang/String;
+    :cond_1
+    :goto_1
+    const-string v18, "VZW"
+
+    const-string v19, "ro.csc.sales_code"
+
+    invoke-static/range {v19 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_2
+
+    .line 405
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardPreferenceList:Ljava/util/ArrayList;
 
-    invoke-virtual {v13}, Ljava/util/ArrayList;->isEmpty()Z
+    move-object/from16 v18, v0
 
-    move-result v13
+    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->isEmpty()Z
 
-    if-nez v13, :cond_a
+    move-result v18
 
-    .line 389
-    const/4 v7, 0x0
-
-    .local v7, i:I
-    :goto_2
-    sget-object v13, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
-
-    array-length v13, v13
-
-    if-ge v7, v13, :cond_a
-
-    .line 390
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
-
-    sget-object v14, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
-
-    aget-object v14, v14, v7
-
-    invoke-virtual {v13, v14}, Landroid/preference/PreferenceCategory;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/preference/CheckBoxPreference;
-
-    .line 392
-    .local v2, chkPref:Landroid/preference/CheckBoxPreference;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sSystemSettingNames:[Ljava/lang/String;
-
-    aget-object v14, v14, v7
-
-    const/4 v15, 0x1
-
-    invoke-static {v13, v14, v15}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v13
-
-    if-lez v13, :cond_9
-
-    const/4 v13, 0x1
-
-    :goto_3
-    invoke-virtual {v2, v13}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
-
-    .line 389
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_2
-
-    .line 335
-    .end local v2           #chkPref:Landroid/preference/CheckBoxPreference;
-    .end local v7           #i:I
-    .restart local v3       #conf:Landroid/content/res/Configuration;
-    .restart local v4       #country:Ljava/lang/String;
-    .restart local v8       #language:Ljava/lang/String;
-    .restart local v12       #s:Ljava/lang/String;
-    :cond_3
-    const-string v13, "ZY"
-
-    invoke-virtual {v4, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    .line 336
-    const-string v9, "[Developer] Fake Bi-Directional (zz_ZY)"
-
-    .restart local v9       #localeString:Ljava/lang/String;
-    goto/16 :goto_0
-
-    .line 338
-    .end local v9           #localeString:Ljava/lang/String;
-    :cond_4
-    const-string v9, ""
-
-    .restart local v9       #localeString:Ljava/lang/String;
-    goto/16 :goto_0
-
-    .line 340
-    .end local v4           #country:Ljava/lang/String;
-    .end local v9           #localeString:Ljava/lang/String;
-    :cond_5
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/content/res/AssetManager;->getLocales()[Ljava/lang/String;
-
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v8, v13}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->hasOnlyOneLanguageInstance(Ljava/lang/String;[Ljava/lang/String;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_6
-
-    .line 342
-    iget-object v13, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    iget-object v14, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-virtual {v13, v14}, Ljava/util/Locale;->getDisplayLanguage(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v9
-
-    .restart local v9       #localeString:Ljava/lang/String;
-    goto/16 :goto_0
-
-    .line 344
-    .end local v9           #localeString:Ljava/lang/String;
-    :cond_6
-    iget-object v13, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    iget-object v14, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    invoke-virtual {v13, v14}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v9
-
-    .restart local v9       #localeString:Ljava/lang/String;
-    goto/16 :goto_0
-
-    .line 366
-    .restart local v10       #mcc:Ljava/lang/String;
-    .restart local v11       #numeric:Ljava/lang/String;
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
-
-    invoke-virtual {v13, v9}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_1
-
-    .line 369
-    .end local v10           #mcc:Ljava/lang/String;
-    .end local v11           #numeric:Ljava/lang/String;
-    :cond_8
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
-
-    invoke-virtual {v13, v9}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    goto/16 :goto_1
-
-    .line 392
-    .end local v3           #conf:Landroid/content/res/Configuration;
-    .end local v8           #language:Ljava/lang/String;
-    .end local v9           #localeString:Ljava/lang/String;
-    .end local v12           #s:Ljava/lang/String;
-    .restart local v2       #chkPref:Landroid/preference/CheckBoxPreference;
-    .restart local v7       #i:I
-    :cond_9
-    const/4 v13, 0x0
-
-    goto :goto_3
-
-    .line 397
-    .end local v2           #chkPref:Landroid/preference/CheckBoxPreference;
-    .end local v7           #i:I
-    :cond_a
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
-
-    .line 400
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImis:Ljava/util/List;
-
-    const/4 v15, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-static {v0, v13, v14, v15}, Lcom/android/settings/inputmethod/InputMethodAndSubtypeUtil;->loadInputMethodSubtypeList(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/ContentResolver;Ljava/util/List;Ljava/util/Map;)V
-
-    .line 402
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateActiveInputMethodsSummary()V
-
-    .line 403
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getListView()Landroid/widget/ListView;
-
-    move-result-object v13
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v13, v14}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
-
-    .line 405
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->uspLevel:I
-
-    const/4 v14, 0x1
-
-    if-le v13, v14, :cond_b
+    if-nez v18, :cond_a
 
     .line 406
-    move-object/from16 v0, p0
+    const/4 v10, 0x0
 
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
+    .local v10, i:I
+    :goto_2
+    sget-object v18, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
 
-    if-eqz v13, :cond_b
+    move-object/from16 v0, v18
+
+    array-length v0, v0
+
+    move/from16 v18, v0
+
+    move/from16 v0, v18
+
+    if-ge v10, v0, :cond_a
 
     .line 407
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHardKeyboardCategory:Landroid/preference/PreferenceCategory;
+
+    move-object/from16 v18, v0
+
+    sget-object v19, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sHardKeyboardKeys:[Ljava/lang/String;
+
+    aget-object v19, v19, v10
+
+    invoke-virtual/range {v18 .. v19}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/preference/CheckBoxPreference;
+
+    .line 409
+    .local v5, chkPref:Landroid/preference/CheckBoxPreference;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v18
+
+    sget-object v19, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->sSystemSettingNames:[Ljava/lang/String;
+
+    aget-object v19, v19, v10
+
+    const/16 v20, 0x1
+
+    invoke-static/range {v18 .. v20}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v18
+
+    if-lez v18, :cond_9
+
+    const/16 v18, 0x1
+
+    :goto_3
+    move/from16 v0, v18
+
+    invoke-virtual {v5, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 406
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_2
+
+    .line 352
+    .end local v5           #chkPref:Landroid/preference/CheckBoxPreference;
+    .end local v10           #i:I
+    .restart local v6       #conf:Landroid/content/res/Configuration;
+    .restart local v7       #country:Ljava/lang/String;
+    .restart local v11       #language:Ljava/lang/String;
+    .restart local v15       #s:Ljava/lang/String;
+    .restart local v16       #specialLocaleCodes:[Ljava/lang/String;
+    .restart local v17       #specialLocaleLanguages:[Ljava/lang/String;
+    :cond_3
+    const-string v18, "ZY"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_4
+
+    .line 353
+    const-string v12, "[Developer] Fake Bi-Directional (zz_ZY)"
+
+    .restart local v12       #localeString:Ljava/lang/String;
+    goto/16 :goto_0
+
+    .line 355
+    .end local v12           #localeString:Ljava/lang/String;
+    :cond_4
+    const-string v12, ""
+
+    .restart local v12       #localeString:Ljava/lang/String;
+    goto/16 :goto_0
+
+    .line 357
+    .end local v7           #country:Ljava/lang/String;
+    .end local v12           #localeString:Ljava/lang/String;
+    :cond_5
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/content/res/AssetManager;->getLocales()[Ljava/lang/String;
+
+    move-result-object v18
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-direct {v0, v11, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->hasOnlyOneLanguageInstance(Ljava/lang/String;[Ljava/lang/String;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_6
+
+    .line 359
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v16
+
+    move-object/from16 v3, v17
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getDisplayLanguage(Ljava/util/Locale;[Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    .restart local v12       #localeString:Ljava/lang/String;
+    goto/16 :goto_0
+
+    .line 361
+    .end local v12           #localeString:Ljava/lang/String;
+    :cond_6
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v18, v0
+
+    iget-object v0, v6, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v18 .. v19}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v12
+
+    .restart local v12       #localeString:Ljava/lang/String;
+    goto/16 :goto_0
+
+    .line 383
+    .restart local v13       #mcc:Ljava/lang/String;
+    .restart local v14       #numeric:Ljava/lang/String;
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    .line 386
+    .end local v13           #mcc:Ljava/lang/String;
+    .end local v14           #numeric:Ljava/lang/String;
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v12}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_1
+
+    .line 409
+    .end local v6           #conf:Landroid/content/res/Configuration;
+    .end local v11           #language:Ljava/lang/String;
+    .end local v12           #localeString:Ljava/lang/String;
+    .end local v15           #s:Ljava/lang/String;
+    .end local v16           #specialLocaleCodes:[Ljava/lang/String;
+    .end local v17           #specialLocaleLanguages:[Ljava/lang/String;
+    .restart local v5       #chkPref:Landroid/preference/CheckBoxPreference;
+    .restart local v10       #i:I
+    :cond_9
+    const/16 v18, 0x0
+
+    goto :goto_3
+
+    .line 414
+    .end local v5           #chkPref:Landroid/preference/CheckBoxPreference;
+    .end local v10           #i:I
+    :cond_a
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
+
+    .line 418
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->refreshAllInputMethodAndSubtypes()V
+
+    .line 420
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v18
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->getInputMethodList()Ljava/util/List;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v20
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/settings/inputmethod/InputMethodAndSubtypeUtil;->loadInputMethodSubtypeList(Lcom/android/settings/SettingsPreferenceFragment;Landroid/content/ContentResolver;Ljava/util/List;Ljava/util/Map;)V
+
+    .line 423
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputMethodPreferenceViews()V
+
+    .line 425
+    invoke-virtual/range {p0 .. p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
+
+    move-result-object v18
+
+    const/16 v19, 0x1
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
+
+    .line 427
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->uspLevel:I
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-le v0, v1, :cond_b
+
+    .line 428
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
+
+    move-object/from16 v18, v0
+
+    if-eqz v18, :cond_b
+
+    .line 429
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguage:Landroid/preference/Preference;
+
+    move-object/from16 v18, v0
 
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSelectLanguage()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v19
 
-    invoke-virtual {v13, v14}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual/range {v18 .. v19}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 408
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 430
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v13
+    move-result-object v18
 
-    const-string v14, "handwriting_language"
+    const-string v19, "handwriting_language"
 
-    invoke-static {v14}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static/range {v19 .. v19}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v14
+    move-result-object v19
 
-    const/4 v15, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mHandwritingLanguageObserver:Landroid/database/ContentObserver;
 
-    move-object/from16 v16, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v13 .. v16}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual/range {v18 .. v21}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 411
+    .line 433
     :cond_b
     return-void
 .end method
@@ -2943,15 +2713,15 @@
     .parameter
 
     .prologue
-    .line 648
+    .line 721
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MAIN"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 649
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+    .line 722
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -2959,19 +2729,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 650
+    .line 723
     const-string v1, "input_device_descriptor"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 652
+    .line 725
     iput-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIntentWaitingForResult:Landroid/content/Intent;
 
-    .line 653
+    .line 726
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v1}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 654
+    .line 727
     return-void
 .end method

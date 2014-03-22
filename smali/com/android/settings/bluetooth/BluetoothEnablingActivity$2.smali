@@ -110,7 +110,7 @@
     .line 130
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothEnablingActivity$2;->this$0:Lcom/android/settings/bluetooth/BluetoothEnablingActivity;
 
-    invoke-virtual {v1}, Lcom/android/settings/bluetooth/BluetoothEnablingActivity;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <header android:id="@id/wireless_section" android:title="@string/header_category_wireless_networks" />
+    <header android:icon="@drawable/grid_ic_settings_wifi" android:id="@id/wifi_settings" android:title="@string/wifi_settings_title" android:fragment="com.android.settings.wifi.WifiSettings" />
+    <header android:icon="@drawable/grid_ic_settings_smart_bonding" android:id="@id/smart_bonding_settings" android:title="@string/smart_bonding" android:fragment="com.android.settings.smartbonding.SmartBondingSettings" />
+    <header android:icon="@drawable/grid_ic_settings_bluetooth" android:id="@id/bluetooth_settings" android:title="@string/bluetooth_settings_title" android:fragment="com.android.settings.bluetooth.BluetoothSettings" />
+    <header android:icon="@drawable/grid_ic_settings_tethering" android:id="@id/header_connection_tethering_hotspot" android:title="@string/tether_settings_title_all" android:summary="@string/tether_settings_summary_all" android:fragment="com.android.settings.TetherSettings" />
+    <header android:icon="@drawable/grid_ic_settings_airplanemode" android:id="@id/airplane_mode" android:title="@string/airplane_mode" android:summary="@string/airplane_mode_menu_summary" android:fragment="com.android.settings.AirplaneModeSettings" />
+    <header android:icon="@drawable/grid_ic_settings_data_usage" android:id="@id/data_usage_settings" android:title="@string/data_usage_summary_title" android:fragment="com.android.settings.DataUsageSummary" />
+    <header android:icon="@drawable/grid_ic_settings_location" android:id="@id/location_settings" android:title="@string/location_settings_title" android:fragment="com.android.settings.location.LocationSettings" />
+    <header android:icon="@drawable/grid_ic_settings_more" android:id="@id/wireless_settings" android:title="@string/radio_controls_title" android:fragment="com.android.settings.WirelessSettings" android:breadCrumbTitle="@string/wireless_networks_settings_title" />
+    <header android:icon="@drawable/grid_ic_settings_nfc" android:id="@id/nfc_setting" android:title="@string/nfc_quick_toggle_title" android:summary="@string/nfc_quick_toggle_summary" android:fragment="com.android.settings.nfc.NfcSettings" />
+    <header android:icon="@drawable/grid_ic_settings_nearby" android:id="@id/nearby_setting" android:title="@string/allshare_nearby" android:summary="@string/allshare_title_summary" android:fragment="com.android.settings.nearby.NearbySettings" />
+    <header android:icon="@drawable/grid_ic_settings_screen_mirroring" android:id="@id/screen_mirroring_settings" android:title="@string/wfd_settings_title" android:summary="@string/wfd_settings_summary" android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+    <header android:id="@id/sound_and_display_section" android:title="@string/menu_header_screen" />
+    <header android:icon="@drawable/grid_ic_settings_sound" android:id="@id/sound_settings" android:title="@string/sound_settings" android:fragment="com.android.settings.SoundSettings" />
+    <header android:icon="@drawable/grid_ic_settings_display" android:id="@id/display_settings" android:title="@string/display_settings" android:fragment="com.android.settings.DisplaySettings" />
+    <header android:icon="@drawable/grid_ic_settings_wallpaper" android:id="@id/header_display_wallpaper" android:title="@string/wallpaper" android:fragment="com.android.settings.WallpaperSettings" />
+    <header android:icon="@drawable/grid_ic_settings_lockscreen_menu" android:id="@id/lock_screen_menu_settings" android:title="@string/lockscreen_wallpaper" android:fragment="com.android.settings.LockscreenMenuSettings" />
+    <header android:icon="@drawable/grid_ic_settings_multi_window" android:id="@id/header_display_multi_window" android:title="@string/multi_window_title" android:summary="@string/menu_summary_multi_window" android:fragment="com.android.settings.MultiWindowSettings" />
+    <header android:icon="@drawable/grid_ic_settings_notification_panel" android:id="@id/header_display_notification_panel" android:title="@string/notification_panel_title" android:fragment="com.android.settings.NotificationPanelMenu" />
+    <header android:icon="@drawable/grid_ic_settings_glance" android:id="@id/glance_settings" android:title="@string/glance_settings" android:fragment="com.android.settings.glance.GlanceSettings" />
+    <header android:icon="@drawable/grid_ic_settings_contextualsearch" android:id="@id/contextual_contents_settings" android:title="@string/contextual_contents_settings_label" android:fragment="com.android.settings.contextualcontents.ContextualContentsSettings" />
+    <header android:icon="@drawable/grid_ic_settings_one_handed_operation" android:id="@id/onehand_settings" android:title="@string/onehand_settings_title" android:fragment="com.android.settings.OneHandSettings" />
+    <header android:id="@id/personalixation_section" android:title="@string/personalization" />
+    <header android:icon="@drawable/grid_ic_settings_easy_mode" android:id="@id/easy_mode_settings" android:title="@string/easy_mode" android:summary="@string/easy_mode_summary" android:fragment="com.android.settings.easymode.EasyModeApp" />
+    <header android:icon="@drawable/grid_ic_settings_accessibility" android:id="@id/accessibility_settings" android:title="@string/accessibility_settings" android:summary="@string/accessibility_assurance_menu_summary" android:fragment="com.android.settings.accessibility.AccessibilitySettings" />
+    <header android:icon="@drawable/grid_ic_settings_high_touch_sensitivity" android:id="@id/header_input_hightouch_sensitivity" android:title="@string/auto_adjust_touch_title" android:summary="@string/auto_adjust_touch_summary" />
+    <header android:icon="@drawable/grid_ic_settings_dormant_mode" android:id="@id/dormant_mode" android:title="@string/dormant_mode" android:summary="@string/blocking_mode_menu_summary" android:fragment="com.android.settings.dormantmode.DormantmodeSettings" />
+    <header android:icon="@drawable/grid_ic_settings_multiuser" android:id="@id/user_settings" android:title="@string/user_settings_title" android:fragment="com.android.settings.users.UserSettings" />
+    <header android:id="@id/motion_section" android:title="@string/motion_title" />
+    <header android:icon="@drawable/grid_ic_settings_motion" android:id="@id/header_input_motion_and_gesture_2014" android:title="@string/s_motion_title" android:fragment="com.android.settings.motion2014.MotionSettings2014" />
+    <header android:icon="@drawable/grid_ic_settings_air_view" android:id="@id/finger_air_view_settings" android:title="@string/finger_air_view_title" android:summary="@string/air_view_settings_menu_summary" android:fragment="com.android.settings.FingerAirViewSettings" />
+    <header android:id="@id/user_and_backup_section" android:title="@string/users_and_backup_category" />
+    <header android:icon="@drawable/grid_ic_settings_account" android:id="@id/header_general_account_and_backup" android:title="@string/account_settings" android:fragment="com.android.settings.AccountMenu" />
+    <header android:icon="@drawable/grid_ic_settings_backup" android:id="@id/privacy_settings" android:title="@string/privacy_settings" android:fragment="com.android.settings.PrivacySettings" />
+    <header android:icon="@drawable/grid_ic_settings_finger_print" android:id="@id/fingerprint_settings" android:title="@string/fingerprint" android:summary="@string/menu_summary_fingerprints" android:fragment="com.android.settings.fingerprint.FingerprintSettings" />
+    <header android:id="@id/system_section" android:title="@string/header_category_system" />
+    <header android:icon="@drawable/grid_ic_settings_language" android:id="@id/language_settings" android:title="@string/language_settings" android:fragment="com.android.settings.inputmethod.InputMethodAndLanguageSettings" />
+    <header android:icon="@drawable/grid_ic_settings_date_time" android:id="@id/date_time_settings" android:title="@string/date_and_time_settings_title" android:fragment="com.android.settings.DateTimeSettings" />
+    <header android:icon="@drawable/grid_ic_setting_safty" android:id="@id/safetycare_settings" android:title="@string/safetycare_settings" android:fragment="com.android.settings.safetycare.SafetyCareSettings" />
+    <header android:icon="@drawable/grid_ic_settings_dock" android:id="@id/dock_settings" android:title="@string/accessory" android:fragment="com.android.settings.DockSettings" />
+    <header android:icon="@drawable/grid_ic_settings_battery" android:id="@id/battery_settings" android:title="@string/power_usage_summary_title" android:fragment="com.android.settings.fuelgauge.PowerUsageSummary" />
+    <header android:icon="@drawable/grid_ic_settings_storage" android:id="@id/storage_settings" android:title="@string/storage_settings" android:fragment="com.android.settings.deviceinfo.Memory" />
+    <header android:icon="@drawable/grid_ic_settings_security" android:id="@id/security_settings" android:title="@string/security_settings_title" android:fragment="com.android.settings.SecuritySettings" />
+    <header android:icon="@drawable/grid_ic_settings_development" android:id="@id/development_settings" android:title="@string/development_settings_title" android:fragment="com.android.settings.DevelopmentSettings" />
+    <header android:icon="@drawable/grid_ic_settings_about" android:id="@id/about_settings" android:title="@string/about_settings" android:fragment="com.android.settings.DeviceInfoSettings" />
+    <header android:id="@id/application_section" android:title="@string/app_name_label" />
+    <header android:icon="@drawable/grid_ic_settings_applications" android:id="@id/application_settings" android:title="@string/applications_settings" android:fragment="com.android.settings.applications.ManageApplications" />
+    <header android:icon="@drawable/grid_ic_setting_launch_apps" android:id="@id/launch_application_settings" android:title="@string/launch_application_settings" android:fragment="com.android.settings.LaunchApplication" />
+</preference-headers>

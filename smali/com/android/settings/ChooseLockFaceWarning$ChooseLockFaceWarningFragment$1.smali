@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 125
+    .line 130
     iput-object p1, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment$1;->this$0:Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "id"
 
     .prologue
-    .line 127
+    .line 132
     iget-object v0, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment$1;->this$0:Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;
 
     #getter for: Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mFolderCloseDialog:Landroid/app/Dialog;
@@ -53,10 +53,10 @@
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 129
+    .line 134
     iget-object v0, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment$1;->this$0:Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -64,15 +64,15 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setResult(I)V
 
-    .line 130
+    .line 135
     iget-object v0, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment$1;->this$0:Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 131
+    .line 136
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 69
+    .line 76
     iput-object p1, p0, Lcom/android/settings/CryptKeeperConfirm$Blank$1;->this$0:Lcom/android/settings/CryptKeeperConfirm$Blank;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,45 +41,45 @@
     .locals 6
 
     .prologue
-    .line 71
+    .line 78
     const-string v4, "mount"
 
     invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
 
-    .line 72
+    .line 79
     .local v3, service:Landroid/os/IBinder;
     if-nez v3, :cond_0
 
-    .line 73
+    .line 80
     const-string v4, "CryptKeeper"
 
     const-string v5, "Failed to find the mount service"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 74
+    .line 81
     iget-object v4, p0, Lcom/android/settings/CryptKeeperConfirm$Blank$1;->this$0:Lcom/android/settings/CryptKeeperConfirm$Blank;
 
-    invoke-virtual {v4}, Lcom/android/settings/CryptKeeperConfirm$Blank;->finish()V
+    invoke-virtual {v4}, Landroid/app/Activity;->finish()V
 
-    .line 85
+    .line 92
     :goto_0
     return-void
 
-    .line 78
+    .line 85
     :cond_0
     invoke-static {v3}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
 
     move-result-object v2
 
-    .line 80
+    .line 87
     .local v2, mountService:Landroid/os/storage/IMountService;
     :try_start_0
     iget-object v4, p0, Lcom/android/settings/CryptKeeperConfirm$Blank$1;->this$0:Lcom/android/settings/CryptKeeperConfirm$Blank;
 
-    invoke-virtual {v4}, Lcom/android/settings/CryptKeeperConfirm$Blank;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v4}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    .line 81
+    .line 88
     .local v0, args:Landroid/os/Bundle;
     const-string v4, "password"
 
@@ -101,12 +101,12 @@
 
     goto :goto_0
 
-    .line 82
+    .line 89
     .end local v0           #args:Landroid/os/Bundle;
     :catch_0
     move-exception v1
 
-    .line 83
+    .line 90
     .local v1, e:Ljava/lang/Exception;
     const-string v4, "CryptKeeper"
 

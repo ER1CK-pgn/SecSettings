@@ -128,7 +128,7 @@
 
     aput-object v1, v0, v4
 
-    const-string v1, "com.monotype.android.font.droidserifitalic"
+    const-string v1, "DroidSerif-Italic"
 
     aput-object v1, v0, v5
 
@@ -155,7 +155,7 @@
 
     aput-object v1, v0, v4
 
-    const-string v1, "fonts/Droidserifitalic.ttf"
+    const-string v1, "DroidSerif-Italic"
 
     aput-object v1, v0, v5
 
@@ -197,14 +197,14 @@
 
     iput-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->lindseyFont:Landroid/graphics/Typeface;
 
-    .line 657
+    .line 666
     new-instance v0, Lcom/android/settings/myprofile/MyProfileActivity$4;
 
     invoke-direct {v0, p0}, Lcom/android/settings/myprofile/MyProfileActivity$4;-><init>(Lcom/android/settings/myprofile/MyProfileActivity;)V
 
     iput-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
-    .line 1010
+    .line 1023
     return-void
 .end method
 
@@ -348,21 +348,21 @@
 
     const/4 v1, 0x0
 
-    .line 1107
+    .line 1120
     const/16 v0, 0xc
 
     new-array v2, v0, [I
 
     fill-array-data v2, :array_0
 
-    .line 1119
+    .line 1132
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
     new-array v3, v0, [I
 
-    .line 1120
+    .line 1133
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
@@ -371,7 +371,7 @@
 
     move v0, v1
 
-    .line 1121
+    .line 1134
     :goto_0
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
@@ -379,7 +379,7 @@
 
     if-ge v0, v5, :cond_0
 
-    .line 1122
+    .line 1135
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -394,7 +394,7 @@
 
     aput v5, v3, v0
 
-    .line 1121
+    .line 1134
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -402,7 +402,7 @@
     :cond_0
     move v0, v1
 
-    .line 1124
+    .line 1137
     :goto_1
     invoke-interface {p2}, Ljava/lang/CharSequence;->length()I
 
@@ -410,7 +410,7 @@
 
     if-ge v0, v5, :cond_1
 
-    .line 1125
+    .line 1138
     invoke-interface {p2, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v5
@@ -425,12 +425,12 @@
 
     aput v5, v4, v0
 
-    .line 1124
+    .line 1137
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1128
+    .line 1141
     :cond_1
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
@@ -438,26 +438,26 @@
 
     if-ne v0, v6, :cond_3
 
-    .line 1129
+    .line 1142
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour01:Landroid/widget/ImageView;
 
     const/16 v5, 0x8
 
     invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1130
+    .line 1143
     aget v0, v3, v1
 
     if-ne v0, v6, :cond_2
 
-    .line 1131
+    .line 1144
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour02:Landroid/widget/ImageView;
 
     aget v3, v2, v7
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1144
+    .line 1157
     :goto_2
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHourDot:Landroid/widget/ImageView;
 
@@ -467,7 +467,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1145
+    .line 1158
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockMin01:Landroid/widget/ImageView;
 
     aget v1, v4, v1
@@ -476,7 +476,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1146
+    .line 1159
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockMin02:Landroid/widget/ImageView;
 
     aget v1, v4, v6
@@ -485,10 +485,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1147
+    .line 1160
     return-void
 
-    .line 1133
+    .line 1146
     :cond_2
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour02:Landroid/widget/ImageView;
 
@@ -500,25 +500,25 @@
 
     goto :goto_2
 
-    .line 1136
+    .line 1149
     :cond_3
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour01:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1137
+    .line 1150
     aget v0, v3, v1
 
     if-ne v0, v6, :cond_4
 
-    .line 1138
+    .line 1151
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour01:Landroid/widget/ImageView;
 
     aget v5, v2, v7
 
     invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1142
+    .line 1155
     :goto_3
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour02:Landroid/widget/ImageView;
 
@@ -530,7 +530,7 @@
 
     goto :goto_2
 
-    .line 1140
+    .line 1153
     :cond_4
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour01:Landroid/widget/ImageView;
 
@@ -542,23 +542,23 @@
 
     goto :goto_3
 
-    .line 1107
+    .line 1120
     nop
 
     :array_0
     .array-data 0x4
-        0x4bt 0x3t 0x2t 0x7ft
-        0x4ct 0x3t 0x2t 0x7ft
-        0x4et 0x3t 0x2t 0x7ft
-        0x4ft 0x3t 0x2t 0x7ft
-        0x50t 0x3t 0x2t 0x7ft
-        0x51t 0x3t 0x2t 0x7ft
-        0x52t 0x3t 0x2t 0x7ft
-        0x53t 0x3t 0x2t 0x7ft
-        0x54t 0x3t 0x2t 0x7ft
-        0x55t 0x3t 0x2t 0x7ft
-        0x56t 0x3t 0x2t 0x7ft
-        0x4dt 0x3t 0x2t 0x7ft
+        0xb5t 0x3t 0x2t 0x7ft
+        0xb6t 0x3t 0x2t 0x7ft
+        0xb8t 0x3t 0x2t 0x7ft
+        0xb9t 0x3t 0x2t 0x7ft
+        0xbat 0x3t 0x2t 0x7ft
+        0xbbt 0x3t 0x2t 0x7ft
+        0xbct 0x3t 0x2t 0x7ft
+        0xbdt 0x3t 0x2t 0x7ft
+        0xbet 0x3t 0x2t 0x7ft
+        0xbft 0x3t 0x2t 0x7ft
+        0xc0t 0x3t 0x2t 0x7ft
+        0xb7t 0x3t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -566,7 +566,7 @@
     .locals 4
 
     .prologue
-    .line 860
+    .line 871
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
@@ -598,7 +598,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 861
+    .line 872
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_background_color"
@@ -609,15 +609,15 @@
 
     move-result v0
 
-    .line 865
+    .line 876
     :goto_0
     return v0
 
-    .line 862
+    .line 873
     :catch_0
     move-exception v0
 
-    .line 863
+    .line 874
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -644,10 +644,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 864
+    .line 875
     invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
 
-    .line 865
+    .line 876
     const/4 v0, 0x0
 
     goto :goto_0
@@ -657,7 +657,7 @@
     .locals 1
 
     .prologue
-    .line 646
+    .line 655
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -676,7 +676,7 @@
     .parameter "dim"
 
     .prologue
-    .line 582
+    .line 591
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getDimension(I)F
@@ -691,7 +691,7 @@
     .parameter
 
     .prologue
-    .line 1055
+    .line 1068
     const-string v0, "Rosemary"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -700,12 +700,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 1056
+    .line 1069
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a73
+    const v1, 0x7f090b57
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -713,11 +713,11 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 1102
+    .line 1115
     :goto_0
     return-object v0
 
-    .line 1058
+    .line 1071
     :cond_0
     const-string v0, "Choco cooky"
 
@@ -727,12 +727,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 1059
+    .line 1072
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a74
+    const v1, 0x7f090b58
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -742,7 +742,7 @@
 
     goto :goto_0
 
-    .line 1061
+    .line 1074
     :cond_1
     const-string v0, "Cool jazz"
 
@@ -752,12 +752,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 1062
+    .line 1075
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a72
+    const v1, 0x7f090b56
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -767,7 +767,7 @@
 
     goto :goto_0
 
-    .line 1064
+    .line 1077
     :cond_2
     const-string v0, "DroidSerif-Italic"
 
@@ -777,12 +777,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 1065
+    .line 1078
     const-string v0, "DroidSerif-Italic"
 
     goto :goto_0
 
-    .line 1066
+    .line 1079
     :cond_3
     const-string v0, "Lindsey"
 
@@ -792,12 +792,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 1067
+    .line 1080
     const-string v0, "Lindsey"
 
     goto :goto_0
 
-    .line 1069
+    .line 1082
     :cond_4
     const-string v0, "Baikzongyul pen"
 
@@ -807,12 +807,12 @@
 
     if-eqz v0, :cond_5
 
-    .line 1070
+    .line 1083
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a77
+    const v1, 0x7f090b5b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -822,7 +822,7 @@
 
     goto :goto_0
 
-    .line 1073
+    .line 1086
     :cond_5
     const-string v0, "Maruberi"
 
@@ -832,12 +832,12 @@
 
     if-eqz v0, :cond_6
 
-    .line 1074
+    .line 1087
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a78
+    const v1, 0x7f090b5c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -847,7 +847,7 @@
 
     goto :goto_0
 
-    .line 1076
+    .line 1089
     :cond_6
     const-string v0, "Mincho"
 
@@ -857,12 +857,12 @@
 
     if-eqz v0, :cond_7
 
-    .line 1077
+    .line 1090
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a79
+    const v1, 0x7f090b5d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -872,7 +872,7 @@
 
     goto/16 :goto_0
 
-    .line 1079
+    .line 1092
     :cond_7
     const-string v0, "Pop"
 
@@ -882,112 +882,12 @@
 
     if-eqz v0, :cond_8
 
-    .line 1080
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f090a7a
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    goto/16 :goto_0
-
-    .line 1083
-    :cond_8
-    const-string v0, "Shao nv"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    .line 1084
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0910ba
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    goto/16 :goto_0
-
-    .line 1086
-    :cond_9
-    const-string v0, "Kaiti"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a
-
-    .line 1087
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0910bb
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    goto/16 :goto_0
-
-    .line 1089
-    :cond_a
-    const-string v0, "Miao"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b
-
-    .line 1090
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0910bc
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    goto/16 :goto_0
-
     .line 1093
-    :cond_b
-    const-string v0, "Apple mint"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c
-
-    .line 1094
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a75
+    const v1, 0x7f090b5e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -998,6 +898,106 @@
     goto/16 :goto_0
 
     .line 1096
+    :cond_8
+    const-string v0, "Shao nv"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    .line 1097
+    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0911fb
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    .line 1099
+    :cond_9
+    const-string v0, "Kaiti"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    .line 1100
+    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0911fc
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    .line 1102
+    :cond_a
+    const-string v0, "Miao"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    .line 1103
+    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0911fd
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    .line 1106
+    :cond_b
+    const-string v0, "Apple mint"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    .line 1107
+    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f090b59
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    .line 1109
     :cond_c
     const-string v0, "Tinker bell"
 
@@ -1007,12 +1007,12 @@
 
     if-eqz v0, :cond_d
 
-    .line 1097
+    .line 1110
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090a76
+    const v1, 0x7f090b5a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1029,12 +1029,14 @@
 .end method
 
 .method private getProfileTextFromDB()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     .prologue
-    const v3, 0x7f090eaf
+    const v4, 0x7f090fe8
 
-    .line 813
+    const v3, 0x7f090fde
+
+    .line 822
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_information"
@@ -1043,13 +1045,13 @@
 
     move-result-object v0
 
-    .line 814
+    .line 823
     if-nez v0, :cond_0
 
-    .line 815
+    .line 824
     const-string v0, ""
 
-    .line 819
+    .line 828
     :cond_0
     const-string v1, "DCM"
 
@@ -1061,10 +1063,34 @@
 
     move-result v1
 
+    if-eqz v1, :cond_3
+
+    .line 829
+    const-string v1, "Always with you\u200b"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
     if-eqz v1, :cond_2
 
-    .line 820
-    const-string v1, "Always with you\u200b"
+    .line 830
+    invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 845
+    :cond_1
+    :goto_0
+    return-object v0
+
+    .line 831
+    :cond_2
+    const-string v1, "Personal message"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1072,7 +1098,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 821
+    .line 832
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -1081,13 +1107,10 @@
 
     move-result-object v0
 
-    .line 834
-    :cond_1
-    :goto_0
-    return-object v0
+    goto :goto_0
 
-    .line 825
-    :cond_2
+    .line 836
+    :cond_3
     const-string v1, "VZW"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
@@ -1098,7 +1121,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     const-string v1, "Personal Banner"
 
@@ -1106,14 +1129,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    .line 826
+    .line 837
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090eb0
+    const v1, 0x7f090fe9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1121,29 +1144,29 @@
 
     goto :goto_0
 
-    .line 827
-    :cond_3
+    .line 838
+    :cond_4
     const-string v1, "Life companion"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
-    .line 828
+    .line 839
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 829
-    :cond_4
+    .line 840
+    :cond_5
     const-string v1, "Personal message"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1152,14 +1175,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 830
+    .line 841
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f090ea5
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1170,7 +1191,7 @@
     .locals 4
 
     .prologue
-    .line 844
+    .line 855
     :try_start_0
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
@@ -1202,7 +1223,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 845
+    .line 856
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_text_color"
@@ -1213,15 +1234,15 @@
 
     move-result v0
 
-    .line 849
+    .line 860
     :goto_0
     return v0
 
-    .line 846
+    .line 857
     :catch_0
     move-exception v0
 
-    .line 847
+    .line 858
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1248,10 +1269,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 848
+    .line 859
     invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
 
-    .line 849
+    .line 860
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1261,7 +1282,7 @@
     .locals 2
 
     .prologue
-    .line 794
+    .line 803
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_text_size"
@@ -1282,7 +1303,7 @@
 
     const/4 v2, 0x0
 
-    .line 972
+    .line 983
     :try_start_0
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
@@ -1294,27 +1315,27 @@
 
     if-ne v3, v1, :cond_0
 
-    .line 976
+    .line 987
     :goto_0
     return v1
 
     :cond_0
     move v1, v2
 
-    .line 972
+    .line 983
     goto :goto_0
 
-    .line 973
+    .line 984
     :catch_0
     move-exception v0
 
-    .line 974
+    .line 985
     .local v0, e:Landroid/provider/Settings$SettingNotFoundException;
     invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
 
     move v1, v2
 
-    .line 976
+    .line 987
     goto :goto_0
 .end method
 
@@ -1323,18 +1344,18 @@
     .parameter "isTextButtonSelected"
 
     .prologue
-    .line 516
+    .line 525
     if-eqz p1, :cond_0
 
-    .line 517
-    const v0, 0x7f0b0262
+    .line 526
+    const v0, 0x7f0b029e
 
-    .line 519
+    .line 528
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0b0263
+    const v0, 0x7f0b029f
 
     goto :goto_0
 .end method
@@ -1345,22 +1366,22 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 390
+    .line 402
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    .line 391
+    .line 403
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
-    .line 394
-    const v2, 0x7f0b021d
+    .line 406
+    const v2, 0x7f0b0259
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1370,48 +1391,26 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
-    .line 395
+    .line 407
     iget-boolean v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isFromUnlock:Z
 
     if-eqz v2, :cond_0
 
-    .line 396
+    .line 408
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     const/4 v3, 0x6
 
     invoke-virtual {v2, v3, v4}, Lcom/android/settings/myprofile/EllipsisEditText;->setNewActionPopupMenu(IZ)V
 
-    .line 399
+    .line 411
     :cond_0
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-virtual {v2, v4}, Lcom/android/settings/myprofile/EllipsisEditText;->setWritingBuddyEnabled(Z)V
 
-    .line 401
-    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    invoke-static {}, Lcom/android/settings/Utils;->isHKTWModel()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 402
-    :cond_1
-    iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
-
-    const-string v3, "inputType=DisableEmoji"
-
-    invoke-virtual {v2, v3}, Lcom/android/settings/myprofile/EllipsisEditText;->setPrivateImeOptions(Ljava/lang/String;)V
-
-    .line 405
-    :cond_2
-    const v2, 0x7f0b0262
+    .line 414
+    const v2, 0x7f0b029e
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1421,8 +1420,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->btnTextColor:Landroid/widget/Button;
 
-    .line 406
-    const v2, 0x7f0b0263
+    .line 415
+    const v2, 0x7f0b029f
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1432,22 +1431,22 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->btnTextColorBackground:Landroid/widget/Button;
 
-    .line 407
+    .line 416
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->btnTextColorBackground:Landroid/widget/Button;
 
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 408
+    .line 417
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->btnTextColor:Landroid/widget/Button;
 
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 412
-    const v2, 0x7f0b0224
+    .line 421
+    const v2, 0x7f0b0260
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1457,7 +1456,7 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
-    .line 413
+    .line 422
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getDeviceOrientation()I
@@ -1466,13 +1465,13 @@
 
     invoke-virtual {v2, v3}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setDeviceOrientation(I)V
 
-    .line 416
+    .line 425
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->restoreDBColorValue()V
 
-    .line 417
+    .line 426
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->setPreviewTextView()V
 
-    .line 418
+    .line 427
     const-string v2, "my_profile_is_text_button_selected"
 
     invoke-direct {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->getValueFromDB(Ljava/lang/String;)Z
@@ -1481,7 +1480,7 @@
 
     iput-boolean v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
-    .line 419
+    .line 428
     iget-boolean v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     invoke-direct {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->getViewID(Z)I
@@ -1496,8 +1495,8 @@
 
     invoke-direct {p0, v2, v3}, Lcom/android/settings/myprofile/MyProfileActivity;->updateAlignButtonAndPreviewTextAlignment(Landroid/view/View;I)V
 
-    .line 421
-    const v2, 0x7f0b0257
+    .line 430
+    const v2, 0x7f0b0293
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1507,8 +1506,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour01:Landroid/widget/ImageView;
 
-    .line 422
-    const v2, 0x7f0b0258
+    .line 431
+    const v2, 0x7f0b0294
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1518,8 +1517,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour02:Landroid/widget/ImageView;
 
-    .line 423
-    const v2, 0x7f0b0259
+    .line 432
+    const v2, 0x7f0b0295
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1529,8 +1528,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHourDot:Landroid/widget/ImageView;
 
-    .line 424
-    const v2, 0x7f0b025a
+    .line 433
+    const v2, 0x7f0b0296
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1540,8 +1539,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockMin01:Landroid/widget/ImageView;
 
-    .line 425
-    const v2, 0x7f0b025b
+    .line 434
+    const v2, 0x7f0b0297
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1551,8 +1550,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockMin02:Landroid/widget/ImageView;
 
-    .line 427
-    const v2, 0x7f0b025c
+    .line 436
+    const v2, 0x7f0b0298
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1562,8 +1561,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPm:Landroid/widget/TextView;
 
-    .line 428
-    const v2, 0x7f0b0256
+    .line 437
+    const v2, 0x7f0b0292
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1573,15 +1572,15 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
-    .line 429
+    .line 438
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
     const/16 v3, 0x8
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 430
-    const v2, 0x7f0b025f
+    .line 439
+    const v2, 0x7f0b029b
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1591,8 +1590,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtDate:Landroid/widget/TextView;
 
-    .line 431
-    const v2, 0x7f0b025d
+    .line 440
+    const v2, 0x7f0b0299
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1602,8 +1601,8 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 432
-    const v2, 0x7f0b0260
+    .line 441
+    const v2, 0x7f0b029c
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1613,7 +1612,7 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkDate:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 434
+    .line 443
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     const-string v3, "show_clock"
@@ -1624,7 +1623,7 @@
 
     invoke-virtual {v2, v3}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
-    .line 435
+    .line 444
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkDate:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     const-string v3, "lock_screen_date_and_year"
@@ -1635,20 +1634,20 @@
 
     invoke-virtual {v2, v3}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
-    .line 436
+    .line 445
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-virtual {v2, p0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setOnCheckedChangeListener(Lcom/sec/android/touchwiz/widget/TwCompoundButton$OnCheckedChangeListener;)V
 
-    .line 437
+    .line 446
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkDate:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-virtual {v2, p0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setOnCheckedChangeListener(Lcom/sec/android/touchwiz/widget/TwCompoundButton$OnCheckedChangeListener;)V
 
-    .line 439
+    .line 448
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->setTimeAndDateIntoTextFields()V
 
-    .line 440
+    .line 449
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     new-instance v3, Lcom/android/settings/myprofile/MyProfileActivity$1;
@@ -1657,8 +1656,8 @@
 
     invoke-virtual {v2, v3}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setOnColorChangedListener(Lcom/android/settings/myprofile/SpLitColorPickerView$OnColorChangedListener;)V
 
-    .line 452
-    const v2, 0x7f0b0225
+    .line 461
+    const v2, 0x7f0b0261
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1668,7 +1667,7 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mGradientColorPickerView:Lcom/android/settings/myprofile/GradientColorPickerView;
 
-    .line 455
+    .line 464
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mGradientColorPickerView:Lcom/android/settings/myprofile/GradientColorPickerView;
 
     new-instance v3, Lcom/android/settings/myprofile/MyProfileActivity$2;
@@ -1677,17 +1676,17 @@
 
     invoke-virtual {v2, v3}, Lcom/android/settings/myprofile/GradientColorPickerView;->setOnColorChangedListener(Lcom/android/settings/myprofile/GradientColorPickerView$OnColorChangedListener;)V
 
-    .line 468
+    .line 477
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->setTextOpecity()V
 
-    .line 470
+    .line 479
     invoke-static {}, Landroid/graphics/Canvas;->freeTextLayoutCaches()V
 
-    .line 472
+    .line 481
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->loadTypeFaces()V
 
-    .line 474
-    const v2, 0x7f0b0264
+    .line 483
+    const v2, 0x7f0b02a0
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1697,7 +1696,7 @@
 
     iput-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpinnerFontStyle:Landroid/widget/Spinner;
 
-    .line 475
+    .line 484
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpinnerFontStyle:Landroid/widget/Spinner;
 
     new-instance v3, Lcom/android/settings/myprofile/MyProfileActivity$FontStyleAdapter;
@@ -1706,7 +1705,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    .line 477
+    .line 486
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v3, "my_profile_font_package"
@@ -1715,15 +1714,15 @@
 
     move-result-object v1
 
-    .line 478
+    .line 487
     .local v1, selectedFontPackage:Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 479
+    .line 488
     .local v0, position:I
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1
 
-    .line 480
+    .line 489
     const/4 v0, 0x0
 
     :goto_0
@@ -1731,9 +1730,9 @@
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v2, :cond_1
 
-    .line 481
+    .line 490
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontStylePackageName:[Ljava/lang/String;
 
     aget-object v2, v2, v0
@@ -1742,25 +1741,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_3
 
-    .line 486
-    :cond_3
+    .line 495
+    :cond_1
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontStylePackageName:[Ljava/lang/String;
 
     array-length v2, v2
 
-    if-lt v0, v2, :cond_4
+    if-lt v0, v2, :cond_2
 
     const/4 v0, 0x0
 
-    .line 487
-    :cond_4
+    .line 496
+    :cond_2
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpinnerFontStyle:Landroid/widget/Spinner;
 
     invoke-virtual {v2, v0}, Landroid/widget/Spinner;->setSelection(I)V
 
-    .line 489
+    .line 498
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpinnerFontStyle:Landroid/widget/Spinner;
 
     new-instance v3, Lcom/android/settings/myprofile/MyProfileActivity$3;
@@ -1769,11 +1768,11 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 513
+    .line 522
     return-void
 
-    .line 480
-    :cond_5
+    .line 489
+    :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -1783,7 +1782,7 @@
     .locals 4
 
     .prologue
-    .line 982
+    .line 993
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontNames:[Ljava/lang/String;
 
     array-length v0, v0
@@ -1792,7 +1791,7 @@
 
     iput-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTypefaces:[Landroid/graphics/Typeface;
 
-    .line 985
+    .line 996
     const/4 v0, 0x0
 
     move v1, v0
@@ -1805,7 +1804,7 @@
 
     if-ge v1, v0, :cond_3
 
-    .line 986
+    .line 997
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontNames:[Ljava/lang/String;
 
     aget-object v0, v0, v1
@@ -1822,7 +1821,7 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 987
+    .line 998
     :cond_0
     new-instance v0, Ljava/io/File;
 
@@ -1830,14 +1829,14 @@
 
     invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 988
+    .line 999
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 989
+    .line 1000
     const-string v0, "/system/fonts/LindseyforSamsung-Regular.ttf"
 
     invoke-static {v0}, Landroid/graphics/Typeface;->createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
@@ -1846,17 +1845,15 @@
 
     iput-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->lindseyFont:Landroid/graphics/Typeface;
 
-    .line 991
+    .line 1002
     :cond_1
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTypefaces:[Landroid/graphics/Typeface;
 
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->lindseyFont:Landroid/graphics/Typeface;
 
     aput-object v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 985
+    .line 996
     :goto_1
     add-int/lit8 v0, v1, 0x1
 
@@ -1864,11 +1861,44 @@
 
     goto :goto_0
 
-    .line 993
+    .line 1003
     :cond_2
+    iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontNames:[Ljava/lang/String;
+
+    aget-object v0, v0, v1
+
+    const-string v2, "DroidSerif-Italic"
+
+    if-ne v0, v2, :cond_4
+
+    .line 1004
+    iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTypefaces:[Landroid/graphics/Typeface;
+
+    const-string v2, "/system/fonts/DroidSerif-Italic.ttf"
+
+    invoke-static {v2}, Landroid/graphics/Typeface;->createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    .line 1017
+    :catch_0
+    move-exception v0
+
+    .line 1021
+    :cond_3
+    return-void
+
+    .line 1006
+    :cond_4
     const/4 v0, 0x0
 
-    .line 995
+    .line 1008
     :try_start_1
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontStylePackageName:[Ljava/lang/String;
 
@@ -1882,14 +1912,14 @@
 
     move-result-object v0
 
-    .line 999
+    .line 1012
     :goto_2
     :try_start_2
     invoke-virtual {v0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v0
 
-    .line 1000
+    .line 1013
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontFileNames:[Ljava/lang/String;
 
     aget-object v2, v2, v1
@@ -1898,7 +1928,7 @@
 
     move-result-object v0
 
-    .line 1001
+    .line 1014
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTypefaces:[Landroid/graphics/Typeface;
 
     aput-object v0, v2, v1
@@ -1907,15 +1937,7 @@
 
     goto :goto_1
 
-    .line 1004
-    :catch_0
-    move-exception v0
-
-    .line 1008
-    :cond_3
-    return-void
-
-    .line 996
+    .line 1009
     :catch_1
     move-exception v2
 
@@ -1927,10 +1949,10 @@
     .parameter "value"
 
     .prologue
-    .line 742
+    .line 751
     if-eqz p1, :cond_0
 
-    .line 743
+    .line 752
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getSelectodTextColor()I
@@ -1939,13 +1961,13 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextColor(I)V
 
-    .line 747
+    .line 756
     :goto_0
     return-void
 
-    .line 745
+    .line 754
     :cond_0
-    const v0, 0x7f0b021d
+    const v0, 0x7f0b0259
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -1967,22 +1989,22 @@
     .parameter
 
     .prologue
-    .line 908
+    .line 919
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, " --------- INSIDE REFLECT COLOR ---------"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 910
+    .line 921
     invoke-virtual {p0, p1}, Lcom/android/settings/myprofile/MyProfileActivity;->setSelectodColor(I)V
 
-    .line 912
+    .line 923
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     invoke-direct {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->refereshTextAndBackGroundColor(Z)V
 
-    .line 914
+    .line 925
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2005,7 +2027,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 917
+    .line 928
     return-void
 .end method
 
@@ -2013,7 +2035,7 @@
     .locals 2
 
     .prologue
-    .line 925
+    .line 936
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     if-eqz v0, :cond_0
@@ -2022,7 +2044,7 @@
 
     move-result v0
 
-    .line 926
+    .line 937
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getBackgroundColorValueFromDB()I
 
@@ -2030,19 +2052,19 @@
 
     invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->setBackgroundColor(I)V
 
-    .line 927
+    .line 938
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getTextColorValueFromDB()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->setTextColor(I)V
 
-    .line 930
+    .line 941
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {v1, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setColor(I)V
 
-    .line 934
+    .line 945
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getTextColorValueFromDB()I
@@ -2056,8 +2078,8 @@
     :goto_1
     invoke-virtual {v1, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextColor(I)V
 
-    .line 935
-    const v0, 0x7f0b021d
+    .line 946
+    const v0, 0x7f0b0259
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -2076,10 +2098,10 @@
     :goto_2
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setBackgroundColor(I)V
 
-    .line 936
+    .line 947
     return-void
 
-    .line 925
+    .line 936
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getBackgroundColorValueFromDB()I
 
@@ -2087,7 +2109,7 @@
 
     goto :goto_0
 
-    .line 934
+    .line 945
     :cond_1
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getTextColorValueFromDB()I
 
@@ -2095,7 +2117,7 @@
 
     goto :goto_1
 
-    .line 935
+    .line 946
     :cond_2
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getBackgroundColorValueFromDB()I
 
@@ -2109,14 +2131,14 @@
     .parameter
 
     .prologue
-    .line 885
+    .line 896
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_background_color"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 886
+    .line 897
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2139,7 +2161,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 887
+    .line 898
     return-void
 .end method
 
@@ -2148,14 +2170,14 @@
     .parameter
 
     .prologue
-    .line 642
+    .line 651
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_information"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 643
+    .line 652
     return-void
 .end method
 
@@ -2164,14 +2186,14 @@
     .parameter
 
     .prologue
-    .line 875
+    .line 886
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_text_color"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 876
+    .line 887
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2194,7 +2216,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 877
+    .line 888
     return-void
 .end method
 
@@ -2203,14 +2225,14 @@
     .parameter
 
     .prologue
-    .line 802
+    .line 811
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v1, "my_profile_text_size"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 803
+    .line 812
     return-void
 .end method
 
@@ -2221,15 +2243,15 @@
     .prologue
     const/16 v1, 0x8
 
-    .line 1150
+    .line 1163
     invoke-static {p0}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
 
     move-result v0
 
-    .line 1151
+    .line 1164
     if-nez v0, :cond_1
 
-    .line 1154
+    .line 1167
     const/16 v0, 0x9
 
     invoke-virtual {p1, v0}, Ljava/util/Calendar;->get(I)I
@@ -2238,8 +2260,8 @@
 
     if-nez v0, :cond_0
 
-    .line 1155
-    const v0, 0x7f0911e0
+    .line 1168
+    const v0, 0x7f091339
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->getString(I)Ljava/lang/String;
 
@@ -2249,24 +2271,24 @@
 
     move-result-object v0
 
-    .line 1159
+    .line 1172
     :goto_0
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPm:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1160
+    .line 1173
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1165
+    .line 1178
     :goto_1
     return-void
 
-    .line 1157
+    .line 1170
     :cond_0
-    const v0, 0x7f0911e1
+    const v0, 0x7f09133a
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->getString(I)Ljava/lang/String;
 
@@ -2278,13 +2300,13 @@
 
     goto :goto_0
 
-    .line 1162
+    .line 1175
     :cond_1
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPm:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1163
+    .line 1176
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
@@ -2298,12 +2320,12 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 562
+    .line 571
     const/4 v0, 0x1
 
     new-array v0, v0, [Landroid/text/InputFilter;
 
-    .line 563
+    .line 572
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
     const v2, 0x7f0e000b
@@ -2312,19 +2334,19 @@
 
     move-result v1
 
-    .line 564
+    .line 573
     new-instance v2, Landroid/text/InputFilter$LengthFilter;
 
     invoke-direct {v2, v1}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
 
     aput-object v2, v0, v6
 
-    .line 565
+    .line 574
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-virtual {v1, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setFilters([Landroid/text/InputFilter;)V
 
-    .line 566
+    .line 575
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
@@ -2337,7 +2359,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/EllipsisEditText;->setScaledDensity(F)V
 
-    .line 567
+    .line 576
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getProfileTextFromDB()Ljava/lang/String;
@@ -2346,7 +2368,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/EllipsisEditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 568
+    .line 577
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getTextSizeFromDB()Ljava/lang/String;
 
     move-result-object v0
@@ -2363,11 +2385,11 @@
 
     move-result v0
 
-    .line 569
+    .line 578
     :goto_0
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
-    const v2, 0x7f0f00d6
+    const v2, 0x7f0f0114
 
     invoke-direct {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->getDimension(I)F
 
@@ -2375,7 +2397,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/settings/myprofile/EllipsisEditText;->setMaxTextSize(F)V
 
-    .line 571
+    .line 580
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     const/high16 v2, 0x40a0
@@ -2388,12 +2410,12 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/settings/myprofile/EllipsisEditText;->setShadowLayer(FFFI)V
 
-    .line 572
+    .line 581
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-virtual {v1, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextSize(F)V
 
-    .line 573
+    .line 582
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getProfileTextFromDB()Ljava/lang/String;
@@ -2406,25 +2428,25 @@
 
     invoke-virtual {v0, v6, v1}, Lcom/android/settings/myprofile/EllipsisEditText;->setSelection(II)V
 
-    .line 574
+    .line 583
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isFromUnlock:Z
 
     if-eqz v0, :cond_0
 
-    .line 575
+    .line 584
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     const-string v1, "inputType=option"
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/EllipsisEditText;->setPrivateImeOptions(Ljava/lang/String;)V
 
-    .line 577
+    .line 586
     :cond_0
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-virtual {v0}, Lcom/android/settings/myprofile/EllipsisEditText;->requestFocus()Z
 
-    .line 578
+    .line 587
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2433,10 +2455,10 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 579
+    .line 588
     return-void
 
-    .line 568
+    .line 577
     :cond_1
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getTextSizeFromDB()Ljava/lang/String;
 
@@ -2457,7 +2479,7 @@
 
     const/high16 v2, 0x3f00
 
-    .line 954
+    .line 965
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour01:Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2473,7 +2495,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    .line 955
+    .line 966
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHour02:Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2489,7 +2511,7 @@
     :goto_1
     invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    .line 956
+    .line 967
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockHourDot:Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2505,7 +2527,7 @@
     :goto_2
     invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    .line 957
+    .line 968
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockMin01:Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2521,7 +2543,7 @@
     :goto_3
     invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    .line 958
+    .line 969
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mClockMin02:Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2537,7 +2559,7 @@
     :goto_4
     invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    .line 959
+    .line 970
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2553,7 +2575,7 @@
     :goto_5
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setAlpha(F)V
 
-    .line 960
+    .line 971
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPm:Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2569,7 +2591,7 @@
     :goto_6
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setAlpha(F)V
 
-    .line 961
+    .line 972
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtDate:Landroid/widget/TextView;
 
     iget-object v3, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkDate:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -2583,55 +2605,55 @@
     :goto_7
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
 
-    .line 962
+    .line 973
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 954
+    .line 965
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 955
+    .line 966
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 956
+    .line 967
     goto :goto_2
 
     :cond_3
     move v0, v2
 
-    .line 957
+    .line 968
     goto :goto_3
 
     :cond_4
     move v0, v2
 
-    .line 958
+    .line 969
     goto :goto_4
 
     :cond_5
     move v0, v2
 
-    .line 959
+    .line 970
     goto :goto_5
 
     :cond_6
     move v0, v2
 
-    .line 960
+    .line 971
     goto :goto_6
 
     :cond_7
     move v1, v2
 
-    .line 961
+    .line 972
     goto :goto_7
 .end method
 
@@ -2639,22 +2661,22 @@
     .locals 4
 
     .prologue
-    .line 522
+    .line 531
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v1
 
-    .line 523
+    .line 532
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     invoke-virtual {v1, v2, v3}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 524
+    .line 533
     const-string v0, ""
 
-    .line 525
+    .line 534
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -2665,7 +2687,7 @@
 
     move-result-object v2
 
-    .line 527
+    .line 536
     const-string v3, "yyyy-MM-dd"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2682,34 +2704,34 @@
 
     if-eqz v3, :cond_3
 
-    .line 528
+    .line 537
     :cond_0
-    const v0, 0x7f0911df
+    const v0, 0x7f091338
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 532
+    .line 541
     :cond_1
     :goto_0
     invoke-static {v0, v1}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 533
+    .line 542
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtDate:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 536
+    .line 545
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     invoke-virtual {v1, v2, v3}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 537
+    .line 546
     invoke-static {p0}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
 
     move-result v0
@@ -2718,23 +2740,23 @@
 
     const-string v0, "kk"
 
-    .line 538
+    .line 547
     :goto_1
     invoke-static {v0, v1}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 539
+    .line 548
     const-string v2, "mm"
 
     invoke-static {v2, v1}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Calendar;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 540
+    .line 549
     invoke-direct {p0, v0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->convertClockTimeToImage(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 544
+    .line 553
     :try_start_0
     invoke-static {p0}, Landroid/text/format/DateFormat;->getTimeFormat(Landroid/content/Context;)Ljava/text/DateFormat;
 
@@ -2748,7 +2770,7 @@
 
     move-result-object v0
 
-    .line 545
+    .line 554
     const/4 v2, 0x0
 
     const/4 v3, 0x2
@@ -2757,8 +2779,8 @@
 
     move-result-object v0
 
-    .line 546
-    const v2, 0x7f0911e0
+    .line 555
+    const v2, 0x7f091339
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->getString(I)Ljava/lang/String;
 
@@ -2770,7 +2792,7 @@
 
     if-nez v2, :cond_2
 
-    const v2, 0x7f0911e1
+    const v2, 0x7f09133a
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->getString(I)Ljava/lang/String;
 
@@ -2782,7 +2804,7 @@
 
     if-eqz v0, :cond_5
 
-    .line 547
+    .line 556
     :cond_2
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPm:Landroid/widget/TextView;
 
@@ -2790,7 +2812,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 548
+    .line 557
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
     const/4 v2, 0x0
@@ -2799,14 +2821,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 556
+    .line 565
     :goto_2
     invoke-direct {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->setAmPm(Ljava/util/Calendar;)V
 
-    .line 559
+    .line 568
     return-void
 
-    .line 529
+    .line 538
     :cond_3
     const-string v3, "dd-MM-yyyy"
 
@@ -2816,8 +2838,8 @@
 
     if-eqz v2, :cond_1
 
-    .line 530
-    const v0, 0x7f0911de
+    .line 539
+    const v0, 0x7f091337
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->getString(I)Ljava/lang/String;
 
@@ -2825,13 +2847,13 @@
 
     goto :goto_0
 
-    .line 537
+    .line 546
     :cond_4
     const-string v0, "h"
 
     goto :goto_1
 
-    .line 550
+    .line 559
     :cond_5
     :try_start_1
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPm:Landroid/widget/TextView;
@@ -2840,7 +2862,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 551
+    .line 560
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->txtTimeAmPmfirst:Landroid/widget/TextView;
 
     const/16 v2, 0x8
@@ -2851,7 +2873,7 @@
 
     goto :goto_2
 
-    .line 553
+    .line 562
     :catch_0
     move-exception v0
 
@@ -2864,7 +2886,7 @@
     .parameter
 
     .prologue
-    .line 965
+    .line 976
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     if-eqz p2, :cond_0
@@ -2874,7 +2896,7 @@
     :goto_0
     invoke-static {v1, p1, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 966
+    .line 977
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2901,10 +2923,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 968
+    .line 979
     return-void
 
-    .line 965
+    .line 976
     :cond_0
     const/4 v0, 0x0
 
@@ -2915,8 +2937,8 @@
     .locals 6
 
     .prologue
-    .line 315
-    const v4, 0x7f0b0252
+    .line 321
+    const v4, 0x7f0b028e
 
     :try_start_0
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
@@ -2925,11 +2947,11 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 316
+    .line 322
     .local v0, background:Landroid/widget/ImageView;
     const/4 v1, 0x0
 
-    .line 317
+    .line 323
     .local v1, mDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {p0}, Lcom/android/settings/myprofile/LockscreenWallpaper;->isLiveWallpaper(Landroid/content/Context;)Z
 
@@ -2937,37 +2959,37 @@
 
     iput-boolean v4, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mIsLiveWallpaper:Z
 
-    .line 318
+    .line 324
     iget-boolean v4, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mIsLiveWallpaper:Z
 
     const/4 v5, 0x1
 
     if-ne v4, v5, :cond_1
 
-    .line 319
+    .line 325
     const/16 v4, 0x8
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 320
+    .line 326
     invoke-static {p0}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
 
     move-result-object v3
 
-    .line 321
+    .line 327
     .local v3, wallpaperManager:Landroid/app/WallpaperManager;
     invoke-virtual {v3}, Landroid/app/WallpaperManager;->getWallpaperInfo()Landroid/app/WallpaperInfo;
 
     move-result-object v2
 
-    .line 322
+    .line 328
     .local v2, wallpaperInfo:Landroid/app/WallpaperInfo;
     if-eqz v2, :cond_1
 
-    .line 323
+    .line 329
     invoke-virtual {v2}, Landroid/app/WallpaperInfo;->getPackageName()Ljava/lang/String;
 
-    .line 324
+    .line 330
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
@@ -2976,10 +2998,10 @@
 
     move-result-object v1
 
-    .line 325
+    .line 331
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 336
+    .line 342
     .end local v0           #background:Landroid/widget/ImageView;
     .end local v1           #mDrawable:Landroid/graphics/drawable/Drawable;
     .end local v2           #wallpaperInfo:Landroid/app/WallpaperInfo;
@@ -2988,7 +3010,7 @@
     :goto_0
     return-void
 
-    .line 330
+    .line 336
     .restart local v0       #background:Landroid/widget/ImageView;
     .restart local v1       #mDrawable:Landroid/graphics/drawable/Drawable;
     :cond_1
@@ -3000,17 +3022,17 @@
 
     move-result-object v1
 
-    .line 331
+    .line 337
     if-eqz v1, :cond_0
 
-    .line 332
+    .line 338
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 333
+    .line 339
     .end local v0           #background:Landroid/widget/ImageView;
     .end local v1           #mDrawable:Landroid/graphics/drawable/Drawable;
     :catch_0
@@ -3023,7 +3045,7 @@
     .locals 3
 
     .prologue
-    .line 586
+    .line 595
     const-string v1, "input_method"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -3032,7 +3054,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 587
+    .line 596
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
@@ -3044,7 +3066,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 588
+    .line 597
     return-void
 .end method
 
@@ -3054,30 +3076,30 @@
     .parameter
 
     .prologue
-    const v7, 0x7f0203a5
+    const v7, 0x7f020423
 
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    const v4, 0x7f0b0263
+    const v4, 0x7f0b029f
 
-    const v3, 0x7f0b0262
+    const v3, 0x7f0b029e
 
-    .line 677
+    .line 686
     if-nez p1, :cond_0
 
-    .line 738
+    .line 747
     :goto_0
     return-void
 
-    .line 680
+    .line 689
     :cond_0
     packed-switch p2, :pswitch_data_0
 
     goto :goto_0
 
-    .line 682
+    .line 691
     :pswitch_0
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -3087,7 +3109,7 @@
 
     goto :goto_0
 
-    .line 684
+    .line 693
     :pswitch_1
     invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -3095,7 +3117,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0203a6
+    const v2, 0x7f020424
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3103,14 +3125,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 685
+    .line 694
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0203a8
+    const v2, 0x7f020426
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3120,7 +3142,7 @@
 
     goto :goto_0
 
-    .line 688
+    .line 697
     :pswitch_2
     invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -3134,14 +3156,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 689
+    .line 698
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0203a9
+    const v2, 0x7f020427
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3151,7 +3173,7 @@
 
     goto :goto_0
 
-    .line 698
+    .line 707
     :pswitch_3
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -3159,7 +3181,7 @@
 
     packed-switch v0, :pswitch_data_2
 
-    .line 711
+    .line 720
     :goto_1
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -3167,13 +3189,13 @@
 
     packed-switch v0, :pswitch_data_3
 
-    .line 731
+    .line 740
     :goto_2
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->showOnScreenKeyPad()V
 
     goto :goto_0
 
-    .line 700
+    .line 709
     :pswitch_4
     invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -3181,7 +3203,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0203a7
+    const v2, 0x7f020425
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3189,14 +3211,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 701
+    .line 710
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0203a8
+    const v2, 0x7f020426
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3206,7 +3228,7 @@
 
     goto :goto_1
 
-    .line 704
+    .line 713
     :pswitch_5
     invoke-virtual {p0, v4}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -3214,7 +3236,7 @@
 
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0203aa
+    const v2, 0x7f020428
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3222,7 +3244,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 705
+    .line 714
     invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -3237,11 +3259,11 @@
 
     goto :goto_1
 
-    .line 713
+    .line 722
     :pswitch_6
     iput-boolean v6, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
-    .line 715
+    .line 724
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getSelectodTextColor()I
@@ -3250,7 +3272,7 @@
 
     invoke-virtual {v0, v1, v6}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setLastIndexColorValue(IZ)V
 
-    .line 716
+    .line 725
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getSelectodTextColor()I
@@ -3259,23 +3281,23 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setColor(I)V
 
-    .line 717
+    .line 726
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->invalidate()V
 
     goto :goto_2
 
-    .line 721
+    .line 730
     :pswitch_7
     iput-boolean v5, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
-    .line 723
+    .line 732
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {v0, v5, v5}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setLastIndexColorValue(IZ)V
 
-    .line 724
+    .line 733
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getSelectodBackGroundColor()I
@@ -3284,37 +3306,37 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setColor(I)V
 
-    .line 725
+    .line 734
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->invalidate()V
 
     goto :goto_2
 
-    .line 680
+    .line 689
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
         :pswitch_3
     .end packed-switch
 
-    .line 682
+    .line 691
     :pswitch_data_1
-    .packed-switch 0x7f0b0262
+    .packed-switch 0x7f0b029e
         :pswitch_1
         :pswitch_2
     .end packed-switch
 
-    .line 698
+    .line 707
     :pswitch_data_2
-    .packed-switch 0x7f0b0262
+    .packed-switch 0x7f0b029e
         :pswitch_4
         :pswitch_5
     .end packed-switch
 
-    .line 711
+    .line 720
     :pswitch_data_3
-    .packed-switch 0x7f0b0262
+    .packed-switch 0x7f0b029e
         :pswitch_6
         :pswitch_7
     .end packed-switch
@@ -3326,7 +3348,7 @@
     .locals 1
 
     .prologue
-    .line 757
+    .line 766
     iget v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodBackgroundColor:I
 
     return v0
@@ -3336,7 +3358,7 @@
     .locals 1
 
     .prologue
-    .line 753
+    .line 762
     iget v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
 
     return v0
@@ -3348,25 +3370,25 @@
     .parameter "isChecked"
 
     .prologue
-    .line 940
+    .line 951
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->setTextOpecity()V
 
-    .line 941
+    .line 952
     invoke-virtual {p1}, Lcom/sec/android/touchwiz/widget/TwCompoundButton;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 951
+    .line 962
     :pswitch_0
     return-void
 
-    .line 941
+    .line 952
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0b025d
+    .packed-switch 0x7f0b0299
         :pswitch_0
         :pswitch_0
         :pswitch_0
@@ -3492,32 +3514,13 @@
 
     .line 202
     .local v14, sales_code:Ljava/lang/String;
-    const-string v15, "DCM"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isJapanModel()Z
 
     move-result v15
 
-    if-nez v15, :cond_2
-
-    const-string v15, "KDI"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v15
-
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_3
 
     .line 203
-    :cond_2
     const/4 v15, 0x2
 
     new-array v10, v15, [Ljava/lang/String;
@@ -3608,7 +3611,7 @@
 
     move/from16 v0, v16
 
-    if-ne v15, v0, :cond_3
+    if-ne v15, v0, :cond_2
 
     .line 289
     const v15, 0x103013c
@@ -3618,8 +3621,8 @@
     invoke-virtual {v0, v15}, Lcom/android/settings/myprofile/MyProfileActivity;->setTheme(I)V
 
     .line 292
-    :cond_3
-    const v15, 0x7f0400e3
+    :cond_2
+    const v15, 0x7f040107
 
     move-object/from16 v0, p0
 
@@ -3628,21 +3631,49 @@
     .line 295
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/myprofile/MyProfileActivity;->setWalllpaper()V
 
+    .line 297
+    const/4 v15, 0x0
+
+    invoke-static {v15}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_a
+
     .line 298
-    invoke-direct/range {p0 .. p0}, Lcom/android/settings/myprofile/MyProfileActivity;->init()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    invoke-virtual/range {v15 .. v16}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
     .line 299
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v15
+
+    const/16 v16, 0x1
+
+    invoke-virtual/range {v15 .. v16}, Landroid/app/ActionBar;->setDisplayShowTitleEnabled(Z)V
+
+    .line 304
+    :goto_1
+    invoke-direct/range {p0 .. p0}, Lcom/android/settings/myprofile/MyProfileActivity;->init()V
+
+    .line 305
     return-void
 
     .line 210
-    :cond_4
+    :cond_3
     const-string v15, "CHN"
 
     invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-nez v15, :cond_5
+    if-nez v15, :cond_4
 
     const-string v15, "CHM"
 
@@ -3650,7 +3681,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_5
+    if-nez v15, :cond_4
 
     const-string v15, "CHU"
 
@@ -3658,7 +3689,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_5
+    if-nez v15, :cond_4
 
     const-string v15, "CHC"
 
@@ -3666,10 +3697,10 @@
 
     move-result v15
 
-    if-eqz v15, :cond_7
+    if-eqz v15, :cond_6
 
     .line 211
-    :cond_5
+    :cond_4
     const/4 v15, 0x3
 
     new-array v7, v15, [Ljava/lang/String;
@@ -3748,13 +3779,13 @@
 
     move-result-object v15
 
-    const-string v16, "cs023g"
+    const-string v16, "cs02"
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v15
 
-    if-eqz v15, :cond_6
+    if-eqz v15, :cond_5
 
     .line 216
     const/4 v15, 0x1
@@ -3793,7 +3824,7 @@
     aput-object v16, v6, v15
 
     .line 224
-    :cond_6
+    :cond_5
     move-object/from16 v0, p0
 
     iput-object v7, v0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontStylePackageName:[Ljava/lang/String;
@@ -3814,14 +3845,14 @@
     .end local v5           #mCFontFileNames:[Ljava/lang/String;
     .end local v6           #mCFontNames:[Ljava/lang/String;
     .end local v7           #mCFontStylePackageName:[Ljava/lang/String;
-    :cond_7
+    :cond_6
     const-string v15, "CTC"
 
     invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v15
 
-    if-nez v15, :cond_8
+    if-nez v15, :cond_7
 
     const-string v15, "TGY"
 
@@ -3829,7 +3860,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_8
+    if-nez v15, :cond_7
 
     const-string v15, "BRI"
 
@@ -3837,10 +3868,10 @@
 
     move-result v15
 
-    if-eqz v15, :cond_9
+    if-eqz v15, :cond_8
 
     .line 228
-    :cond_8
+    :cond_7
     const/4 v15, 0x2
 
     new-array v7, v15, [Ljava/lang/String;
@@ -3915,12 +3946,12 @@
     .end local v5           #mCFontFileNames:[Ljava/lang/String;
     .end local v6           #mCFontNames:[Ljava/lang/String;
     .end local v7           #mCFontStylePackageName:[Ljava/lang/String;
-    :cond_9
+    :cond_8
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
 
     move-result v15
 
-    if-eqz v15, :cond_a
+    if-eqz v15, :cond_9
 
     .line 237
     const/4 v15, 0x4
@@ -4033,7 +4064,7 @@
     .end local v11           #mKFontFileNames:[Ljava/lang/String;
     .end local v12           #mKFontNames:[Ljava/lang/String;
     .end local v13           #mKFontStylePackageName:[Ljava/lang/String;
-    :cond_a
+    :cond_9
     const/4 v15, 0x6
 
     new-array v4, v15, [Ljava/lang/String;
@@ -4070,7 +4101,7 @@
 
     const/4 v15, 0x5
 
-    const-string v16, "com.monotype.android.font.droidserifitalic"
+    const-string v16, "DroidSerif-Italic"
 
     aput-object v16, v4, v15
 
@@ -4112,7 +4143,7 @@
 
     const/4 v15, 0x5
 
-    const-string v16, "fonts/Droidserifitalic.ttf"
+    const-string v16, "DroidSerif-Italic"
 
     aput-object v16, v2, v15
 
@@ -4175,6 +4206,21 @@
     iput-object v3, v0, Lcom/android/settings/myprofile/MyProfileActivity;->mFontNames:[Ljava/lang/String;
 
     goto/16 :goto_0
+
+    .line 301
+    .end local v2           #mAddFontFileNames:[Ljava/lang/String;
+    .end local v3           #mAddFontNames:[Ljava/lang/String;
+    .end local v4           #mAddFontStylePackageName:[Ljava/lang/String;
+    :cond_a
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    invoke-virtual/range {v15 .. v16}, Landroid/app/ActionBar;->setDisplayShowTitleEnabled(Z)V
+
+    goto/16 :goto_1
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
@@ -4186,7 +4232,7 @@
 
     const/4 v3, 0x0
 
-    .line 340
+    .line 346
     const/4 v1, 0x0
 
     invoke-static {v1}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
@@ -4195,18 +4241,18 @@
 
     if-nez v1, :cond_0
 
-    .line 341
+    .line 347
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    .line 342
+    .line 348
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f120004
+    const v1, 0x7f120005
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 352
+    .line 356
     .end local v0           #inflater:Landroid/view/MenuInflater;
     :goto_0
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
@@ -4215,36 +4261,24 @@
 
     return v1
 
-    .line 344
+    .line 350
     :cond_0
     const/4 v1, 0x2
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v1
-
-    const v2, 0x7f0200d8
-
-    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 348
+    .line 353
     const/4 v1, 0x1
 
-    const v2, 0x7f09065f
+    const v2, 0x7f09069a
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
-
-    move-result-object v1
-
-    const v2, 0x7f0200dc
-
-    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
@@ -4257,17 +4291,17 @@
     .locals 2
 
     .prologue
-    .line 897
+    .line 908
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     if-eqz v0, :cond_0
 
-    .line 898
+    .line 909
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->requestFocus()Z
 
-    .line 899
+    .line 910
     :cond_0
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mGradientColorPickerView:Lcom/android/settings/myprofile/GradientColorPickerView;
 
@@ -4281,14 +4315,14 @@
 
     if-nez v0, :cond_1
 
-    .line 900
+    .line 911
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mGradientColorPickerView:Lcom/android/settings/myprofile/GradientColorPickerView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/GradientColorPickerView;->setFocusable(Z)V
 
-    .line 901
+    .line 912
     :cond_1
     return-void
 .end method
@@ -4298,21 +4332,21 @@
     .parameter "item"
 
     .prologue
-    .line 357
+    .line 361
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 378
+    .line 382
     :goto_0
     :sswitch_0
     iget-boolean v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isFromUnlock:Z
 
     if-eqz v1, :cond_0
 
-    .line 379
+    .line 383
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -4321,7 +4355,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->clearFlags(I)V
 
-    .line 380
+    .line 384
     const-string v1, "input_method"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -4330,7 +4364,7 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 381
+    .line 385
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
@@ -4342,19 +4376,50 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 383
+    .line 388
     .end local v0           #imm:Landroid/view/inputmethod/InputMethodManager;
     :cond_0
+    const-string v1, "ro.product.name"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "ms013gctc"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 389
+    iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
+
+    if-eqz v1, :cond_1
+
+    .line 390
+    iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
+
+    invoke-virtual {v1}, Lcom/android/settings/myprofile/EllipsisEditText;->hideCursorControllers()V
+
+    .line 391
+    iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
+
+    invoke-virtual {v1}, Lcom/android/settings/myprofile/EllipsisEditText;->invalidate()V
+
+    .line 395
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->finish()V
 
-    .line 384
+    .line 396
     invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v1
 
     return v1
 
-    .line 364
+    .line 368
     :sswitch_1
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
@@ -4368,7 +4433,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->saveProfileTextToDB(Ljava/lang/String;)V
 
-    .line 365
+    .line 369
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     invoke-virtual {v1}, Lcom/android/settings/myprofile/EllipsisEditText;->getTextSize()F
@@ -4381,14 +4446,14 @@
 
     invoke-direct {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->saveTextSizeToDB(Ljava/lang/String;)V
 
-    .line 366
+    .line 370
     const-string v1, "my_profile_is_text_button_selected"
 
     iget-boolean v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     invoke-direct {p0, v1, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->setValueIntoDatabase(Ljava/lang/String;Z)V
 
-    .line 367
+    .line 371
     const-string v1, "lock_screen_date_and_year"
 
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkDate:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -4399,7 +4464,7 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->setValueIntoDatabase(Ljava/lang/String;Z)V
 
-    .line 368
+    .line 372
     const-string v1, "show_clock"
 
     iget-object v2, p0, Lcom/android/settings/myprofile/MyProfileActivity;->chkTime:Lcom/sec/android/touchwiz/widget/TwCheckBox;
@@ -4410,21 +4475,21 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/settings/myprofile/MyProfileActivity;->setValueIntoDatabase(Ljava/lang/String;Z)V
 
-    .line 369
+    .line 373
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getSelectodBackGroundColor()I
 
     move-result v1
 
     invoke-direct {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->saveBackgroundColorValueToDB(I)V
 
-    .line 370
+    .line 374
     invoke-virtual {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->getSelectodTextColor()I
 
     move-result v1
 
     invoke-direct {p0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->saveTextColorValueToDB(I)V
 
-    .line 372
+    .line 376
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v2, "my_profile_font_filename"
@@ -4441,7 +4506,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 373
+    .line 377
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mContentResolver:Landroid/content/ContentResolver;
 
     const-string v2, "my_profile_font_package"
@@ -4458,7 +4523,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 374
+    .line 378
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4509,15 +4574,15 @@
 
     goto/16 :goto_0
 
-    .line 357
+    .line 361
     nop
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_0
-        0x7f0b05f6 -> :sswitch_0
-        0x7f0b05f8 -> :sswitch_1
+        0x7f0b0672 -> :sswitch_0
+        0x7f0b0674 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -4525,10 +4590,10 @@
     .locals 0
 
     .prologue
-    .line 602
+    .line 611
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 603
+    .line 612
     return-void
 .end method
 
@@ -4537,27 +4602,27 @@
     .parameter
 
     .prologue
-    .line 607
+    .line 616
     invoke-super {p0, p1}, Landroid/app/Activity;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
-    .line 608
+    .line 617
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, "onRestoreInstanceState()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 610
+    .line 619
     if-eqz p1, :cond_0
 
-    .line 611
+    .line 620
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, "savedInstanceState is not null so load saved values"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 612
+    .line 621
     const-string v0, "is_text_selected"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -4566,7 +4631,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
-    .line 613
+    .line 622
     const-string v0, "selected_text_index"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -4575,7 +4640,7 @@
 
     iput v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
 
-    .line 614
+    .line 623
     const-string v0, "selected_background_index"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -4584,20 +4649,20 @@
 
     iput v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodBackgroundColor:I
 
-    .line 617
+    .line 626
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     if-eqz v0, :cond_1
 
     iget v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
 
-    .line 620
+    .line 629
     :goto_0
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
 
     invoke-virtual {v1, v0}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setColor(I)V
 
-    .line 621
+    .line 630
     iget-object v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->mTvPreviewText:Lcom/android/settings/myprofile/EllipsisEditText;
 
     iget v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
@@ -4609,8 +4674,8 @@
     :goto_1
     invoke-virtual {v1, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextColor(I)V
 
-    .line 622
-    const v0, 0x7f0b021d
+    .line 631
+    const v0, 0x7f0b0259
 
     invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->findViewById(I)Landroid/view/View;
 
@@ -4627,7 +4692,7 @@
     :goto_2
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setBackgroundColor(I)V
 
-    .line 625
+    .line 634
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     invoke-direct {p0, v0}, Lcom/android/settings/myprofile/MyProfileActivity;->getViewID(Z)I
@@ -4642,23 +4707,23 @@
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/myprofile/MyProfileActivity;->updateAlignButtonAndPreviewTextAlignment(Landroid/view/View;I)V
 
-    .line 627
+    .line 636
     :cond_0
     return-void
 
-    .line 617
+    .line 626
     :cond_1
     iget v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodBackgroundColor:I
 
     goto :goto_0
 
-    .line 621
+    .line 630
     :cond_2
     iget v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
 
     goto :goto_1
 
-    .line 622
+    .line 631
     :cond_3
     iget v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodBackgroundColor:I
 
@@ -4670,31 +4735,31 @@
     .parameter
 
     .prologue
-    .line 631
+    .line 640
     invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 632
+    .line 641
     const-string v0, "selected_text_index"
 
     iget v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 633
+    .line 642
     const-string v0, "selected_background_index"
 
     iget v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodBackgroundColor:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 634
+    .line 643
     const-string v0, "is_text_selected"
 
     iget-boolean v1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 635
+    .line 644
     return-void
 .end method
 
@@ -4703,10 +4768,10 @@
     .parameter "hasWindowFocus"
 
     .prologue
-    .line 303
+    .line 309
     invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
 
-    .line 305
+    .line 311
     new-instance v0, Lcom/android/settings/myprofile/MyProfileMultiSimUtils;
 
     invoke-direct {v0, p0}, Lcom/android/settings/myprofile/MyProfileMultiSimUtils;-><init>(Landroid/content/Context;)V
@@ -4717,15 +4782,15 @@
 
     iput-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isMultiSIMDevice:Z
 
-    .line 306
+    .line 312
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isMultiSIMDevice:Z
 
     if-eqz v0, :cond_0
 
-    .line 308
+    .line 314
     invoke-direct {p0}, Lcom/android/settings/myprofile/MyProfileActivity;->setWalllpaper()V
 
-    .line 309
+    .line 315
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -4754,7 +4819,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 311
+    .line 317
     :cond_0
     return-void
 .end method
@@ -4764,10 +4829,10 @@
     .parameter "color"
 
     .prologue
-    .line 765
+    .line 774
     iput p1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodBackgroundColor:I
 
-    .line 766
+    .line 775
     return-void
 .end method
 
@@ -4776,19 +4841,19 @@
     .parameter "selectodColor"
 
     .prologue
-    .line 771
+    .line 780
     iget-boolean v0, p0, Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
 
     if-eqz v0, :cond_0
 
-    .line 772
+    .line 781
     invoke-virtual {p0, p1}, Lcom/android/settings/myprofile/MyProfileActivity;->setTextColor(I)V
 
-    .line 776
+    .line 785
     :goto_0
     return-void
 
-    .line 774
+    .line 783
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/settings/myprofile/MyProfileActivity;->setBackgroundColor(I)V
 
@@ -4800,9 +4865,9 @@
     .parameter "color"
 
     .prologue
-    .line 761
+    .line 770
     iput p1, p0, Lcom/android/settings/myprofile/MyProfileActivity;->selectodTextColor:I
 
-    .line 762
+    .line 771
     return-void
 .end method

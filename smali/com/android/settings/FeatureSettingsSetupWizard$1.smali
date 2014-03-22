@@ -30,7 +30,7 @@
     .line 58
     iput-object p1, p0, Lcom/android/settings/FeatureSettingsSetupWizard$1;->this$0:Lcom/android/settings/FeatureSettingsSetupWizard;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -129,7 +129,7 @@
     .line 73
     iget-object v3, p0, Lcom/android/settings/FeatureSettingsSetupWizard$1;->this$0:Lcom/android/settings/FeatureSettingsSetupWizard;
 
-    invoke-virtual {v3, v2}, Lcom/android/settings/FeatureSettingsSetupWizard;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v3, v2}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -141,13 +141,13 @@
 
     const/16 v4, 0xe
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/FeatureSettingsSetupWizard;->setResult(I)V
+    invoke-virtual {v3, v4}, Landroid/app/Activity;->setResult(I)V
 
     .line 82
     :goto_1
     iget-object v3, p0, Lcom/android/settings/FeatureSettingsSetupWizard$1;->this$0:Lcom/android/settings/FeatureSettingsSetupWizard;
 
-    invoke-virtual {v3}, Lcom/android/settings/FeatureSettingsSetupWizard;->finish()V
+    invoke-virtual {v3}, Landroid/app/Activity;->finish()V
 
     .line 83
     return-void
@@ -158,7 +158,7 @@
 
     .line 75
     .local v1, e:Landroid/content/ActivityNotFoundException;
-    invoke-virtual {v1}, Landroid/content/ActivityNotFoundException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 76
     invoke-static {}, Lcom/android/settings/FeatureSettingsSetupWizard;->access$100()Ljava/lang/String;
@@ -178,7 +178,7 @@
 
     const/4 v4, -0x1
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/FeatureSettingsSetupWizard;->setResult(I)V
+    invoke-virtual {v3, v4}, Landroid/app/Activity;->setResult(I)V
 
     goto :goto_1
 .end method

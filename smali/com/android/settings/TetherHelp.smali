@@ -75,7 +75,7 @@
 
     .line 75
     .local v4, locale:Ljava/util/Locale;
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/TetherHelp;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v0
 
@@ -420,14 +420,14 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 48
-    const v2, 0x7f04017a
+    const v2, 0x7f0401ba
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/TetherHelp;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 50
     const-string v2, "connectivity"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/TetherHelp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -435,9 +435,9 @@
 
     .line 52
     .local v1, cm:Landroid/net/ConnectivityManager;
-    const v2, 0x7f0b0403
+    const v2, 0x7f0b046c
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/TetherHelp;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -455,7 +455,7 @@
     invoke-virtual {v2, v3}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
     .line 55
-    invoke-virtual {p0}, Lcom/android/settings/TetherHelp;->getActionBar()Landroid/app/ActionBar;
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
@@ -490,7 +490,7 @@
 
     .line 119
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/TetherHelp;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 124
     const/4 v0, 0x1

@@ -47,7 +47,7 @@
     const-wide/16 v8, 0x0
 
     .line 158
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -55,7 +55,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {v5, v6, v7}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v5, v6, v7}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v4
 
@@ -152,7 +152,7 @@
     const-wide/16 v8, 0x0
 
     .line 176
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -160,7 +160,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {v5, v6, v7}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v5, v6, v7}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v4
 
@@ -260,7 +260,7 @@
     .line 146
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -268,7 +268,7 @@
 
     .line 147
     .local v0, builder:Landroid/app/AlertDialog$Builder;
-    const v1, 0x7f09149a
+    const v1, 0x7f0915ee
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -278,7 +278,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090ad8
+    const v2, 0x7f090bbc
 
     new-instance v3, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings$1;
 
@@ -346,7 +346,7 @@
     .line 124
     new-instance v2, Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -362,7 +362,7 @@
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     .line 126
-    const v3, 0x7f09147d
+    const v3, 0x7f0915d1
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -376,7 +376,7 @@
     invoke-virtual {v3, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 128
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -398,7 +398,7 @@
     .line 130
     new-instance v2, Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -414,7 +414,7 @@
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setFragment(Ljava/lang/String;)V
 
     .line 132
-    const v3, 0x7f09147e
+    const v3, 0x7f0915d2
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -428,7 +428,7 @@
     invoke-virtual {v3, v4, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 134
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -454,11 +454,11 @@
     if-eqz v0, :cond_0
 
     .line 141
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f091395
+    const v1, 0x7f091505
 
     invoke-static {v0, v1, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -479,20 +479,20 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const v5, 0x7f09147c
+    const v5, 0x7f0915d0
 
-    const v4, 0x7f09147b
+    const v4, 0x7f0915cf
 
     .line 66
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 67
-    const v3, 0x7f070046
+    const v3, 0x7f07005d
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 69
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
@@ -508,7 +508,7 @@
     .local v1, restoreTime:Ljava/lang/String;
     const-string v3, "contents_backup"
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -519,7 +519,7 @@
     .line 74
     const-string v3, "contents_restore"
 
-    invoke-virtual {v2, v3}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v2, v3}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -539,7 +539,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -553,9 +553,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f0914a6
+    const v4, 0x7f0915fa
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -594,7 +594,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v5}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -608,9 +608,9 @@
 
     move-result-object v3
 
-    const v4, 0x7f0914a7
+    const v4, 0x7f0915fb
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -640,19 +640,19 @@
     :goto_1
     iget-object v3, p0, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->mBackup:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v0}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 88
     iget-object v3, p0, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->mRestore:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v1}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 89
     return-void
 
     .line 79
     :cond_0
-    invoke-virtual {p0, v4}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -660,7 +660,7 @@
 
     .line 85
     :cond_1
-    invoke-virtual {p0, v5}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v5}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -676,7 +676,7 @@
     const/4 v6, 0x1
 
     .line 94
-    invoke-virtual {p0}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -689,7 +689,7 @@
     if-nez v3, :cond_2
 
     .line 96
-    const v2, 0x7f09149d
+    const v2, 0x7f0915f1
 
     .line 97
     .local v2, resId:I
@@ -698,7 +698,7 @@
     if-ne p2, v4, :cond_0
 
     .line 98
-    const v2, 0x7f09149e
+    const v2, 0x7f0915f2
 
     .line 99
     :cond_0
@@ -708,7 +708,7 @@
 
     .line 100
     .local v0, dialog:Landroid/app/AlertDialog;
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 113
     .end local v0           #dialog:Landroid/app/AlertDialog;
@@ -739,7 +739,7 @@
     if-ne p2, v4, :cond_3
 
     .line 109
-    invoke-virtual {p0, v1, v6}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v1, v6}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
@@ -752,7 +752,7 @@
     .line 111
     const/4 v4, 0x2
 
-    invoke-virtual {p0, v1, v4}, Lcom/android/settings/homesync/HomeSyncBackupAndRestoreSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v1, v4}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 .end method

@@ -204,7 +204,7 @@
 
     const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 82
     iget-object v0, p0, Lcom/android/settings/wifi/WifiCaptiveActivity$CaptivePortalCheckTask;->this$0:Lcom/android/settings/wifi/WifiCaptiveActivity;
@@ -216,7 +216,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 83
     iget-object v0, p0, Lcom/android/settings/wifi/WifiCaptiveActivity$CaptivePortalCheckTask;->this$0:Lcom/android/settings/wifi/WifiCaptiveActivity;
@@ -288,7 +288,7 @@
     .line 93
     iget-object v0, p0, Lcom/android/settings/wifi/WifiCaptiveActivity$CaptivePortalCheckTask;->this$0:Lcom/android/settings/wifi/WifiCaptiveActivity;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/WifiCaptiveActivity;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     goto :goto_1
 .end method

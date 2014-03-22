@@ -31,6 +31,8 @@
 
 .field private count:I
 
+.field private mActivity:Landroid/app/Activity;
+
 .field private mClosed:Z
 
 .field private mConnectSuccess:Z
@@ -86,12 +88,12 @@
     .locals 1
 
     .prologue
-    .line 84
+    .line 88
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 120
+    .line 127
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/settings/guide/WifiSettingsGuider;->isWifiGuideOn:Z
@@ -110,120 +112,126 @@
 
     const/4 v1, 0x0
 
-    .line 143
+    .line 150
     invoke-direct {p0, p1}, Lcom/android/settings/guide/GuiderBase;-><init>(Landroid/app/Activity;)V
 
-    .line 85
+    .line 89
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 86
+    .line 90
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 87
+    .line 91
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerRestored:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 89
+    .line 93
     iput-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
 
-    .line 92
+    .line 96
     iput-boolean v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstStart:Z
 
-    .line 93
+    .line 97
     iput-boolean v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectSuccess:Z
 
-    .line 94
+    .line 98
     iput-boolean v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnecting:Z
 
-    .line 95
+    .line 99
     iput v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
-    .line 96
+    .line 100
     iput-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mCreate:Z
 
-    .line 99
+    .line 103
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/WifiSettingsGuider$OnCloseHelpDialogListener;
 
-    .line 100
+    .line 104
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 101
+    .line 105
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 103
+    .line 107
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 109
+    .line 113
     iput-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEnableScanMenuItem:Z
 
-    .line 114
+    .line 115
+    iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    .line 121
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mSecurityDialogRef:Ljava/lang/ref/WeakReference;
 
-    .line 117
+    .line 124
     iput v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mScreenOnCheck:I
 
-    .line 118
+    .line 125
     iput v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->count:I
 
-    .line 119
+    .line 126
     iput-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstCheck:Z
 
-    .line 122
+    .line 129
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/guide/WifiSettingsGuider$1;-><init>(Lcom/android/settings/guide/WifiSettingsGuider;)V
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHandler:Landroid/os/Handler;
 
-    .line 147
+    .line 152
+    iput-object p1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    .line 156
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/guide/WifiSettingsGuider$2;-><init>(Lcom/android/settings/guide/WifiSettingsGuider;)V
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 155
+    .line 164
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWiFiIntentFilter:Landroid/content/IntentFilter;
 
-    .line 156
+    .line 165
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWiFiIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "android.net.wifi.SCAN_RESULTS"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 157
+    .line 166
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWiFiIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "android.net.wifi.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 158
+    .line 167
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWiFiIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "android.net.wifi.WIFI_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 159
+    .line 168
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWiFiIntentFilter:Landroid/content/IntentFilter;
 
-    const-string v1, "android.net.wifi.WIFI_STATE_CHANGED"
+    const-string v1, "android.net.wifi.WIFI_DIALOG_CANCEL_ACTION"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 161
-    invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    .line 170
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -237,8 +245,8 @@
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 163
-    invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    .line 172
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -248,11 +256,22 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 164
+    .line 173
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/settings/guide/WifiSettingsGuider;Z)Z
+.method static synthetic access$000(Lcom/android/settings/guide/WifiSettingsGuider;)Landroid/app/Activity;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 54
+    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    return-object v0
+.end method
+
+.method static synthetic access$102(Lcom/android/settings/guide/WifiSettingsGuider;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -264,7 +283,7 @@
     return p1
 .end method
 
-.method static synthetic access$102(Lcom/android/settings/guide/WifiSettingsGuider;Z)Z
+.method static synthetic access$202(Lcom/android/settings/guide/WifiSettingsGuider;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -276,7 +295,7 @@
     return p1
 .end method
 
-.method static synthetic access$200(Lcom/android/settings/guide/WifiSettingsGuider;)Lcom/android/settings/guide/WifiSettingsGuider$OnCloseHelpDialogListener;
+.method static synthetic access$300(Lcom/android/settings/guide/WifiSettingsGuider;)Lcom/android/settings/guide/WifiSettingsGuider$OnCloseHelpDialogListener;
     .locals 1
     .parameter "x0"
 
@@ -295,10 +314,8 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 581
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v5
+    .line 597
+    iget-object v5, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v5}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
@@ -310,14 +327,12 @@
 
     move-result-object v1
 
-    .line 586
+    .line 602
     .local v1, bubbleView:Landroid/view/View;
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    iget-object v5, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v5}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -329,7 +344,7 @@
 
     move-result-object v3
 
-    .line 587
+    .line 603
     .local v3, info:Landroid/content/pm/PackageInfo;
     iget v5, v3, Landroid/content/pm/PackageInfo;->versionCode:I
 
@@ -337,13 +352,13 @@
 
     if-ne v5, v6, :cond_2
 
-    .line 588
-    const v5, 0x7f0400a9
+    .line 604
+    const v5, 0x7f0400c7
 
     if-eq p2, v5, :cond_0
 
-    .line 589
-    const v5, 0x7f0b01b4
+    .line 605
+    const v5, 0x7f0b01e8
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -351,25 +366,25 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    .line 591
+    .line 607
     .local v4, summary:Landroid/widget/TextView;
     if-eqz v4, :cond_0
 
-    .line 592
+    .line 608
     invoke-virtual {v4, p1}, Landroid/widget/TextView;->setText(I)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 611
+    .line 627
     .end local v3           #info:Landroid/content/pm/PackageInfo;
     .end local v4           #summary:Landroid/widget/TextView;
     :cond_0
     :goto_0
     iget-object v5, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v5, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v5, v1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    .line 613
+    .line 629
     const v5, 0x7f0b0002
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -378,25 +393,25 @@
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    .line 616
+    .line 632
     .local v0, btnClose:Landroid/widget/ImageButton;
     if-eqz v0, :cond_1
 
-    .line 617
-    invoke-virtual {v0, v8}, Landroid/widget/ImageButton;->setHoverPopupType(I)V
+    .line 633
+    invoke-virtual {v0, v8}, Landroid/view/View;->setHoverPopupType(I)V
 
-    .line 618
+    .line 634
     new-instance v5, Lcom/android/settings/guide/WifiSettingsGuider$7;
 
     invoke-direct {v5, p0}, Lcom/android/settings/guide/WifiSettingsGuider$7;-><init>(Lcom/android/settings/guide/WifiSettingsGuider;)V
 
-    invoke-virtual {v0, v5}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 628
+    .line 644
     :cond_1
     return-void
 
-    .line 597
+    .line 613
     .end local v0           #btnClose:Landroid/widget/ImageButton;
     .restart local v3       #info:Landroid/content/pm/PackageInfo;
     :cond_2
@@ -409,12 +424,12 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    .line 599
+    .line 615
     .restart local v4       #summary:Landroid/widget/TextView;
     if-nez v4, :cond_3
 
-    .line 600
-    const v5, 0x7f0b01b4
+    .line 616
+    const v5, 0x7f0b01e8
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -423,27 +438,27 @@
     .end local v4           #summary:Landroid/widget/TextView;
     check-cast v4, Landroid/widget/TextView;
 
-    .line 603
+    .line 619
     .restart local v4       #summary:Landroid/widget/TextView;
     :cond_3
     if-eqz v4, :cond_0
 
-    .line 604
+    .line 620
     invoke-virtual {v4, p1}, Landroid/widget/TextView;->setText(I)V
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
-    .line 607
+    .line 623
     .end local v3           #info:Landroid/content/pm/PackageInfo;
     .end local v4           #summary:Landroid/widget/TextView;
     :catch_0
     move-exception v2
 
-    .line 608
+    .line 624
     .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -453,31 +468,31 @@
     .parameter "type"
 
     .prologue
-    .line 509
+    .line 525
     const/4 v0, -0x1
 
-    .line 510
+    .line 526
     .local v0, layout:I
     const/4 v1, -0x1
 
-    .line 512
+    .line 528
     .local v1, resID:I
     iget-object v2, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-nez v2, :cond_0
 
-    .line 572
+    .line 588
     :goto_0
     return-void
 
-    .line 516
+    .line 532
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/settings/guide/WifiSettingsGuider;->setFocus(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    .line 518
+    .line 534
     sget-object v2, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v3
 
@@ -485,7 +500,7 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 571
+    .line 587
     :cond_1
     :goto_1
     :pswitch_0
@@ -493,75 +508,73 @@
 
     goto :goto_0
 
-    .line 524
-    :pswitch_1
-    const v1, 0x7f0911fb
-
-    .line 525
-    const v0, 0x7f0400ae
-
-    .line 526
-    goto :goto_1
-
-    .line 528
-    :pswitch_2
-    const v1, 0x7f0911fa
-
-    .line 529
-    const v0, 0x7f0400ae
-
-    .line 530
-    goto :goto_1
-
-    .line 532
-    :pswitch_3
-    const v1, 0x7f0911f9
-
-    .line 533
-    const v0, 0x7f0400ae
-
-    .line 534
-    goto :goto_1
-
-    .line 536
-    :pswitch_4
-    const v1, 0x7f0911fd
-
-    .line 537
-    const v0, 0x7f0400ab
-
-    .line 538
-    goto :goto_1
-
     .line 540
-    :pswitch_5
-    const v1, 0x7f0911fc
+    :pswitch_1
+    const v1, 0x7f091365
 
     .line 541
-    const v0, 0x7f0400ae
+    const v0, 0x7f0400cc
 
     .line 542
     goto :goto_1
 
     .line 544
-    :pswitch_6
-    const v1, 0x7f0911f5
+    :pswitch_2
+    const v1, 0x7f091364
 
     .line 545
-    const v0, 0x7f0400a9
+    const v0, 0x7f0400cc
+
+    .line 546
+    goto :goto_1
+
+    .line 548
+    :pswitch_3
+    const v1, 0x7f091363
 
     .line 549
+    const v0, 0x7f0400cc
+
+    .line 550
+    goto :goto_1
+
+    .line 552
+    :pswitch_4
+    const v1, 0x7f091367
+
+    .line 553
+    const v0, 0x7f0400c9
+
+    .line 554
+    goto :goto_1
+
+    .line 556
+    :pswitch_5
+    const v1, 0x7f091366
+
+    .line 557
+    const v0, 0x7f0400cc
+
+    .line 558
+    goto :goto_1
+
+    .line 560
+    :pswitch_6
+    const v1, 0x7f09135f
+
+    .line 561
+    const v0, 0x7f0400c7
+
+    .line 565
     invoke-static {}, Lcom/android/settings/guide/GuideModeHelper;->isTablet()Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
@@ -575,7 +588,7 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 553
+    .line 569
     new-instance v2, Landroid/os/Handler;
 
     invoke-direct {v2}, Landroid/os/Handler;-><init>()V
@@ -590,7 +603,7 @@
 
     goto :goto_1
 
-    .line 518
+    .line 534
     nop
 
     :pswitch_data_0
@@ -606,60 +619,58 @@
 .end method
 
 .method private setFocus(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
-    .locals 5
+    .locals 4
     .parameter "state"
 
     .prologue
-    .line 1092
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 1112
+    sget-object v2, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
-    .line 1094
-    .local v1, activity:Landroid/app/Activity;
-    sget-object v3, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
+    move-result v3
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    aget v2, v2, v3
 
-    move-result v4
+    packed-switch v2, :pswitch_data_0
 
-    aget v3, v3, v4
-
-    packed-switch v3, :pswitch_data_0
-
-    .line 1118
+    .line 1136
     :cond_0
     :goto_0
     return-void
 
-    .line 1096
+    .line 1114
     :pswitch_0
-    if-eqz v1, :cond_0
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    .line 1097
-    invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+    if-eqz v2, :cond_0
+
+    .line 1115
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v2}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
-    .line 1099
+    .line 1117
     .local v0, actionBar:Landroid/app/ActionBar;
     if-eqz v0, :cond_0
 
-    .line 1100
+    .line 1118
     invoke-virtual {v0}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v1
 
-    .line 1102
-    .local v2, view:Landroid/view/View;
-    if-eqz v2, :cond_0
+    .line 1120
+    .local v1, view:Landroid/view/View;
+    if-eqz v1, :cond_0
 
-    .line 1103
-    invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
+    .line 1121
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1094
+    .line 1112
     :pswitch_data_0
     .packed-switch 0x6
         :pswitch_0
@@ -671,12 +682,10 @@
     .parameter "clickable"
 
     .prologue
-    .line 786
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 802
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v1
-
-    .line 787
+    .line 803
     .local v1, activity:Landroid/app/Activity;
     if-eqz v1, :cond_2
 
@@ -684,46 +693,46 @@
 
     move-result-object v0
 
-    .line 789
+    .line 805
     .local v0, ab:Landroid/app/ActionBar;
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 790
+    .line 806
     invoke-virtual {v0}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
 
     move-result-object v2
 
-    .line 792
+    .line 808
     .local v2, v:Landroid/view/View;
     if-eqz v2, :cond_1
 
-    .line 793
+    .line 809
     invoke-virtual {v2}, Landroid/view/View;->isClickable()Z
 
     move-result v3
 
     if-eq v3, p1, :cond_0
 
-    .line 794
+    .line 810
     invoke-virtual {v2, p1}, Landroid/view/View;->setClickable(Z)V
 
-    .line 795
+    .line 811
     invoke-virtual {v2, p1}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 798
+    .line 814
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 799
+    .line 815
     invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
 
-    .line 803
+    .line 819
     .end local v2           #v:Landroid/view/View;
     :cond_1
     return-void
 
-    .line 787
+    .line 803
     .end local v0           #ab:Landroid/app/ActionBar;
     :cond_2
     const/4 v0, 0x0
@@ -736,22 +745,20 @@
     .parameter "enable"
 
     .prologue
-    .line 813
+    .line 829
     iput-boolean p1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEnableScanMenuItem:Z
 
-    .line 815
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 831
+    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v0
-
-    .line 817
+    .line 833
     .local v0, activity:Landroid/app/Activity;
     if-eqz v0, :cond_0
 
-    .line 818
+    .line 834
     invoke-virtual {v0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    .line 820
+    .line 836
     :cond_0
     return-void
 .end method
@@ -765,48 +772,44 @@
     .parameter "needShowWrongToast"
 
     .prologue
-    .line 497
+    .line 513
     new-instance v0, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-direct {v0, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 498
+    .line 514
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v0, p3}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
+    invoke-virtual {v0, p3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
 
-    .line 499
+    .line 515
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v0, p5}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setShowWrongInputToast(Z)V
+    invoke-virtual {v0, p5}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
 
-    .line 500
+    .line 516
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setOwnerActivity(Landroid/app/Activity;)V
-
-    .line 502
+    .line 518
     invoke-direct {p0, p1, p2}, Lcom/android/settings/guide/WifiSettingsGuider;->initHelpDialogContent(II)V
 
-    .line 504
+    .line 520
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 505
+    .line 521
     sput-object p4, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 506
+    .line 522
     return-void
 .end method
 
@@ -816,7 +819,7 @@
     .locals 1
 
     .prologue
-    .line 762
+    .line 778
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
@@ -831,18 +834,18 @@
 
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 763
+    .line 779
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 765
+    .line 781
     :cond_0
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
@@ -850,18 +853,18 @@
 
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 766
+    .line 782
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 768
+    .line 784
     :cond_1
     return-void
 .end method
@@ -870,28 +873,28 @@
     .locals 4
 
     .prologue
-    .line 414
+    .line 430
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v1, :cond_0
 
-    .line 415
+    .line 431
     iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 416
+    .line 432
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 418
+    .line 434
     sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
     sget-object v2, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    invoke-virtual {v2}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v2}, Ljava/lang/Enum;->ordinal()I
 
     move-result v2
 
@@ -899,34 +902,32 @@
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 435
+    .line 451
     :goto_0
     :sswitch_0
     sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     sput-object v1, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 436
+    .line 452
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->onCloseHelpDialogListener:Lcom/android/settings/guide/WifiSettingsGuider$OnCloseHelpDialogListener;
 
-    .line 441
+    .line 457
     :cond_0
     :goto_1
     return-void
 
-    .line 420
+    .line 436
     :sswitch_1
     const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-static {v1, v2}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
 
-    .line 421
+    .line 437
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->setGuidedActionBarClickable(Z)V
@@ -935,11 +936,11 @@
 
     goto :goto_0
 
-    .line 438
+    .line 454
     :catch_0
     move-exception v0
 
-    .line 439
+    .line 455
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const-string v1, "WifiSettingsGuider"
 
@@ -965,7 +966,7 @@
 
     goto :goto_1
 
-    .line 424
+    .line 440
     .end local v0           #e:Ljava/lang/IllegalArgumentException;
     :sswitch_2
     const/4 v1, 0x0
@@ -977,7 +978,7 @@
 
     goto :goto_0
 
-    .line 418
+    .line 434
     nop
 
     :sswitch_data_0
@@ -995,15 +996,15 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 449
+    .line 465
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     if-ne v0, p1, :cond_0
 
-    .line 450
+    .line 466
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -1011,39 +1012,37 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 467
+    .line 483
     :goto_0
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 468
+    .line 484
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
 
-    .line 470
+    .line 486
     :cond_0
     return-void
 
-    .line 452
+    .line 468
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-static {v2, v0}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
 
-    .line 453
+    .line 469
     invoke-direct {p0, v2}, Lcom/android/settings/guide/WifiSettingsGuider;->setGuidedActionBarClickable(Z)V
 
     goto :goto_0
 
-    .line 456
+    .line 472
     :pswitch_1
     invoke-direct {p0, v2}, Lcom/android/settings/guide/WifiSettingsGuider;->setScanOptionEnable(Z)V
 
     goto :goto_0
 
-    .line 450
+    .line 466
     nop
 
     :pswitch_data_0
@@ -1074,12 +1073,12 @@
 
     const/4 v6, 0x0
 
-    .line 632
+    .line 648
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 634
+    .line 649
     .local v0, action:Ljava/lang/String;
     const-string v4, "android.net.wifi.SCAN_RESULTS"
 
@@ -1089,10 +1088,8 @@
 
     if-eqz v4, :cond_7
 
-    .line 637
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
+    .line 652
+    iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v4}, Landroid/app/Activity;->hasWindowFocus()Z
 
@@ -1100,15 +1097,13 @@
 
     if-eqz v4, :cond_2
 
-    .line 638
+    .line 653
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-nez v4, :cond_0
 
-    .line 639
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
+    .line 654
+    iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     const-string v5, "connectivity"
 
@@ -1120,7 +1115,7 @@
 
     iput-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 643
+    .line 658
     :cond_0
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
@@ -1128,7 +1123,7 @@
 
     move-result-object v2
 
-    .line 646
+    .line 661
     .local v2, network:Landroid/net/NetworkInfo;
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1157,23 +1152,23 @@
 
     if-nez v4, :cond_4
 
-    .line 650
+    .line 665
     iget v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
     if-lt v4, v8, :cond_3
 
-    .line 651
+    .line 666
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NO_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    .line 741
+    .line 758
     .end local v2           #network:Landroid/net/NetworkInfo;
     :cond_2
     :goto_0
     return-void
 
-    .line 653
+    .line 668
     .restart local v2       #network:Landroid/net/NetworkInfo;
     :cond_3
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
@@ -1182,7 +1177,7 @@
 
     goto :goto_0
 
-    .line 656
+    .line 671
     :cond_4
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
 
@@ -1190,22 +1185,22 @@
 
     if-nez v4, :cond_5
 
-    .line 657
+    .line 672
     iput v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
-    .line 658
+    .line 673
     iget-boolean v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
 
     if-nez v4, :cond_2
 
-    .line 659
+    .line 674
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->FOUND_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     goto :goto_0
 
-    .line 662
+    .line 677
     :cond_5
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
 
@@ -1217,20 +1212,20 @@
 
     if-eqz v4, :cond_6
 
-    .line 663
+    .line 678
     iput v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
-    .line 664
+    .line 679
     iput-boolean v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstStart:Z
 
-    .line 665
+    .line 680
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->CONNECTED_AUTOMATICALLY:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     goto :goto_0
 
-    .line 667
+    .line 682
     :cond_6
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1244,12 +1239,12 @@
 
     if-nez v4, :cond_2
 
-    .line 668
+    .line 683
     iput v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
     goto :goto_0
 
-    .line 672
+    .line 687
     .end local v2           #network:Landroid/net/NetworkInfo;
     :cond_7
     const-string v4, "android.net.wifi.STATE_CHANGE"
@@ -1260,7 +1255,7 @@
 
     if-eqz v4, :cond_c
 
-    .line 673
+    .line 688
     const-string v4, "networkInfo"
 
     invoke-virtual {p1, v4}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1269,7 +1264,7 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 676
+    .line 691
     .local v1, info:Landroid/net/NetworkInfo;
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
 
@@ -1285,17 +1280,17 @@
 
     if-eqz v4, :cond_8
 
-    .line 677
+    .line 692
     iput-boolean v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstStart:Z
 
-    .line 678
+    .line 693
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->CONNECTED_AUTOMATICALLY:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     goto :goto_0
 
-    .line 679
+    .line 694
     :cond_8
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
 
@@ -1311,14 +1306,14 @@
 
     if-nez v4, :cond_9
 
-    .line 680
+    .line 695
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->CONNECTED_SUCCESSFULLY:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     goto :goto_0
 
-    .line 681
+    .line 696
     :cond_9
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
 
@@ -1326,16 +1321,16 @@
 
     if-nez v4, :cond_2
 
-    .line 682
+    .line 697
     iput-boolean v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstStart:Z
 
-    .line 683
+    .line 698
     iput-boolean v6, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnecting:Z
 
-    .line 684
+    .line 699
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
 
-    .line 686
+    .line 701
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
     move-result-object v4
@@ -1356,7 +1351,7 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 690
+    .line 705
     :cond_a
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1378,14 +1373,14 @@
 
     if-nez v4, :cond_b
 
-    .line 692
+    .line 707
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->FOUND_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     goto/16 :goto_0
 
-    .line 693
+    .line 708
     :cond_b
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1395,14 +1390,14 @@
 
     if-eqz v4, :cond_2
 
-    .line 694
+    .line 709
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     goto/16 :goto_0
 
-    .line 699
+    .line 714
     .end local v1           #info:Landroid/net/NetworkInfo;
     :cond_c
     const-string v4, "android.net.wifi.WIFI_STATE_CHANGED"
@@ -1413,7 +1408,7 @@
 
     if-eqz v4, :cond_11
 
-    .line 704
+    .line 719
     iget v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->count:I
 
     const/4 v5, 0x3
@@ -1426,8 +1421,17 @@
 
     iput v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->count:I
 
-    .line 705
+    .line 720
     :cond_d
+    iget v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->count:I
+
+    if-ne v4, v8, :cond_e
+
+    .line 721
+    iput-boolean v7, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstCheck:Z
+
+    .line 723
+    :cond_e
     const-string v4, "wifi_state"
 
     const/4 v5, 0x4
@@ -1436,15 +1440,15 @@
 
     move-result v3
 
-    .line 708
+    .line 726
     .local v3, state:I
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v4
 
     if-eqz v4, :cond_10
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v4
 
@@ -1458,16 +1462,16 @@
 
     if-eqz v4, :cond_10
 
-    .line 710
-    if-eq v3, v7, :cond_e
+    .line 728
+    if-eq v3, v7, :cond_f
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_2
 
-    .line 712
-    :cond_e
+    .line 730
+    :cond_f
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -1475,42 +1479,30 @@
 
     move-result v4
 
-    if-nez v4, :cond_f
+    if-nez v4, :cond_2
 
-    .line 713
+    .line 731
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissCompleteDialog()V
 
-    .line 714
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
+    .line 732
+    iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v4}, Landroid/app/Activity;->finish()V
 
-    .line 715
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->onDestroy()V
-
-    .line 732
-    :cond_f
-    :goto_1
-    iget v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->count:I
-
-    if-ne v4, v8, :cond_2
-
     .line 733
-    iput-boolean v7, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstCheck:Z
+    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->onDestroy()V
 
     goto/16 :goto_0
 
-    .line 719
+    .line 737
     :cond_10
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v4}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    .line 735
+    .line 750
     .end local v3           #state:I
     :cond_11
     const-string v4, "android.net.wifi.WIFI_DIALOG_CANCEL_ACTION"
@@ -1521,24 +1513,31 @@
 
     if-eqz v4, :cond_2
 
-    .line 736
+    .line 751
+    const-string v4, "called_dialog"
+
+    invoke-virtual {p1, v4, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-ne v4, v8, :cond_2
+
+    .line 752
     const-string v4, "WifiSettingsGuider"
 
     const-string v5, "Hotspot is ON"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 737
+    .line 753
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissCompleteDialog()V
 
-    .line 738
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
+    .line 754
+    iget-object v4, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v4}, Landroid/app/Activity;->finish()V
 
-    .line 739
+    .line 755
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->onDestroy()V
 
     goto/16 :goto_0
@@ -1549,7 +1548,7 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 254
+    .line 273
     return-void
 .end method
 
@@ -1559,15 +1558,15 @@
     .parameter "which"
 
     .prologue
-    .line 897
+    .line 913
     const/4 v0, -0x2
 
     if-ne p2, v0, :cond_0
 
-    .line 899
+    .line 915
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->showCompleteDialog()V
 
-    .line 901
+    .line 917
     :cond_0
     return-void
 .end method
@@ -1577,19 +1576,19 @@
     .parameter "newConfig"
 
     .prologue
-    .line 286
+    .line 305
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     if-eq v0, v1, :cond_0
 
-    .line 287
+    .line 306
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-direct {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->invalidateHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    .line 289
+    .line 308
     :cond_0
     return-void
 .end method
@@ -1603,19 +1602,19 @@
 
     const/4 v2, 0x1
 
-    .line 169
+    .line 178
     const-string v0, "WifiSettingsGuider"
 
     const-string v1, "onCreate()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 170
+    .line 179
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-eqz v0, :cond_0
 
-    .line 171
+    .line 180
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
@@ -1624,24 +1623,22 @@
 
     if-nez v0, :cond_0
 
-    .line 172
+    .line 181
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0, v2}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 174
+    .line 183
     :cond_0
     iput-boolean v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstCheck:Z
 
-    .line 175
+    .line 184
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-nez v0, :cond_1
 
-    .line 176
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
+    .line 185
+    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     const-string v1, "connectivity"
 
@@ -1653,14 +1650,14 @@
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 180
+    .line 189
     :cond_1
     iput-boolean v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mFirstStart:Z
 
-    .line 181
+    .line 190
     iput-boolean v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectSuccess:Z
 
-    .line 182
+    .line 191
     iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v0, v2}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
@@ -1673,109 +1670,121 @@
 
     iput-boolean v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnecting:Z
 
-    .line 184
+    .line 193
     iput v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
-    .line 185
+    .line 194
     iput-boolean v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
 
-    .line 186
+    .line 195
     iput-boolean v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mCreate:Z
 
-    .line 187
+    .line 196
     return-void
 .end method
 
 .method public onDestroy()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 191
+    .line 200
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
 
-    .line 192
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
+    .line 201
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v1}, Landroid/app/Dialog;->isShowing()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 193
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
+    .line 202
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->builderstartDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 195
+    .line 204
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->isShowing()Z
+    invoke-virtual {v1}, Landroid/app/Dialog;->isShowing()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 196
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    .line 205
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 198
+    .line 207
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v0
+    if-eqz v1, :cond_2
 
-    if-eqz v0, :cond_2
+    .line 208
+    const/4 v1, 0x1
 
-    .line 199
-    const/4 v0, 0x1
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    invoke-static {v1, v2}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
+
+    .line 209
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    if-eqz v1, :cond_2
+
+    .line 211
+    :try_start_0
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 200
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    if-eqz v0, :cond_2
+    .line 212
+    const/4 v1, 0x0
 
-    .line 201
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    iput-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-
-    .line 202
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    .line 205
+    .line 218
     :cond_2
+    :goto_0
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->finish()V
 
-    .line 206
+    .line 219
     return-void
+
+    .line 213
+    :catch_0
+    move-exception v0
+
+    .line 214
+    .local v0, e:Ljava/lang/IllegalArgumentException;
+    const-string v1, "WifiSettingsGuider"
+
+    const-string v2, "IllegalArgumentException : mReceiver is not registered."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
@@ -1783,7 +1792,7 @@
     .parameter "dialog"
 
     .prologue
-    .line 893
+    .line 909
     return-void
 .end method
 
@@ -1793,26 +1802,26 @@
     .parameter "keyEvent"
 
     .prologue
-    const/4 v7, 0x1
+    const/16 v7, 0x6f
 
-    const/16 v6, 0x6f
+    const/16 v6, 0x42
 
-    const/16 v5, 0x42
+    const/4 v5, 0x1
 
-    .line 987
+    .line 1003
     const/4 v1, 0x0
 
-    .line 988
+    .line 1004
     .local v1, isHandled:Z
     const/4 v2, 0x1
 
-    .line 992
+    .line 1008
     .local v2, passToView:Z
     sget-object v3, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
     sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    invoke-virtual {v4}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 
@@ -1820,7 +1829,7 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 1069
+    .line 1089
     :cond_0
     :goto_0
     :pswitch_0
@@ -1828,42 +1837,40 @@
 
     if-eqz v2, :cond_1
 
-    .line 1070
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
+    .line 1090
+    iget-object v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-virtual {v3}, Landroid/app/Activity;->getCurrentFocus()Landroid/view/View;
 
     move-result-object v0
 
-    .line 1072
+    .line 1092
     .local v0, focus:Landroid/view/View;
     if-eqz v0, :cond_1
 
-    .line 1073
+    .line 1093
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v3
 
     if-nez v3, :cond_5
 
-    .line 1074
+    .line 1094
     invoke-virtual {v0, p1, p2}, Landroid/view/View;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    .line 1081
+    .line 1101
     .end local v0           #focus:Landroid/view/View;
     :cond_1
     :goto_1
     return v1
 
-    .line 995
+    .line 1011
     :pswitch_1
-    if-eq p1, v6, :cond_2
+    if-eq p1, v7, :cond_2
 
-    if-eq p1, v5, :cond_2
+    if-eq p1, v6, :cond_2
 
     const/16 v3, 0x17
 
@@ -1917,25 +1924,29 @@
 
     if-eq p1, v3, :cond_2
 
-    .line 1010
+    .line 1026
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1011
+    .line 1027
     :cond_2
-    if-ne p1, v5, :cond_0
+    if-ne p1, v6, :cond_0
 
-    .line 1012
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result v3
+
+    if-ne v3, v5, :cond_0
+
+    .line 1029
     const/4 v2, 0x0
 
-    .line 1013
+    .line 1030
     const/4 v1, 0x1
 
-    .line 1015
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
+    .line 1032
+    iget-object v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     iget-object v4, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
@@ -1943,41 +1954,15 @@
 
     goto :goto_0
 
-    .line 1021
-    :pswitch_2
-    if-ne p1, v6, :cond_3
-
-    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v3
-
-    if-ne v3, v7, :cond_3
-
-    .line 1023
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
-
-    .line 1024
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->showCompleteDialog()V
-
-    .line 1026
-    :cond_3
-    const/4 v2, 0x0
-
-    .line 1027
-    const/4 v1, 0x1
-
-    .line 1028
-    goto :goto_0
-
     .line 1038
-    :pswitch_3
-    if-ne p1, v6, :cond_4
+    :pswitch_2
+    if-ne p1, v7, :cond_3
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v3
 
-    if-ne v3, v7, :cond_4
+    if-ne v3, v5, :cond_3
 
     .line 1040
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
@@ -1985,49 +1970,67 @@
     .line 1041
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->showCompleteDialog()V
 
-    .line 1042
+    .line 1043
+    :cond_3
     const/4 v2, 0x0
 
-    .line 1043
+    .line 1044
     const/4 v1, 0x1
-
-    goto/16 :goto_0
 
     .line 1045
-    :cond_4
-    if-ne p1, v5, :cond_0
+    goto :goto_0
 
-    .line 1046
-    const/4 v2, 0x0
+    .line 1055
+    :pswitch_3
+    if-ne p1, v7, :cond_4
 
-    .line 1047
-    const/4 v1, 0x1
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
-    .line 1049
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    move-result v3
 
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    invoke-static {v3, v4}, Lcom/android/settings/guide/GuideModeHelper;->emulateTouchOnFocusedView(Landroid/app/Activity;Lcom/android/settings/helpdialog/TwHelpDialog;)V
-
-    goto/16 :goto_0
-
-    .line 1056
-    :pswitch_4
-    if-ne p1, v5, :cond_0
+    if-ne v3, v5, :cond_4
 
     .line 1057
-    const/4 v2, 0x0
+    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
 
     .line 1058
-    const/4 v1, 0x1
+    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->showCompleteDialog()V
+
+    .line 1059
+    const/4 v2, 0x0
 
     .line 1060
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    const/4 v1, 0x1
 
-    move-result-object v3
+    .line 1061
+    iget-object v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHandler:Landroid/os/Handler;
+
+    const/4 v4, 0x7
+
+    const-wide/16 v5, 0xbb8
+
+    invoke-virtual {v3, v4, v5, v6}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto/16 :goto_0
+
+    .line 1063
+    :cond_4
+    if-ne p1, v6, :cond_0
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result v3
+
+    if-ne v3, v5, :cond_0
+
+    .line 1065
+    const/4 v2, 0x0
+
+    .line 1066
+    const/4 v1, 0x1
+
+    .line 1068
+    iget-object v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     iget-object v4, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
@@ -2035,7 +2038,32 @@
 
     goto/16 :goto_0
 
-    .line 1076
+    .line 1075
+    :pswitch_4
+    if-ne p1, v6, :cond_0
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result v3
+
+    if-ne v3, v5, :cond_0
+
+    .line 1077
+    const/4 v2, 0x0
+
+    .line 1078
+    const/4 v1, 0x1
+
+    .line 1080
+    iget-object v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    iget-object v4, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    invoke-static {v3, v4}, Lcom/android/settings/guide/GuideModeHelper;->emulateTouchOnFocusedView(Landroid/app/Activity;Lcom/android/settings/helpdialog/TwHelpDialog;)V
+
+    goto/16 :goto_0
+
+    .line 1096
     .restart local v0       #focus:Landroid/view/View;
     :cond_5
     invoke-virtual {v0, p1, p2}, Landroid/view/View;->onKeyUp(ILandroid/view/KeyEvent;)Z
@@ -2044,7 +2072,7 @@
 
     goto/16 :goto_1
 
-    .line 992
+    .line 1008
     nop
 
     :pswitch_data_0
@@ -2066,7 +2094,7 @@
     .parameter "keyEvent"
 
     .prologue
-    .line 923
+    .line 939
     const/4 v0, 0x0
 
     return v0
@@ -2077,7 +2105,7 @@
     .parameter "item"
 
     .prologue
-    .line 978
+    .line 994
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
@@ -2092,19 +2120,19 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 980
+    .line 996
     iget v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEmptyScanResultAttempts:I
 
-    .line 981
+    .line 997
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->setScanOptionEnable(Z)V
 
-    .line 983
+    .line 999
     :cond_0
     return-void
 .end method
@@ -2113,10 +2141,8 @@
     .locals 5
 
     .prologue
-    .line 267
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
+    .line 286
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     const-string v3, "power"
 
@@ -2126,13 +2152,13 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
-    .line 268
+    .line 287
     .local v1, pm:Landroid/os/PowerManager;
     invoke-virtual {v1}, Landroid/os/PowerManager;->isScreenOn()Z
 
     move-result v0
 
-    .line 272
+    .line 291
     .local v0, isScreenOn:Z
     if-eqz v0, :cond_0
 
@@ -2142,29 +2168,29 @@
 
     if-eqz v2, :cond_0
 
-    .line 273
+    .line 292
     sget-object v2, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 274
+    .line 293
     iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerRestored:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 275
+    .line 294
     invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog()V
 
-    .line 277
+    .line 296
     :cond_0
     if-nez v0, :cond_1
 
-    .line 278
+    .line 297
     const/4 v2, 0x1
 
     iput v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mScreenOnCheck:I
 
-    .line 280
+    .line 299
     :cond_1
     const-string v2, "WifiSettingsGuider"
 
@@ -2190,12 +2216,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 281
+    .line 300
     const/4 v2, 0x0
 
     sput-boolean v2, Lcom/android/settings/guide/WifiSettingsGuider;->isWifiGuideOn:Z
 
-    .line 282
+    .line 301
     return-void
 .end method
 
@@ -2204,250 +2230,275 @@
     .parameter "menu"
 
     .prologue
-    .line 258
+    .line 277
     const/4 v1, 0x6
 
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 260
+    .line 279
     .local v0, scan:Landroid/view/MenuItem;
     if-eqz v0, :cond_0
 
-    .line 261
+    .line 280
     iget-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mEnableScanMenuItem:Z
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 263
+    .line 282
     :cond_0
     return-void
 .end method
 
 .method public onResume()V
-    .locals 4
+    .locals 5
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    .line 210
-    const-string v0, "WifiSettingsGuider"
+    .line 223
+    const-string v1, "WifiSettingsGuider"
 
-    const-string v3, "onResume()"
+    const-string v4, "onResume()"
 
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 211
+    .line 224
     invoke-static {}, Lcom/android/settings/guide/GuideFragment;->isInGuideMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 212
-    sput-boolean v1, Lcom/android/settings/guide/WifiSettingsGuider;->isWifiGuideOn:Z
-
-    .line 214
-    :cond_0
-    sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    sget-object v3, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    if-ne v0, v3, :cond_4
-
-    move v0, v1
-
-    :goto_0
-    invoke-direct {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->setGuidedActionBarClickable(Z)V
-
-    .line 215
-    sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    sget-object v3, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    if-ne v0, v3, :cond_5
-
-    move v0, v1
-
-    :goto_1
-    invoke-direct {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->setScanOptionEnable(Z)V
-
-    .line 220
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    if-eqz v0, :cond_6
-
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    .line 229
-    :cond_1
-    :goto_2
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 230
-    iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
-
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
-
-    if-eqz v0, :cond_2
-
-    .line 231
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
-
-    invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 233
-    iget-boolean v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
-
-    if-nez v0, :cond_2
-
-    iget v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mScreenOnCheck:I
-
-    if-nez v0, :cond_2
-
-    .line 234
-    const-string v0, "WifiSettingsGuider"
-
-    const-string v1, "onResume :: showHelpDialog"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 235
-    sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->FOUND_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
-
-    .line 236
-    iput v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mScreenOnCheck:I
-
-    .line 241
-    :cond_2
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    iget-boolean v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mCreate:Z
-
-    if-nez v0, :cond_3
-
-    .line 242
-    const/4 v0, 0x2
-
-    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getWifiState()I
 
     move-result v1
 
-    if-eq v0, v1, :cond_3
+    if-nez v1, :cond_0
+
+    .line 225
+    sput-boolean v2, Lcom/android/settings/guide/WifiSettingsGuider;->isWifiGuideOn:Z
+
+    .line 227
+    :cond_0
+    sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+
+    sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+
+    if-ne v1, v4, :cond_4
+
+    move v1, v2
+
+    :goto_0
+    invoke-direct {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->setGuidedActionBarClickable(Z)V
+
+    .line 228
+    sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+
+    sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+
+    if-ne v1, v4, :cond_5
+
+    move v1, v2
+
+    :goto_1
+    invoke-direct {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->setScanOptionEnable(Z)V
+
+    .line 233
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    if-eqz v1, :cond_6
+
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    .line 242
+    :cond_1
+    :goto_2
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
 
     .line 243
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissCompleteDialog()V
+    iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    if-eqz v1, :cond_2
 
     .line 244
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+    move-result-object v1
 
-    .line 245
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->onDestroy()V
+    invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 246
+    iget-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
+
+    if-nez v1, :cond_2
+
+    iget v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mScreenOnCheck:I
+
+    if-nez v1, :cond_2
+
+    .line 247
+    const-string v1, "WifiSettingsGuider"
+
+    const-string v2, "onResume :: showHelpDialog"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 248
-    :cond_3
-    iput-boolean v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mCreate:Z
+    sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->FOUND_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+
+    invoke-virtual {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
     .line 249
+    iput v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mScreenOnCheck:I
+
+    .line 254
+    :cond_2
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    iget-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mCreate:Z
+
+    if-nez v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isAllowWifiWarning()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    .line 257
+    const-wide/16 v1, 0x320
+
+    :try_start_0
+    invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 261
+    :goto_3
+    const/4 v1, 0x2
+
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getWifiState()I
+
+    move-result v2
+
+    if-eq v1, v2, :cond_3
+
+    .line 262
+    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissCompleteDialog()V
+
+    .line 263
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
+
+    .line 264
+    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->onDestroy()V
+
+    .line 267
+    :cond_3
+    iput-boolean v3, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mCreate:Z
+
+    .line 268
     return-void
 
     :cond_4
-    move v0, v2
+    move v1, v3
 
-    .line 214
+    .line 227
     goto/16 :goto_0
 
     :cond_5
-    move v0, v2
+    move v1, v3
 
-    .line 215
-    goto :goto_1
+    .line 228
+    goto/16 :goto_1
 
-    .line 223
+    .line 236
     :cond_6
     invoke-static {}, Lcom/android/settings/guide/GuideFragment;->isTablet()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    sget-object v3, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    sget-object v4, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    if-eq v0, v3, :cond_1
+    if-eq v1, v4, :cond_1
 
-    .line 224
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    .line 237
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    .line 225
-    sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    .line 238
+    sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    iput-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerShowed:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 226
-    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerRestored:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    .line 239
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mStateContainerRestored:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    iput-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     goto/16 :goto_2
+
+    .line 258
+    :catch_0
+    move-exception v0
+
+    .line 259
+    .local v0, e:Ljava/lang/InterruptedException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    goto :goto_3
 .end method
 
 .method public onShow(Landroid/content/DialogInterface;)V
@@ -2455,7 +2506,7 @@
     .parameter "dialog"
 
     .prologue
-    .line 881
+    .line 897
     return-void
 .end method
 
@@ -2478,17 +2529,17 @@
     .parameter "enabler"
 
     .prologue
-    .line 841
+    .line 857
     iput-object p1, p0, Lcom/android/settings/guide/GuiderBase;->mEnabler:Lcom/android/settings/guide/GuideFragment$WrappedEnabler;
 
-    .line 843
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getFragment()Landroid/app/Fragment;
+    .line 859
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getFragment()Landroid/app/Fragment;
+    invoke-virtual {p0}, Lcom/android/settings/guide/GuiderBase;->getFragment()Landroid/app/Fragment;
 
     move-result-object v0
 
@@ -2502,109 +2553,98 @@
 
     if-eqz v0, :cond_0
 
-    .line 844
+    .line 860
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mEnabler:Lcom/android/settings/guide/GuideFragment$WrappedEnabler;
 
     invoke-virtual {v0, p0}, Lcom/android/settings/guide/GuideFragment$WrappedEnabler;->setOnEnablerSwitchListener(Lcom/android/settings/guide/OnInternalSwitcherListener;)V
 
-    .line 846
+    .line 862
     :cond_0
     return-void
 .end method
 
 .method public showCompleteDialog()V
-    .locals 5
+    .locals 4
 
     .prologue
-    .line 745
-    iget-object v2, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
+    .line 762
+    iget-object v1, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 746
+    .line 763
     sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 747
-    .local v1, showedType:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-    sget-object v2, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    invoke-virtual {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
+    .line 764
+    sget-object v1, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 748
-    sget-object v2, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    iput-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    .line 750
-    .end local v1           #showedType:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
+    .line 766
     :cond_0
-    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    .line 751
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 767
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    move-result-object v2
+    invoke-virtual {v1}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    move-result-object v1
 
-    move-result-object v2
-
-    const v3, 0x7f0400b1
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 752
-    .local v0, bView:Landroid/view/View;
-    new-instance v2, Lcom/android/settings/helpdialog/TwHelpDialog;
-
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;-><init>(Landroid/content/Context;)V
-
-    iput-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
-
-    .line 753
-    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
-
-    invoke-virtual {v2, v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->setContentView(Landroid/view/View;)V
-
-    .line 754
-    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
-
-    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->TRANSPARENT:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
-
-    invoke-virtual {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
-
-    .line 755
-    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    const v2, 0x7f0400d0
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
+    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 756
-    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
+    .line 768
+    .local v0, bView:Landroid/view/View;
+    new-instance v1, Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    move-result-object v3
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
-    invoke-virtual {v2, v3}, Lcom/android/settings/helpdialog/TwHelpDialog;->setOwnerActivity(Landroid/app/Activity;)V
+    invoke-direct {v1, v2}, Lcom/android/settings/helpdialog/TwHelpDialog;-><init>(Landroid/content/Context;)V
 
-    .line 757
-    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+    iput-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    invoke-virtual {v2}, Lcom/android/settings/helpdialog/TwHelpDialog;->show()V
+    .line 769
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 759
+    invoke-virtual {v1, v0}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+
+    .line 770
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    sget-object v2, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->TRANSPARENT:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
+
+    .line 771
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
+
+    .line 772
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    iget-object v2, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
+
+    .line 773
+    iget-object v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mHelpDialogC:Lcom/android/settings/helpdialog/TwHelpDialog;
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+
+    .line 775
     .end local v0           #bView:Landroid/view/View;
     :cond_1
     return-void
@@ -2614,22 +2654,22 @@
     .locals 0
 
     .prologue
-    .line 851
+    .line 867
     return-void
 .end method
 
 .method public showHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
-    .locals 7
+    .locals 6
     .parameter "type"
 
     .prologue
-    const v2, 0x7f0400ae
+    const v2, 0x7f0400cc
 
     const/4 v1, 0x0
 
     const/4 v5, 0x1
 
-    .line 298
+    .line 317
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     if-ne p1, v0, :cond_0
@@ -2639,7 +2679,7 @@
     :goto_0
     invoke-direct {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->setScanOptionEnable(Z)V
 
-    .line 300
+    .line 319
     iget-object v0, p0, Lcom/android/settings/guide/GuiderBase;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-eqz v0, :cond_1
@@ -2648,7 +2688,7 @@
 
     if-ne v0, p1, :cond_1
 
-    .line 409
+    .line 425
     :goto_1
     :pswitch_0
     return-void
@@ -2656,38 +2696,32 @@
     :cond_0
     move v0, v1
 
-    .line 298
+    .line 317
     goto :goto_0
 
-    .line 304
+    .line 323
     :cond_1
-    sget-object v6, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
-
-    .line 306
-    .local v6, showedType:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider;->mShowedDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/guide/WifiSettingsGuider;->dismissHelpDialog(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    .line 307
+    .line 324
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     iput-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mRestorePrevDialog:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 309
+    .line 326
     invoke-direct {p0, p1}, Lcom/android/settings/guide/WifiSettingsGuider;->setFocus(Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;)V
 
-    .line 310
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
+    .line 327
+    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-static {v1, v0}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
 
-    .line 312
+    .line 329
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v3
 
@@ -2695,12 +2729,12 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 360
+    .line 376
     :goto_2
     :pswitch_1
     iput-boolean v1, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mClosed:Z
 
-    .line 364
+    .line 380
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     if-ne p1, v0, :cond_2
@@ -2710,10 +2744,10 @@
     :cond_2
     invoke-direct {p0, v1}, Lcom/android/settings/guide/WifiSettingsGuider;->setGuidedActionBarClickable(Z)V
 
-    .line 366
+    .line 382
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$8;->$SwitchMap$com$android$settings$guide$WifiSettingsGuider$GuideStates:[I
 
-    invoke-virtual {p1}, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -2723,9 +2757,9 @@
 
     goto :goto_1
 
-    .line 374
+    .line 390
     :pswitch_2
-    const v1, 0x7f0911fb
+    const v1, 0x7f091365
 
     sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
@@ -2737,7 +2771,7 @@
 
     goto :goto_1
 
-    .line 319
+    .line 335
     :pswitch_3
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$3;
 
@@ -2747,7 +2781,7 @@
 
     goto :goto_2
 
-    .line 330
+    .line 346
     :pswitch_4
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$4;
 
@@ -2757,7 +2791,7 @@
 
     goto :goto_2
 
-    .line 342
+    .line 358
     :pswitch_5
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$5;
 
@@ -2767,79 +2801,77 @@
 
     goto :goto_2
 
-    .line 352
+    .line 368
     :pswitch_6
-    invoke-virtual {p0}, Lcom/android/settings/guide/WifiSettingsGuider;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settings/guide/WifiSettingsGuider;->mActivity:Landroid/app/Activity;
 
     invoke-static {v5, v0}, Lcom/android/settings/guide/GuideModeHelper;->setSettingsListEnabled(ZLandroid/app/Activity;)V
 
     goto :goto_2
 
-    .line 378
-    :pswitch_7
-    const v1, 0x7f0911fa
-
-    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
-
-    move-object v0, p0
-
-    move-object v4, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
-
-    goto :goto_1
-
-    .line 382
-    :pswitch_8
-    const v1, 0x7f0911f9
-
-    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
-
-    move-object v0, p0
-
-    move-object v4, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
-
-    goto :goto_1
-
-    .line 386
-    :pswitch_9
-    const v1, 0x7f0911fd
-
-    const v2, 0x7f0400ab
-
-    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
-
-    move-object v0, p0
-
-    move-object v4, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
-
-    goto/16 :goto_1
-
-    .line 390
-    :pswitch_a
-    const v1, 0x7f0911fc
-
-    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
-
-    move-object v0, p0
-
-    move-object v4, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
-
-    goto/16 :goto_1
-
     .line 394
-    :pswitch_b
-    const v1, 0x7f0911f5
+    :pswitch_7
+    const v1, 0x7f091364
 
-    const v2, 0x7f0400a9
+    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+
+    move-object v0, p0
+
+    move-object v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
+
+    goto :goto_1
+
+    .line 398
+    :pswitch_8
+    const v1, 0x7f091363
+
+    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+
+    move-object v0, p0
+
+    move-object v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
+
+    goto :goto_1
+
+    .line 402
+    :pswitch_9
+    const v1, 0x7f091367
+
+    const v2, 0x7f0400c9
+
+    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+
+    move-object v0, p0
+
+    move-object v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
+
+    goto/16 :goto_1
+
+    .line 406
+    :pswitch_a
+    const v1, 0x7f091366
+
+    sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
+
+    move-object v0, p0
+
+    move-object v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/settings/guide/WifiSettingsGuider;->showHelpDialog(IILcom/android/settings/helpdialog/TwHelpDialog$TouchMode;Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;Z)V
+
+    goto/16 :goto_1
+
+    .line 410
+    :pswitch_b
+    const v1, 0x7f09135f
+
+    const v2, 0x7f0400c7
 
     sget-object v3, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE_NO_MOVE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
@@ -2851,7 +2883,7 @@
 
     goto/16 :goto_1
 
-    .line 312
+    .line 329
     nop
 
     :pswitch_data_0
@@ -2864,7 +2896,7 @@
         :pswitch_6
     .end packed-switch
 
-    .line 366
+    .line 382
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_0

@@ -70,7 +70,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401cf
+    const v2, 0x7f04020c
 
     const/4 v3, 0x0
 
@@ -88,12 +88,12 @@
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiInternetServiceCheckDialog;->setInverseBackgroundForced(Z)V
 
     .line 52
-    const v1, 0x7f090452
+    const v1, 0x7f09048c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiInternetServiceCheckDialog;->setTitle(I)V
 
     .line 54
-    const v1, 0x7f0b051d
+    const v1, 0x7f0b057f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -110,7 +110,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09074c
+    const v3, 0x7f09079f
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -127,7 +127,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090469
+    const v3, 0x7f0904a3
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

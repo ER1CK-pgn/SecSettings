@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 387
+    .line 389
     iput-object p1, p0, Lcom/android/settings/motion/MotionTutorialSettings$3;->this$0:Lcom/android/settings/motion/MotionTutorialSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,13 +42,13 @@
     .parameter "dialog"
 
     .prologue
-    .line 389
+    .line 391
     const-string v0, "MotionTutorialSettings"
 
     const-string v1, "use motion dismiss"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 391
+    .line 393
     return-void
 .end method

@@ -34,7 +34,7 @@
     const/4 v1, 0x0
 
     .line 65
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     iput-object v1, p0, Lcom/android/settings/AirViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -149,25 +149,25 @@
     .parameter "isEnable"
 
     .prologue
-    .line 244
+    .line 245
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_VIEW_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 245
+    .line 246
     .local v0, air_view_changed:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 246
+    .line 247
     iget-object v1, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 247
+    .line 248
     return-void
 .end method
 
@@ -177,34 +177,34 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 250
+    .line 251
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 251
+    .line 252
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 252
+    .line 253
     iput-object v1, p0, Lcom/android/settings/AirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    .line 254
+    .line 255
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
-    .line 255
+    .line 256
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 256
+    .line 257
     iput-object v1, p0, Lcom/android/settings/AirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 258
+    .line 259
     :cond_1
     return-void
 .end method
@@ -223,7 +223,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e96
+    const v3, 0x7f090fcf
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -241,7 +241,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e97
+    const v3, 0x7f090fd0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f09081b
+    const v3, 0x7f090899
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -287,7 +287,7 @@
 
     iget-object v2, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090cb8
+    const v3, 0x7f090dd2
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
     .line 175
     iget-object v1, p0, Lcom/android/settings/AirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     .line 176
     iget-object v1, p0, Lcom/android/settings/AirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
@@ -335,7 +335,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/AirViewEnabler$4;-><init>(Lcom/android/settings/AirViewEnabler;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 183
     return-void
@@ -357,7 +357,7 @@
 
     iget-object v1, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090e67
+    const v2, 0x7f090fa0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -367,9 +367,15 @@
 
     move-result-object v0
 
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090e39
+    const v2, 0x7f090f72
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -405,21 +411,21 @@
 
     iput-object v0, p0, Lcom/android/settings/AirViewEnabler;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    .line 233
+    .line 234
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 234
+    .line 235
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mAirViewDisableDialog:Landroid/app/AlertDialog;
 
     new-instance v1, Lcom/android/settings/AirViewEnabler$8;
 
     invoke-direct {v1, p0}, Lcom/android/settings/AirViewEnabler$8;-><init>(Lcom/android/settings/AirViewEnabler;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 241
+    .line 242
     return-void
 .end method
 
@@ -437,13 +443,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e2a
+    const v1, 0x7f090f63
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -474,7 +480,7 @@
     .line 211
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 213
     return-void
@@ -636,7 +642,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 92
     return-void
@@ -673,7 +679,7 @@
     .line 83
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 84
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mContext:Landroid/content/Context;
@@ -734,7 +740,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 99
     iput-object p1, p0, Lcom/android/settings/AirViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -745,7 +751,7 @@
     .line 102
     iget-object v0, p0, Lcom/android/settings/AirViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method
@@ -777,7 +783,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v3, v4}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 135
     iget-object v3, p0, Lcom/android/settings/AirViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -790,7 +796,7 @@
     .line 136
     iget-object v1, p0, Lcom/android/settings/AirViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 137
     return-void

@@ -57,7 +57,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 61
+    .line 60
     const-string v3, "android.bluetooth.profile.action.CONNECTION_STATE_CHANGED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -66,7 +66,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 62
+    .line 61
     const-string v3, "android.bluetooth.device.extra.DEVICE"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -75,7 +75,7 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
-    .line 63
+    .line 62
     .local v1, device:Landroid/bluetooth/BluetoothDevice;
     const-string v3, "android.bluetooth.profile.extra.STATE"
 
@@ -85,14 +85,14 @@
 
     move-result v2
 
-    .line 64
+    .line 63
     .local v2, status:I
     iget-object v3, p0, Lcom/android/settings/bluetooth/CachedBluetoothDeviceManager$1;->this$0:Lcom/android/settings/bluetooth/CachedBluetoothDeviceManager;
 
     #calls: Lcom/android/settings/bluetooth/CachedBluetoothDeviceManager;->updateConnectedList(Landroid/bluetooth/BluetoothDevice;I)V
     invoke-static {v3, v1, v2}, Lcom/android/settings/bluetooth/CachedBluetoothDeviceManager;->access$000(Lcom/android/settings/bluetooth/CachedBluetoothDeviceManager;Landroid/bluetooth/BluetoothDevice;I)V
 
-    .line 67
+    .line 66
     .end local v1           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v2           #status:I
     :cond_0

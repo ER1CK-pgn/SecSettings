@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 704
+    .line 716
     iput-object p1, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,13 +42,13 @@
     .parameter "editable"
 
     .prologue
-    .line 723
+    .line 735
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #calls: Lcom/android/settings/wifi/WifiApDialog;->validate()V
     invoke-static {v0}, Lcom/android/settings/wifi/WifiApDialog;->access$1600(Lcom/android/settings/wifi/WifiApDialog;)V
 
-    .line 724
+    .line 736
     return-void
 .end method
 
@@ -60,7 +60,7 @@
     .parameter "after"
 
     .prologue
-    .line 718
+    .line 730
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -77,7 +77,7 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 719
+    .line 731
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -87,7 +87,7 @@
     #setter for: Lcom/android/settings/wifi/WifiApDialog;->mTempSsid:Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/android/settings/wifi/WifiApDialog;->access$1402(Lcom/android/settings/wifi/WifiApDialog;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 720
+    .line 732
     :cond_0
     return-void
 .end method
@@ -102,7 +102,7 @@
     .prologue
     const/16 v1, 0x20
 
-    .line 706
+    .line 718
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -115,7 +115,7 @@
 
     if-le v0, v1, :cond_0
 
-    .line 707
+    .line 719
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #getter for: Lcom/android/settings/wifi/WifiApDialog;->mTempSsid:Ljava/lang/String;
@@ -140,7 +140,7 @@
 
     if-gt v0, v1, :cond_1
 
-    .line 708
+    .line 720
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #getter for: Lcom/android/settings/wifi/WifiApDialog;->mSsid:Landroid/widget/EditText;
@@ -155,9 +155,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 712
+    .line 724
     :goto_0
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
@@ -173,7 +173,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09036b
+    const v2, 0x7f0903a2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -187,7 +187,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 713
+    .line 725
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
     #getter for: Lcom/android/settings/wifi/WifiApDialog;->mSsid:Landroid/widget/EditText;
@@ -212,11 +212,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSelection(I)V
 
-    .line 715
+    .line 727
     :cond_0
     return-void
 
-    .line 710
+    .line 722
     :cond_1
     iget-object v0, p0, Lcom/android/settings/wifi/WifiApDialog$2;->this$0:Lcom/android/settings/wifi/WifiApDialog;
 
@@ -227,7 +227,7 @@
 
     const-string v1, ""
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method

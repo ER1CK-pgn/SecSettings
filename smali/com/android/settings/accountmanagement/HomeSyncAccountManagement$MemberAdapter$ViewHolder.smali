@@ -37,7 +37,7 @@
     .line 503
     iput-object p1, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter$ViewHolder;->this$0:Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$MemberAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 118
+    .line 235
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings$3;->this$0:Lcom/android/settings/wifi/hs20/Hs20Settings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 241
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings$3;->this$0:Lcom/android/settings/wifi/hs20/Hs20Settings;
 
     #getter for: Lcom/android/settings/wifi/hs20/Hs20Settings;->mScanner:Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;
@@ -51,6 +51,6 @@
 
     invoke-virtual {v0}, Lcom/android/settings/wifi/hs20/Hs20Settings$Scanner;->startScan()V
 
-    .line 122
+    .line 243
     return-void
 .end method

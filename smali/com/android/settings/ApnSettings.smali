@@ -33,7 +33,11 @@
 
 .field private isEmptyApnlist:Z
 
+.field private isSpr:Z
+
 .field private isSprHidden:Z
+
+.field private isSprSimEnable:Z
 
 .field private isVzw:Z
 
@@ -95,7 +99,7 @@
 
     sput-object v0, Lcom/android/settings/ApnSettings;->PREFERAPN_URI:Landroid/net/Uri;
 
-    .line 126
+    .line 128
     const-string v0, "content://telephony/carriers/31"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -126,35 +130,41 @@
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mDelayHandler:Landroid/os/Handler;
 
     .line 118
-    iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzw:Z
+    iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSpr:Z
+
+    .line 119
+    iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSprSimEnable:Z
 
     .line 120
-    iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
+    iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzw:Z
 
     .line 122
+    iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
+
+    .line 124
     iput-boolean v1, p0, Lcom/android/settings/ApnSettings;->isEmptyApnlist:Z
 
-    .line 131
+    .line 133
     iput-object v2, p0, Lcom/android/settings/ApnSettings;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    .line 134
+    .line 136
     iput-object v2, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
 
-    .line 140
+    .line 142
     new-instance v0, Lcom/android/settings/ApnSettings$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/ApnSettings$1;-><init>(Lcom/android/settings/ApnSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mMobileStateReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 184
+    .line 186
     new-instance v0, Lcom/android/settings/ApnSettings$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/ApnSettings$2;-><init>(Lcom/android/settings/ApnSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mTetherChangeReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 939
+    .line 993
     return-void
 .end method
 
@@ -274,7 +284,7 @@
     .locals 3
 
     .prologue
-    .line 804
+    .line 858
     const-string v0, "VZW"
 
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
@@ -287,7 +297,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 805
+    .line 859
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.INSERT"
@@ -304,13 +314,13 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 810
+    .line 864
     :goto_0
     return-void
 
-    .line 809
+    .line 863
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -320,7 +330,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
@@ -329,7 +339,7 @@
     .locals 19
 
     .prologue
-    .line 441
+    .line 451
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -362,21 +372,13 @@
 
     move-result-object v4
 
-    .line 445
+    .line 455
     .local v4, where:Ljava/lang/String;
-    const-string v1, "LGT"
-
-    const-string v2, "ro.csc.sales_code"
-
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticLGTModel()Z
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
     const-string v1, "3"
 
@@ -390,12 +392,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
-    .line 446
+    .line 456
     const-string v4, "numeric=\"45006\""
 
-    .line 450
+    .line 460
     const-string v1, "ApnSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -418,7 +420,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 462
+    .line 472
     :cond_0
     :goto_0
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
@@ -433,34 +435,8 @@
 
     if-eqz v1, :cond_1
 
-    .line 466
+    .line 476
     const-string v1, "21405"
-
-    const-string v2, "gsm.sim.operator.numeric"
-
-    const-string v3, ""
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_a
-
-    .line 467
-    const-string v4, "numeric=\"21405\""
-
-    .line 472
-    :cond_1
-    :goto_1
-    const/4 v8, 0x0
-
-    .line 474
-    .local v8, cursor:Landroid/database/Cursor;
-    const-string v1, "45403"
 
     const-string v2, "gsm.sim.operator.numeric"
 
@@ -476,8 +452,34 @@
 
     if-eqz v1, :cond_b
 
-    .line 475
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 477
+    const-string v4, "numeric=\"21405\""
+
+    .line 482
+    :cond_1
+    :goto_1
+    const/4 v8, 0x0
+
+    .line 484
+    .local v8, cursor:Landroid/database/Cursor;
+    const-string v1, "45403"
+
+    const-string v2, "gsm.sim.operator.numeric"
+
+    const-string v3, ""
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    .line 485
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -519,7 +521,7 @@
 
     move-result-object v8
 
-    .line 484
+    .line 494
     :goto_2
     const-string v1, "DCM"
 
@@ -593,9 +595,9 @@
 
     if-eqz v1, :cond_3
 
-    .line 489
+    .line 499
     :cond_2
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -637,16 +639,16 @@
 
     move-result-object v8
 
-    .line 494
+    .line 504
     :cond_3
-    if-eqz v8, :cond_2b
+    if-eqz v8, :cond_31
 
-    .line 495
+    .line 505
     const-string v1, "apn_list"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/ApnSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceActivity;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -656,19 +658,19 @@
 
     iput-object v1, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
 
-    .line 496
+    .line 506
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
 
     invoke-virtual {v1}, Landroid/preference/PreferenceGroup;->removeAll()V
 
-    .line 498
+    .line 508
     new-instance v11, Ljava/util/ArrayList;
 
     invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
 
-    .line 500
+    .line 510
     .local v11, mmsApnList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
     move-object/from16 v0, p0
 
@@ -682,7 +684,7 @@
 
     if-nez v1, :cond_5
 
-    .line 501
+    .line 511
     new-instance v1, Lcom/android/settings/ApnPreference;
 
     move-object/from16 v0, p0
@@ -693,34 +695,34 @@
 
     iput-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
-    .line 502
+    .line 512
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
     const-string v2, "6"
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    .line 503
+    .line 513
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
     const-string v2, "LTE - Verizon Internet"
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 504
+    .line 514
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
     const-string v2, "VZWINTERNET"
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 505
+    .line 515
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->mContentResolver:Landroid/content/ContentResolver;
@@ -735,14 +737,14 @@
 
     iput-object v1, v0, Lcom/android/settings/ApnSettings;->vzwapn:Ljava/lang/String;
 
-    .line 506
+    .line 516
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->vzwapn:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
-    .line 507
+    .line 517
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
@@ -751,9 +753,9 @@
 
     iget-object v2, v0, Lcom/android/settings/ApnSettings;->vzwapn:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 509
+    .line 519
     :cond_4
     move-object/from16 v0, p0
 
@@ -761,9 +763,9 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setPersistent(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setPersistent(Z)V
 
-    .line 510
+    .line 520
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
@@ -772,25 +774,25 @@
 
     invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setSelectable(Z)V
 
-    .line 511
+    .line 521
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 512
+    .line 522
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/ApnPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 513
+    .line 523
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
@@ -801,7 +803,7 @@
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 516
+    .line 526
     :cond_5
     invoke-direct/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getSelectedApnKey()Ljava/lang/String;
 
@@ -811,25 +813,25 @@
 
     iput-object v1, v0, Lcom/android/settings/ApnSettings;->mSelectedKey:Ljava/lang/String;
 
-    .line 517
+    .line 527
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 518
+    .line 528
     :goto_3
     invoke-interface {v8}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v1
 
-    if-nez v1, :cond_29
+    if-nez v1, :cond_2f
 
-    .line 519
+    .line 529
     const/4 v1, 0x1
 
     invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v12
 
-    .line 520
+    .line 530
     .local v12, name:Ljava/lang/String;
     const/4 v1, 0x2
 
@@ -837,7 +839,7 @@
 
     move-result-object v7
 
-    .line 521
+    .line 531
     .local v7, apn:Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -845,7 +847,7 @@
 
     move-result-object v10
 
-    .line 522
+    .line 532
     .local v10, key:Ljava/lang/String;
     const/4 v1, 0x3
 
@@ -853,17 +855,9 @@
 
     move-result-object v18
 
-    .line 540
+    .line 550
     .local v18, type:Ljava/lang/String;
-    const-string v1, "SKT"
-
-    const-string v2, "ro.csc.sales_code"
-
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
     move-result v1
 
@@ -915,21 +909,13 @@
 
     if-eqz v1, :cond_7
 
-    .line 544
+    .line 554
     :cond_6
     const-string v7, "roaming.sktelecom.com"
 
-    .line 548
+    .line 558
     :cond_7
-    const-string v1, "LGT"
-
-    const-string v2, "ro.csc.sales_code"
-
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticLGTModel()Z
 
     move-result v1
 
@@ -943,7 +929,7 @@
 
     if-nez v1, :cond_8
 
-    .line 549
+    .line 559
     const-string v1, "3"
 
     const-string v2, "ril.simtype"
@@ -972,13 +958,13 @@
 
     if-eqz v1, :cond_8
 
-    .line 550
+    .line 560
     const-string v12, "LG U+ Roaming"
 
-    .line 551
+    .line 561
     const-string v7, "wroaming.lguplus.co.kr"
 
-    .line 558
+    .line 568
     :cond_8
     move-object/from16 v0, p0
 
@@ -986,37 +972,38 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-nez v1, :cond_9
 
-    .line 559
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12}, Lcom/android/settings/ApnSettings;->isHideApn(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    .line 569
+    :cond_9
     const-string v1, "ApnSettings"
 
     const-string v2, "HideApnlist is not added"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 560
+    .line 570
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_3
 
-    .line 452
+    .line 462
     .end local v7           #apn:Ljava/lang/String;
     .end local v8           #cursor:Landroid/database/Cursor;
     .end local v10           #key:Ljava/lang/String;
     .end local v11           #mmsApnList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
     .end local v12           #name:Ljava/lang/String;
     .end local v18           #type:Ljava/lang/String;
-    :cond_9
-    const-string v1, "SKT"
-
-    const-string v2, "ro.csc.sales_code"
-
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_a
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
     move-result v1
 
@@ -1038,10 +1025,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 455
+    .line 465
     const-string v4, "numeric=\"45005\""
 
-    .line 459
+    .line 469
     const-string v1, "ApnSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1066,16 +1053,16 @@
 
     goto/16 :goto_0
 
-    .line 469
-    :cond_a
+    .line 479
+    :cond_b
     const-string v4, "numeric=\"21407\""
 
     goto/16 :goto_1
 
-    .line 479
+    .line 489
     .restart local v8       #cursor:Landroid/database/Cursor;
-    :cond_b
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    :cond_c
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -1119,20 +1106,20 @@
 
     goto/16 :goto_2
 
-    .line 584
+    .line 594
     .restart local v7       #apn:Ljava/lang/String;
     .restart local v10       #key:Ljava/lang/String;
     .restart local v11       #mmsApnList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
     .restart local v12       #name:Ljava/lang/String;
     .restart local v18       #type:Ljava/lang/String;
-    :cond_c
+    :cond_d
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_13
 
-    .line 585
+    .line 595
     new-instance v14, Lcom/android/settings/ApnPreference;
 
     const/4 v1, 0x1
@@ -1141,15 +1128,15 @@
 
     invoke-direct {v14, v0, v1}, Lcom/android/settings/ApnPreference;-><init>(Landroid/content/Context;I)V
 
-    .line 591
+    .line 601
     .local v14, pref:Lcom/android/settings/ApnPreference;
     :goto_4
-    invoke-virtual {v14, v10}, Lcom/android/settings/ApnPreference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v14, v10}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    .line 592
-    invoke-virtual {v14, v12}, Lcom/android/settings/ApnPreference;->setTitle(Ljava/lang/CharSequence;)V
+    .line 602
+    invoke-virtual {v14, v12}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 593
+    .line 603
     const-string v1, "KDI"
 
     const-string v2, "ro.csc.sales_code"
@@ -1162,26 +1149,26 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_e
 
-    .line 594
-    invoke-virtual {v14, v7}, Lcom/android/settings/ApnPreference;->setSummary(Ljava/lang/CharSequence;)V
+    .line 604
+    invoke-virtual {v14, v7}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 596
-    :cond_d
+    .line 606
+    :cond_e
     const/4 v1, 0x0
 
-    invoke-virtual {v14, v1}, Lcom/android/settings/ApnPreference;->setPersistent(Z)V
+    invoke-virtual {v14, v1}, Landroid/preference/Preference;->setPersistent(Z)V
 
-    .line 597
+    .line 607
     move-object/from16 v0, p0
 
-    invoke-virtual {v14, v0}, Lcom/android/settings/ApnPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v14, v0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 599
+    .line 609
     const/16 v17, 0x1
 
-    .line 600
+    .line 610
     .local v17, selectable:Z
     const-string v1, "ro.csc.sales_code"
 
@@ -1189,23 +1176,23 @@
 
     move-result-object v16
 
-    .line 601
+    .line 611
     .local v16, sales_code:Ljava/lang/String;
     invoke-static/range {v16 .. v16}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_f
 
-    .line 602
+    .line 612
     const-string v1, "ril.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v16
 
-    .line 604
-    :cond_e
+    .line 614
+    :cond_f
     const-string v1, "KDI"
 
     move-object/from16 v0, v16
@@ -1214,27 +1201,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_10
 
-    .line 605
+    .line 615
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v13
 
-    .line 606
+    .line 616
     .local v13, pos:I
     const/4 v1, 0x6
 
-    if-ge v13, v1, :cond_f
+    if-ge v13, v1, :cond_10
 
-    .line 607
+    .line 617
     const/4 v1, 0x0
 
     invoke-virtual {v14, v1}, Lcom/android/settings/ApnPreference;->setEditable(Z)V
 
-    .line 611
+    .line 621
     .end local v13           #pos:I
-    :cond_f
+    :cond_10
     const-string v1, "VZW"
 
     move-object/from16 v0, v16
@@ -1243,33 +1230,33 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1d
 
-    .line 612
+    .line 622
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_16
 
-    .line 613
+    .line 623
     const/16 v17, 0x1
 
-    .line 650
+    .line 678
     :goto_5
     move/from16 v0, v17
 
     invoke-virtual {v14, v0}, Lcom/android/settings/ApnPreference;->setSelectable(Z)V
 
-    .line 651
-    if-eqz v17, :cond_26
+    .line 679
+    if-eqz v17, :cond_2c
 
-    .line 652
+    .line 680
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->mSelectedKey:Ljava/lang/String;
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_11
 
     move-object/from16 v0, p0
 
@@ -1279,14 +1266,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_11
 
-    .line 653
+    .line 681
     invoke-virtual {v14}, Lcom/android/settings/ApnPreference;->setChecked()V
 
-    .line 656
-    :cond_10
-    if-eqz v18, :cond_23
+    .line 684
+    :cond_11
+    if-eqz v18, :cond_29
 
     const-string v1, "cmdm"
 
@@ -1296,7 +1283,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_12
 
     const-string v1, "cmmm"
 
@@ -1306,7 +1293,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_12
 
     const-string v1, "cmmb"
 
@@ -1316,7 +1303,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_12
 
     const-string v1, "cmmail"
 
@@ -1326,7 +1313,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_12
 
     const-string v1, "cmpim"
 
@@ -1336,39 +1323,39 @@
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_29
 
-    .line 658
-    :cond_11
+    .line 686
+    :cond_12
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_3
 
-    .line 586
+    .line 596
     .end local v14           #pref:Lcom/android/settings/ApnPreference;
     .end local v16           #sales_code:Ljava/lang/String;
     .end local v17           #selectable:Z
-    :cond_12
+    :cond_13
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
-
-    if-nez v1, :cond_13
-
-    move-object/from16 v0, p0
-
-    iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
 
     if-nez v1, :cond_14
 
     move-object/from16 v0, p0
 
+    iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
+
+    if-nez v1, :cond_15
+
+    move-object/from16 v0, p0
+
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzw:Z
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_15
 
-    .line 587
-    :cond_13
+    .line 597
+    :cond_14
     new-instance v14, Lcom/android/settings/ApnPreference;
 
     const/4 v1, 0x2
@@ -1380,9 +1367,9 @@
     .restart local v14       #pref:Lcom/android/settings/ApnPreference;
     goto/16 :goto_4
 
-    .line 589
+    .line 599
     .end local v14           #pref:Lcom/android/settings/ApnPreference;
-    :cond_14
+    :cond_15
     new-instance v14, Lcom/android/settings/ApnPreference;
 
     move-object/from16 v0, p0
@@ -1392,24 +1379,32 @@
     .restart local v14       #pref:Lcom/android/settings/ApnPreference;
     goto/16 :goto_4
 
-    .line 615
+    .line 625
     .restart local v16       #sales_code:Ljava/lang/String;
     .restart local v17       #selectable:Z
-    :cond_15
+    :cond_16
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1b
 
-    .line 617
+    .line 627
+    const-string v1, "Verizon Internet"
+
+    invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_17
+
     const-string v1, "6"
 
     invoke-virtual {v1, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_16
+    if-nez v1, :cond_17
 
     const-string v1, "LTE - Verizon Internet"
 
@@ -1417,7 +1412,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_16
+    if-nez v1, :cond_17
 
     const-string v1, "VZW Roaming Internet"
 
@@ -1425,13 +1420,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_18
 
-    .line 618
-    :cond_16
+    .line 628
+    :cond_17
     const/16 v17, 0x1
 
-    .line 619
+    .line 629
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->mContentResolver:Landroid/content/ContentResolver;
@@ -1442,15 +1437,15 @@
 
     goto/16 :goto_5
 
-    .line 621
-    :cond_17
+    .line 631
+    :cond_18
     const-string v1, "35"
 
     invoke-virtual {v1, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "34"
 
@@ -1458,7 +1453,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "32"
 
@@ -1466,7 +1461,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "33"
 
@@ -1474,7 +1469,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "31"
 
@@ -1482,7 +1477,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "10"
 
@@ -1490,7 +1485,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "9"
 
@@ -1498,7 +1493,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "7"
 
@@ -1506,7 +1501,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_19
 
     const-string v1, "8"
 
@@ -1514,53 +1509,235 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_1a
 
-    .line 623
-    :cond_18
+    .line 633
+    :cond_19
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_3
 
-    .line 626
-    :cond_19
+    .line 636
+    :cond_1a
     const/16 v17, 0x0
 
-    .line 627
+    .line 637
     const/4 v1, 0x0
 
-    invoke-virtual {v14, v1}, Lcom/android/settings/ApnPreference;->setEnabled(Z)V
+    invoke-virtual {v14, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_5
 
-    .line 631
-    :cond_1a
+    .line 641
+    :cond_1b
     const-string v1, "LTE - Verizon Internet"
 
     invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1c
 
-    .line 632
+    .line 642
     const/16 v17, 0x0
 
-    .line 633
+    .line 643
     const/4 v1, 0x0
 
-    invoke-virtual {v14, v1}, Lcom/android/settings/ApnPreference;->setEnabled(Z)V
+    invoke-virtual {v14, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_5
 
-    .line 639
-    :cond_1b
+    .line 649
+    :cond_1c
     const/16 v17, 0x1
 
     goto/16 :goto_5
 
-    .line 643
-    :cond_1c
+    .line 653
+    :cond_1d
+    const-string v1, "SPR"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_22
+
+    .line 654
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
+
+    if-eqz v1, :cond_1e
+
+    .line 655
+    const/16 v17, 0x1
+
+    goto/16 :goto_5
+
+    .line 657
+    :cond_1e
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isSprSimEnable:Z
+
+    if-eqz v1, :cond_21
+
+    .line 658
+    const-string v1, "ApnSettings"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "pref1 "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 659
+    const-string v1, "LTE - "
+
+    invoke-virtual {v12, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1f
+
+    const-string v1, "LTE internet"
+
+    invoke-virtual {v12, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_20
+
+    .line 660
+    :cond_1f
+    const/16 v17, 0x1
+
+    .line 661
+    const/4 v1, 0x0
+
+    invoke-virtual {v14, v1}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    goto/16 :goto_5
+
+    .line 663
+    :cond_20
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+
+    goto/16 :goto_3
+
+    .line 667
+    :cond_21
+    const-string v1, "ApnSettings"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "pref2 "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 668
+    const/16 v17, 0x1
+
+    goto/16 :goto_5
+
+    .line 671
+    :cond_22
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v1
@@ -1571,10 +1748,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_25
 
-    .line 644
-    if-eqz v18, :cond_1d
+    .line 672
+    if-eqz v18, :cond_23
 
     const-string v1, "mms"
 
@@ -1584,7 +1761,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_24
 
     const-string v1, "dun"
 
@@ -1594,37 +1771,37 @@
 
     move-result v1
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_24
 
-    :cond_1d
+    :cond_23
     const/16 v17, 0x1
 
     :goto_6
     goto/16 :goto_5
 
-    :cond_1e
+    :cond_24
     const/16 v17, 0x0
 
     goto :goto_6
 
-    .line 645
-    :cond_1f
+    .line 673
+    :cond_25
     const-string v1, "3 share"
 
     invoke-virtual {v1, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_26
 
-    .line 646
+    .line 674
     const/16 v17, 0x0
 
     goto/16 :goto_5
 
-    .line 648
-    :cond_20
-    if-eqz v18, :cond_21
+    .line 676
+    :cond_26
+    if-eqz v18, :cond_27
 
     const-string v1, "mms"
 
@@ -1634,21 +1811,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_28
 
-    :cond_21
+    :cond_27
     const/16 v17, 0x1
 
     :goto_7
     goto/16 :goto_5
 
-    :cond_22
+    :cond_28
     const/16 v17, 0x0
 
     goto :goto_7
 
-    .line 661
-    :cond_23
+    .line 689
+    :cond_29
     const-string v1, "CHM"
 
     move-object/from16 v0, v16
@@ -1657,7 +1834,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_24
+    if-nez v1, :cond_2a
 
     const-string v1, "CMCC"
 
@@ -1667,9 +1844,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2b
 
-    :cond_24
+    :cond_2a
     const-string v1, "wap"
 
     move-object/from16 v0, v18
@@ -1678,7 +1855,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2b
 
     const-string v1, "WAP"
 
@@ -1686,7 +1863,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2b
 
     const-string v1, "cmwap"
 
@@ -1694,29 +1871,29 @@
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2b
 
-    .line 664
+    .line 692
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_3
 
-    .line 667
-    :cond_25
+    .line 695
+    :cond_2b
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
 
     invoke-virtual {v1, v14}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 679
+    .line 707
     :goto_8
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_3
 
-    .line 670
-    :cond_26
+    .line 698
+    :cond_2c
     const-string v1, "CHM"
 
     move-object/from16 v0, v16
@@ -1725,7 +1902,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_27
+    if-nez v1, :cond_2d
 
     const-string v1, "CMCC"
 
@@ -1735,29 +1912,29 @@
 
     move-result v1
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_2e
 
-    :cond_27
+    :cond_2d
     const-string v1, "CMMMS"
 
     invoke-virtual {v1, v12}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_2e
 
-    .line 673
+    .line 701
     invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_3
 
-    .line 677
-    :cond_28
+    .line 705
+    :cond_2e
     invoke-virtual {v11, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_8
 
-    .line 681
+    .line 709
     .end local v7           #apn:Ljava/lang/String;
     .end local v10           #key:Ljava/lang/String;
     .end local v12           #name:Ljava/lang/String;
@@ -1765,10 +1942,10 @@
     .end local v16           #sales_code:Ljava/lang/String;
     .end local v17           #selectable:Z
     .end local v18           #type:Ljava/lang/String;
-    :cond_29
+    :cond_2f
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 683
+    .line 711
     invoke-virtual {v11}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
@@ -1779,7 +1956,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_30
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1787,7 +1964,7 @@
 
     check-cast v15, Landroid/preference/Preference;
 
-    .line 684
+    .line 712
     .local v15, preference:Landroid/preference/Preference;
     move-object/from16 v0, p0
 
@@ -1797,22 +1974,22 @@
 
     goto :goto_9
 
-    .line 688
+    .line 716
     .end local v15           #preference:Landroid/preference/Preference;
-    :cond_2a
+    :cond_30
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzw:Z
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_31
 
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
 
-    if-nez v1, :cond_2b
+    if-nez v1, :cond_31
 
-    .line 689
+    .line 717
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
@@ -1823,19 +2000,19 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_2b
+    if-ne v1, v2, :cond_31
 
-    .line 690
+    .line 718
     const/4 v1, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v1, v0, Lcom/android/settings/ApnSettings;->isEmptyApnlist:Z
 
-    .line 694
+    .line 722
     .end local v9           #i$:Ljava/util/Iterator;
     .end local v11           #mmsApnList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/preference/Preference;>;"
-    :cond_2b
+    :cond_31
     return-void
 .end method
 
@@ -1844,17 +2021,17 @@
     .parameter
 
     .prologue
-    .line 198
+    .line 200
     const-string v0, "state"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 199
+    .line 201
     if-eqz v0, :cond_0
 
-    .line 200
+    .line 202
     const-class v1, Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     invoke-static {v1, v0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -1863,7 +2040,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/PhoneConstants$DataState;
 
-    .line 202
+    .line 204
     :goto_0
     return-object v0
 
@@ -1881,12 +2058,12 @@
 
     const/4 v8, 0x0
 
-    .line 874
+    .line 928
     const/4 v7, 0x0
 
-    .line 876
+    .line 930
     .local v7, key:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1908,7 +2085,7 @@
 
     move-result-object v6
 
-    .line 878
+    .line 932
     .local v6, cursor:Landroid/database/Cursor;
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
@@ -1916,19 +2093,19 @@
 
     if-lez v0, :cond_0
 
-    .line 879
+    .line 933
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 880
+    .line 934
     invoke-interface {v6, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 882
+    .line 936
     :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 883
+    .line 937
     return-object v7
 .end method
 
@@ -1937,10 +2114,10 @@
     .parameter "apn"
 
     .prologue
-    .line 333
+    .line 343
     const/4 v4, 0x0
 
-    .line 334
+    .line 344
     .local v4, ret:Z
     iget-object v6, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
 
@@ -1948,13 +2125,13 @@
 
     move v5, v4
 
-    .line 342
+    .line 352
     .end local v4           #ret:Z
     .local v5, ret:I
     :goto_0
     return v5
 
-    .line 336
+    .line 346
     .end local v5           #ret:I
     .restart local v4       #ret:Z
     :cond_0
@@ -1972,7 +2149,7 @@
 
     aget-object v2, v0, v1
 
-    .line 337
+    .line 347
     .local v2, item:Ljava/lang/String;
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1980,18 +2157,18 @@
 
     if-eqz v6, :cond_2
 
-    .line 338
+    .line 348
     const/4 v4, 0x1
 
     .end local v2           #item:Ljava/lang/String;
     :cond_1
     move v5, v4
 
-    .line 342
+    .line 352
     .restart local v5       #ret:I
     goto :goto_0
 
-    .line 336
+    .line 346
     .end local v5           #ret:I
     .restart local v2       #item:Ljava/lang/String;
     :cond_2
@@ -2006,20 +2183,20 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 887
+    .line 941
     const/16 v0, 0x3e9
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnSettings;->showDialog(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->showDialog(I)V
 
-    .line 888
+    .line 942
     sput-boolean v3, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnMode:Z
 
-    .line 890
+    .line 944
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreApnUiHandler:Lcom/android/settings/ApnSettings$RestoreApnUiHandler;
 
     if-nez v0, :cond_0
 
-    .line 891
+    .line 945
     new-instance v0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;
 
     const/4 v1, 0x0
@@ -2028,7 +2205,7 @@
 
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreApnUiHandler:Lcom/android/settings/ApnSettings$RestoreApnUiHandler;
 
-    .line 894
+    .line 948
     :cond_0
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreApnProcessHandler:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
@@ -2038,7 +2215,7 @@
 
     if-nez v0, :cond_2
 
-    .line 896
+    .line 950
     :cond_1
     new-instance v0, Landroid/os/HandlerThread;
 
@@ -2048,12 +2225,12 @@
 
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnThread:Landroid/os/HandlerThread;
 
-    .line 898
+    .line 952
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 899
+    .line 953
     new-instance v0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
     iget-object v1, p0, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnThread:Landroid/os/HandlerThread;
@@ -2068,13 +2245,13 @@
 
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreApnProcessHandler:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
-    .line 903
+    .line 957
     :cond_2
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreApnProcessHandler:Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;
 
-    invoke-virtual {v0, v3}, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 905
+    .line 959
     return v3
 .end method
 
@@ -2091,28 +2268,28 @@
 
     const/4 v7, 0x0
 
-    .line 1017
+    .line 1071
     const-string v0, "ro.csc.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1018
+    .line 1072
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 1019
+    .line 1073
     const-string v0, "ril.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1020
+    .line 1074
     :cond_0
     const-string v1, "KDI"
 
@@ -2122,11 +2299,11 @@
 
     if-nez v0, :cond_1
 
-    .line 1059
+    .line 1113
     :goto_0
     return-void
 
-    .line 1023
+    .line 1077
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2160,8 +2337,8 @@
 
     move-result-object v3
 
-    .line 1027
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 1081
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -2201,10 +2378,10 @@
 
     move-result-object v0
 
-    .line 1031
+    .line 1085
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 1032
+    .line 1086
     :goto_1
     invoke-interface {v0}, Landroid/database/Cursor;->isAfterLast()Z
 
@@ -2212,46 +2389,46 @@
 
     if-nez v1, :cond_7
 
-    .line 1033
+    .line 1087
     invoke-interface {v0, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1034
+    .line 1088
     invoke-interface {v0, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 1035
+    .line 1089
     invoke-interface {v0, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1037
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 1091
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
-    .line 1038
+    .line 1092
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    .line 1039
+    .line 1093
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-eqz v5, :cond_2
 
-    .line 1040
+    .line 1094
     const-string v2, "carrier_enabled"
 
     const-string v3, "1"
 
     invoke-virtual {v4, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1054
+    .line 1108
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -2265,12 +2442,12 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 1056
+    .line 1110
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     goto :goto_1
 
-    .line 1042
+    .line 1096
     :cond_2
     const-string v5, "1"
 
@@ -2305,7 +2482,7 @@
 
     if-eqz v2, :cond_5
 
-    .line 1044
+    .line 1098
     :cond_4
     const-string v2, "carrier_enabled"
 
@@ -2315,7 +2492,7 @@
 
     goto :goto_2
 
-    .line 1047
+    .line 1101
     :cond_5
     const-string v2, "0"
 
@@ -2325,12 +2502,12 @@
 
     if-eqz v2, :cond_6
 
-    .line 1048
+    .line 1102
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     goto :goto_1
 
-    .line 1051
+    .line 1105
     :cond_6
     const-string v2, "carrier_enabled"
 
@@ -2340,7 +2517,7 @@
 
     goto :goto_2
 
-    .line 1058
+    .line 1112
     :cond_7
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
@@ -2354,32 +2531,32 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 865
+    .line 919
     iput-object p1, p0, Lcom/android/settings/ApnSettings;->mSelectedKey:Ljava/lang/String;
 
-    .line 866
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    .line 920
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 868
+    .line 922
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    .line 869
+    .line 923
     const-string v2, "apn_id"
 
     iget-object v3, p0, Lcom/android/settings/ApnSettings;->mSelectedKey:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 870
+    .line 924
     sget-object v2, Lcom/android/settings/ApnSettings;->PREFERAPN_URI:Landroid/net/Uri;
 
     invoke-virtual {v0, v2, v1, v4, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 871
+    .line 925
     return-void
 .end method
 
@@ -2389,271 +2566,330 @@
     .locals 1
 
     .prologue
-    .line 325
+    .line 335
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mDelayRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    .line 329
+    .line 339
     :goto_0
     return-void
 
-    .line 328
+    .line 338
     :cond_0
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onBackPressed()V
+    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
 
     goto :goto_0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 10
+    .locals 11
     .parameter "icicle"
 
     .prologue
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    const/4 v8, 0x1
-
-    .line 208
-    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
+    const/4 v9, 0x1
 
     .line 210
-    const v5, 0x7f070011
+    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/ApnSettings;->addPreferencesFromResource(I)V
+    .line 212
+    const v6, 0x7f070017
 
-    .line 211
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getListView()Landroid/widget/ListView;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v8}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceActivity;->addPreferencesFromResource(I)V
 
     .line 213
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/settings/ApnSettings;->mContentResolver:Landroid/content/ContentResolver;
-
-    .line 215
-    new-instance v5, Landroid/content/IntentFilter;
-
-    const-string v6, "android.intent.action.ANY_DATA_STATE"
-
-    invoke-direct {v5, v6}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    iput-object v5, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
-
-    .line 218
-    invoke-static {}, Lcom/android/internal/telephony/PhoneFactory;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/settings/ApnSettings;->mPhone:Lcom/android/internal/telephony/Phone;
-
-    .line 220
-    const-string v5, "ro.csc.sales_code"
-
-    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 221
-    .local v1, sales_code:Ljava/lang/String;
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 222
-    const-string v5, "ril.sales_code"
-
-    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 223
-    :cond_0
-    const-string v5, "VZW"
-
-    invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 224
-    iput-boolean v8, p0, Lcom/android/settings/ApnSettings;->isVzw:Z
-
-    .line 229
-    :cond_1
-    iget-object v5, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
-
-    const-string v6, "android.intent.action.SIM_PROFILE_UPDATE_DONE"
-
-    invoke-virtual {v5, v6}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 235
-    iget-object v5, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
-
-    const-string v6, "android.intent.action.CSC_CONNECTION_RESET_DONE"
-
-    invoke-virtual {v5, v6}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 237
-    new-instance v5, Landroid/content/IntentFilter;
-
-    const-string v6, "android.net.conn.TETHER_STATE_CHANGED"
-
-    invoke-direct {v5, v6}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    iput-object v5, p0, Lcom/android/settings/ApnSettings;->mTetherStateFilter:Landroid/content/IntentFilter;
-
-    .line 239
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getIntent()Landroid/content/Intent;
-
-    move-result-object v4
-
-    .line 240
-    .local v4, tempIntent:Landroid/content/Intent;
-    const-string v5, "keyString"
-
-    invoke-virtual {v4, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 241
-    .local v2, strName:Ljava/lang/String;
-    const-string v5, "vzw"
-
-    invoke-virtual {v4, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 242
-    .local v3, strNameVzw:Ljava/lang/String;
-    if-nez v2, :cond_5
-
-    .line 243
-    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
-
-    .line 246
-    :goto_0
-    if-nez v3, :cond_6
-
-    .line 247
-    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
-
-    .line 251
-    :goto_1
-    const-string v5, "311480"
-
-    const-string v6, "gsm.sim.operator.numeric"
-
-    const-string v7, ""
-
-    invoke-static {v6, v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v9}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    const-string v5, "20404"
-
-    const-string v6, "gsm.sim.operator.numeric"
-
-    const-string v7, ""
-
-    invoke-static {v6, v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    .line 253
-    :cond_2
-    iput-boolean v8, p0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
-
-    .line 257
-    :cond_3
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v5
-
-    const-string v6, "CscFeature_Setting_HideApnList"
-
-    invoke-virtual {v5, v6}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v5
-
-    if-nez v5, :cond_4
-
-    .line 258
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v5
-
-    const-string v6, "CscFeature_Setting_HideApnList"
-
-    invoke-virtual {v5, v6}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 214
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
-    .line 259
-    .local v0, hideApnString:Ljava/lang/String;
-    const-string v5, ","
+    .line 215
+    .local v0, actionBar:Landroid/app/ActionBar;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    .line 216
+    invoke-virtual {v0, v9}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+
+    .line 218
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/ApnSettings;->mContentResolver:Landroid/content/ContentResolver;
+
+    .line 220
+    new-instance v6, Landroid/content/IntentFilter;
+
+    const-string v7, "android.intent.action.ANY_DATA_STATE"
+
+    invoke-direct {v6, v7}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iput-object v6, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
+
+    .line 223
+    invoke-static {}, Lcom/android/internal/telephony/PhoneFactory;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/ApnSettings;->mPhone:Lcom/android/internal/telephony/Phone;
+
+    .line 225
+    const-string v6, "ro.csc.sales_code"
+
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 226
+    .local v2, sales_code:Ljava/lang/String;
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 227
+    const-string v6, "ril.sales_code"
+
+    invoke-static {v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 228
+    :cond_1
+    const-string v6, "VZW"
+
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    .line 229
+    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isVzw:Z
+
+    .line 236
+    :cond_2
+    :goto_0
+    iget-object v6, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
+
+    const-string v7, "android.intent.action.SIM_PROFILE_UPDATE_DONE"
+
+    invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 242
+    iget-object v6, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
+
+    const-string v7, "android.intent.action.CSC_CONNECTION_RESET_DONE"
+
+    invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 244
+    new-instance v6, Landroid/content/IntentFilter;
+
+    const-string v7, "android.net.conn.TETHER_STATE_CHANGED"
+
+    invoke-direct {v6, v7}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iput-object v6, p0, Lcom/android/settings/ApnSettings;->mTetherStateFilter:Landroid/content/IntentFilter;
+
+    .line 246
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v5
 
-    iput-object v5, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+    .line 247
+    .local v5, tempIntent:Landroid/content/Intent;
+    const-string v6, "keyString"
 
-    .line 260
-    iget-object v5, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v5, :cond_4
+    move-result-object v3
 
-    .line 261
-    new-array v5, v8, [Ljava/lang/String;
+    .line 248
+    .local v3, strName:Ljava/lang/String;
+    const-string v6, "vzw"
 
-    iput-object v5, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 262
-    iget-object v5, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
-
-    aput-object v0, v5, v9
-
-    .line 266
-    .end local v0           #hideApnString:Ljava/lang/String;
-    :cond_4
-    return-void
-
-    .line 245
-    :cond_5
-    iput-boolean v8, p0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
-
-    goto :goto_0
+    move-result-object v4
 
     .line 249
+    .local v4, strNameVzw:Ljava/lang/String;
+    if-nez v3, :cond_7
+
+    .line 250
+    iput-boolean v10, p0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
+
+    .line 253
+    :goto_1
+    if-nez v4, :cond_8
+
+    .line 254
+    iput-boolean v10, p0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
+
+    .line 258
+    :goto_2
+    const-string v6, "311480"
+
+    const-string v7, "gsm.sim.operator.numeric"
+
+    const-string v8, ""
+
+    invoke-static {v7, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_3
+
+    const-string v6, "20404"
+
+    const-string v7, "gsm.sim.operator.numeric"
+
+    const-string v8, ""
+
+    invoke-static {v7, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_9
+
+    .line 260
+    :cond_3
+    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
+
+    .line 267
+    :cond_4
+    :goto_3
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v6
+
+    const-string v7, "CscFeature_Setting_HideApnList"
+
+    invoke-virtual {v6, v7}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v6
+
+    if-nez v6, :cond_5
+
+    .line 268
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v6
+
+    const-string v7, "CscFeature_Setting_HideApnList"
+
+    invoke-virtual {v6, v7}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 269
+    .local v1, hideApnString:Ljava/lang/String;
+    const-string v6, ","
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+
+    .line 270
+    iget-object v6, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+
+    if-nez v6, :cond_5
+
+    .line 271
+    new-array v6, v9, [Ljava/lang/String;
+
+    iput-object v6, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+
+    .line 272
+    iget-object v6, p0, Lcom/android/settings/ApnSettings;->hideApnList:[Ljava/lang/String;
+
+    aput-object v1, v6, v10
+
+    .line 276
+    .end local v1           #hideApnString:Ljava/lang/String;
+    :cond_5
+    return-void
+
+    .line 230
+    .end local v3           #strName:Ljava/lang/String;
+    .end local v4           #strNameVzw:Ljava/lang/String;
+    .end local v5           #tempIntent:Landroid/content/Intent;
     :cond_6
-    iput-boolean v8, p0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
+    const-string v6, "SPR"
+
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    .line 231
+    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isSpr:Z
+
+    goto/16 :goto_0
+
+    .line 252
+    .restart local v3       #strName:Ljava/lang/String;
+    .restart local v4       #strNameVzw:Ljava/lang/String;
+    .restart local v5       #tempIntent:Landroid/content/Intent;
+    :cond_7
+    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
 
     goto :goto_1
+
+    .line 256
+    :cond_8
+    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
+
+    goto :goto_2
+
+    .line 261
+    :cond_9
+    const-string v6, "310120"
+
+    const-string v7, "gsm.sim.operator.numeric"
+
+    const-string v8, ""
+
+    invoke-static {v7, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    .line 262
+    iput-boolean v9, p0, Lcom/android/settings/ApnSettings;->isSprSimEnable:Z
+
+    goto :goto_3
 .end method
 
 .method protected onCreateDialog(I)Landroid/app/Dialog;
@@ -2661,22 +2897,22 @@
     .parameter
 
     .prologue
-    .line 976
+    .line 1030
     const/16 v0, 0x3e9
 
     if-ne p1, v0, :cond_0
 
-    .line 977
+    .line 1031
     new-instance v0, Landroid/app/ProgressDialog;
 
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
-    .line 978
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 1032
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f090669
+    const v2, 0x7f0906a4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2684,12 +2920,12 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 979
+    .line 1033
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setCancelable(Z)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setCancelable(Z)V
 
-    .line 982
+    .line 1036
     :goto_0
     return-object v0
 
@@ -2706,28 +2942,28 @@
     .prologue
     const/4 v7, 0x2
 
-    const v6, 0x7f09065e
+    const v6, 0x7f090698
 
-    const v5, 0x7f0201a1
+    const v5, 0x7f0201f0
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 698
-    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
+    .line 726
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 699
+    .line 727
     iput-object p1, p0, Lcom/android/settings/ApnSettings;->mAPNMenu:Landroid/view/Menu;
 
-    .line 700
+    .line 728
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 701
+    .line 729
     .local v0, sales_code:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2735,14 +2971,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 702
+    .line 730
     const-string v1, "ril.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 704
+    .line 732
     :cond_0
     const-string v1, "VZW"
 
@@ -2756,17 +2992,19 @@
 
     if-eqz v1, :cond_7
 
-    .line 705
+    .line 733
     iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzwEditable:Z
 
     if-eqz v1, :cond_4
 
-    .line 706
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 734
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v2, 0x7f090699
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2780,7 +3018,7 @@
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 745
+    .line 791
     :cond_1
     :goto_0
     iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isEmptyApnlist:Z
@@ -2794,15 +3032,15 @@
     :cond_2
     iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_c
 
-    .line 746
+    .line 792
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09066a
+    const v2, 0x7f0906a5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2812,7 +3050,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201a4
+    const v2, 0x7f0201f3
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -2820,22 +3058,24 @@
 
     invoke-interface {v1, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 754
+    .line 804
     :goto_1
     return v4
 
-    .line 711
+    .line 739
     :cond_4
     iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isVzwSimEnable:Z
 
     if-eqz v1, :cond_5
 
-    .line 712
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 740
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v2, 0x7f090699
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2843,7 +3083,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201a2
+    const v2, 0x7f0201f1
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -2857,7 +3097,7 @@
 
     goto :goto_0
 
-    .line 716
+    .line 744
     :cond_5
     invoke-static {p0}, Lcom/android/settings/Utils;->isSimMissing(Landroid/content/Context;)Z
 
@@ -2865,12 +3105,14 @@
 
     if-eqz v1, :cond_6
 
-    .line 717
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 745
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v2, 0x7f090699
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2878,7 +3120,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201a2
+    const v2, 0x7f0201f1
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -2892,13 +3134,15 @@
 
     goto :goto_0
 
-    .line 723
+    .line 751
     :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v2, 0x7f090699
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2912,19 +3156,17 @@
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 729
+    .line 757
     :cond_7
-    const-string v1, "LGT"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticLGTModel()Z
 
     move-result v1
 
     if-eqz v1, :cond_8
 
-    .line 730
+    .line 758
     const-string v1, "3"
 
     const-string v2, "ril.simtype"
@@ -2939,14 +3181,12 @@
 
     if-nez v1, :cond_1
 
-    .line 731
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 759
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09065d
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2962,20 +3202,111 @@
 
     goto/16 :goto_0
 
-    .line 737
+    .line 764
     :cond_8
+    const-string v1, "SPR"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    .line 765
+    iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSprSimEnable:Z
+
+    if-eqz v1, :cond_9
+
+    iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
+
+    if-nez v1, :cond_9
+
+    .line 766
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    const v2, 0x7f0201f1
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    goto/16 :goto_0
+
+    .line 771
+    :cond_9
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v5}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    goto/16 :goto_0
+
+    .line 777
+    :cond_a
     iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSprHidden:Z
 
     if-nez v1, :cond_1
 
-    .line 738
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 778
+    invoke-static {p0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
+
+    .line 779
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09065d
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v1
+
+    invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v7}, Landroid/view/MenuItem;->setShowAsAction(I)V
+
+    goto/16 :goto_0
+
+    .line 783
+    :cond_b
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2991,13 +3322,22 @@
 
     goto/16 :goto_0
 
-    .line 750
-    :cond_9
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    .line 795
+    :cond_c
+    iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSpr:Z
+
+    if-eqz v1, :cond_d
+
+    iget-boolean v1, p0, Lcom/android/settings/ApnSettings;->isSprSimEnable:Z
+
+    if-eqz v1, :cond_d
+
+    .line 796
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f09066a
+    const v2, 0x7f0906a5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3007,7 +3347,33 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201a3
+    const v2, 0x7f0201f3
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    invoke-interface {v1, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    goto/16 :goto_1
+
+    .line 800
+    :cond_d
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0906a5
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v3, v7, v3, v1}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    const v2, 0x7f0201f2
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3018,20 +3384,20 @@
     .locals 1
 
     .prologue
-    .line 315
+    .line 325
     invoke-super {p0}, Landroid/preference/PreferenceActivity;->onDestroy()V
 
-    .line 317
+    .line 327
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnThread:Landroid/os/HandlerThread;
 
     if-eqz v0, :cond_0
 
-    .line 318
+    .line 328
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
 
-    .line 320
+    .line 330
     :cond_0
     return-void
 .end method
@@ -3043,89 +3409,96 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 791
+    .line 841
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    sparse-switch v1, :sswitch_data_0
 
-    .line 800
-    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .line 854
+    invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
     :goto_0
     return v0
 
-    .line 793
-    :pswitch_0
+    .line 843
+    :sswitch_0
     invoke-direct {p0}, Lcom/android/settings/ApnSettings;->addNewApn()V
 
     goto :goto_0
 
-    .line 797
-    :pswitch_1
+    .line 847
+    :sswitch_1
     invoke-direct {p0}, Lcom/android/settings/ApnSettings;->restoreDefaultApn()Z
 
     goto :goto_0
 
-    .line 791
+    .line 851
+    :sswitch_2
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    goto :goto_0
+
+    .line 841
     nop
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x102002c -> :sswitch_2
+    .end sparse-switch
 .end method
 
 .method protected onPause()V
     .locals 2
 
     .prologue
-    .line 302
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onPause()V
+    .line 312
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 304
+    .line 314
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mMobileStateReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnSettings;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 305
+    .line 315
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mTetherChangeReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnSettings;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 307
+    .line 317
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mDelayRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    .line 308
+    .line 318
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mDelayHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/settings/ApnSettings;->mDelayRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 309
+    .line 319
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/ApnSettings;->mDelayRunnable:Ljava/lang/Runnable;
 
-    .line 311
+    .line 321
     :cond_0
     return-void
 .end method
 
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 3
-    .parameter "preference"
-    .parameter "newValue"
+    .parameter
+    .parameter
 
     .prologue
-    .line 830
+    .line 884
     const-string v0, "ApnSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3172,12 +3545,12 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 833
+    .line 887
     instance-of v0, p2, Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
-    .line 834
+    .line 888
     const-string v0, "KDI"
 
     const-string v1, "ro.csc.sales_code"
@@ -3194,19 +3567,18 @@
 
     move-object v0, p2
 
-    .line 835
+    .line 889
     check-cast v0, Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/android/settings/ApnSettings;->setCarrierEnabledStatus(Ljava/lang/String;)V
 
-    .line 838
+    .line 892
     :cond_0
     check-cast p2, Ljava/lang/String;
 
-    .end local p2
     invoke-direct {p0, p2}, Lcom/android/settings/ApnSettings;->setSelectedApnKey(Ljava/lang/String;)V
 
-    .line 861
+    .line 915
     :cond_1
     const/4 v0, 0x1
 
@@ -3214,44 +3586,42 @@
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 5
-    .parameter "preferenceScreen"
-    .parameter "preference"
+    .locals 4
+    .parameter
+    .parameter
 
     .prologue
-    .line 823
+    .line 877
     invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 824
-    .local v0, pos:I
-    sget-object v2, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
+    .line 878
+    sget-object v1, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
 
-    int-to-long v3, v0
+    int-to-long v2, v0
 
-    invoke-static {v2, v3, v4}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
+    invoke-static {v1, v2, v3}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 825
-    .local v1, url:Landroid/net/Uri;
-    new-instance v2, Landroid/content/Intent;
+    .line 879
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v3, "android.intent.action.EDIT"
+    const-string v2, "android.intent.action.EDIT"
 
-    invoke-direct {v2, v3, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/ApnSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 826
-    const/4 v2, 0x1
+    .line 880
+    const/4 v0, 0x1
 
-    return v2
+    return v0
 .end method
 
 .method protected onPrepareDialog(ILandroid/app/Dialog;)V
@@ -3260,21 +3630,21 @@
     .parameter "dialog"
 
     .prologue
-    .line 987
+    .line 1041
     const/16 v0, 0x3e9
 
     if-ne p1, v0, :cond_0
 
-    .line 988
-    invoke-virtual {p0}, Lcom/android/settings/ApnSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 1042
+    invoke-virtual {p0}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 990
+    .line 1044
     :cond_0
     return-void
 .end method
@@ -3286,14 +3656,14 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 759
+    .line 809
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    .line 760
+    .line 810
     iget-boolean v0, p0, Lcom/android/settings/ApnSettings;->isEmptyApnlist:Z
 
     if-eqz v0, :cond_0
@@ -3307,13 +3677,13 @@
 
     if-eqz v0, :cond_3
 
-    .line 761
+    .line 811
     :cond_1
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0201a4
+    const v1, 0x7f0201f3
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3323,22 +3693,22 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 779
+    .line 829
     :cond_2
     :goto_0
-    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
+    invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v0
 
     return v0
 
-    .line 763
+    .line 813
     :cond_3
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f0201a3
+    const v1, 0x7f0201f2
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3357,32 +3727,32 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 270
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
+    .line 280
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 272
+    .line 282
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mMobileStateReceiver:Landroid/content/BroadcastReceiver;
 
     iget-object v1, p0, Lcom/android/settings/ApnSettings;->mMobileStateFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/ApnSettings;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v0, v1}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 273
+    .line 283
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->mTetherChangeReceiver:Landroid/content/BroadcastReceiver;
 
     iget-object v1, p0, Lcom/android/settings/ApnSettings;->mTetherStateFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/ApnSettings;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v0, v1}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 275
+    .line 285
     sget-boolean v0, Lcom/android/settings/ApnSettings;->mRestoreDefaultApnMode:Z
 
     if-nez v0, :cond_1
 
-    .line 276
+    .line 286
     invoke-direct {p0}, Lcom/android/settings/ApnSettings;->fillList()V
 
-    .line 290
+    .line 300
     :goto_0
     iget-boolean v0, p0, Lcom/android/settings/ApnSettings;->isVzw:Z
 
@@ -3392,7 +3762,7 @@
 
     if-nez v0, :cond_0
 
-    .line 291
+    .line 301
     iget-object v0, p0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
 
     invoke-virtual {v0}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
@@ -3401,23 +3771,23 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 292
+    .line 302
     iput-boolean v2, p0, Lcom/android/settings/ApnSettings;->isEmptyApnlist:Z
 
-    .line 298
+    .line 308
     :cond_0
     :goto_1
     return-void
 
-    .line 278
+    .line 288
     :cond_1
     const/16 v0, 0x3e9
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/ApnSettings;->showDialog(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->showDialog(I)V
 
     goto :goto_0
 
-    .line 295
+    .line 305
     :cond_2
     const/4 v0, 0x0
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 798
+    .line 829
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$10;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,17 +42,17 @@
     .parameter "configList"
 
     .prologue
-    .line 800
-    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4100()Landroid/net/wifi/p2p/WifiP2pConfigList;
+    .line 831
+    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4200()Landroid/net/wifi/p2p/WifiP2pConfigList;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/net/wifi/p2p/WifiP2pConfigList;->clear()Z
 
-    .line 801
-    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4102(Landroid/net/wifi/p2p/WifiP2pConfigList;)Landroid/net/wifi/p2p/WifiP2pConfigList;
+    .line 832
+    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4202(Landroid/net/wifi/p2p/WifiP2pConfigList;)Landroid/net/wifi/p2p/WifiP2pConfigList;
 
-    .line 802
+    .line 833
     return-void
 .end method
 
@@ -60,11 +60,11 @@
     .locals 1
 
     .prologue
-    .line 804
+    .line 835
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$1502(Z)Z
 
-    .line 805
+    .line 836
     return-void
 .end method

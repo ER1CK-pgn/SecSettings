@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 40
+    .line 41
     iput-object p1, p0, Lcom/android/settings/users/ProfileUpdateReceiver$1;->this$0:Lcom/android/settings/users/ProfileUpdateReceiver;
 
     iput-object p2, p0, Lcom/android/settings/users/ProfileUpdateReceiver$1;->val$context:Landroid/content/Context;
@@ -43,13 +43,13 @@
     .locals 2
 
     .prologue
-    .line 42
+    .line 43
     iget-object v0, p0, Lcom/android/settings/users/ProfileUpdateReceiver$1;->val$context:Landroid/content/Context;
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/settings/Utils;->copyMeProfilePhoto(Landroid/content/Context;Landroid/content/pm/UserInfo;)Z
 
-    .line 44
+    .line 45
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 500
+    .line 542
     iput-object p1, p0, Lcom/android/settings/motion/MotionSettings$2;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,10 +44,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 502
+    .line 544
     iget-object v2, p0, Lcom/android/settings/motion/MotionSettings$2;->this$0:Lcom/android/settings/motion/MotionSettings;
 
-    #calls: Lcom/android/settings/motion/MotionSettings;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v2}, Lcom/android/settings/motion/MotionSettings;->access$500(Lcom/android/settings/motion/MotionSettings;)Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -58,7 +58,7 @@
 
     move-result v0
 
-    .line 506
+    .line 548
     .local v0, motionState:I
     iget-object v2, p0, Lcom/android/settings/motion/MotionSettings$2;->this$0:Lcom/android/settings/motion/MotionSettings;
 
@@ -74,6 +74,6 @@
     :cond_0
     invoke-virtual {v2, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 507
+    .line 549
     return-void
 .end method

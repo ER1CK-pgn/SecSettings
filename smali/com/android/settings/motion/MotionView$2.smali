@@ -30,7 +30,7 @@
     .line 256
     iput-object p1, p0, Lcom/android/settings/motion/MotionView$2;->this$0:Lcom/android/settings/motion/MotionView;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -55,7 +55,7 @@
     .line 259
     iget-object v0, p0, Lcom/android/settings/motion/MotionView$2;->this$0:Lcom/android/settings/motion/MotionView;
 
-    #calls: Lcom/android/settings/motion/MotionView;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/settings/motion/MotionView;->access$100(Lcom/android/settings/motion/MotionView;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -72,7 +72,7 @@
     .line 260
     iget-object v0, p0, Lcom/android/settings/motion/MotionView$2;->this$0:Lcom/android/settings/motion/MotionView;
 
-    #calls: Lcom/android/settings/motion/MotionView;->getContentResolver()Landroid/content/ContentResolver;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
     invoke-static {v0}, Lcom/android/settings/motion/MotionView;->access$300(Lcom/android/settings/motion/MotionView;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -84,7 +84,7 @@
     .line 261
     iget-object v0, p0, Lcom/android/settings/motion/MotionView$2;->this$0:Lcom/android/settings/motion/MotionView;
 
-    invoke-virtual {v0}, Lcom/android/settings/motion/MotionView;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

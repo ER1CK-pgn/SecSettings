@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1483
+    .line 1537
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$14;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "reason"
 
     .prologue
-    .line 1489
+    .line 1542
     const-string v0, "WifiP2pDevicePicker"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, " create group fail "
+    const-string v2, " connect fail "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1490
+    .line 1543
     return-void
 .end method
 
@@ -73,21 +73,13 @@
     .locals 2
 
     .prologue
-    .line 1485
-    iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$14;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
-
-    const/4 v1, 0x1
-
-    #setter for: Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->mMultiConnect:Z
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$2102(Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;Z)Z
-
-    .line 1486
+    .line 1539
     const-string v0, "WifiP2pDevicePicker"
 
-    const-string v1, " create group succeed "
+    const-string v1, " connect success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1487
+    .line 1540
     return-void
 .end method

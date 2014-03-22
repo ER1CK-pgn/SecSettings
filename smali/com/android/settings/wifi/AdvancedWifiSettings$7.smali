@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 1170
+    .line 1246
     iput-object p1, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$7;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,21 +42,21 @@
     .parameter "reason"
 
     .prologue
-    .line 1175
+    .line 1251
     const-string v0, "AdvancedWifiSettings"
 
     const-string v1, "mForgetListener::onFailure"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1176
+    .line 1252
     iget-object v0, p0, Lcom/android/settings/wifi/AdvancedWifiSettings$7;->this$0:Lcom/android/settings/wifi/AdvancedWifiSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/AdvancedWifiSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090396
+    const v1, 0x7f0903cd
 
     const/4 v2, 0x0
 
@@ -66,7 +66,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 1177
+    .line 1253
     return-void
 .end method
 
@@ -74,13 +74,13 @@
     .locals 2
 
     .prologue
-    .line 1172
+    .line 1248
     const-string v0, "AdvancedWifiSettings"
 
     const-string v1, "mForgetListener::onSuccess"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1173
+    .line 1249
     return-void
 .end method

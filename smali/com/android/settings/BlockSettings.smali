@@ -83,7 +83,7 @@
 
     .prologue
     .line 131
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -167,7 +167,7 @@
 
     .prologue
     .line 154
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -197,7 +197,7 @@
 
     .prologue
     .line 149
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -232,13 +232,13 @@
     .line 237
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f09102b
+    const v2, 0x7f091169
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -258,7 +258,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0094
+    const v2, 0x7f0a00b0
 
     iget v3, p0, Lcom/android/settings/BlockSettings;->mListIndex:I
 
@@ -299,13 +299,13 @@
     .line 303
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f091035
+    const v2, 0x7f091173
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -325,7 +325,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0097
+    const v2, 0x7f0a00b3
 
     iget v3, p0, Lcom/android/settings/BlockSettings;->mListIndex:I
 
@@ -366,13 +366,13 @@
     .line 281
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f091032
+    const v2, 0x7f091170
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -392,7 +392,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0096
+    const v2, 0x7f0a00b2
 
     iget v3, p0, Lcom/android/settings/BlockSettings;->mListIndex:I
 
@@ -433,13 +433,13 @@
     .line 259
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f09102f
+    const v2, 0x7f09116d
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -459,7 +459,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0095
+    const v2, 0x7f0a00b1
 
     iget v3, p0, Lcom/android/settings/BlockSettings;->mListIndex:I
 
@@ -497,7 +497,7 @@
     if-ne v0, v1, :cond_1
 
     .line 139
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -517,7 +517,7 @@
     if-ne v0, v1, :cond_2
 
     .line 141
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -534,7 +534,7 @@
     if-ne v0, v1, :cond_3
 
     .line 143
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -551,7 +551,7 @@
     if-ne v0, v1, :cond_0
 
     .line 145
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -597,14 +597,14 @@
     if-ne v0, v3, :cond_4
 
     .line 165
-    const v1, 0x7f09103a
+    const v1, 0x7f091178
 
     .line 171
     .local v1, res_id:I
     :goto_0
     iget-object v2, p0, Lcom/android/settings/BlockSettings;->mCallBlockMode:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 174
     .end local v0           #mBlockMode:I
@@ -624,14 +624,14 @@
     if-ne v0, v3, :cond_6
 
     .line 177
-    const v1, 0x7f09103b
+    const v1, 0x7f091179
 
     .line 183
     .restart local v1       #res_id:I
     :goto_1
     iget-object v2, p0, Lcom/android/settings/BlockSettings;->mVoiceCallBlockMode:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 186
     .end local v0           #mBlockMode:I
@@ -651,14 +651,14 @@
     if-ne v0, v3, :cond_8
 
     .line 189
-    const v1, 0x7f09103c
+    const v1, 0x7f09117a
 
     .line 195
     .restart local v1       #res_id:I
     :goto_2
     iget-object v2, p0, Lcom/android/settings/BlockSettings;->mVideoCallBlockMode:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 198
     .end local v0           #mBlockMode:I
@@ -678,14 +678,14 @@
     if-ne v0, v3, :cond_a
 
     .line 201
-    const v1, 0x7f09103e
+    const v1, 0x7f09117c
 
     .line 207
     .restart local v1       #res_id:I
     :goto_3
     iget-object v2, p0, Lcom/android/settings/BlockSettings;->mMessageBlockMode:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
+    invoke-virtual {v2, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 209
     .end local v0           #mBlockMode:I
@@ -699,7 +699,7 @@
     if-ne v0, v4, :cond_5
 
     .line 167
-    const v1, 0x7f09103d
+    const v1, 0x7f09117b
 
     .restart local v1       #res_id:I
     goto :goto_0
@@ -707,7 +707,7 @@
     .line 169
     .end local v1           #res_id:I
     :cond_5
-    const v1, 0x7f091040
+    const v1, 0x7f09117e
 
     .restart local v1       #res_id:I
     goto :goto_0
@@ -718,7 +718,7 @@
     if-ne v0, v4, :cond_7
 
     .line 179
-    const v1, 0x7f09103d
+    const v1, 0x7f09117b
 
     .restart local v1       #res_id:I
     goto :goto_1
@@ -726,7 +726,7 @@
     .line 181
     .end local v1           #res_id:I
     :cond_7
-    const v1, 0x7f091040
+    const v1, 0x7f09117e
 
     .restart local v1       #res_id:I
     goto :goto_1
@@ -737,7 +737,7 @@
     if-ne v0, v4, :cond_9
 
     .line 191
-    const v1, 0x7f09103d
+    const v1, 0x7f09117b
 
     .restart local v1       #res_id:I
     goto :goto_2
@@ -745,7 +745,7 @@
     .line 193
     .end local v1           #res_id:I
     :cond_9
-    const v1, 0x7f091040
+    const v1, 0x7f09117e
 
     .restart local v1       #res_id:I
     goto :goto_2
@@ -756,7 +756,7 @@
     if-ne v0, v4, :cond_b
 
     .line 203
-    const v1, 0x7f09103f
+    const v1, 0x7f09117d
 
     .restart local v1       #res_id:I
     goto :goto_3
@@ -764,7 +764,7 @@
     .line 205
     .end local v1           #res_id:I
     :cond_b
-    const v1, 0x7f091040
+    const v1, 0x7f09117e
 
     .restart local v1       #res_id:I
     goto :goto_3
@@ -783,9 +783,9 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 84
-    const v0, 0x7f07001a
+    const v0, 0x7f070021
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BlockSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 99
     const/4 v0, 0x0
@@ -798,22 +798,22 @@
     if-eqz v0, :cond_0
 
     .line 104
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const-string v1, "call_block"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 105
     const-string v0, "voice_callblock_mode_preference"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -824,7 +824,7 @@
     .line 106
     const-string v0, "video_callblock_mode_preference"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -839,7 +839,7 @@
     :goto_0
     const-string v0, "messageblock_mode_preference"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -854,7 +854,7 @@
     :cond_0
     const-string v0, "callblock_mode_preference"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -869,30 +869,30 @@
     iput-object v2, p0, Lcom/android/settings/BlockSettings;->mVideoCallBlockMode:Landroid/preference/PreferenceScreen;
 
     .line 112
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const-string v1, "voice_call_block"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 113
-    invoke-virtual {p0}, Lcom/android/settings/BlockSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     const-string v1, "video_call_block"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/BlockSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     goto :goto_0
 .end method
@@ -969,7 +969,7 @@
     if-ne p2, v1, :cond_0
 
     .line 339
-    invoke-virtual {p0, v0}, Lcom/android/settings/BlockSettings;->showDialog(I)V
+    invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     .line 351
     :goto_0
@@ -984,7 +984,7 @@
     .line 342
     const/4 v1, 0x2
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/BlockSettings;->showDialog(I)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto :goto_0
 
@@ -997,7 +997,7 @@
     .line 345
     const/4 v1, 0x3
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/BlockSettings;->showDialog(I)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto :goto_0
 
@@ -1010,13 +1010,13 @@
     .line 348
     const/4 v1, 0x4
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/BlockSettings;->showDialog(I)V
+    invoke-virtual {p0, v1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
     goto :goto_0
 
     .line 351
     :cond_3
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 

@@ -44,7 +44,7 @@
     .line 97
     iget-object v0, p0, Lcom/android/settings/CryptDecryptConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0b00cd
+    const v1, 0x7f0b00db
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -59,12 +59,12 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptDecryptConfirm;->mFinalClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 99
     iget-object v0, p0, Lcom/android/settings/CryptDecryptConfirm;->mFinalButton:Landroid/widget/Button;
 
-    invoke-virtual {v0}, Landroid/widget/Button;->requestFocus()Z
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
     .line 100
     return-void
@@ -80,7 +80,7 @@
 
     .prologue
     .line 105
-    const v0, 0x7f040044
+    const v0, 0x7f04004a
 
     const/4 v1, 0x0
 

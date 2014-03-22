@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 135
+    .line 136
     iput-object p1, p0, Lcom/android/settings/MasterClearConfirm$1;->this$0:Lcom/android/settings/MasterClearConfirm;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 139
+    .line 140
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -55,14 +55,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 140
+    .line 141
     invoke-static {}, Lcom/android/settings/MasterClearConfirm;->isSimEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 141
+    .line 142
     const-string v0, "VZW"
 
     const-string v1, "ro.csc.sales_code"
@@ -77,24 +77,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 142
+    .line 143
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm$1;->this$0:Lcom/android/settings/MasterClearConfirm;
 
     #calls: Lcom/android/settings/MasterClearConfirm;->storeResetDate()V
     invoke-static {v0}, Lcom/android/settings/MasterClearConfirm;->access$000(Lcom/android/settings/MasterClearConfirm;)V
 
-    .line 144
+    .line 145
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm$1;->this$0:Lcom/android/settings/MasterClearConfirm;
 
     #calls: Lcom/android/settings/MasterClearConfirm;->DoMasterReset()V
     invoke-static {v0}, Lcom/android/settings/MasterClearConfirm;->access$100(Lcom/android/settings/MasterClearConfirm;)V
 
-    .line 170
+    .line 171
     :goto_0
     return-void
 
-    .line 146
+    .line 147
     :cond_1
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm$1;->this$0:Lcom/android/settings/MasterClearConfirm;
 
@@ -103,7 +103,7 @@
 
     goto :goto_0
 
-    .line 163
+    .line 164
     :cond_2
     const-string v0, "VZW"
 
@@ -119,13 +119,13 @@
 
     if-eqz v0, :cond_3
 
-    .line 164
+    .line 165
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm$1;->this$0:Lcom/android/settings/MasterClearConfirm;
 
     #calls: Lcom/android/settings/MasterClearConfirm;->storeResetDate()V
     invoke-static {v0}, Lcom/android/settings/MasterClearConfirm;->access$000(Lcom/android/settings/MasterClearConfirm;)V
 
-    .line 166
+    .line 167
     :cond_3
     iget-object v0, p0, Lcom/android/settings/MasterClearConfirm$1;->this$0:Lcom/android/settings/MasterClearConfirm;
 

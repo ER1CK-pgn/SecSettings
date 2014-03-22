@@ -30,7 +30,7 @@
     .line 101
     iput-object p1, p0, Lcom/android/settings/ModePreview$1;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .line 103
     iget-object v0, p0, Lcom/android/settings/ModePreview$1;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-virtual {v0}, Lcom/android/settings/ModePreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -72,7 +72,7 @@
     .line 104
     iget-object v0, p0, Lcom/android/settings/ModePreview$1;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-virtual {v0}, Lcom/android/settings/ModePreview;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -85,7 +85,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/ListView;->getCheckedItemPosition()I
+    invoke-virtual {v2}, Landroid/widget/AbsListView;->getCheckedItemPosition()I
 
     move-result v2
 
@@ -94,7 +94,7 @@
     .line 105
     iget-object v0, p0, Lcom/android/settings/ModePreview$1;->this$0:Lcom/android/settings/ModePreview;
 
-    invoke-virtual {v0}, Lcom/android/settings/ModePreview;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
     .line 106
     return-void

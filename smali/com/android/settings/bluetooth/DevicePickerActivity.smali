@@ -124,26 +124,26 @@
     .locals 6
 
     .prologue
-    .line 273
+    .line 272
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 275
+    .line 274
     .local v1, alertDialogBuilder:Landroid/app/AlertDialog$Builder;
-    const v4, 0x7f090236
+    const v4, 0x7f09025b
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 276
-    const v4, 0x7f0900e4
+    .line 275
+    const v4, 0x7f090103
 
     const/4 v5, 0x0
 
     invoke-virtual {v1, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 277
-    const v4, 0x7f090173
+    .line 276
+    const v4, 0x7f090195
 
     new-instance v5, Lcom/android/settings/bluetooth/DevicePickerActivity$4;
 
@@ -151,16 +151,16 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 284
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    .line 283
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v3
 
-    .line 285
+    .line 284
     .local v3, inflater:Landroid/view/LayoutInflater;
-    const v5, 0x7f040025
+    const v5, 0x7f040028
 
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->getCurrentFocus()Landroid/view/View;
+    invoke-virtual {p0}, Landroid/app/Activity;->getCurrentFocus()Landroid/view/View;
 
     move-result-object v4
 
@@ -170,34 +170,34 @@
 
     move-result-object v2
 
-    .line 286
+    .line 285
     .local v2, dialoglayout:Landroid/view/View;
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 289
+    .line 288
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    .line 291
+    .line 290
     .local v0, alertDialog:Landroid/app/AlertDialog;
     new-instance v4, Lcom/android/settings/bluetooth/DevicePickerActivity$5;
 
     invoke-direct {v4, p0, v0}, Lcom/android/settings/bluetooth/DevicePickerActivity$5;-><init>(Lcom/android/settings/bluetooth/DevicePickerActivity;Landroid/app/AlertDialog;)V
 
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {v0, v4}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
-    .line 309
+    .line 308
     new-instance v4, Lcom/android/settings/bluetooth/DevicePickerActivity$6;
 
     invoke-direct {v4, p0, v0}, Lcom/android/settings/bluetooth/DevicePickerActivity$6;-><init>(Lcom/android/settings/bluetooth/DevicePickerActivity;Landroid/app/AlertDialog;)V
 
-    invoke-virtual {v0, v4}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+    invoke-virtual {v0, v4}, Landroid/app/Dialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+
+    .line 315
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 316
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
-
-    .line 317
     return-void
 .end method
 
@@ -208,33 +208,33 @@
     .parameter "scanState"
 
     .prologue
-    .line 321
+    .line 320
     sget-object v0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
     if-eqz v0, :cond_0
 
-    .line 322
+    .line 321
     if-eqz p1, :cond_1
 
-    .line 323
+    .line 322
     sget-object v0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f090790
+    const v1, 0x7f0907e3
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 328
+    .line 327
     :cond_0
     :goto_0
     return-void
 
-    .line 325
+    .line 324
     :cond_1
     sget-object v0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0900e4
+    const v1, 0x7f090103
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_0
 .end method
@@ -259,22 +259,22 @@
     .local v0, mBluetoothState:I
     iput-boolean v2, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mActivityResultDone:Z
 
-    .line 200
+    .line 199
     if-nez p1, :cond_1
 
     const/16 v1, 0xa
 
     if-ne v0, v1, :cond_1
 
-    .line 201
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->finish()V
+    .line 200
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 207
+    .line 206
     :cond_0
     :goto_0
     return-void
 
-    .line 203
+    .line 202
     :cond_1
     if-nez p1, :cond_0
 
@@ -282,7 +282,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 205
+    .line 204
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
 
     invoke-virtual {v1, v2}, Lcom/android/settings/bluetooth/LocalBluetoothAdapter;->startScanning(Z)V
@@ -303,7 +303,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -368,9 +368,9 @@
 
     .line 91
     :cond_2
-    const v0, 0x7f040025
+    const v0, 0x7f040028
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
     goto :goto_1
 
@@ -385,7 +385,7 @@
     iput-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mLocalAdapter:Lcom/android/settings/bluetooth/LocalBluetoothAdapter;
 
     .line 101
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -433,7 +433,7 @@
     .line 130
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->Helpscanbroadcast:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v1, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 133
     :cond_4
@@ -455,7 +455,7 @@
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 135
-    invoke-virtual {p0, v0, v2}, Lcom/android/settings/bluetooth/DevicePickerActivity;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 137
     iput-boolean v3, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mBTEnableDisplayed:Z
@@ -471,25 +471,25 @@
     .locals 2
 
     .prologue
-    .line 263
+    .line 262
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 264
+    .line 263
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/settings/bluetooth/DevicePickerActivity;->canLaunchQuickBtView:Z
 
-    .line 265
+    .line 264
     iget-boolean v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->fromHelp:Z
 
     if-eqz v0, :cond_0
 
-    .line 266
+    .line 265
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->Helpscanbroadcast:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 268
+    .line 267
     :cond_0
     const-string v0, "DevicePickerActivity"
 
@@ -497,7 +497,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
+    .line 268
     return-void
 .end method
 
@@ -505,22 +505,22 @@
     .locals 2
 
     .prologue
-    .line 253
+    .line 252
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 254
+    .line 253
     const-string v0, "DevicePickerActivity"
 
     const-string v1, "inside onPause of DevicePickerActivity"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 256
+    .line 255
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/settings/bluetooth/DevicePickerActivity;->canLaunchQuickBtView:Z
 
-    .line 257
+    .line 256
     return-void
 .end method
 
@@ -568,7 +568,7 @@
 
     .line 193
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->invalidateOptionsMenu()V
+    invoke-virtual {p0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
     goto :goto_0
 .end method
@@ -629,7 +629,7 @@
     if-ne v0, v5, :cond_0
 
     .line 157
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 170
     :cond_0
@@ -658,7 +658,7 @@
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     .line 163
-    invoke-virtual {p0, v0, v4}, Lcom/android/settings/bluetooth/DevicePickerActivity;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {p0, v0, v4}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 164
     iput-boolean v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mActivityResultDone:Z
@@ -675,47 +675,47 @@
     .parameter "layout"
 
     .prologue
-    .line 211
+    .line 210
     const/4 v2, 0x0
 
-    .line 213
+    .line 212
     .local v2, created:Z
     iget-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     if-nez v4, :cond_0
 
-    .line 214
+    .line 213
     new-instance v4, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     invoke-direct {v4, p0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    .line 215
+    .line 214
     iget-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     const/4 v5, 0x1
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setShowWrongInputToast(Z)V
+    invoke-virtual {v4, v5}, Lcom/android/settings/helpdialog/TwHelpDialog;->setShowWrongInputToast(Z)V
 
-    .line 216
+    .line 215
     iget-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v4, p0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setOwnerActivity(Landroid/app/Activity;)V
+    invoke-virtual {v4, p0}, Landroid/app/Dialog;->setOwnerActivity(Landroid/app/Activity;)V
 
-    .line 217
+    .line 216
     const/4 v2, 0x1
 
-    .line 220
+    .line 219
     :cond_0
     iget-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
     sget-object v5, Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;->OPAQUE:Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    invoke-virtual {v4, v5}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
+    invoke-virtual {v4, v5}, Lcom/android/settings/helpdialog/TwHelpDialog;->setTouchTransparencyMode(Lcom/android/settings/helpdialog/TwHelpDialog$TouchMode;)V
 
-    .line 221
-    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    .line 220
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v4
 
@@ -725,7 +725,7 @@
 
     move-result-object v1
 
-    .line 224
+    .line 223
     .local v1, bubbleView:Landroid/view/View;
     const v4, 0x7f0b0007
 
@@ -735,12 +735,12 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 226
+    .line 225
     .local v3, summary:Landroid/widget/TextView;
     if-nez v3, :cond_1
 
-    .line 227
-    const v4, 0x7f0b01b4
+    .line 226
+    const v4, 0x7f0b01e8
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -749,21 +749,21 @@
     .end local v3           #summary:Landroid/widget/TextView;
     check-cast v3, Landroid/widget/TextView;
 
-    .line 230
+    .line 229
     .restart local v3       #summary:Landroid/widget/TextView;
     :cond_1
     if-eqz v3, :cond_2
 
-    .line 231
+    .line 230
     invoke-virtual {v3, p1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 233
+    .line 232
     :cond_2
     iget-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v4, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v4, v1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
-    .line 234
+    .line 233
     const v4, 0x7f0b0002
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -772,32 +772,32 @@
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    .line 236
+    .line 235
     .local v0, btnClose:Landroid/widget/ImageButton;
     if-eqz v0, :cond_3
 
-    .line 237
+    .line 236
     const/4 v4, 0x0
 
-    invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setHoverPopupType(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setHoverPopupType(I)V
 
-    .line 238
+    .line 237
     new-instance v4, Lcom/android/settings/bluetooth/DevicePickerActivity$3;
 
     invoke-direct {v4, p0}, Lcom/android/settings/bluetooth/DevicePickerActivity$3;-><init>(Lcom/android/settings/bluetooth/DevicePickerActivity;)V
 
-    invoke-virtual {v0, v4}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 246
+    .line 245
     :cond_3
     if-eqz v2, :cond_4
 
-    .line 247
+    .line 246
     iget-object v4, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mHelpDialog:Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;
 
-    invoke-virtual {v4}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->show()V
+    invoke-virtual {v4}, Landroid/app/Dialog;->show()V
 
-    .line 249
+    .line 248
     :cond_4
     return-void
 .end method

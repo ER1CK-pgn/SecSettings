@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 93
+    .line 99
     iput-object p1, p0, Lcom/android/settings/motion2013/MotionSettings$1;->this$0:Lcom/android/settings/motion2013/MotionSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 96
+    .line 102
     iget-object v1, p0, Lcom/android/settings/motion2013/MotionSettings$1;->this$0:Lcom/android/settings/motion2013/MotionSettings;
 
     #getter for: Lcom/android/settings/motion2013/MotionSettings;->mResolver:Landroid/content/ContentResolver;
@@ -60,7 +60,7 @@
 
     const/4 v0, 0x1
 
-    .line 97
+    .line 103
     .local v0, motionState:Z
     :cond_0
     iget-object v1, p0, Lcom/android/settings/motion2013/MotionSettings$1;->this$0:Lcom/android/settings/motion2013/MotionSettings;
@@ -72,6 +72,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 98
+    .line 104
     return-void
 .end method

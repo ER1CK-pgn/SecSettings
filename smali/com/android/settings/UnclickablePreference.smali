@@ -41,9 +41,9 @@
 
     .prologue
     .line 41
-    const v0, 0x7f040132
+    const v0, 0x7f040162
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/UnclickablePreference;->setLayoutResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
     .line 42
     return-void
@@ -60,7 +60,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 47
-    const v1, 0x7f0b015e
+    const v1, 0x7f0b016f
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -70,7 +70,7 @@
 
     .line 48
     .local v0, textview:Landroid/widget/TextView;
-    invoke-virtual {p0}, Lcom/android/settings/UnclickablePreference;->getTitle()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v1
 

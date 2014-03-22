@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 811
+    .line 810
     iput-object p1, p0, Lcom/android/settings/PenSettingsMenu$6;->this$0:Lcom/android/settings/PenSettingsMenu;
 
     iput-object p2, p0, Lcom/android/settings/PenSettingsMenu$6;->val$layout:Landroid/view/View;
@@ -49,10 +49,10 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 813
+    .line 812
     iget-object v3, p0, Lcom/android/settings/PenSettingsMenu$6;->val$layout:Landroid/view/View;
 
-    const v4, 0x7f0b0146
+    const v4, 0x7f0b0155
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -60,7 +60,7 @@
 
     check-cast v0, Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    .line 814
+    .line 813
     .local v0, check:Lcom/sec/android/touchwiz/widget/TwCheckBox;
     invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
@@ -68,7 +68,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 815
+    .line 814
     iget-object v3, p0, Lcom/android/settings/PenSettingsMenu$6;->this$0:Lcom/android/settings/PenSettingsMenu;
 
     invoke-virtual {v3}, Lcom/android/settings/PenSettingsMenu;->getActivity()Landroid/app/Activity;
@@ -81,22 +81,22 @@
 
     move-result-object v2
 
-    .line 816
+    .line 815
     .local v2, sp:Landroid/content/SharedPreferences;
     invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 817
+    .line 816
     .local v1, ed:Landroid/content/SharedPreferences$Editor;
     const-string v3, "PenKeeperDoNotShowDialog"
 
     invoke-interface {v1, v3, v5}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 818
+    .line 817
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 820
+    .line 819
     .end local v1           #ed:Landroid/content/SharedPreferences$Editor;
     .end local v2           #sp:Landroid/content/SharedPreferences;
     :cond_0

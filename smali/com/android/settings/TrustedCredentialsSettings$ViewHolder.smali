@@ -27,8 +27,8 @@
     .locals 0
 
     .prologue
-    .line 350
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 377
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,7 +38,7 @@
     .parameter "x0"
 
     .prologue
-    .line 350
+    .line 377
     invoke-direct {p0}, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;-><init>()V
 
     return-void
@@ -49,7 +49,7 @@
     .parameter "x0"
 
     .prologue
-    .line 350
+    .line 377
     iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;->mSubjectPrimaryView:Landroid/widget/TextView;
 
     return-object v0
@@ -61,7 +61,7 @@
     .parameter "x1"
 
     .prologue
-    .line 350
+    .line 377
     iput-object p1, p0, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;->mSubjectPrimaryView:Landroid/widget/TextView;
 
     return-object p1
@@ -72,7 +72,7 @@
     .parameter "x0"
 
     .prologue
-    .line 350
+    .line 377
     iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;->mSubjectSecondaryView:Landroid/widget/TextView;
 
     return-object v0
@@ -84,7 +84,7 @@
     .parameter "x1"
 
     .prologue
-    .line 350
+    .line 377
     iput-object p1, p0, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;->mSubjectSecondaryView:Landroid/widget/TextView;
 
     return-object p1
@@ -95,7 +95,7 @@
     .parameter "x0"
 
     .prologue
-    .line 350
+    .line 377
     iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;->mCheckBox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     return-object v0
@@ -107,7 +107,7 @@
     .parameter "x1"
 
     .prologue
-    .line 350
+    .line 377
     iput-object p1, p0, Lcom/android/settings/TrustedCredentialsSettings$ViewHolder;->mCheckBox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     return-object p1

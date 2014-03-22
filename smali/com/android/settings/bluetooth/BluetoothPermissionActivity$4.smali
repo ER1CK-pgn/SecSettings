@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 320
+    .line 328
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity$4;->this$0:Lcom/android/settings/bluetooth/BluetoothPermissionActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,29 +43,29 @@
     .parameter "isChecked"
 
     .prologue
-    .line 322
+    .line 330
     if-eqz p2, :cond_0
 
-    .line 323
+    .line 331
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity$4;->this$0:Lcom/android/settings/bluetooth/BluetoothPermissionActivity;
 
     const/4 v1, 0x1
 
-    #setter for: Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mRememberSapChoiceValue:Z
-    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$402(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;Z)Z
+    #setter for: Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mRememberChoiceValue:Z
+    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$302(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;Z)Z
 
-    .line 327
+    .line 335
     :goto_0
     return-void
 
-    .line 325
+    .line 333
     :cond_0
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity$4;->this$0:Lcom/android/settings/bluetooth/BluetoothPermissionActivity;
 
     const/4 v1, 0x0
 
-    #setter for: Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mRememberSapChoiceValue:Z
-    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$402(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;Z)Z
+    #setter for: Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mRememberChoiceValue:Z
+    invoke-static {v0, v1}, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->access$302(Lcom/android/settings/bluetooth/BluetoothPermissionActivity;Z)Z
 
     goto :goto_0
 .end method

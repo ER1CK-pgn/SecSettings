@@ -58,7 +58,7 @@
 
     const/4 v3, 0x0
 
-    .line 73
+    .line 77
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "NONE"
@@ -67,7 +67,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NONE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 74
+    .line 78
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "SECURITY"
@@ -76,7 +76,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SECURITY:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 75
+    .line 79
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "NO_NETWORK"
@@ -85,7 +85,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->NO_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 76
+    .line 80
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "FOUND_NETWORK"
@@ -94,7 +94,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->FOUND_NETWORK:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 77
+    .line 81
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "SCAN"
@@ -103,7 +103,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->SCAN:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 78
+    .line 82
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "CONNECTED_AUTOMATICALLY"
@@ -114,7 +114,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->CONNECTED_AUTOMATICALLY:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 79
+    .line 83
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "CONNECTED_SUCCESSFULLY"
@@ -125,7 +125,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->CONNECTED_SUCCESSFULLY:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 80
+    .line 84
     new-instance v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     const-string v1, "ENABLE"
@@ -136,7 +136,7 @@
 
     sput-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->ENABLE:Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    .line 72
+    .line 76
     const/16 v0, 0x8
 
     new-array v0, v0, [Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
@@ -195,7 +195,7 @@
     .end annotation
 
     .prologue
-    .line 72
+    .line 76
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -206,7 +206,7 @@
     .parameter
 
     .prologue
-    .line 72
+    .line 76
     const-class v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -222,10 +222,10 @@
     .locals 1
 
     .prologue
-    .line 72
+    .line 76
     sget-object v0, Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->$VALUES:[Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;
 
-    invoke-virtual {v0}, [Lcom/android/settings/guide/WifiSettingsGuider$GuideStates;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

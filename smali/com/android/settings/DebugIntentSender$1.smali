@@ -30,7 +30,7 @@
     .line 40
     iput-object p1, p0, Lcom/android/settings/DebugIntentSender$1;->this$0:Lcom/android/settings/DebugIntentSender;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -174,7 +174,7 @@
     .line 56
     iget-object v5, p0, Lcom/android/settings/DebugIntentSender$1;->this$0:Lcom/android/settings/DebugIntentSender;
 
-    invoke-virtual {v5, v1}, Lcom/android/settings/DebugIntentSender;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v5, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 61
     :goto_0
@@ -182,12 +182,12 @@
 
     const/4 v6, -0x1
 
-    invoke-virtual {v5, v6}, Lcom/android/settings/DebugIntentSender;->setResult(I)V
+    invoke-virtual {v5, v6}, Landroid/app/Activity;->setResult(I)V
 
     .line 62
     iget-object v5, p0, Lcom/android/settings/DebugIntentSender$1;->this$0:Lcom/android/settings/DebugIntentSender;
 
-    invoke-virtual {v5}, Lcom/android/settings/DebugIntentSender;->finish()V
+    invoke-virtual {v5}, Landroid/app/Activity;->finish()V
 
     .line 64
     .end local v0           #account:Ljava/lang/String;
@@ -207,7 +207,7 @@
     :cond_3
     iget-object v5, p0, Lcom/android/settings/DebugIntentSender$1;->this$0:Lcom/android/settings/DebugIntentSender;
 
-    invoke-virtual {v5, v1}, Lcom/android/settings/DebugIntentSender;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v5, v1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method

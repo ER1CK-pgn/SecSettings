@@ -30,7 +30,7 @@
     .line 96
     iput-object p1, p0, Lcom/android/settings/wifi/WpsDialog$1WpsListener;->this$0:Lcom/android/settings/wifi/WpsDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -53,7 +53,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090339
+    const v3, 0x7f090370
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -83,7 +83,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09033c
+    const v2, 0x7f090373
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -112,7 +112,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090340
+    const v2, 0x7f090377
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -132,7 +132,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09033d
+    const v2, 0x7f090374
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09033e
+    const v2, 0x7f090375
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -172,7 +172,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09033b
+    const v2, 0x7f090372
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -217,7 +217,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090338
+    const v4, 0x7f09036f
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -264,7 +264,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090336
+    const v4, 0x7f09036d
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

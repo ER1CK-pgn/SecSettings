@@ -32,7 +32,7 @@
     .line 43
     new-instance v0, Landroid/content/Intent;
 
-    invoke-super {p0}, Landroid/preference/PreferenceActivity;->getIntent()Landroid/content/Intent;
+    invoke-super {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -69,15 +69,15 @@
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 52
-    const v1, 0x7f090d72
+    const v1, 0x7f090e9d
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/ChooseLockMotion;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     .line 53
     .local v0, msg:Ljava/lang/CharSequence;
-    invoke-virtual {p0, v0, v0}, Lcom/android/settings/ChooseLockMotion;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0, v0}, Landroid/preference/PreferenceActivity;->showBreadCrumbs(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
     .line 54
     return-void

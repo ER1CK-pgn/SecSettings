@@ -73,14 +73,14 @@
     .parameter "string"
 
     .prologue
-    .line 386
+    .line 389
     const-string v3, ", "
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 388
+    .line 391
     .local v2, temp:[Ljava/lang/String;
     const-string v3, "PersonalVibration"
 
@@ -106,34 +106,34 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 390
+    .line 393
     array-length v3, v2
 
     const/4 v4, 0x1
 
     if-gt v3, v4, :cond_1
 
-    .line 392
+    .line 395
     const-string v3, "PersonalVibration"
 
     const-string v4, "string is null"
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 393
+    .line 396
     const/4 v1, 0x0
 
-    .line 403
+    .line 406
     :cond_0
     return-object v1
 
-    .line 396
+    .line 399
     :cond_1
     array-length v3, v2
 
     new-array v1, v3, [J
 
-    .line 398
+    .line 401
     .local v1, ret:[J
     const/4 v0, 0x0
 
@@ -143,7 +143,7 @@
 
     if-ge v0, v3, :cond_0
 
-    .line 399
+    .line 402
     aget-object v3, v2, v0
 
     invoke-static {v3}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
@@ -156,7 +156,7 @@
 
     aput-wide v3, v1, v0
 
-    .line 401
+    .line 404
     const-string v3, "PersonalVibration"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -191,7 +191,7 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 401
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -226,16 +226,16 @@
     .parameter "editable"
 
     .prologue
-    .line 409
+    .line 412
     const/4 v0, 0x0
 
-    .line 410
+    .line 413
     .local v0, length:I
     invoke-interface {p1}, Landroid/text/Editable;->length()I
 
     move-result v0
 
-    .line 411
+    .line 414
     const-string v1, "PersonalVibration"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -260,7 +260,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 412
+    .line 415
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
     invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
@@ -281,11 +281,11 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 413
+    .line 416
     :cond_0
     if-gtz v0, :cond_2
 
-    .line 415
+    .line 418
     const-string v1, "PersonalVibration"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -314,25 +314,25 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 416
+    .line 419
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mOkBtn:Landroid/widget/Button;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 421
+    .line 424
     :cond_1
     :goto_0
     return-void
 
-    .line 418
+    .line 421
     :cond_2
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mOkBtn:Landroid/widget/Button;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -345,274 +345,328 @@
     .parameter "after"
 
     .prologue
-    .line 427
+    .line 430
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 14
+    .locals 17
     .parameter "v"
 
     .prologue
     .line 243
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-ne p1, v0, :cond_4
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
+
+    move-object/from16 v0, p1
+
+    if-ne v0, v1, :cond_4
 
     .line 244
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    sget-object v2, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-ne v1, v2, :cond_2
 
     .line 245
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getPatternString()Ljava/lang/String;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getPatternString()Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/android/settings/personalvibration/PersonalVibration;->StringToLongArray(Ljava/lang/String;)[J
+    move-result-object v1
 
-    move-result-object v0
+    invoke-static {v1}, Lcom/android/settings/personalvibration/PersonalVibration;->StringToLongArray(Ljava/lang/String;)[J
 
-    iput-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->patternLong:[J
+    move-result-object v1
+
+    move-object/from16 v0, p0
+
+    iput-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->patternLong:[J
 
     .line 246
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->patternLong:[J
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_0
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->patternLong:[J
+
+    if-eqz v1, :cond_0
 
     .line 247
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->vib:Landroid/os/SystemVibrator;
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->patternLong:[J
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->vib:Landroid/os/SystemVibrator;
 
-    const/4 v2, -0x1
+    move-object/from16 v0, p0
 
-    sget-object v3, Landroid/os/SystemVibrator$MagnitudeType;->CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
+    iget-object v2, v0, Lcom/android/settings/personalvibration/PersonalVibration;->patternLong:[J
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/SystemVibrator;->vibrate([JILandroid/os/SystemVibrator$MagnitudeType;)V
+    const/4 v3, -0x1
+
+    sget-object v4, Landroid/os/SystemVibrator$MagnitudeType;->CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
+
+    invoke-virtual {v1, v2, v3, v4}, Landroid/os/SystemVibrator;->vibrate([JILandroid/os/SystemVibrator$MagnitudeType;)V
 
     .line 248
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->setRunPlayTimer()V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->setRunPlayTimer()V
 
     .line 249
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibration;->getResources()Landroid/content/res/Resources;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    move-result-object v1
+    invoke-virtual/range {p0 .. p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
-    const v2, 0x7f020426
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const v3, 0x7f0204a5
 
-    move-result-object v1
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 251
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibration;->getResources()Landroid/content/res/Resources;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    move-result-object v1
+    invoke-virtual/range {p0 .. p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
-    const v2, 0x7f090790
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    const v3, 0x7f0907e3
 
-    move-result-object v1
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 253
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 254
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v2, 0x0
 
-    .line 383
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 386
     :cond_1
     :goto_0
     return-void
 
     .line 257
     :cond_2
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    sget-object v2, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-ne v1, v2, :cond_1
 
     .line 259
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x1
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 260
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getPatternString()Ljava/lang/String;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getPatternString()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    move-result-object v1
 
-    move-result v0
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    if-eqz v0, :cond_3
+    move-result v1
+
+    if-eqz v1, :cond_3
 
     .line 261
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x1
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 266
     :goto_1
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->setPauseTimer()V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->setPauseTimer()V
 
     .line 267
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->vib:Landroid/os/SystemVibrator;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/os/SystemVibrator;->cancel()V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->vib:Landroid/os/SystemVibrator;
+
+    invoke-virtual {v1}, Landroid/os/SystemVibrator;->cancel()V
 
     goto :goto_0
 
     .line 263
     :cond_3
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_1
 
     .line 269
     :cond_4
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-ne p1, v0, :cond_5
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
+
+    move-object/from16 v0, p1
+
+    if-ne v0, v1, :cond_5
 
     .line 270
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Recording:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    move-result-object v1
 
-    if-ne v0, v1, :cond_1
+    sget-object v2, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Recording:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-ne v1, v2, :cond_1
 
     .line 271
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->setPauseTimer()V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->setPauseTimer()V
 
     goto :goto_0
 
     .line 275
     :cond_5
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
+    move-object/from16 v0, p0
 
-    if-ne p1, v0, :cond_a
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
+
+    move-object/from16 v0, p1
+
+    if-ne v0, v1, :cond_a
 
     .line 277
-    const-string v0, "PersonalVibration"
+    const-string v1, "PersonalVibration"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "leftButton is clicked, backView state is "
+    const-string v3, "leftButton is clicked, backView state is "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
-
-    invoke-virtual {v2}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    iget-object v3, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 278
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
-
-    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
-
-    if-ne v0, v1, :cond_9
-
-    .line 279
-    const/4 v7, 0x0
-
-    .line 280
-    .local v7, count:I
-    const/16 v11, 0x1a
-
-    .line 282
-    .local v11, maxLength:I
-    const-string v0, "PersonalVibration"
-
-    const-string v1, "Save button was clicked"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 284
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibration;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "content://com.android.settings.personalvibration.PersonalVibrationProvider"
-
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Pause:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-ne v1, v2, :cond_9
+
+    .line 279
+    const/4 v8, 0x0
+
+    .line 280
+    .local v8, count:I
+    const/16 v12, 0x1a
+
+    .line 282
+    .local v12, maxLength:I
+    const-string v1, "PersonalVibration"
+
+    const-string v2, "Save button was clicked"
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 284
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "content://com.android.settings.personalvibration.PersonalVibrationProvider"
+
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
 
     const/4 v3, 0x0
 
@@ -620,219 +674,66 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    const/4 v6, 0x0
 
-    move-result-object v6
+    invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v7
 
     .line 286
-    .local v6, c:Landroid/database/Cursor;
-    if-eqz v6, :cond_8
+    .local v7, c:Landroid/database/Cursor;
+    if-eqz v7, :cond_8
 
     .line 287
-    invoke-interface {v6}, Landroid/database/Cursor;->moveToLast()Z
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToLast()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_6
+    if-eqz v1, :cond_6
 
     .line 288
-    invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
-
-    move-result v7
-
-    .line 290
-    :cond_6
-    const-string v0, "vibration_name"
-
-    invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 291
-    .local v10, lastSavedName:Ljava/lang/String;
-    const-string v0, "PersonalVibration"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "lastSavedName : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 293
-    if-eqz v10, :cond_7
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibration;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0901d9
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " [0-9]+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v10, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    .line 294
-    const-string v0, " "
-
-    invoke-virtual {v10, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 296
-    .local v12, strsplit:[Ljava/lang/String;
-    array-length v0, v12
-
-    const/4 v1, 0x1
-
-    if-le v0, v1, :cond_7
-
-    .line 298
-    const/4 v0, 0x1
-
-    aget-object v0, v12, v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
 
     move-result v8
 
-    .line 299
-    .local v8, currentIndex:I
-    add-int/lit8 v0, v8, 0x5
+    .line 290
+    :cond_6
+    const-string v1, "vibration_name"
 
-    add-int/lit8 v7, v0, 0x1
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    .line 300
-    const-string v0, "PersonalVibration"
+    move-result v1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v11
 
-    const-string v2, "currentIndex : "
+    .line 291
+    .local v11, lastSavedName:Ljava/lang/String;
+    const-string v1, "PersonalVibration"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v3, "lastSavedName : "
 
-    move-result-object v1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    .line 304
-    .end local v8           #currentIndex:I
-    .end local v12           #strsplit:[Ljava/lang/String;
-    :cond_7
-    const-string v0, "PersonalVibration"
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v2, "db count : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 308
-    .end local v10           #lastSavedName:Ljava/lang/String;
-    :cond_8
-    const-string v0, "input_method"
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/personalvibration/PersonalVibration;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Landroid/view/inputmethod/InputMethodManager;
-
-    .line 310
-    .local v9, imm:Landroid/view/inputmethod/InputMethodManager;
-    const v0, 0x7f0400f6
-
-    const/4 v1, 0x0
-
-    invoke-static {p0, v0, v1}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v13
-
-    .line 311
-    .local v13, view:Landroid/view/View;
-    const v0, 0x7f0b0288
-
-    invoke-virtual {v13, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
-
-    .line 312
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
-
-    const v1, 0x7f090f42
+    .line 293
+    const v1, 0x7f09107c
 
     const/4 v2, 0x1
 
@@ -840,7 +741,7 @@
 
     const/4 v3, 0x0
 
-    add-int/lit8 v4, v7, -0x5
+    const/4 v4, 0x1
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -848,167 +749,401 @@
 
     aput-object v4, v2, v3
 
-    invoke-virtual {p0, v1, v2}, Lcom/android/settings/personalvibration/PersonalVibration;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    .line 294
+    .local v13, mmatcher:Ljava/lang/String;
+    const-string v1, " "
+
+    invoke-virtual {v13, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v14
+
+    .line 295
+    .local v14, mstrsplit:[Ljava/lang/String;
+    const/4 v1, 0x0
+
+    aget-object v13, v14, v1
+
+    .line 296
+    if-eqz v11, :cond_7
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const-string v2, " [0-9]+"
 
-    .line 313
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v0, Landroid/widget/EditText;
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->length()I
+    move-result-object v1
+
+    invoke-virtual {v11, v1}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSelection(I)V
+    if-eqz v1, :cond_7
 
-    .line 314
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+    .line 297
+    const-string v1, " "
 
-    check-cast v0, Landroid/widget/EditText;
+    invoke-virtual {v11, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
+    move-result-object v15
+
+    .line 299
+    .local v15, strsplit:[Ljava/lang/String;
+    array-length v1, v15
+
+    const/4 v2, 0x1
+
+    if-le v1, v2, :cond_7
+
+    .line 301
     const/4 v1, 0x1
 
-    new-array v1, v1, [Landroid/text/InputFilter;
+    aget-object v1, v15, v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v9
+
+    .line 302
+    .local v9, currentIndex:I
+    add-int/lit8 v1, v9, 0x5
+
+    add-int/lit8 v8, v1, 0x1
+
+    .line 303
+    const-string v1, "PersonalVibration"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "currentIndex : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 307
+    .end local v9           #currentIndex:I
+    .end local v15           #strsplit:[Ljava/lang/String;
+    :cond_7
+    const-string v1, "PersonalVibration"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "db count : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 311
+    .end local v11           #lastSavedName:Ljava/lang/String;
+    .end local v13           #mmatcher:Ljava/lang/String;
+    .end local v14           #mstrsplit:[Ljava/lang/String;
+    :cond_8
+    const-string v1, "input_method"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/view/inputmethod/InputMethodManager;
+
+    .line 313
+    .local v10, imm:Landroid/view/inputmethod/InputMethodManager;
+    const v1, 0x7f04011b
 
     const/4 v2, 0x0
 
-    new-instance v3, Landroid/text/InputFilter$LengthFilter;
+    move-object/from16 v0, p0
 
-    invoke-direct {v3, v11}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
+    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    aput-object v3, v1, v2
+    move-result-object v16
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
+    .line 314
+    .local v16, view:Landroid/view/View;
+    const v1, 0x7f0b02c4
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    move-object/from16 v0, p0
+
+    iput-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
 
     .line 315
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+
+    const v2, 0x7f09107c
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    add-int/lit8 v5, v8, -0x5
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 316
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+
+    check-cast v1, Landroid/widget/EditText;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->length()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setSelection(I)V
 
     .line 317
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    move-object/from16 v0, p0
 
-    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v13}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    check-cast v1, Landroid/widget/EditText;
 
-    move-result-object v0
+    const/4 v2, 0x1
 
-    const v1, 0x7f090f3e
+    new-array v2, v2, [Landroid/text/InputFilter;
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+    const/4 v3, 0x0
 
-    move-result-object v0
+    new-instance v4, Landroid/text/InputFilter$LengthFilter;
 
-    const/high16 v1, 0x104
+    invoke-direct {v4, v12}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
 
-    new-instance v2, Lcom/android/settings/personalvibration/PersonalVibration$2;
+    aput-object v4, v2, v3
 
-    invoke-direct {v2, p0, v9}, Lcom/android/settings/personalvibration/PersonalVibration$2;-><init>(Lcom/android/settings/personalvibration/PersonalVibration;Landroid/view/inputmethod/InputMethodManager;)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setFilters([Landroid/text/InputFilter;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    .line 318
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mEditPattern:Landroid/widget/TextView;
 
-    const v1, 0x7f090ad8
+    move-object/from16 v0, p0
 
-    new-instance v2, Lcom/android/settings/personalvibration/PersonalVibration$1;
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    invoke-direct {v2, p0, v9}, Lcom/android/settings/personalvibration/PersonalVibration$1;-><init>(Lcom/android/settings/personalvibration/PersonalVibration;Landroid/view/inputmethod/InputMethodManager;)V
+    .line 320
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    move-object/from16 v0, v16
 
-    move-result-object v0
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    iput-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
+    move-result-object v1
 
-    .line 369
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
+    const v2, 0x7f091078
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/16 v1, 0x14
+    const/high16 v2, 0x104
 
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
+    new-instance v3, Lcom/android/settings/personalvibration/PersonalVibration$2;
 
-    .line 370
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-direct {v3, v0, v10}, Lcom/android/settings/personalvibration/PersonalVibration$2;-><init>(Lcom/android/settings/personalvibration/PersonalVibration;Landroid/view/inputmethod/InputMethodManager;)V
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    const v2, 0x7f090bbc
+
+    new-instance v3, Lcom/android/settings/personalvibration/PersonalVibration$1;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v3, v0, v10}, Lcom/android/settings/personalvibration/PersonalVibration$1;-><init>(Lcom/android/settings/personalvibration/PersonalVibration;Landroid/view/inputmethod/InputMethodManager;)V
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v1
+
+    move-object/from16 v0, p0
+
+    iput-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
 
     .line 372
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
+    move-object/from16 v0, p0
 
-    const/4 v1, -0x1
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mOkBtn:Landroid/widget/Button;
+    const/16 v2, 0x14
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setSoftInputMode(I)V
 
     .line 373
-    if-eqz v6, :cond_1
+    move-object/from16 v0, p0
 
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+
+    .line 375
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
+
+    const/4 v2, -0x1
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
+
+    move-result-object v1
+
+    move-object/from16 v0, p0
+
+    iput-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->mOkBtn:Landroid/widget/Button;
+
+    .line 376
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto/16 :goto_0
 
-    .line 375
-    .end local v6           #c:Landroid/database/Cursor;
-    .end local v7           #count:I
-    .end local v9           #imm:Landroid/view/inputmethod/InputMethodManager;
-    .end local v11           #maxLength:I
-    .end local v13           #view:Landroid/view/View;
+    .line 378
+    .end local v7           #c:Landroid/database/Cursor;
+    .end local v8           #count:I
+    .end local v10           #imm:Landroid/view/inputmethod/InputMethodManager;
+    .end local v12           #maxLength:I
+    .end local v16           #view:Landroid/view/View;
     :cond_9
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/settings/personalvibration/BackgroundView;->getStage()Lcom/android/settings/personalvibration/BackgroundView$Stage;
 
-    sget-object v1, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+    move-result-object v1
+
+    sget-object v2, Lcom/android/settings/personalvibration/BackgroundView$Stage;->Play:Lcom/android/settings/personalvibration/BackgroundView$Stage;
+
+    if-ne v1, v2, :cond_1
+
+    .line 379
+    const v1, 0x7f091077
+
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_0
+
+    .line 382
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
+
+    move-object/from16 v0, p1
 
     if-ne v0, v1, :cond_1
 
-    .line 376
-    const v0, 0x7f090f3d
+    .line 383
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/personalvibration/PersonalVibration;->stopRecording()V
 
-    const/4 v1, 0x1
+    .line 384
+    move-object/from16 v0, p0
 
-    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    iget-object v1, v0, Lcom/android/settings/personalvibration/PersonalVibration;->vib:Landroid/os/SystemVibrator;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    goto/16 :goto_0
-
-    .line 379
-    :cond_a
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
-
-    if-ne p1, v0, :cond_1
-
-    .line 380
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibration;->stopRecording()V
-
-    .line 381
-    iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->vib:Landroid/os/SystemVibrator;
-
-    invoke-virtual {v0}, Landroid/os/SystemVibrator;->cancel()V
+    invoke-virtual {v1}, Landroid/os/SystemVibrator;->cancel()V
 
     goto/16 :goto_0
 .end method
@@ -1111,14 +1246,14 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 65
-    const v1, 0x7f040104
+    const v1, 0x7f040129
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->setContentView(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setContentView(I)V
 
     .line 67
     const v1, 0x7f0b0012
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1127,9 +1262,9 @@
     iput-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerText:Landroid/widget/TextView;
 
     .line 69
-    const v1, 0x7f0b02d1
+    const v1, 0x7f0b030d
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1140,12 +1275,12 @@
     .line 70
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->backView:Lcom/android/settings/personalvibration/BackgroundView;
 
-    invoke-virtual {v1, p0}, Lcom/android/settings/personalvibration/BackgroundView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 72
-    const v1, 0x7f0b021a
+    const v1, 0x7f0b01f3
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1154,9 +1289,9 @@
     iput-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->buttonLayout:Landroid/widget/LinearLayout;
 
     .line 73
-    const v1, 0x7f0b02d2
+    const v1, 0x7f0b030e
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1167,7 +1302,7 @@
     .line 74
     const v1, 0x7f0b0010
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1176,9 +1311,9 @@
     iput-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
     .line 75
-    const v1, 0x7f0b02d5
+    const v1, 0x7f0b0311
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1187,9 +1322,9 @@
     iput-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
     .line 76
-    const v1, 0x7f0b02d4
+    const v1, 0x7f0b0310
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1198,9 +1333,9 @@
     iput-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
 
     .line 77
-    const v1, 0x7f0b02d3
+    const v1, 0x7f0b030f
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1211,27 +1346,27 @@
     .line 78
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 79
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->leftButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 80
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->rightButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 81
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 82
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 84
     new-instance v1, Lcom/android/settings/personalvibration/PersonalVibration$BackgroundViewHandler;
@@ -1266,11 +1401,11 @@
     .line 89
     const/4 v1, 0x7
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->setRequestedOrientation(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setRequestedOrientation(I)V
 
     .line 91
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/personalvibration/PersonalVibration;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -1329,7 +1464,7 @@
     .line 149
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 150
     const/4 v0, 0x0
@@ -1439,7 +1574,7 @@
     .line 139
     const-string v1, "input_method"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/personalvibration/PersonalVibration;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1449,7 +1584,7 @@
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-object v1, p0, Lcom/android/settings/personalvibration/PersonalVibration;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v1}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v1
 
@@ -1479,7 +1614,7 @@
     .parameter "count"
 
     .prologue
-    .line 432
+    .line 435
     return-void
 .end method
 
@@ -1565,31 +1700,31 @@
     .line 177
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 178
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 179
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButtonLayout:Landroid/widget/LinearLayout;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 180
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->buttonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 181
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 182
     const/4 v0, 0x0
@@ -1616,27 +1751,27 @@
     .line 187
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 188
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->centerButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 189
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->buttonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 190
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButtonLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 191
     iget-object v0, p0, Lcom/android/settings/personalvibration/PersonalVibration;->stopButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 192
     return-void

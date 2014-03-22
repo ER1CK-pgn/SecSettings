@@ -64,7 +64,7 @@
     iput-object v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEllipsizeCallback:Landroid/text/TextUtils$EllipsizeCallback;
 
     .line 67
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getInputType()I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getInputType()I
 
     move-result v0
 
@@ -72,7 +72,7 @@
 
     or-int/2addr v0, v1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setInputType(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setInputType(I)V
 
     .line 68
     invoke-direct {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->initWidget()V
@@ -126,7 +126,7 @@
     iput-object v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEllipsizeCallback:Landroid/text/TextUtils$EllipsizeCallback;
 
     .line 67
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getInputType()I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getInputType()I
 
     move-result v0
 
@@ -134,7 +134,7 @@
 
     or-int/2addr v0, v1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setInputType(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setInputType(I)V
 
     .line 68
     invoke-direct {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->initWidget()V
@@ -189,7 +189,7 @@
     iput-object v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEllipsizeCallback:Landroid/text/TextUtils$EllipsizeCallback;
 
     .line 67
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getInputType()I
+    invoke-virtual {p0}, Landroid/widget/TextView;->getInputType()I
 
     move-result v0
 
@@ -197,7 +197,7 @@
 
     or-int/2addr v0, v1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/myprofile/EllipsisEditText;->setInputType(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setInputType(I)V
 
     .line 68
     invoke-direct {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->initWidget()V
@@ -226,7 +226,7 @@
 
     .prologue
     .line 106
-    invoke-virtual {p0, p0}, Lcom/android/settings/myprofile/EllipsisEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {p0, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     .line 107
     return-void
@@ -238,29 +238,56 @@
 
     .prologue
     .line 109
+    const/4 v6, 0x0
+
+    invoke-static {v6}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 111
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f0f00e4
+    const v7, 0x7f0f0121
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v6
+
+    iput v6, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEditTextWidth:F
+
+    .line 128
+    :goto_0
+    return-void
+
+    .line 114
+    :cond_0
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0f0124
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    .line 110
+    .line 115
     .local v1, marginLeft:F
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f0f00e3
+    const v7, 0x7f0f0123
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v2
 
-    .line 112
+    .line 117
     .local v2, marginRight:F
     const-string v6, "window"
 
@@ -270,43 +297,43 @@
 
     check-cast v5, Landroid/view/WindowManager;
 
-    .line 113
+    .line 118
     .local v5, wm:Landroid/view/WindowManager;
     invoke-interface {v5}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v0
 
-    .line 114
+    .line 119
     .local v0, display:Landroid/view/Display;
     new-instance v4, Landroid/graphics/Point;
 
     invoke-direct {v4}, Landroid/graphics/Point;-><init>()V
 
-    .line 115
+    .line 120
     .local v4, size:Landroid/graphics/Point;
     invoke-virtual {v0, v4}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
 
-    .line 118
+    .line 123
     iget v6, v4, Landroid/graphics/Point;->x:I
 
     iget v7, v4, Landroid/graphics/Point;->y:I
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_1
 
     iget v6, v4, Landroid/graphics/Point;->x:I
 
     int-to-float v3, v6
 
-    .line 120
+    .line 125
     .local v3, screenWidth:F
-    :goto_0
+    :goto_1
     sub-float v6, v3, v1
 
     sub-float/2addr v6, v2
 
     iput v6, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEditTextWidth:F
 
-    .line 121
+    .line 126
     const-string v6, "EllipsisEditText"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -385,17 +412,16 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
-    return-void
+    goto/16 :goto_0
 
-    .line 118
+    .line 123
     .end local v3           #screenWidth:F
-    :cond_0
+    :cond_1
     iget v6, v4, Landroid/graphics/Point;->y:I
 
     int-to-float v3, v6
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 
@@ -405,7 +431,7 @@
     .parameter "s"
 
     .prologue
-    .line 203
+    .line 209
     return-void
 .end method
 
@@ -417,7 +443,7 @@
     .parameter "after"
 
     .prologue
-    .line 213
+    .line 219
     return-void
 .end method
 
@@ -426,12 +452,12 @@
     .parameter "px"
 
     .prologue
-    .line 188
+    .line 194
     iget v1, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaledDensity:F
 
     div-float v0, p1, v1
 
-    .line 189
+    .line 195
     .local v0, dp:F
     return v0
 .end method
@@ -442,22 +468,22 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 262
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getPaint()Landroid/text/TextPaint;
+    .line 268
+    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v2
 
-    .line 263
+    .line 269
     .local v2, textPaint:Landroid/text/TextPaint;
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getText()Landroid/text/Editable;
+    invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v1
 
-    .line 264
+    .line 270
     .local v1, s:Ljava/lang/CharSequence;
     iget v5, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEditTextWidth:F
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v6
 
@@ -465,7 +491,7 @@
 
     sub-float/2addr v5, v6
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v6
 
@@ -473,27 +499,27 @@
 
     sub-float v4, v5, v6
 
-    .line 265
+    .line 271
     .local v4, textWidth:F
     const/4 v0, 0x0
 
-    .line 266
+    .line 272
     .local v0, measureWidth:F
     invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getTextSize()F
 
     move-result v3
 
-    .line 267
+    .line 273
     .local v3, textSize:F
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    invoke-virtual {v2, v1, v7, v5}, Landroid/text/TextPaint;->measureText(Ljava/lang/CharSequence;II)F
+    invoke-virtual {v2, v1, v7, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/CharSequence;II)F
 
     move-result v0
 
-    .line 268
+    .line 274
     :goto_0
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
@@ -519,26 +545,26 @@
 
     if-gtz v5, :cond_0
 
-    .line 269
+    .line 275
     iget v5, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaleTextSize:F
 
     add-float/2addr v3, v5
 
-    .line 270
+    .line 276
     invoke-virtual {p0, v3}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextSize(F)V
 
-    .line 271
+    .line 277
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
 
     move-result v5
 
-    invoke-virtual {v2, v1, v7, v5}, Landroid/text/TextPaint;->measureText(Ljava/lang/CharSequence;II)F
+    invoke-virtual {v2, v1, v7, v5}, Landroid/graphics/Paint;->measureText(Ljava/lang/CharSequence;II)F
 
     move-result v0
 
     goto :goto_0
 
-    .line 274
+    .line 280
     :cond_0
     return-void
 .end method
@@ -547,7 +573,7 @@
     .locals 1
 
     .prologue
-    .line 142
+    .line 148
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mMaxTextSize:F
 
     return v0
@@ -557,8 +583,8 @@
     .locals 1
 
     .prologue
-    .line 194
-    invoke-super {p0}, Landroid/widget/EditText;->getTextSize()F
+    .line 200
+    invoke-super {p0}, Landroid/widget/TextView;->getTextSize()F
 
     move-result v0
 
@@ -579,13 +605,13 @@
     .prologue
     const/4 v9, 0x0
 
-    .line 223
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/EditText;->onTextChanged(Ljava/lang/CharSequence;III)V
+    .line 229
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/TextView;->onTextChanged(Ljava/lang/CharSequence;III)V
 
-    .line 224
+    .line 230
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEditTextWidth:F
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v3
 
@@ -593,7 +619,7 @@
 
     sub-float/2addr v0, v3
 
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v3
 
@@ -601,7 +627,7 @@
 
     sub-float v2, v0, v3
 
-    .line 225
+    .line 231
     .local v2, textWidth:F
     const/4 v0, 0x0
 
@@ -609,30 +635,30 @@
 
     if-gtz v0, :cond_1
 
-    .line 259
+    .line 265
     :cond_0
     :goto_0
     return-void
 
-    .line 227
+    .line 233
     :cond_1
     const/4 v6, 0x0
 
-    .line 228
+    .line 234
     .local v6, measureWidth:F
     invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getTextSize()F
 
     move-result v7
 
-    .line 229
+    .line 235
     .local v7, textSize:F
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getPaint()Landroid/text/TextPaint;
+    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v1
 
-    .line 230
+    .line 236
     .local v1, textPaint:Landroid/text/TextPaint;
-    invoke-virtual {p0}, Lcom/android/settings/myprofile/EllipsisEditText;->getEllipsize()Landroid/text/TextUtils$TruncateAt;
+    invoke-virtual {p0}, Landroid/widget/TextView;->getEllipsize()Landroid/text/TextUtils$TruncateAt;
 
     move-result-object v3
 
@@ -646,11 +672,11 @@
 
     move-result-object v8
 
-    .line 231
+    .line 237
     .local v8, txtElipsized:Ljava/lang/CharSequence;
     if-ge p3, p4, :cond_3
 
-    .line 233
+    .line 239
     iget-boolean v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mEllipsized:Z
 
     if-eqz v0, :cond_0
@@ -665,25 +691,25 @@
 
     if-ltz v0, :cond_0
 
-    .line 236
+    .line 242
     :cond_2
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaleTextSize:F
 
     sub-float/2addr v7, v0
 
-    .line 237
+    .line 243
     invoke-virtual {p0, v7}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextSize(F)V
 
-    .line 238
+    .line 244
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    invoke-virtual {v1, p1, v9, v0}, Landroid/text/TextPaint;->measureText(Ljava/lang/CharSequence;II)F
+    invoke-virtual {v1, p1, v9, v0}, Landroid/graphics/Paint;->measureText(Ljava/lang/CharSequence;II)F
 
     move-result v6
 
-    .line 239
+    .line 245
     cmpl-float v0, v6, v2
 
     if-lez v0, :cond_0
@@ -700,11 +726,11 @@
 
     goto :goto_0
 
-    .line 241
+    .line 247
     :cond_3
     if-le p3, p4, :cond_0
 
-    .line 243
+    .line 249
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaleTextSize:F
 
     add-float/2addr v0, v7
@@ -715,50 +741,50 @@
 
     if-gtz v0, :cond_0
 
-    .line 246
+    .line 252
     :cond_4
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaleTextSize:F
 
     add-float/2addr v7, v0
 
-    .line 247
+    .line 253
     invoke-virtual {p0, v7}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextSize(F)V
 
-    .line 248
+    .line 254
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    invoke-virtual {v1, p1, v9, v0}, Landroid/text/TextPaint;->measureText(Ljava/lang/CharSequence;II)F
+    invoke-virtual {v1, p1, v9, v0}, Landroid/graphics/Paint;->measureText(Ljava/lang/CharSequence;II)F
 
     move-result v6
 
-    .line 249
+    .line 255
     cmpl-float v0, v6, v2
 
     if-lez v0, :cond_5
 
-    .line 250
+    .line 256
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaleTextSize:F
 
     sub-float/2addr v7, v0
 
-    .line 251
+    .line 257
     invoke-virtual {p0, v7}, Lcom/android/settings/myprofile/EllipsisEditText;->setTextSize(F)V
 
-    .line 252
+    .line 258
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    invoke-virtual {v1, p1, v9, v0}, Landroid/text/TextPaint;->measureText(Ljava/lang/CharSequence;II)F
+    invoke-virtual {v1, p1, v9, v0}, Landroid/graphics/Paint;->measureText(Ljava/lang/CharSequence;II)F
 
     move-result v6
 
-    .line 253
+    .line 259
     goto :goto_0
 
-    .line 255
+    .line 261
     :cond_5
     cmpg-float v0, v6, v2
 
@@ -782,15 +808,15 @@
     .parameter "maxTextSize"
 
     .prologue
-    .line 155
+    .line 161
     iget v0, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaledDensity:F
 
     div-float/2addr p1, v0
 
-    .line 156
+    .line 162
     iput p1, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mMaxTextSize:F
 
-    .line 157
+    .line 163
     return-void
 .end method
 
@@ -799,10 +825,10 @@
     .parameter "scaledDensity"
 
     .prologue
-    .line 135
+    .line 141
     iput p1, p0, Lcom/android/settings/myprofile/EllipsisEditText;->mScaledDensity:F
 
-    .line 136
+    .line 142
     return-void
 .end method
 
@@ -811,11 +837,11 @@
     .parameter "size"
 
     .prologue
-    .line 147
+    .line 153
     const/4 v0, 0x1
 
-    invoke-super {p0, v0, p1}, Landroid/widget/EditText;->setTextSize(IF)V
+    invoke-super {p0, v0, p1}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 148
+    .line 154
     return-void
 .end method

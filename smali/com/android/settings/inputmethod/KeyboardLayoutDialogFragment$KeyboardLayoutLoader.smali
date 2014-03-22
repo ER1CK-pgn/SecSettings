@@ -57,7 +57,7 @@
 
     .line 302
     .local v8, keyboards:Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$Keyboards;
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutLoader;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/Loader;->getContext()Landroid/content/Context;
 
     move-result-object v11
 
@@ -224,10 +224,10 @@
 
     .prologue
     .line 335
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onStartLoading()V
+    invoke-super {p0}, Landroid/content/Loader;->onStartLoading()V
 
     .line 336
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutLoader;->forceLoad()V
+    invoke-virtual {p0}, Landroid/content/Loader;->forceLoad()V
 
     .line 337
     return-void
@@ -238,10 +238,10 @@
 
     .prologue
     .line 341
-    invoke-super {p0}, Landroid/content/AsyncTaskLoader;->onStopLoading()V
+    invoke-super {p0}, Landroid/content/Loader;->onStopLoading()V
 
     .line 342
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/KeyboardLayoutDialogFragment$KeyboardLayoutLoader;->cancelLoad()Z
+    invoke-virtual {p0}, Landroid/content/Loader;->cancelLoad()Z
 
     .line 343
     return-void

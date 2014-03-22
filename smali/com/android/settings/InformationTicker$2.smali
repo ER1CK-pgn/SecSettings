@@ -30,7 +30,7 @@
     .line 526
     iput-object p1, p0, Lcom/android/settings/InformationTicker$2;->this$0:Lcom/android/settings/InformationTicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -64,7 +64,7 @@
 
     const/16 v3, 0x65
 
-    invoke-virtual {v2, v0, v3}, Lcom/android/settings/InformationTicker;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v2, v0, v3}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 533
     return-void

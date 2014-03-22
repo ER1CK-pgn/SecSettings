@@ -50,7 +50,7 @@
 
     .prologue
     .line 63
-    invoke-virtual {p0}, Lcom/android/settings/EditPinPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
@@ -84,7 +84,7 @@
     invoke-super {p0, p1}, Landroid/preference/EditTextPreference;->onBindDialogView(Landroid/view/View;)V
 
     .line 54
-    invoke-virtual {p0}, Lcom/android/settings/EditPinPreference;->getEditText()Landroid/widget/EditText;
+    invoke-virtual {p0}, Landroid/preference/EditTextPreference;->getEditText()Landroid/widget/EditText;
 
     move-result-object v0
 
@@ -95,7 +95,7 @@
     .line 57
     const/16 v1, 0x12
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setInputType(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setInputType(I)V
 
     .line 60
     :cond_0
@@ -142,7 +142,7 @@
 
     .prologue
     .line 76
-    invoke-virtual {p0}, Lcom/android/settings/EditPinPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
@@ -160,7 +160,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/EditPinPreference;->showDialog(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v1}, Landroid/preference/DialogPreference;->showDialog(Landroid/os/Bundle;)V
 
     .line 80
     :cond_1

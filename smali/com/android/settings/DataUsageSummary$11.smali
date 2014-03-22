@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1545
+    .line 1670
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,97 +38,88 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 4
     .parameter "v"
 
     .prologue
-    .line 1548
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
+    const-wide/16 v2, -0x1
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mAlertAtWarning:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$1400(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 1549
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    const-wide/16 v1, -0x1
-
-    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyWarningBytes(J)V
-    invoke-static {v0, v1, v2}, Lcom/android/settings/DataUsageSummary;->access$1500(Lcom/android/settings/DataUsageSummary;J)V
-
-    .line 1550
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #getter for: Lcom/android/settings/DataUsageSummary;->mAlertAtWarning:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$1400(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
-
-    .line 1560
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 1553
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    invoke-virtual {v0}, Lcom/android/settings/DataUsageSummary;->getFragmentManager()Landroid/app/FragmentManager;
-
-    move-result-object v0
-
-    const-string v1, "confirmWarning"
-
-    invoke-virtual {v0, v1}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    .line 1554
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #getter for: Lcom/android/settings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$900(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    .line 1555
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #getter for: Lcom/android/settings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$900(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/DialogFragment;->dismiss()V
-
-    .line 1557
-    :cond_2
-    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
-
+    .line 1674
     iget-object v1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-static {v1}, Lcom/android/settings/DataUsageSummary$ConfirmWarningFragment;->show(Lcom/android/settings/DataUsageSummary;)Landroid/app/DialogFragment;
+    #getter for: Lcom/android/settings/DataUsageSummary;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1100(Lcom/android/settings/DataUsageSummary;)Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v1
 
-    #setter for: Lcom/android/settings/DataUsageSummary;->mDialog:Landroid/app/DialogFragment;
-    invoke-static {v0, v1}, Lcom/android/settings/DataUsageSummary;->access$902(Lcom/android/settings/DataUsageSummary;Landroid/app/DialogFragment;)Landroid/app/DialogFragment;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1100(Lcom/android/settings/DataUsageSummary;)Landroid/app/enterprise/RestrictionPolicy;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/enterprise/RestrictionPolicy;->isUserMobileDataLimitAllowed()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 1675
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyLimitBytes(J)V
+    invoke-static {v1, v2, v3}, Lcom/android/settings/DataUsageSummary;->access$1200(Lcom/android/settings/DataUsageSummary;J)V
+
+    .line 1687
+    :goto_0
+    return-void
+
+    .line 1679
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #getter for: Lcom/android/settings/DataUsageSummary;->mDisableAtLimit:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1300(Lcom/android/settings/DataUsageSummary;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const/4 v0, 0x1
+
+    .line 1680
+    .local v0, disableAtLimit:Z
+    :goto_1
+    if-eqz v0, :cond_2
+
+    .line 1683
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary$ConfirmLimitFragment;->show(Lcom/android/settings/DataUsageSummary;)V
+
+    goto :goto_0
+
+    .line 1679
+    .end local v0           #disableAtLimit:Z
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    .line 1685
+    .restart local v0       #disableAtLimit:Z
+    :cond_2
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$11;->this$0:Lcom/android/settings/DataUsageSummary;
+
+    #calls: Lcom/android/settings/DataUsageSummary;->setPolicyLimitBytes(J)V
+    invoke-static {v1, v2, v3}, Lcom/android/settings/DataUsageSummary;->access$1200(Lcom/android/settings/DataUsageSummary;J)V
 
     goto :goto_0
 .end method

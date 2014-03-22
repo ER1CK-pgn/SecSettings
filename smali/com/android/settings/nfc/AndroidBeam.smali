@@ -35,7 +35,7 @@
     .line 114
     iget-object v1, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 115
     iget-object v1, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
@@ -56,7 +56,7 @@
     if-eqz v1, :cond_0
 
     .line 118
-    const v1, 0x7f0b0046
+    const v1, 0x7f0b004f
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -66,7 +66,7 @@
 
     .line 119
     .local v0, mTextView:Landroid/widget/TextView;
-    const v1, 0x7f0902ad
+    const v1, 0x7f0902e4
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -93,7 +93,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 127
     if-eqz p2, :cond_1
@@ -120,7 +120,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 136
     return-void
@@ -151,7 +151,7 @@
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 52
-    invoke-virtual {p0}, Lcom/android/settings/nfc/AndroidBeam;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -169,11 +169,11 @@
     if-eqz v2, :cond_0
 
     .line 57
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0f0019
+    const v3, 0x7f0f0034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -183,7 +183,7 @@
     .local v1, padding:I
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/Switch;->setPaddingRelative(IIII)V
+    invoke-virtual {v2, v4, v4, v1, v4}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
     .line 60
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -223,7 +223,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902a7
+    const v3, 0x7f0902de
 
     invoke-virtual {v2, v3}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -232,10 +232,10 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 72
-    invoke-virtual {p0}, Lcom/android/settings/nfc/AndroidBeam;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -268,7 +268,7 @@
 
     .prologue
     .line 99
-    const v0, 0x7f040012
+    const v0, 0x7f040014
 
     const/4 v1, 0x0
 
@@ -297,7 +297,7 @@
     invoke-super {p0}, Landroid/app/Fragment;->onDestroyView()V
 
     .line 107
-    invoke-virtual {p0}, Lcom/android/settings/nfc/AndroidBeam;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -315,7 +315,7 @@
     if-eqz v0, :cond_0
 
     .line 109
-    invoke-virtual {p0}, Lcom/android/settings/nfc/AndroidBeam;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -344,7 +344,7 @@
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/nfc/AndroidBeam;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -375,12 +375,12 @@
     .line 85
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 86
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v4}, Landroid/widget/Switch;->setClickable(Z)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setClickable(Z)V
 
     .line 87
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
@@ -395,12 +395,12 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v5}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 90
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v2, v5}, Landroid/widget/Switch;->setClickable(Z)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setClickable(Z)V
 
     .line 91
     iget-object v2, p0, Lcom/android/settings/nfc/AndroidBeam;->mActionBarSwitch:Landroid/widget/Switch;

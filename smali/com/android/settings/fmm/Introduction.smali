@@ -42,14 +42,14 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const v7, 0x7f090b55
+    const v7, 0x7f090c53
 
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
     .line 55
-    const v1, 0x7f0400bb
+    const v1, 0x7f0400da
 
     invoke-virtual {p1, v1, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -57,7 +57,7 @@
 
     .line 56
     .local v0, view:Landroid/view/View;
-    const v1, 0x7f0b0203
+    const v1, 0x7f0b023b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -68,7 +68,7 @@
     iput-object v1, p0, Lcom/android/settings/fmm/Introduction;->mLinkMessage:Landroid/widget/TextView;
 
     .line 57
-    const v1, 0x7f0b0204
+    const v1, 0x7f0b023c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090b53
+    const v3, 0x7f090c51
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -108,7 +108,7 @@
     invoke-virtual {v1, v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setText(Ljava/lang/CharSequence;)V
 
     .line 59
-    const v1, 0x7f0b0205
+    const v1, 0x7f0b023d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

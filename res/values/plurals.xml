@@ -32,6 +32,10 @@
         <item quantity="other">%d apps can read notifications</item>
         <item quantity="one">%d app can read notifications</item>
     </plurals>
+    <plurals name="print_search_result_count_utterance">
+        <item quantity="other">%1$s printers found</item>
+        <item quantity="one">%1$s printer found</item>
+    </plurals>
     <plurals name="lock_timeout_minutes">
         <item quantity="other">%d minutes</item>
         <item quantity="one">1 minute</item>
@@ -39,6 +43,14 @@
     <plurals name="lock_timeout_seconds">
         <item quantity="other">%d seconds</item>
         <item quantity="one">1 second</item>
+    </plurals>
+    <plurals name="update_duration_hours">
+        <item quantity="other">%d hours</item>
+        <item quantity="one">1 hour</item>
+    </plurals>
+    <plurals name="update_duration_minutes">
+        <item quantity="other">%d minutes</item>
+        <item quantity="one">1 minute</item>
     </plurals>
     <plurals name="torchlight_timeout_minutes">
         <item quantity="other">%d minutes</item>

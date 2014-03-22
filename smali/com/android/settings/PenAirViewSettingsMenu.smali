@@ -6,10 +6,22 @@
 .implements Landroid/preference/Preference$OnPreferenceChangeListener;
 
 
+# static fields
+.field private static mActionBarLayout:Landroid/view/View;
+
+.field private static mActionBarSwitch:Landroid/widget/Switch;
+
+.field private static mActivity:Landroid/app/Activity;
+
+.field private static mPenAirViewEnabler:Lcom/android/settings/PenAirViewEnabler;
+
+
 # instance fields
 .field private mAirViewDialog:Landroid/app/AlertDialog;
 
 .field private mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
+
+.field private final mPenAirViewObserver:Landroid/database/ContentObserver;
 
 .field private mResolver:Landroid/content/ContentResolver;
 
@@ -28,26 +40,48 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 39
+    .line 47
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 91
+    .line 103
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
+    .line 104
+    new-instance v0, Lcom/android/settings/PenAirViewSettingsMenu$1;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/settings/PenAirViewSettingsMenu$1;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewObserver:Landroid/database/ContentObserver;
+
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settings/PenAirViewSettingsMenu;)Landroid/preference/SwitchPreferenceScreen;
+.method static synthetic access$000(Lcom/android/settings/PenAirViewSettingsMenu;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 47
+    invoke-direct {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->updatePenAirViewSettingsMenu()V
+
+    return-void
+.end method
+
+.method static synthetic access$100(Lcom/android/settings/PenAirViewSettingsMenu;)Landroid/preference/SwitchPreferenceScreen;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 47
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
     return-object v0
@@ -61,10 +95,10 @@
 
     const/4 v4, 0x0
 
-    .line 161
+    .line 208
     const-string v3, "key_pen_pointer"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -72,24 +106,24 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 162
+    .line 209
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 163
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 210
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     iget-object v5, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v5}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 165
+    .line 212
     const-string v3, "key_pen_information_preview"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -97,15 +131,15 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 166
+    .line 213
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 168
+    .line 215
     const-string v3, "key_pen_progress_preview"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -113,15 +147,15 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 169
+    .line 216
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 171
+    .line 218
     const-string v3, "key_pen_speed_dial_preview"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -129,15 +163,15 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 172
+    .line 219
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 174
+    .line 224
     const-string v3, "key_pen_icon_label"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -145,15 +179,15 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 175
+    .line 225
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 177
+    .line 227
     const-string v3, "key_pen_list_scroll"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -161,15 +195,15 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 178
+    .line 228
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 180
+    .line 230
     const-string v3, "key_pen_sound_and_haptic_feedback"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/PenAirViewSettingsMenu;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v3}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -177,26 +211,54 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    .line 189
+    .line 238
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 239
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    iget-object v5, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3, v5}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 243
+    :cond_0
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_1
 
-    .line 190
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 244
+    :cond_1
     iget-boolean v3, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     sget v3, Lcom/android/settings/PenAirViewSettingsMenu;->mSettingValue:I
 
     const/4 v5, -0x1
 
-    if-eq v3, v5, :cond_0
+    if-eq v3, v5, :cond_2
 
-    .line 191
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 245
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -206,14 +268,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
-    .line 192
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getArguments()Landroid/os/Bundle;
+    .line 246
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 193
+    .line 247
     .local v0, extra_bundle:Landroid/os/Bundle;
     const-string v3, "extra_parent_preference_key"
 
@@ -221,13 +283,13 @@
 
     move-result-object v1
 
-    .line 194
+    .line 248
     .local v1, targetKey:Ljava/lang/String;
     sget v3, Lcom/android/settings/PenAirViewSettingsMenu;->mSettingValue:I
 
-    if-ne v3, v2, :cond_1
+    if-ne v3, v2, :cond_3
 
-    .line 195
+    .line 249
     .local v2, value:Z
     :goto_0
     const-string v3, "key_pen_pointer"
@@ -236,14 +298,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
-    .line 196
+    .line 250
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 197
+    .line 251
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -252,78 +314,26 @@
 
     invoke-virtual {p0, v3, v4}, Lcom/android/settings/PenAirViewSettingsMenu;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    .line 217
+    .line 271
     .end local v0           #extra_bundle:Landroid/os/Bundle;
     .end local v1           #targetKey:Ljava/lang/String;
     .end local v2           #value:Z
-    :cond_0
+    :cond_2
     :goto_1
     return-void
 
     .restart local v0       #extra_bundle:Landroid/os/Bundle;
     .restart local v1       #targetKey:Ljava/lang/String;
-    :cond_1
+    :cond_3
     move v2, v4
 
-    .line 194
+    .line 248
     goto :goto_0
 
-    .line 198
+    .line 252
     .restart local v2       #value:Z
-    :cond_2
-    const-string v3, "key_pen_information_preview"
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    .line 199
-    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    .line 200
-    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v3, v4}, Lcom/android/settings/PenAirViewSettingsMenu;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    .line 201
-    :cond_3
-    const-string v3, "key_pen_progress_preview"
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    .line 202
-    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    .line 203
-    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
-
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v3, v4}, Lcom/android/settings/PenAirViewSettingsMenu;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    .line 204
     :cond_4
-    const-string v3, "key_pen_speed_dial_preview"
+    const-string v3, "key_pen_information_preview"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -331,13 +341,13 @@
 
     if-eqz v3, :cond_5
 
-    .line 205
-    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+    .line 253
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 206
-    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+    .line 254
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -347,9 +357,9 @@
 
     goto :goto_1
 
-    .line 207
+    .line 255
     :cond_5
-    const-string v3, "key_pen_icon_label"
+    const-string v3, "key_pen_progress_preview"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -357,12 +367,64 @@
 
     if-eqz v3, :cond_6
 
-    .line 208
+    .line 256
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 257
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/settings/PenAirViewSettingsMenu;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    .line 258
+    :cond_6
+    const-string v3, "key_pen_speed_dial_preview"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    .line 259
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 260
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/settings/PenAirViewSettingsMenu;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    .line 261
+    :cond_7
+    const-string v3, "key_pen_icon_label"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    .line 262
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 209
+    .line 263
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -373,22 +435,22 @@
 
     goto :goto_1
 
-    .line 210
-    :cond_6
+    .line 264
+    :cond_8
     const-string v3, "key_pen_list_scroll"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
-    .line 211
+    .line 265
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v3, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 212
+    .line 266
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -409,14 +471,14 @@
 
     const/4 v7, 0x0
 
-    .line 221
+    .line 275
     const-string v8, "pen_hovering_information_preview"
 
     invoke-static {p0, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 222
+    .line 276
     .local v1, inforPreview:I
     const-string v8, "pen_hovering_progress_preview"
 
@@ -424,7 +486,7 @@
 
     move-result v3
 
-    .line 223
+    .line 277
     .local v3, progressPreview:I
     const-string v8, "pen_hovering_speed_dial_preview"
 
@@ -432,7 +494,7 @@
 
     move-result v5
 
-    .line 224
+    .line 278
     .local v5, speedDialPreview:I
     const-string v8, "pen_hovering_icon_label"
 
@@ -440,7 +502,7 @@
 
     move-result v0
 
-    .line 225
+    .line 279
     .local v0, iconLabel:I
     const-string v8, "pen_hovering_list_scroll"
 
@@ -448,7 +510,7 @@
 
     move-result v2
 
-    .line 226
+    .line 280
     .local v2, listScroll:I
     const-string v8, "pen_hovering_sound"
 
@@ -456,7 +518,7 @@
 
     move-result v4
 
-    .line 232
+    .line 290
     .local v4, soundHaptic:I
     or-int v8, v1, v3
 
@@ -484,38 +546,38 @@
     .parameter "preference"
 
     .prologue
-    .line 237
+    .line 295
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 238
+    .line 296
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 239
+    .line 297
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
-    .line 241
+    .line 299
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e65
+    const v1, 0x7f090f9e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -523,9 +585,9 @@
 
     const v1, 0x104000a
 
-    new-instance v2, Lcom/android/settings/PenAirViewSettingsMenu$2;
+    new-instance v2, Lcom/android/settings/PenAirViewSettingsMenu$3;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/PenAirViewSettingsMenu$2;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/PenAirViewSettingsMenu$3;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -533,9 +595,9 @@
 
     const/high16 v1, 0x104
 
-    new-instance v2, Lcom/android/settings/PenAirViewSettingsMenu$1;
+    new-instance v2, Lcom/android/settings/PenAirViewSettingsMenu$2;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/PenAirViewSettingsMenu$1;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/PenAirViewSettingsMenu$2;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -547,22 +609,123 @@
 
     iput-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
-    .line 254
+    .line 312
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 256
+    .line 314
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mAirViewDialog:Landroid/app/AlertDialog;
 
-    new-instance v1, Lcom/android/settings/PenAirViewSettingsMenu$3;
+    new-instance v1, Lcom/android/settings/PenAirViewSettingsMenu$4;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/PenAirViewSettingsMenu$3;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/PenAirViewSettingsMenu$4;-><init>(Lcom/android/settings/PenAirViewSettingsMenu;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 263
+    .line 321
     return-void
+.end method
+
+.method private updatePenAirViewSettingsMenu()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    .line 370
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "pen_hovering"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 371
+    .local v0, state:I
+    if-nez v0, :cond_0
+
+    .line 372
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 373
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 374
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 375
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 376
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 377
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 378
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 388
+    :goto_0
+    return-void
+
+    .line 380
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 381
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 382
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 383
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 384
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 385
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    .line 386
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    goto :goto_0
 .end method
 
 
@@ -572,10 +735,10 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 104
+    .line 125
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 105
+    .line 126
     return-void
 .end method
 
@@ -586,7 +749,7 @@
     .parameter "data"
 
     .prologue
-    .line 133
+    .line 180
     const-string v0, "PenAirViewSettings"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -619,34 +782,74 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 134
+    .line 181
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
     .parameter "savedInstanceState"
 
     .prologue
-    .line 95
+    .line 113
     const-string v0, "PenAirViewSettings"
 
     const-string v1, "onCreate() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 96
+    .line 114
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 98
-    const v0, 0x7f070067
+    .line 115
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenAirViewSettingsMenu;->addPreferencesFromResource(I)V
+    move-result-object v0
 
-    .line 99
+    sput-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    .line 116
+    sget-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/ActionBar;->getCustomView()Landroid/view/View;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarLayout:Landroid/view/View;
+
+    .line 117
+    new-instance v0, Landroid/widget/Switch;
+
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    invoke-direct {v0, v1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+
+    sput-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarSwitch:Landroid/widget/Switch;
+
+    .line 118
+    new-instance v0, Lcom/android/settings/PenAirViewEnabler;
+
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    sget-object v2, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/PenAirViewEnabler;-><init>(Landroid/content/Context;Landroid/widget/Switch;)V
+
+    sput-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewEnabler:Lcom/android/settings/PenAirViewEnabler;
+
+    .line 119
+    const v0, 0x7f070084
+
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
+
+    .line 120
     invoke-direct {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->initializeAllPreferences()V
 
-    .line 100
+    .line 121
     return-void
 .end method
 
@@ -654,17 +857,17 @@
     .locals 3
 
     .prologue
-    .line 123
+    .line 168
     const-string v0, "PenAirViewSettings"
 
     const-string v1, "onPause() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 124
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 169
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 125
+    .line 170
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
 
     invoke-static {v0}, Lcom/android/settings/PenAirViewSettingsMenu;->isAllOptionDisabled(Landroid/content/ContentResolver;)Z
@@ -673,12 +876,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 126
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getActivity()Landroid/app/Activity;
+    .line 171
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090e29
+    const v1, 0x7f090f62
 
     const/4 v2, 0x0
 
@@ -688,8 +891,22 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 129
+    .line 174
     :cond_0
+    sget-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewEnabler:Lcom/android/settings/PenAirViewEnabler;
+
+    invoke-virtual {v0}, Lcom/android/settings/PenAirViewEnabler;->pause()V
+
+    .line 175
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    .line 176
     return-void
 .end method
 
@@ -703,7 +920,7 @@
 
     const/4 v4, 0x1
 
-    .line 268
+    .line 326
     move-object v3, p2
 
     check-cast v3, Ljava/lang/Boolean;
@@ -716,15 +933,15 @@
 
     move v2, v4
 
-    .line 270
+    .line 328
     .local v2, value:I
     :goto_0
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_2
 
-    .line 271
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 329
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -732,7 +949,7 @@
 
     invoke-static {v3, v5, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 291
+    .line 349
     .end local p2
     :cond_0
     :goto_1
@@ -743,18 +960,18 @@
     :cond_1
     move v2, v5
 
-    .line 268
+    .line 326
     goto :goto_0
 
-    .line 272
+    .line 330
     .restart local v2       #value:I
     :cond_2
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_5
 
-    .line 273
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 331
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -768,7 +985,7 @@
 
     move v0, v4
 
-    .line 275
+    .line 333
     .local v0, airButtonState:Z
     :goto_2
     check-cast p2, Ljava/lang/Boolean;
@@ -778,13 +995,13 @@
 
     move-result v1
 
-    .line 277
+    .line 335
     .local v1, isChecked:Z
     if-nez v1, :cond_4
 
     if-ne v0, v4, :cond_4
 
-    .line 278
+    .line 336
     invoke-direct {p0, p1}, Lcom/android/settings/PenAirViewSettingsMenu;->showAirViewDialog(Landroid/preference/Preference;)V
 
     goto :goto_1
@@ -795,15 +1012,15 @@
     :cond_3
     move v0, v5
 
-    .line 273
+    .line 331
     goto :goto_2
 
-    .line 280
+    .line 338
     .end local p2
     .restart local v0       #airButtonState:Z
     .restart local v1       #isChecked:Z
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -813,7 +1030,7 @@
 
     goto :goto_1
 
-    .line 282
+    .line 340
     .end local v0           #airButtonState:Z
     .end local v1           #isChecked:Z
     .restart local p2
@@ -822,8 +1039,8 @@
 
     if-ne p1, v3, :cond_6
 
-    .line 283
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 341
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -833,14 +1050,14 @@
 
     goto :goto_1
 
-    .line 284
+    .line 342
     :cond_6
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_7
 
-    .line 285
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 343
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -850,14 +1067,14 @@
 
     goto :goto_1
 
-    .line 286
+    .line 344
     :cond_7
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_8
 
-    .line 287
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 345
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -867,14 +1084,14 @@
 
     goto :goto_1
 
-    .line 288
+    .line 346
     :cond_8
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
 
     if-ne p1, v3, :cond_0
 
-    .line 289
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 347
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
@@ -895,36 +1112,43 @@
 
     const/4 v2, 0x1
 
-    .line 138
+    .line 185
     const-string v4, "PenAirViewSettings"
 
     const-string v5, "onPreferenceTreeClick() "
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 140
+    .line 187
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_0
 
-    .line 141
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 188
+    :cond_0
     iget-boolean v4, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 142
+    .line 189
     sget v4, Lcom/android/settings/PenAirViewSettingsMenu;->mSettingValue:I
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_1
 
-    .line 143
+    .line 190
     sget v4, Lcom/android/settings/PenAirViewSettingsMenu;->mSettingValue:I
 
-    if-ne v4, v2, :cond_2
+    if-ne v4, v2, :cond_3
 
     move v1, v2
 
@@ -932,34 +1156,34 @@
     :goto_0
     move-object v0, p2
 
-    .line 144
+    .line 191
     check-cast v0, Landroid/preference/CheckBoxPreference;
 
-    .line 145
+    .line 192
     .local v0, checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    invoke-virtual {v0}, Landroid/preference/CheckBoxPreference;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/preference/Preference;->isEnabled()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 146
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    .line 193
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 152
+    .line 199
     .end local v0           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
     .end local v1           #value:Z
-    :cond_0
+    :cond_1
     iget-object v4, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
 
     invoke-virtual {p2, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    .line 153
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 200
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
@@ -967,61 +1191,172 @@
 
     iget-object v6, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v6}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v6}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     :goto_1
     invoke-static {v4, v5, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 156
-    :cond_1
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    .line 203
+    :cond_2
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v2
 
     return v2
 
-    :cond_2
+    :cond_3
     move v1, v3
 
-    .line 143
+    .line 190
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v2, v3
 
-    .line 153
+    .line 200
     goto :goto_1
 .end method
 
 .method public onResume()V
-    .locals 2
+    .locals 8
 
     .prologue
-    .line 109
-    const-string v0, "PenAirViewSettings"
+    const/16 v3, 0x10
 
-    const-string v1, "onResume() "
+    const/4 v7, 0x1
 
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v6, -0x2
 
-    .line 110
+    const/4 v5, 0x0
+
+    .line 130
+    const-string v1, "PenAirViewSettings"
+
+    const-string v2, "onResume() "
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 131
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 111
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->getContentResolver()Landroid/content/ContentResolver;
+    .line 132
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
+    iput-object v1, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
 
-    .line 112
+    .line 133
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    instance-of v1, v1, Landroid/preference/PreferenceActivity;
+
+    if-eqz v1, :cond_0
+
+    .line 134
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0f0034
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    .line 136
+    .local v0, padding:I
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v1, v5, v5, v0, v5}, Landroid/widget/TextView;->setPadding(IIII)V
+
+    .line 137
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3, v3}, Landroid/app/ActionBar;->setDisplayOptions(II)V
+
+    .line 139
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarSwitch:Landroid/widget/Switch;
+
+    new-instance v3, Landroid/app/ActionBar$LayoutParams;
+
+    const/16 v4, 0x15
+
+    invoke-direct {v3, v6, v6, v4}, Landroid/app/ActionBar$LayoutParams;-><init>(III)V
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
+
+    .line 143
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewEnabler:Lcom/android/settings/PenAirViewEnabler;
+
+    sget-object v2, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/PenAirViewEnabler;->setSwitch(Landroid/widget/Switch;)V
+
+    .line 145
+    .end local v0           #padding:I
+    :cond_0
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarLayout:Landroid/view/View;
+
+    if-eqz v1, :cond_1
+
+    .line 146
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarLayout:Landroid/view/View;
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
+
+    .line 147
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v7}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
+
+    .line 149
+    :cond_1
+    sget-object v1, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewEnabler:Lcom/android/settings/PenAirViewEnabler;
+
+    invoke-virtual {v1}, Lcom/android/settings/PenAirViewEnabler;->resume()V
+
+    .line 150
     invoke-virtual {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->updateState()V
 
-    .line 113
+    .line 151
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "pen_hovering"
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewObserver:Landroid/database/ContentObserver;
+
+    invoke-virtual {v1, v2, v7, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    .line 153
     return-void
 .end method
 
@@ -1029,17 +1364,48 @@
     .locals 2
 
     .prologue
-    .line 117
+    .line 157
     const-string v0, "PenAirViewSettings"
 
     const-string v1, "onStrop() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 118
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    .line 158
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
-    .line 119
+    .line 159
+    sget-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mPenAirViewEnabler:Lcom/android/settings/PenAirViewEnabler;
+
+    invoke-virtual {v0}, Lcom/android/settings/PenAirViewEnabler;->stop()V
+
+    .line 160
+    sget-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarLayout:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    .line 161
+    sget-object v0, Lcom/android/settings/PenAirViewSettingsMenu;->mActionBarLayout:Landroid/view/View;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 162
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
+
+    .line 164
+    :cond_0
     return-void
 .end method
 
@@ -1051,7 +1417,7 @@
 
     const/4 v2, 0x0
 
-    .line 295
+    .line 353
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenPointer:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1067,9 +1433,9 @@
     move v0, v1
 
     :goto_0
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 297
+    .line 355
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenInformationPreview:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1085,9 +1451,9 @@
     move v0, v1
 
     :goto_1
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 299
+    .line 357
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenProgresspreview:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1103,9 +1469,9 @@
     move v0, v1
 
     :goto_2
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 301
+    .line 359
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenSpeedDialPreview:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1121,9 +1487,9 @@
     move v0, v1
 
     :goto_3
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 303
+    .line 361
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenIconLabel:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1139,9 +1505,9 @@
     move v0, v1
 
     :goto_4
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 305
+    .line 363
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mSwitchPrefPenListScroll:Landroid/preference/SwitchPreferenceScreen;
 
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1157,9 +1523,9 @@
     move v0, v1
 
     :goto_5
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v3, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 307
+    .line 365
     iget-object v0, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mCheckPrefPenSoundNHapticFeedback:Landroid/preference/CheckBoxPreference;
 
     iget-object v3, p0, Lcom/android/settings/PenAirViewSettingsMenu;->mResolver:Landroid/content/ContentResolver;
@@ -1173,50 +1539,53 @@
     if-eqz v3, :cond_6
 
     :goto_6
-    invoke-virtual {v0, v1}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 309
+    .line 367
+    invoke-direct {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->updatePenAirViewSettingsMenu()V
+
+    .line 368
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 295
+    .line 353
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 297
+    .line 355
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 299
+    .line 357
     goto :goto_2
 
     :cond_3
     move v0, v2
 
-    .line 301
+    .line 359
     goto :goto_3
 
     :cond_4
     move v0, v2
 
-    .line 303
+    .line 361
     goto :goto_4
 
     :cond_5
     move v0, v2
 
-    .line 305
+    .line 363
     goto :goto_5
 
     :cond_6
     move v1, v2
 
-    .line 307
+    .line 365
     goto :goto_6
 .end method

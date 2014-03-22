@@ -103,7 +103,7 @@
 
     iput-object v0, p0, Lcom/android/settings/nearby/NearbySettings;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 494
+    .line 500
     new-instance v0, Lcom/android/settings/nearby/NearbySettings$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/nearby/NearbySettings$2;-><init>(Lcom/android/settings/nearby/NearbySettings;)V
@@ -185,7 +185,7 @@
 
     .prologue
     .line 35
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->openSearchDetailMenu()V
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->openSearchDetailMenu()V
 
     return-void
 .end method
@@ -225,18 +225,18 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 296
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mDownloadTo:Lcom/android/settings/nearby/DownloadListPreference;
 
     iget-object v2, p0, Lcom/android/settings/nearby/NearbySettings;->mDownloadTo:Lcom/android/settings/nearby/DownloadListPreference;
 
-    invoke-virtual {v2}, Lcom/android/settings/nearby/DownloadListPreference;->getEntry()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/preference/ListPreference;->getEntry()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/nearby/DownloadListPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/preference/ListPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 297
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mDownloadFrom:Landroid/preference/ListPreference;
@@ -286,7 +286,7 @@
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 300
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -310,7 +310,7 @@
     :try_start_0
     iget-boolean v2, p0, Lcom/android/settings/nearby/NearbySettings;->bRegisterReceiver:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     .line 323
     iget-object v2, p0, Lcom/android/settings/nearby/NearbySettings;->mContext:Landroid/content/Context;
@@ -356,11 +356,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_0
 
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
     iget-boolean v2, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-ne v2, v6, :cond_0
+    if-ne v2, v6, :cond_1
 
     .line 332
     iget-object v2, p0, Lcom/android/settings/nearby/NearbySettings;->mContext:Landroid/content/Context;
@@ -376,7 +383,7 @@
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 337
-    :cond_0
+    :cond_1
     new-instance v1, Landroid/content/IntentFilter;
 
     const-string v2, "android.intent.action.MEDIA_UNMOUNTED"
@@ -425,7 +432,7 @@
 
     .line 350
     .end local v1           #intentFilter:Landroid/content/IntentFilter;
-    :cond_1
+    :cond_2
     :goto_0
     return-void
 
@@ -604,7 +611,7 @@
     invoke-static {v2, v3, v4}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 312
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -700,7 +707,7 @@
     invoke-static {v1, v4, v5}, Lcom/android/settings/nearby/DLog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 104
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->getPreferenceManager()Landroid/preference/PreferenceManager;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
     move-result-object v1
 
@@ -709,16 +716,16 @@
     invoke-virtual {v1, v4}, Landroid/preference/PreferenceManager;->setSharedPreferencesName(Ljava/lang/String;)V
 
     .line 105
-    const v1, 0x7f07000f
+    const v1, 0x7f070015
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 106
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -733,7 +740,7 @@
     :try_start_0
     const-string v1, "allshare_device_name"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -746,12 +753,12 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 119
     const-string v1, "allshare_shared_contents"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -762,14 +769,14 @@
     .line 120
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mSharedContents:Landroid/preference/MultiSelectListPreference;
 
-    const v4, 0x7f040151
+    const v4, 0x7f040187
 
-    invoke-virtual {v1, v4}, Landroid/preference/MultiSelectListPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 122
     const-string v1, "allshare_download_to"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -780,14 +787,14 @@
     .line 123
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mDownloadTo:Lcom/android/settings/nearby/DownloadListPreference;
 
-    const v4, 0x7f040151
+    const v4, 0x7f040187
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/nearby/DownloadListPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 125
     const-string v1, "allshare_download_from"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -798,14 +805,14 @@
     .line 126
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mDownloadFrom:Landroid/preference/ListPreference;
 
-    const v4, 0x7f040151
+    const v4, 0x7f040187
 
-    invoke-virtual {v1, v4}, Landroid/preference/ListPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 128
     const-string v1, "allshare_accept_device"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -816,26 +823,26 @@
     .line 129
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mAcceptDevice:Lcom/android/settings/nearby/AcceptListPreference;
 
-    const v4, 0x7f040151
+    const v4, 0x7f040187
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/nearby/AcceptListPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 130
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mAcceptDevice:Lcom/android/settings/nearby/AcceptListPreference;
 
-    const v4, 0x7f090f5c
+    const v4, 0x7f091096
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/nearby/AcceptListPreference;->setPositiveButtonText(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/DialogPreference;->setPositiveButtonText(I)V
 
     .line 131
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mAcceptDevice:Lcom/android/settings/nearby/AcceptListPreference;
 
-    invoke-virtual {v1, p0}, Lcom/android/settings/nearby/AcceptListPreference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
     .line 133
     const-string v1, "allshare_reject_device"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/nearby/NearbySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v1}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v1
 
@@ -846,21 +853,21 @@
     .line 134
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mRejectDevice:Lcom/android/settings/nearby/RejectListPreference;
 
-    const v4, 0x7f040151
+    const v4, 0x7f040187
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/nearby/RejectListPreference;->setWidgetLayoutResource(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
     .line 135
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mRejectDevice:Lcom/android/settings/nearby/RejectListPreference;
 
-    const v4, 0x7f090f5c
+    const v4, 0x7f091096
 
-    invoke-virtual {v1, v4}, Lcom/android/settings/nearby/RejectListPreference;->setPositiveButtonText(I)V
+    invoke-virtual {v1, v4}, Landroid/preference/DialogPreference;->setPositiveButtonText(I)V
 
     .line 136
     iget-object v1, p0, Lcom/android/settings/nearby/NearbySettings;->mRejectDevice:Lcom/android/settings/nearby/RejectListPreference;
 
-    invoke-virtual {v1, p0}, Lcom/android/settings/nearby/RejectListPreference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
+    invoke-virtual {v1, p0}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -904,7 +911,7 @@
 
     .line 158
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -948,20 +955,20 @@
 
     move-result-object v1
 
-    const v4, 0x7f090f5e
+    const v4, 0x7f091098
 
-    invoke-virtual {p0, v4}, Lcom/android/settings/nearby/NearbySettings;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
     invoke-virtual {v1, v4}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 166
-    invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -975,7 +982,7 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v3, v1, v4, v13, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v1, v4, v13, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 169
     invoke-virtual {v2}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -1045,7 +1052,7 @@
     invoke-virtual {v1, v4}, Lcom/android/settings/nearby/RejectListPreference;->setEnabler(Lcom/android/settings/nearby/NearbyEnabler;)V
 
     .line 189
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -1114,7 +1121,7 @@
     invoke-static {v1, v4, v5}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 140
-    invoke-virtual {v11}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -1150,7 +1157,7 @@
     invoke-static {v1, v4, v5}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 154
-    invoke-virtual {v11}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_1
 
@@ -1188,7 +1195,7 @@
     invoke-static {v1, v4, v5}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 180
-    invoke-virtual {v11}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_2
 .end method
@@ -1231,7 +1238,7 @@
     .line 220
     :cond_1
     :goto_0
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
 
     .line 221
     return-void
@@ -1267,7 +1274,7 @@
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 217
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1301,7 +1308,7 @@
     .local v0, intentFlag:Landroid/content/Intent;
     const-string v1, "FLAG"
 
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -1328,7 +1335,7 @@
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 272
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 273
     return-void
@@ -1343,7 +1350,7 @@
 
     const/4 v7, 0x0
 
-    .line 519
+    .line 525
     const-string v8, "NearbySettings"
 
     const-string v9, "onPreferenceClick"
@@ -1354,7 +1361,7 @@
 
     invoke-static {v8, v9, v10}, Lcom/android/settings/nearby/DLog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 523
+    .line 529
     :try_start_0
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
@@ -1380,7 +1387,7 @@
 
     if-eqz v8, :cond_2
 
-    .line 526
+    .line 532
     :cond_0
     invoke-virtual {p1}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
@@ -1394,7 +1401,7 @@
 
     if-eqz v8, :cond_1
 
-    .line 527
+    .line 533
     const-string v8, "NearbySettings"
 
     const-string v9, "onPreferenceClick"
@@ -1403,51 +1410,51 @@
 
     invoke-static {v8, v9, v10}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 528
+    .line 534
     iget-object v8, p0, Lcom/android/settings/nearby/NearbySettings;->mAcceptDevice:Lcom/android/settings/nearby/AcceptListPreference;
 
-    invoke-virtual {v8}, Lcom/android/settings/nearby/AcceptListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v8}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     check-cast v1, Landroid/app/AlertDialog;
 
-    .line 530
+    .line 536
     .local v1, dialog:Landroid/app/AlertDialog;
     if-eqz v1, :cond_1
 
-    .line 531
+    .line 537
     const/4 v8, -0x1
 
     invoke-virtual {v1, v8}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v5
 
-    .line 532
+    .line 538
     .local v5, positiveButton:Landroid/widget/Button;
     const/4 v8, 0x0
 
-    invoke-virtual {v5, v8}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v5, v8}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 534
+    .line 540
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v4
 
-    .line 536
+    .line 542
     .local v4, listView:Landroid/widget/ListView;
     if-eqz v4, :cond_1
 
-    .line 537
+    .line 543
     new-instance v3, Lcom/android/settings/nearby/ListItemListener;
 
     invoke-direct {v3, v5}, Lcom/android/settings/nearby/ListItemListener;-><init>(Landroid/widget/Button;)V
 
-    .line 538
+    .line 544
     .local v3, listItemListener:Lcom/android/settings/nearby/ListItemListener;
-    invoke-virtual {v4, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v4, v3}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 540
+    .line 546
     new-instance v0, Lcom/android/settings/nearby/DeleteButtonListener;
 
     iget-object v8, p0, Lcom/android/settings/nearby/NearbySettings;->mContext:Landroid/content/Context;
@@ -1456,11 +1463,11 @@
 
     invoke-direct {v0, v3, v1, v8, v9}, Lcom/android/settings/nearby/DeleteButtonListener;-><init>(Lcom/android/settings/nearby/ListItemListener;Landroid/app/Dialog;Landroid/content/Context;Z)V
 
-    .line 542
+    .line 548
     .local v0, deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
-    invoke-virtual {v5, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 546
+    .line 552
     .end local v0           #deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
     .end local v1           #dialog:Landroid/app/AlertDialog;
     .end local v3           #listItemListener:Lcom/android/settings/nearby/ListItemListener;
@@ -1479,7 +1486,7 @@
 
     if-eqz v8, :cond_2
 
-    .line 547
+    .line 553
     const-string v8, "NearbySettings"
 
     const-string v9, "onPreferenceClick"
@@ -1488,51 +1495,51 @@
 
     invoke-static {v8, v9, v10}, Lcom/android/settings/nearby/DLog;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 548
+    .line 554
     iget-object v8, p0, Lcom/android/settings/nearby/NearbySettings;->mRejectDevice:Lcom/android/settings/nearby/RejectListPreference;
 
-    invoke-virtual {v8}, Lcom/android/settings/nearby/RejectListPreference;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {v8}, Landroid/preference/DialogPreference;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 
     check-cast v1, Landroid/app/AlertDialog;
 
-    .line 550
+    .line 556
     .restart local v1       #dialog:Landroid/app/AlertDialog;
     if-eqz v1, :cond_2
 
-    .line 551
+    .line 557
     const/4 v8, -0x1
 
     invoke-virtual {v1, v8}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v5
 
-    .line 552
+    .line 558
     .restart local v5       #positiveButton:Landroid/widget/Button;
     const/4 v8, 0x0
 
-    invoke-virtual {v5, v8}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v5, v8}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 554
+    .line 560
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v4
 
-    .line 556
+    .line 562
     .restart local v4       #listView:Landroid/widget/ListView;
     if-eqz v4, :cond_2
 
-    .line 557
+    .line 563
     new-instance v3, Lcom/android/settings/nearby/ListItemListener;
 
     invoke-direct {v3, v5}, Lcom/android/settings/nearby/ListItemListener;-><init>(Landroid/widget/Button;)V
 
-    .line 558
+    .line 564
     .restart local v3       #listItemListener:Lcom/android/settings/nearby/ListItemListener;
-    invoke-virtual {v4, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v4, v3}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 560
+    .line 566
     new-instance v0, Lcom/android/settings/nearby/DeleteButtonListener;
 
     iget-object v8, p0, Lcom/android/settings/nearby/NearbySettings;->mContext:Landroid/content/Context;
@@ -1541,13 +1548,13 @@
 
     invoke-direct {v0, v3, v1, v8, v9}, Lcom/android/settings/nearby/DeleteButtonListener;-><init>(Lcom/android/settings/nearby/ListItemListener;Landroid/app/Dialog;Landroid/content/Context;Z)V
 
-    .line 562
+    .line 568
     .restart local v0       #deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
-    invoke-virtual {v5, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 575
+    .line 581
     .end local v0           #deletebuttonlistener:Lcom/android/settings/nearby/DeleteButtonListener;
     .end local v1           #dialog:Landroid/app/AlertDialog;
     .end local v3           #listItemListener:Lcom/android/settings/nearby/ListItemListener;
@@ -1557,11 +1564,11 @@
     :goto_0
     return v6
 
-    .line 569
+    .line 575
     :catch_0
     move-exception v2
 
-    .line 570
+    .line 576
     .local v2, e:Ljava/lang/Exception;
     const-string v6, "NearbySettings"
 
@@ -1587,12 +1594,12 @@
 
     invoke-static {v6, v8, v9}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 571
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    .line 577
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     move v6, v7
 
-    .line 572
+    .line 578
     goto :goto_0
 .end method
 
@@ -1622,11 +1629,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_0
 
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_0
     iget-boolean v3, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
-    if-ne v3, v7, :cond_0
+    if-ne v3, v7, :cond_1
 
     .line 228
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getArrayLinkKey()Ljava/util/ArrayList;
@@ -1635,13 +1649,13 @@
 
     .line 229
     .local v2, searchKey:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-virtual {v2, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 230
     invoke-virtual {v2, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1652,7 +1666,7 @@
 
     iget-object v4, p0, Lcom/android/settings/nearby/NearbySettings;->mAcceptDevice:Lcom/android/settings/nearby/AcceptListPreference;
 
-    invoke-virtual {v4}, Lcom/android/settings/nearby/AcceptListPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1660,7 +1674,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
     .line 231
     iget-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
@@ -1675,7 +1689,7 @@
 
     .line 245
     .end local v2           #searchKey:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :cond_0
+    :cond_1
     :goto_0
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
@@ -1698,7 +1712,7 @@
     .local v1, intentFlag:Landroid/content/Intent;
     const-string v3, "FLAG"
 
-    invoke-virtual {p0}, Lcom/android/settings/nearby/NearbySettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1727,19 +1741,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_2
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
 
     .line 257
+    :cond_2
     iput-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
 
     .line 259
-    :cond_1
+    :cond_3
     return-void
 
     .line 234
     .end local v1           #intentFlag:Landroid/content/Intent;
     .restart local v2       #searchKey:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :cond_2
+    :cond_4
     invoke-virtual {v2, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1748,7 +1769,7 @@
 
     iget-object v4, p0, Lcom/android/settings/nearby/NearbySettings;->mRejectDevice:Lcom/android/settings/nearby/RejectListPreference;
 
-    invoke-virtual {v4}, Lcom/android/settings/nearby/RejectListPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1756,7 +1777,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5
 
     .line 235
     iget-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
@@ -1772,7 +1793,7 @@
     goto :goto_0
 
     .line 238
-    :cond_3
+    :cond_5
     invoke-virtual {v2, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1781,7 +1802,7 @@
 
     iget-object v4, p0, Lcom/android/settings/nearby/NearbySettings;->mSharedContents:Landroid/preference/MultiSelectListPreference;
 
-    invoke-virtual {v4}, Landroid/preference/MultiSelectListPreference;->getKey()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1789,7 +1810,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 239
     iget-boolean v0, p0, Lcom/android/settings/SettingsPreferenceFragment;->mOpenDetailMenu:Z
@@ -1822,7 +1843,7 @@
     invoke-static {v0, v1, v2}, Lcom/android/settings/nearby/DLog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 278
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     .line 279
     return-void

@@ -35,7 +35,7 @@
     .parameter
 
     .prologue
-    .line 639
+    .line 698
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$5;->this$0:Lcom/android/settings/DataUsageSummary;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -50,7 +50,7 @@
     .parameter "x0"
 
     .prologue
-    .line 639
+    .line 698
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -66,13 +66,13 @@
     .parameter "params"
 
     .prologue
-    .line 644
+    .line 703
     const-wide/16 v0, 0x7d0
 
     :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
-    .line 645
+    .line 704
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$5;->this$0:Lcom/android/settings/DataUsageSummary;
 
     #getter for: Lcom/android/settings/DataUsageSummary;->mStatsService:Landroid/net/INetworkStatsService;
@@ -85,19 +85,19 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 649
+    .line 708
     :goto_0
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 647
+    .line 706
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 646
+    .line 705
     :catch_1
     move-exception v0
 
@@ -109,7 +109,7 @@
     .parameter "x0"
 
     .prologue
-    .line 639
+    .line 698
     check-cast p1, Ljava/lang/Void;
 
     .end local p1
@@ -123,22 +123,22 @@
     .parameter "result"
 
     .prologue
-    .line 654
+    .line 713
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$5;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-virtual {v0}, Lcom/android/settings/DataUsageSummary;->isAdded()Z
+    invoke-virtual {v0}, Landroid/app/Fragment;->isAdded()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 655
+    .line 714
     iget-object v0, p0, Lcom/android/settings/DataUsageSummary$5;->this$0:Lcom/android/settings/DataUsageSummary;
 
     #calls: Lcom/android/settings/DataUsageSummary;->updateBody()V
     invoke-static {v0}, Lcom/android/settings/DataUsageSummary;->access$400(Lcom/android/settings/DataUsageSummary;)V
 
-    .line 657
+    .line 716
     :cond_0
     return-void
 .end method

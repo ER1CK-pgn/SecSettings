@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 621
+    .line 669
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$17;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 623
+    .line 671
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$17;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->afterAttentionDialog()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->access$700(Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;)V
 
-    .line 624
+    .line 672
     return-void
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 696
+    .line 780
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$6;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,26 +42,26 @@
     .parameter "arg0"
 
     .prologue
-    .line 701
+    .line 785
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$6;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     iget-object v2, p0, Lcom/android/settings/NotificationPanelMenu$6;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-virtual {v2}, Lcom/android/settings/NotificationPanelMenu;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0914b5
+    const v2, 0x7f09160b
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0914b6
+    const v2, 0x7f09160c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -92,18 +92,18 @@
     move-result-object v1
 
     #setter for: Lcom/android/settings/NotificationPanelMenu;->mAlertDialog:Landroid/app/AlertDialog;
-    invoke-static {v0, v1}, Lcom/android/settings/NotificationPanelMenu;->access$1102(Lcom/android/settings/NotificationPanelMenu;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Lcom/android/settings/NotificationPanelMenu;->access$1202(Lcom/android/settings/NotificationPanelMenu;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    .line 718
+    .line 802
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$6;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #getter for: Lcom/android/settings/NotificationPanelMenu;->mAlertDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/settings/NotificationPanelMenu;->access$1100(Lcom/android/settings/NotificationPanelMenu;)Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/android/settings/NotificationPanelMenu;->access$1200(Lcom/android/settings/NotificationPanelMenu;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 719
+    .line 803
     return-void
 .end method

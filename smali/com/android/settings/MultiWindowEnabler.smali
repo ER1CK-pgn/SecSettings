@@ -27,7 +27,7 @@
     .locals 2
 
     .prologue
-    .line 34
+    .line 37
     new-instance v0, Landroid/text/TextUtils$SimpleStringSplitter;
 
     const/16 v1, 0x3a
@@ -47,21 +47,21 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 44
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 47
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
+    .line 29
     iput-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    .line 28
+    .line 31
     iput-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mHeader:Landroid/preference/PreferenceActivity$Header;
 
-    .line 30
+    .line 33
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/MultiWindowEnabler;->mPosition:I
 
-    .line 36
+    .line 39
     new-instance v0, Lcom/android/settings/MultiWindowEnabler$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -72,13 +72,13 @@
 
     iput-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mMultiWindowObserver:Landroid/database/ContentObserver;
 
-    .line 45
+    .line 48
     iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
-    .line 46
+    .line 49
     iput-object p2, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    .line 47
+    .line 50
     return-void
 .end method
 
@@ -87,7 +87,7 @@
     .parameter "x0"
 
     .prologue
-    .line 18
+    .line 21
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -98,7 +98,7 @@
     .parameter "x0"
 
     .prologue
-    .line 18
+    .line 21
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
     return-object v0
@@ -109,7 +109,7 @@
     .parameter "x0"
 
     .prologue
-    .line 18
+    .line 21
     invoke-direct {p0}, Lcom/android/settings/MultiWindowEnabler;->removeEnabledScreenReaderValue()V
 
     return-void
@@ -119,7 +119,7 @@
     .locals 6
 
     .prologue
-    .line 110
+    .line 117
     iget-object v4, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -132,22 +132,22 @@
 
     move-result-object v3
 
-    .line 113
+    .line 120
     .local v3, enabledServicesSetting:Ljava/lang/String;
     if-nez v3, :cond_0
 
-    .line 114
+    .line 121
     const-string v3, ""
 
-    .line 117
+    .line 124
     :cond_0
     sget-object v0, Lcom/android/settings/MultiWindowEnabler;->sStringColonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
 
-    .line 119
+    .line 126
     .local v0, colonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-virtual {v0, v3}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
-    .line 121
+    .line 128
     :cond_1
     invoke-virtual {v0}, Landroid/text/TextUtils$SimpleStringSplitter;->hasNext()Z
 
@@ -155,22 +155,22 @@
 
     if-eqz v4, :cond_2
 
-    .line 122
+    .line 129
     invoke-virtual {v0}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 123
+    .line 130
     .local v1, componentNameString:Ljava/lang/String;
     invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v2
 
-    .line 125
+    .line 132
     .local v2, enabledService:Landroid/content/ComponentName;
     if-eqz v2, :cond_1
 
-    .line 126
+    .line 133
     const-string v4, "com.google.android.marvin.talkback"
 
     invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -183,10 +183,10 @@
 
     if-eqz v4, :cond_1
 
-    .line 127
+    .line 134
     const/4 v4, 0x1
 
-    .line 130
+    .line 137
     .end local v1           #componentNameString:Ljava/lang/String;
     .end local v2           #enabledService:Landroid/content/ComponentName;
     :goto_0
@@ -202,7 +202,7 @@
     .locals 7
 
     .prologue
-    .line 172
+    .line 179
     iget-object v4, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -215,7 +215,7 @@
 
     move-result-object v3
 
-    .line 175
+    .line 182
     .local v3, enabledServicesSetting:Ljava/lang/String;
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
@@ -223,25 +223,25 @@
 
     if-eqz v4, :cond_0
 
-    .line 194
+    .line 201
     :goto_0
     return-void
 
-    .line 178
+    .line 185
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 179
+    .line 186
     .local v0, builder:Ljava/lang/StringBuilder;
     sget-object v1, Lcom/android/settings/MultiWindowEnabler;->sStringColonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
 
-    .line 180
+    .line 187
     .local v1, colonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-virtual {v1, v3}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
-    .line 182
+    .line 189
     :cond_1
     :goto_1
     invoke-virtual {v1}, Landroid/text/TextUtils$SimpleStringSplitter;->hasNext()Z
@@ -250,12 +250,12 @@
 
     if-eqz v4, :cond_3
 
-    .line 183
+    .line 190
     invoke-virtual {v1}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 185
+    .line 192
     .local v2, componentNameString:Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
@@ -263,12 +263,12 @@
 
     if-lez v4, :cond_2
 
-    .line 186
+    .line 193
     const/16 v4, 0x3a
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 189
+    .line 196
     :cond_2
     if-eqz v2, :cond_1
 
@@ -280,12 +280,12 @@
 
     if-nez v4, :cond_1
 
-    .line 190
+    .line 197
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 193
+    .line 200
     .end local v2           #componentNameString:Ljava/lang/String;
     :cond_3
     iget-object v4, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
@@ -309,20 +309,20 @@
     .locals 3
 
     .prologue
-    .line 134
+    .line 141
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090cb7
+    const v1, 0x7f090dd1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090cb6
+    const v1, 0x7f090dd0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -364,7 +364,7 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 169
+    .line 176
     return-void
 .end method
 
@@ -378,25 +378,25 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 79
+    .line 82
     invoke-direct {p0}, Lcom/android/settings/MultiWindowEnabler;->isEnabledScreenReaderService()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 80
+    .line 83
     if-eqz p2, :cond_0
 
-    .line 81
+    .line 84
     invoke-direct {p0}, Lcom/android/settings/MultiWindowEnabler;->showTalkBackDisablePopup()V
 
-    .line 87
+    .line 90
     :cond_0
     :goto_0
     return-void
 
-    .line 84
+    .line 87
     :cond_1
     iget-object v1, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
@@ -423,7 +423,7 @@
     .locals 2
 
     .prologue
-    .line 62
+    .line 65
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -434,14 +434,14 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 63
+    .line 66
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 64
+    .line 67
     return-void
 .end method
 
@@ -449,15 +449,15 @@
     .locals 4
 
     .prologue
-    .line 55
+    .line 58
     invoke-virtual {p0}, Lcom/android/settings/MultiWindowEnabler;->updateSwitch()V
 
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 57
+    .line 60
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -476,7 +476,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 59
+    .line 62
     return-void
 .end method
 
@@ -486,13 +486,13 @@
     .parameter "position"
 
     .prologue
-    .line 50
+    .line 53
     iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler;->mHeader:Landroid/preference/PreferenceActivity$Header;
 
-    .line 51
+    .line 54
     iput p2, p0, Lcom/android/settings/MultiWindowEnabler;->mPosition:I
 
-    .line 52
+    .line 55
     return-void
 .end method
 
@@ -501,33 +501,33 @@
     .parameter "switch_"
 
     .prologue
-    .line 67
+    .line 70
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
     if-ne v0, p1, :cond_0
 
-    .line 75
+    .line 78
     :goto_0
     return-void
 
-    .line 70
+    .line 73
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 71
-    iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
-
-    .line 72
-    invoke-virtual {p0}, Lcom/android/settings/MultiWindowEnabler;->updateSwitch()V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 74
+    iput-object p1, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
+
+    .line 75
+    invoke-virtual {p0}, Lcom/android/settings/MultiWindowEnabler;->updateSwitch()V
+
+    .line 77
     iget-object v0, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method
@@ -536,11 +536,11 @@
     .locals 7
 
     .prologue
-    const/4 v4, 0x0
-
     const/4 v3, 0x1
 
-    .line 90
+    const/4 v4, 0x0
+
+    .line 93
     iget-object v5, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -553,11 +553,11 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1
 
     move v0, v3
 
-    .line 92
+    .line 95
     .local v0, bAccessControlDisabled:Z
     :goto_0
     iget-object v5, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
@@ -572,11 +572,11 @@
 
     move-result v5
 
-    if-ne v5, v3, :cond_1
+    if-ne v5, v3, :cond_2
 
     move v1, v3
 
-    .line 95
+    .line 98
     .local v1, bBasicMode:Z
     :goto_1
     iget-object v5, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
@@ -591,67 +591,86 @@
 
     move-result v2
 
-    .line 98
+    .line 101
     .local v2, state:I
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    .line 99
+    .line 102
     iget-object v5, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_3
 
     :goto_2
     invoke-virtual {v5, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 105
+    .line 108
     :goto_3
+    iget-object v3, p0, Lcom/android/settings/MultiWindowEnabler;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Landroid/app/enterprise/kioskmode/KioskMode;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/kioskmode/KioskMode;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/enterprise/kioskmode/KioskMode;->isMultiWindowModeAllowed()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 109
+    iget-object v3, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 112
+    :cond_0
     return-void
 
     .end local v0           #bAccessControlDisabled:Z
     .end local v1           #bBasicMode:Z
     .end local v2           #state:I
-    :cond_0
+    :cond_1
     move v0, v4
 
-    .line 90
+    .line 93
     goto :goto_0
 
     .restart local v0       #bAccessControlDisabled:Z
-    :cond_1
+    :cond_2
     move v1, v4
 
-    .line 92
+    .line 95
     goto :goto_1
 
     .restart local v1       #bBasicMode:Z
     .restart local v2       #state:I
-    :cond_2
+    :cond_3
     move v3, v4
 
-    .line 99
+    .line 102
     goto :goto_2
 
-    .line 101
-    :cond_3
+    .line 104
+    :cond_4
     iget-object v5, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_5
 
     :goto_4
     invoke-virtual {v5, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 102
+    .line 105
     iget-object v3, p0, Lcom/android/settings/MultiWindowEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v4}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_3
 
-    :cond_4
+    :cond_5
     move v3, v4
 
-    .line 101
+    .line 104
     goto :goto_4
 .end method

@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/settings/Utils$LengthFilter;,
         Lcom/android/settings/Utils$ApInfo;
     }
 .end annotation
@@ -26,11 +27,15 @@
 
 .field private static final USER_DRAWABLES:[I
 
+.field private static fileDefaultPath:Ljava/io/File;
+
 .field private static filePath:Ljava/io/File;
 
 .field private static flagForDefaultAp:Z
 
 .field private static mApInfo:[Lcom/android/settings/Utils$ApInfo;
+
+.field private static mBatteryLowState:Z
 
 .field public static mDeviceType:Ljava/lang/String;
 
@@ -39,6 +44,10 @@
 .field private static mFeatureChecked:Z
 
 .field private static mFeatureEnabled:Z
+
+.field private static mLowMemoryState:Z
+
+.field private static mRoamingState:Z
 
 
 # direct methods
@@ -50,7 +59,7 @@
 
     const/4 v2, 0x0
 
-    .line 128
+    .line 142
     const-string v0, "ro.debuggable"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -64,7 +73,7 @@
     :goto_0
     sput-boolean v0, Lcom/android/settings/Utils;->DBG:Z
 
-    .line 178
+    .line 192
     const/16 v0, 0x8
 
     new-array v0, v0, [I
@@ -73,37 +82,37 @@
 
     sput-object v0, Lcom/android/settings/Utils;->USER_DRAWABLES:[I
 
-    .line 189
+    .line 203
     sput-boolean v2, Lcom/android/settings/Utils;->mFeatureChecked:Z
 
-    .line 190
+    .line 204
     sput-boolean v2, Lcom/android/settings/Utils;->mFeatureEnabled:Z
 
-    .line 1412
+    .line 1868
     sput-boolean v2, Lcom/android/settings/Utils;->flagForDefaultAp:Z
 
-    .line 1576
+    .line 2078
     sput v2, Lcom/android/settings/Utils;->PEN_AIR_VIEW_MODE:I
 
-    .line 1577
+    .line 2079
     sput v1, Lcom/android/settings/Utils;->FINGER_AIR_VIEW_MODE:I
 
-    .line 1578
+    .line 2080
     const/4 v0, 0x2
 
     sput v0, Lcom/android/settings/Utils;->AUTO_AIR_VIEW_MODE:I
 
-    .line 1579
+    .line 2081
     const/4 v0, 0x3
 
     sput v0, Lcom/android/settings/Utils;->MASTER_AIR_VIEW_OFF:I
 
-    .line 1580
+    .line 2082
     const/4 v0, 0x4
 
     sput v0, Lcom/android/settings/Utils;->MASTER_AIR_VIEW_ON:I
 
-    .line 1686
+    .line 2202
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/settings/Utils;->mExistCoverNotePackage:Ljava/lang/Boolean;
@@ -113,22 +122,22 @@
     :cond_0
     move v0, v2
 
-    .line 128
+    .line 142
     goto :goto_0
 
-    .line 178
+    .line 192
     nop
 
     :array_0
     .array-data 0x4
-        0x3ft 0x0t 0x2t 0x7ft
-        0x40t 0x0t 0x2t 0x7ft
-        0x41t 0x0t 0x2t 0x7ft
-        0x42t 0x0t 0x2t 0x7ft
-        0x43t 0x0t 0x2t 0x7ft
-        0x44t 0x0t 0x2t 0x7ft
-        0x45t 0x0t 0x2t 0x7ft
-        0x46t 0x0t 0x2t 0x7ft
+        0x48t 0x0t 0x2t 0x7ft
+        0x49t 0x0t 0x2t 0x7ft
+        0x4at 0x0t 0x2t 0x7ft
+        0x4bt 0x0t 0x2t 0x7ft
+        0x4ct 0x0t 0x2t 0x7ft
+        0x4dt 0x0t 0x2t 0x7ft
+        0x4et 0x0t 0x2t 0x7ft
+        0x4ft 0x0t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -136,10 +145,10 @@
     .locals 0
 
     .prologue
-    .line 108
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 122
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1498
+    .line 1981
     return-void
 .end method
 
@@ -147,14 +156,14 @@
     .locals 2
 
     .prologue
-    .line 1395
+    .line 1836
     const-string v0, "ro.csc.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1396
+    .line 1837
     if-eqz v0, :cond_1
 
     const-string v1, "MAX"
@@ -195,94 +204,102 @@
 
     const/4 v2, 0x0
 
-    .line 1583
+    .line 2085
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1584
+    .line 2086
     packed-switch p1, :pswitch_data_0
 
-    .line 1608
+    .line 2112
+    :cond_0
     :goto_0
     return-void
 
-    .line 1586
+    .line 2088
     :pswitch_0
     const-string v1, "pen_hovering"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1587
+    .line 2089
     const-string v1, "finger_air_view"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 
-    .line 1590
+    .line 2092
     :pswitch_1
     const-string v1, "pen_hovering"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1591
+    .line 2093
     const-string v1, "finger_air_view"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 
-    .line 1594
+    .line 2096
     :pswitch_2
     const-string v1, "pen_hovering"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1595
+    .line 2097
     const-string v1, "finger_air_view"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 
-    .line 1598
+    .line 2100
     :pswitch_3
     const-string v1, "air_view_master_onoff"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1599
+    .line 2101
+    invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 2102
     const-string v1, "pen_hovering"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1600
+    .line 2103
     const-string v1, "finger_air_view"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 
-    .line 1603
+    .line 2107
     :pswitch_4
     const-string v1, "air_view_master_onoff"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1604
+    .line 2108
     const-string v1, "air_view_mode"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 1605
+    .line 2109
     invoke-static {p0, v0}, Lcom/android/settings/Utils;->SetAirViewMasterValue(Landroid/content/Context;I)V
 
     goto :goto_0
 
-    .line 1584
+    .line 2086
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -293,17 +310,83 @@
     .end packed-switch
 .end method
 
-.method public static autoTurnOffMotionEngine(Landroid/content/Context;)V
-    .locals 27
+.method public static autoTurnOffAirMotionEngine(Landroid/content/Context;)V
+    .locals 4
     .parameter "context"
 
     .prologue
-    .line 561
+    const/4 v3, 0x0
+
+    .line 802
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 804
+    .local v0, mResolver:Landroid/content/ContentResolver;
+    const/4 v2, 0x1
+
+    invoke-static {p0, v2}, Lcom/android/settings/Utils;->isAllAirMotionDisabled2014(Landroid/content/Context;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "air_motion_call_accept"
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string v2, "master_motion"
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 806
+    :cond_0
+    const-string v2, "air_motion_engine"
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 807
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.sec.gesture.AIR_MOTION_SETTINGS_CHANGED"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 808
+    .local v1, motion_changed:Landroid/content/Intent;
+    const-string v2, "isEnable"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 809
+    invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 811
+    .end local v1           #motion_changed:Landroid/content/Intent;
+    :cond_1
+    return-void
+.end method
+
+.method public static autoTurnOffMotionEngine(Landroid/content/Context;)V
+    .locals 28
+    .parameter "context"
+
+    .prologue
+    .line 725
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
-    .line 562
+    .line 726
     .local v9, mResolver:Landroid/content/ContentResolver;
     new-instance v8, Lcom/android/internal/widget/LockPatternUtils;
 
@@ -311,364 +394,374 @@
 
     invoke-direct {v8, v0}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    .line 563
+    .line 727
     .local v8, mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
-    invoke-static/range {v25 .. v25}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+    invoke-static/range {v26 .. v26}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
 
     move-result v6
 
-    .line 564
+    .line 728
     .local v6, isTablet:Z
     invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
 
     move-result v7
 
-    .line 566
+    .line 730
     .local v7, isVoiceCapable:Z
     const/4 v3, 0x0
 
-    .line 567
+    .line 731
     .local v3, detail_motion:I
-    const-string v25, "master_motion"
+    const-string v26, "master_motion"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v25
+    move-result v26
 
-    const/16 v26, 0x1
+    const/16 v27, 0x1
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     if-ne v0, v1, :cond_0
 
-    .line 568
-    const-string v25, "motion_zooming"
+    .line 732
+    const-string v26, "motion_zooming"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v26
-
-    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v23
-
-    .line 570
-    .local v23, tiltZoom:I
-    const/16 v22, 0x0
-
-    .line 572
-    .local v22, tiltScroll:I
-    const/4 v14, 0x0
-
-    .line 574
-    .local v14, panMove:I
-    const-string v25, "motion_pan_to_browse_image"
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v26
-
-    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v13
-
-    .line 576
-    .local v13, panBrowse:I
-    const/16 v19, 0x0
-
-    .line 578
-    .local v19, shake:I
-    const/4 v5, 0x0
-
-    .line 580
-    .local v5, doubleTap:I
-    if-nez v7, :cond_3
-
-    const-string v25, "motion_pick_up"
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v26
-
-    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v21
-
-    .line 582
-    .local v21, smartAlert:I
-    :goto_0
-    if-nez v6, :cond_4
-
-    const-string v25, "motion_pick_up_to_call_out"
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v26
-
-    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    .line 584
-    .local v4, directCall:I
-    :goto_1
-    if-nez v6, :cond_5
-
-    const-string v25, "motion_overturn"
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v24
 
-    .line 586
-    .local v24, turnover:I
-    :goto_2
-    const/16 v17, 0x0
+    .line 734
+    .local v24, tiltZoom:I
+    const/16 v23, 0x0
 
-    .line 588
-    .local v17, peekViewAlbumsList:I
-    const/16 v16, 0x0
+    .line 736
+    .local v23, tiltScroll:I
+    const/4 v15, 0x0
 
-    .line 591
-    .local v16, peekChapterPreview:I
-    or-int v25, v23, v22
+    .line 738
+    .local v15, panMove:I
+    const-string v26, "motion_pan_to_browse_image"
 
-    or-int v25, v25, v14
+    const/16 v27, 0x0
 
-    or-int v25, v25, v13
+    move-object/from16 v0, v26
 
-    or-int v25, v25, v19
+    move/from16 v1, v27
 
-    or-int v25, v25, v5
+    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    or-int v25, v25, v21
+    move-result v14
 
-    or-int v25, v25, v4
-
-    or-int v25, v25, v24
-
-    or-int v25, v25, v17
-
-    or-int v3, v25, v16
-
-    .line 594
-    .end local v4           #directCall:I
-    .end local v5           #doubleTap:I
-    .end local v13           #panBrowse:I
-    .end local v14           #panMove:I
-    .end local v16           #peekChapterPreview:I
-    .end local v17           #peekViewAlbumsList:I
-    .end local v19           #shake:I
-    .end local v21           #smartAlert:I
-    .end local v22           #tiltScroll:I
-    .end local v23           #tiltZoom:I
-    .end local v24           #turnover:I
-    :cond_0
-    const/4 v10, 0x0
-
-    .line 596
-    .local v10, motionUnlock:I
-    const/4 v2, 0x0
-
-    .line 599
-    .local v2, CameraQuickAccess:I
+    .line 740
+    .local v14, panBrowse:I
     const/16 v20, 0x0
 
-    .line 600
-    .local v20, side_motion:I
-    const-string v25, "master_side_motion"
+    .line 742
+    .local v20, shake:I
+    const/4 v5, 0x0
 
-    const/16 v26, 0x0
+    .line 744
+    .local v5, doubleTap:I
+    if-nez v7, :cond_3
 
-    move-object/from16 v0, v25
+    const-string v26, "motion_pick_up"
 
-    move/from16 v1, v26
+    const/16 v27, 0x0
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, v27
+
+    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v22
+
+    .line 746
+    .local v22, smartAlert:I
+    :goto_0
+    if-nez v6, :cond_4
+
+    const-string v26, "motion_pick_up_to_call_out"
+
+    const/16 v27, 0x0
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, v27
+
+    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    .line 748
+    .local v4, directCall:I
+    :goto_1
+    const/4 v12, 0x1
+
+    .line 750
+    .local v12, mute_pause:I
+    if-nez v6, :cond_5
+
+    const-string v26, "motion_overturn"
+
+    const/16 v27, 0x0
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, v27
 
     invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v25
 
-    const/16 v26, 0x1
+    .line 752
+    .local v25, turnover:I
+    :goto_2
+    and-int v25, v25, v12
 
-    move/from16 v0, v25
+    .line 753
+    const/16 v18, 0x0
 
-    move/from16 v1, v26
+    .line 755
+    .local v18, peekViewAlbumsList:I
+    const/16 v17, 0x0
+
+    .line 758
+    .local v17, peekChapterPreview:I
+    or-int v26, v24, v23
+
+    or-int v26, v26, v15
+
+    or-int v26, v26, v14
+
+    or-int v26, v26, v20
+
+    or-int v26, v26, v5
+
+    or-int v26, v26, v22
+
+    or-int v26, v26, v4
+
+    or-int v26, v26, v25
+
+    or-int v26, v26, v18
+
+    or-int v3, v26, v17
+
+    .line 761
+    .end local v4           #directCall:I
+    .end local v5           #doubleTap:I
+    .end local v12           #mute_pause:I
+    .end local v14           #panBrowse:I
+    .end local v15           #panMove:I
+    .end local v17           #peekChapterPreview:I
+    .end local v18           #peekViewAlbumsList:I
+    .end local v20           #shake:I
+    .end local v22           #smartAlert:I
+    .end local v23           #tiltScroll:I
+    .end local v24           #tiltZoom:I
+    .end local v25           #turnover:I
+    :cond_0
+    const/4 v10, 0x0
+
+    .line 763
+    .local v10, motionUnlock:I
+    const/4 v2, 0x0
+
+    .line 766
+    .local v2, CameraQuickAccess:I
+    const/16 v21, 0x0
+
+    .line 767
+    .local v21, side_motion:I
+    const-string v26, "master_side_motion"
+
+    const/16 v27, 0x0
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, v27
+
+    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v26
+
+    const/16 v27, 0x1
+
+    move/from16 v0, v26
+
+    move/from16 v1, v27
 
     if-ne v0, v1, :cond_1
 
-    .line 601
-    const-string v25, "side_motion_one_hand_operation"
+    .line 768
+    const-string v26, "side_motion_one_hand_operation"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v26
-
-    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v12
-
-    .line 602
-    .local v12, oneHandOperation:I
-    const-string v25, "side_motion_peek"
-
-    const/16 v26, 0x0
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v15
+    move-result v13
 
-    .line 604
-    .local v15, peek:I
-    or-int v20, v12, v15
+    .line 769
+    .local v13, oneHandOperation:I
+    const-string v26, "side_motion_peek"
 
-    .line 606
-    .end local v12           #oneHandOperation:I
-    .end local v15           #peek:I
+    const/16 v27, 0x0
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, v27
+
+    invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v16
+
+    .line 771
+    .local v16, peek:I
+    or-int v21, v13, v16
+
+    .line 773
+    .end local v13           #oneHandOperation:I
+    .end local v16           #peek:I
     :cond_1
-    or-int v25, v3, v10
+    or-int v26, v3, v10
 
-    or-int v25, v25, v2
+    or-int v26, v26, v2
 
-    or-int v25, v25, v20
+    or-int v26, v26, v21
 
-    const/16 v26, 0x1
+    const/16 v27, 0x1
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     if-ge v0, v1, :cond_6
 
-    const/16 v18, 0x1
+    const/16 v19, 0x1
 
-    .line 608
-    .local v18, result:Z
+    .line 775
+    .local v19, result:Z
     :goto_3
-    if-eqz v18, :cond_2
+    if-eqz v19, :cond_2
 
-    .line 609
-    const-string v25, "MotionSettings"
+    .line 776
+    const-string v26, "MotionSettings"
 
-    const-string v26, "Utils.autoTurnOffMotionEngine turn off Motion engine!"
+    const-string v27, "Utils.autoTurnOffMotionEngine turn off Motion engine!"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v26 .. v27}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 610
-    const-string v25, "motion_engine"
+    .line 777
+    const-string v26, "motion_engine"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     invoke-static {v9, v0, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 611
+    .line 778
     new-instance v11, Landroid/content/Intent;
 
-    const-string v25, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
+    const-string v26, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     invoke-direct {v11, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 612
+    .line 779
     .local v11, motion_changed:Landroid/content/Intent;
-    const-string v25, "isEnable"
+    const-string v26, "isEnable"
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
-    move/from16 v1, v26
+    move/from16 v1, v27
 
     invoke-virtual {v11, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 613
+    .line 780
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v11}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 615
+    .line 782
     .end local v11           #motion_changed:Landroid/content/Intent;
     :cond_2
     return-void
 
-    .line 580
+    .line 744
     .end local v2           #CameraQuickAccess:I
     .end local v10           #motionUnlock:I
-    .end local v18           #result:Z
-    .end local v20           #side_motion:I
+    .end local v19           #result:Z
+    .end local v21           #side_motion:I
     .restart local v5       #doubleTap:I
-    .restart local v13       #panBrowse:I
-    .restart local v14       #panMove:I
-    .restart local v19       #shake:I
-    .restart local v22       #tiltScroll:I
-    .restart local v23       #tiltZoom:I
+    .restart local v14       #panBrowse:I
+    .restart local v15       #panMove:I
+    .restart local v20       #shake:I
+    .restart local v23       #tiltScroll:I
+    .restart local v24       #tiltZoom:I
     :cond_3
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
     goto/16 :goto_0
 
-    .line 582
-    .restart local v21       #smartAlert:I
+    .line 746
+    .restart local v22       #smartAlert:I
     :cond_4
     const/4 v4, 0x0
 
     goto/16 :goto_1
 
-    .line 584
+    .line 750
     .restart local v4       #directCall:I
+    .restart local v12       #mute_pause:I
     :cond_5
-    const/16 v24, 0x0
+    const/16 v25, 0x0
 
     goto/16 :goto_2
 
-    .line 606
+    .line 773
     .end local v4           #directCall:I
     .end local v5           #doubleTap:I
-    .end local v13           #panBrowse:I
-    .end local v14           #panMove:I
-    .end local v19           #shake:I
-    .end local v21           #smartAlert:I
-    .end local v22           #tiltScroll:I
-    .end local v23           #tiltZoom:I
+    .end local v12           #mute_pause:I
+    .end local v14           #panBrowse:I
+    .end local v15           #panMove:I
+    .end local v20           #shake:I
+    .end local v22           #smartAlert:I
+    .end local v23           #tiltScroll:I
+    .end local v24           #tiltZoom:I
     .restart local v2       #CameraQuickAccess:I
     .restart local v10       #motionUnlock:I
-    .restart local v20       #side_motion:I
+    .restart local v21       #side_motion:I
     :cond_6
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     goto :goto_3
 .end method
@@ -680,20 +773,20 @@
     .parameter
 
     .prologue
-    .line 1138
+    .line 1503
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1139
+    .line 1504
     invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1140
-    const v1, 0x7f090b0b
+    .line 1505
+    const v1, 0x7f090bf7
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 1141
+    .line 1506
     const v1, 0x104000a
 
     new-instance v2, Lcom/android/settings/Utils$2;
@@ -702,14 +795,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 1147
+    .line 1512
     const/high16 v1, 0x104
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 1149
+    .line 1514
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -717,34 +810,80 @@
     return-object v0
 .end method
 
+.method public static checkPackageState(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 5
+    .parameter "context"
+    .parameter "pkgName"
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 2298
+    const/4 v1, 0x0
+
+    .line 2301
+    .local v1, info:Landroid/content/pm/PackageInfo;
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, p1, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    .line 2302
+    if-eqz v1, :cond_0
+
+    .line 2303
+    const/4 v2, 0x1
+
+    .line 2308
+    :cond_0
+    :goto_0
+    return v2
+
+    .line 2307
+    :catch_0
+    move-exception v0
+
+    .line 2308
+    .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    goto :goto_0
+.end method
+
 .method public static convertStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
     .locals 6
     .parameter "is"
 
     .prologue
-    .line 1374
+    .line 1815
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 1376
+    .line 1817
     .local v0, baos:Ljava/io/ByteArrayOutputStream;
     :try_start_0
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v2
 
-    .line 1377
+    .line 1818
     .local v2, i:I
     :goto_0
     const/4 v3, -0x1
 
     if-eq v2, v3, :cond_0
 
-    .line 1378
+    .line 1819
     invoke-virtual {v0, v2}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    .line 1379
+    .line 1820
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -754,14 +893,14 @@
 
     goto :goto_0
 
-    .line 1385
+    .line 1826
     :cond_0
     :try_start_1
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1390
+    .line 1831
     .end local v2           #i:I
     :goto_1
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toString()Ljava/lang/String;
@@ -770,16 +909,16 @@
 
     return-object v3
 
-    .line 1386
+    .line 1827
     .restart local v2       #i:I
     :catch_0
     move-exception v1
 
-    .line 1387
+    .line 1828
     .local v1, e:Ljava/io/IOException;
     const-string v3, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -787,18 +926,18 @@
 
     goto :goto_1
 
-    .line 1381
+    .line 1822
     .end local v1           #e:Ljava/io/IOException;
     .end local v2           #i:I
     :catch_1
     move-exception v1
 
-    .line 1382
+    .line 1823
     .restart local v1       #e:Ljava/io/IOException;
     :try_start_2
     const-string v3, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -806,7 +945,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1385
+    .line 1826
     :try_start_3
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
     :try_end_3
@@ -814,14 +953,14 @@
 
     goto :goto_1
 
-    .line 1386
+    .line 1827
     :catch_2
     move-exception v1
 
-    .line 1387
+    .line 1828
     const-string v3, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -829,30 +968,30 @@
 
     goto :goto_1
 
-    .line 1384
+    .line 1825
     .end local v1           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v3
 
-    .line 1385
+    .line 1826
     :try_start_4
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    .line 1388
+    .line 1829
     :goto_2
     throw v3
 
-    .line 1386
+    .line 1827
     :catch_3
     move-exception v1
 
-    .line 1387
+    .line 1828
     .restart local v1       #e:Ljava/io/IOException;
     const-string v4, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -862,118 +1001,153 @@
 .end method
 
 .method public static copyMeProfilePhoto(Landroid/content/Context;Landroid/content/pm/UserInfo;)Z
-    .locals 9
-    .parameter "context"
-    .parameter "user"
+    .locals 6
+    .parameter
+    .parameter
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v2, 0x1
 
-    .line 1036
-    sget-object v2, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
+    .line 1383
+    sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 1038
-    .local v2, contactUri:Landroid/net/Uri;
+    .line 1385
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v7
-
-    invoke-static {v7, v2, v6}, Landroid/provider/ContactsContract$Contacts;->openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;Z)Ljava/io/InputStream;
-
-    move-result-object v0
-
-    .line 1042
-    .local v0, avatarDataStream:Ljava/io/InputStream;
-    if-eqz p1, :cond_0
-
-    iget v5, p1, Landroid/content/pm/UserInfo;->id:I
-
-    .line 1043
-    .local v5, userId:I
-    :goto_0
-    const-string v7, "user"
-
-    invoke-virtual {p0, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/os/UserManager;
-
-    .line 1045
-    .local v4, um:Landroid/os/UserManager;
-    if-nez v0, :cond_1
-
-    .line 1046
-    const-string v6, "UserSettings"
-
-    const-string v7, "avatarDataStream is null so set default photo"
-
-    invoke-static {v6, v7}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1047
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    sget-object v7, Lcom/android/settings/Utils;->USER_DRAWABLES:[I
-
-    sget-object v8, Lcom/android/settings/Utils;->USER_DRAWABLES:[I
-
-    array-length v8, v8
-
-    rem-int v8, v5, v8
-
-    aget v7, v7, v8
-
-    invoke-static {v6, v7}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
-    .line 1049
-    .local v1, bitmap:Landroid/graphics/Bitmap;
-    invoke-virtual {v4, v5, v1}, Landroid/os/UserManager;->setUserIcon(ILandroid/graphics/Bitmap;)V
-
-    .line 1050
-    const/4 v6, 0x0
-
-    .line 1058
-    .end local v1           #bitmap:Landroid/graphics/Bitmap;
-    :goto_1
-    return v6
-
-    .line 1042
-    .end local v4           #um:Landroid/os/UserManager;
-    .end local v5           #userId:I
-    :cond_0
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v5
-
-    goto :goto_0
-
-    .line 1053
-    .restart local v4       #um:Landroid/os/UserManager;
-    .restart local v5       #userId:I
-    :cond_1
-    invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    invoke-static {v1, v0, v2}, Landroid/provider/ContactsContract$Contacts;->openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;Z)Ljava/io/InputStream;
 
     move-result-object v3
 
-    .line 1054
-    .local v3, icon:Landroid/graphics/Bitmap;
-    invoke-virtual {v4, v5, v3}, Landroid/os/UserManager;->setUserIcon(ILandroid/graphics/Bitmap;)V
+    .line 1389
+    if-eqz p1, :cond_1
 
-    .line 1056
+    iget v0, p1, Landroid/content/pm/UserInfo;->id:I
+
+    move v1, v0
+
+    .line 1390
+    :goto_0
+    const-string v0, "user"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    .line 1392
+    if-nez v3, :cond_2
+
+    .line 1393
+    const-string v2, "UserSettings"
+
+    const-string v3, "avatarDataStream is null so set default photo"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1395
+    if-eqz v1, :cond_4
+
+    .line 1396
+    add-int/lit8 v2, v1, -0x1
+
+    .line 1397
+    :goto_1
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/android/settings/Utils;->USER_DRAWABLES:[I
+
+    sget-object v5, Lcom/android/settings/Utils;->USER_DRAWABLES:[I
+
+    array-length v5, v5
+
+    rem-int/2addr v2, v5
+
+    aget v2, v4, v2
+
+    invoke-static {v3, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    .line 1399
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    .line 1400
+    invoke-virtual {v2, v3}, Landroid/graphics/Bitmap;->sameAs(Landroid/graphics/Bitmap;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 1401
+    invoke-virtual {v0, v1, v2}, Landroid/os/UserManager;->setUserIcon(ILandroid/graphics/Bitmap;)V
+
+    .line 1402
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 1411
+    :goto_2
+    return v0
+
+    .line 1389
+    :cond_1
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    move v1, v0
+
+    goto :goto_0
+
+    .line 1404
+    :cond_2
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserIcon(I)Landroid/graphics/Bitmap;
+
+    move-result-object v4
+
+    .line 1405
+    invoke-static {v3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    .line 1406
+    invoke-virtual {v5, v4}, Landroid/graphics/Bitmap;->sameAs(Landroid/graphics/Bitmap;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    .line 1407
+    invoke-virtual {v0, v1, v5}, Landroid/os/UserManager;->setUserIcon(ILandroid/graphics/Bitmap;)V
+
+    .line 1409
+    :cond_3
     :try_start_0
-    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    :goto_3
+    move v0, v2
 
-    .line 1057
+    .line 1411
+    goto :goto_2
+
+    .line 1410
     :catch_0
-    move-exception v7
+    move-exception v0
+
+    goto :goto_3
+
+    :cond_4
+    move v2, v1
 
     goto :goto_1
 .end method
@@ -989,19 +1163,19 @@
 
     const/4 v3, 0x0
 
-    .line 923
+    .line 1255
     if-nez p0, :cond_0
 
-    .line 924
+    .line 1256
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
 
-    .line 932
+    .line 1264
     :goto_0
     return-object v1
 
-    .line 925
+    .line 1257
     :cond_0
     const-string v1, "_"
 
@@ -1011,13 +1185,13 @@
 
     move-result-object v0
 
-    .line 927
+    .line 1259
     .local v0, brokenDownLocale:[Ljava/lang/String;
     array-length v1, v0
 
     if-ne v4, v1, :cond_1
 
-    .line 928
+    .line 1260
     new-instance v1, Ljava/util/Locale;
 
     aget-object v2, v0, v3
@@ -1026,13 +1200,13 @@
 
     goto :goto_0
 
-    .line 929
+    .line 1261
     :cond_1
     array-length v1, v0
 
     if-ne v5, v1, :cond_2
 
-    .line 930
+    .line 1262
     new-instance v1, Ljava/util/Locale;
 
     aget-object v2, v0, v3
@@ -1043,7 +1217,7 @@
 
     goto :goto_0
 
-    .line 932
+    .line 1264
     :cond_2
     new-instance v1, Ljava/util/Locale;
 
@@ -1062,16 +1236,16 @@
     .locals 11
 
     .prologue
-    .line 498
+    .line 518
     const-string v3, "/data/misc/wifi/"
 
-    .line 500
+    .line 520
     .local v3, folder:Ljava/lang/String;
     new-instance v7, Ljava/io/File;
 
     invoke-direct {v7, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 501
+    .line 521
     .local v7, scanFile:Ljava/io/File;
     new-instance v9, Lcom/android/settings/Utils$1;
 
@@ -1081,21 +1255,21 @@
 
     move-result-object v6
 
-    .line 512
+    .line 532
     .local v6, list:[Ljava/lang/String;
     if-nez v6, :cond_1
 
-    .line 531
+    .line 551
     :cond_0
     return-void
 
-    .line 515
+    .line 535
     :cond_1
     array-length v9, v6
 
     if-eqz v9, :cond_0
 
-    .line 521
+    .line 541
     move-object v0, v6
 
     .local v0, arr$:[Ljava/lang/String;
@@ -1110,7 +1284,7 @@
 
     aget-object v2, v0, v4
 
-    .line 522
+    .line 542
     .local v2, file:Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuffer;
 
@@ -1130,17 +1304,17 @@
 
     move-result-object v8
 
-    .line 528
+    .line 548
     .local v8, temp:Ljava/lang/String;
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 529
+    .line 549
     .local v1, deleteFile:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
-    .line 521
+    .line 541
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
@@ -1148,28 +1322,28 @@
 
 .method public static forcePrepareCustomPreferencesList(Landroid/view/ViewGroup;Landroid/view/View;Landroid/widget/ListView;Z)V
     .locals 1
-    .parameter "parent"
-    .parameter "child"
-    .parameter "list"
-    .parameter "ignoreSidePadding"
+    .parameter
+    .parameter
+    .parameter
+    .parameter
 
     .prologue
-    .line 976
+    .line 1323
     const/high16 v0, 0x200
 
-    invoke-virtual {p2, v0}, Landroid/widget/ListView;->setScrollBarStyle(I)V
+    invoke-virtual {p2, v0}, Landroid/widget/AbsListView;->setScrollBarStyle(I)V
 
-    .line 977
+    .line 1324
     const/4 v0, 0x0
 
-    invoke-virtual {p2, v0}, Landroid/widget/ListView;->setClipToPadding(Z)V
+    invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->setClipToPadding(Z)V
 
-    .line 978
+    .line 1325
     const/4 v0, 0x1
 
     invoke-static {p0, p1, p2, v0}, Lcom/android/settings/Utils;->prepareCustomPreferencesList(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Z)V
 
-    .line 979
+    .line 1326
     return-void
 .end method
 
@@ -1180,16 +1354,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 903
+    .line 1235
     if-nez p0, :cond_1
 
-    .line 913
+    .line 1245
     :cond_0
     return-object v0
 
-    .line 904
+    .line 1236
     :cond_1
-    invoke-virtual {p0}, Landroid/net/LinkProperties;->getAddresses()Ljava/util/Collection;
+    invoke-virtual {p0}, Landroid/net/LinkProperties;->getAllAddresses()Ljava/util/Collection;
 
     move-result-object v2
 
@@ -1197,7 +1371,7 @@
 
     move-result-object v1
 
-    .line 906
+    .line 1238
     .local v1, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/net/InetAddress;>;"
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1205,10 +1379,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 908
+    .line 1240
     const-string v0, ""
 
-    .line 909
+    .line 1241
     .local v0, addresses:Ljava/lang/String;
     :cond_2
     :goto_0
@@ -1218,7 +1392,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 910
+    .line 1242
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1245,7 +1419,7 @@
 
     move-result-object v0
 
-    .line 911
+    .line 1243
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -1260,7 +1434,7 @@
 
     move-result-object v2
 
-    const-string v3, ", "
+    const-string v3, "\n"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1273,228 +1447,220 @@
     goto :goto_0
 .end method
 
-.method public static getBatteryPercentage(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 4
-    .parameter "batteryChangedIntent"
+.method public static getBatteryLowState()Z
+    .locals 1
 
     .prologue
-    .line 937
-    const-string v2, "level"
+    .line 611
+    sget-boolean v0, Lcom/android/settings/Utils;->mBatteryLowState:Z
 
-    const/4 v3, 0x0
+    return v0
+.end method
 
-    invoke-virtual {p0, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+.method public static getBatteryPercentage(Landroid/content/Intent;)Ljava/lang/String;
+    .locals 3
+    .parameter
+
+    .prologue
+    .line 1273
+    const-string v0, "level"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 938
-    .local v0, level:I
-    const-string v2, "scale"
+    .line 1274
+    const-string v1, "scale"
 
-    const/16 v3, 0x64
+    const/16 v2, 0x64
 
-    invoke-virtual {p0, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 939
-    .local v1, scale:I
+    .line 1275
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    mul-int/lit8 v3, v0, 0x64
+    mul-int/lit8 v0, v0, 0x64
 
-    div-int/2addr v3, v1
+    div-int/2addr v0, v1
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "%"
+    const-string v1, "%"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public static getBatteryStatus(Landroid/content/res/Resources;Landroid/content/Intent;)Ljava/lang/String;
-    .locals 9
-    .parameter "res"
-    .parameter "batteryChangedIntent"
+    .locals 4
+    .parameter
+    .parameter
 
     .prologue
-    const/4 v8, 0x2
+    const/4 v3, 0x2
 
-    const/4 v7, 0x1
+    const/4 v2, 0x1
 
-    .line 943
-    move-object v0, p1
+    .line 1289
+    .line 1291
+    const-string v0, "plugged"
 
-    .line 945
-    .local v0, intent:Landroid/content/Intent;
-    const-string v5, "plugged"
+    const/4 v1, 0x0
 
-    const/4 v6, 0x0
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    move-result v0
+
+    .line 1292
+    const-string v1, "status"
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 946
-    .local v1, plugType:I
-    const-string v5, "status"
+    .line 1295
+    if-ne v1, v3, :cond_2
 
-    invoke-virtual {v0, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    .line 1296
+    const v1, 0x7f0900df
 
-    move-result v3
+    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    .line 948
-    .local v3, status:I
-    if-ne v3, v8, :cond_3
+    move-result-object v1
 
-    .line 949
-    const v5, 0x7f0900c0
+    .line 1297
+    if-lez v0, :cond_6
 
-    invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    .line 1299
+    if-ne v0, v2, :cond_0
 
-    move-result-object v4
+    .line 1300
+    const v0, 0x7f0900e0
 
-    .line 950
-    .local v4, statusString:Ljava/lang/String;
-    if-lez v1, :cond_0
-
-    .line 952
-    if-ne v1, v7, :cond_1
-
-    .line 953
-    const v2, 0x7f0900c1
-
-    .line 959
-    .local v2, resId:I
+    .line 1306
     :goto_0
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string v6, " "
+    const-string v2, " "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    .line 971
-    .end local v2           #resId:I
-    :cond_0
+    .line 1318
     :goto_1
-    return-object v4
+    return-object v0
 
-    .line 954
+    .line 1301
+    :cond_0
+    if-ne v0, v3, :cond_1
+
+    .line 1302
+    const v0, 0x7f0900e1
+
+    goto :goto_0
+
+    .line 1304
     :cond_1
-    if-ne v1, v8, :cond_2
+    const v0, 0x7f0900e2
 
-    .line 955
-    const v2, 0x7f0900c2
-
-    .restart local v2       #resId:I
     goto :goto_0
 
-    .line 957
-    .end local v2           #resId:I
+    .line 1308
     :cond_2
-    const v2, 0x7f0900c3
+    const/4 v0, 0x3
 
-    .restart local v2       #resId:I
-    goto :goto_0
+    if-ne v1, v0, :cond_3
 
-    .line 961
-    .end local v2           #resId:I
-    .end local v4           #statusString:Ljava/lang/String;
+    .line 1309
+    const v0, 0x7f0900e3
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    .line 1310
     :cond_3
-    const/4 v5, 0x3
+    const/4 v0, 0x4
 
-    if-ne v3, v5, :cond_4
+    if-ne v1, v0, :cond_4
 
-    .line 962
-    const v5, 0x7f0900c4
+    .line 1311
+    const v0, 0x7f0900e4
 
-    invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    .restart local v4       #statusString:Ljava/lang/String;
     goto :goto_1
 
-    .line 963
-    .end local v4           #statusString:Ljava/lang/String;
+    .line 1312
     :cond_4
-    const/4 v5, 0x4
+    const/4 v0, 0x5
 
-    if-ne v3, v5, :cond_5
+    if-ne v1, v0, :cond_5
 
-    .line 964
-    const v5, 0x7f0900c5
+    .line 1313
+    const v0, 0x7f0900e5
 
-    invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    .restart local v4       #statusString:Ljava/lang/String;
     goto :goto_1
 
-    .line 965
-    .end local v4           #statusString:Ljava/lang/String;
+    .line 1315
     :cond_5
-    const/4 v5, 0x5
+    const v0, 0x7f0900de
 
-    if-ne v3, v5, :cond_6
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    .line 966
-    const v5, 0x7f0900c6
+    move-result-object v0
 
-    invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    .restart local v4       #statusString:Ljava/lang/String;
     goto :goto_1
 
-    .line 968
-    .end local v4           #statusString:Ljava/lang/String;
     :cond_6
-    const v5, 0x7f0900bf
+    move-object v0, v1
 
-    invoke-virtual {p0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    .restart local v4       #statusString:Ljava/lang/String;
     goto :goto_1
 .end method
 
@@ -1503,7 +1669,7 @@
     .parameter "context"
 
     .prologue
-    .line 896
+    .line 1228
     const-string v2, "connectivity"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1512,13 +1678,13 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 898
+    .line 1230
     .local v0, cm:Landroid/net/ConnectivityManager;
     invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveLinkProperties()Landroid/net/LinkProperties;
 
     move-result-object v1
 
-    .line 899
+    .line 1231
     .local v1, prop:Landroid/net/LinkProperties;
     invoke-static {v1}, Lcom/android/settings/Utils;->formatIpAddresses(Landroid/net/LinkProperties;)Ljava/lang/String;
 
@@ -1538,12 +1704,12 @@
 
     const/4 v4, 0x0
 
-    .line 1075
+    .line 1428
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1079
+    .line 1432
     sget-object v1, Landroid/provider/ContactsContract$Profile;->CONTENT_RAW_CONTACTS_URI:Landroid/net/Uri;
 
     new-array v2, v8, [Ljava/lang/String;
@@ -1560,15 +1726,15 @@
 
     move-result-object v1
 
-    .line 1085
+    .line 1438
     if-nez v1, :cond_1
 
-    .line 1115
+    .line 1468
     :cond_0
     :goto_0
     return-object v4
 
-    .line 1088
+    .line 1441
     :cond_1
     :try_start_0
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
@@ -1579,12 +1745,12 @@
 
     if-nez v2, :cond_2
 
-    .line 1093
+    .line 1446
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
-    .line 1091
+    .line 1444
     :cond_2
     const/4 v2, 0x0
 
@@ -1595,10 +1761,10 @@
 
     move-result-wide v5
 
-    .line 1093
+    .line 1446
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    .line 1097
+    .line 1450
     sget-object v1, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v1}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -1651,10 +1817,10 @@
 
     move-result-object v1
 
-    .line 1103
+    .line 1456
     if-eqz v1, :cond_0
 
-    .line 1106
+    .line 1459
     :try_start_2
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
     :try_end_2
@@ -1664,12 +1830,12 @@
 
     if-nez v0, :cond_3
 
-    .line 1115
+    .line 1468
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
-    .line 1093
+    .line 1446
     :catchall_0
     move-exception v0
 
@@ -1677,7 +1843,7 @@
 
     throw v0
 
-    .line 1109
+    .line 1462
     :cond_3
     const/4 v0, 0x0
 
@@ -1686,14 +1852,14 @@
 
     move-result-object v0
 
-    .line 1110
+    .line 1463
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_4
 
-    .line 1111
+    .line 1464
     const/4 v0, 0x1
 
     invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -1702,7 +1868,7 @@
 
     move-result-object v0
 
-    .line 1115
+    .line 1468
     :cond_4
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
@@ -1718,6 +1884,16 @@
     throw v0
 .end method
 
+.method public static getLowMemoryState()Z
+    .locals 1
+
+    .prologue
+    .line 700
+    sget-boolean v0, Lcom/android/settings/Utils;->mLowMemoryState:Z
+
+    return v0
+.end method
+
 .method public static getLteOnCdmaMode(Landroid/content/Context;)I
     .locals 3
     .parameter "context"
@@ -1725,7 +1901,7 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 540
+    .line 704
     const-string v2, "phone"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1734,7 +1910,7 @@
 
     check-cast v0, Landroid/telephony/TelephonyManager;
 
-    .line 541
+    .line 705
     .local v0, tm:Landroid/telephony/TelephonyManager;
     if-eqz v0, :cond_0
 
@@ -1744,7 +1920,7 @@
 
     if-ne v2, v1, :cond_1
 
-    .line 544
+    .line 708
     :cond_0
     :goto_0
     return v1
@@ -1757,34 +1933,36 @@
     goto :goto_0
 .end method
 
-.method public static getMeProfileName(Landroid/content/Context;Z)Ljava/lang/String;
+.method public static getMeProfileName(Landroid/content/Context;ZLandroid/content/pm/UserInfo;)Ljava/lang/String;
     .locals 1
     .parameter "context"
     .parameter "full"
+    .parameter "user"
 
     .prologue
-    .line 1062
+    .line 1415
     if-eqz p1, :cond_0
 
-    .line 1063
-    invoke-static {p0}, Lcom/android/settings/Utils;->getProfileDisplayName(Landroid/content/Context;)Ljava/lang/String;
+    .line 1416
+    invoke-static {p0, p2}, Lcom/android/settings/Utils;->getProfileDisplayName(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1065
+    .line 1418
     :goto_0
     return-object v0
 
     :cond_0
-    invoke-static {p0}, Lcom/android/settings/Utils;->getShorterNameIfPossible(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p0, p2}, Lcom/android/settings/Utils;->getShorterNameIfPossible(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method private static final getProfileDisplayName(Landroid/content/Context;)Ljava/lang/String;
+.method private static final getProfileDisplayName(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
     .locals 6
+    .parameter
     .parameter
 
     .prologue
@@ -1792,12 +1970,12 @@
 
     const/4 v3, 0x0
 
-    .line 1120
+    .line 1473
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1121
+    .line 1474
     sget-object v1, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v2, 0x1
@@ -1814,19 +1992,19 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v1
+    move-result-object v4
 
-    .line 1123
-    if-nez v1, :cond_0
+    .line 1476
+    if-nez v4, :cond_0
 
-    .line 1131
+    .line 1496
     :goto_0
     return-object v3
 
-    .line 1126
+    .line 1479
     :cond_0
     :try_start_0
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {v4}, Landroid/database/Cursor;->moveToFirst()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1834,31 +2012,107 @@
 
     if-nez v0, :cond_1
 
-    .line 1131
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    .line 1496
+    invoke-interface {v4}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
-    .line 1129
+    .line 1482
     :cond_1
+    :try_start_1
+    const-string v0, "user"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    .line 1483
+    if-eqz p1, :cond_3
+
+    iget v1, p1, Landroid/content/pm/UserInfo;->id:I
+
+    move v2, v1
+
+    .line 1485
+    :goto_1
+    const-string v1, "phone"
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/TelephonyManager;
+
+    .line 1486
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getLine1Number()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1487
+    if-eqz v1, :cond_2
+
+    .line 1488
+    const/4 v5, 0x0
+
+    invoke-interface {v4, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    .line 1489
+    const/4 v1, 0x0
+
+    invoke-interface {v4, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/UserManager;->setUserName(ILjava/lang/String;)V
+
+    .line 1494
+    :cond_2
     const/4 v0, 0x0
 
-    :try_start_1
-    invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v4, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v3
 
-    .line 1131
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    .line 1496
+    invoke-interface {v4}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    .line 1483
+    :cond_3
+    :try_start_2
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result v1
+
+    move v2, v1
+
+    goto :goto_1
+
+    .line 1496
+    :cond_4
+    invoke-interface {v4}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    invoke-interface {v4}, Landroid/database/Cursor;->close()V
 
     throw v0
 .end method
@@ -1873,18 +2127,18 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 1746
+    .line 2262
     const/4 v2, 0x0
 
-    .line 1747
+    .line 2263
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 1749
+    .line 2265
     if-eqz v1, :cond_0
 
-    .line 1750
+    .line 2266
     :try_start_0
     invoke-virtual {v1, p3}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
     :try_end_0
@@ -1892,19 +2146,19 @@
 
     move-result-object v1
 
-    .line 1759
+    .line 2275
     :goto_0
     if-eqz v1, :cond_2
 
-    .line 1760
+    .line 2276
     invoke-virtual {v1, p1, p2, p3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v1
 
-    .line 1761
+    .line 2277
     if-eqz v1, :cond_1
 
-    .line 1762
+    .line 2278
     const-string v0, "SETTING_UTILS"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1933,11 +2187,11 @@
 
     move v0, v1
 
-    .line 1770
+    .line 2286
     :goto_1
     return v0
 
-    .line 1752
+    .line 2268
     :cond_0
     :try_start_1
     const-string v1, "SETTING_UTILS"
@@ -1950,18 +2204,18 @@
 
     goto :goto_1
 
-    .line 1755
+    .line 2271
     :catch_0
     move-exception v1
 
-    .line 1757
-    invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    .line 2273
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v1, v2
 
     goto :goto_0
 
-    .line 1765
+    .line 2281
     :cond_1
     const-string v1, "SETTING_UTILS"
 
@@ -1971,7 +2225,7 @@
 
     goto :goto_1
 
-    .line 1769
+    .line 2285
     :cond_2
     const-string v1, "SETTING_UTILS"
 
@@ -1982,17 +2236,28 @@
     goto :goto_1
 .end method
 
-.method private static getShorterNameIfPossible(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
-    .parameter "context"
+.method public static getRoamingState()Z
+    .locals 1
 
     .prologue
-    .line 1070
+    .line 592
+    sget-boolean v0, Lcom/android/settings/Utils;->mRoamingState:Z
+
+    return v0
+.end method
+
+.method private static getShorterNameIfPossible(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
+    .locals 2
+    .parameter "context"
+    .parameter "user"
+
+    .prologue
+    .line 1423
     invoke-static {p0}, Lcom/android/settings/Utils;->getLocalProfileGivenName(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1071
+    .line 1424
     .local v0, given:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2006,7 +2271,7 @@
 
     .restart local v0       #given:Ljava/lang/String;
     :cond_0
-    invoke-static {p0}, Lcom/android/settings/Utils;->getProfileDisplayName(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/settings/Utils;->getProfileDisplayName(Landroid/content/Context;Landroid/content/pm/UserInfo;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2019,27 +2284,27 @@
     .parameter "file"
 
     .prologue
-    .line 1355
+    .line 1796
     const-string v3, ""
 
-    .line 1356
+    .line 1797
     .local v3, result:Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v0
 
-    .line 1357
+    .line 1798
     .local v0, assetManager:Landroid/content/res/AssetManager;
     const/4 v2, 0x0
 
-    .line 1359
+    .line 1800
     .local v2, is:Ljava/io/InputStream;
     :try_start_0
     invoke-virtual {v0, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v2
 
-    .line 1360
+    .line 1801
     invoke-static {v2}, Lcom/android/settings/Utils;->convertStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2047,25 +2312,25 @@
 
     move-result-object v3
 
-    .line 1365
+    .line 1806
     :try_start_1
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1370
+    .line 1811
     :goto_0
     return-object v3
 
-    .line 1366
+    .line 1807
     :catch_0
     move-exception v1
 
-    .line 1367
+    .line 1808
     .local v1, e:Ljava/io/IOException;
     const-string v4, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -2073,17 +2338,17 @@
 
     goto :goto_0
 
-    .line 1361
+    .line 1802
     .end local v1           #e:Ljava/io/IOException;
     :catch_1
     move-exception v1
 
-    .line 1362
+    .line 1803
     .local v1, e:Ljava/lang/Exception;
     :try_start_2
     const-string v4, "Utils"
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -2091,7 +2356,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1365
+    .line 1806
     :try_start_3
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_3
@@ -2099,15 +2364,15 @@
 
     goto :goto_0
 
-    .line 1366
+    .line 1807
     :catch_2
     move-exception v1
 
-    .line 1367
+    .line 1808
     .local v1, e:Ljava/io/IOException;
     const-string v4, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -2115,30 +2380,30 @@
 
     goto :goto_0
 
-    .line 1364
+    .line 1805
     .end local v1           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
-    .line 1365
+    .line 1806
     :try_start_4
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    .line 1368
+    .line 1809
     :goto_1
     throw v4
 
-    .line 1366
+    .line 1807
     :catch_3
     move-exception v1
 
-    .line 1367
+    .line 1808
     .restart local v1       #e:Ljava/io/IOException;
     const-string v5, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -2148,190 +2413,39 @@
 .end method
 
 .method public static getTetheringLabel(Landroid/net/ConnectivityManager;)I
-    .locals 10
-    .parameter "cm"
-
-    .prologue
-    const v8, 0x7f090690
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    .line 1008
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableUsbRegexs()[Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 1009
-    .local v3, usbRegexs:[Ljava/lang/String;
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableWifiRegexs()[Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 1010
-    .local v5, wifiRegexs:[Ljava/lang/String;
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableBluetoothRegexs()[Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 1012
-    .local v1, bluetoothRegexs:[Ljava/lang/String;
-    array-length v9, v3
-
-    if-eqz v9, :cond_0
-
-    move v2, v6
-
-    .line 1013
-    .local v2, usbAvailable:Z
-    :goto_0
-    array-length v9, v5
-
-    if-eqz v9, :cond_1
-
-    move v4, v6
-
-    .line 1015
-    .local v4, wifiAvailable:Z
-    :goto_1
-    array-length v9, v1
-
-    if-eqz v9, :cond_2
-
-    move v0, v6
-
-    .line 1017
-    .local v0, bluetoothAvailable:Z
-    :goto_2
-    if-eqz v4, :cond_3
-
-    if-eqz v2, :cond_3
-
-    if-eqz v0, :cond_3
-
-    move v6, v8
-
-    .line 1030
-    :goto_3
-    return v6
-
-    .end local v0           #bluetoothAvailable:Z
-    .end local v2           #usbAvailable:Z
-    .end local v4           #wifiAvailable:Z
-    :cond_0
-    move v2, v7
-
-    .line 1012
-    goto :goto_0
-
-    .restart local v2       #usbAvailable:Z
-    :cond_1
-    move v4, v7
-
-    .line 1013
-    goto :goto_1
-
-    .restart local v4       #wifiAvailable:Z
-    :cond_2
-    move v0, v7
-
-    .line 1015
-    goto :goto_2
-
-    .line 1019
-    .restart local v0       #bluetoothAvailable:Z
-    :cond_3
-    if-eqz v4, :cond_4
-
-    if-eqz v2, :cond_4
-
-    move v6, v8
-
-    .line 1020
-    goto :goto_3
-
-    .line 1021
-    :cond_4
-    if-eqz v4, :cond_5
-
-    if-eqz v0, :cond_5
-
-    move v6, v8
-
-    .line 1022
-    goto :goto_3
-
-    .line 1023
-    :cond_5
-    if-eqz v4, :cond_6
-
-    .line 1024
-    const v6, 0x7f09068d
-
-    goto :goto_3
-
-    .line 1025
-    :cond_6
-    if-eqz v2, :cond_7
-
-    if-eqz v0, :cond_7
-
-    .line 1026
-    const v6, 0x7f09068f
-
-    goto :goto_3
-
-    .line 1027
-    :cond_7
-    if-eqz v2, :cond_8
-
-    .line 1028
-    const v6, 0x7f09068c
-
-    goto :goto_3
-
-    .line 1030
-    :cond_8
-    const v6, 0x7f09068e
-
-    goto :goto_3
-.end method
-
-.method public static getTetheringSummary(Landroid/net/ConnectivityManager;)I
     .locals 6
     .parameter
 
     .prologue
-    const v4, 0x7f090691
+    const v4, 0x7f0906cb
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 1166
+    .line 1355
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableUsbRegexs()[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1167
+    .line 1356
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableWifiRegexs()[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1168
+    .line 1357
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableBluetoothRegexs()[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 1170
+    .line 1359
     array-length v0, v0
 
     if-eqz v0, :cond_0
 
     move v0, v1
 
-    .line 1171
+    .line 1360
     :goto_0
     array-length v3, v3
 
@@ -2339,13 +2453,13 @@
 
     move v3, v1
 
-    .line 1173
+    .line 1362
     :goto_1
     array-length v5, v5
 
     if-eqz v5, :cond_2
 
-    .line 1177
+    .line 1364
     :goto_2
     if-eqz v3, :cond_3
 
@@ -2355,40 +2469,40 @@
 
     move v0, v4
 
-    .line 1190
+    .line 1377
     :goto_3
     return v0
 
     :cond_0
     move v0, v2
 
-    .line 1170
+    .line 1359
     goto :goto_0
 
     :cond_1
     move v3, v2
 
-    .line 1171
+    .line 1360
     goto :goto_1
 
     :cond_2
     move v1, v2
 
-    .line 1173
+    .line 1362
     goto :goto_2
 
-    .line 1179
+    .line 1366
     :cond_3
     if-eqz v3, :cond_4
 
     if-eqz v0, :cond_4
 
-    .line 1180
-    const v0, 0x7f090693
+    move v0, v4
 
+    .line 1367
     goto :goto_3
 
-    .line 1181
+    .line 1368
     :cond_4
     if-eqz v3, :cond_5
 
@@ -2396,42 +2510,179 @@
 
     move v0, v4
 
-    .line 1182
+    .line 1369
     goto :goto_3
 
-    .line 1183
+    .line 1370
     :cond_5
     if-eqz v3, :cond_6
 
-    .line 1184
-    const v0, 0x7f090694
+    .line 1371
+    const v0, 0x7f0906c8
 
     goto :goto_3
 
-    .line 1185
+    .line 1372
     :cond_6
     if-eqz v0, :cond_7
 
     if-eqz v1, :cond_7
 
-    .line 1186
-    const v0, 0x7f090692
+    .line 1373
+    const v0, 0x7f0906ca
 
     goto :goto_3
 
-    .line 1187
+    .line 1374
     :cond_7
     if-eqz v0, :cond_8
 
-    .line 1188
-    const v0, 0x7f090695
+    .line 1375
+    const v0, 0x7f0906c7
+
+    goto :goto_3
+
+    .line 1377
+    :cond_8
+    const v0, 0x7f0906c9
+
+    goto :goto_3
+.end method
+
+.method public static getTetheringSummary(Landroid/net/ConnectivityManager;)I
+    .locals 6
+    .parameter
+
+    .prologue
+    const v4, 0x7f0906cc
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 1531
+    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableUsbRegexs()[Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1532
+    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableWifiRegexs()[Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 1533
+    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getTetherableBluetoothRegexs()[Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 1535
+    array-length v0, v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    .line 1536
+    :goto_0
+    array-length v3, v3
+
+    if-eqz v3, :cond_1
+
+    move v3, v1
+
+    .line 1538
+    :goto_1
+    array-length v5, v5
+
+    if-eqz v5, :cond_2
+
+    .line 1542
+    :goto_2
+    if-eqz v3, :cond_3
+
+    if-eqz v0, :cond_3
+
+    if-eqz v1, :cond_3
+
+    move v0, v4
+
+    .line 1555
+    :goto_3
+    return v0
+
+    :cond_0
+    move v0, v2
+
+    .line 1535
+    goto :goto_0
+
+    :cond_1
+    move v3, v2
+
+    .line 1536
+    goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    .line 1538
+    goto :goto_2
+
+    .line 1544
+    :cond_3
+    if-eqz v3, :cond_4
+
+    if-eqz v0, :cond_4
+
+    .line 1545
+    const v0, 0x7f0906ce
+
+    goto :goto_3
+
+    .line 1546
+    :cond_4
+    if-eqz v3, :cond_5
+
+    if-eqz v1, :cond_5
+
+    move v0, v4
+
+    .line 1547
+    goto :goto_3
+
+    .line 1548
+    :cond_5
+    if-eqz v3, :cond_6
+
+    .line 1549
+    const v0, 0x7f0906cf
+
+    goto :goto_3
+
+    .line 1550
+    :cond_6
+    if-eqz v0, :cond_7
+
+    if-eqz v1, :cond_7
+
+    .line 1551
+    const v0, 0x7f0906cd
+
+    goto :goto_3
+
+    .line 1552
+    :cond_7
+    if-eqz v0, :cond_8
+
+    .line 1553
+    const v0, 0x7f0906d0
 
     goto :goto_3
 
     :cond_8
     move v0, v4
 
-    .line 1190
+    .line 1555
     goto :goto_3
 .end method
 
@@ -2439,19 +2690,19 @@
     .locals 2
 
     .prologue
-    .line 1417
+    .line 1874
     sget-boolean v0, Lcom/android/settings/Utils;->flagForDefaultAp:Z
 
     if-eqz v0, :cond_0
 
-    .line 1418
+    .line 1875
     sget-object v0, Lcom/android/settings/Utils;->mApInfo:[Lcom/android/settings/Utils$ApInfo;
 
-    .line 1426
+    .line 1884
     :goto_0
     return-object v0
 
-    .line 1419
+    .line 1876
     :cond_0
     new-instance v0, Ljava/io/File;
 
@@ -2461,7 +2712,16 @@
 
     sput-object v0, Lcom/android/settings/Utils;->filePath:Ljava/io/File;
 
-    .line 1421
+    .line 1877
+    new-instance v0, Ljava/io/File;
+
+    const-string v1, "/system/etc/wifi/default_ap.conf"
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/android/settings/Utils;->fileDefaultPath:Ljava/io/File;
+
+    .line 1879
     sget-object v0, Lcom/android/settings/Utils;->filePath:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -2470,7 +2730,15 @@
 
     if-eqz v0, :cond_1
 
-    .line 1422
+    sget-object v0, Lcom/android/settings/Utils;->fileDefaultPath:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 1880
     const-string v0, "/data/misc/wifi/default_ap.conf"
 
     invoke-static {v0}, Lcom/android/settings/Utils;->getVendorApInfoFromFile(Ljava/lang/String;)[Lcom/android/settings/Utils$ApInfo;
@@ -2479,13 +2747,13 @@
 
     sput-object v0, Lcom/android/settings/Utils;->mApInfo:[Lcom/android/settings/Utils$ApInfo;
 
-    .line 1426
+    .line 1884
     :goto_1
     sget-object v0, Lcom/android/settings/Utils;->mApInfo:[Lcom/android/settings/Utils$ApInfo;
 
     goto :goto_0
 
-    .line 1424
+    .line 1882
     :cond_1
     const-string v0, "/system/etc/wifi/default_ap.conf"
 
@@ -2509,7 +2777,7 @@
 
     const/4 v0, 0x0
 
-    .line 1430
+    .line 1888
     sget-boolean v2, Lcom/android/settings/Utils;->DBG:Z
 
     if-eqz v2, :cond_0
@@ -2520,20 +2788,20 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1431
+    .line 1889
     :cond_0
     sput-boolean v4, Lcom/android/settings/Utils;->flagForDefaultAp:Z
 
-    .line 1433
+    .line 1891
     const-string v6, ""
 
-    .line 1434
+    .line 1892
     const-string v5, ""
 
-    .line 1435
+    .line 1893
     const-string v3, ""
 
-    .line 1440
+    .line 1898
     :try_start_0
     new-instance v2, Ljava/io/BufferedReader;
 
@@ -2554,7 +2822,7 @@
 
     move v3, v1
 
-    .line 1443
+    .line 1901
     :cond_1
     :goto_0
     :try_start_1
@@ -2564,7 +2832,7 @@
 
     if-eqz v8, :cond_6
 
-    .line 1444
+    .line 1902
     const-string v9, "ssid=\""
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -2573,12 +2841,12 @@
 
     if-eqz v9, :cond_2
 
-    .line 1445
+    .line 1903
     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 1446
+    .line 1904
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2613,7 +2881,7 @@
 
     move-result-object v7
 
-    .line 1447
+    .line 1905
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -2634,7 +2902,7 @@
 
     goto :goto_0
 
-    .line 1448
+    .line 1906
     :cond_2
     const-string v9, "key_mgmt="
 
@@ -2644,12 +2912,12 @@
 
     if-eqz v9, :cond_3
 
-    .line 1449
+    .line 1907
     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 1450
+    .line 1908
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -2678,7 +2946,7 @@
 
     move-result-object v6
 
-    .line 1451
+    .line 1909
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -2699,7 +2967,7 @@
 
     goto/16 :goto_0
 
-    .line 1452
+    .line 1910
     :cond_3
     const-string v9, "wep_key0="
 
@@ -2709,12 +2977,12 @@
 
     if-eqz v9, :cond_4
 
-    .line 1453
+    .line 1911
     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1454
+    .line 1912
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -2743,7 +3011,7 @@
 
     move-result-object v3
 
-    .line 1455
+    .line 1913
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -2766,7 +3034,7 @@
 
     move v3, v4
 
-    .line 1457
+    .line 1915
     goto/16 :goto_0
 
     :cond_4
@@ -2780,7 +3048,7 @@
 
     if-nez v3, :cond_5
 
-    .line 1458
+    .line 1916
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -2801,7 +3069,7 @@
 
     goto/16 :goto_0
 
-    .line 1459
+    .line 1917
     :cond_5
     const-string v9, "}"
 
@@ -2818,20 +3086,20 @@
 
     move v3, v1
 
-    .line 1460
+    .line 1918
     goto/16 :goto_0
 
-    .line 1467
+    .line 1925
     :cond_6
     if-eqz v2, :cond_7
 
-    .line 1469
+    .line 1927
     :try_start_2
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 1477
+    .line 1935
     :cond_7
     const-string v2, ","
 
@@ -2839,47 +3107,47 @@
 
     move-result-object v2
 
-    .line 1478
+    .line 1936
     const-string v3, ","
 
     invoke-virtual {v6, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1479
+    .line 1937
     const-string v4, ","
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1480
+    .line 1938
     array-length v5, v2
 
     array-length v6, v3
 
     if-eq v5, v6, :cond_a
 
-    .line 1481
+    .line 1939
     const-string v1, "AccessPoint"
 
     const-string v2, "Parse error default ap"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1495
+    .line 1953
     :cond_8
     :goto_1
     return-object v0
 
-    .line 1470
+    .line 1928
     :catch_0
     move-exception v1
 
-    .line 1471
+    .line 1929
     const-string v2, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -2887,18 +3155,18 @@
 
     goto :goto_1
 
-    .line 1463
+    .line 1921
     :catch_1
     move-exception v1
 
     move-object v2, v0
 
-    .line 1464
+    .line 1922
     :goto_2
     :try_start_3
     const-string v3, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -2906,10 +3174,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 1467
+    .line 1925
     if-eqz v2, :cond_8
 
-    .line 1469
+    .line 1927
     :try_start_4
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_4
@@ -2917,14 +3185,14 @@
 
     goto :goto_1
 
-    .line 1470
+    .line 1928
     :catch_2
     move-exception v1
 
-    .line 1471
+    .line 1929
     const-string v2, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -2932,7 +3200,7 @@
 
     goto :goto_1
 
-    .line 1467
+    .line 1925
     :catchall_0
     move-exception v1
 
@@ -2941,24 +3209,24 @@
     :goto_3
     if-eqz v2, :cond_9
 
-    .line 1469
+    .line 1927
     :try_start_5
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 1472
+    .line 1930
     :cond_9
     throw v1
 
-    .line 1470
+    .line 1928
     :catch_3
     move-exception v1
 
-    .line 1471
+    .line 1929
     const-string v2, "Utils"
 
-    invoke-virtual {v1}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -2966,18 +3234,18 @@
 
     goto :goto_1
 
-    .line 1485
+    .line 1943
     :cond_a
     array-length v5, v2
 
-    .line 1486
+    .line 1944
     new-array v0, v5, [Lcom/android/settings/Utils$ApInfo;
 
-    .line 1487
+    .line 1945
     :goto_4
     if-ge v1, v5, :cond_8
 
-    .line 1488
+    .line 1946
     aget-object v6, v3, v1
 
     const-string v7, "NONE"
@@ -3002,12 +3270,12 @@
 
     if-nez v6, :cond_b
 
-    .line 1489
+    .line 1947
     const-string v6, "WEP"
 
     aput-object v6, v3, v1
 
-    .line 1491
+    .line 1949
     :cond_b
     new-instance v6, Lcom/android/settings/Utils$ApInfo;
 
@@ -3019,7 +3287,7 @@
 
     aput-object v6, v0, v1
 
-    .line 1492
+    .line 1950
     sget-boolean v6, Lcom/android/settings/Utils;->DBG:Z
 
     if-eqz v6, :cond_c
@@ -3084,19 +3352,19 @@
 
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1487
+    .line 1945
     :cond_c
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
-    .line 1467
+    .line 1925
     :catchall_1
     move-exception v1
 
     goto/16 :goto_3
 
-    .line 1463
+    .line 1921
     :catch_4
     move-exception v1
 
@@ -3108,7 +3376,7 @@
     .parameter "context"
 
     .prologue
-    .line 883
+    .line 1215
     const-string v2, "connectivity"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -3117,7 +3385,7 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 885
+    .line 1217
     .local v0, cm:Landroid/net/ConnectivityManager;
     const/4 v2, 0x1
 
@@ -3125,7 +3393,7 @@
 
     move-result-object v1
 
-    .line 886
+    .line 1218
     .local v1, prop:Landroid/net/LinkProperties;
     invoke-static {v1}, Lcom/android/settings/Utils;->formatIpAddresses(Landroid/net/LinkProperties;)Ljava/lang/String;
 
@@ -3138,7 +3406,7 @@
     .locals 1
 
     .prologue
-    .line 1664
+    .line 2168
     const/4 v0, 0x1
 
     return v0
@@ -3148,7 +3416,7 @@
     .locals 1
 
     .prologue
-    .line 1670
+    .line 2174
     const/4 v0, 0x6
 
     return v0
@@ -3158,10 +3426,61 @@
     .locals 1
 
     .prologue
-    .line 1677
+    .line 2181
     const v0, 0x3faf5c29
 
     return v0
+.end method
+
+.method public static hasDAForLockscreenShortcut()Z
+    .locals 2
+
+    .prologue
+    .line 2442
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticModel()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "Germany"
+
+    const-string v1, "ro.csc.country_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "Australia"
+
+    const-string v1, "ro.csc.country_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static declared-synchronized hasFingerprintFeature(Landroid/content/Context;)Z
@@ -3169,7 +3488,7 @@
     .parameter
 
     .prologue
-    .line 1554
+    .line 2056
     const-class v1, Lcom/android/settings/Utils;
 
     monitor-enter v1
@@ -3179,18 +3498,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 1555
+    .line 2057
     sget-boolean v0, Lcom/android/settings/Utils;->mFeatureEnabled:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1560
+    .line 2062
     :goto_0
     monitor-exit v1
 
     return v0
 
-    .line 1558
+    .line 2060
     :cond_0
     :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -3210,19 +3529,19 @@
 
     sput-boolean v0, Lcom/android/settings/Utils;->mFeatureEnabled:Z
 
-    .line 1559
+    .line 2061
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/settings/Utils;->mFeatureChecked:Z
 
-    .line 1560
+    .line 2062
     sget-boolean v0, Lcom/android/settings/Utils;->mFeatureEnabled:Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 1554
+    .line 2056
     :catchall_0
     move-exception v0
 
@@ -3240,14 +3559,14 @@
 
     const/4 v2, 0x0
 
-    .line 1153
+    .line 1518
     if-nez p0, :cond_0
 
-    .line 1162
+    .line 1527
     :goto_0
     return v2
 
-    .line 1157
+    .line 1522
     :cond_0
     :try_start_0
     const-string v0, "user"
@@ -3282,11 +3601,11 @@
 
     goto :goto_1
 
-    .line 1159
+    .line 1524
     :catch_0
     move-exception v0
 
-    .line 1160
+    .line 1525
     const-string v0, "Utils"
 
     const-string v1, "Cannot get Multi-user info"
@@ -3302,15 +3621,15 @@
     .parameter
 
     .prologue
-    .line 1195
+    .line 1560
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 1196
+    .line 1561
     const/4 v0, 0x1
 
-    .line 1198
+    .line 1563
     const/16 v2, 0x80
 
     :try_start_0
@@ -3318,18 +3637,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1204
+    .line 1569
     :goto_0
     return v0
 
-    .line 1199
+    .line 1564
     :catch_0
     move-exception v0
 
-    .line 1200
+    .line 1565
     const/4 v0, 0x0
 
-    .line 1201
+    .line 1566
     const-string v1, "Utils"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3355,12 +3674,89 @@
     goto :goto_0
 .end method
 
+.method public static isAllAirMotionDisabled2014(Landroid/content/Context;Z)Z
+    .locals 8
+    .parameter "context"
+    .parameter "include_external_motion_settings"
+
+    .prologue
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    .line 818
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    .line 820
+    .local v4, mResolver:Landroid/content/ContentResolver;
+    if-eqz p1, :cond_0
+
+    :cond_0
+    const/4 v2, 0x0
+
+    .line 822
+    .local v2, airWakeUp:I
+    const-string v7, "air_motion_scroll"
+
+    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 823
+    .local v0, airScroll:I
+    const-string v7, "air_motion_turn"
+
+    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 825
+    .local v1, airTurn:I
+    if-eqz p1, :cond_1
+
+    const-string v7, "air_motion_call_accept"
+
+    invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    .line 828
+    .local v3, callAccept:I
+    :goto_0
+    or-int v7, v2, v0
+
+    or-int/2addr v7, v1
+
+    or-int/2addr v7, v3
+
+    if-ge v7, v5, :cond_2
+
+    :goto_1
+    return v5
+
+    .end local v3           #callAccept:I
+    :cond_1
+    move v3, v6
+
+    .line 825
+    goto :goto_0
+
+    .restart local v3       #callAccept:I
+    :cond_2
+    move v5, v6
+
+    .line 828
+    goto :goto_1
+.end method
+
 .method public static isAllAirViewOptionDisabled(Landroid/content/ContentResolver;)Z
     .locals 1
     .parameter "cr"
 
     .prologue
-    .line 1611
+    .line 2115
     invoke-static {p0}, Lcom/android/settings/FingerAirViewSettingsMenu;->isAllOptionDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v0
@@ -3379,10 +3775,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 1614
+    .line 2118
     const/4 v0, 0x1
 
-    .line 1616
+    .line 2120
     :goto_0
     return v0
 
@@ -3392,12 +3788,139 @@
     goto :goto_0
 .end method
 
+.method public static isAllMotionDisabled2014(Landroid/content/Context;)Z
+    .locals 9
+    .parameter
+
+    .prologue
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    .line 836
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    .line 837
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/settings/Utils;->isTablet(Landroid/content/Context;)Z
+
+    move-result v5
+
+    .line 838
+    invoke-static {p0}, Lcom/android/settings/Utils;->isVoiceCapable(Landroid/content/Context;)Z
+
+    move-result v0
+
+    .line 846
+    const-string v3, "air_motion_scroll"
+
+    invoke-static {v4, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    .line 847
+    const-string v3, "air_motion_turn"
+
+    invoke-static {v4, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v7
+
+    .line 848
+    if-eqz v0, :cond_2
+
+    const-string v0, "motion_pick_up"
+
+    invoke-static {v4, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    move v3, v0
+
+    .line 850
+    :goto_0
+    if-nez v5, :cond_3
+
+    const-string v0, "motion_pick_up_to_call_out"
+
+    invoke-static {v4, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 852
+    :goto_1
+    if-eqz v5, :cond_0
+
+    :cond_0
+    const-string v5, "motion_merged_mute_pause"
+
+    invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    .line 855
+    const-string v8, "surface_palm_swipe"
+
+    invoke-static {v4, v8, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    .line 858
+    or-int/2addr v6, v7
+
+    or-int/2addr v3, v6
+
+    or-int/2addr v0, v3
+
+    or-int/2addr v0, v5
+
+    or-int/2addr v0, v4
+
+    if-ge v0, v2, :cond_1
+
+    move v1, v2
+
+    :cond_1
+    return v1
+
+    :cond_2
+    move v3, v1
+
+    .line 848
+    goto :goto_0
+
+    :cond_3
+    move v0, v1
+
+    .line 850
+    goto :goto_1
+.end method
+
 .method public static isAutoAirViewSupported()Z
     .locals 1
 
     .prologue
-    .line 1566
+    .line 2068
     const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public static isBatteryPresent(Landroid/content/Intent;)Z
+    .locals 2
+    .parameter "batteryChangedIntent"
+
+    .prologue
+    .line 1269
+    const-string v0, "present"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
 
     return v0
 .end method
@@ -3406,14 +3929,14 @@
     .locals 3
 
     .prologue
-    .line 1322
+    .line 1702
     const-string v0, "ro.csc.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1323
+    .line 1703
     if-eqz v0, :cond_1
 
     const-string v1, "CHZ"
@@ -3501,17 +4024,17 @@
     .parameter "cr"
 
     .prologue
-    .line 1636
+    .line 2140
     invoke-static {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->isAllOptionDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1637
+    .line 2141
     const/4 v0, 0x1
 
-    .line 1639
+    .line 2143
     :goto_0
     return v0
 
@@ -3530,33 +4053,33 @@
 
     const/4 v0, 0x1
 
-    .line 1620
+    .line 2124
     const-string v2, "air_view_mode"
 
     invoke-static {p0, v2, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 1622
+    .line 2126
     if-nez v2, :cond_1
 
-    .line 1623
+    .line 2127
     invoke-static {p0}, Lcom/android/settings/PenAirViewSettingsMenu;->isAllOptionDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    .line 1632
+    .line 2136
     :cond_0
     :goto_0
     return v0
 
-    .line 1625
+    .line 2129
     :cond_1
     if-ne v2, v0, :cond_3
 
-    .line 1626
+    .line 2130
     invoke-static {p0}, Lcom/android/settings/FingerAirViewSettingsMenu;->isAllOptionDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v2
@@ -3566,16 +4089,16 @@
     :cond_2
     move v0, v1
 
-    .line 1632
+    .line 2136
     goto :goto_0
 
-    .line 1628
+    .line 2132
     :cond_3
     const/4 v3, 0x2
 
     if-ne v2, v3, :cond_2
 
-    .line 1629
+    .line 2133
     invoke-static {p0}, Lcom/android/settings/Utils;->isAllAirViewOptionDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v2
@@ -3591,17 +4114,17 @@
     .parameter "c"
 
     .prologue
-    .line 1643
+    .line 2147
     invoke-static {p0, p1}, Lcom/android/settings/motion2013/MotionSettings;->isAllOptionDisabled(Landroid/content/ContentResolver;Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1644
+    .line 2148
     const/4 v0, 0x1
 
-    .line 1646
+    .line 2150
     :goto_0
     return v0
 
@@ -3616,17 +4139,17 @@
     .parameter "cr"
 
     .prologue
-    .line 1650
+    .line 2154
     invoke-static {p0}, Lcom/android/settings/motion2013/HandMotionSettings;->isAllOptionDisabled(Landroid/content/ContentResolver;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1651
+    .line 2155
     const/4 v0, 0x1
 
-    .line 1653
+    .line 2157
     :goto_0
     return v0
 
@@ -3636,58 +4159,300 @@
     goto :goto_0
 .end method
 
-.method public static isDomesticModel()Z
-    .locals 2
+.method public static isDCMRequestOpsPackage(Ljava/lang/String;)Z
+    .locals 6
+    .parameter
 
     .prologue
-    .line 1297
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
+
+    .line 1728
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1731
+    const-string v3, "DCM"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 1769
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 1736
+    :cond_1
+    const/16 v2, 0x16
+
+    new-array v3, v2, [Ljava/lang/String;
+
+    const-string v2, "com.nttdocomo.android.osv"
+
+    aput-object v2, v3, v0
+
+    const-string v2, "com.nttdocomo.android.fota"
+
+    aput-object v2, v3, v1
+
+    const/4 v2, 0x2
+
+    const-string v4, "com.nttdocomo.android.anmane"
+
+    aput-object v4, v3, v2
+
+    const/4 v2, 0x3
+
+    const-string v4, "com.rsupport.rsperm.ntt"
+
+    aput-object v4, v3, v2
+
+    const/4 v2, 0x4
+
+    const-string v4, "com.nttdocomo.android.remotelock"
+
+    aput-object v4, v3, v2
+
+    const/4 v2, 0x5
+
+    const-string v4, "com.nttdocomo.android.wipe"
+
+    aput-object v4, v3, v2
+
+    const/4 v2, 0x6
+
+    const-string v4, "com.nttdocomo.android.areamail"
+
+    aput-object v4, v3, v2
+
+    const/4 v2, 0x7
+
+    const-string v4, "com.android.contacts"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x8
+
+    const-string v4, "com.nttdocomo.android.socialphonebook"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x9
+
+    const-string v4, "com.android.phone"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0xa
+
+    const-string v4, "com.android.dialer"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0xb
+
+    const-string v4, "com.nttdocomo.android.idmanager"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0xc
+
+    const-string v4, "com.nttdocomo.android.pf.dcmippushaggregator"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0xd
+
+    const-string v4, "com.nttdocomo.android.pf.dcmwappush"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0xe
+
+    const-string v4, "com.android.smspush"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0xf
+
+    const-string v4, "com.nttdocomo.android.accountauthenticator"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x10
+
+    const-string v4, "com.nttdocomo.android.applicationmanager"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x11
+
+    const-string v4, "jp.co.nttdocomo.lcsapp"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x12
+
+    const-string v4, "jp.co.nttdocomo.lcsappsub"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x13
+
+    const-string v4, "jp.co.nttdocomo.lcsappbuzzer"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x14
+
+    const-string v4, "jp.co.nttdocomo.saigaiban"
+
+    aput-object v4, v3, v2
+
+    const/16 v2, 0x15
+
+    const-string v4, "jp.co.nttdocomo.anshinmode"
+
+    aput-object v4, v3, v2
+
+    .line 1761
+    if-eqz v3, :cond_0
+
+    .line 1762
+    array-length v4, v3
+
+    move v2, v0
+
+    :goto_1
+    if-ge v2, v4, :cond_0
+
+    aget-object v5, v3, v2
+
+    .line 1763
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    move v0, v1
+
+    .line 1764
+    goto/16 :goto_0
+
+    .line 1762
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+.end method
+
+.method public static isDCMhome(Landroid/content/Context;)Z
+    .locals 2
+    .parameter
+
+    .prologue
+    .line 1773
+    const-string v0, "ro.csc.sales_code"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1298
-    const-string v1, "SKT"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "KTT"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "LGT"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "ANY"
+    .line 1775
+    const-string v1, "DCM"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
-    :cond_0
-    const/4 v0, 0x1
+    .line 1776
+    const/4 v0, 0x0
 
+    .line 1779
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x0
+    :cond_0
+    const-string v0, "com.nttdocomo.android.dhome"
+
+    invoke-static {v0, p0}, Lcom/android/settings/Utils;->isPreffered(Ljava/lang/String;Landroid/content/Context;)Z
+
+    move-result v0
 
     goto :goto_0
+.end method
+
+.method public static isDomesticKTTModel()Z
+    .locals 2
+
+    .prologue
+    .line 1674
+    const-string v0, "KTT"
+
+    const-string v1, "TMO"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isDomesticLGTModel()Z
+    .locals 2
+
+    .prologue
+    .line 1678
+    const-string v0, "LGT"
+
+    const-string v1, "TMO"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isDomesticModel()Z
+    .locals 2
+
+    .prologue
+    .line 1666
+    const-string v0, "KOR"
+
+    const-string v1, "USA"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static isDomesticSKTModel()Z
+    .locals 2
+
+    .prologue
+    .line 1670
+    const-string v0, "SKT"
+
+    const-string v1, "TMO"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static isDualFolderType(Landroid/content/Context;)Z
@@ -3695,7 +4460,7 @@
     .parameter
 
     .prologue
-    .line 1572
+    .line 2074
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -3731,6 +4496,28 @@
     goto :goto_0
 .end method
 
+.method public static isEasyMode30Status(Landroid/content/ContentResolver;)Z
+    .locals 1
+    .parameter "cr"
+
+    .prologue
+    .line 2194
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static isEnableGlance(Landroid/content/Context;)Z
+    .locals 1
+    .parameter "context"
+
+    .prologue
+    .line 574
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public static isEnabledPkg(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 4
     .parameter
@@ -3739,7 +4526,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1702
+    .line 2218
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -3749,7 +4536,7 @@
 
     move-result v1
 
-    .line 1704
+    .line 2220
     const/4 v2, 0x2
 
     if-eq v2, v1, :cond_0
@@ -3758,7 +4545,7 @@
 
     if-ne v2, v1, :cond_1
 
-    .line 1705
+    .line 2221
     :cond_0
     const-string v1, "SETTING_UTILS"
 
@@ -3782,11 +4569,11 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1713
+    .line 2229
     :goto_0
     return v0
 
-    .line 1708
+    .line 2224
     :cond_1
     const-string v1, "SETTING_UTILS"
 
@@ -3812,16 +4599,16 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1709
+    .line 2225
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1711
+    .line 2227
     :catch_0
     move-exception v1
 
-    .line 1712
+    .line 2228
     const-string v1, "SETTING_UTILS"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3852,12 +4639,12 @@
     .parameter
 
     .prologue
-    .line 1689
+    .line 2205
     sget-object v0, Lcom/android/settings/Utils;->mExistCoverNotePackage:Ljava/lang/Boolean;
 
     if-nez v0, :cond_0
 
-    .line 1691
+    .line 2207
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -3869,7 +4656,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    .line 1693
+    .line 2209
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -3880,7 +4667,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1698
+    .line 2214
     :cond_0
     :goto_0
     sget-object v0, Lcom/android/settings/Utils;->mExistCoverNotePackage:Ljava/lang/Boolean;
@@ -3891,11 +4678,11 @@
 
     return v0
 
-    .line 1694
+    .line 2210
     :catch_0
     move-exception v0
 
-    .line 1695
+    .line 2211
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -3907,12 +4694,92 @@
     goto :goto_0
 .end method
 
+.method public static isFavorite(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 8
+    .parameter
+    .parameter
+
+    .prologue
+    const/4 v4, 0x0
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    .line 2424
+    .line 2425
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/settings/favorite/MySettingsProvider;->FAVORITE_CONTENT_URI:Landroid/net/Uri;
+
+    new-array v2, v6, [Ljava/lang/String;
+
+    const-string v3, "key"
+
+    aput-object v3, v2, v7
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "key=\'"
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v5, "\'"
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 2426
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 2428
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    move v0, v6
+
+    .line 2430
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v7
+
+    goto :goto_0
+.end method
+
 .method public static isFolderModel(Landroid/content/Context;)Z
     .locals 2
     .parameter
 
     .prologue
-    .line 1351
+    .line 1792
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -3926,69 +4793,99 @@
     return v0
 .end method
 
-.method public static isHKTWModel()Z
-    .locals 3
+.method public static isGridSettingEnabed()Z
+    .locals 1
 
     .prologue
-    .line 1334
-    const-string v0, "ril.sales_code"
+    .line 1859
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    return v0
+.end method
 
-    move-result-object v0
+.method public static isH_Device()Z
+    .locals 2
 
-    .line 1335
-    const-string v1, "ro.csc.sales_code"
+    .prologue
+    .line 2448
+    sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    .line 2449
+    if-eqz v0, :cond_1
 
-    move-result-object v1
+    const-string v1, "SM-N900"
 
-    .line 1336
-    if-nez v0, :cond_0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    if-eqz v1, :cond_2
+    move-result v1
 
+    if-nez v1, :cond_0
+
+    const-string v1, "ASH"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "Madrid"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "JS01"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SC-01F"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SCL22"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SC-02F"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SM-G910"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 2453
     :cond_0
-    const-string v2, "TGY"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    const-string v2, "BRI"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "ZZH"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "ZZT"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
     const/4 v0, 0x1
 
+    .line 2455
     :goto_0
     return v0
 
-    :cond_2
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -3998,7 +4895,7 @@
     .locals 1
 
     .prologue
-    .line 1778
+    .line 2294
     const/4 v0, 0x0
 
     return v0
@@ -4010,18 +4907,18 @@
     .parameter "action"
 
     .prologue
-    .line 689
+    .line 968
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 690
+    .line 969
     .local v2, packageManager:Landroid/content/pm/PackageManager;
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 691
+    .line 970
     .local v0, intent:Landroid/content/Intent;
     const/high16 v3, 0x1
 
@@ -4029,7 +4926,7 @@
 
     move-result-object v1
 
-    .line 692
+    .line 971
     .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     if-eqz v1, :cond_0
 
@@ -4054,24 +4951,95 @@
     .locals 1
 
     .prologue
-    .line 1408
+    .line 1864
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public static isJ_Device()Z
+    .locals 2
+
+    .prologue
+    .line 2459
+    const-string v0, "ro.product.name"
+
+    const-string v1, "Unknown"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 2460
+    if-eqz v0, :cond_1
+
+    .line 2461
+    const-string v1, "jflte"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "jalte"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "ja3g"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "jactive"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "ks01lte"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 2464
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 2467
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static isJapanModel()Z
     .locals 2
 
     .prologue
-    .line 1345
+    .line 1722
     const-string v0, "ro.csc.sales_code"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1346
+    .line 1723
     if-eqz v0, :cond_1
 
     const-string v1, "DCM"
@@ -4091,6 +5059,14 @@
     if-nez v1, :cond_0
 
     const-string v1, "XJP"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SBM"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4117,14 +5093,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 533
+    .line 553
     invoke-static {p0}, Lcom/android/settings/Utils;->getLteOnCdmaMode(Landroid/content/Context;)I
 
     move-result v1
 
     if-ne v1, v0, :cond_0
 
-    .line 536
+    .line 556
     :goto_0
     return v0
 
@@ -4139,7 +5115,7 @@
     .parameter "context"
 
     .prologue
-    .line 446
+    .line 466
     sget-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -4152,7 +5128,7 @@
 
     if-lez v0, :cond_0
 
-    .line 447
+    .line 467
     sget-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
     const-string v1, "lightTheme"
@@ -4161,11 +5137,11 @@
 
     move-result v0
 
-    .line 450
+    .line 470
     :goto_0
     return v0
 
-    .line 449
+    .line 469
     :cond_0
     const-string v0, "ro.build.characteristics"
 
@@ -4175,7 +5151,7 @@
 
     sput-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
-    .line 450
+    .line 470
     sget-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
     if-eqz v0, :cond_1
@@ -4205,10 +5181,10 @@
     .parameter "mContext"
 
     .prologue
-    .line 254
+    .line 274
     const/4 v0, 0x0
 
-    .line 256
+    .line 276
     .local v0, ret:Z
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -4226,10 +5202,10 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 258
+    .line 278
     const/4 v0, 0x1
 
-    .line 260
+    .line 280
     :cond_0
     return v0
 .end method
@@ -4238,7 +5214,7 @@
     .locals 1
 
     .prologue
-    .line 1683
+    .line 2199
     const/4 v0, 0x1
 
     return v0
@@ -4249,7 +5225,7 @@
     .parameter "context"
 
     .prologue
-    .line 427
+    .line 447
     const-string v1, "ro.product.model"
 
     const-string v2, "Unknown"
@@ -4258,7 +5234,7 @@
 
     move-result-object v0
 
-    .line 428
+    .line 448
     .local v0, model:Ljava/lang/String;
     if-eqz v0, :cond_1
 
@@ -4294,7 +5270,7 @@
     .locals 1
 
     .prologue
-    .line 415
+    .line 435
     invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
     move-result v0
@@ -4302,12 +5278,67 @@
     return v0
 .end method
 
+.method private static isPreffered(Ljava/lang/String;Landroid/content/Context;)Z
+    .locals 4
+    .parameter "packageName"
+    .parameter "context"
+
+    .prologue
+    .line 1783
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    .line 1784
+    .local v1, intentList:Ljava/util/List;,"Ljava/util/List<Landroid/content/IntentFilter;>;"
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 1785
+    .local v0, componentList:Ljava/util/List;,"Ljava/util/List<Landroid/content/ComponentName;>;"
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    .line 1786
+    .local v2, pm:Landroid/content/pm/PackageManager;
+    invoke-virtual {v2, v1, v0, p0}, Landroid/content/pm/PackageManager;->getPreferredActivities(Ljava/util/List;Ljava/util/List;Ljava/lang/String;)I
+
+    .line 1788
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-lez v3, :cond_0
+
+    const/4 v3, 0x1
+
+    :goto_0
+    return v3
+
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static isSearchEnable()Z
     .locals 1
 
     .prologue
-    .line 1402
+    .line 1843
     const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public static isSearchVerTwoEnable()Z
+    .locals 1
+
+    .prologue
+    .line 1852
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -4316,7 +5347,7 @@
     .locals 1
 
     .prologue
-    .line 1658
+    .line 2162
     const/4 v0, 0x1
 
     return v0
@@ -4329,7 +5360,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 454
+    .line 474
     const-string v4, "phone"
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -4338,7 +5369,7 @@
 
     check-cast v2, Landroid/telephony/TelephonyManager;
 
-    .line 455
+    .line 475
     .local v2, telephonyManager:Landroid/telephony/TelephonyManager;
     const-string v4, "phone2"
 
@@ -4348,7 +5379,7 @@
 
     check-cast v3, Landroid/telephony/TelephonyManager;
 
-    .line 456
+    .line 476
     .local v3, telephonyManager2:Landroid/telephony/TelephonyManager;
     invoke-static {p0}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
 
@@ -4359,11 +5390,11 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 457
+    .line 477
     .local v0, isDataOnly_Sim:Z
     const/4 v1, 0x0
 
-    .line 459
+    .line 479
     .local v1, isSimMissing:Z
     if-eqz v2, :cond_2
 
@@ -4387,7 +5418,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 462
+    .line 482
     :cond_1
     const-string v4, "Settings"
 
@@ -4395,10 +5426,10 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 463
+    .line 483
     const/4 v1, 0x1
 
-    .line 493
+    .line 513
     :cond_2
     const-string v4, "Settings"
 
@@ -4406,7 +5437,7 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 494
+    .line 514
     return v1
 .end method
 
@@ -4419,11 +5450,11 @@
 
     const/4 v1, 0x0
 
-    .line 1522
-    .line 1523
+    .line 2024
+    .line 2025
     const/4 v4, 0x0
 
-    .line 1525
+    .line 2027
     :try_start_0
     const-string v2, "com.samsung.helphub"
 
@@ -4433,7 +5464,7 @@
 
     move-result v3
 
-    .line 1526
+    .line 2028
     :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -4449,9 +5480,11 @@
 
     move-result-object v2
 
-    .line 1532
+    .line 2034
     :goto_0
     if-ne v3, v0, :cond_0
+
+    if-eqz v2, :cond_0
 
     iget v2, v2, Landroid/content/pm/PackageInfo;->versionCode:I
 
@@ -4462,15 +5495,15 @@
     :goto_1
     return v0
 
-    .line 1528
+    .line 2030
     :catch_0
     move-exception v2
 
     move v3, v1
 
-    .line 1529
+    .line 2031
     :goto_2
-    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v2, v4
 
@@ -4479,10 +5512,10 @@
     :cond_0
     move v0, v1
 
-    .line 1532
+    .line 2034
     goto :goto_1
 
-    .line 1528
+    .line 2030
     :catch_1
     move-exception v2
 
@@ -4496,8 +5529,8 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1536
-    .line 1538
+    .line 2038
+    .line 2040
     const-string v0, "sensor"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -4506,7 +5539,7 @@
 
     check-cast v0, Landroid/hardware/SensorManager;
 
-    .line 1540
+    .line 2042
     const/4 v2, -0x1
 
     invoke-virtual {v0, v2}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
@@ -4515,7 +5548,7 @@
 
     move v2, v1
 
-    .line 1541
+    .line 2043
     :goto_0
     invoke-interface {v3}, Ljava/util/List;->size()I
 
@@ -4523,7 +5556,7 @@
 
     if-ge v1, v0, :cond_1
 
-    .line 1542
+    .line 2044
     invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -4534,15 +5567,15 @@
 
     move-result v0
 
-    .line 1544
+    .line 2046
     const/4 v4, 0x5
 
     if-ne v0, v4, :cond_0
 
-    .line 1545
+    .line 2047
     const/4 v2, 0x1
 
-    .line 1541
+    .line 2043
     :cond_0
     add-int/lit8 v0, v1, 0x1
 
@@ -4550,17 +5583,27 @@
 
     goto :goto_0
 
-    .line 1549
+    .line 2051
     :cond_1
     return v2
 .end method
 
-.method public static isTablet(Landroid/content/Context;)Z
-    .locals 2
-    .parameter "context"
+.method public static isSupportMenuTreeForK()Z
+    .locals 1
 
     .prologue
-    .line 438
+    .line 2438
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static isTablet(Landroid/content/Context;)Z
+    .locals 2
+    .parameter
+
+    .prologue
+    .line 458
     sget-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -4573,7 +5616,7 @@
 
     if-lez v0, :cond_0
 
-    .line 439
+    .line 459
     sget-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
     const-string v1, "tablet"
@@ -4582,11 +5625,11 @@
 
     move-result v0
 
-    .line 442
+    .line 462
     :goto_0
     return v0
 
-    .line 441
+    .line 461
     :cond_0
     const-string v0, "ro.build.characteristics"
 
@@ -4596,7 +5639,7 @@
 
     sput-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
-    .line 442
+    .line 462
     sget-object v0, Lcom/android/settings/Utils;->mDeviceType:Ljava/lang/String;
 
     if-eqz v0, :cond_1
@@ -4622,715 +5665,664 @@
 .end method
 
 .method public static isTalkBackEnabled(Landroid/content/Context;)Z
-    .locals 9
+    .locals 10
     .parameter "context"
 
     .prologue
-    .line 622
+    const/4 v7, 0x0
+
+    .line 896
     const/16 v1, 0x3a
 
-    .line 623
+    .line 897
     .local v1, ENABLED_SERVICES_SEPARATOR:C
     const-string v0, "com.google.android.marvin.talkback"
 
-    .line 624
+    .line 898
     .local v0, DEFAULT_SCREENREADER_NAME:Ljava/lang/String;
     new-instance v6, Landroid/text/TextUtils$SimpleStringSplitter;
 
-    const/16 v7, 0x3a
+    const/16 v8, 0x3a
 
-    invoke-direct {v6, v7}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
+    invoke-direct {v6, v8}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
 
-    .line 626
+    .line 900
     .local v6, sStringColonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
+    if-nez p0, :cond_1
+
+    .line 924
+    :cond_0
+    :goto_0
+    return v7
+
+    .line 903
+    :cond_1
+    const/4 v5, 0x0
+
+    .line 904
+    .local v5, enabledServicesSetting:Ljava/lang/String;
+    if-eqz p0, :cond_2
+
+    .line 905
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string v8, "enabled_accessibility_services"
+    const-string v9, "enabled_accessibility_services"
 
-    invoke-static {v7, v8}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v9}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 628
-    .local v5, enabledServicesSetting:Ljava/lang/String;
-    if-nez v5, :cond_0
+    .line 907
+    :cond_2
+    if-nez v5, :cond_3
 
-    .line 629
+    .line 908
     const-string v5, ""
 
-    .line 632
-    :cond_0
+    .line 911
+    :cond_3
     move-object v2, v6
 
-    .line 634
+    .line 913
     .local v2, colonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-virtual {v2, v5}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
-    .line 636
-    :cond_1
+    .line 915
+    :cond_4
     invoke-virtual {v2}, Landroid/text/TextUtils$SimpleStringSplitter;->hasNext()Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_2
+    if-eqz v8, :cond_0
 
-    .line 637
+    .line 916
     invoke-virtual {v2}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 638
+    .line 917
     .local v3, componentNameString:Ljava/lang/String;
     invoke-static {v3}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v4
 
-    .line 640
+    .line 919
     .local v4, enabledService:Landroid/content/ComponentName;
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4
 
-    .line 641
-    const-string v7, "com.google.android.marvin.talkback"
+    .line 920
+    const-string v8, "com.google.android.marvin.talkback"
 
     invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_4
 
-    .line 642
+    .line 921
     const/4 v7, 0x1
-
-    .line 645
-    .end local v3           #componentNameString:Ljava/lang/String;
-    .end local v4           #enabledService:Landroid/content/ComponentName;
-    :goto_0
-    return v7
-
-    :cond_2
-    const/4 v7, 0x0
 
     goto :goto_0
 .end method
 
 .method public static isTalkBackExclusiveOptionEnabled(Landroid/content/Context;)Landroid/os/Bundle;
-    .locals 24
-    .parameter "context"
+    .locals 17
+    .parameter
 
     .prologue
-    .line 704
+    .line 983
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v12
+    move-result-object v5
 
-    .line 705
-    .local v12, res:Landroid/content/res/Resources;
+    .line 984
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v13
+    move-result-object v6
 
-    .line 706
-    .local v13, resolver:Landroid/content/ContentResolver;
-    new-instance v4, Landroid/os/Bundle;
+    .line 985
+    new-instance v7, Landroid/os/Bundle;
 
-    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
 
-    .line 707
-    .local v4, data:Landroid/os/Bundle;
-    const/4 v8, 0x1
+    .line 988
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 708
-    .local v8, is_enabled:Z
-    const/4 v10, 0x0
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 709
-    .local v10, option_flag:I
-    new-instance v22, Ljava/lang/StringBuilder;
+    const v1, 0x7f0908f2
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v5, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    const v23, 0x7f090858
+    move-result-object v1
 
-    move/from16 v0, v23
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v23
+    const-string v1, "\n"
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v0
 
-    const-string v23, "\n"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v22
+    .line 999
+    const/4 v1, 0x0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 1000
+    const/4 v4, 0x0
 
-    move-result-object v5
+    .line 1006
+    const-string v2, "air_motion_engine"
 
-    .line 711
-    .local v5, dialog_content:Ljava/lang/String;
-    const/16 v20, 0x1
-
-    .line 712
-    .local v20, support_assistantmenu:Z
-    const/16 v19, 0x1
-
-    .line 714
-    .local v19, support_accesscontrol:Z
     const/4 v3, 0x0
 
-    .line 715
-    .local v3, assistantmenu:I
-    const/4 v7, 0x0
+    invoke-static {v6, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    .line 716
-    .local v7, interactioncontrol:I
-    const/4 v2, 0x0
+    move-result v8
 
-    .line 717
-    .local v2, airgesture:I
-    const/4 v6, 0x0
+    .line 1007
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    .line 718
-    .local v6, fingerairview:I
-    const/4 v11, 0x0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 719
-    .local v11, penairview:I
-    const/16 v16, 0x0
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 720
-    .local v16, smartscreen:I
-    const/4 v9, 0x0
+    move-result-object v0
 
-    .line 721
-    .local v9, multiwindow:I
-    const/16 v21, 0x0
+    const-string v2, "\n- "
 
-    .line 724
-    .local v21, writingbuddy:I
-    add-int/lit8 v10, v10, 0x10
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 725
-    const-string v22, "air_motion_engine"
+    move-result-object v0
 
-    const/16 v23, 0x0
+    const v2, 0x7f090edd
 
-    move-object/from16 v0, v22
+    invoke-virtual {v5, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move/from16 v1, v23
+    move-result-object v2
 
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v2
+    move-result-object v0
 
-    .line 726
-    new-instance v22, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, "\n- "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const v23, 0x7f090da4
-
-    move/from16 v0, v23
-
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 730
-    add-int/lit8 v10, v10, 0x8
-
-    .line 731
+    .line 1012
     invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
 
-    move-result v22
+    move-result v0
 
-    if-eqz v22, :cond_1
+    if-eqz v0, :cond_1
 
-    .line 732
-    const-string v22, "air_view_master_onoff"
+    .line 1013
+    const-string v0, "air_view_master_onoff"
 
-    const/16 v23, 0x0
+    const/4 v3, 0x0
 
-    move-object/from16 v0, v22
+    invoke-static {v6, v0, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move/from16 v1, v23
+    move-result v0
 
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v6
-
-    .line 738
+    .line 1020
     :goto_0
-    add-int/lit8 v10, v10, 0x4
+    const-string v3, "pen_hovering"
 
-    .line 739
-    const-string v22, "pen_hovering"
+    const/4 v9, 0x0
 
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v11
-
-    .line 743
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, "\n- "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const v23, 0x7f090e68
-
-    move/from16 v0, v23
-
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 747
-    add-int/lit8 v10, v10, 0x20
-
-    .line 748
-    const-string v22, "assistant_menu"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v3
-
-    .line 749
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, "\n- "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const v23, 0x7f090c73
-
-    move/from16 v0, v23
-
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 753
-    add-int/lit8 v10, v10, 0x2
-
-    .line 754
-    const-string v22, "intelligent_sleep_mode"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v18
-
-    .line 755
-    .local v18, smartstay:I
-    const-string v22, "intelligent_rotation_mode"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v15
-
-    .line 756
-    .local v15, smartrotation:I
-    const-string v22, "smart_pause"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v14
-
-    .line 757
-    .local v14, smartpause:I
-    const-string v22, "smart_scroll"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v17
-
-    .line 758
-    .local v17, smartscroll:I
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, "\n- "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const v23, 0x7f090f9a
-
-    move/from16 v0, v23
-
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 759
-    or-int v22, v18, v15
-
-    or-int v22, v22, v14
-
-    or-int v16, v22, v17
-
-    .line 763
-    add-int/lit8 v10, v10, 0x40
-
-    .line 764
-    const-string v22, "access_control_use"
-
-    const/16 v23, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v7
-
-    .line 765
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, "\n- "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const v23, 0x7f090835
-
-    move/from16 v0, v23
-
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 768
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v22
-
-    const-string v23, "com.sec.feature.multiwindow"
-
-    invoke-virtual/range {v22 .. v23}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_0
-
-    .line 769
-    add-int/lit8 v10, v10, 0x1
-
-    .line 770
-    const-string v22, "multi_window_enabled"
-
-    const/16 v23, 0x1
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v3, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v9
 
-    .line 771
-    new-instance v22, Ljava/lang/StringBuilder;
+    .line 1024
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v22
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v22
+    const-string v3, "\n- "
 
-    const-string v23, "\n- "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v22
+    const v3, 0x7f090fa1
 
-    const v23, 0x7f090585
+    invoke-virtual {v5, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move/from16 v0, v23
+    move-result-object v3
 
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v23
+    move-result-object v2
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v2
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 1029
+    const-string v3, "assistant_menu"
 
-    move-result-object v5
+    const/4 v10, 0x0
 
-    .line 774
+    invoke-static {v6, v3, v10}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    .line 1030
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "\n- "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const v3, 0x7f090d87
+
+    invoke-virtual {v5, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1035
+    const-string v3, "intelligent_sleep_mode"
+
+    const/4 v11, 0x0
+
+    invoke-static {v6, v3, v11}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    .line 1036
+    const-string v11, "intelligent_rotation_mode"
+
+    const/4 v12, 0x0
+
+    invoke-static {v6, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v11
+
+    .line 1037
+    const-string v12, "smart_pause"
+
+    const/4 v13, 0x0
+
+    invoke-static {v6, v12, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v12
+
+    .line 1038
+    const-string v13, "smart_scroll"
+
+    const/4 v14, 0x0
+
+    invoke-static {v6, v13, v14}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v13
+
+    .line 1039
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v14, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v14, "\n- "
+
+    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const v14, 0x7f0910d8
+
+    invoke-virtual {v5, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1040
+    or-int/2addr v3, v11
+
+    or-int/2addr v3, v12
+
+    or-int v11, v3, v13
+
+    .line 1044
+    const/16 v3, 0x7e
+
+    .line 1045
+    const-string v12, "access_control_use"
+
+    const/4 v13, 0x0
+
+    invoke-static {v6, v12, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v12
+
+    .line 1046
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v13, "\n- "
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const v13, 0x7f0908b4
+
+    invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1049
+    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v13
+
+    const-string v14, "com.sec.feature.multiwindow"
+
+    invoke-virtual {v13, v14}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    .line 1050
+    const/16 v3, 0x7f
+
+    .line 1051
+    const-string v1, "multi_window_enabled"
+
+    const/4 v13, 0x1
+
+    invoke-static {v6, v1, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 1052
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v13, "\n- "
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const v13, 0x7f0905b4
+
+    invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1055
     :cond_0
     invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
 
-    move-result v22
+    move-result v13
 
-    if-nez v22, :cond_2
+    if-nez v13, :cond_2
 
-    .line 780
+    move/from16 v16, v4
+
+    move v4, v3
+
+    move-object v3, v2
+
+    move/from16 v2, v16
+
+    .line 1062
     :goto_1
-    or-int v22, v7, v3
+    add-int/lit16 v4, v4, 0x100
 
-    or-int v22, v22, v2
+    .line 1063
+    const-string v13, "surface_motion_engine"
 
-    or-int v22, v22, v6
+    const/4 v14, 0x0
 
-    or-int v22, v22, v11
+    invoke-static {v6, v13, v14}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    or-int v22, v22, v16
+    move-result v13
 
-    or-int v22, v22, v9
+    .line 1064
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    or-int v22, v22, v21
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-lez v22, :cond_3
+    invoke-virtual {v14, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v8, 0x1
+    move-result-object v3
 
-    .line 782
-    :goto_2
-    const-string v22, "is_enabled"
+    const-string v14, "\n- "
 
-    move-object/from16 v0, v22
+    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0, v8}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    move-result-object v3
 
-    .line 783
-    const-string v22, "option_flag"
+    const v14, 0x7f090ecb
 
-    move-object/from16 v0, v22
+    invoke-virtual {v5, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v4, v0, v10}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    move-result-object v14
 
-    .line 784
-    const-string v22, "dialog_content"
+    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v22
+    move-result-object v3
 
-    invoke-virtual {v4, v0, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 785
-    return-object v4
+    move-result-object v3
 
-    .line 734
-    .end local v14           #smartpause:I
-    .end local v15           #smartrotation:I
-    .end local v17           #smartscroll:I
-    .end local v18           #smartstay:I
-    :cond_1
-    const-string v22, "finger_air_view"
+    .line 1068
+    const-string v14, "any_screen_enabled"
 
-    const/16 v23, 0x0
+    const/4 v15, 0x0
 
-    move-object/from16 v0, v22
-
-    move/from16 v1, v23
-
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v6, v14, v15}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v6
 
-    goto/16 :goto_0
+    .line 1069
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    .line 775
-    .restart local v14       #smartpause:I
-    .restart local v15       #smartrotation:I
-    .restart local v17       #smartscroll:I
-    .restart local v18       #smartstay:I
-    :cond_2
-    add-int/lit16 v10, v10, 0x80
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 776
-    const-string v22, "pen_writing_buddy"
+    invoke-virtual {v14, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v23, 0x0
+    move-result-object v3
 
-    move-object/from16 v0, v22
+    const-string v14, "\n- "
 
-    move/from16 v1, v23
+    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v13, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    move-result-object v3
 
-    move-result v21
+    const v14, 0x7f09125a
 
-    .line 777
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, "\n- "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const v23, 0x7f090cd1
-
-    move/from16 v0, v23
-
-    invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_1
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 780
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 1072
+    or-int v5, v12, v10
+
+    or-int/2addr v5, v8
+
+    or-int/2addr v0, v5
+
+    or-int/2addr v0, v9
+
+    or-int/2addr v0, v11
+
+    or-int/2addr v0, v1
+
+    or-int/2addr v0, v2
+
+    or-int/2addr v0, v13
+
+    or-int/2addr v0, v6
+
+    if-lez v0, :cond_3
+
+    const/4 v0, 0x1
+
+    .line 1074
+    :goto_2
+    const-string v1, "is_enabled"
+
+    invoke-virtual {v7, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 1075
+    const-string v0, "option_flag"
+
+    invoke-virtual {v7, v0, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    .line 1076
+    const-string v0, "dialog_content"
+
+    invoke-virtual {v7, v0, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1077
+    return-object v7
+
+    .line 1015
+    :cond_1
+    const-string v0, "finger_air_view"
+
+    const/4 v3, 0x0
+
+    invoke-static {v6, v0, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto/16 :goto_0
+
+    .line 1056
+    :cond_2
+    add-int/lit16 v4, v3, 0x80
+
+    .line 1057
+    const-string v3, "pen_writing_buddy"
+
+    const/4 v13, 0x0
+
+    invoke-static {v6, v3, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    .line 1058
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v13, "\n- "
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const v13, 0x7f090deb
+
+    invoke-virtual {v5, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    move/from16 v16, v3
+
+    move-object v3, v2
+
+    move/from16 v2, v16
+
+    goto/16 :goto_1
+
+    .line 1072
     :cond_3
-    const/4 v8, 0x0
+    const/4 v0, 0x0
 
     goto :goto_2
 .end method
@@ -5340,7 +6332,7 @@
     .parameter "context"
 
     .prologue
-    .line 422
+    .line 442
     const-string v1, "phone"
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -5349,7 +6341,7 @@
 
     check-cast v0, Landroid/telephony/TelephonyManager;
 
-    .line 424
+    .line 444
     .local v0, telephony:Landroid/telephony/TelephonyManager;
     if-eqz v0, :cond_0
 
@@ -5377,7 +6369,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 432
+    .line 452
     const-string v2, "connectivity"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -5386,7 +6378,7 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 434
+    .line 454
     .local v0, cm:Landroid/net/ConnectivityManager;
     invoke-virtual {v0, v1}, Landroid/net/ConnectivityManager;->isNetworkSupported(I)Z
 
@@ -5400,6 +6392,470 @@
     return v1
 .end method
 
+.method public static loadMySettings(Landroid/content/Context;Ljava/util/List;Ljava/util/HashMap;)V
+    .locals 9
+    .parameter
+    .parameter
+    .parameter
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/preference/PreferenceActivity$Header;",
+            ">;",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Integer;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v6, 0x0
+
+    const/4 v2, 0x0
+
+    .line 2330
+    const-string v0, "Favorite"
+
+    const-string v1, "loadMySettings"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2331
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/settings/favorite/MySettingsProvider;->FAVORITE_CONTENT_URI:Landroid/net/Uri;
+
+    move-object v3, v2
+
+    move-object v4, v2
+
+    move-object v5, v2
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v3
+
+    .line 2334
+    new-instance v7, Ljava/util/HashMap;
+
+    invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
+
+    .line 2336
+    const-string v0, "Favorite"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "count: "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
+
+    move-result v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2337
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v1, v6
+
+    .line 2340
+    :goto_0
+    const-string v0, "key"
+
+    invoke-interface {v3, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v3, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 2341
+    const-string v4, "Favorite"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "key: "
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2342
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const-string v5, "id"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v0, v5, v8}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    .line 2343
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    .line 2344
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {v7, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 2345
+    add-int/lit8 v0, v1, 0x1
+
+    .line 2346
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    .line 2348
+    :cond_0
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+
+    .line 2350
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/settings/favorite/MySettingsProvider;->FREQUENT_CONTENT_URI:Landroid/net/Uri;
+
+    const-string v5, "count desc"
+
+    move-object v3, v2
+
+    move-object v4, v2
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v2
+
+    .line 2352
+    new-instance v3, Ljava/util/HashMap;
+
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
+
+    .line 2354
+    const-string v0, "Favorite"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "frequent count: "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
+
+    move-result v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2355
+    invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v1, v6
+
+    .line 2358
+    :goto_1
+    const-string v0, "count"
+
+    invoke-interface {v2, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v2, v0}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v0
+
+    .line 2359
+    const-string v4, "Favorite"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "rank: "
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v4, v0}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2360
+    const-string v0, "key"
+
+    invoke-interface {v2, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v2, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 2361
+    const-string v4, "Favorite"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "key: "
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2362
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const-string v5, "id"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v0, v5, v8}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    .line 2363
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    .line 2364
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 2365
+    add-int/lit8 v0, v1, 0x1
+
+    .line 2366
+    invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    .line 2368
+    :cond_1
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+
+    .line 2370
+    invoke-interface {p1}, Ljava/util/List;->clear()V
+
+    .line 2371
+    new-instance v0, Landroid/preference/PreferenceActivity$Header;
+
+    invoke-direct {v0}, Landroid/preference/PreferenceActivity$Header;-><init>()V
+
+    .line 2372
+    const v1, 0x7f090024
+
+    iput v1, v0, Landroid/preference/PreferenceActivity$Header;->titleRes:I
+
+    .line 2373
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    move v0, v6
+
+    .line 2375
+    :goto_2
+    invoke-virtual {v7}, Ljava/util/HashMap;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_2
+
+    .line 2376
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v7, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 2375
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    .line 2379
+    :cond_2
+    new-instance v0, Landroid/preference/PreferenceActivity$Header;
+
+    invoke-direct {v0}, Landroid/preference/PreferenceActivity$Header;-><init>()V
+
+    .line 2380
+    const v1, 0x7f09001a
+
+    iput v1, v0, Landroid/preference/PreferenceActivity$Header;->titleRes:I
+
+    .line 2381
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 2383
+    :goto_3
+    invoke-virtual {v3}, Ljava/util/HashMap;->size()I
+
+    move-result v0
+
+    if-ge v6, v0, :cond_3
+
+    .line 2384
+    const/4 v0, 0x6
+
+    if-ne v6, v0, :cond_4
+
+    .line 2387
+    :cond_3
+    return-void
+
+    .line 2385
+    :cond_4
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 2383
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_3
+
+    :cond_5
+    move v1, v0
+
+    goto/16 :goto_1
+
+    :cond_6
+    move v1, v0
+
+    goto/16 :goto_0
+.end method
+
 .method public static makeStringWithImage(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)Landroid/text/SpannableString;
     .locals 5
     .parameter
@@ -5410,12 +6866,12 @@
 
     const/4 v3, 0x0
 
-    .line 1228
+    .line 1593
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
-    .line 1229
+    .line 1594
     :cond_0
     const-string v1, "Utils"
 
@@ -5423,11 +6879,11 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1240
+    .line 1605
     :goto_0
     return-object v0
 
-    .line 1231
+    .line 1596
     :cond_1
     const-string v1, "%s"
 
@@ -5437,7 +6893,7 @@
 
     if-nez v1, :cond_2
 
-    .line 1232
+    .line 1597
     const-string v1, "Utils"
 
     const-string v2, "makeStringWithImage - %s is not in str"
@@ -5446,13 +6902,13 @@
 
     goto :goto_0
 
-    .line 1235
+    .line 1600
     :cond_2
     new-instance v0, Landroid/text/SpannableString;
 
     invoke-direct {v0, p0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 1236
+    .line 1601
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v1
@@ -5463,19 +6919,19 @@
 
     invoke-virtual {p1, v3, v3, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 1237
+    .line 1602
     new-instance v1, Landroid/text/style/ImageSpan;
 
     invoke-direct {v1, p1, v3}, Landroid/text/style/ImageSpan;-><init>(Landroid/graphics/drawable/Drawable;I)V
 
-    .line 1238
+    .line 1603
     const-string v2, "%s"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v2
 
-    .line 1239
+    .line 1604
     add-int/lit8 v3, v2, 0x2
 
     const/16 v4, 0x11
@@ -5496,7 +6952,7 @@
 
     const/4 v4, 0x0
 
-    .line 1244
+    .line 1609
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
@@ -5505,7 +6961,7 @@
 
     move-result-object v1
 
-    .line 1246
+    .line 1611
     const-string v2, "ar"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5538,7 +6994,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 1247
+    .line 1612
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -5558,13 +7014,13 @@
 
     move-result-object v1
 
-    .line 1253
+    .line 1618
     :goto_0
     if-eqz v1, :cond_1
 
     if-nez p1, :cond_3
 
-    .line 1254
+    .line 1619
     :cond_1
     const-string v1, "Utils"
 
@@ -5572,11 +7028,11 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1265
+    .line 1630
     :goto_1
     return-object v0
 
-    .line 1249
+    .line 1614
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -5598,7 +7054,7 @@
 
     goto :goto_0
 
-    .line 1256
+    .line 1621
     :cond_3
     const-string v2, "%s"
 
@@ -5608,7 +7064,7 @@
 
     if-nez v2, :cond_4
 
-    .line 1257
+    .line 1622
     const-string v1, "Utils"
 
     const-string v2, "makeStringWithImage - %s is not in str"
@@ -5617,13 +7073,13 @@
 
     goto :goto_1
 
-    .line 1260
+    .line 1625
     :cond_4
     new-instance v0, Landroid/text/SpannableString;
 
     invoke-direct {v0, v1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 1261
+    .line 1626
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v2
@@ -5634,19 +7090,19 @@
 
     invoke-virtual {p1, v4, p2, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 1262
+    .line 1627
     new-instance v2, Landroid/text/style/ImageSpan;
 
     invoke-direct {v2, p1, v4}, Landroid/text/style/ImageSpan;-><init>(Landroid/graphics/drawable/Drawable;I)V
 
-    .line 1263
+    .line 1628
     const-string v3, "%s"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 1264
+    .line 1629
     add-int/lit8 v3, v1, 0x2
 
     const/16 v4, 0x11
@@ -5657,112 +7113,98 @@
 .end method
 
 .method public static prepareCustomPreferencesList(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Z)V
-    .locals 9
-    .parameter "parent"
-    .parameter "child"
-    .parameter "list"
-    .parameter "ignoreSidePadding"
+    .locals 5
+    .parameter
+    .parameter
+    .parameter
+    .parameter
 
     .prologue
-    const/4 v7, 0x1
+    const/4 v1, 0x1
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    .line 988
+    .line 1335
     invoke-virtual {p2}, Landroid/view/View;->getScrollBarStyle()I
 
-    move-result v5
+    move-result v0
 
-    const/high16 v8, 0x200
+    const/high16 v3, 0x200
 
-    if-ne v5, v8, :cond_1
+    if-ne v0, v3, :cond_1
 
-    move v1, v7
+    move v0, v1
 
-    .line 989
-    .local v1, movePadding:Z
+    .line 1336
     :goto_0
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    instance-of v5, p0, Landroid/preference/PreferenceFrameLayout;
+    instance-of v0, p0, Landroid/preference/PreferenceFrameLayout;
 
-    if-eqz v5, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 990
+    .line 1337
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v5
+    move-result-object v0
 
-    check-cast v5, Landroid/preference/PreferenceFrameLayout$LayoutParams;
+    check-cast v0, Landroid/preference/PreferenceFrameLayout$LayoutParams;
 
-    iput-boolean v7, v5, Landroid/preference/PreferenceFrameLayout$LayoutParams;->removeBorders:Z
+    iput-boolean v1, v0, Landroid/preference/PreferenceFrameLayout$LayoutParams;->removeBorders:Z
 
-    .line 992
+    .line 1339
     invoke-virtual {p2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v0
 
-    .line 993
-    .local v4, res:Landroid/content/res/Resources;
-    const v5, 0x7f0f0051
+    .line 1340
+    const v1, 0x7f0f005a
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    .line 1341
+    const v1, 0x7f0f0070
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    .line 1344
+    const v3, 0x7f0f0241
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    .line 995
-    .local v3, paddingSide:I
-    const v5, 0x7f0f0052
+    .line 1345
+    const v4, 0x7f0f0242
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v2
+    move-result v0
 
-    .line 998
-    .local v2, paddingBottom:I
-    if-eqz p3, :cond_2
+    .line 1346
+    invoke-virtual {p2, v3, v2, v0, v1}, Landroid/view/View;->setPaddingRelative(IIII)V
 
-    move v0, v6
-
-    .line 999
-    .local v0, effectivePaddingSide:I
-    :goto_1
-    invoke-virtual {p2, v0, v6, v0, v2}, Landroid/view/View;->setPaddingRelative(IIII)V
-
-    .line 1001
-    .end local v0           #effectivePaddingSide:I
-    .end local v2           #paddingBottom:I
-    .end local v3           #paddingSide:I
-    .end local v4           #res:Landroid/content/res/Resources;
+    .line 1348
     :cond_0
     return-void
 
-    .end local v1           #movePadding:Z
     :cond_1
-    move v1, v6
+    move v0, v2
 
-    .line 988
+    .line 1335
     goto :goto_0
-
-    .restart local v1       #movePadding:Z
-    .restart local v2       #paddingBottom:I
-    .restart local v3       #paddingSide:I
-    .restart local v4       #res:Landroid/content/res/Resources;
-    :cond_2
-    move v0, v3
-
-    .line 998
-    goto :goto_1
 .end method
 
 .method public static readSalesCode()Ljava/lang/String;
     .locals 3
 
     .prologue
-    .line 1306
+    .line 1686
     const-string v0, ""
 
-    .line 1308
+    .line 1688
     :try_start_0
     const-string v1, "ro.csc.sales_code"
 
@@ -5770,14 +7212,14 @@
 
     move-result-object v0
 
-    .line 1309
+    .line 1689
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 1310
+    .line 1690
     const-string v1, "ril.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -5786,21 +7228,147 @@
 
     move-result-object v0
 
-    .line 1315
+    .line 1695
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1312
+    .line 1692
     :catch_0
     move-exception v1
 
-    .line 1313
+    .line 1693
     const-string v1, "Utils"
 
     const-string v2, "readSalesCode failed"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public static removeFavorite(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 6
+    .parameter
+    .parameter
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 2413
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/settings/favorite/MySettingsProvider;->FAVORITE_CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    const-string v5, "_id"
+
+    aput-object v5, v2, v3
+
+    const/4 v3, 0x1
+
+    const-string v5, "key"
+
+    aput-object v5, v2, v3
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "key=\'"
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v5, "\'"
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 2414
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 2415
+    const-string v1, "_id"
+
+    invoke-interface {v0, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    .line 2416
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .line 2417
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/android/settings/favorite/MySettingsProvider;->FAVORITE_CONTENT_URI:Landroid/net/Uri;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "_id="
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v2, v1, v4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    .line 2421
+    :goto_0
+    return-void
+
+    .line 2419
+    :cond_0
+    const-string v0, "Favorite"
+
+    const-string v1, "no data!"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -5811,21 +7379,21 @@
     .parameter
 
     .prologue
-    .line 1718
+    .line 2234
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    .line 1721
+    .line 2237
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f09018c
+    const v1, 0x7f0901af
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e63
+    const v1, 0x7f090f9c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -5857,7 +7425,283 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1742
+    .line 2258
+    return-void
+.end method
+
+.method public static saveFavorite(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
+    .parameter
+    .parameter
+
+    .prologue
+    .line 2407
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    .line 2408
+    const-string v1, "key"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 2409
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/settings/favorite/MySettingsProvider;->FAVORITE_CONTENT_URI:Landroid/net/Uri;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+
+    .line 2410
+    return-void
+.end method
+
+.method public static saveFrequent(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 7
+    .parameter
+    .parameter
+
+    .prologue
+    const/4 v6, 0x1
+
+    const/4 v4, 0x0
+
+    .line 2390
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/settings/favorite/MySettingsProvider;->FREQUENT_CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    const-string v5, "key"
+
+    aput-object v5, v2, v3
+
+    const-string v3, "count"
+
+    aput-object v3, v2, v6
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "key=\'"
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v5, "\'"
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 2391
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 2392
+    const-string v1, "count"
+
+    invoke-interface {v0, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    .line 2393
+    new-instance v2, Landroid/content/ContentValues;
+
+    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+
+    .line 2394
+    const-string v3, "key"
+
+    invoke-virtual {v2, v3, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 2395
+    const-string v3, "count"
+
+    add-int/lit8 v1, v1, 0x1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v3, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    .line 2396
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    sget-object v3, Lcom/android/settings/favorite/MySettingsProvider;->FREQUENT_CONTENT_URI:Landroid/net/Uri;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "key=\'"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "\'"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v3, v2, v5, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+
+    .line 2397
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .line 2404
+    :goto_0
+    return-void
+
+    .line 2399
+    :cond_0
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    .line 2400
+    const-string v1, "key"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 2401
+    const-string v1, "count"
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    .line 2402
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/settings/favorite/MySettingsProvider;->FREQUENT_CONTENT_URI:Landroid/net/Uri;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+
+    goto :goto_0
+.end method
+
+.method public static showDialogPopup(Landroid/content/Context;)V
+    .locals 3
+    .parameter
+
+    .prologue
+    .line 2313
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 2314
+    const v1, 0x7f0901af
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    .line 2315
+    const v1, 0x7f091747
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    .line 2317
+    const v1, 0x7f091616
+
+    new-instance v2, Lcom/android/settings/Utils$4;
+
+    invoke-direct {v2}, Lcom/android/settings/Utils$4;-><init>()V
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 2324
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    .line 2325
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+
+    .line 2326
+    return-void
+.end method
+
+.method public static turnOffAllMotionMaster(Landroid/content/Context;)V
+    .locals 3
+    .parameter
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 877
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 879
+    const-string v1, "master_motion"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 882
+    invoke-static {p0}, Lcom/android/settings/Utils;->autoTurnOffAirMotionEngine(Landroid/content/Context;)V
+
+    .line 885
+    invoke-static {p0}, Lcom/android/settings/Utils;->autoTurnOffMotionEngine(Landroid/content/Context;)V
+
+    .line 888
+    const-string v1, "surface_motion_engine"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 889
     return-void
 .end method
 
@@ -5870,20 +7714,20 @@
 
     const/4 v8, 0x0
 
-    .line 653
+    .line 932
     const/16 v1, 0x3a
 
-    .line 654
+    .line 933
     .local v1, ENABLED_SERVICES_SEPARATOR:C
     const-string v0, "com.google.android.marvin.talkback"
 
-    .line 655
+    .line 934
     .local v0, DEFAULT_SCREENREADER_NAME:Ljava/lang/String;
     new-instance v6, Landroid/text/TextUtils$SimpleStringSplitter;
 
     invoke-direct {v6, v11}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
 
-    .line 657
+    .line 936
     .local v6, sStringColonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -5895,16 +7739,16 @@
 
     move-result-object v5
 
-    .line 659
+    .line 938
     .local v5, enabledServicesSetting:Ljava/lang/String;
     if-nez v5, :cond_1
 
-    .line 685
+    .line 964
     :cond_0
     :goto_0
     return v8
 
-    .line 662
+    .line 941
     :cond_1
     invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
 
@@ -5912,20 +7756,20 @@
 
     if-nez v9, :cond_0
 
-    .line 666
+    .line 945
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 667
+    .line 946
     .local v2, builder:Ljava/lang/StringBuilder;
     move-object v3, v6
 
-    .line 668
+    .line 947
     .local v3, colonSplitter:Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-virtual {v3, v5}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
-    .line 670
+    .line 949
     :cond_2
     :goto_1
     invoke-virtual {v3}, Landroid/text/TextUtils$SimpleStringSplitter;->hasNext()Z
@@ -5934,12 +7778,12 @@
 
     if-eqz v8, :cond_4
 
-    .line 671
+    .line 950
     invoke-virtual {v3}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 673
+    .line 952
     .local v4, componentNameString:Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
 
@@ -5947,10 +7791,10 @@
 
     if-lez v8, :cond_3
 
-    .line 674
+    .line 953
     invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 677
+    .line 956
     :cond_3
     if-eqz v4, :cond_2
 
@@ -5962,12 +7806,12 @@
 
     if-nez v8, :cond_2
 
-    .line 678
+    .line 957
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 682
+    .line 961
     .end local v4           #componentNameString:Ljava/lang/String;
     :cond_4
     new-instance v7, Landroid/content/Intent;
@@ -5976,11 +7820,11 @@
 
     invoke-direct {v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 683
+    .line 962
     .local v7, talk_back_off:Landroid/content/Intent;
     invoke-virtual {p0, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 684
+    .line 963
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
@@ -5993,343 +7837,447 @@
 
     invoke-static {v8, v9, v10}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 685
+    .line 964
     const/4 v8, 0x1
 
     goto :goto_0
 .end method
 
 .method public static turnOffTalkBackExclusiveOptions(Landroid/content/Context;I)V
-    .locals 12
-    .parameter "context"
-    .parameter "option_flag"
+    .locals 7
+    .parameter
+    .parameter
 
     .prologue
-    const/4 v11, 0x1
+    const/4 v6, 0x1
 
-    const/4 v10, 0x0
+    const/4 v5, 0x0
 
-    .line 793
+    .line 1085
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v4
+    move-result-object v0
 
-    .line 796
-    .local v4, resolver:Landroid/content/ContentResolver;
-    and-int/lit8 v7, p1, 0x20
+    .line 1088
+    and-int/lit8 v1, p1, 0x20
 
-    if-lez v7, :cond_0
+    if-lez v1, :cond_0
 
-    .line 797
-    const-string v7, "Utils"
+    .line 1089
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x20"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x20"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 798
-    const-string v7, "assistant_menu"
+    .line 1090
+    const-string v1, "assistant_menu"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 799
+    .line 1091
     new-instance v1, Landroid/content/Intent;
 
-    const-string v7, "android.intent.action.MAIN"
+    const-string v2, "android.intent.action.MAIN"
 
-    invoke-direct {v1, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 800
-    .local v1, assistantMenu:Landroid/content/Intent;
-    new-instance v7, Landroid/content/ComponentName;
+    .line 1092
+    new-instance v2, Landroid/content/ComponentName;
 
-    const-string v8, "com.samsung.android.app.assistantmenu"
+    const-string v3, "com.samsung.android.app.assistantmenu"
 
-    const-string v9, "com.samsung.android.app.assistantmenu.serviceframework.AssistantMenuService"
+    const-string v4, "com.samsung.android.app.assistantmenu.serviceframework.AssistantMenuService"
 
-    invoke-direct {v7, v8, v9}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v1, v7}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 802
+    .line 1094
     invoke-virtual {p0, v1}, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
 
-    .line 803
-    const-string v7, "Utils"
+    .line 1095
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x20"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x20"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 807
-    .end local v1           #assistantMenu:Landroid/content/Intent;
+    .line 1099
     :cond_0
-    and-int/lit8 v7, p1, 0x10
+    and-int/lit8 v1, p1, 0x10
 
-    if-lez v7, :cond_1
+    if-lez v1, :cond_1
 
-    .line 808
-    const-string v7, "Utils"
+    .line 1100
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x10"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x10"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 809
-    const-string v7, "air_motion_engine"
+    .line 1101
+    const-string v1, "air_motion_engine"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 810
-    new-instance v0, Landroid/content/Intent;
+    .line 1102
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v7, "com.sec.gesture.AIR_MOTION_SETTINGS_CHANGED"
+    const-string v2, "com.sec.gesture.AIR_MOTION_SETTINGS_CHANGED"
 
-    invoke-direct {v0, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 811
-    .local v0, air_motion_changed:Landroid/content/Intent;
-    const-string v7, "isEnable"
+    .line 1103
+    const-string v2, "isEnable"
 
-    invoke-virtual {v0, v7, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 812
-    invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 1104
+    invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 816
-    .end local v0           #air_motion_changed:Landroid/content/Intent;
+    .line 1138
     :cond_1
-    and-int/lit8 v7, p1, 0x8
+    and-int/lit8 v1, p1, 0x8
 
-    if-lez v7, :cond_2
+    if-lez v1, :cond_2
 
-    .line 817
-    const-string v7, "Utils"
+    .line 1139
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x08"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x08"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 818
+    .line 1140
     invoke-static {}, Lcom/android/settings/Utils;->isAutoAirViewSupported()Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_8
+    if-eqz v1, :cond_9
 
-    .line 819
-    const/4 v7, 0x3
+    .line 1141
+    const/4 v1, 0x3
 
-    invoke-static {p0, v7}, Lcom/android/settings/Utils;->SetAirViewMasterValue(Landroid/content/Context;I)V
+    invoke-static {p0, v1}, Lcom/android/settings/Utils;->SetAirViewMasterValue(Landroid/content/Context;I)V
 
-    .line 825
+    .line 1147
     :goto_0
-    new-instance v2, Landroid/content/Intent;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v7, "com.sec.gesture.FINGER_AIR_VIEW_SETTINGS_CHANGED"
+    const-string v2, "com.sec.gesture.FINGER_AIR_VIEW_SETTINGS_CHANGED"
 
-    invoke-direct {v2, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 826
-    .local v2, finger_air_view_changed:Landroid/content/Intent;
-    const-string v7, "isEnable"
+    .line 1148
+    const-string v2, "isEnable"
 
-    invoke-virtual {v2, v7, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 827
-    invoke-virtual {p0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 1149
+    invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 831
-    .end local v2           #finger_air_view_changed:Landroid/content/Intent;
+    .line 1153
     :cond_2
-    and-int/lit8 v7, p1, 0x40
+    and-int/lit8 v1, p1, 0x40
 
-    if-lez v7, :cond_3
+    if-lez v1, :cond_3
 
-    .line 832
-    const-string v7, "Utils"
+    .line 1154
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x40"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x40"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 833
-    const-string v7, "access_control_use"
+    .line 1155
+    const-string v1, "access_control_use"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 834
-    const-string v7, "access_control_enabled"
+    .line 1156
+    const-string v1, "direct_access_control"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 835
-    new-instance v3, Landroid/content/Intent;
+    .line 1157
+    const-string v1, "access_control_enabled"
 
-    const-string v7, "android.intent.action.MAIN"
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    invoke-direct {v3, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    .line 1158
+    new-instance v1, Landroid/content/Intent;
 
-    .line 836
-    .local v3, icIntent:Landroid/content/Intent;
-    new-instance v7, Landroid/content/ComponentName;
+    const-string v2, "android.intent.action.MAIN"
 
-    const-string v8, "com.samsung.android.app.accesscontrol"
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v9, "com.samsung.android.app.accesscontrol.AccessControlMainService"
+    .line 1159
+    new-instance v2, Landroid/content/ComponentName;
 
-    invoke-direct {v7, v8, v9}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v3, "com.samsung.android.app.accesscontrol"
 
-    invoke-virtual {v3, v7}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    const-string v4, "com.samsung.android.app.accesscontrol.AccessControlMainService"
 
-    .line 838
-    invoke-virtual {p0, v3}, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 839
-    const-string v7, "Utils"
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x40"
+    .line 1161
+    invoke-virtual {p0, v1}, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    .line 1162
+    const-string v1, "Utils"
 
-    .line 843
-    .end local v3           #icIntent:Landroid/content/Intent;
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x40"
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1166
     :cond_3
-    and-int/lit8 v7, p1, 0x4
+    and-int/lit8 v1, p1, 0x4
 
-    if-lez v7, :cond_4
+    if-lez v1, :cond_4
 
-    .line 844
-    const-string v7, "Utils"
+    .line 1167
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x04"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x04"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 845
-    const-string v7, "pen_hovering"
+    .line 1168
+    const-string v1, "pen_hovering"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 849
+    .line 1172
     :cond_4
-    and-int/lit8 v7, p1, 0x2
+    and-int/lit8 v1, p1, 0x2
 
-    if-lez v7, :cond_5
+    if-lez v1, :cond_5
 
-    .line 850
-    const-string v7, "Utils"
+    .line 1173
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x02"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x02"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 851
-    const-string v7, "intelligent_sleep_mode"
+    .line 1174
+    const-string v1, "intelligent_sleep_mode"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 852
-    const-string v7, "intelligent_rotation_mode"
+    .line 1175
+    const-string v1, "intelligent_rotation_mode"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 853
-    const-string v7, "smart_pause"
+    .line 1176
+    const-string v1, "smart_pause"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 854
-    new-instance v5, Landroid/content/Intent;
+    .line 1177
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v7, "com.sec.SMART_PAUSE_CHANGED"
+    const-string v2, "com.sec.SMART_PAUSE_CHANGED"
 
-    invoke-direct {v5, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 855
-    .local v5, smart_pause_changed:Landroid/content/Intent;
-    const-string v7, "isEnable"
+    .line 1178
+    const-string v2, "isEnable"
 
-    invoke-virtual {v5, v7, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 856
-    invoke-virtual {p0, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 1179
+    invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 857
-    const-string v7, "smart_scroll"
+    .line 1180
+    const-string v1, "smart_scroll"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 858
-    new-instance v6, Landroid/content/Intent;
+    .line 1181
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v7, "com.sec.SMART_SCROLL_CHANGED"
+    const-string v2, "com.sec.SMART_SCROLL_CHANGED"
 
-    invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 859
-    .local v6, smart_scroll_changed:Landroid/content/Intent;
-    const-string v7, "isEnable"
+    .line 1182
+    const-string v2, "isEnable"
 
-    invoke-virtual {v6, v7, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 860
-    invoke-virtual {p0, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 1183
+    invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 864
-    .end local v5           #smart_pause_changed:Landroid/content/Intent;
-    .end local v6           #smart_scroll_changed:Landroid/content/Intent;
+    .line 1187
     :cond_5
-    and-int/lit8 v7, p1, 0x1
+    and-int/lit8 v1, p1, 0x1
 
-    if-lez v7, :cond_6
+    if-lez v1, :cond_6
 
-    .line 865
-    const-string v7, "Utils"
+    .line 1188
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x01"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x01"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 866
-    const-string v7, "multi_window_enabled"
+    .line 1189
+    const-string v1, "multi_window_enabled"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 870
+    .line 1193
     :cond_6
-    and-int/lit16 v7, p1, 0x80
+    and-int/lit16 v1, p1, 0x80
 
-    if-lez v7, :cond_7
+    if-lez v1, :cond_7
 
-    .line 871
-    const-string v7, "Utils"
+    .line 1194
+    const-string v1, "Utils"
 
-    const-string v8, "turnOffTalkBackExclusiveOptions - 0x80"
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x80"
 
-    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 872
-    const-string v7, "pen_writing_buddy"
+    .line 1195
+    const-string v1, "pen_writing_buddy"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 874
+    .line 1198
     :cond_7
+    and-int/lit16 v1, p1, 0x100
+
+    if-lez v1, :cond_8
+
+    .line 1199
+    const-string v1, "Utils"
+
+    const-string v2, "turnOffTalkBackExclusiveOptions - 0x100"
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1200
+    const-string v1, "surface_motion_engine"
+
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 1204
+    :cond_8
+    const-string v1, "any_screen_enabled"
+
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 1206
     return-void
 
-    .line 821
-    :cond_8
-    const-string v7, "finger_air_view"
+    .line 1143
+    :cond_9
+    const-string v1, "finger_air_view"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 822
-    const-string v7, "finger_air_view_highlight"
+    .line 1144
+    const-string v1, "finger_air_view_highlight"
 
-    invoke-static {v4, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto/16 :goto_0
+.end method
+
+.method public static turnOnAirMotionEngine(Landroid/content/Context;)V
+    .locals 5
+    .parameter "context"
+
+    .prologue
+    const/4 v4, 0x1
+
+    .line 788
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 790
+    .local v0, mResolver:Landroid/content/ContentResolver;
+    const-string v2, "air_motion_engine"
+
+    const/4 v3, 0x0
+
+    invoke-static {v0, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-static {p0, v4}, Lcom/android/settings/Utils;->isAllAirMotionDisabled2014(Landroid/content/Context;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 791
+    const-string v2, "air_motion_engine"
+
+    invoke-static {v0, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 792
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.sec.gesture.AIR_MOTION_SETTINGS_CHANGED"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 793
+    .local v1, motion_changed:Landroid/content/Intent;
+    const-string v2, "isEnable"
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 794
+    invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 796
+    .end local v1           #motion_changed:Landroid/content/Intent;
+    :cond_0
+    return-void
+.end method
+
+.method public static turnOnAllMotionMaster(Landroid/content/Context;)V
+    .locals 3
+    .parameter
+
+    .prologue
+    const/4 v2, 0x1
+
+    .line 862
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 864
+    const-string v1, "master_motion"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 867
+    invoke-static {p0}, Lcom/android/settings/Utils;->turnOnAirMotionEngine(Landroid/content/Context;)V
+
+    .line 870
+    invoke-static {p0}, Lcom/android/settings/Utils;->turnOnMotionEngine(Landroid/content/Context;)V
+
+    .line 873
+    const-string v1, "surface_motion_engine"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 874
+    return-void
 .end method
 
 .method public static turnOnMotionEngine(Landroid/content/Context;)V
@@ -6339,41 +8287,41 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 549
+    .line 713
     const-string v2, "MotionSettings"
 
     const-string v3, "Utils.turnOnMotionEngine turn on Motion engine!"
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 550
+    .line 714
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 551
+    .line 715
     .local v0, mResolver:Landroid/content/ContentResolver;
     const-string v2, "motion_engine"
 
     invoke-static {v0, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 552
+    .line 716
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 553
+    .line 717
     .local v1, motion_changed:Landroid/content/Intent;
     const-string v2, "isEnable"
 
     invoke-virtual {v1, v2, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 554
+    .line 718
     invoke-virtual {p0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 555
+    .line 719
     return-void
 .end method
 
@@ -6396,22 +8344,22 @@
     .end annotation
 
     .prologue
-    .line 354
+    .line 374
     .local p1, target:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
     move-object/from16 v0, p2
 
     iget-object v3, v0, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    .line 355
+    .line 375
     .local v3, intent:Landroid/content/Intent;
     if-eqz v3, :cond_3
 
-    .line 357
+    .line 377
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
-    .line 358
+    .line 378
     .local v7, pm:Landroid/content/pm/PackageManager;
     const/16 v12, 0x80
 
@@ -6419,13 +8367,13 @@
 
     move-result-object v4
 
-    .line 359
+    .line 379
     .local v4, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v5
 
-    .line 360
+    .line 380
     .local v5, listSize:I
     const/4 v1, 0x0
 
@@ -6433,18 +8381,18 @@
     :goto_0
     if-ge v1, v5, :cond_3
 
-    .line 361
+    .line 381
     invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v9
 
     check-cast v9, Landroid/content/pm/ResolveInfo;
 
-    .line 362
+    .line 382
     .local v9, resolveInfo:Landroid/content/pm/ResolveInfo;
     iget-object v12, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v12, v12, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v12, v12, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v12, v12, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -6452,18 +8400,18 @@
 
     if-eqz v12, :cond_2
 
-    .line 364
+    .line 384
     const/4 v2, 0x0
 
-    .line 365
+    .line 385
     .local v2, icon:Landroid/graphics/drawable/Drawable;
     const/4 v11, 0x0
 
-    .line 366
+    .line 386
     .local v11, title:Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 370
+    .line 390
     .local v10, summary:Ljava/lang/String;
     :try_start_0
     iget-object v12, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -6474,19 +8422,19 @@
 
     move-result-object v8
 
-    .line 372
+    .line 392
     .local v8, res:Landroid/content/res/Resources;
     iget-object v12, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v6, v12, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v6, v12, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
-    .line 374
+    .line 394
     .local v6, metaData:Landroid/os/Bundle;
     if-eqz v8, :cond_0
 
     if-eqz v6, :cond_0
 
-    .line 375
+    .line 395
     const-string v12, "com.android.settings.icon"
 
     invoke-virtual {v6, v12}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -6497,7 +8445,7 @@
 
     move-result-object v2
 
-    .line 376
+    .line 396
     const-string v12, "com.android.settings.title"
 
     invoke-virtual {v6, v12}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -6508,7 +8456,7 @@
 
     move-result-object v11
 
-    .line 377
+    .line 397
     const-string v12, "com.android.settings.summary"
 
     invoke-virtual {v6, v12}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -6522,7 +8470,7 @@
 
     move-result-object v10
 
-    .line 387
+    .line 407
     .end local v6           #metaData:Landroid/os/Bundle;
     .end local v8           #res:Landroid/content/res/Resources;
     :cond_0
@@ -6533,7 +8481,7 @@
 
     if-eqz v12, :cond_1
 
-    .line 388
+    .line 408
     invoke-virtual {v9, v7}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v12
@@ -6542,18 +8490,18 @@
 
     move-result-object v11
 
-    .line 394
+    .line 414
     :cond_1
     move-object/from16 v0, p2
 
     iput-object v11, v0, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
-    .line 395
+    .line 415
     move-object/from16 v0, p2
 
     iput-object v10, v0, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
 
-    .line 397
+    .line 417
     new-instance v12, Landroid/content/Intent;
 
     invoke-direct {v12}, Landroid/content/Intent;-><init>()V
@@ -6564,7 +8512,7 @@
 
     iget-object v14, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v14, v14, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v14, v14, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v12, v13, v14}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -6574,10 +8522,10 @@
 
     iput-object v12, v0, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    .line 400
+    .line 420
     const/4 v12, 0x1
 
-    .line 408
+    .line 428
     .end local v1           #i:I
     .end local v2           #icon:Landroid/graphics/drawable/Drawable;
     .end local v4           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
@@ -6589,7 +8537,7 @@
     :goto_2
     return v12
 
-    .line 360
+    .line 380
     .restart local v1       #i:I
     .restart local v4       #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     .restart local v5       #listSize:I
@@ -6600,7 +8548,7 @@
 
     goto :goto_0
 
-    .line 406
+    .line 426
     .end local v1           #i:I
     .end local v4           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     .end local v5           #listSize:I
@@ -6609,12 +8557,12 @@
     :cond_3
     invoke-interface/range {p1 .. p2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 408
+    .line 428
     const/4 v12, 0x0
 
     goto :goto_2
 
-    .line 381
+    .line 401
     .restart local v1       #i:I
     .restart local v2       #icon:Landroid/graphics/drawable/Drawable;
     .restart local v4       #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
@@ -6628,7 +8576,7 @@
 
     goto :goto_1
 
-    .line 379
+    .line 399
     :catch_1
     move-exception v12
 
@@ -6645,47 +8593,47 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 195
+    .line 215
     invoke-virtual {p1, p2}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v5
 
-    .line 196
+    .line 216
     .local v5, preference:Landroid/preference/Preference;
     if-nez v5, :cond_0
 
-    .line 229
+    .line 249
     :goto_0
     return v7
 
-    .line 200
+    .line 220
     :cond_0
     invoke-virtual {v5}, Landroid/preference/Preference;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 201
+    .line 221
     .local v1, intent:Landroid/content/Intent;
     if-eqz v1, :cond_3
 
-    .line 203
+    .line 223
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
-    .line 204
+    .line 224
     .local v4, pm:Landroid/content/pm/PackageManager;
     invoke-virtual {v4, v1, v7}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v2
 
-    .line 205
+    .line 225
     .local v2, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v3
 
-    .line 206
+    .line 226
     .local v3, listSize:I
     const/4 v0, 0x0
 
@@ -6693,18 +8641,18 @@
     :goto_1
     if-ge v0, v3, :cond_3
 
-    .line 207
+    .line 227
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/content/pm/ResolveInfo;
 
-    .line 208
+    .line 228
     .local v6, resolveInfo:Landroid/content/pm/ResolveInfo;
     iget-object v8, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v8, v8, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v8, v8, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v8, v8, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -6712,7 +8660,7 @@
 
     if-eqz v8, :cond_2
 
-    .line 212
+    .line 232
     new-instance v7, Landroid/content/Intent;
 
     invoke-direct {v7}, Landroid/content/Intent;-><init>()V
@@ -6723,7 +8671,7 @@
 
     iget-object v9, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v9, v9, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v9, v9, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v7, v8, v9}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -6731,31 +8679,31 @@
 
     invoke-virtual {v5, v7}, Landroid/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
-    .line 216
+    .line 236
     and-int/lit8 v7, p3, 0x1
 
     if-eqz v7, :cond_1
 
-    .line 218
+    .line 238
     invoke-virtual {v6, v4}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v7
 
     invoke-virtual {v5, v7}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 221
+    .line 241
     :cond_1
     const/4 v7, 0x1
 
     goto :goto_0
 
-    .line 206
+    .line 226
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 227
+    .line 247
     .end local v0           #i:I
     .end local v2           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     .end local v3           #listSize:I

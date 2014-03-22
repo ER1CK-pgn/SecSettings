@@ -56,13 +56,13 @@
     const/4 v4, 0x0
 
     .line 52
-    invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 54
-    invoke-virtual {p0, v4}, Lcom/android/settings/customizablekey/AppList;->setResult(I)V
+    invoke-virtual {p0, v4}, Landroid/app/Activity;->setResult(I)V
 
     .line 56
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/AppList;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v7
 
@@ -79,7 +79,7 @@
     iput-object v0, p0, Lcom/android/settings/customizablekey/AppList;->pressed_type:Ljava/lang/String;
 
     .line 59
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/AppList;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -111,7 +111,7 @@
     .local v5, appList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     new-instance v0, Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    const v3, 0x7f0400ca
+    const v3, 0x7f0400ed
 
     move-object v1, p0
 
@@ -122,7 +122,7 @@
     iput-object v0, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
     .line 66
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/AppList;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v8
 
@@ -133,7 +133,7 @@
     invoke-virtual {v8, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 68
-    invoke-virtual {v8, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v8, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 69
     return-void
@@ -168,7 +168,7 @@
 
     iget-object v2, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -176,7 +176,7 @@
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -203,7 +203,7 @@
 
     iget-object v2, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -213,7 +213,7 @@
 
     iget-object v5, p0, Lcom/android/settings/customizablekey/AppList;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v2, v5}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v2, v5}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -232,7 +232,7 @@
 
     iget-object v2, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -240,7 +240,7 @@
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -249,7 +249,7 @@
 
     iget-object v2, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -259,7 +259,7 @@
 
     iget-object v4, p0, Lcom/android/settings/customizablekey/AppList;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v2, v4}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v2, v4}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -272,7 +272,7 @@
 
     iget-object v2, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -294,7 +294,7 @@
 
     iget-object v2, p0, Lcom/android/settings/customizablekey/AppList;->mAppListAdapter:Lcom/android/settings/customizablekey/AppList$AppListAdapter;
 
-    invoke-virtual {v2, p3}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v2, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -302,7 +302,7 @@
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -325,7 +325,7 @@
     if-eqz v2, :cond_1
 
     .line 82
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/AppList;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -336,7 +336,7 @@
     .line 88
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/AppList;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 89
     return-void
@@ -354,7 +354,7 @@
     if-eqz v2, :cond_0
 
     .line 85
-    invoke-virtual {p0}, Lcom/android/settings/customizablekey/AppList;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 684
+    .line 690
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$10;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,17 +42,17 @@
     .parameter "configList"
 
     .prologue
-    .line 686
-    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$3700()Landroid/net/wifi/p2p/WifiP2pConfigList;
+    .line 692
+    invoke-static {}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$3800()Landroid/net/wifi/p2p/WifiP2pConfigList;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/net/wifi/p2p/WifiP2pConfigList;->clear()Z
 
-    .line 687
-    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$3702(Landroid/net/wifi/p2p/WifiP2pConfigList;)Landroid/net/wifi/p2p/WifiP2pConfigList;
+    .line 693
+    invoke-static {p1}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$3802(Landroid/net/wifi/p2p/WifiP2pConfigList;)Landroid/net/wifi/p2p/WifiP2pConfigList;
 
-    .line 688
+    .line 694
     return-void
 .end method
 
@@ -60,11 +60,11 @@
     .locals 1
 
     .prologue
-    .line 690
+    .line 696
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker;->access$802(Z)Z
 
-    .line 691
+    .line 697
     return-void
 .end method

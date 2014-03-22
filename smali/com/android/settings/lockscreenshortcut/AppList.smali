@@ -197,7 +197,7 @@
     .line 293
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mSecretModeReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/lockscreenshortcut/AppList;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v1, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 294
     new-instance v0, Landroid/content/IntentFilter;
@@ -214,7 +214,7 @@
     .line 296
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mSecretModeReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/lockscreenshortcut/AppList;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v1, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 297
     return-void
@@ -227,7 +227,7 @@
     .line 300
     iget-object v0, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mSecretModeReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/lockscreenshortcut/AppList;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 301
     return-void
@@ -236,7 +236,7 @@
 
 # virtual methods
 .method public NmakeList(Ljava/util/List;)Ljava/util/List;
-    .locals 7
+    .locals 6
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -261,131 +261,65 @@
 
     .line 129
     .local v0, NormalActivityList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ActivityInfo;>;"
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 130
-    .local v3, list:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
+    .local v2, list:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     const/4 v1, 0x0
 
     .local v1, i:I
     :goto_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-ge v1, v4, :cond_0
+    if-ge v1, v3, :cond_0
 
     .line 131
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/content/pm/ResolveInfo;
+    check-cast v3, Landroid/content/pm/ResolveInfo;
 
-    iget-object v4, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v3, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 130
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 134
-    :cond_0
-    iget-object v4, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mPm:Landroid/content/pm/PackageManager;
-
-    invoke-virtual {v4}, Landroid/content/pm/PackageManager;->getSecretPackageList()Ljava/util/List;
-
-    move-result-object v3
-
     .line 135
-    const-string v4, "AppList"
+    :cond_0
+    const-string v3, "AppList"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "NmakeList NormalActivityList[size] : "
+    const-string v5, "NmakeList NormalActivityList[size] : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 137
-    const/4 v1, 0x0
-
-    :goto_1
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    if-ge v1, v4, :cond_3
-
-    .line 138
-    const/4 v2, 0x0
-
-    .local v2, j:I
-    :goto_2
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    if-ge v2, v4, :cond_2
-
-    .line 139
-    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/String;
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result v5
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    check-cast v5, Landroid/content/pm/ActivityInfo;
+    move-result-object v4
 
-    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v4
 
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    .line 140
-    invoke-interface {v0, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    .line 138
-    :cond_1
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_2
-
-    .line 137
-    :cond_2
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 144
-    .end local v2           #j:I
-    :cond_3
     return-object v0
 .end method
 
@@ -557,7 +491,7 @@
 
     check-cast v0, Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -624,7 +558,7 @@
 
     check-cast v0, Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -642,7 +576,7 @@
 
     iget-object v3, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v0, v3}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v3}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -657,7 +591,7 @@
     :cond_4
     new-instance v0, Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;
 
-    const v3, 0x7f0400ca
+    const v3, 0x7f0400ed
 
     const/4 v4, 0x0
 
@@ -672,7 +606,7 @@
     iput-object v0, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mAppListAdapter:Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;
 
     .line 183
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/AppList;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/app/ListActivity;->getListView()Landroid/widget/ListView;
 
     move-result-object v9
 
@@ -683,7 +617,7 @@
     invoke-virtual {v9, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 185
-    invoke-virtual {v9, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v9, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 186
     return-void
@@ -697,13 +631,13 @@
     const/4 v12, 0x0
 
     .line 76
-    invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 78
-    invoke-virtual {p0, v12}, Lcom/android/settings/lockscreenshortcut/AppList;->setResult(I)V
+    invoke-virtual {p0, v12}, Landroid/app/Activity;->setResult(I)V
 
     .line 80
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/AppList;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v4
 
@@ -861,7 +795,7 @@
     .end local v7           #package_index:I
     .end local v8           #package_name:Ljava/lang/String;
     :cond_1
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/AppList;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -962,7 +896,7 @@
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mAppListAdapter:Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;
 
-    invoke-virtual {v1, p3}, Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v1, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -982,13 +916,13 @@
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mAppListAdapter:Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;
 
-    invoke-virtual {v1, p3}, Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v1, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1005,7 +939,7 @@
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mAppListAdapter:Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;
 
-    invoke-virtual {v1, p3}, Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v1, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1020,13 +954,13 @@
 
     iget-object v1, p0, Lcom/android/settings/lockscreenshortcut/AppList;->mAppListAdapter:Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;
 
-    invoke-virtual {v1, p3}, Lcom/android/settings/lockscreenshortcut/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v1, p3}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -1040,10 +974,10 @@
     .line 194
     const/4 v1, -0x1
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/lockscreenshortcut/AppList;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, v1, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
 
     .line 195
-    invoke-virtual {p0}, Lcom/android/settings/lockscreenshortcut/AppList;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     .line 196
     return-void
@@ -1054,7 +988,7 @@
 
     .prologue
     .line 280
-    invoke-super {p0}, Landroid/app/ListActivity;->onPause()V
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     .line 281
     invoke-direct {p0}, Lcom/android/settings/lockscreenshortcut/AppList;->unregisterSecretModeReceiver()V
@@ -1068,7 +1002,7 @@
 
     .prologue
     .line 286
-    invoke-super {p0}, Landroid/app/ListActivity;->onResume()V
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     .line 287
     invoke-direct {p0}, Lcom/android/settings/lockscreenshortcut/AppList;->registerSecretModeReceiver()V

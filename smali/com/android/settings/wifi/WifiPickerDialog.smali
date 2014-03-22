@@ -12,7 +12,7 @@
     .locals 0
 
     .prologue
-    .line 20
+    .line 39
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     return-void
@@ -25,23 +25,23 @@
     .parameter "newConfig"
 
     .prologue
-    .line 83
+    .line 165
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 84
+    .line 167
     iget v0, p0, Lcom/android/settings/wifi/WifiPickerDialog;->mLastOrientation:I
 
     iget v1, p1, Landroid/content/res/Configuration;->orientation:I
 
     if-eq v0, v1, :cond_0
 
-    .line 90
+    .line 179
     :cond_0
     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
 
     iput v0, p0, Lcom/android/settings/wifi/WifiPickerDialog;->mLastOrientation:I
 
-    .line 91
+    .line 181
     return-void
 .end method
 
@@ -50,31 +50,31 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 28
+    .line 55
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 34
-    const v1, 0x7f0401dd
+    .line 67
+    const v1, 0x7f040219
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiPickerDialog;->setContentView(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setContentView(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
+    .line 81
     :goto_0
-    const v1, 0x7f0902e4
+    const v1, 0x7f09031b
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiPickerDialog;->setTitle(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setTitle(I)V
 
-    .line 42
+    .line 83
     return-void
 
-    .line 36
+    .line 71
     :catch_0
     move-exception v0
 
-    .line 37
+    .line 73
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "WifiPickerDialog"
 
@@ -88,7 +88,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -102,8 +102,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 38
-    invoke-virtual {p0}, Lcom/android/settings/wifi/WifiPickerDialog;->finish()V
+    .line 75
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 .end method
@@ -112,10 +112,10 @@
     .locals 0
 
     .prologue
-    .line 67
+    .line 133
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 68
+    .line 135
     return-void
 .end method
 
@@ -123,26 +123,26 @@
     .locals 2
 
     .prologue
-    .line 72
+    .line 143
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 76
+    .line 151
     const-string v1, "statusbar"
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/WifiPickerDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/StatusBarManager;
 
-    .line 77
+    .line 153
     .local v0, mStatusBar:Landroid/app/StatusBarManager;
     if-eqz v0, :cond_0
 
-    .line 78
+    .line 155
     invoke-virtual {v0}, Landroid/app/StatusBarManager;->collapsePanels()V
 
-    .line 79
+    .line 157
     :cond_0
     return-void
 .end method

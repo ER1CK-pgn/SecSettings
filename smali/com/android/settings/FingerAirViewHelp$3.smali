@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 156
+    .line 158
     iput-object p1, p0, Lcom/android/settings/FingerAirViewHelp$3;->this$0:Lcom/android/settings/FingerAirViewHelp;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,14 +42,14 @@
     .parameter "view"
 
     .prologue
-    .line 158
+    .line 160
     iget-object v0, p0, Lcom/android/settings/FingerAirViewHelp$3;->this$0:Lcom/android/settings/FingerAirViewHelp;
 
-    invoke-virtual {v0}, Lcom/android/settings/FingerAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
 
     if-nez v0, :cond_0
 
-    .line 159
+    .line 161
     iget-object v0, p0, Lcom/android/settings/FingerAirViewHelp$3;->this$0:Lcom/android/settings/FingerAirViewHelp;
 
     const-string v1, "information_preview_message"
@@ -76,11 +76,11 @@
     #calls: Lcom/android/settings/FingerAirViewHelp;->showTurnOnDialog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/settings/FingerAirViewHelp;->access$100(Lcom/android/settings/FingerAirViewHelp;Ljava/lang/String;)V
 
-    .line 163
+    .line 165
     :goto_0
     return-void
 
-    .line 161
+    .line 163
     :cond_0
     iget-object v0, p0, Lcom/android/settings/FingerAirViewHelp$3;->this$0:Lcom/android/settings/FingerAirViewHelp;
 

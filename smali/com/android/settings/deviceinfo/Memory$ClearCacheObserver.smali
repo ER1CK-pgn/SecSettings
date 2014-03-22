@@ -27,16 +27,16 @@
     .parameter "remaining"
 
     .prologue
-    .line 434
+    .line 460
     invoke-direct {p0}, Landroid/content/pm/IPackageDataObserver$Stub;-><init>()V
 
-    .line 435
+    .line 461
     iput-object p1, p0, Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;->mTarget:Lcom/android/settings/deviceinfo/Memory;
 
-    .line 436
+    .line 462
     iput p2, p0, Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;->mRemaining:I
 
-    .line 437
+    .line 463
     return-void
 .end method
 
@@ -48,10 +48,10 @@
     .parameter "succeeded"
 
     .prologue
-    .line 441
+    .line 467
     monitor-enter p0
 
-    .line 442
+    .line 468
     :try_start_0
     iget v0, p0, Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;->mRemaining:I
 
@@ -61,20 +61,20 @@
 
     if-nez v0, :cond_0
 
-    .line 443
+    .line 469
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory$ClearCacheObserver;->mTarget:Lcom/android/settings/deviceinfo/Memory;
 
     #calls: Lcom/android/settings/deviceinfo/Memory;->onCacheCleared()V
     invoke-static {v0}, Lcom/android/settings/deviceinfo/Memory;->access$300(Lcom/android/settings/deviceinfo/Memory;)V
 
-    .line 445
+    .line 471
     :cond_0
     monitor-exit p0
 
-    .line 446
+    .line 472
     return-void
 
-    .line 445
+    .line 471
     :catchall_0
     move-exception v0
 

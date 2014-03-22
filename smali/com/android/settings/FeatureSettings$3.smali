@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 331
+    .line 336
     iput-object p1, p0, Lcom/android/settings/FeatureSettings$3;->this$0:Lcom/android/settings/FeatureSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 333
+    .line 338
     iget-object v0, p0, Lcom/android/settings/FeatureSettings$3;->this$0:Lcom/android/settings/FeatureSettings;
 
     #getter for: Lcom/android/settings/FeatureSettings;->mGuideDialog:Landroid/app/AlertDialog;
@@ -51,8 +51,8 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 335
+    .line 340
     return-void
 .end method

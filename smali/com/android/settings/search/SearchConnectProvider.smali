@@ -370,7 +370,7 @@
     .local v22, mdelteMap:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     new-instance v18, Lcom/android/settings/search/SearchFilterMenu;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/search/SearchConnectProvider;->getContext()Landroid/content/Context;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -478,7 +478,7 @@
     .local v25, result:Landroid/database/MatrixCursor;
     new-instance v10, Lcom/android/settings/search/SearchDirectSettingUpdate;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/search/SearchConnectProvider;->getContext()Landroid/content/Context;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -616,7 +616,7 @@
     if-eqz v2, :cond_b
 
     .line 162
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/search/SearchConnectProvider;->getContext()Landroid/content/Context;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -628,7 +628,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual/range {v17 .. v17}, Ljava/util/HashMap;->toString()Ljava/lang/String;
+    invoke-virtual/range {v17 .. v17}, Ljava/util/AbstractMap;->toString()Ljava/lang/String;
 
     move-result-object v5
 

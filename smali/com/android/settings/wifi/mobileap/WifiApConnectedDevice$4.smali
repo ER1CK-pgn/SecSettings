@@ -35,7 +35,7 @@
 
     iput p2, p0, Lcom/android/settings/wifi/mobileap/WifiApConnectedDevice$4;->val$msgId:I
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0009
+    const v5, 0x7f0d000a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

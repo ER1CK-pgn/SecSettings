@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 152
+    .line 164
     iput-object p1, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment$1;->this$0:Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,11 +40,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 155
+    .line 167
     iget-object v0, p0, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment$1;->this$0:Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;
 
     invoke-virtual {v0}, Lcom/android/settings/ChooseLockGeneric$ChooseLockGenericFragment;->wManagerChanged()V
 
-    .line 156
+    .line 168
     return-void
 .end method

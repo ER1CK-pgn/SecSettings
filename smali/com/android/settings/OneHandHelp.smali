@@ -14,7 +14,7 @@
     .locals 0
 
     .prologue
-    .line 33
+    .line 34
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
     return-void
@@ -27,18 +27,18 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 42
+    .line 43
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 43
-    const v0, 0x7f070064
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/OneHandHelp;->addPreferencesFromResource(I)V
-
     .line 45
+    const v0, 0x7f070081
+
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
+
+    .line 47
     const-string v0, "enable_screen_help"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/OneHandHelp;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -46,10 +46,10 @@
 
     iput-object v0, p0, Lcom/android/settings/OneHandHelp;->mEnableScreenHelp:Landroid/preference/PreferenceScreen;
 
-    .line 46
+    .line 48
     const-string v0, "input_control_help"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/OneHandHelp;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -59,6 +59,21 @@
 
     .line 51
     return-void
+.end method
+
+.method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    .locals 1
+    .parameter "inflater"
+    .parameter "container"
+    .parameter "savedInstanceState"
+
+    .prologue
+    .line 59
+    invoke-super {p0, p1, p2, p3}, Landroid/preference/PreferenceFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
@@ -71,7 +86,7 @@
 
     const v4, 0x104000a
 
-    .line 55
+    .line 66
     iget-object v3, p0, Lcom/android/settings/OneHandHelp;->mEnableScreenHelp:Landroid/preference/PreferenceScreen;
 
     invoke-virtual {v3, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -80,68 +95,68 @@
 
     if-eqz v3, :cond_1
 
-    .line 57
+    .line 68
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/OneHandHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 59
+    .line 70
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     const-string v3, "layout_inflater"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/OneHandHelp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 60
+    .line 71
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f040087
+    const v3, 0x7f040091
 
     invoke-virtual {v1, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    .line 62
+    .line 73
     .local v2, layout:Landroid/view/View;
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 63
-    const v3, 0x7f091589
+    .line 74
+    const v3, 0x7f0916eb
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 65
+    .line 76
     new-instance v3, Lcom/android/settings/OneHandHelp$1;
 
     invoke-direct {v3, p0}, Lcom/android/settings/OneHandHelp$1;-><init>(Lcom/android/settings/OneHandHelp;)V
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 69
+    .line 80
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 70
+    .line 81
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 88
+    .line 99
     .end local v0           #builder:Landroid/app/AlertDialog$Builder;
     .end local v1           #inflater:Landroid/view/LayoutInflater;
     .end local v2           #layout:Landroid/view/View;
     :cond_0
     :goto_0
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
 
     return v3
 
-    .line 71
+    .line 82
     :cond_1
     iget-object v3, p0, Lcom/android/settings/OneHandHelp;->mInputControlHelp:Landroid/preference/PreferenceScreen;
 
@@ -151,53 +166,53 @@
 
     if-eqz v3, :cond_0
 
-    .line 73
+    .line 84
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/OneHandHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 75
+    .line 86
     .restart local v0       #builder:Landroid/app/AlertDialog$Builder;
     const-string v3, "layout_inflater"
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/OneHandHelp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 76
+    .line 87
     .restart local v1       #inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f0400f2
+    const v3, 0x7f040117
 
     invoke-virtual {v1, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    .line 78
+    .line 89
     .restart local v2       #layout:Landroid/view/View;
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 79
-    const v3, 0x7f0915d4
+    .line 90
+    const v3, 0x7f09173d
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 81
+    .line 92
     new-instance v3, Lcom/android/settings/OneHandHelp$2;
 
     invoke-direct {v3, p0}, Lcom/android/settings/OneHandHelp$2;-><init>(Lcom/android/settings/OneHandHelp;)V
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 85
+    .line 96
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    .line 86
+    .line 97
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
     goto :goto_0

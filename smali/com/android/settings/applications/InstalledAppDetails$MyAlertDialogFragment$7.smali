@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1732
+    .line 1899
     iput-object p1, p0, Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment$7;->this$0:Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 1735
+    .line 1902
     iget-object v0, p0, Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment$7;->this$0:Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/settings/applications/InstalledAppDetails$MyAlertDialogFragment;->getOwner()Lcom/android/settings/applications/InstalledAppDetails;
@@ -59,11 +59,11 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwCompoundButton;->setChecked(Z)V
 
-    .line 1738
+    .line 1905
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/settings/applications/InstalledAppDetails;->access$602(Z)Z
 
-    .line 1740
+    .line 1907
     return-void
 .end method

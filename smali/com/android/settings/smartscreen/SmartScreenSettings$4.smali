@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 458
+    .line 510
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$4;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "dialog"
 
     .prologue
-    .line 460
+    .line 512
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$4;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     #calls: Lcom/android/settings/smartscreen/SmartScreenSettings;->stopAnimation()V
     invoke-static {v0}, Lcom/android/settings/smartscreen/SmartScreenSettings;->access$100(Lcom/android/settings/smartscreen/SmartScreenSettings;)V
 
-    .line 461
+    .line 513
     return-void
 .end method

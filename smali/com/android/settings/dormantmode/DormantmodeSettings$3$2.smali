@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 269
+    .line 300
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3$2;->this$1:Lcom/android/settings/dormantmode/DormantmodeSettings$3;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 271
+    .line 302
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$3$2;->this$1:Lcom/android/settings/dormantmode/DormantmodeSettings$3;
 
     iget-object v0, v0, Lcom/android/settings/dormantmode/DormantmodeSettings$3;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
@@ -53,9 +53,9 @@
 
     move-result v1
 
-    #calls: Lcom/android/settings/dormantmode/DormantmodeSettings;->showDialog(I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
     invoke-static {v0, v1}, Lcom/android/settings/dormantmode/DormantmodeSettings;->access$1100(Lcom/android/settings/dormantmode/DormantmodeSettings;I)V
 
-    .line 272
+    .line 303
     return-void
 .end method

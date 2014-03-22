@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 599
+    .line 605
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$8$1;->this$1:Lcom/android/settings/wifi/p2p/WifiP2pDevicePicker$8;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "reason"
 
     .prologue
-    .line 604
+    .line 610
     const-string v0, "WifiP2pDevicePicker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 605
+    .line 611
     return-void
 .end method
 
@@ -73,13 +73,13 @@
     .locals 2
 
     .prologue
-    .line 601
+    .line 607
     const-string v0, "WifiP2pDevicePicker"
 
     const-string v1, " remove group success"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 602
+    .line 608
     return-void
 .end method

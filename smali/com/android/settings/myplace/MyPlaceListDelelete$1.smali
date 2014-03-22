@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 173
+    .line 178
     iput-object p1, p0, Lcom/android/settings/myplace/MyPlaceListDelelete$1;->this$0:Lcom/android/settings/myplace/MyPlaceListDelelete;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,20 +43,20 @@
     .parameter "arg1"
 
     .prologue
-    .line 176
+    .line 181
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceListDelelete$1;->this$0:Lcom/android/settings/myplace/MyPlaceListDelelete;
 
     invoke-virtual {v0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->customlistdelete()V
 
-    .line 177
+    .line 182
     iget-object v0, p0, Lcom/android/settings/myplace/MyPlaceListDelelete$1;->this$0:Lcom/android/settings/myplace/MyPlaceListDelelete;
 
-    invoke-virtual {v0}, Lcom/android/settings/myplace/MyPlaceListDelelete;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 178
+    .line 183
     return-void
 .end method

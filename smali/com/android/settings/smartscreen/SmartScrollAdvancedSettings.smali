@@ -404,7 +404,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090fef
+    const v1, 0x7f09112d
 
     invoke-virtual {p0, v1}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getString(I)Ljava/lang/String;
 
@@ -414,7 +414,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090fab
+    const v1, 0x7f0910e9
 
     invoke-virtual {p0, v1}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getString(I)Ljava/lang/String;
 
@@ -430,7 +430,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090729
+    const v1, 0x7f09077c
 
     new-instance v2, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings$5;
 
@@ -793,7 +793,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 105
-    const v2, 0x7f07009d
+    const v2, 0x7f0700c1
 
     invoke-virtual {p0, v2}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->addPreferencesFromResource(I)V
 
@@ -988,7 +988,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0019
+    const v3, 0x7f0f0034
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1202,7 +1202,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090fbc
+    const v2, 0x7f0910fa
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1408,23 +1408,30 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_0
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
 
     .line 319
+    :cond_0
     iget-boolean v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mOpenDetailMenu:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     sget v5, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSettingValue:I
 
     const/4 v6, -0x1
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_1
 
     .line 320
     sget v5, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSettingValue:I
 
-    if-ne v5, v3, :cond_3
+    if-ne v5, v3, :cond_4
 
     move v0, v3
 
@@ -1441,7 +1448,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     .line 323
     invoke-virtual {v1, v0}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
@@ -1449,10 +1456,10 @@
     .line 328
     .end local v0           #bValue:Z
     .end local v1           #checkBoxStatePreference:Landroid/preference/CheckBoxPreference;
-    :cond_0
+    :cond_1
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollWeb:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_5
+    if-ne p2, v5, :cond_6
 
     .line 329
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollWeb:Landroid/preference/CheckBoxPreference;
@@ -1469,20 +1476,20 @@
 
     const-string v6, "smart_scroll_adv_web"
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     :goto_1
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 351
     .end local v2           #value:Z
-    :cond_1
+    :cond_2
     :goto_2
     invoke-virtual {p0}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->isAllOptionDisabled()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     .line 352
     iget-object v3, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mActionBarSwitch:Landroid/widget/Switch;
@@ -1490,21 +1497,21 @@
     invoke-virtual {v3, v4}, Landroid/widget/Switch;->setChecked(Z)V
 
     .line 354
-    :cond_2
+    :cond_3
     invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v3
 
     return v3
 
-    :cond_3
+    :cond_4
     move v0, v4
 
     .line 320
     goto :goto_0
 
     .restart local v2       #value:Z
-    :cond_4
+    :cond_5
     move v3, v4
 
     .line 330
@@ -1512,10 +1519,10 @@
 
     .line 331
     .end local v2           #value:Z
-    :cond_5
+    :cond_6
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollEmailList:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_7
+    if-ne p2, v5, :cond_8
 
     .line 332
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollEmailList:Landroid/preference/CheckBoxPreference;
@@ -1532,24 +1539,24 @@
 
     const-string v6, "smart_scroll_adv_email_list"
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     :goto_3
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     move v3, v4
 
     goto :goto_3
 
     .line 334
     .end local v2           #value:Z
-    :cond_7
+    :cond_8
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollEmailBody:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_9
+    if-ne p2, v5, :cond_a
 
     .line 335
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollEmailBody:Landroid/preference/CheckBoxPreference;
@@ -1566,24 +1573,24 @@
 
     const-string v6, "smart_scroll_adv_email_body"
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     :goto_4
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_2
 
-    :cond_8
+    :cond_9
     move v3, v4
 
     goto :goto_4
 
     .line 337
     .end local v2           #value:Z
-    :cond_9
+    :cond_a
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollReadersHub:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_b
+    if-ne p2, v5, :cond_c
 
     .line 338
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollReadersHub:Landroid/preference/CheckBoxPreference;
@@ -1600,24 +1607,24 @@
 
     const-string v6, "smart_scroll_adv_readers_hub"
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     :goto_5
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_2
 
-    :cond_a
+    :cond_b
     move v3, v4
 
     goto :goto_5
 
     .line 340
     .end local v2           #value:Z
-    :cond_b
+    :cond_c
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollChrome:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_d
+    if-ne p2, v5, :cond_e
 
     .line 341
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollChrome:Landroid/preference/CheckBoxPreference;
@@ -1634,24 +1641,24 @@
 
     const-string v6, "smart_scroll_adv_chrome"
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
     :goto_6
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_2
 
-    :cond_c
+    :cond_d
     move v3, v4
 
     goto :goto_6
 
     .line 343
     .end local v2           #value:Z
-    :cond_d
+    :cond_e
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollGmailBody:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_f
+    if-ne p2, v5, :cond_10
 
     .line 344
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollGmailBody:Landroid/preference/CheckBoxPreference;
@@ -1668,24 +1675,24 @@
 
     const-string v6, "smart_scroll_adv_gmail_body"
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_f
 
     :goto_7
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto/16 :goto_2
 
-    :cond_e
+    :cond_f
     move v3, v4
 
     goto :goto_7
 
     .line 346
     .end local v2           #value:Z
-    :cond_f
+    :cond_10
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollVisualFeedbackIcon:Landroid/preference/CheckBoxPreference;
 
-    if-ne p2, v5, :cond_1
+    if-ne p2, v5, :cond_2
 
     .line 347
     iget-object v5, p0, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->mSmartScrollVisualFeedbackIcon:Landroid/preference/CheckBoxPreference;
@@ -1702,14 +1709,14 @@
 
     const-string v6, "smart_scroll_visual_feedback_icon"
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_11
 
     :goto_8
     invoke-static {v5, v6, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto/16 :goto_2
 
-    :cond_10
+    :cond_11
     move v3, v4
 
     goto :goto_8
@@ -2185,7 +2192,7 @@
 
     .line 448
     .local v6, inflater:Landroid/view/LayoutInflater;
-    const v12, 0x7f040173
+    const v12, 0x7f0401b1
 
     const/4 v13, 0x0
 
@@ -2195,7 +2202,7 @@
 
     .line 449
     .local v7, layout:Landroid/view/View;
-    const v12, 0x7f0b03f7
+    const v12, 0x7f0b045e
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2209,7 +2216,7 @@
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v12, 0x7f090fcb
+    const v12, 0x7f091109
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2241,7 +2248,7 @@
 
     move-result-object v13
 
-    const v12, 0x7f090fcc
+    const v12, 0x7f09110a
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2278,7 +2285,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fcd
+    const v13, 0x7f09110b
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2313,7 +2320,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fce
+    const v13, 0x7f09110c
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2342,7 +2349,7 @@
 
     move-result-object v13
 
-    const v12, 0x7f090fcf
+    const v12, 0x7f09110d
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2373,7 +2380,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd0
+    const v13, 0x7f09110e
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2397,7 +2404,7 @@
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 459
-    const v12, 0x7f0b03f8
+    const v12, 0x7f0b045f
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2413,12 +2420,12 @@
 
     .line 462
     .local v2, first:Lcom/android/settings/HelpItem;
-    const v12, 0x7f090fda
+    const v12, 0x7f091118
 
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(I)V
 
     .line 463
-    const v12, 0x7f090fd1
+    const v12, 0x7f09110f
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2429,7 +2436,7 @@
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
     .line 464
-    const v12, 0x7f020411
+    const v12, 0x7f020490
 
     invoke-virtual {v2, v12}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
@@ -2452,12 +2459,12 @@
 
     .line 469
     .local v11, second:Lcom/android/settings/HelpItem;
-    const v12, 0x7f090fd9
+    const v12, 0x7f091117
 
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->setTitleTextWithOutCategory(I)V
 
     .line 470
-    const v12, 0x7f090fd2
+    const v12, 0x7f091110
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2468,7 +2475,7 @@
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
     .line 471
-    const v12, 0x7f020410
+    const v12, 0x7f02048f
 
     invoke-virtual {v11, v12}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
@@ -2485,7 +2492,7 @@
     invoke-virtual {v3, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 475
-    const v12, 0x7f0b03f9
+    const v12, 0x7f0b0460
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2499,7 +2506,7 @@
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v12, 0x7f090fd3
+    const v12, 0x7f091111
 
     invoke-virtual {p0, v12}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2536,7 +2543,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd4
+    const v13, 0x7f091112
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2571,7 +2578,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd5
+    const v13, 0x7f091113
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2600,7 +2607,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f090fd6
+    const v13, 0x7f091114
 
     invoke-virtual {p0, v13}, Lcom/android/settings/smartscreen/SmartScrollAdvancedSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -2624,7 +2631,7 @@
     invoke-virtual {v4, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 483
-    const v12, 0x7f0b03fa
+    const v12, 0x7f0b0461
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2637,7 +2644,7 @@
     invoke-virtual {v0, v7}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 486
-    const v12, 0x7f090fab
+    const v12, 0x7f0910e9
 
     invoke-virtual {v0, v12}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

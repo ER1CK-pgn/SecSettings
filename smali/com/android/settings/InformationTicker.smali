@@ -267,11 +267,11 @@
 
     .prologue
     .line 748
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -385,11 +385,11 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 632
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 634
     return-void
@@ -457,11 +457,11 @@
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 647
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 649
     return-void
@@ -501,7 +501,7 @@
     if-eqz v2, :cond_0
 
     .line 658
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -518,7 +518,7 @@
     .line 662
     .local v0, appServiceStatus:I
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -536,11 +536,11 @@
     .line 675
     .local v1, intent_fb:Landroid/content/Intent;
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v2, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 677
     return-void
@@ -549,7 +549,7 @@
     .end local v0           #appServiceStatus:I
     .end local v1           #intent_fb:Landroid/content/Intent;
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -576,7 +576,7 @@
     if-eqz v2, :cond_2
 
     .line 667
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -593,7 +593,7 @@
     .line 671
     .restart local v0       #appServiceStatus:I
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -615,7 +615,7 @@
     .end local v0           #appServiceStatus:I
     .end local v1           #intent_fb:Landroid/content/Intent;
     :cond_2
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -638,7 +638,7 @@
     .parameter "v"
 
     .prologue
-    const v7, 0x7f090077
+    const v7, 0x7f090096
 
     const/4 v6, 0x0
 
@@ -649,7 +649,7 @@
     .local v3, value:I
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -664,14 +664,14 @@
     .line 709
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mNotiOfChargeDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v4}, Landroid/app/Dialog;->dismiss()V
 
     .line 710
     iput-object v6, p0, Lcom/android/settings/InformationTicker;->mNotiOfChargeDialog:Landroid/app/AlertDialog;
 
     .line 713
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -685,7 +685,7 @@
 
     .line 714
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v4, 0x7f040070
+    const v4, 0x7f040075
 
     invoke-virtual {v1, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -696,7 +696,7 @@
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     .line 717
-    const v4, 0x7f090c98
+    const v4, 0x7f090db2
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -711,7 +711,7 @@
     invoke-virtual {v0, v7, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 725
-    const v4, 0x7f090078
+    const v4, 0x7f090097
 
     new-instance v5, Lcom/android/settings/InformationTicker$6;
 
@@ -729,7 +729,7 @@
     .line 732
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mNotiOfChargeDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v4}, Landroid/app/Dialog;->show()V
 
     .line 734
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mNotiOfChargeDialog:Landroid/app/AlertDialog;
@@ -738,7 +738,7 @@
 
     invoke-direct {v5, p0, v2}, Lcom/android/settings/InformationTicker$7;-><init>(Lcom/android/settings/InformationTicker;Landroid/view/View;)V
 
-    invoke-virtual {v4, v5}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v4, v5}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 745
     return-void
@@ -751,11 +751,11 @@
     const/4 v5, 0x0
 
     .line 601
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -774,22 +774,22 @@
     if-ne v1, v3, :cond_0
 
     .line 606
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 607
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     .line 609
     const-string v3, "information_ticker_auto_refresh"
@@ -833,22 +833,22 @@
 
     .line 616
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 617
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     goto :goto_0
 .end method
@@ -862,11 +862,11 @@
     const/4 v6, 0x0
 
     .line 369
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -941,9 +941,9 @@
     if-nez v0, :cond_5
 
     .line 383
-    const v7, 0x7f090c91
+    const v7, 0x7f090dab
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -951,13 +951,13 @@
     :goto_0
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v7, v4}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v7, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 400
     invoke-direct {p0}, Lcom/android/settings/InformationTicker;->updateFacebookState()V
 
     .line 402
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -989,13 +989,13 @@
     .line 407
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mContentsType:Landroid/preference/ListPreference;
 
-    invoke-virtual {v7, v5}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v7, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 408
     :cond_1
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mSlidingSpeed:Landroid/preference/ListPreference;
 
-    invoke-virtual {v7, v5}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v7, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 409
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
@@ -1005,7 +1005,7 @@
     .line 410
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v7, v5}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v7, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 411
     :cond_2
@@ -1016,7 +1016,7 @@
     .line 412
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
 
-    invoke-virtual {v7, v5}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v7, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 423
     :cond_3
@@ -1042,7 +1042,7 @@
     .line 424
     iget-object v5, p0, Lcom/android/settings/InformationTicker;->mContentsType:Landroid/preference/ListPreference;
 
-    invoke-virtual {v5, v6}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v5, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 425
     :cond_4
@@ -1054,9 +1054,9 @@
     if-ne v0, v5, :cond_6
 
     .line 385
-    const v7, 0x7f090c92
+    const v7, 0x7f090dac
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1076,9 +1076,9 @@
     if-eqz v7, :cond_7
 
     .line 389
-    const v7, 0x7f090c9b
+    const v7, 0x7f090db5
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1086,9 +1086,9 @@
 
     .line 391
     :cond_7
-    const v7, 0x7f090c93
+    const v7, 0x7f090dad
 
-    invoke-virtual {p0, v7}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v7}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1120,13 +1120,13 @@
     .line 415
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mContentsType:Landroid/preference/ListPreference;
 
-    invoke-virtual {v7, v6}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v7, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 416
     :cond_b
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mSlidingSpeed:Landroid/preference/ListPreference;
 
-    invoke-virtual {v7, v6}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v7, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 417
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
@@ -1136,7 +1136,7 @@
     .line 418
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v7, v6}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v7, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 419
     :cond_c
@@ -1147,7 +1147,7 @@
     .line 420
     iget-object v7, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
 
-    invoke-virtual {v7, v6}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v7, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_2
 .end method
@@ -1166,7 +1166,7 @@
     const/4 v5, 0x0
 
     .line 201
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1204,11 +1204,11 @@
 
     .line 207
     :cond_0
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1218,7 +1218,7 @@
     .local v1, padding:I
     iget-object v3, p0, Lcom/android/settings/InformationTicker;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v5, v5, v1, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 210
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
@@ -1247,7 +1247,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090c89
+    const v4, 0x7f090da3
 
     invoke-virtual {v3, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1257,7 +1257,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/InformationTicker;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 221
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
@@ -1315,7 +1315,7 @@
     if-ne p1, v2, :cond_0
 
     .line 760
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
@@ -1343,11 +1343,11 @@
 
     .line 764
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -1402,7 +1402,7 @@
     if-eqz v9, :cond_3
 
     .line 235
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1421,7 +1421,7 @@
     .line 239
     .local v5, mAppServiceStatus:I
     :goto_0
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1437,7 +1437,7 @@
     if-eqz v9, :cond_4
 
     .line 242
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1455,7 +1455,7 @@
 
     .line 246
     :goto_1
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1472,11 +1472,11 @@
 
     .line 249
     .local v2, intent_nw:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 250
     new-instance v3, Landroid/content/Intent;
@@ -1487,18 +1487,18 @@
 
     .line 251
     .local v3, intent_st:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v3}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 310
     :goto_2
     invoke-direct {p0, v8}, Lcom/android/settings/InformationTicker;->sendInfoTickerNotiToFacebook(Ljava/lang/Boolean;)V
 
     .line 312
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v10
 
@@ -1524,7 +1524,7 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 317
     :cond_0
@@ -1532,14 +1532,14 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 318
     iget-object v9, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 319
     iget-object v9, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
@@ -1551,7 +1551,7 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 329
     :cond_1
@@ -1581,7 +1581,7 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 331
     iget-object v9, p0, Lcom/android/settings/InformationTicker;->mContentsTypeList:Ljava/util/ArrayList;
@@ -1595,7 +1595,7 @@
     if-eqz v9, :cond_2
 
     .line 333
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v6
 
@@ -1621,7 +1621,7 @@
     .end local v3           #intent_st:Landroid/content/Intent;
     .end local v5           #mAppServiceStatus:I
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1642,7 +1642,7 @@
 
     .line 244
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1677,7 +1677,7 @@
     if-eqz v9, :cond_6
 
     .line 254
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1696,7 +1696,7 @@
     .line 258
     .restart local v5       #mAppServiceStatus:I
     :goto_6
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1712,7 +1712,7 @@
     if-eqz v9, :cond_7
 
     .line 261
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1730,7 +1730,7 @@
 
     .line 265
     :goto_7
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1760,11 +1760,11 @@
     invoke-virtual {v2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 271
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 273
     new-instance v3, Landroid/content/Intent;
@@ -1775,11 +1775,11 @@
 
     .line 274
     .restart local v3       #intent_st:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v3}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_2
 
@@ -1789,7 +1789,7 @@
     .end local v3           #intent_st:Landroid/content/Intent;
     .end local v5           #mAppServiceStatus:I
     :cond_6
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1810,7 +1810,7 @@
 
     .line 263
     :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1838,7 +1838,7 @@
     if-eqz v9, :cond_9
 
     .line 290
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1857,7 +1857,7 @@
     .line 294
     .restart local v5       #mAppServiceStatus:I
     :goto_8
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1873,7 +1873,7 @@
     if-eqz v9, :cond_a
 
     .line 297
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1891,7 +1891,7 @@
 
     .line 301
     :goto_9
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1916,11 +1916,11 @@
 
     .line 305
     .local v7, salesCode:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v2}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     .line 306
     new-instance v3, Landroid/content/Intent;
@@ -1931,11 +1931,11 @@
 
     .line 307
     .restart local v3       #intent_st:Landroid/content/Intent;
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
-    invoke-virtual {v9, v3}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v9, v3}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_2
 
@@ -1945,7 +1945,7 @@
     .end local v5           #mAppServiceStatus:I
     .end local v7           #salesCode:Ljava/lang/String;
     :cond_9
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -1966,7 +1966,7 @@
 
     .line 299
     :cond_a
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v9
 
@@ -2003,7 +2003,7 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 324
     :cond_d
@@ -2011,14 +2011,14 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 325
     iget-object v9, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 326
     iget-object v9, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
@@ -2030,7 +2030,7 @@
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Landroid/preference/ListPreference;->setEnabled(Z)V
+    invoke-virtual {v9, v10}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto/16 :goto_4
 
@@ -2050,7 +2050,7 @@
     .line 338
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
 
@@ -2058,12 +2058,12 @@
 
     .line 339
     .local v4, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v9, 0x7f090c94
+    const v9, 0x7f090dae
 
     invoke-virtual {v4, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 340
-    const v9, 0x7f090c95
+    const v9, 0x7f090daf
 
     invoke-virtual {v4, v9}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2098,14 +2098,14 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 117
-    const v0, 0x7f070048
+    const v0, 0x7f07005f
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/InformationTicker;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 119
     const-string v0, "contents_type"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/InformationTicker;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -2116,7 +2116,7 @@
     .line 120
     iget-object v0, p0, Lcom/android/settings/InformationTicker;->mContentsType:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 122
     const-string v0, "CHM"
@@ -2145,19 +2145,19 @@
 
     .line 125
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/InformationTicker;->mContentsType:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 128
     :cond_1
     const-string v0, "sliding_speed"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/InformationTicker;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -2168,12 +2168,12 @@
     .line 129
     iget-object v0, p0, Lcom/android/settings/InformationTicker;->mSlidingSpeed:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 131
     const-string v0, "ticker_settings"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/InformationTicker;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -2184,7 +2184,7 @@
     .line 133
     const-string v0, "facebook_auto_refresh"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/InformationTicker;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
@@ -2195,7 +2195,7 @@
     .line 134
     iget-object v0, p0, Lcom/android/settings/InformationTicker;->mFacebookAutoRefresh:Landroid/preference/ListPreference;
 
-    invoke-virtual {v0, p0}, Landroid/preference/ListPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
     .line 190
     invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
@@ -2212,7 +2212,7 @@
     .line 192
     iget-object v0, p0, Lcom/android/settings/InformationTicker;->mContentsType:Landroid/preference/ListPreference;
 
-    const v1, 0x7f0a00ca
+    const v1, 0x7f0a00fa
 
     invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setEntries(I)V
 
@@ -2229,7 +2229,7 @@
 
     .prologue
     .line 365
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 366
     return-void
@@ -2266,11 +2266,11 @@
 
     .line 486
     .local v7, value:I
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v8}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -2285,11 +2285,11 @@
     iput v8, p0, Lcom/android/settings/InformationTicker;->mOldValue:I
 
     .line 488
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v8}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -2357,9 +2357,9 @@
     if-nez v7, :cond_1
 
     .line 497
-    const v8, 0x7f090c91
+    const v8, 0x7f090dab
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -2367,7 +2367,7 @@
     :goto_0
     iget-object v8, p0, Lcom/android/settings/InformationTicker;->mTickerSetting:Landroid/preference/PreferenceScreen;
 
-    invoke-virtual {v8, v6}, Landroid/preference/PreferenceScreen;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v8, v6}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 513
     invoke-direct {p0}, Lcom/android/settings/InformationTicker;->updateFacebookState()V
@@ -2378,7 +2378,7 @@
     if-ne v7, v8, :cond_0
 
     .line 517
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
@@ -2420,9 +2420,9 @@
     if-ne v7, v8, :cond_2
 
     .line 499
-    const v8, 0x7f090c92
+    const v8, 0x7f090dac
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -2442,9 +2442,9 @@
     if-eqz v8, :cond_3
 
     .line 503
-    const v8, 0x7f090c9b
+    const v8, 0x7f090db5
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -2452,9 +2452,9 @@
 
     .line 505
     :cond_3
-    const v8, 0x7f090c93
+    const v8, 0x7f090dad
 
-    invoke-virtual {p0, v8}, Lcom/android/settings/InformationTicker;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -2486,7 +2486,7 @@
     .line 523
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -2494,12 +2494,12 @@
 
     .line 524
     .local v4, mAlertDialog:Landroid/app/AlertDialog$Builder;
-    const v8, 0x7f090c94
+    const v8, 0x7f090dae
 
     invoke-virtual {v4, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     .line 525
-    const v8, 0x7f090c95
+    const v8, 0x7f090daf
 
     invoke-virtual {v4, v8}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2562,11 +2562,11 @@
 
     .line 562
     .restart local v7       #value:I
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v8}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
@@ -2638,7 +2638,7 @@
     if-eqz v8, :cond_0
 
     .line 567
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -2646,7 +2646,7 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v8, v9, v10}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v8, v9, v10}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v2
 
@@ -2687,7 +2687,7 @@
     if-ne v8, v9, :cond_8
 
     :cond_7
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
 
@@ -2752,11 +2752,11 @@
     if-eqz v6, :cond_0
 
     .line 430
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v6}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
 
@@ -2793,7 +2793,7 @@
     invoke-virtual {v3, v6, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 439
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
@@ -2836,7 +2836,7 @@
     invoke-virtual {v3, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 456
-    invoke-virtual {p0, v3}, Lcom/android/settings/InformationTicker;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2848,7 +2848,7 @@
     .end local v5           #salesCode:Ljava/lang/String;
     :cond_0
     :goto_1
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v6
 
@@ -2949,7 +2949,7 @@
     .line 469
     .restart local v3       #intent:Landroid/content/Intent;
     :goto_2
-    invoke-virtual {p0, v3}, Lcom/android/settings/InformationTicker;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
@@ -2990,7 +2990,7 @@
     if-ne v1, v10, :cond_7
 
     .line 472
-    invoke-virtual {p0}, Lcom/android/settings/InformationTicker;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 

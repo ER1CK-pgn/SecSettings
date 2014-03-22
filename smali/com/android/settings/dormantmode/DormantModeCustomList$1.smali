@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 114
+    .line 116
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantModeCustomList$1;->this$0:Lcom/android/settings/dormantmode/DormantModeCustomList;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -54,14 +54,14 @@
     .end annotation
 
     .prologue
-    .line 116
+    .line 118
     .local p1, arg0:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantModeCustomList$1;->this$0:Lcom/android/settings/dormantmode/DormantModeCustomList;
 
     #setter for: Lcom/android/settings/dormantmode/DormantModeCustomList;->mSelectedPosition:I
     invoke-static {v2, p3}, Lcom/android/settings/dormantmode/DormantModeCustomList;->access$002(Lcom/android/settings/dormantmode/DormantModeCustomList;I)I
 
-    .line 117
+    .line 119
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantModeCustomList$1;->this$0:Lcom/android/settings/dormantmode/DormantModeCustomList;
 
     #getter for: Lcom/android/settings/dormantmode/DormantModeCustomList;->mSelectedPosition:I
@@ -73,11 +73,11 @@
 
     move-result-object v0
 
-    .line 118
+    .line 120
     .local v0, dmf:Lcom/android/settings/dormantmode/DormantModeCustomListDel;
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantModeCustomList$1;->this$0:Lcom/android/settings/dormantmode/DormantModeCustomList;
 
-    invoke-virtual {v2}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v2
 
@@ -85,11 +85,11 @@
 
     move-result-object v1
 
-    .line 119
+    .line 121
     .local v1, ft:Landroid/app/FragmentTransaction;
     iget-object v2, p0, Lcom/android/settings/dormantmode/DormantModeCustomList$1;->this$0:Lcom/android/settings/dormantmode/DormantModeCustomList;
 
-    invoke-virtual {v2}, Lcom/android/settings/dormantmode/DormantModeCustomList;->getView()Landroid/view/View;
+    invoke-virtual {v2}, Landroid/app/Fragment;->getView()Landroid/view/View;
 
     move-result-object v2
 
@@ -99,26 +99,26 @@
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getId()I
+    invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v2
 
     invoke-virtual {v1, v2, v0}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 120
+    .line 122
     const/16 v2, 0x1001
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentTransaction;->setTransition(I)Landroid/app/FragmentTransaction;
 
-    .line 121
+    .line 123
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    .line 122
+    .line 124
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commit()I
 
-    .line 123
+    .line 125
     const/4 v2, 0x1
 
     return v2

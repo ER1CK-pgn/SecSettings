@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 891
+    .line 885
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$9;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 893
+    .line 887
     const-string v1, "NearbyEnabler"
 
     const-string v2, "requestRestartServerPopup"
@@ -52,7 +52,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/settings/nearby/DLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 895
+    .line 889
     iget-object v1, p0, Lcom/android/settings/nearby/NearbyEnabler$9;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mIMediaServer:Lcom/android/settings/nearby/IMediaServer;
@@ -62,7 +62,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 897
+    .line 891
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/nearby/NearbyEnabler$9;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -75,18 +75,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 902
+    .line 896
     :cond_0
     :goto_0
     return-void
 
-    .line 898
+    .line 892
     :catch_0
     move-exception v0
 
-    .line 899
+    .line 893
     .local v0, e:Landroid/os/RemoteException;
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

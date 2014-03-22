@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/safetycare_settings" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
+    <PreferenceCategory android:title="@string/safetycare_emergency_mode" android:key="emergency_mode" />
+    <PreferenceScreen android:id="@id/safetycare_help" android:title="@string/safetycare_low_power_title" android:key="lowpower_mode" android:summary="@string/safetycare_low_power_summary" android:fragment="com.android.settings.safetycare.SafetyCareHelp">
+        <extra android:name="type" android:value="emer_help" />
+    </PreferenceScreen>
+    <PreferenceCategory android:title="@string/safetycare_disaster_category" android:key="disaster" />
+    <PreferenceScreen android:title="@string/safetycare_disaster_alert_title" android:key="earthquake_alert" android:fragment="com.android.settings.safetycare.SafetyCareHelp">
+        <extra android:name="type" android:value="earthquake" />
+    </PreferenceScreen>
+    <PreferenceScreen android:title="@string/safetycare_heat_alarm_title" android:key="fire_alarm" android:fragment="com.android.settings.safetycare.SafetyCareHelp">
+        <extra android:name="type" android:value="fire_alarm" />
+    </PreferenceScreen>
+    <PreferenceCategory android:title="@string/safetycare_quick_action_for_emergency_category" android:key="situation" />
+    <PreferenceScreen android:title="@string/safetycare_send_manually_title" android:key="safety_assistance">
+        <intent android:targetPackage="com.sec.android.app.safetyassurance" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.safetyassurance.settings.SafetyAssuranceSetting" />
+    </PreferenceScreen>
+    <PreferenceCategory android:title="@string/safetycare_emergency_contacts" android:key="emer_contact_category" />
+    <PreferenceScreen android:title="@string/safetycare_emergency_contacts_set" android:key="emer_contact">
+        <intent android:action="com.sec.android.app.contacts.action.INTERACTION_EMERGENCY_MESSAGE" />
+    </PreferenceScreen>
+</PreferenceScreen>

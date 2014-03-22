@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 522
+    .line 574
     iput-object p1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     iput-object p2, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
@@ -53,7 +53,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 524
+    .line 576
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     iget-object v1, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
@@ -68,12 +68,12 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 525
+    .line 577
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->val$edit:Landroid/content/SharedPreferences$Editor;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 527
+    .line 579
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
     iget-object v0, v0, Lcom/android/settings/smartscreen/SmartScreenSettings;->pref_common_noti:Ljava/lang/String;
@@ -90,19 +90,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 528
+    .line 580
     iget-object v0, p0, Lcom/android/settings/smartscreen/SmartScreenSettings$5;->this$0:Lcom/android/settings/smartscreen/SmartScreenSettings;
 
-    const v1, 0x7f090d57
+    const v1, 0x7f090e80
 
-    const v2, 0x7f090fbc
+    const v2, 0x7f0910fa
 
     const-string v3, "smartscreen_scroll"
 
     #calls: Lcom/android/settings/smartscreen/SmartScreenSettings;->showAllOptionDisabledDialog(IILjava/lang/String;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/settings/smartscreen/SmartScreenSettings;->access$200(Lcom/android/settings/smartscreen/SmartScreenSettings;IILjava/lang/String;)V
 
-    .line 531
+    .line 583
     :cond_0
     return-void
 .end method

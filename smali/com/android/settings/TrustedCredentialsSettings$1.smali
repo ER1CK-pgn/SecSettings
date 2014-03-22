@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 183
+    .line 210
     iput-object p1, p0, Lcom/android/settings/TrustedCredentialsSettings$1;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
 
     iput-object p2, p0, Lcom/android/settings/TrustedCredentialsSettings$1;->val$adapter:Lcom/android/settings/TrustedCredentialsSettings$TrustedCertificateAdapter;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
     .end annotation
 
     .prologue
-    .line 185
+    .line 212
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/android/settings/TrustedCredentialsSettings$1;->this$0:Lcom/android/settings/TrustedCredentialsSettings;
 
@@ -72,6 +72,6 @@
     #calls: Lcom/android/settings/TrustedCredentialsSettings;->showCertDialog(Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)V
     invoke-static {v0, v1}, Lcom/android/settings/TrustedCredentialsSettings;->access$1000(Lcom/android/settings/TrustedCredentialsSettings;Lcom/android/settings/TrustedCredentialsSettings$CertHolder;)V
 
-    .line 186
+    .line 213
     return-void
 .end method

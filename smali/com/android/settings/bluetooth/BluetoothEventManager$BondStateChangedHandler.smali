@@ -30,7 +30,7 @@
     .line 283
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothEventManager$BondStateChangedHandler;->this$0:Lcom/android/settings/bluetooth/BluetoothEventManager;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -87,7 +87,7 @@
 
     .line 388
     :pswitch_1
-    const v0, 0x7f09024d
+    const v0, 0x7f090272
 
     .line 406
     .local v0, errorMsg:I
@@ -99,7 +99,7 @@
     .line 391
     .end local v0           #errorMsg:I
     :pswitch_2
-    const v0, 0x7f09024f
+    const v0, 0x7f090274
 
     .line 392
     .restart local v0       #errorMsg:I
@@ -108,7 +108,7 @@
     .line 394
     .end local v0           #errorMsg:I
     :pswitch_3
-    const v0, 0x7f09024e
+    const v0, 0x7f090273
 
     .line 395
     .restart local v0       #errorMsg:I
@@ -117,7 +117,7 @@
     .line 400
     .end local v0           #errorMsg:I
     :pswitch_4
-    const v0, 0x7f09024c
+    const v0, 0x7f090271
 
     .line 401
     .restart local v0       #errorMsg:I

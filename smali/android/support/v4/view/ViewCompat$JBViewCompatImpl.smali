@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 315
+    .line 454
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ICSViewCompatImpl;-><init>()V
 
     return-void
@@ -32,7 +32,7 @@
     .parameter "view"
 
     .prologue
-    .line 342
+    .line 481
     invoke-static {p1}, Landroid/support/v4/view/ViewCompatJB;->getImportantForAccessibility(Landroid/view/View;)I
 
     move-result v0
@@ -40,15 +40,28 @@
     return v0
 .end method
 
+.method public getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
+    .locals 1
+    .parameter "view"
+
+    .prologue
+    .line 502
+    invoke-static {p1}, Landroid/support/v4/view/ViewCompatJB;->getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public postInvalidateOnAnimation(Landroid/view/View;)V
     .locals 0
     .parameter "view"
 
     .prologue
-    .line 326
+    .line 465
     invoke-static {p1}, Landroid/support/v4/view/ViewCompatJB;->postInvalidateOnAnimation(Landroid/view/View;)V
 
-    .line 327
+    .line 466
     return-void
 .end method
 
@@ -58,10 +71,10 @@
     .parameter "action"
 
     .prologue
-    .line 334
+    .line 473
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatJB;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    .line 335
+    .line 474
     return-void
 .end method
 
@@ -71,9 +84,9 @@
     .parameter "mode"
 
     .prologue
-    .line 346
+    .line 485
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompatJB;->setImportantForAccessibility(Landroid/view/View;I)V
 
-    .line 347
+    .line 486
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 455
+    .line 464
     iput-object p1, p0, Lcom/android/settings/myprofile/MyProfileActivity$2;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "color"
 
     .prologue
-    .line 458
+    .line 467
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$2;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->TAG:Ljava/lang/String;
@@ -54,7 +54,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 459
+    .line 468
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$2;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->isTextButtonSelected:Z
@@ -64,7 +64,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 460
+    .line 469
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$2;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
@@ -76,7 +76,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setKeepCustomColor(Z)V
 
-    .line 461
+    .line 470
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$2;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #getter for: Lcom/android/settings/myprofile/MyProfileActivity;->mSpLitColorPickerView:Lcom/android/settings/myprofile/SpLitColorPickerView;
@@ -86,13 +86,13 @@
 
     invoke-virtual {v0, p1}, Lcom/android/settings/myprofile/SpLitColorPickerView;->setColor(I)V
 
-    .line 463
+    .line 472
     :cond_0
     iget-object v0, p0, Lcom/android/settings/myprofile/MyProfileActivity$2;->this$0:Lcom/android/settings/myprofile/MyProfileActivity;
 
     #calls: Lcom/android/settings/myprofile/MyProfileActivity;->reflectSelectedTextFontColor(I)V
     invoke-static {v0, p1}, Lcom/android/settings/myprofile/MyProfileActivity;->access$100(Lcom/android/settings/myprofile/MyProfileActivity;I)V
 
-    .line 464
+    .line 473
     return-void
 .end method

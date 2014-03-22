@@ -3,12 +3,12 @@
 .source "DisplaySettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/DisplaySettings;->onCreateDialog(I)Landroid/app/Dialog;
+    value = Lcom/android/settings/DisplaySettings;->onActivityCreated(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,25 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/DisplaySettings;
 
-.field final synthetic val$edit:Landroid/content/SharedPreferences$Editor;
-
-.field final synthetic val$mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/DisplaySettings;Landroid/content/SharedPreferences$Editor;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
+.method constructor <init>(Lcom/android/settings/DisplaySettings;)V
     .locals 0
-    .parameter
-    .parameter
     .parameter
 
     .prologue
-    .line 1112
+    .line 810
     iput-object p1, p0, Lcom/android/settings/DisplaySettings$9;->this$0:Lcom/android/settings/DisplaySettings;
-
-    iput-object p2, p0, Lcom/android/settings/DisplaySettings$9;->val$edit:Landroid/content/SharedPreferences$Editor;
-
-    iput-object p3, p0, Lcom/android/settings/DisplaySettings$9;->val$mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,33 +37,95 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
-    .parameter "dialog"
-    .parameter "id"
+.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    .locals 6
+    .parameter "v"
+    .parameter "keyCode"
+    .parameter "event"
 
     .prologue
-    .line 1114
-    iget-object v0, p0, Lcom/android/settings/DisplaySettings$9;->val$edit:Landroid/content/SharedPreferences$Editor;
+    const/4 v3, 0x1
 
-    const-string v1, "pref_font_noti"
+    const/4 v2, 0x0
 
-    iget-object v2, p0, Lcom/android/settings/DisplaySettings$9;->val$mcheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    .line 813
+    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
+    move-result v4
 
-    move-result v2
+    if-ne v4, v3, :cond_0
 
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    .line 814
+    packed-switch p2, :pswitch_data_0
 
-    .line 1115
-    iget-object v0, p0, Lcom/android/settings/DisplaySettings$9;->val$edit:Landroid/content/SharedPreferences$Editor;
+    .line 828
+    :cond_0
+    :goto_0
+    return v2
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    .line 817
+    :pswitch_0
+    iget-object v4, p0, Lcom/android/settings/DisplaySettings$9;->this$0:Lcom/android/settings/DisplaySettings;
 
-    .line 1116
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+    invoke-virtual {v4}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    .line 1117
-    return-void
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/preference/PreferenceScreen;->getRootAdapter()Landroid/widget/ListAdapter;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/settings/DisplaySettings$9;->this$0:Lcom/android/settings/DisplaySettings;
+
+    invoke-virtual {v5}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+
+    move-result v5
+
+    invoke-interface {v4, v5}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 818
+    .local v0, item:Ljava/lang/Object;
+    if-nez v0, :cond_1
+
+    .line 819
+    const-string v3, "DisplaySettings"
+
+    const-string v4, "dispatchKeyEvent item is null"
+
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 822
+    :cond_1
+    instance-of v4, v0, Landroid/preference/SwitchPreferenceScreen;
+
+    if-eqz v4, :cond_0
+
+    move-object v1, v0
+
+    .line 823
+    check-cast v1, Landroid/preference/SwitchPreferenceScreen;
+
+    .line 824
+    .local v1, preference:Landroid/preference/SwitchPreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/SwitchPreferenceScreen;->performClick()V
+
+    move v2, v3
+
+    .line 825
+    goto :goto_0
+
+    .line 814
+    :pswitch_data_0
+    .packed-switch 0x15
+        :pswitch_0
+        :pswitch_0
+    .end packed-switch
 .end method

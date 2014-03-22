@@ -314,7 +314,7 @@
 
     .line 65
     .local v9, e:Landroid/os/RemoteException;
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -347,7 +347,7 @@
 
     .line 74
     .restart local v9       #e:Landroid/os/RemoteException;
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -373,7 +373,7 @@
 
     .line 82
     .restart local v9       #e:Landroid/os/RemoteException;
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

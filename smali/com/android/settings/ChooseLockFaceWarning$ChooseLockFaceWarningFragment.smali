@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 63
+    .line 68
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "x0"
 
     .prologue
-    .line 63
+    .line 68
     iget-object v0, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mFolderCloseDialog:Landroid/app/Dialog;
 
     return-object v0
@@ -59,57 +59,57 @@
 
     const/4 v4, 0x0
 
-    .line 151
+    .line 156
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const-class v2, Lcom/android/settings/ChooseLockGeneric;
+    const-class v2, Lcom/android/settings/ChooseLockGeneric$InternalActivity;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 152
+    .line 158
     const-string v1, "lockscreen.biometric_weak_fallback"
 
     invoke-virtual {v0, v1, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 153
+    .line 159
     const-string v1, "confirm_credentials"
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 154
+    .line 160
     const-string v1, ":android:show_fragment_title"
 
-    const v2, 0x7f0901c7
+    const v2, 0x7f0901ec
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 158
+    .line 164
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 159
+    .line 165
     const-string v2, "com.android.facelock"
 
     const-string v3, "com.android.facelock.SetupIntro"
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 160
+    .line 166
     const-string v2, "showTutorial"
 
     invoke-virtual {v1, v2, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 161
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    .line 167
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -119,12 +119,12 @@
 
     move-result-object v0
 
-    .line 162
+    .line 168
     const-string v2, "PendingIntent"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 163
+    .line 169
     return-object v1
 .end method
 
@@ -132,14 +132,14 @@
     .locals 7
 
     .prologue
-    .line 167
+    .line 173
     new-instance v0, Landroid/content/Intent;
 
     const-string v4, "android.intent.action.VOICE_SETTING_LOCK"
 
     invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 168
+    .line 174
     .local v0, fallBackIntent:Landroid/content/Intent;
     const-string v4, "SETTING_VOICE_LOCK"
 
@@ -147,16 +147,16 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 170
+    .line 176
     const/4 v3, 0x1
 
-    .line 171
+    .line 177
     .local v3, showTutorial:Z
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 172
+    .line 178
     .local v1, intent:Landroid/content/Intent;
     const-string v4, "com.android.facelock"
 
@@ -164,13 +164,13 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 173
+    .line 179
     const-string v4, "showTutorial"
 
     invoke-virtual {v1, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 175
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    .line 181
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -182,13 +182,13 @@
 
     move-result-object v2
 
-    .line 176
+    .line 182
     .local v2, pending:Landroid/app/PendingIntent;
     const-string v4, "PendingIntent"
 
     invoke-virtual {v1, v4, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 178
+    .line 184
     return-object v1
 .end method
 
@@ -203,38 +203,38 @@
 
     const/4 v2, 0x0
 
-    .line 108
+    .line 113
     iget-object v3, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mSkipButton:Landroid/view/View;
 
     if-ne p1, v3, :cond_1
 
-    .line 110
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    .line 115
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/app/Activity;->setResult(I)V
 
-    .line 111
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    .line 116
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
-    .line 148
+    .line 153
     :cond_0
     :goto_0
     return-void
 
-    .line 112
+    .line 117
     :cond_1
     iget-object v3, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mNextButton:Landroid/view/View;
 
     if-ne p1, v3, :cond_0
 
-    .line 113
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getResources()Landroid/content/res/Resources;
+    .line 118
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -248,7 +248,7 @@
 
     if-ne v3, v4, :cond_3
 
-    .line 115
+    .line 120
     .local v1, isFolderClose:Z
     :goto_1
     iget-boolean v3, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mDualFolderType:Z
@@ -257,38 +257,38 @@
 
     if-eqz v1, :cond_4
 
-    .line 116
+    .line 121
     iget-object v3, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mFolderCloseDialog:Landroid/app/Dialog;
 
     if-eqz v3, :cond_2
 
-    .line 117
+    .line 122
     iget-object v3, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mFolderCloseDialog:Landroid/app/Dialog;
 
     invoke-virtual {v3}, Landroid/app/Dialog;->dismiss()V
 
-    .line 118
+    .line 123
     const/4 v3, 0x0
 
     iput-object v3, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mFolderCloseDialog:Landroid/app/Dialog;
 
-    .line 121
+    .line 126
     :cond_2
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
     invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f09018c
+    const v4, 0x7f0901af
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f090b8c
+    const v4, 0x7f090c91
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -320,13 +320,13 @@
     :cond_3
     move v1, v2
 
-    .line 113
+    .line 118
     goto :goto_1
 
-    .line 137
+    .line 142
     .restart local v1       #isFolderClose:Z
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -342,18 +342,18 @@
 
     if-eqz v2, :cond_5
 
-    .line 138
+    .line 143
     invoke-direct {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getBiometricSensorIntentwithVoice()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 139
+    .line 144
     .local v0, intent:Landroid/content/Intent;
-    invoke-virtual {p0, v0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 145
+    .line 150
     :goto_2
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -361,16 +361,16 @@
 
     goto :goto_0
 
-    .line 142
+    .line 147
     .end local v0           #intent:Landroid/content/Intent;
     :cond_5
     invoke-direct {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getBiometricSensorIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 143
+    .line 148
     .restart local v0       #intent:Landroid/content/Intent;
-    invoke-virtual {p0, v0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_2
 .end method
@@ -380,13 +380,13 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 79
+    .line 84
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 81
+    .line 86
     new-instance v0, Lcom/android/settings/ChooseLockSettingsHelper;
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -394,12 +394,12 @@
 
     iput-object v0, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    .line 83
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    .line 88
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -411,11 +411,11 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
@@ -432,10 +432,10 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mDualFolderType:Z
 
-    .line 85
+    .line 90
     return-void
 
-    .line 83
+    .line 88
     :cond_0
     const/4 v0, 0x0
 
@@ -449,8 +449,8 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 90
-    const v2, 0x7f040035
+    .line 95
+    const v2, 0x7f04003a
 
     const/4 v3, 0x0
 
@@ -458,9 +458,9 @@
 
     move-result-object v1
 
-    .line 91
+    .line 96
     .local v1, view:Landroid/view/View;
-    const v2, 0x7f0b0080
+    const v2, 0x7f0b0089
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -468,13 +468,13 @@
 
     iput-object v2, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mNextButton:Landroid/view/View;
 
-    .line 92
+    .line 97
     iget-object v2, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mNextButton:Landroid/view/View;
 
     invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 93
-    const v2, 0x7f0b00a0
+    .line 98
+    const v2, 0x7f0b00ab
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -482,13 +482,13 @@
 
     iput-object v2, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mSkipButton:Landroid/view/View;
 
-    .line 94
+    .line 99
     iget-object v2, p0, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->mSkipButton:Landroid/view/View;
 
     invoke-virtual {v2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 96
-    const v2, 0x7f0b009f
+    .line 101
+    const v2, 0x7f0b00aa
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -496,9 +496,9 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 98
+    .line 103
     .local v0, mWaringText:Landroid/widget/TextView;
-    invoke-virtual {p0}, Lcom/android/settings/ChooseLockFaceWarning$ChooseLockFaceWarningFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -516,18 +516,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 99
-    const v2, 0x7f090b8b
+    .line 104
+    const v2, 0x7f090c90
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 103
+    .line 108
     :goto_0
     return-object v1
 
-    .line 101
+    .line 106
     :cond_0
-    const v2, 0x7f090b8a
+    const v2, 0x7f090c8f
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 

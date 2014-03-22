@@ -48,36 +48,36 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 71
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 89
+    .line 90
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/settings/deviceinfo/Memory;->isUsedSpace:Z
 
-    .line 91
+    .line 92
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
-    .line 178
+    .line 179
     new-instance v0, Lcom/android/settings/deviceinfo/Memory$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/Memory$1;-><init>(Lcom/android/settings/deviceinfo/Memory;)V
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageListener:Landroid/os/storage/StorageEventListener;
 
-    .line 304
+    .line 330
     new-instance v0, Lcom/android/settings/deviceinfo/Memory$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/deviceinfo/Memory$2;-><init>(Lcom/android/settings/deviceinfo/Memory;)V
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mMediaScannerReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 452
+    .line 478
     return-void
 .end method
 
@@ -86,7 +86,7 @@
     .parameter "x0"
 
     .prologue
-    .line 70
+    .line 71
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
     return-object v0
@@ -97,7 +97,7 @@
     .parameter "x0"
 
     .prologue
-    .line 70
+    .line 71
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mUsbManager:Landroid/hardware/usb/UsbManager;
 
     return-object v0
@@ -108,7 +108,7 @@
     .parameter "x0"
 
     .prologue
-    .line 70
+    .line 71
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->doUnmount()V
 
     return-void
@@ -119,7 +119,7 @@
     .parameter "x0"
 
     .prologue
-    .line 70
+    .line 71
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->onCacheCleared()V
 
     return-void
@@ -130,43 +130,43 @@
     .parameter "category"
 
     .prologue
-    .line 129
+    .line 130
     if-nez p1, :cond_0
 
-    .line 139
+    .line 140
     :goto_0
     return-void
 
-    .line 130
+    .line 131
     :cond_0
     iget-boolean v0, p0, Lcom/android/settings/deviceinfo/Memory;->isUsedSpace:Z
 
     if-eqz v0, :cond_1
 
-    .line 131
+    .line 132
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->setUsedSpace(Z)V
 
-    .line 136
+    .line 137
     :goto_1
     iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 137
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 138
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, p1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    .line 138
+    .line 139
     invoke-virtual {p1}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->init()V
 
     goto :goto_0
 
-    .line 133
+    .line 134
     :cond_1
     invoke-virtual {p1, p0}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->setPrevFragment(Landroid/app/Fragment;)V
 
@@ -179,12 +179,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 347
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    .line 373
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    const v3, 0x7f090628
+    const v3, 0x7f09065e
 
     invoke-static {v2, v3, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -192,27 +192,27 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 348
+    .line 374
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->getMountService()Landroid/os/storage/IMountService;
 
     move-result-object v1
 
-    .line 349
+    .line 375
     .local v1, mountService:Landroid/os/storage/IMountService;
     if-nez v1, :cond_0
 
-    .line 350
+    .line 376
     const-string v2, "MemorySettings"
 
     const-string v3, "doUnmount() : Unable to getMountService()"
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 363
+    .line 389
     :goto_0
     return-void
 
-    .line 355
+    .line 381
     :cond_0
     :try_start_0
     sget-object v2, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
@@ -221,29 +221,29 @@
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 356
+    .line 382
     sget-object v2, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
 
-    const v3, 0x7f090629
+    const v3, 0x7f09065f
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Memory;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 357
+    .line 383
     sget-object v2, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
 
-    const v3, 0x7f09062a
+    const v3, 0x7f090660
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Memory;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v3}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 358
+    .line 384
     sget-object v2, Lcom/android/settings/deviceinfo/Memory;->sClickedMountPoint:Ljava/lang/String;
 
     const/4 v3, 0x1
@@ -256,11 +256,11 @@
 
     goto :goto_0
 
-    .line 359
+    .line 385
     :catch_0
     move-exception v0
 
-    .line 361
+    .line 387
     .local v0, e:Landroid/os/RemoteException;
     const/4 v2, 0x2
 
@@ -273,7 +273,7 @@
     .locals 3
 
     .prologue
-    .line 255
+    .line 261
     monitor-enter p0
 
     :try_start_0
@@ -281,25 +281,25 @@
 
     if-nez v1, :cond_0
 
-    .line 256
+    .line 262
     const-string v1, "mount"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 257
+    .line 263
     .local v0, service:Landroid/os/IBinder;
     if-eqz v0, :cond_1
 
-    .line 258
+    .line 264
     invoke-static {v0}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/settings/deviceinfo/Memory;->mMountService:Landroid/os/storage/IMountService;
 
-    .line 263
+    .line 269
     .end local v0           #service:Landroid/os/IBinder;
     :cond_0
     :goto_0
@@ -311,7 +311,7 @@
 
     return-object v1
 
-    .line 260
+    .line 266
     .restart local v0       #service:Landroid/os/IBinder;
     :cond_1
     :try_start_1
@@ -325,7 +325,7 @@
 
     goto :goto_0
 
-    .line 255
+    .line 261
     .end local v0           #service:Landroid/os/IBinder;
     :catchall_0
     move-exception v1
@@ -346,28 +346,28 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 371
+    .line 397
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->getMountService()Landroid/os/storage/IMountService;
 
     move-result-object v0
 
-    .line 372
+    .line 398
     .local v0, mountService:Landroid/os/storage/IMountService;
     if-nez v0, :cond_1
 
-    .line 373
+    .line 399
     const-string v2, "MemorySettings"
 
     const-string v3, "hasAppsAccessingStorage() : Unable to getMountService()"
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 392
+    .line 418
     :cond_0
     :goto_0
     return v4
 
-    .line 377
+    .line 403
     :cond_1
     sget-object v2, Lcom/android/settings/deviceinfo/Memory;->sClickedMountPoint:Ljava/lang/String;
 
@@ -375,7 +375,7 @@
 
     move-result-object v1
 
-    .line 378
+    .line 404
     .local v1, stUsers:[I
     if-eqz v1, :cond_0
 
@@ -390,20 +390,20 @@
     .locals 3
 
     .prologue
-    .line 143
+    .line 144
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
 
     invoke-virtual {v2}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
 
     move-result-object v1
 
-    .line 144
+    .line 145
     .local v1, volumes:[Landroid/os/storage/StorageVolume;
     invoke-static {v1}, Landroid/os/storage/StorageManager;->getPrimaryVolume([Landroid/os/storage/StorageVolume;)Landroid/os/storage/StorageVolume;
 
     move-result-object v0
 
-    .line 145
+    .line 146
     .local v0, primary:Landroid/os/storage/StorageVolume;
     if-eqz v0, :cond_0
 
@@ -428,12 +428,12 @@
     .locals 3
 
     .prologue
-    .line 412
+    .line 438
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->getMountService()Landroid/os/storage/IMountService;
 
     move-result-object v0
 
-    .line 414
+    .line 440
     .local v0, mountService:Landroid/os/storage/IMountService;
     if-eqz v0, :cond_0
 
@@ -442,16 +442,16 @@
 
     if-eqz v1, :cond_0
 
-    .line 415
+    .line 441
     sget-object v1, Lcom/android/settings/deviceinfo/Memory;->sClickedMountPoint:Ljava/lang/String;
 
     invoke-interface {v0, v1}, Landroid/os/storage/IMountService;->mountVolume(Ljava/lang/String;)I
 
-    .line 422
+    .line 448
     :goto_0
     return-void
 
-    .line 417
+    .line 443
     :cond_0
     const-string v1, "MemorySettings"
 
@@ -463,7 +463,7 @@
 
     goto :goto_0
 
-    .line 419
+    .line 445
     :catch_0
     move-exception v1
 
@@ -474,7 +474,7 @@
     .locals 3
 
     .prologue
-    .line 425
+    .line 451
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -495,13 +495,13 @@
 
     check-cast v0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
-    .line 426
+    .line 452
     .local v0, category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
     invoke-virtual {v0}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->onCacheCleared()V
 
     goto :goto_0
 
-    .line 428
+    .line 454
     .end local v0           #category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
     :cond_0
     return-void
@@ -512,13 +512,13 @@
     .parameter "id"
 
     .prologue
-    .line 366
-    invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/Memory;->removeDialog(I)V
+    .line 392
+    invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->removeDialog(I)V
 
-    .line 367
-    invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/Memory;->showDialog(I)V
+    .line 393
+    invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
 
-    .line 368
+    .line 394
     return-void
 .end method
 
@@ -526,7 +526,7 @@
     .locals 3
 
     .prologue
-    .line 398
+    .line 424
     :try_start_0
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->hasAppsAccessingStorage()Z
 
@@ -534,16 +534,16 @@
 
     if-eqz v1, :cond_0
 
-    .line 400
+    .line 426
     const/4 v1, 0x1
 
     invoke-direct {p0, v1}, Lcom/android/settings/deviceinfo/Memory;->showDialogInner(I)V
 
-    .line 409
+    .line 435
     :goto_0
     return-void
 
-    .line 402
+    .line 428
     :cond_0
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->doUnmount()V
     :try_end_0
@@ -551,11 +551,11 @@
 
     goto :goto_0
 
-    .line 404
+    .line 430
     :catch_0
     move-exception v0
 
-    .line 406
+    .line 432
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "MemorySettings"
 
@@ -563,7 +563,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 407
+    .line 433
     const/4 v1, 0x2
 
     invoke-direct {p0, v1}, Lcom/android/settings/deviceinfo/Memory;->showDialogInner(I)V
@@ -578,31 +578,31 @@
     .parameter "icicle"
 
     .prologue
-    .line 95
+    .line 96
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 97
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    .line 98
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 99
+    .line 100
     .local v1, context:Landroid/content/Context;
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v6
 
     if-eqz v6, :cond_0
 
-    .line 100
+    .line 101
     const-string v6, "MemorySettings"
 
     const-string v7, "getArguments() is not null"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 101
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getArguments()Landroid/os/Bundle;
+    .line 102
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v6
 
@@ -616,7 +616,7 @@
 
     iput-boolean v6, p0, Lcom/android/settings/deviceinfo/Memory;->isUsedSpace:Z
 
-    .line 103
+    .line 104
     :cond_0
     const-string v6, "MemorySettings"
 
@@ -642,10 +642,10 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
+    .line 105
     const-string v6, "usb"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/deviceinfo/Memory;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -653,45 +653,45 @@
 
     iput-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mUsbManager:Landroid/hardware/usb/UsbManager;
 
-    .line 106
+    .line 107
     invoke-static {v1}, Landroid/os/storage/StorageManager;->from(Landroid/content/Context;)Landroid/os/storage/StorageManager;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    .line 107
+    .line 108
     iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
 
     iget-object v7, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageListener:Landroid/os/storage/StorageEventListener;
 
     invoke-virtual {v6, v7}, Landroid/os/storage/StorageManager;->registerListener(Landroid/os/storage/StorageEventListener;)V
 
-    .line 109
-    const v6, 0x7f07002b
+    .line 110
+    const v6, 0x7f070035
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/deviceinfo/Memory;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 113
+    .line 114
     invoke-static {v1}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->buildForInternal(Landroid/content/Context;)Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
     move-result-object v6
 
     invoke-direct {p0, v6}, Lcom/android/settings/deviceinfo/Memory;->addCategory(Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;)V
 
-    .line 115
+    .line 116
     iget-boolean v6, p0, Lcom/android/settings/deviceinfo/Memory;->isUsedSpace:Z
 
     if-nez v6, :cond_2
 
-    .line 116
+    .line 117
     iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
 
     invoke-virtual {v6}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
 
     move-result-object v4
 
-    .line 117
+    .line 118
     .local v4, storageVolumes:[Landroid/os/storage/StorageVolume;
     move-object v0, v4
 
@@ -707,7 +707,7 @@
 
     aget-object v5, v0, v2
 
-    .line 118
+    .line 119
     .local v5, volume:Landroid/os/storage/StorageVolume;
     invoke-virtual {v5}, Landroid/os/storage/StorageVolume;->isEmulated()Z
 
@@ -715,20 +715,20 @@
 
     if-nez v6, :cond_1
 
-    .line 119
+    .line 120
     invoke-static {v1, v5}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->buildForPhysical(Landroid/content/Context;Landroid/os/storage/StorageVolume;)Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
     move-result-object v6
 
     invoke-direct {p0, v6}, Lcom/android/settings/deviceinfo/Memory;->addCategory(Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;)V
 
-    .line 117
+    .line 118
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 125
+    .line 126
     .end local v0           #arr$:[Landroid/os/storage/StorageVolume;
     .end local v2           #i$:I
     .end local v3           #len$:I
@@ -743,28 +743,28 @@
     .parameter "id"
 
     .prologue
-    const v3, 0x7f09074c
+    const v3, 0x7f09079f
 
     const/4 v0, 0x0
 
-    .line 324
+    .line 350
     packed-switch p1, :pswitch_data_0
 
-    .line 342
+    .line 368
     :goto_0
     return-object v0
 
-    .line 326
+    .line 352
     :pswitch_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f090624
+    const v2, 0x7f09065a
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -778,13 +778,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090625
+    const v1, 0x7f09065b
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -796,17 +796,17 @@
 
     goto :goto_0
 
-    .line 336
+    .line 362
     :pswitch_1
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f090626
+    const v2, 0x7f09065c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -816,7 +816,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090627
+    const v1, 0x7f09065d
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -828,7 +828,7 @@
 
     goto :goto_0
 
-    .line 324
+    .line 350
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -842,39 +842,50 @@
     .parameter "inflater"
 
     .prologue
-    .line 224
-    const v0, 0x7f120006
+    .line 230
+    const v0, 0x7f120008
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 225
+    .line 231
     return-void
 .end method
 
 .method public onDestroy()V
+    .locals 2
+
+    .prologue
+    .line 222
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageListener:Landroid/os/storage/StorageEventListener;
+
+    if-eqz v0, :cond_0
+
+    .line 223
+    iget-object v0, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    iget-object v1, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageListener:Landroid/os/storage/StorageEventListener;
+
+    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->unregisterListener(Landroid/os/storage/StorageEventListener;)V
+
+    .line 225
+    :cond_0
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroy()V
+
+    .line 226
+    return-void
+.end method
+
+.method public onDestroyView()V
     .locals 4
 
     .prologue
-    .line 204
-    iget-object v2, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageListener:Landroid/os/storage/StorageEventListener;
-
-    if-eqz v2, :cond_0
-
-    .line 205
-    iget-object v2, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    iget-object v3, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageListener:Landroid/os/storage/StorageEventListener;
-
-    invoke-virtual {v2, v3}, Landroid/os/storage/StorageManager;->unregisterListener(Landroid/os/storage/StorageEventListener;)V
-
-    .line 209
-    :cond_0
+    .line 206
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getFragmentManager()Landroid/app/FragmentManager;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v2
 
@@ -886,17 +897,17 @@
 
     check-cast v0, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;
 
-    .line 210
+    .line 207
     .local v0, dialog:Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
@@ -904,37 +915,53 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
-    .line 211
-    invoke-virtual {v0}, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;->dismiss()V
+    .line 208
+    invoke-virtual {v0}, Landroid/app/DialogFragment;->dismiss()V
 
-    .line 212
+    .line 209
     const/4 v0, 0x0
 
-    .line 214
-    :cond_1
+    .line 211
+    :cond_0
     const-string v2, "MemorySettings"
 
     const-string v3, "Destroy"
 
     invoke-static {v2, v3}, Landroid/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 219
+    .line 217
     .end local v0           #dialog:Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;
     :goto_0
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroy()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroyView()V
 
-    .line 220
+    .line 218
     return-void
 
-    .line 215
+    .line 212
     :catch_0
     move-exception v1
 
-    .line 216
+    .line 213
+    .local v1, e:Ljava/lang/NullPointerException;
+    const-string v2, "MemorySettings"
+
+    const-string v3, "Nullpointer exception in DestroyView"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 214
+    .end local v1           #e:Ljava/lang/NullPointerException;
+    :catch_1
+    move-exception v1
+
+    .line 215
     .local v1, e:Ljava/lang/IllegalStateException;
     const-string v2, "MemorySettings"
 
@@ -952,24 +979,24 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 238
+    .line 244
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 251
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    .line 257
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
     :goto_0
     return v0
 
-    .line 240
+    .line 246
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -977,8 +1004,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 241
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    .line 247
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -990,7 +1017,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f09062e
+    const v3, 0x7f090664
 
     const/4 v6, 0x0
 
@@ -1000,13 +1027,13 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/preference/PreferenceActivity;->startPreferencePanel(Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/CharSequence;Landroid/app/Fragment;I)V
 
-    .line 249
+    .line 255
     :goto_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 247
+    .line 253
     :cond_0
     const-class v0, Lcom/android/settings/deviceinfo/UsbSettings;
 
@@ -1016,15 +1043,15 @@
 
     const/4 v1, -0x1
 
-    invoke-virtual {p0, p0, v0, v1, v2}, Lcom/android/settings/deviceinfo/Memory;->startFragment(Landroid/app/Fragment;Ljava/lang/String;ILandroid/os/Bundle;)Z
+    invoke-virtual {p0, p0, v0, v1, v2}, Lcom/android/settings/SettingsPreferenceFragment;->startFragment(Landroid/app/Fragment;Ljava/lang/String;ILandroid/os/Bundle;)Z
 
     goto :goto_1
 
-    .line 238
+    .line 244
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0b05fb
+    .packed-switch 0x7f0b067b
         :pswitch_0
     .end packed-switch
 .end method
@@ -1033,19 +1060,19 @@
     .locals 4
 
     .prologue
-    .line 195
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
-
     .line 196
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
+
+    .line 197
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/settings/deviceinfo/Memory;->mMediaScannerReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v2, v3}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 197
+    .line 198
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1066,194 +1093,319 @@
 
     check-cast v0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
-    .line 198
+    .line 199
     .local v0, category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
     invoke-virtual {v0}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->onPause()V
 
     goto :goto_0
 
-    .line 200
+    .line 201
     .end local v0           #category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
     :cond_0
     return-void
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 9
+    .locals 12
     .parameter "preferenceScreen"
     .parameter "preference"
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v8, 0x1
 
-    .line 269
-    const-string v6, "MemorySettings"
+    .line 275
+    const-string v9, "MemorySettings"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "Storage : "
+    const-string v11, "Storage : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v10
 
     invoke-virtual {p2}, Landroid/preference/Preference;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object v8
+    move-result-object v11
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 272
-    const-string v6, "cache"
+    .line 278
+    const-string v9, "cache"
 
     invoke-virtual {p2}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v9
 
-    if-eqz v6, :cond_1
-
-    .line 273
-    invoke-static {p0}, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;->show(Lcom/android/settings/deviceinfo/Memory;)V
-
-    .line 301
-    :cond_0
-    :goto_0
-    return v5
-
-    .line 277
-    :cond_1
-    iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
-
-    invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :cond_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
-
-    .line 278
-    .local v0, category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
-    invoke-virtual {v0, p2}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->intentForClick(Landroid/preference/Preference;)Landroid/content/Intent;
-
-    move-result-object v2
+    if-eqz v9, :cond_1
 
     .line 279
-    .local v2, intent:Landroid/content/Intent;
-    if-eqz v2, :cond_3
+    invoke-static {p0}, Lcom/android/settings/deviceinfo/Memory$ConfirmClearCacheFragment;->show(Lcom/android/settings/deviceinfo/Memory;)V
 
-    .line 281
-    invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
+    .line 327
+    :cond_0
+    :goto_0
+    return v8
 
-    move-result v6
+    .line 283
+    :cond_1
+    iget-object v9, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
-    if-nez v6, :cond_0
-
-    .line 282
-    invoke-virtual {p0, v2}, Lcom/android/settings/deviceinfo/Memory;->startActivity(Landroid/content/Intent;)V
-
-    goto :goto_0
-
-    .line 287
-    :cond_3
-    invoke-virtual {v0}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->getStorageVolume()Landroid/os/storage/StorageVolume;
-
-    move-result-object v4
-
-    .line 288
-    .local v4, volume:Landroid/os/storage/StorageVolume;
-    if-eqz v4, :cond_2
-
-    invoke-virtual {v0, p2}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->mountToggleClicked(Landroid/preference/Preference;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    .line 289
-    sput-object p2, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
-
-    .line 290
-    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v6
-
-    sput-object v6, Lcom/android/settings/deviceinfo/Memory;->sClickedMountPoint:Ljava/lang/String;
-
-    .line 291
-    iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .line 292
-    .local v3, state:Ljava/lang/String;
-    const-string v6, "mounted"
+    .local v3, i$:Ljava/util/Iterator;
+    :cond_2
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v9
 
-    move-result v6
+    if-eqz v9, :cond_9
 
-    if-nez v6, :cond_4
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    const-string v6, "mounted_ro"
+    move-result-object v1
 
-    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    check-cast v1, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
-    move-result v6
+    .line 284
+    .local v1, category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
+    invoke-virtual {v1, p2}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->intentForClick(Landroid/preference/Preference;)Landroid/content/Intent;
 
-    if-eqz v6, :cond_5
+    move-result-object v4
 
-    .line 294
-    :cond_4
-    invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->unmount()V
+    .line 285
+    .local v4, intent:Landroid/content/Intent;
+    const/4 v2, 0x1
 
-    goto :goto_0
+    .line 287
+    .local v2, flag:Z
+    :try_start_0
+    const-string v9, "check"
+
+    invoke-virtual {v4, v9}, Landroid/content/Intent;->getExtra(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    .line 288
+    .local v6, val:Ljava/lang/String;
+    const-string v9, "gallery"
+
+    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_4
+
+    .line 289
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v9
+
+    const-string v10, "com.sec.android.gallery3d"
+
+    invoke-static {v9, v10}, Lcom/android/settings/Utils;->checkPackageState(Landroid/content/Context;Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v2
 
     .line 296
-    :cond_5
-    invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->mount()V
+    .end local v6           #val:Ljava/lang/String;
+    :cond_3
+    :goto_1
+    if-eqz v4, :cond_6
 
-    goto :goto_0
+    .line 298
+    invoke-static {}, Lcom/android/settings/Utils;->isMonkeyRunning()Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    .line 299
+    if-eqz v2, :cond_5
 
     .line 301
-    .end local v0           #category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
-    .end local v2           #intent:Landroid/content/Intent;
-    .end local v3           #state:Ljava/lang/String;
-    .end local v4           #volume:Landroid/os/storage/StorageVolume;
-    :cond_6
-    const/4 v5, 0x0
+    :try_start_1
+    invoke-virtual {p0, v4}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+    :try_end_1
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
+
+    .line 302
+    :catch_0
+    move-exception v0
+
+    .line 303
+    .local v0, anfe:Landroid/content/ActivityNotFoundException;
+    const-string v9, "MemorySettings"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "No activity found for intent "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 290
+    .end local v0           #anfe:Landroid/content/ActivityNotFoundException;
+    .restart local v6       #val:Ljava/lang/String;
+    :cond_4
+    :try_start_2
+    const-string v9, "downloads"
+
+    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    .line 291
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v9
+
+    const-string v10, "com.android.providers.downloads.ui"
+
+    invoke-static {v9, v10}, Lcom/android/settings/Utils;->checkPackageState(Landroid/content/Context;Ljava/lang/String;)Z
+    :try_end_2
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_1
+
+    move-result v2
+
+    goto :goto_1
+
+    .line 306
+    .end local v6           #val:Ljava/lang/String;
+    :cond_5
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v9
+
+    invoke-static {v9}, Lcom/android/settings/Utils;->showDialogPopup(Landroid/content/Context;)V
+
+    goto :goto_0
+
+    .line 312
+    :cond_6
+    invoke-virtual {v1}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->getStorageVolume()Landroid/os/storage/StorageVolume;
+
+    move-result-object v7
+
+    .line 313
+    .local v7, volume:Landroid/os/storage/StorageVolume;
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v1, p2}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->mountToggleClicked(Landroid/preference/Preference;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_2
+
+    .line 314
+    sput-object p2, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
+
+    .line 315
+    invoke-virtual {v7}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+
+    move-result-object v9
+
+    sput-object v9, Lcom/android/settings/deviceinfo/Memory;->sClickedMountPoint:Ljava/lang/String;
+
+    .line 316
+    iget-object v9, p0, Lcom/android/settings/deviceinfo/Memory;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    invoke-virtual {v7}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 317
+    .local v5, state:Ljava/lang/String;
+    const-string v9, "mounted"
+
+    invoke-virtual {v9, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_7
+
+    const-string v9, "mounted_ro"
+
+    invoke-virtual {v9, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_8
+
+    .line 319
+    :cond_7
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->unmount()V
+
+    goto/16 :goto_0
+
+    .line 321
+    :cond_8
+    invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->mount()V
+
+    goto/16 :goto_0
+
+    .line 327
+    .end local v1           #category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
+    .end local v2           #flag:Z
+    .end local v4           #intent:Landroid/content/Intent;
+    .end local v5           #state:Ljava/lang/String;
+    .end local v7           #volume:Landroid/os/storage/StorageVolume;
+    :cond_9
+    const/4 v8, 0x0
+
+    goto/16 :goto_0
+
+    .line 293
+    .restart local v1       #category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
+    .restart local v2       #flag:Z
+    .restart local v4       #intent:Landroid/content/Intent;
+    :catch_1
+    move-exception v9
+
+    goto :goto_1
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
@@ -1261,16 +1413,16 @@
     .parameter "menu"
 
     .prologue
-    .line 229
-    const v3, 0x7f0b05fb
+    .line 235
+    const v3, 0x7f0b067b
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    .line 230
+    .line 236
     .local v1, usb:Landroid/view/MenuItem;
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1282,7 +1434,7 @@
 
     check-cast v0, Landroid/os/UserManager;
 
-    .line 231
+    .line 237
     .local v0, um:Landroid/os/UserManager;
     invoke-direct {p0}, Lcom/android/settings/deviceinfo/Memory;->isMassStorageEnabled()Z
 
@@ -1300,15 +1452,15 @@
 
     const/4 v2, 0x1
 
-    .line 233
+    .line 239
     .local v2, usbItemVisible:Z
     :goto_0
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 234
+    .line 240
     return-void
 
-    .line 231
+    .line 237
     .end local v2           #usbItemVisible:Z
     :cond_0
     const/4 v2, 0x0
@@ -1320,58 +1472,58 @@
     .locals 7
 
     .prologue
-    .line 150
+    .line 151
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 151
+    .line 152
     new-instance v3, Landroid/content/IntentFilter;
 
     const-string v5, "android.intent.action.MEDIA_SCANNER_STARTED"
 
     invoke-direct {v3, v5}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 152
+    .line 153
     .local v3, intentFilter:Landroid/content/IntentFilter;
     const-string v5, "android.intent.action.MEDIA_SCANNER_FINISHED"
 
     invoke-virtual {v3, v5}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 153
+    .line 154
     const-string v5, "file"
 
     invoke-virtual {v3, v5}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
-    .line 154
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    .line 155
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mMediaScannerReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v5, v6, v3}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v5, v6, v3}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 156
+    .line 157
     new-instance v3, Landroid/content/IntentFilter;
 
     .end local v3           #intentFilter:Landroid/content/IntentFilter;
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 157
+    .line 158
     .restart local v3       #intentFilter:Landroid/content/IntentFilter;
     const-string v5, "android.hardware.usb.action.USB_STATE"
 
     invoke-virtual {v3, v5}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 158
-    invoke-virtual {p0}, Lcom/android/settings/deviceinfo/Memory;->getActivity()Landroid/app/Activity;
+    .line 159
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/settings/deviceinfo/Memory;->mMediaScannerReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v5, v6, v3}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v5, v6, v3}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 160
+    .line 161
     iget-object v5, p0, Lcom/android/settings/deviceinfo/Memory;->mCategories:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1392,33 +1544,33 @@
 
     check-cast v0, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
 
-    .line 161
+    .line 162
     .local v0, category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
     invoke-virtual {v0}, Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;->onResume()V
 
     goto :goto_0
 
-    .line 165
+    .line 166
     .end local v0           #category:Lcom/android/settings/deviceinfo/StorageVolumePreferenceCategory;
     :cond_0
     const-string v5, "enterprise_policy"
 
-    invoke-virtual {p0, v5}, Lcom/android/settings/deviceinfo/Memory;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 166
+    .line 167
     .local v1, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     if-eqz v1, :cond_1
 
-    .line 167
+    .line 168
     invoke-virtual {v1}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
     move-result-object v4
 
-    .line 168
+    .line 169
     .local v4, rp:Landroid/app/enterprise/RestrictionPolicy;
     if-eqz v4, :cond_1
 
@@ -1428,26 +1580,26 @@
 
     if-nez v5, :cond_1
 
-    .line 169
+    .line 170
     const-string v5, "MemorySettings"
 
     const-string v6, "Sd-Card Disabled!!"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 170
+    .line 171
     sget-object v5, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
 
     if-eqz v5, :cond_1
 
-    .line 171
+    .line 172
     sget-object v5, Lcom/android/settings/deviceinfo/Memory;->sLastClickedMountToggle:Landroid/preference/Preference;
 
     const/4 v6, 0x0
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 176
+    .line 177
     .end local v4           #rp:Landroid/app/enterprise/RestrictionPolicy;
     :cond_1
     return-void

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 108
+    .line 111
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -46,7 +46,7 @@
 
     const/4 v4, 0x1
 
-    .line 110
+    .line 113
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->selectAllCheck:Landroid/view/View;
@@ -60,7 +60,7 @@
 
     move-result v1
 
-    .line 111
+    .line 114
     .local v1, isChecked:Z
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
@@ -78,7 +78,7 @@
     :goto_0
     invoke-interface {v2, v3}, Landroid/widget/Checkable;->setChecked(Z)V
 
-    .line 112
+    .line 115
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->selectAllCheck:Landroid/view/View;
@@ -88,7 +88,7 @@
 
     invoke-virtual {v2, v4}, Landroid/view/View;->sendAccessibilityEvent(I)V
 
-    .line 113
+    .line 116
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -100,13 +100,13 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
+    invoke-virtual {v2}, Landroid/preference/PreferenceGroup;->getPreferenceCount()I
 
     move-result v2
 
     if-ge v0, v2, :cond_2
 
-    .line 114
+    .line 117
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
     #getter for: Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->mDeviceList:Landroid/preference/PreferenceScreen;
@@ -114,7 +114,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Landroid/preference/PreferenceScreen;->getPreference(I)Landroid/preference/Preference;
+    invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->getPreference(I)Landroid/preference/Preference;
 
     move-result-object v2
 
@@ -127,9 +127,9 @@
     move v3, v4
 
     :goto_2
-    invoke-virtual {v2, v3}, Lcom/android/settings/wifi/mobileap/WifiApAllowedDeleteDevice;->setChecked(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 113
+    .line 116
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
@@ -138,23 +138,23 @@
     :cond_0
     move v3, v5
 
-    .line 111
+    .line 114
     goto :goto_0
 
     .restart local v0       #i:I
     :cond_1
     move v3, v5
 
-    .line 114
+    .line 117
     goto :goto_2
 
-    .line 116
+    .line 119
     :cond_2
     iget-object v2, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$1;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->updateList()V
     invoke-static {v2}, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->access$200(Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;)V
 
-    .line 117
+    .line 120
     return-void
 .end method

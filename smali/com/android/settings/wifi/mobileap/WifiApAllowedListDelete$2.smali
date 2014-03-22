@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 131
+    .line 134
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$2;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,17 +42,17 @@
     .parameter "v"
 
     .prologue
-    .line 134
+    .line 137
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$2;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->removeSelectedList()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->access$300(Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;)V
 
-    .line 135
+    .line 138
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete$2;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/mobileap/WifiApAllowedListDelete;->finish()V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 136
+    .line 139
     return-void
 .end method

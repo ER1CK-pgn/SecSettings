@@ -43,16 +43,16 @@
     .line 72
     iget-object v0, p0, Lcom/android/settings/SettingsSafetyLegalActivity$1;->this$0:Lcom/android/settings/SettingsSafetyLegalActivity;
 
-    #getter for: Lcom/android/settings/SettingsSafetyLegalActivity;->mAlert:Lcom/android/internal/app/AlertController;
+    #getter for: Lcom/android/internal/app/AlertActivity;->mAlert:Lcom/android/internal/app/AlertController;
     invoke-static {v0}, Lcom/android/settings/SettingsSafetyLegalActivity;->access$000(Lcom/android/settings/SettingsSafetyLegalActivity;)Lcom/android/internal/app/AlertController;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/SettingsSafetyLegalActivity$1;->this$0:Lcom/android/settings/SettingsSafetyLegalActivity;
 
-    const v2, 0x7f0906d6
+    const v2, 0x7f090729
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/SettingsSafetyLegalActivity;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 

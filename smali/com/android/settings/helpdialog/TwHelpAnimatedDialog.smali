@@ -305,7 +305,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog$1;-><init>(Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {p0, v1}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
     .line 88
     return-void
@@ -318,12 +318,12 @@
 
     .prologue
     .line 26
-    invoke-super {p0}, Lcom/android/settings/helpdialog/TwHelpDialog;->onAttachedToWindow()V
+    invoke-super {p0}, Landroid/app/Dialog;->onAttachedToWindow()V
 
     .line 27
     const v0, 0x7f0b0003
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -353,7 +353,7 @@
     :cond_0
     const v0, 0x7f0b0007
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/helpdialog/TwHelpAnimatedDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

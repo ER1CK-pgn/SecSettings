@@ -53,23 +53,23 @@
     .parameter "state"
 
     .prologue
-    .line 215
+    .line 216
     iput-object p1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->this$0:Lcom/android/settings/applications/RunningProcessesView;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 212
+    .line 213
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
-    .line 216
+    .line 217
     iput-object p2, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
 
-    .line 217
-    invoke-virtual {p1}, Lcom/android/settings/applications/RunningProcessesView;->getContext()Landroid/content/Context;
+    .line 218
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -83,10 +83,10 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 219
+    .line 220
     invoke-virtual {p0}, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->refreshItems()V
 
-    .line 220
+    .line 221
     return-void
 .end method
 
@@ -96,7 +96,7 @@
     .locals 1
 
     .prologue
-    .line 276
+    .line 277
     const/4 v0, 0x0
 
     return v0
@@ -108,14 +108,14 @@
     .parameter "position"
 
     .prologue
-    .line 306
+    .line 307
     iget-object v3, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
 
     iget-object v4, v3, Lcom/android/settings/applications/RunningState;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 307
+    .line 308
     :try_start_0
     iget-object v3, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
@@ -125,14 +125,14 @@
 
     if-lt p2, v3, :cond_0
 
-    .line 311
+    .line 312
     monitor-exit v4
 
-    .line 318
+    .line 319
     :goto_0
     return-void
 
-    .line 313
+    .line 314
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -140,7 +140,7 @@
 
     check-cast v2, Lcom/android/settings/applications/RunningProcessesView$ViewHolder;
 
-    .line 314
+    .line 315
     .local v2, vh:Lcom/android/settings/applications/RunningProcessesView$ViewHolder;
     iget-object v3, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
@@ -150,7 +150,7 @@
 
     check-cast v1, Lcom/android/settings/applications/RunningState$MergedItem;
 
-    .line 315
+    .line 316
     .local v1, item:Lcom/android/settings/applications/RunningState$MergedItem;
     iget-object v3, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
 
@@ -162,7 +162,7 @@
 
     move-result-object v0
 
-    .line 316
+    .line 317
     .local v0, ai:Lcom/android/settings/applications/RunningProcessesView$ActiveItem;
     iget-object v3, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->this$0:Lcom/android/settings/applications/RunningProcessesView;
 
@@ -170,7 +170,7 @@
 
     invoke-virtual {v3, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 317
+    .line 318
     monitor-exit v4
 
     goto :goto_0
@@ -192,7 +192,7 @@
     .locals 1
 
     .prologue
-    .line 259
+    .line 260
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -207,7 +207,7 @@
     .parameter "position"
 
     .prologue
-    .line 268
+    .line 269
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -222,7 +222,7 @@
     .parameter "position"
 
     .prologue
-    .line 272
+    .line 273
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -244,7 +244,7 @@
     .locals 1
 
     .prologue
-    .line 233
+    .line 234
     iget-boolean v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mShowBackground:Z
 
     return v0
@@ -257,23 +257,23 @@
     .parameter "parent"
 
     .prologue
-    .line 290
+    .line 291
     if-nez p2, :cond_0
 
-    .line 291
+    .line 292
     invoke-virtual {p0, p3}, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->newView(Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 295
+    .line 296
     .local v0, v:Landroid/view/View;
     :goto_0
     invoke-virtual {p0, v0, p1}, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->bindView(Landroid/view/View;I)V
 
-    .line 296
+    .line 297
     return-object v0
 
-    .line 293
+    .line 294
     .end local v0           #v:Landroid/view/View;
     :cond_0
     move-object v0, p2
@@ -286,7 +286,7 @@
     .locals 1
 
     .prologue
-    .line 255
+    .line 256
     const/4 v0, 0x1
 
     return v0
@@ -296,7 +296,7 @@
     .locals 1
 
     .prologue
-    .line 264
+    .line 265
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
 
     invoke-virtual {v0}, Lcom/android/settings/applications/RunningState;->hasData()Z
@@ -331,7 +331,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 281
+    .line 282
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -342,7 +342,7 @@
 
     if-gt p1, v0, :cond_1
 
-    .line 282
+    .line 283
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -357,20 +357,20 @@
 
     const/4 v0, 0x1
 
-    .line 283
+    .line 284
     :goto_0
     return v0
 
     :cond_0
     move v0, v1
 
-    .line 282
+    .line 283
     goto :goto_0
 
     :cond_1
     move v0, v1
 
-    .line 283
+    .line 284
     goto :goto_0
 .end method
 
@@ -379,10 +379,10 @@
     .parameter "parent"
 
     .prologue
-    .line 300
+    .line 301
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040152
+    const v2, 0x7f040188
 
     const/4 v3, 0x0
 
@@ -390,13 +390,13 @@
 
     move-result-object v0
 
-    .line 301
+    .line 302
     .local v0, v:Landroid/view/View;
     new-instance v1, Lcom/android/settings/applications/RunningProcessesView$ViewHolder;
 
     invoke-direct {v1, v0}, Lcom/android/settings/applications/RunningProcessesView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    .line 302
+    .line 303
     return-object v0
 .end method
 
@@ -404,7 +404,7 @@
     .locals 3
 
     .prologue
-    .line 237
+    .line 238
     iget-boolean v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mShowBackground:Z
 
     if-eqz v1, :cond_1
@@ -415,30 +415,30 @@
 
     move-result-object v0
 
-    .line 240
+    .line 241
     .local v0, newItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/applications/RunningState$MergedItem;>;"
     :goto_0
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mOrigItems:Ljava/util/ArrayList;
 
     if-eq v1, v0, :cond_0
 
-    .line 241
+    .line 242
     iput-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mOrigItems:Ljava/util/ArrayList;
 
-    .line 242
+    .line 243
     if-nez v0, :cond_2
 
-    .line 243
+    .line 244
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
-    .line 252
+    .line 253
     :cond_0
     :goto_1
     return-void
 
-    .line 237
+    .line 238
     .end local v0           #newItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/applications/RunningState$MergedItem;>;"
     :cond_1
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
@@ -449,24 +449,24 @@
 
     goto :goto_0
 
-    .line 245
+    .line 246
     .restart local v0       #newItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/settings/applications/RunningState$MergedItem;>;"
     :cond_2
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
-    .line 246
+    .line 247
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 247
+    .line 248
     iget-boolean v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mShowBackground:Z
 
     if-eqz v1, :cond_0
 
-    .line 248
+    .line 249
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mItems:Ljava/util/ArrayList;
 
     iget-object v2, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
@@ -483,26 +483,26 @@
     .parameter "showBackground"
 
     .prologue
-    .line 223
+    .line 224
     iget-boolean v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mShowBackground:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 224
+    .line 225
     iput-boolean p1, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mShowBackground:Z
 
-    .line 225
+    .line 226
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mState:Lcom/android/settings/applications/RunningState;
 
     invoke-virtual {v0, p1}, Lcom/android/settings/applications/RunningState;->setWatchingBackgroundItems(Z)V
 
-    .line 226
+    .line 227
     invoke-virtual {p0}, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->refreshItems()V
 
-    .line 227
-    invoke-virtual {p0}, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->notifyDataSetChanged()V
-
     .line 228
+    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+
+    .line 229
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->this$0:Lcom/android/settings/applications/RunningProcessesView;
 
     iget-object v0, v0, Lcom/android/settings/applications/RunningProcessesView;->mColorBar:Lcom/android/settings/applications/LinearColorBar;
@@ -511,7 +511,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/applications/LinearColorBar;->setShowingGreen(Z)V
 
-    .line 230
+    .line 231
     :cond_0
     return-void
 .end method

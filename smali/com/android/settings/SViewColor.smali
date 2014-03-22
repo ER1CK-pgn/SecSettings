@@ -3,6 +3,14 @@
 .source "SViewColor.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/settings/SViewColor$FragmentSview;
+    }
+.end annotation
+
+
 # static fields
 .field static final COVER_BACKGROUND_COLOR_BUTTON1:I
 
@@ -40,6 +48,10 @@
 
 .field private mCurrentCoverBackgroundColor:I
 
+.field private mInitRandom:I
+
+.field private mInitUseAll:I
+
 .field private final mIntentReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mIs24HTime:Z
@@ -58,7 +70,7 @@
 
     const/4 v3, 0x0
 
-    .line 43
+    .line 46
     const/16 v0, 0x8
 
     const/16 v1, 0x6b
@@ -71,7 +83,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON1:I
 
-    .line 44
+    .line 47
     const/16 v0, 0x98
 
     const/16 v1, 0x24
@@ -84,7 +96,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON2:I
 
-    .line 45
+    .line 48
     const/16 v0, 0x15
 
     const/16 v1, 0x2f
@@ -97,7 +109,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON3:I
 
-    .line 46
+    .line 49
     const/16 v0, 0x91
 
     const/16 v1, 0x22
@@ -108,7 +120,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON4:I
 
-    .line 47
+    .line 50
     const/16 v0, 0x41
 
     const/16 v1, 0x4f
@@ -121,7 +133,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON5:I
 
-    .line 48
+    .line 51
     const/16 v0, 0x53
 
     const/16 v1, 0x10
@@ -132,7 +144,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON6:I
 
-    .line 49
+    .line 52
     const/16 v0, 0x1d
 
     const/16 v1, 0x14
@@ -145,7 +157,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON7:I
 
-    .line 50
+    .line 53
     const/16 v0, 0x2e
 
     const/16 v1, 0x1a
@@ -158,7 +170,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON8:I
 
-    .line 51
+    .line 54
     const/16 v0, 0x75
 
     const/16 v1, 0x48
@@ -169,7 +181,7 @@
 
     sput v0, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON9:I
 
-    .line 52
+    .line 55
     const/16 v0, 0x25
 
     invoke-static {v0, v4, v4}, Landroid/graphics/Color;->rgb(III)I
@@ -189,10 +201,10 @@
 
     const/4 v3, 0x0
 
-    .line 41
+    .line 44
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 54
+    .line 57
     new-array v0, v4, [I
 
     sget v1, Lcom/android/settings/SViewColor;->COVER_BACKGROUND_COLOR_BUTTON1:I
@@ -255,28 +267,29 @@
 
     iput-object v0, p0, Lcom/android/settings/SViewColor;->mColorArray:[I
 
-    .line 61
+    .line 64
     new-array v0, v4, [Lcom/android/settings/ColorButton;
 
     iput-object v0, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    .line 75
+    .line 78
     iput-boolean v3, p0, Lcom/android/settings/SViewColor;->mIs24HTime:Z
 
-    .line 81
+    .line 87
     new-instance v0, Lcom/android/settings/SViewColor$1;
 
     invoke-direct {v0, p0}, Lcom/android/settings/SViewColor$1;-><init>(Lcom/android/settings/SViewColor;)V
 
     iput-object v0, p0, Lcom/android/settings/SViewColor;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 230
+    .line 239
     new-instance v0, Lcom/android/settings/SViewColor$2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/SViewColor$2;-><init>(Lcom/android/settings/SViewColor;)V
 
     iput-object v0, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
+    .line 328
     return-void
 .end method
 
@@ -285,7 +298,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 44
     invoke-direct {p0}, Lcom/android/settings/SViewColor;->onTimeChanged()V
 
     return-void
@@ -296,7 +309,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 44
     iget v0, p0, Lcom/android/settings/SViewColor;->mCurrentCoverBackgroundColor:I
 
     return v0
@@ -308,7 +321,7 @@
     .parameter "x1"
 
     .prologue
-    .line 41
+    .line 44
     iput p1, p0, Lcom/android/settings/SViewColor;->mCurrentCoverBackgroundColor:I
 
     return p1
@@ -319,7 +332,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 44
     iget-object v0, p0, Lcom/android/settings/SViewColor;->mBackground:Landroid/widget/FrameLayout;
 
     return-object v0
@@ -330,7 +343,7 @@
     .parameter "x0"
 
     .prologue
-    .line 41
+    .line 44
     invoke-direct {p0}, Lcom/android/settings/SViewColor;->setfocusButton()V
 
     return-void
@@ -340,12 +353,12 @@
     .locals 7
 
     .prologue
-    .line 170
+    .line 179
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v1
 
-    .line 171
+    .line 180
     .local v1, mCalendar:Ljava/util/Calendar;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -353,12 +366,12 @@
 
     invoke-virtual {v1, v5, v6}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 172
+    .line 181
     iget-boolean v5, p0, Lcom/android/settings/SViewColor;->mIs24HTime:Z
 
     if-eqz v5, :cond_4
 
-    .line 173
+    .line 182
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mTime:Landroid/widget/TextView;
 
     const-string v6, "kk:mm"
@@ -369,26 +382,26 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 174
+    .line 183
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     if-eqz v5, :cond_0
 
-    .line 175
+    .line 184
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     const/16 v6, 0x8
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setVisibility(I)V
 
-    .line 181
+    .line 190
     :cond_0
     :goto_0
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     if-eqz v5, :cond_1
 
-    .line 182
+    .line 191
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     const-string v6, "AA"
@@ -399,39 +412,39 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 183
+    .line 192
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     const/4 v6, 0x1
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setAllCaps(Z)V
 
-    .line 187
+    .line 196
     :cond_1
     const-string v0, ""
 
-    .line 188
+    .line 197
     .local v0, dateFormat:Ljava/lang/String;
     invoke-virtual {p0}, Lcom/android/settings/SViewColor;->getCurrentDateFormat()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 189
+    .line 198
     .local v4, value:Ljava/lang/String;
-    const v2, 0x1040101
+    const v2, 0x7f090017
 
-    .line 190
+    .line 199
     .local v2, resId_MM_dd:I
-    const v3, 0x1040102
+    const v3, 0x7f090018
 
-    .line 192
+    .line 201
     .local v3, resId_dd_MM:I
-    const v2, 0x1040101
+    const v2, 0x7f090017
 
-    .line 193
-    const v3, 0x1040102
+    .line 202
+    const v3, 0x7f090018
 
-    .line 195
+    .line 204
     const-string v5, "yyyy-MM-dd"
 
     invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -448,13 +461,13 @@
 
     if-eqz v5, :cond_5
 
-    .line 196
+    .line 205
     :cond_2
-    invoke-virtual {p0, v2}, Lcom/android/settings/SViewColor;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 201
+    .line 210
     :cond_3
     :goto_1
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mMonthandDay:Landroid/widget/TextView;
@@ -465,10 +478,10 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 202
+    .line 211
     return-void
 
-    .line 177
+    .line 186
     .end local v0           #dateFormat:Ljava/lang/String;
     .end local v2           #resId_MM_dd:I
     .end local v3           #resId_dd_MM:I
@@ -484,21 +497,21 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 178
+    .line 187
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     if-eqz v5, :cond_0
 
-    .line 179
+    .line 188
     iget-object v5, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 197
+    .line 206
     .restart local v0       #dateFormat:Ljava/lang/String;
     .restart local v2       #resId_MM_dd:I
     .restart local v3       #resId_dd_MM:I
@@ -512,8 +525,8 @@
 
     if-eqz v5, :cond_3
 
-    .line 198
-    invoke-virtual {p0, v3}, Lcom/android/settings/SViewColor;->getString(I)Ljava/lang/String;
+    .line 207
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -524,7 +537,7 @@
     .locals 3
 
     .prologue
-    .line 274
+    .line 283
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -535,7 +548,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 275
+    .line 284
     iget v1, p0, Lcom/android/settings/SViewColor;->mCurrentCoverBackgroundColor:I
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorArray:[I
@@ -544,7 +557,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 276
+    .line 285
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v0
@@ -553,20 +566,20 @@
 
     invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setFocus(Z)V
 
-    .line 280
+    .line 289
     :goto_1
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v0
 
-    invoke-virtual {v1}, Lcom/android/settings/ColorButton;->invalidate()V
+    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
 
-    .line 274
+    .line 283
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 278
+    .line 287
     :cond_0
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
@@ -578,7 +591,7 @@
 
     goto :goto_1
 
-    .line 282
+    .line 291
     :cond_1
     return-void
 .end method
@@ -589,34 +602,34 @@
     .locals 9
 
     .prologue
-    .line 206
+    .line 215
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 207
+    .line 216
     .local v5, result:Ljava/lang/StringBuilder;
     const-string v6, "yyyy"
 
-    .line 208
+    .line 217
     .local v6, year:Ljava/lang/String;
     const-string v4, "MM"
 
-    .line 209
+    .line 218
     .local v4, month:Ljava/lang/String;
     const-string v0, "dd"
 
-    .line 210
+    .line 219
     .local v0, day:Ljava/lang/String;
     const-string v1, "-"
 
-    .line 212
+    .line 221
     .local v1, divider:Ljava/lang/String;
     invoke-static {p0}, Landroid/text/format/DateFormat;->getDateFormatOrder(Landroid/content/Context;)[C
 
     move-result-object v2
 
-    .line 213
+    .line 222
     .local v2, formatArray:[C
     const/4 v3, 0x0
 
@@ -626,17 +639,17 @@
 
     if-ge v3, v7, :cond_4
 
-    .line 214
+    .line 223
     aget-char v7, v2, v3
 
     const/16 v8, 0x79
 
     if-ne v7, v8, :cond_0
 
-    .line 215
+    .line 224
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 217
+    .line 226
     :cond_0
     aget-char v7, v2, v3
 
@@ -644,10 +657,10 @@
 
     if-ne v7, v8, :cond_1
 
-    .line 218
+    .line 227
     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 220
+    .line 229
     :cond_1
     aget-char v7, v2, v3
 
@@ -655,10 +668,10 @@
 
     if-ne v7, v8, :cond_2
 
-    .line 221
+    .line 230
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 223
+    .line 232
     :cond_2
     array-length v7, v2
 
@@ -666,22 +679,55 @@
 
     if-eq v3, v7, :cond_3
 
-    .line 224
+    .line 233
     invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 213
+    .line 222
     :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 227
+    .line 236
     :cond_4
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
     return-object v7
+.end method
+
+.method public onBackPressed()V
+    .locals 3
+
+    .prologue
+    .line 323
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "sview_color_use_all"
+
+    iget v2, p0, Lcom/android/settings/SViewColor;->mInitUseAll:I
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 324
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "sview_color_random"
+
+    iget v2, p0, Lcom/android/settings/SViewColor;->mInitRandom:I
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 325
+    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
+
+    .line 326
+    return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
@@ -699,16 +745,16 @@
 
     const/4 v4, 0x0
 
-    .line 94
+    .line 100
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 96
-    const v1, 0x7f040041
+    .line 102
+    const v1, 0x7f040047
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->setContentView(I)V
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setContentView(I)V
 
-    .line 98
-    invoke-virtual {p0}, Lcom/android/settings/SViewColor;->getContentResolver()Landroid/content/ContentResolver;
+    .line 104
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -722,10 +768,10 @@
 
     iput v1, p0, Lcom/android/settings/SViewColor;->mCurrentCoverBackgroundColor:I
 
-    .line 100
-    const v1, 0x7f0b00be
+    .line 106
+    const v1, 0x7f0b00cb
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -733,28 +779,28 @@
 
     iput-object v1, p0, Lcom/android/settings/SViewColor;->mBackground:Landroid/widget/FrameLayout;
 
-    .line 101
+    .line 107
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mBackground:Landroid/widget/FrameLayout;
 
     iget v2, p0, Lcom/android/settings/SViewColor;->mCurrentCoverBackgroundColor:I
 
-    invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundColor(I)V
 
-    .line 103
+    .line 109
     const/4 v0, 0x0
 
-    .line 104
+    .line 110
     .local v0, clockTypeface:Landroid/graphics/Typeface;
-    const-string v1, "system/fonts/SamsungSans_Light.ttf"
+    const-string v1, "system/fonts/SamsungSans-Light.ttf"
 
     invoke-static {v1}, Landroid/graphics/Typeface;->createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    .line 106
-    const v1, 0x7f0b03bc
+    .line 112
+    const v1, 0x7f0b0422
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -762,10 +808,10 @@
 
     iput-object v1, p0, Lcom/android/settings/SViewColor;->mTime:Landroid/widget/TextView;
 
-    .line 107
-    const v1, 0x7f0b03bd
+    .line 113
+    const v1, 0x7f0b0423
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -773,10 +819,10 @@
 
     iput-object v1, p0, Lcom/android/settings/SViewColor;->mAmPm:Landroid/widget/TextView;
 
-    .line 108
-    const v1, 0x7f0b03be
+    .line 114
+    const v1, 0x7f0b0424
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -784,24 +830,24 @@
 
     iput-object v1, p0, Lcom/android/settings/SViewColor;->mMonthandDay:Landroid/widget/TextView;
 
-    .line 109
+    .line 115
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mTime:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 111
+    .line 117
     invoke-static {p0}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/settings/SViewColor;->mIs24HTime:Z
 
-    .line 113
+    .line 119
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const v1, 0x7f0b00bf
+    const v1, 0x7f0b00cc
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -809,21 +855,21 @@
 
     aput-object v1, v2, v4
 
-    .line 114
+    .line 120
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v4
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 116
+    .line 122
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const v1, 0x7f0b00c0
+    const v1, 0x7f0b00cd
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -831,21 +877,21 @@
 
     aput-object v1, v2, v5
 
-    .line 117
+    .line 123
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v5
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 119
+    .line 125
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const v1, 0x7f0b00c1
+    const v1, 0x7f0b00ce
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -853,21 +899,21 @@
 
     aput-object v1, v2, v6
 
-    .line 120
+    .line 126
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v6
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 122
+    .line 128
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const v1, 0x7f0b00c2
+    const v1, 0x7f0b00cf
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -875,21 +921,21 @@
 
     aput-object v1, v2, v7
 
-    .line 123
+    .line 129
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v7
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 125
+    .line 131
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const v1, 0x7f0b00c3
+    const v1, 0x7f0b00d0
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -897,75 +943,23 @@
 
     aput-object v1, v2, v8
 
-    .line 126
+    .line 132
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
     aget-object v1, v1, v8
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 128
-    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
-
-    const/4 v3, 0x5
-
-    const v1, 0x7f0b00c4
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/ColorButton;
-
-    aput-object v1, v2, v3
-
-    .line 129
-    iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
-
-    const/4 v2, 0x5
-
-    aget-object v1, v1, v2
-
-    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 131
-    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
-
-    const/4 v3, 0x6
-
-    const v1, 0x7f0b00c5
-
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settings/ColorButton;
-
-    aput-object v1, v2, v3
-
-    .line 132
-    iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
-
-    const/4 v2, 0x6
-
-    aget-object v1, v1, v2
-
-    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 134
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const/4 v3, 0x7
+    const/4 v3, 0x5
 
-    const v1, 0x7f0b00c6
+    const v1, 0x7f0b00d1
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -976,22 +970,22 @@
     .line 135
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const/4 v2, 0x7
+    const/4 v2, 0x5
 
     aget-object v1, v1, v2
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 137
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const/16 v3, 0x8
+    const/4 v3, 0x6
 
-    const v1, 0x7f0b00c7
+    const v1, 0x7f0b00d2
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1002,22 +996,22 @@
     .line 138
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const/16 v2, 0x8
+    const/4 v2, 0x6
 
     aget-object v1, v1, v2
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 140
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
-    const/16 v3, 0x9
+    const/4 v3, 0x7
 
-    const v1, 0x7f0b00c8
+    const v1, 0x7f0b00d3
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/SViewColor;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1028,18 +1022,96 @@
     .line 141
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
 
+    const/4 v2, 0x7
+
+    aget-object v1, v1, v2
+
+    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 143
+    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
+
+    const/16 v3, 0x8
+
+    const v1, 0x7f0b00d4
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/ColorButton;
+
+    aput-object v1, v2, v3
+
+    .line 144
+    iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
+
+    const/16 v2, 0x8
+
+    aget-object v1, v1, v2
+
+    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 146
+    iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
+
+    const/16 v3, 0x9
+
+    const v1, 0x7f0b00d5
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/settings/ColorButton;
+
+    aput-object v1, v2, v3
+
+    .line 147
+    iget-object v1, p0, Lcom/android/settings/SViewColor;->mColorButtonArray:[Lcom/android/settings/ColorButton;
+
     const/16 v2, 0x9
 
     aget-object v1, v1, v2
 
     iget-object v2, p0, Lcom/android/settings/SViewColor;->mColorButton:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ColorButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 143
+    .line 149
     invoke-direct {p0}, Lcom/android/settings/SViewColor;->setfocusButton()V
 
-    .line 144
+    .line 151
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "sview_color_use_all"
+
+    invoke-static {v1, v2, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/settings/SViewColor;->mInitUseAll:I
+
+    .line 152
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "sview_color_random"
+
+    invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/settings/SViewColor;->mInitRandom:I
+
+    .line 153
     return-void
 .end method
 
@@ -1054,29 +1126,29 @@
 
     const/4 v3, 0x0
 
-    .line 286
+    .line 295
     const/high16 v2, 0x104
 
     invoke-interface {p1, v3, v5, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 287
+    .line 296
     .local v0, mCancel:Landroid/view/MenuItem;
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 288
-    const v2, 0x7f0903ae
+    .line 297
+    const v2, 0x7f0903e7
 
     invoke-interface {p1, v3, v4, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    .line 289
+    .line 298
     .local v1, mSave:Landroid/view/MenuItem;
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 290
+    .line 299
     return v5
 .end method
 
@@ -1085,17 +1157,17 @@
     .parameter "item"
 
     .prologue
-    .line 295
+    .line 304
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 304
-    invoke-virtual {p0}, Lcom/android/settings/SViewColor;->finish()V
+    .line 315
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 307
+    .line 318
     :goto_0
     invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
@@ -1103,15 +1175,37 @@
 
     return v0
 
-    .line 297
+    .line 306
     :pswitch_0
-    invoke-virtual {p0}, Lcom/android/settings/SViewColor;->finish()V
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "sview_color_use_all"
+
+    iget v2, p0, Lcom/android/settings/SViewColor;->mInitUseAll:I
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 307
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "sview_color_random"
+
+    iget v2, p0, Lcom/android/settings/SViewColor;->mInitRandom:I
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 308
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 300
+    .line 311
     :pswitch_1
-    invoke-virtual {p0}, Lcom/android/settings/SViewColor;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1121,12 +1215,12 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 301
-    invoke-virtual {p0}, Lcom/android/settings/SViewColor;->finish()V
+    .line 312
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     goto :goto_0
 
-    .line 295
+    .line 304
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1138,15 +1232,15 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 173
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 166
+    .line 175
     iget-object v0, p0, Lcom/android/settings/SViewColor;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/SViewColor;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 167
+    .line 176
     return-void
 .end method
 
@@ -1154,43 +1248,43 @@
     .locals 2
 
     .prologue
-    .line 148
+    .line 157
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 150
+    .line 159
     invoke-direct {p0}, Lcom/android/settings/SViewColor;->onTimeChanged()V
 
-    .line 152
+    .line 161
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 154
+    .line 163
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 155
+    .line 164
     const-string v1, "android.intent.action.TIME_SET"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 156
+    .line 165
     const-string v1, "android.intent.action.TIMEZONE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 157
+    .line 166
     const-string v1, "android.intent.action.DATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 159
+    .line 168
     iget-object v1, p0, Lcom/android/settings/SViewColor;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/SViewColor;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v1, v0}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 160
+    .line 169
     return-void
 .end method

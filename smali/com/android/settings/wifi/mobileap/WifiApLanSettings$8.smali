@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 452
+    .line 891
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$8;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,11 +43,11 @@
     .parameter "whichButton"
 
     .prologue
-    .line 454
+    .line 895
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApLanSettings$8;->this$0:Lcom/android/settings/wifi/mobileap/WifiApLanSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/mobileap/WifiApLanSettings;->finish()V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 455
+    .line 897
     return-void
 .end method

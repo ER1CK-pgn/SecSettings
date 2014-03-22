@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 161
+    .line 175
     iput-object p1, p0, Lcom/android/settings/deviceinfo/UsbSettings$3;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,17 +40,17 @@
     .parameter "intent"
 
     .prologue
-    .line 164
+    .line 178
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 166
+    .line 180
     .local v0, action:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/settings/deviceinfo/UsbSettings$3;->this$0:Lcom/android/settings/deviceinfo/UsbSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/deviceinfo/UsbSettings;->finish()V
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
-    .line 167
+    .line 181
     return-void
 .end method

@@ -41,7 +41,7 @@
     .parameter
 
     .prologue
-    .line 793
+    .line 946
     iput-object p1, p0, Lcom/android/settings/users/UserSettings$14;->this$0:Lcom/android/settings/users/UserSettings;
 
     iput-object p2, p0, Lcom/android/settings/users/UserSettings$14;->val$resources:Landroid/content/res/Resources;
@@ -58,7 +58,7 @@
     .parameter "x0"
 
     .prologue
-    .line 793
+    .line 946
     check-cast p1, [Ljava/util/List;
 
     .end local p1
@@ -84,7 +84,7 @@
     .end annotation
 
     .prologue
-    .line 801
+    .line 954
     .local p1, values:[Ljava/util/List;,"[Ljava/util/List<Ljava/lang/Integer;>;"
     const/4 v4, 0x0
 
@@ -112,7 +112,7 @@
 
     move-result v3
 
-    .line 802
+    .line 955
     .local v3, userId:I
     iget-object v4, p0, Lcom/android/settings/users/UserSettings$14;->this$0:Lcom/android/settings/users/UserSettings;
 
@@ -125,7 +125,7 @@
 
     move-result-object v0
 
-    .line 803
+    .line 956
     .local v0, bitmap:Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -133,7 +133,7 @@
 
     invoke-direct {v1, v4, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 804
+    .line 957
     .local v1, d:Landroid/graphics/drawable/Drawable;
     iget-object v4, p0, Lcom/android/settings/users/UserSettings$14;->this$0:Lcom/android/settings/users/UserSettings;
 
@@ -146,7 +146,7 @@
 
     goto :goto_0
 
-    .line 806
+    .line 959
     .end local v0           #bitmap:Landroid/graphics/Bitmap;
     .end local v1           #d:Landroid/graphics/drawable/Drawable;
     .end local v3           #userId:I
@@ -161,7 +161,7 @@
     .parameter "x0"
 
     .prologue
-    .line 793
+    .line 946
     check-cast p1, Ljava/lang/Void;
 
     .end local p1
@@ -175,12 +175,12 @@
     .parameter "result"
 
     .prologue
-    .line 796
+    .line 949
     iget-object v0, p0, Lcom/android/settings/users/UserSettings$14;->this$0:Lcom/android/settings/users/UserSettings;
 
     #calls: Lcom/android/settings/users/UserSettings;->updateUserList()V
     invoke-static {v0}, Lcom/android/settings/users/UserSettings;->access$000(Lcom/android/settings/users/UserSettings;)V
 
-    .line 797
+    .line 950
     return-void
 .end method

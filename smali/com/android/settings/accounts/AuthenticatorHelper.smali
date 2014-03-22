@@ -47,31 +47,31 @@
     .locals 1
 
     .prologue
-    .line 41
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 42
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
+    .line 36
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
-    .line 38
+    .line 39
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mEnabledAccountTypes:Ljava/util/ArrayList;
 
-    .line 39
+    .line 40
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
 
-    .line 42
+    .line 43
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .parameter "accountType"
 
     .prologue
-    .line 120
+    .line 135
     iget-object v0, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -97,7 +97,7 @@
     .parameter "accountType"
 
     .prologue
-    .line 124
+    .line 139
     iget-object v0, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -115,11 +115,17 @@
     .parameter "accountType"
 
     .prologue
-    .line 54
+    .line 65
     const/4 v2, 0x0
 
-    .line 55
+    .line 66
     .local v2, icon:Landroid/graphics/drawable/Drawable;
+    iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
+
+    monitor-enter v4
+
+    .line 67
+    :try_start_0
     iget-object v3, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
 
     invoke-interface {v3, p2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -128,7 +134,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 56
+    .line 68
     iget-object v3, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
 
     invoke-interface {v3, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -137,12 +143,19 @@
 
     check-cast v3, Landroid/graphics/drawable/Drawable;
 
-    .line 71
+    monitor-exit v4
+
+    .line 86
     :goto_0
     return-object v3
 
-    .line 58
+    .line 70
     :cond_0
+    monitor-exit v4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 71
     iget-object v3, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
     invoke-interface {v3, p2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -151,8 +164,8 @@
 
     if-eqz v3, :cond_1
 
-    .line 60
-    :try_start_0
+    .line 73
+    :try_start_1
     iget-object v3, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
     invoke-interface {v3, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -161,7 +174,7 @@
 
     check-cast v1, Landroid/accounts/AuthenticatorDescription;
 
-    .line 61
+    .line 74
     .local v1, desc:Landroid/accounts/AuthenticatorDescription;
     iget-object v3, v1, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
 
@@ -171,7 +184,7 @@
 
     move-result-object v0
 
-    .line 62
+    .line 75
     .local v0, authContext:Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -183,22 +196,33 @@
 
     move-result-object v2
 
-    .line 63
+    .line 76
+    iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
+
+    monitor-enter v4
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+
+    .line 77
+    :try_start_2
     iget-object v3, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
 
     invoke-interface {v3, p2, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 68
+    .line 78
+    monitor-exit v4
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    .line 83
     .end local v0           #authContext:Landroid/content/Context;
     .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
     :cond_1
     :goto_1
     if-nez v2, :cond_2
 
-    .line 69
+    .line 84
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
@@ -210,16 +234,46 @@
     :cond_2
     move-object v3, v2
 
-    .line 71
+    .line 86
     goto :goto_0
 
-    .line 65
+    .line 70
+    :catchall_0
+    move-exception v3
+
+    :try_start_3
+    monitor-exit v4
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    throw v3
+
+    .line 78
+    .restart local v0       #authContext:Landroid/content/Context;
+    .restart local v1       #desc:Landroid/accounts/AuthenticatorDescription;
+    :catchall_1
+    move-exception v3
+
+    :try_start_4
+    monitor-exit v4
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    :try_start_5
+    throw v3
+    :try_end_5
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_1
+
+    .line 79
+    .end local v0           #authContext:Landroid/content/Context;
+    .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
     :catch_0
     move-exception v3
 
     goto :goto_1
 
-    .line 64
+    .line 80
     :catch_1
     move-exception v3
 
@@ -230,7 +284,7 @@
     .locals 2
 
     .prologue
-    .line 45
+    .line 46
     iget-object v0, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mEnabledAccountTypes:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mEnabledAccountTypes:Ljava/util/ArrayList;
@@ -256,10 +310,10 @@
     .parameter "accountType"
 
     .prologue
-    .line 80
+    .line 95
     const/4 v3, 0x0
 
-    .line 81
+    .line 96
     .local v3, label:Ljava/lang/CharSequence;
     iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
@@ -269,7 +323,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 83
+    .line 98
     :try_start_0
     iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
@@ -279,7 +333,7 @@
 
     check-cast v1, Landroid/accounts/AuthenticatorDescription;
 
-    .line 84
+    .line 99
     .local v1, desc:Landroid/accounts/AuthenticatorDescription;
     iget-object v4, v1, Landroid/accounts/AuthenticatorDescription;->packageName:Ljava/lang/String;
 
@@ -289,7 +343,7 @@
 
     move-result-object v0
 
-    .line 85
+    .line 100
     .local v0, authContext:Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -304,18 +358,18 @@
 
     move-result-object v3
 
-    .line 92
+    .line 107
     .end local v0           #authContext:Landroid/content/Context;
     .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
     :cond_0
     :goto_0
     return-object v3
 
-    .line 86
+    .line 101
     :catch_0
     move-exception v2
 
-    .line 87
+    .line 102
     .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v4, "AuthenticatorHelper"
 
@@ -341,12 +395,12 @@
 
     goto :goto_0
 
-    .line 88
+    .line 103
     .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_1
     move-exception v2
 
-    .line 89
+    .line 104
     .local v2, e:Landroid/content/res/Resources$NotFoundException;
     const-string v4, "AuthenticatorHelper"
 
@@ -378,19 +432,19 @@
     .parameter "accountType"
 
     .prologue
-    .line 128
+    .line 143
     invoke-virtual {p0, p1}, Lcom/android/settings/accounts/AuthenticatorHelper;->containsAccountType(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 129
+    .line 144
     invoke-virtual {p0, p1}, Lcom/android/settings/accounts/AuthenticatorHelper;->getAccountTypeDescription(Ljava/lang/String;)Landroid/accounts/AuthenticatorDescription;
 
     move-result-object v0
 
-    .line 130
+    .line 145
     .local v0, desc:Landroid/accounts/AuthenticatorDescription;
     if-eqz v0, :cond_0
 
@@ -398,10 +452,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 131
+    .line 146
     const/4 v1, 0x1
 
-    .line 134
+    .line 149
     .end local v0           #desc:Landroid/accounts/AuthenticatorDescription;
     :goto_0
     return v1
@@ -418,10 +472,10 @@
     .parameter "accounts"
 
     .prologue
-    .line 107
+    .line 122
     if-nez p2, :cond_0
 
-    .line 108
+    .line 123
     invoke-static {p1}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v4
@@ -430,18 +484,18 @@
 
     move-result-object p2
 
-    .line 110
+    .line 125
     :cond_0
     iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mEnabledAccountTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    .line 111
+    .line 126
     iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAccTypeIconCache:Ljava/util/Map;
 
     invoke-interface {v4}, Ljava/util/Map;->clear()V
 
-    .line 112
+    .line 127
     move-object v1, p2
 
     .local v1, arr$:[Landroid/accounts/Account;
@@ -456,7 +510,7 @@
 
     aget-object v0, v1, v2
 
-    .line 113
+    .line 128
     .local v0, account:Landroid/accounts/Account;
     iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mEnabledAccountTypes:Ljava/util/ArrayList;
 
@@ -468,22 +522,45 @@
 
     if-nez v4, :cond_1
 
-    .line 114
+    .line 129
     iget-object v4, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mEnabledAccountTypes:Ljava/util/ArrayList;
 
     iget-object v5, v0, Landroid/accounts/Account;->type:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 112
+    .line 127
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 117
+    .line 132
     .end local v0           #account:Landroid/accounts/Account;
     :cond_2
+    return-void
+.end method
+
+.method public preloadDrawableForType(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
+    .parameter "context"
+    .parameter "accountType"
+
+    .prologue
+    .line 50
+    new-instance v1, Lcom/android/settings/accounts/AuthenticatorHelper$1;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/settings/accounts/AuthenticatorHelper$1;-><init>(Lcom/android/settings/accounts/AuthenticatorHelper;Landroid/content/Context;Ljava/lang/String;)V
+
+    sget-object v2, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+
+    const/4 v0, 0x0
+
+    check-cast v0, [Ljava/lang/Void;
+
+    invoke-virtual {v1, v2, v0}, Landroid/os/AsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 57
     return-void
 .end method
 
@@ -492,7 +569,7 @@
     .parameter "context"
 
     .prologue
-    .line 100
+    .line 115
     invoke-static {p1}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v1
@@ -503,7 +580,7 @@
 
     iput-object v1, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
 
-    .line 101
+    .line 116
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -514,7 +591,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 102
+    .line 117
     iget-object v1, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mTypeToAuthDescription:Ljava/util/Map;
 
     iget-object v2, p0, Lcom/android/settings/accounts/AuthenticatorHelper;->mAuthDescs:[Landroid/accounts/AuthenticatorDescription;
@@ -529,12 +606,12 @@
 
     invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 101
+    .line 116
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 104
+    .line 119
     :cond_0
     return-void
 .end method

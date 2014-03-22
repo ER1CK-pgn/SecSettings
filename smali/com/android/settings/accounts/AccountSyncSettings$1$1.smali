@@ -37,10 +37,10 @@
     .parameter
 
     .prologue
-    .line 138
+    .line 144
     iput-object p1, p0, Lcom/android/settings/accounts/AccountSyncSettings$1$1;->this$1:Lcom/android/settings/accounts/AccountSyncSettings$1;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -61,27 +61,27 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 148
     .local p1, future:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Ljava/lang/Boolean;>;"
     iget-object v1, p0, Lcom/android/settings/accounts/AccountSyncSettings$1$1;->this$1:Lcom/android/settings/accounts/AccountSyncSettings$1;
 
     iget-object v1, v1, Lcom/android/settings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/accounts/AccountSyncSettings;->isResumed()Z
+    invoke-virtual {v1}, Landroid/app/Fragment;->isResumed()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 162
+    .line 169
     :goto_0
     return-void
 
-    .line 145
+    .line 151
     :cond_0
     const/4 v0, 0x1
 
-    .line 147
+    .line 153
     .local v0, failed:Z
     :try_start_0
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
@@ -102,49 +102,73 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 148
+    .line 154
     const/4 v0, 0x0
 
-    .line 157
+    .line 163
     :cond_1
     :goto_1
     if-eqz v0, :cond_2
 
-    .line 158
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountSyncSettings$1$1;->this$1:Lcom/android/settings/accounts/AccountSyncSettings$1;
+
+    iget-object v1, v1, Lcom/android/settings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
+
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/settings/accounts/AccountSyncSettings$1$1;->this$1:Lcom/android/settings/accounts/AccountSyncSettings$1;
+
+    iget-object v1, v1, Lcom/android/settings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
+
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 165
     iget-object v1, p0, Lcom/android/settings/accounts/AccountSyncSettings$1$1;->this$1:Lcom/android/settings/accounts/AccountSyncSettings$1;
 
     iget-object v1, v1, Lcom/android/settings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
 
     const/16 v2, 0x65
 
-    #calls: Lcom/android/settings/accounts/AccountSyncSettings;->showDialog(I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
     invoke-static {v1, v2}, Lcom/android/settings/accounts/AccountSyncSettings;->access$100(Lcom/android/settings/accounts/AccountSyncSettings;I)V
 
     goto :goto_0
 
-    .line 160
+    .line 167
     :cond_2
     iget-object v1, p0, Lcom/android/settings/accounts/AccountSyncSettings$1$1;->this$1:Lcom/android/settings/accounts/AccountSyncSettings$1;
 
     iget-object v1, v1, Lcom/android/settings/accounts/AccountSyncSettings$1;->this$0:Lcom/android/settings/accounts/AccountSyncSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/accounts/AccountSyncSettings;->finish()V
+    invoke-virtual {v1}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     goto :goto_0
 
-    .line 154
+    .line 160
     :catch_0
     move-exception v1
 
     goto :goto_1
 
-    .line 152
+    .line 158
     :catch_1
     move-exception v1
 
     goto :goto_1
 
-    .line 150
+    .line 156
     :catch_2
     move-exception v1
 

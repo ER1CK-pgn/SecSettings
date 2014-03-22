@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 630
+    .line 660
     iput-object p1, p0, Lcom/android/settings/SecuritySettings$5;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,12 +42,12 @@
     .parameter "preference"
 
     .prologue
-    .line 633
+    .line 663
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 634
+    .line 664
     .local v0, intent:Landroid/content/Intent;
     invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
 
@@ -55,7 +55,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 635
+    .line 665
     const-string v1, "android.intent.action.VIEW"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
@@ -70,18 +70,18 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 639
+    .line 669
     :goto_0
     iget-object v1, p0, Lcom/android/settings/SecuritySettings$5;->this$0:Lcom/android/settings/SecuritySettings;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/SecuritySettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 640
+    .line 670
     const/4 v1, 0x0
 
     return v1
 
-    .line 637
+    .line 667
     :cond_0
     const-string v1, "android.intent.action.VIEW"
 

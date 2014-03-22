@@ -27,23 +27,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 44
+    .line 45
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 82
+    .line 83
     const-string v0, "default"
 
     iput-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mHelpType:Ljava/lang/String;
 
-    .line 84
+    .line 85
     const-string v0, "default"
 
     iput-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 86
+    .line 87
     iput-object v1, p0, Lcom/android/settings/PenAirViewHelp;->mTurnOnDialog:Landroid/app/AlertDialog;
 
-    .line 88
+    .line 89
     iput-object v1, p0, Lcom/android/settings/PenAirViewHelp;->mDisableAirCommandDialog:Landroid/app/AlertDialog;
 
     return-void
@@ -54,7 +54,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 45
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
     return-object v0
@@ -66,7 +66,7 @@
     .parameter "x1"
 
     .prologue
-    .line 44
+    .line 45
     invoke-direct {p0, p1}, Lcom/android/settings/PenAirViewHelp;->showTurnOnDialog(Ljava/lang/String;)V
 
     return-void
@@ -77,7 +77,7 @@
     .parameter "x0"
 
     .prologue
-    .line 44
+    .line 45
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
     return-object v0
@@ -89,34 +89,34 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 410
+    .line 418
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mTurnOnDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 411
+    .line 419
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mTurnOnDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 412
+    .line 420
     iput-object v1, p0, Lcom/android/settings/PenAirViewHelp;->mTurnOnDialog:Landroid/app/AlertDialog;
 
-    .line 414
+    .line 422
     :cond_0
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mDisableAirCommandDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
-    .line 415
+    .line 423
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mDisableAirCommandDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 416
+    .line 424
     iput-object v1, p0, Lcom/android/settings/PenAirViewHelp;->mDisableAirCommandDialog:Landroid/app/AlertDialog;
 
-    .line 418
+    .line 426
     :cond_1
     return-void
 .end method
@@ -126,31 +126,31 @@
     .parameter "type"
 
     .prologue
-    .line 268
+    .line 269
     invoke-direct {p0}, Lcom/android/settings/PenAirViewHelp;->dismissAllDialog()V
 
-    .line 269
+    .line 270
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e65
+    const v1, 0x7f090f9e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e39
+    const v1, 0x7f090f72
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f09074c
+    const v1, 0x7f09079f
 
     new-instance v2, Lcom/android/settings/PenAirViewHelp$7;
 
@@ -160,7 +160,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     new-instance v2, Lcom/android/settings/PenAirViewHelp$6;
 
@@ -176,7 +176,16 @@
 
     iput-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mDisableAirCommandDialog:Landroid/app/AlertDialog;
 
-    .line 282
+    .line 284
+    iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mDisableAirCommandDialog:Landroid/app/AlertDialog;
+
+    new-instance v1, Lcom/android/settings/PenAirViewHelp$8;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/PenAirViewHelp$8;-><init>(Lcom/android/settings/PenAirViewHelp;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    .line 290
     return-void
 .end method
 
@@ -185,45 +194,45 @@
     .parameter "type"
 
     .prologue
-    const v10, 0x7f090cbf
+    const v10, 0x7f090dd9
 
-    const v9, 0x7f090cbd
+    const v9, 0x7f090dd7
 
-    const v8, 0x7f090e61
+    const v8, 0x7f090f9a
 
     const/4 v6, 0x1
 
     const/4 v7, 0x0
 
-    .line 285
+    .line 293
     invoke-direct {p0}, Lcom/android/settings/PenAirViewHelp;->dismissAllDialog()V
 
-    .line 286
+    .line 294
     move-object v3, p1
 
-    .line 287
+    .line 295
     .local v3, tutorial_type:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 288
+    .line 296
     .local v1, res:Landroid/content/res/Resources;
-    const v4, 0x7f090e8c
+    const v4, 0x7f090fc5
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 289
+    .line 297
     .local v2, title:Ljava/lang/String;
-    const v4, 0x7f090e8d
+    const v4, 0x7f090fc6
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 291
+    .line 299
     .local v0, message:Ljava/lang/String;
     const-string v4, "pointer"
 
@@ -235,12 +244,12 @@
 
     if-eqz v4, :cond_1
 
-    .line 292
+    .line 300
     invoke-virtual {v1, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 293
+    .line 301
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
@@ -257,12 +266,12 @@
 
     move-result-object v0
 
-    .line 323
+    .line 331
     :cond_0
     :goto_0
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -276,17 +285,17 @@
 
     move-result-object v4
 
-    const v5, 0x7f09074c
+    const v5, 0x7f09079f
 
-    new-instance v6, Lcom/android/settings/PenAirViewHelp$8;
+    new-instance v6, Lcom/android/settings/PenAirViewHelp$9;
 
-    invoke-direct {v6, p0, v3}, Lcom/android/settings/PenAirViewHelp$8;-><init>(Lcom/android/settings/PenAirViewHelp;Ljava/lang/String;)V
+    invoke-direct {v6, p0, v3}, Lcom/android/settings/PenAirViewHelp$9;-><init>(Lcom/android/settings/PenAirViewHelp;Ljava/lang/String;)V
 
     invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v4
 
-    const v5, 0x7f090173
+    const v5, 0x7f090195
 
     const/4 v6, 0x0
 
@@ -300,10 +309,10 @@
 
     iput-object v4, p0, Lcom/android/settings/PenAirViewHelp;->mTurnOnDialog:Landroid/app/AlertDialog;
 
-    .line 331
+    .line 339
     return-void
 
-    .line 296
+    .line 304
     :cond_1
     const-string v4, "information_preview"
 
@@ -315,12 +324,12 @@
 
     if-eqz v4, :cond_2
 
-    .line 297
+    .line 305
     invoke-virtual {v1, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 298
+    .line 306
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
@@ -339,7 +348,7 @@
 
     goto :goto_0
 
-    .line 301
+    .line 309
     :cond_2
     const-string v4, "progress_preview"
 
@@ -351,21 +360,21 @@
 
     if-eqz v4, :cond_3
 
-    .line 302
-    const v4, 0x7f090e30
+    .line 310
+    const v4, 0x7f090f69
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 303
+    .line 311
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     new-array v5, v6, [Ljava/lang/Object;
 
-    const v6, 0x7f090e30
+    const v6, 0x7f090f69
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -379,7 +388,7 @@
 
     goto :goto_0
 
-    .line 306
+    .line 314
     :cond_3
     const-string v4, "speed_dial_preview"
 
@@ -391,21 +400,21 @@
 
     if-eqz v4, :cond_4
 
-    .line 307
-    const v4, 0x7f090e32
+    .line 315
+    const v4, 0x7f090f6b
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 308
+    .line 316
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     new-array v5, v6, [Ljava/lang/Object;
 
-    const v6, 0x7f090e32
+    const v6, 0x7f090f6b
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -419,7 +428,7 @@
 
     goto/16 :goto_0
 
-    .line 311
+    .line 319
     :cond_4
     const-string v4, "icon_label"
 
@@ -431,21 +440,21 @@
 
     if-eqz v4, :cond_5
 
-    .line 312
-    const v4, 0x7f090cc1
+    .line 320
+    const v4, 0x7f090ddb
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 313
+    .line 321
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     new-array v5, v6, [Ljava/lang/Object;
 
-    const v6, 0x7f090cc1
+    const v6, 0x7f090ddb
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -459,7 +468,7 @@
 
     goto/16 :goto_0
 
-    .line 316
+    .line 324
     :cond_5
     const-string v4, "list_scroll"
 
@@ -471,21 +480,21 @@
 
     if-eqz v4, :cond_0
 
-    .line 317
-    const v4, 0x7f090cc3
+    .line 325
+    const v4, 0x7f090ddd
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 318
+    .line 326
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     new-array v5, v6, [Ljava/lang/Object;
 
-    const v6, 0x7f090cc3
+    const v6, 0x7f090ddd
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -512,16 +521,16 @@
 
     const/4 v3, 0x0
 
-    .line 254
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    .line 255
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v4}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 255
+    .line 256
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v4, "default"
 
@@ -533,7 +542,7 @@
 
     if-nez v4, :cond_0
 
-    .line 256
+    .line 257
     if-nez p2, :cond_1
 
     iget-object v4, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
@@ -542,29 +551,29 @@
 
     if-ne v4, v5, :cond_1
 
-    .line 257
+    .line 258
     const-string v4, "air_button_onoff"
 
     invoke-static {v0, v4, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 258
+    .line 259
     .local v1, status:I
     if-ne v1, v2, :cond_1
 
-    .line 259
+    .line 260
     const-string v2, "information_preview"
 
     invoke-direct {p0, v2}, Lcom/android/settings/PenAirViewHelp;->showInforPreviewDisableDialog(Ljava/lang/String;)V
 
-    .line 265
+    .line 266
     .end local v1           #status:I
     :cond_0
     :goto_0
     return-void
 
-    .line 263
+    .line 264
     :cond_1
     iget-object v4, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
@@ -592,19 +601,19 @@
 
     const/4 v5, 0x0
 
-    .line 93
+    .line 94
     invoke-super {p0, p1}, Landroid/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 94
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getArguments()Landroid/os/Bundle;
+    .line 95
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 95
+    .line 96
     .local v0, arguments:Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
-    .line 96
+    .line 97
     const-string v3, "type"
 
     const-string v4, "default"
@@ -615,13 +624,13 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mHelpType:Ljava/lang/String;
 
-    .line 98
+    .line 99
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 99
+    .line 100
     .local v1, mActivity:Landroid/app/Activity;
     new-instance v3, Landroid/widget/Switch;
 
@@ -629,36 +638,36 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 100
+    .line 101
     instance-of v3, v1, Landroid/preference/PreferenceActivity;
 
     if-eqz v3, :cond_1
 
-    .line 101
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    .line 102
+    invoke-virtual {v1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0f0019
+    const v4, 0x7f0f0034
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    .line 103
+    .line 104
     .local v2, padding:I
     iget-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, v5, v5, v2, v5}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v3, v5, v5, v2, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 104
+    .line 105
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
 
     invoke-virtual {v3, v6, v6}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 106
+    .line 107
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -673,7 +682,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 111
+    .line 112
     invoke-virtual {v1}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v3
@@ -684,14 +693,14 @@
 
     iput-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarLayout:Landroid/view/View;
 
-    .line 113
+    .line 114
     .end local v2           #padding:I
     :cond_1
     iget-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 114
+    .line 115
     return-void
 .end method
 
@@ -702,12 +711,12 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 119
+    .line 120
     const/4 v9, 0x0
 
-    .line 120
+    .line 121
     .local v9, view:Landroid/view/View;
-    const v10, 0x7f04008e
+    const v10, 0x7f04009e
 
     const/4 v11, 0x0
 
@@ -715,8 +724,8 @@
 
     move-result-object v9
 
-    .line 121
-    const v10, 0x7f0b01ad
+    .line 122
+    const v10, 0x7f0b01cc
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -724,7 +733,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 123
+    .line 124
     .local v1, helpContent:Landroid/widget/LinearLayout;
     const-string v10, "pointer"
 
@@ -736,46 +745,46 @@
 
     if-eqz v10, :cond_1
 
-    .line 124
+    .line 125
     const-string v10, "pen_hovering_pointer"
 
     iput-object v10, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 125
+    .line 126
     new-instance v5, Lcom/android/settings/HelpItem;
 
     invoke-direct {v5, p1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 126
+    .line 127
     .local v5, pointer:Lcom/android/settings/HelpItem;
     const/16 v10, 0x8
 
     invoke-virtual {v5, v10}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 127
-    const v10, 0x7f090e5a
+    .line 128
+    const v10, 0x7f090f93
 
     invoke-virtual {v5, v10}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 128
-    const v10, 0x7f02011c
+    .line 129
+    const v10, 0x7f02015c
 
     invoke-virtual {v5, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 129
+    .line 130
     invoke-virtual {v5}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v10
 
-    invoke-virtual {v1, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 227
+    .line 228
     .end local v5           #pointer:Lcom/android/settings/HelpItem;
     :cond_0
     :goto_0
     return-object v9
 
-    .line 130
+    .line 131
     :cond_1
     const-string v10, "information_preview"
 
@@ -787,54 +796,54 @@
 
     if-eqz v10, :cond_2
 
-    .line 131
+    .line 132
     const-string v10, "pen_hovering_information_preview"
 
     iput-object v10, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 132
+    .line 133
     new-instance v3, Lcom/android/settings/HelpItem;
 
     invoke-direct {v3, p1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 133
+    .line 134
     .local v3, informatoin_preview:Lcom/android/settings/HelpItem;
     const/16 v10, 0x8
 
     invoke-virtual {v3, v10}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 134
-    const v10, 0x7f090e5b
+    .line 135
+    const v10, 0x7f090f94
 
     invoke-virtual {v3, v10}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 135
-    const v10, 0x7f020358
+    .line 136
+    const v10, 0x7f0203c2
 
     invoke-virtual {v3, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 137
+    .line 138
     const/4 v10, 0x0
 
     invoke-virtual {v3, v10}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 138
+    .line 139
     new-instance v10, Lcom/android/settings/PenAirViewHelp$1;
 
     invoke-direct {v10, p0}, Lcom/android/settings/PenAirViewHelp$1;-><init>(Lcom/android/settings/PenAirViewHelp;)V
 
     invoke-virtual {v3, v10}, Lcom/android/settings/HelpItem;->setOnTryBtnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 147
+    .line 148
     invoke-virtual {v3}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v10
 
-    invoke-virtual {v1, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 148
+    .line 149
     .end local v3           #informatoin_preview:Lcom/android/settings/HelpItem;
     :cond_2
     const-string v10, "progress_preview"
@@ -847,54 +856,54 @@
 
     if-eqz v10, :cond_3
 
-    .line 149
+    .line 150
     const-string v10, "pen_hovering_progress_preview"
 
     iput-object v10, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 150
+    .line 151
     new-instance v6, Lcom/android/settings/HelpItem;
 
     invoke-direct {v6, p1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 151
+    .line 152
     .local v6, progress_bar_preview:Lcom/android/settings/HelpItem;
     const/16 v10, 0x8
 
     invoke-virtual {v6, v10}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 152
-    const v10, 0x7f090e31
+    .line 153
+    const v10, 0x7f090f95
 
     invoke-virtual {v6, v10}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 153
-    const v10, 0x7f02035a
+    .line 154
+    const v10, 0x7f0203c4
 
     invoke-virtual {v6, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 154
+    .line 155
     const/4 v10, 0x0
 
     invoke-virtual {v6, v10}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 155
+    .line 156
     new-instance v10, Lcom/android/settings/PenAirViewHelp$2;
 
     invoke-direct {v10, p0}, Lcom/android/settings/PenAirViewHelp$2;-><init>(Lcom/android/settings/PenAirViewHelp;)V
 
     invoke-virtual {v6, v10}, Lcom/android/settings/HelpItem;->setOnTryBtnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 164
+    .line 165
     invoke-virtual {v6}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v10
 
-    invoke-virtual {v1, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 165
+    .line 166
     .end local v6           #progress_bar_preview:Lcom/android/settings/HelpItem;
     :cond_3
     const-string v10, "speed_dial_preview"
@@ -907,33 +916,33 @@
 
     if-eqz v10, :cond_6
 
-    .line 166
+    .line 167
     const-string v10, "pen_hovering_speed_dial_preview"
 
     iput-object v10, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 167
+    .line 168
     new-instance v8, Lcom/android/settings/HelpItem;
 
     invoke-direct {v8, p1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 168
+    .line 169
     .local v8, speed_dial_preview:Lcom/android/settings/HelpItem;
     const/16 v10, 0x8
 
     invoke-virtual {v8, v10}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 169
-    const v10, 0x7f090e5d
+    .line 170
+    const v10, 0x7f090f96
 
     invoke-virtual {v8, v10}, Lcom/android/settings/HelpItem;->setContentText(I)V
 
-    .line 170
+    .line 171
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 171
+    .line 172
     .local v7, salesCode:Ljava/lang/String;
     const-string v10, "ATT"
 
@@ -999,43 +1008,43 @@
 
     if-eqz v10, :cond_5
 
-    .line 173
+    .line 174
     :cond_4
-    const v10, 0x7f02035c
+    const v10, 0x7f0203c6
 
     invoke-virtual {v8, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 177
+    .line 178
     :goto_1
     const/4 v10, 0x0
 
     invoke-virtual {v8, v10}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 178
+    .line 179
     new-instance v10, Lcom/android/settings/PenAirViewHelp$3;
 
     invoke-direct {v10, p0}, Lcom/android/settings/PenAirViewHelp$3;-><init>(Lcom/android/settings/PenAirViewHelp;)V
 
     invoke-virtual {v8, v10}, Lcom/android/settings/HelpItem;->setOnTryBtnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 187
+    .line 188
     invoke-virtual {v8}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v10
 
-    invoke-virtual {v1, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto/16 :goto_0
 
-    .line 175
+    .line 176
     :cond_5
-    const v10, 0x7f02035b
+    const v10, 0x7f0203c5
 
     invoke-virtual {v8, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
     goto :goto_1
 
-    .line 188
+    .line 189
     .end local v7           #salesCode:Ljava/lang/String;
     .end local v8           #speed_dial_preview:Lcom/android/settings/HelpItem;
     :cond_6
@@ -1049,64 +1058,64 @@
 
     if-eqz v10, :cond_7
 
-    .line 189
+    .line 190
     const-string v10, "pen_hovering_icon_label"
 
     iput-object v10, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 190
+    .line 191
     new-instance v2, Lcom/android/settings/HelpItem;
 
     invoke-direct {v2, p1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 191
+    .line 192
     .local v2, icon_label:Lcom/android/settings/HelpItem;
     const/16 v10, 0x8
 
     invoke-virtual {v2, v10}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 192
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getResources()Landroid/content/res/Resources;
+    .line 193
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v10
 
-    const v11, 0x7f090e5e
+    const v11, 0x7f090f97
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 193
+    .line 194
     .local v0, contents:Ljava/lang/String;
     invoke-virtual {v2, v0}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 194
-    const v10, 0x7f020357
+    .line 195
+    const v10, 0x7f0203c1
 
     invoke-virtual {v2, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 195
+    .line 196
     const/4 v10, 0x0
 
     invoke-virtual {v2, v10}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 196
+    .line 197
     new-instance v10, Lcom/android/settings/PenAirViewHelp$4;
 
     invoke-direct {v10, p0}, Lcom/android/settings/PenAirViewHelp$4;-><init>(Lcom/android/settings/PenAirViewHelp;)V
 
     invoke-virtual {v2, v10}, Lcom/android/settings/HelpItem;->setOnTryBtnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 205
+    .line 206
     invoke-virtual {v2}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v10
 
-    invoke-virtual {v1, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto/16 :goto_0
 
-    .line 206
+    .line 207
     .end local v0           #contents:Ljava/lang/String;
     .end local v2           #icon_label:Lcom/android/settings/HelpItem;
     :cond_7
@@ -1120,60 +1129,60 @@
 
     if-eqz v10, :cond_0
 
-    .line 207
+    .line 208
     const-string v10, "pen_hovering_list_scroll"
 
     iput-object v10, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
-    .line 208
+    .line 209
     new-instance v4, Lcom/android/settings/HelpItem;
 
     invoke-direct {v4, p1}, Lcom/android/settings/HelpItem;-><init>(Landroid/view/LayoutInflater;)V
 
-    .line 209
+    .line 210
     .local v4, list_scroll:Lcom/android/settings/HelpItem;
     const/16 v10, 0x8
 
     invoke-virtual {v4, v10}, Lcom/android/settings/HelpItem;->setTitleVisibility(I)V
 
-    .line 210
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getResources()Landroid/content/res/Resources;
+    .line 211
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v10
 
-    const v11, 0x7f090e5f
+    const v11, 0x7f090f98
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 212
+    .line 213
     .restart local v0       #contents:Ljava/lang/String;
     invoke-virtual {v4, v0}, Lcom/android/settings/HelpItem;->setContentText(Ljava/lang/String;)V
 
-    .line 213
-    const v10, 0x7f020359
+    .line 214
+    const v10, 0x7f0203c3
 
     invoke-virtual {v4, v10}, Lcom/android/settings/HelpItem;->setContentImage(I)V
 
-    .line 214
+    .line 215
     const/4 v10, 0x0
 
     invoke-virtual {v4, v10}, Lcom/android/settings/HelpItem;->usePlayButton(Z)V
 
-    .line 215
+    .line 216
     new-instance v10, Lcom/android/settings/PenAirViewHelp$5;
 
     invoke-direct {v10, p0}, Lcom/android/settings/PenAirViewHelp$5;-><init>(Lcom/android/settings/PenAirViewHelp;)V
 
     invoke-virtual {v4, v10}, Lcom/android/settings/HelpItem;->setOnTryBtnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 225
+    .line 226
     invoke-virtual {v4}, Lcom/android/settings/HelpItem;->getHelpView()Landroid/view/View;
 
     move-result-object v10
 
-    invoke-virtual {v1, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     goto/16 :goto_0
 .end method
@@ -1186,21 +1195,21 @@
 
     const/4 v2, 0x0
 
-    .line 231
-    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
-
     .line 232
-    iget-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarLayout:Landroid/view/View;
-
-    if-eqz v3, :cond_0
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 233
     iget-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarLayout:Landroid/view/View;
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
+    if-eqz v3, :cond_0
 
     .line 234
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    iget-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarLayout:Landroid/view/View;
+
+    invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 235
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1210,17 +1219,17 @@
 
     invoke-virtual {v3, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 236
+    .line 237
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v3}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 237
+    .line 238
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v3, "default"
 
@@ -1232,7 +1241,7 @@
 
     if-nez v3, :cond_1
 
-    .line 238
+    .line 239
     iget-object v3, p0, Lcom/android/settings/PenAirViewHelp;->mDBItem:Ljava/lang/String;
 
     invoke-static {v0, v3, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -1241,14 +1250,14 @@
 
     if-eqz v3, :cond_2
 
-    .line 239
+    .line 240
     .local v1, status:Z
     :goto_0
     iget-object v2, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v2, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 241
+    .line 242
     .end local v1           #status:Z
     :cond_1
     return-void
@@ -1256,7 +1265,7 @@
     :cond_2
     move v1, v2
 
-    .line 238
+    .line 239
     goto :goto_0
 .end method
 
@@ -1264,23 +1273,23 @@
     .locals 2
 
     .prologue
-    .line 245
+    .line 246
     invoke-super {p0}, Landroid/app/Fragment;->onStop()V
 
-    .line 246
+    .line 247
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 247
+    .line 248
     iget-object v0, p0, Lcom/android/settings/PenAirViewHelp;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 248
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    .line 249
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1292,7 +1301,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 250
+    .line 251
     :cond_0
     return-void
 .end method
@@ -1304,7 +1313,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 334
+    .line 342
     const-string v3, "pointer"
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1313,12 +1322,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 407
+    .line 415
     :cond_0
     :goto_0
     return-void
 
-    .line 335
+    .line 343
     :cond_1
     const-string v3, "information_preview"
 
@@ -1328,14 +1337,14 @@
 
     if-eqz v3, :cond_3
 
-    .line 336
+    .line 344
     invoke-static {}, Lcom/android/settings/Utils;->isHelpHubDownloadableSupported()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1347,10 +1356,10 @@
 
     if-nez v3, :cond_2
 
-    .line 338
+    .line 346
     const-string v3, "information_preview"
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1358,7 +1367,7 @@
 
     goto :goto_0
 
-    .line 341
+    .line 349
     :cond_2
     new-instance v0, Landroid/content/Intent;
 
@@ -1366,37 +1375,37 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 342
+    .line 350
     .local v0, intent:Landroid/content/Intent;
     const-string v3, "image/jpg"
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 343
+    .line 351
     const-string v3, "com.sec.android.gallery3d"
 
     const-string v4, "com.sec.android.gallery3d.app.Gallery"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 345
+    .line 353
     const-string v3, "IsHelpMode"
 
     invoke-virtual {v0, v3, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 346
+    .line 354
     const-string v3, "HelpMode"
 
     const-string v4, "INFORMATION_PREVIEW"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 347
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenAirViewHelp;->startActivity(Landroid/content/Intent;)V
+    .line 355
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 348
+    .line 356
     .end local v0           #intent:Landroid/content/Intent;
     :cond_3
     const-string v3, "progress_preview"
@@ -1407,15 +1416,15 @@
 
     if-eqz v3, :cond_7
 
-    .line 349
+    .line 357
     invoke-static {}, Lcom/android/settings/Utils;->isHelpHubDownloadableSupported()Z
 
     move-result v3
 
     if-eqz v3, :cond_6
 
-    .line 350
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    .line 358
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1427,10 +1436,10 @@
 
     if-nez v3, :cond_4
 
-    .line 351
+    .line 359
     const-string v3, "progress_preview"
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1438,9 +1447,9 @@
 
     goto :goto_0
 
-    .line 353
+    .line 361
     :cond_4
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1454,20 +1463,20 @@
 
     move-result v2
 
-    .line 355
+    .line 363
     .local v2, resId:I
     const/4 v3, -0x1
 
     if-eq v2, v3, :cond_5
 
-    .line 356
+    .line 364
     new-instance v0, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.START_HELP_VIDEO_PROGRESS_BAR_PREVIEW"
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 358
+    .line 366
     .restart local v0       #intent:Landroid/content/Intent;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1495,19 +1504,19 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 361
+    .line 369
     const-string v3, "type"
 
     const-string v4, "pen"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 362
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenAirViewHelp;->startActivity(Landroid/content/Intent;)V
+    .line 370
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 364
+    .line 372
     .end local v0           #intent:Landroid/content/Intent;
     :cond_5
     const-string v3, "PenAirViewHelp"
@@ -1518,7 +1527,7 @@
 
     goto/16 :goto_0
 
-    .line 368
+    .line 376
     .end local v2           #resId:I
     :cond_6
     new-instance v0, Landroid/content/Intent;
@@ -1527,7 +1536,7 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 370
+    .line 378
     .restart local v0       #intent:Landroid/content/Intent;
     const-string v3, "file:///system/media/video/video_help.mp4"
 
@@ -1539,19 +1548,19 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 372
+    .line 380
     const-string v3, "type"
 
     const-string v4, "pen"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 373
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenAirViewHelp;->startActivity(Landroid/content/Intent;)V
+    .line 381
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 375
+    .line 383
     .end local v0           #intent:Landroid/content/Intent;
     :cond_7
     const-string v3, "speed_dial_preview"
@@ -1562,7 +1571,7 @@
 
     if-eqz v3, :cond_9
 
-    .line 377
+    .line 385
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v3
@@ -1581,14 +1590,14 @@
 
     if-eqz v3, :cond_8
 
-    .line 380
+    .line 388
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "com.android.jcontacts.action.DialerHelpActivity"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 384
+    .line 392
     .local v1, mIntent:Landroid/content/Intent;
     :goto_1
     const-string v3, "DialerGuideMode"
@@ -1597,12 +1606,12 @@
 
     invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 385
-    invoke-virtual {p0, v1}, Lcom/android/settings/PenAirViewHelp;->startActivity(Landroid/content/Intent;)V
+    .line 393
+    invoke-virtual {p0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 382
+    .line 390
     .end local v1           #mIntent:Landroid/content/Intent;
     :cond_8
     new-instance v1, Landroid/content/Intent;
@@ -1614,7 +1623,7 @@
     .restart local v1       #mIntent:Landroid/content/Intent;
     goto :goto_1
 
-    .line 386
+    .line 394
     .end local v1           #mIntent:Landroid/content/Intent;
     :cond_9
     const-string v3, "icon_label"
@@ -1625,14 +1634,14 @@
 
     if-eqz v3, :cond_a
 
-    .line 387
+    .line 395
     new-instance v0, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.VIEW"
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 388
+    .line 396
     .restart local v0       #intent:Landroid/content/Intent;
     const-string v3, "com.sec.android.gallery3d"
 
@@ -1640,24 +1649,24 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 390
+    .line 398
     const-string v3, "IsHelpMode"
 
     invoke-virtual {v0, v3, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 391
+    .line 399
     const-string v3, "HelpMode"
 
     const-string v4, "ICON_LABELS"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 392
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenAirViewHelp;->startActivity(Landroid/content/Intent;)V
+    .line 400
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 
-    .line 393
+    .line 401
     .end local v0           #intent:Landroid/content/Intent;
     :cond_a
     const-string v3, "list_scroll"
@@ -1668,14 +1677,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 394
+    .line 402
     invoke-static {}, Lcom/android/settings/Utils;->isHelpHubDownloadableSupported()Z
 
     move-result v3
 
     if-eqz v3, :cond_b
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -1687,10 +1696,10 @@
 
     if-nez v3, :cond_b
 
-    .line 396
+    .line 404
     const-string v3, "list_scroll"
 
-    invoke-virtual {p0}, Lcom/android/settings/PenAirViewHelp;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
 
@@ -1698,7 +1707,7 @@
 
     goto/16 :goto_0
 
-    .line 399
+    .line 407
     :cond_b
     new-instance v0, Landroid/content/Intent;
 
@@ -1706,33 +1715,33 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 400
+    .line 408
     .restart local v0       #intent:Landroid/content/Intent;
     const-string v3, "image/jpg"
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 401
+    .line 409
     const-string v3, "com.sec.android.gallery3d"
 
     const-string v4, "com.sec.android.gallery3d.app.Gallery"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 403
+    .line 411
     const-string v3, "IsHelpMode"
 
     invoke-virtual {v0, v3, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 404
+    .line 412
     const-string v3, "HelpMode"
 
     const-string v4, "AIR_VIEW_LIST_SCROLLING"
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 405
-    invoke-virtual {p0, v0}, Lcom/android/settings/PenAirViewHelp;->startActivity(Landroid/content/Intent;)V
+    .line 413
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto/16 :goto_0
 .end method

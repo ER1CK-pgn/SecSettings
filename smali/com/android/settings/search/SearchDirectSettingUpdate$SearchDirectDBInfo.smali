@@ -34,23 +34,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 836
+    .line 854
     iput-object p1, p0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->this$0:Lcom/android/settings/search/SearchDirectSettingUpdate;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 837
+    .line 855
     iput-object v1, p0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->keyName:Ljava/lang/String;
 
-    .line 838
+    .line 856
     iput-object v1, p0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->DBName:Ljava/lang/String;
 
-    .line 839
+    .line 857
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->DBType:I
 
-    .line 840
+    .line 858
     iput-object v1, p0, Lcom/android/settings/search/SearchDirectSettingUpdate$SearchDirectDBInfo;->dependencyKey:Ljava/lang/String;
 
     return-void

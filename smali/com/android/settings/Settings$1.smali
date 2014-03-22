@@ -1,14 +1,11 @@
 .class Lcom/android/settings/Settings$1;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "Settings.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/Settings;->onCreate(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/Settings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,36 +24,66 @@
     .parameter
 
     .prologue
-    .line 795
+    .line 493
     iput-object p1, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 2
-    .parameter "v"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 798
-    iget-object v0, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+    .line 497
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+    move-result-object v0
 
-    #getter for: Lcom/android/settings/Settings;->mParentHeader:Landroid/preference/PreferenceActivity$Header;
-    invoke-static {v1}, Lcom/android/settings/Settings;->access$100(Lcom/android/settings/Settings;)Landroid/preference/PreferenceActivity$Header;
+    .line 498
+    .local v0, action:Ljava/lang/String;
+    const-string v2, "android.intent.action.BATTERY_CHANGED"
 
-    move-result-object v1
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v1, v1, Landroid/preference/PreferenceActivity$Header;->fragment:Ljava/lang/String;
+    move-result v2
 
-    #calls: Lcom/android/settings/Settings;->switchToParent(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/android/settings/Settings;->access$200(Lcom/android/settings/Settings;Ljava/lang/String;)V
+    if-eqz v2, :cond_0
 
-    .line 799
+    .line 499
+    invoke-static {p2}, Lcom/android/settings/Utils;->isBatteryPresent(Landroid/content/Intent;)Z
+
+    move-result v1
+
+    .line 500
+    .local v1, batteryPresent:Z
+    iget-object v2, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    #getter for: Lcom/android/settings/Settings;->mBatteryPresent:Z
+    invoke-static {v2}, Lcom/android/settings/Settings;->access$000(Lcom/android/settings/Settings;)Z
+
+    move-result v2
+
+    if-eq v2, v1, :cond_0
+
+    .line 501
+    iget-object v2, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    #setter for: Lcom/android/settings/Settings;->mBatteryPresent:Z
+    invoke-static {v2, v1}, Lcom/android/settings/Settings;->access$002(Lcom/android/settings/Settings;Z)Z
+
+    .line 502
+    iget-object v2, p0, Lcom/android/settings/Settings$1;->this$0:Lcom/android/settings/Settings;
+
+    invoke-virtual {v2}, Landroid/preference/PreferenceActivity;->invalidateHeaders()V
+
+    .line 505
+    .end local v1           #batteryPresent:Z
+    :cond_0
     return-void
 .end method

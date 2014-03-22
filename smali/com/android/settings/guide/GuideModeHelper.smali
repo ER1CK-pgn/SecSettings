@@ -25,7 +25,7 @@
 
     .prologue
     .line 39
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -62,7 +62,7 @@
     check-cast v9, Landroid/widget/ListView;
 
     .end local v9           #focus:Landroid/view/View;
-    invoke-virtual {v9}, Landroid/widget/ListView;->getSelectedView()Landroid/view/View;
+    invoke-virtual {v9}, Landroid/widget/AbsListView;->getSelectedView()Landroid/view/View;
 
     move-result-object v9
 
@@ -149,7 +149,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v12
 
@@ -161,7 +161,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/helpdialog/TwHelpDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v13
 
@@ -550,14 +550,14 @@
     .local v0, list:Landroid/widget/ListView;
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/widget/ListView;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/view/View;->isEnabled()Z
 
     move-result v1
 
     if-eq v1, p0, :cond_0
 
     .line 422
-    invoke-virtual {v0, p0}, Landroid/widget/ListView;->setEnabled(Z)V
+    invoke-virtual {v0, p0}, Landroid/view/View;->setEnabled(Z)V
 
     .line 425
     invoke-static {}, Lcom/android/settings/guide/GuideFragment;->isTablet()Z
@@ -567,7 +567,7 @@
     if-eqz v1, :cond_0
 
     .line 426
-    invoke-virtual {v0, p0}, Landroid/widget/ListView;->setFocusable(Z)V
+    invoke-virtual {v0, p0}, Landroid/widget/AdapterView;->setFocusable(Z)V
 
     .line 430
     .end local v0           #list:Landroid/widget/ListView;
@@ -599,14 +599,14 @@
     if-eqz v0, :cond_1
 
     .line 437
-    invoke-virtual {v0}, Landroid/widget/ListView;->isEnabled()Z
+    invoke-virtual {v0}, Landroid/view/View;->isEnabled()Z
 
     move-result v1
 
     if-eq v1, p0, :cond_0
 
     .line 438
-    invoke-virtual {v0, p0}, Landroid/widget/ListView;->setEnabled(Z)V
+    invoke-virtual {v0, p0}, Landroid/view/View;->setEnabled(Z)V
 
     .line 442
     :cond_0
@@ -619,12 +619,12 @@
     .line 443
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setFocusable(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setFocusable(Z)V
 
     .line 444
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setClickable(Z)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setClickable(Z)V
 
     .line 448
     .end local v0           #list:Landroid/widget/ListView;

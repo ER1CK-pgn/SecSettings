@@ -35,7 +35,7 @@
     .line 109
     iget-object v0, p0, Lcom/android/settings/cloud/NumberPickerDialog;->mNumberPicker:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v0}, Landroid/widget/NumberPicker;->clearFocus()V
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->clearFocus()V
 
     .line 110
     iget-object v0, p0, Lcom/android/settings/cloud/NumberPickerDialog;->mCallback:Lcom/android/settings/cloud/NumberPickerDialog$OnNumberSetListener;
@@ -62,7 +62,7 @@
 
     .prologue
     .line 124
-    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onRestoreInstanceState(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Dialog;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
     .line 125
     const-string v1, "number"
@@ -86,7 +86,7 @@
 
     .prologue
     .line 117
-    invoke-super {p0}, Landroid/app/AlertDialog;->onSaveInstanceState()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/app/Dialog;->onSaveInstanceState()Landroid/os/Bundle;
 
     move-result-object v0
 

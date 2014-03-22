@@ -30,7 +30,7 @@
     .line 115
     iput-object p1, p0, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement$1;->this$0:Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -62,7 +62,7 @@
 
     const/4 v2, 0x3
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/settings/accountmanagement/HomeSyncAccountManagement;->startActivityForResult(Landroid/content/Intent;I)V
+    invoke-virtual {v1, v0, v2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     .line 121
     return-void

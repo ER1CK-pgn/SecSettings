@@ -30,7 +30,7 @@
     .line 128
     iput-object p1, p0, Lcom/android/settings/SmartcardCredentialSettings$1;->this$0:Lcom/android/settings/SmartcardCredentialSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .line 133
     iget-object v0, p0, Lcom/android/settings/SmartcardCredentialSettings$1;->this$0:Lcom/android/settings/SmartcardCredentialSettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/SmartcardCredentialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 

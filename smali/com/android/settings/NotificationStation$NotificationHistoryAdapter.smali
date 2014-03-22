@@ -67,7 +67,7 @@
     .line 381
     iget-object v1, p0, Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f0400ec
+    const v2, 0x7f040111
 
     const/4 v3, 0x0
 
@@ -90,7 +90,7 @@
 
     .prologue
     .line 314
-    invoke-virtual {p0, p1}, Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -154,7 +154,7 @@
     if-eqz v2, :cond_1
 
     .line 324
-    const v2, 0x7f0b026f
+    const v2, 0x7f0b02ab
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     .line 327
     :cond_1
-    const v2, 0x7f0b0270
+    const v2, 0x7f0b02ac
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -194,7 +194,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 333
-    const v2, 0x7f0b0272
+    const v2, 0x7f0b02ae
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -207,7 +207,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 339
-    const v2, 0x7f0b0271
+    const v2, 0x7f0b02ad
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

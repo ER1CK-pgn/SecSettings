@@ -49,16 +49,16 @@
     .parameter "userId"
 
     .prologue
-    .line 318
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
     .line 319
-    iput-boolean p1, p0, Lcom/android/settings/applications/RunningState$BaseItem;->mIsProcess:Z
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 320
-    iput p2, p0, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
+    iput-boolean p1, p0, Lcom/android/settings/applications/RunningState$BaseItem;->mIsProcess:Z
 
     .line 321
+    iput p2, p0, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
+
+    .line 322
     return-void
 .end method
 
@@ -70,12 +70,12 @@
     .parameter "state"
 
     .prologue
-    .line 324
+    .line 325
     iget-object v0, p0, Lcom/android/settings/applications/RunningState$BaseItem;->mPackageInfo:Landroid/content/pm/PackageItemInfo;
 
     if-eqz v0, :cond_0
 
-    .line 325
+    .line 326
     iget-object v0, p0, Lcom/android/settings/applications/RunningState$BaseItem;->mPackageInfo:Landroid/content/pm/PackageItemInfo;
 
     iget-object v1, p2, Lcom/android/settings/applications/RunningState;->mPm:Landroid/content/pm/PackageManager;
@@ -84,7 +84,7 @@
 
     move-result-object v0
 
-    .line 327
+    .line 328
     :goto_0
     return-object v0
 

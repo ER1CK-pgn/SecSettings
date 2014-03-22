@@ -30,7 +30,7 @@
     .line 82
     iput-object p1, p0, Lcom/android/settings/CryptDecryptConfirm$1;->this$0:Lcom/android/settings/CryptDecryptConfirm;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 
     iget-object v1, p0, Lcom/android/settings/CryptDecryptConfirm$1;->this$0:Lcom/android/settings/CryptDecryptConfirm;
 
-    invoke-virtual {v1}, Lcom/android/settings/CryptDecryptConfirm;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -71,7 +71,7 @@
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/settings/CryptDecryptConfirm$1;->this$0:Lcom/android/settings/CryptDecryptConfirm;
 
-    invoke-virtual {v1}, Lcom/android/settings/CryptDecryptConfirm;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {v1}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -80,7 +80,7 @@
     .line 92
     iget-object v1, p0, Lcom/android/settings/CryptDecryptConfirm$1;->this$0:Lcom/android/settings/CryptDecryptConfirm;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/CryptDecryptConfirm;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method

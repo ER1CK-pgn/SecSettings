@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 254
+    .line 295
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$5;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,17 +41,32 @@
     .locals 2
 
     .prologue
-    .line 257
+    .line 298
     const-string v0, "NotificationPanelMenu"
 
     const-string v1, "onActivityCreated() "
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 258
+    .line 299
+    invoke-static {}, Lcom/android/settings/NotificationPanelMenu;->access$1000()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 300
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$5;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/NotificationPanelMenu;->getListView()Landroid/widget/ListView;
+    invoke-virtual {v0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/NotificationPanelMenu;->access$1002(Landroid/widget/ListView;)Landroid/widget/ListView;
+
+    .line 301
+    :cond_0
+    invoke-static {}, Lcom/android/settings/NotificationPanelMenu;->access$1000()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -59,8 +74,8 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/NotificationPanelMenu$5$1;-><init>(Lcom/android/settings/NotificationPanelMenu$5;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 268
+    .line 311
     return-void
 .end method

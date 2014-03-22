@@ -37,7 +37,7 @@
     .line 120
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/SmartcardCredentialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0901f9
+    const v1, 0x7f09021e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -71,7 +71,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/SmartcardCredentialSettings;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 128
     iget-object v0, p0, Lcom/android/settings/SmartcardCredentialSettings;->mDialog:Landroid/app/AlertDialog;
@@ -80,7 +80,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/SmartcardCredentialSettings$1;-><init>(Lcom/android/settings/SmartcardCredentialSettings;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
     .line 136
     return-void
@@ -97,25 +97,20 @@
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 42
-    const v0, 0x7f07009b
+    const v0, 0x7f0700bf
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/SmartcardCredentialSettings;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
     .line 43
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-virtual {p0}, Lcom/android/settings/SmartcardCredentialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/settings/SmartcardCredentialSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    .line 44
-    iget-object v0, p0, Lcom/android/settings/SmartcardCredentialSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->initializeCACAuthentication()V
 
     .line 46
     return-void
@@ -169,31 +164,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
-    .line 96
-    iget-object v2, p0, Lcom/android/settings/SmartcardCredentialSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->isCACPasswordEnabled()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    .line 97
-    const-string v2, "com.sec.smartcard.pinservice.action.REGISTERSMARTCARD"
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 98
-    invoke-virtual {p0, v0}, Lcom/android/settings/SmartcardCredentialSettings;->startActivity(Landroid/content/Intent;)V
-
-    .line 99
-    const-string v2, "SmartcardCredentialSettings"
-
-    const-string v3, "activity started com.sec.smartcard.pinservice.action.REGISTERSMARTCARD"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .line 101
+    invoke-direct {p0}, Lcom/android/settings/SmartcardCredentialSettings;->showDialog()V
 
     .line 114
     :cond_0
@@ -202,49 +176,23 @@
 
     return v2
 
-    .line 101
-    :cond_1
-    invoke-direct {p0}, Lcom/android/settings/SmartcardCredentialSettings;->showDialog()V
-
-    goto :goto_0
-
     .line 103
-    :cond_2
+    :cond_1
     const-string v2, "smartcardunregister"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
-
-    .line 104
-    iget-object v2, p0, Lcom/android/settings/SmartcardCredentialSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->isCACPasswordEnabled()Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    .line 105
-    const-string v2, "com.sec.smartcard.pinservice.action.UNREGISTERSMARTCARD"
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 106
-    invoke-virtual {p0, v0}, Lcom/android/settings/SmartcardCredentialSettings;->startActivity(Landroid/content/Intent;)V
-
-    goto :goto_0
+    if-eqz v2, :cond_2
 
     .line 108
-    :cond_3
     invoke-direct {p0}, Lcom/android/settings/SmartcardCredentialSettings;->showDialog()V
 
     goto :goto_0
 
     .line 110
-    :cond_4
+    :cond_2
     const-string v2, "smartcardhelp"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -259,28 +207,28 @@
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 112
-    invoke-virtual {p0, v0}, Lcom/android/settings/SmartcardCredentialSettings;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
 
 .method public onResume()V
-    .locals 8
+    .locals 7
 
     .prologue
     .line 52
-    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onResume()V
+    invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
     .line 53
-    invoke-virtual {p0}, Lcom/android/settings/SmartcardCredentialSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
 
     .line 54
     .local v2, root:Landroid/preference/PreferenceScreen;
-    const-string v6, "smartcard_association"
+    const-string v5, "smartcard_association"
 
-    invoke-virtual {v2, v6}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v2, v5}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v3
 
@@ -288,17 +236,17 @@
 
     .line 56
     .local v3, smartcardCategory:Landroid/preference/PreferenceCategory;
-    const-string v6, "smartcardregister"
+    const-string v5, "smartcardregister"
 
-    invoke-virtual {v3, v6}, Landroid/preference/PreferenceCategory;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v3, v5}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v0
 
     .line 57
     .local v0, regCard:Landroid/preference/Preference;
-    const-string v6, "smartcardunregister"
+    const-string v5, "smartcardunregister"
 
-    invoke-virtual {v3, v6}, Landroid/preference/PreferenceCategory;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v3, v5}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v4
 
@@ -307,108 +255,55 @@
     if-eqz v0, :cond_0
 
     .line 60
-    invoke-virtual {v3, v0}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v0}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 62
     :cond_0
     if-eqz v4, :cond_1
 
     .line 63
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceCategory;->removePreference(Landroid/preference/Preference;)Z
-
-    .line 65
-    :cond_1
-    iget-object v6, p0, Lcom/android/settings/SmartcardCredentialSettings;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v6}, Lcom/android/internal/widget/LockPatternUtils;->isCACCardRegistered()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    .line 67
-    new-instance v5, Landroid/preference/Preference;
-
-    invoke-virtual {p0}, Lcom/android/settings/SmartcardCredentialSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    invoke-direct {v5, v6}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
-
-    .line 68
-    .local v5, unregisterCard:Landroid/preference/Preference;
-    const-string v6, "smartcardunregister"
-
-    invoke-virtual {v5, v6}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
-
-    .line 69
-    const v6, 0x7f0901f6
-
-    invoke-virtual {v5, v6}, Landroid/preference/Preference;->setTitle(I)V
-
-    .line 70
-    const v6, 0x7f0901f7
-
-    invoke-virtual {v5, v6}, Landroid/preference/Preference;->setSummary(I)V
-
-    .line 71
-    invoke-virtual {v3, v5}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
-
-    .line 72
-    const-string v6, "smartcardstatus"
-
-    invoke-virtual {v2, v6}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    const v7, 0x7f0901f3
-
-    invoke-virtual {v6, v7}, Landroid/preference/Preference;->setSummary(I)V
-
-    .line 86
-    .end local v5           #unregisterCard:Landroid/preference/Preference;
-    :goto_0
-    return-void
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
     .line 76
-    :cond_2
+    :cond_1
     new-instance v1, Landroid/preference/Preference;
 
-    invoke-virtual {p0}, Lcom/android/settings/SmartcardCredentialSettings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-direct {v1, v6}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v5}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
     .line 77
     .local v1, registerCard:Landroid/preference/Preference;
-    const-string v6, "smartcardregister"
+    const-string v5, "smartcardregister"
 
-    invoke-virtual {v1, v6}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
     .line 78
-    const v6, 0x7f0901f2
+    const v5, 0x7f090217
 
-    invoke-virtual {v1, v6}, Landroid/preference/Preference;->setTitle(I)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 79
-    const v6, 0x7f0901f5
+    const v5, 0x7f09021a
 
-    invoke-virtual {v1, v6}, Landroid/preference/Preference;->setSummary(I)V
+    invoke-virtual {v1, v5}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 80
-    invoke-virtual {v3, v1}, Landroid/preference/PreferenceCategory;->addPreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
     .line 81
-    const-string v6, "smartcardstatus"
+    const-string v5, "smartcardstatus"
 
-    invoke-virtual {v2, v6}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {v2, v5}, Landroid/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v6
+    move-result-object v5
 
-    const v7, 0x7f0901f4
+    const v6, 0x7f090219
 
-    invoke-virtual {v6, v7}, Landroid/preference/Preference;->setSummary(I)V
+    invoke-virtual {v5, v6}, Landroid/preference/Preference;->setSummary(I)V
 
-    goto :goto_0
+    .line 86
+    return-void
 .end method

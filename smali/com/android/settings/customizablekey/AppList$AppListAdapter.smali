@@ -71,13 +71,13 @@
     .line 99
     iget-object v3, p0, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->this$0:Lcom/android/settings/customizablekey/AppList;
 
-    invoke-virtual {v3}, Lcom/android/settings/customizablekey/AppList;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {v3}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v2
 
     .line 100
     .local v2, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f0400ca
+    const v3, 0x7f0400ed
 
     const/4 v4, 0x0
 
@@ -86,7 +86,7 @@
     move-result-object p2
 
     .line 102
-    const v3, 0x7f0b0050
+    const v3, 0x7f0b0059
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -96,7 +96,7 @@
 
     .line 103
     .local v1, appName:Landroid/widget/TextView;
-    const v3, 0x7f0b004f
+    const v3, 0x7f0b0058
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -106,7 +106,7 @@
 
     .line 105
     .local v0, appIcon:Landroid/widget/ImageView;
-    invoke-virtual {p0, p1}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -121,14 +121,14 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4}, Landroid/content/pm/ComponentInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
     .line 106
-    invoke-virtual {p0, p1}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -149,7 +149,7 @@
 
     .line 107
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -164,14 +164,14 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Landroid/content/pm/ActivityInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v4}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
     if-eqz v3, :cond_1
 
     .line 108
-    invoke-virtual {p0, p1}, Lcom/android/settings/customizablekey/AppList$AppListAdapter;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v3
 

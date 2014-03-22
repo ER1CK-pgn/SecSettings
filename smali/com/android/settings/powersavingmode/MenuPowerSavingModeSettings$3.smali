@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 455
+    .line 500
     iput-object p1, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$3;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 459
+    .line 504
     iget-object v0, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$3;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
     #getter for: Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
@@ -50,9 +50,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/helpdialog/TwHelpDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 460
+    .line 505
     iget-object v0, p0, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings$3;->this$0:Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;
 
     const/4 v1, 0x0
@@ -60,6 +60,6 @@
     #setter for: Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->mHelpStep2Dialog:Lcom/android/settings/helpdialog/TwHelpDialog;
     invoke-static {v0, v1}, Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;->access$402(Lcom/android/settings/powersavingmode/MenuPowerSavingModeSettings;Lcom/android/settings/helpdialog/TwHelpDialog;)Lcom/android/settings/helpdialog/TwHelpDialog;
 
-    .line 461
+    .line 506
     return-void
 .end method

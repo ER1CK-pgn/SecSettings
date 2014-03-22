@@ -30,7 +30,7 @@
     .line 130
     iput-object p1, p0, Lcom/android/settings/homesync/FileOperationProgress$1;->this$0:Lcom/android/settings/homesync/FileOperationProgress;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -54,7 +54,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperationPaste;->cancel()V
+    invoke-virtual {v0}, Lcom/android/settings/homesync/FileOperation;->cancel()V
 
     .line 134
     :cond_0

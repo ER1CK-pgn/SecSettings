@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 928
+    .line 922
     iput-object p1, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 928
+    .line 922
     invoke-direct {p0, p1}, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;-><init>(Lcom/android/settings/nearby/NearbyEnabler;)V
 
     return-void
@@ -57,7 +57,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 932
+    .line 926
     :try_start_0
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -74,16 +74,16 @@
 
     if-nez v4, :cond_1
 
-    .line 968
+    .line 962
     :cond_0
     :goto_0
     return v3
 
-    .line 936
+    .line 930
     :cond_1
     const/4 v1, 0x0
 
-    .line 938
+    .line 932
     .local v1, path:Ljava/lang/String;
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 940
+    .line 934
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -124,7 +124,7 @@
 
     move-result-object v1
 
-    .line 942
+    .line 936
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mContext:Landroid/content/Context;
@@ -140,7 +140,7 @@
 
     invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 962
+    .line 956
     :cond_2
     :goto_1
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
@@ -152,12 +152,12 @@
 
     invoke-interface {v4, v1}, Lcom/android/settings/nearby/IMediaServer;->setUploadPath(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 968
+    .line 962
     const/4 v3, 0x1
 
     goto :goto_0
 
-    .line 944
+    .line 938
     :cond_3
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -171,7 +171,7 @@
 
     if-eqz v4, :cond_4
 
-    .line 945
+    .line 939
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mContext:Landroid/content/Context;
@@ -187,7 +187,7 @@
 
     check-cast v2, Landroid/os/storage/StorageManager;
 
-    .line 947
+    .line 941
     .local v2, storageManager:Landroid/os/storage/StorageManager;
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
@@ -196,7 +196,7 @@
 
     move-result-object v1
 
-    .line 949
+    .line 943
     const-string v4, "mounted"
 
     iget-object v5, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
@@ -216,7 +216,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 952
+    .line 946
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -242,7 +242,7 @@
 
     move-result-object v1
 
-    .line 954
+    .line 948
     iget-object v4, p0, Lcom/android/settings/nearby/NearbyEnabler$HandleSetUploadPath;->this$0:Lcom/android/settings/nearby/NearbyEnabler;
 
     #getter for: Lcom/android/settings/nearby/NearbyEnabler;->mContext:Landroid/content/Context;
@@ -262,13 +262,13 @@
 
     goto :goto_1
 
-    .line 964
+    .line 958
     .end local v1           #path:Ljava/lang/String;
     .end local v2           #storageManager:Landroid/os/storage/StorageManager;
     :catch_0
     move-exception v0
 
-    .line 965
+    .line 959
     .local v0, e:Landroid/os/RemoteException;
     const-string v4, "NearbyEnabler"
 
@@ -296,7 +296,7 @@
 
     goto/16 :goto_0
 
-    .line 958
+    .line 952
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v1       #path:Ljava/lang/String;
     :cond_4

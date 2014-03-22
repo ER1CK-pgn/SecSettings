@@ -21,7 +21,13 @@
 .method public abstract getImportantForAccessibility(Landroid/view/View;)I
 .end method
 
+.method public abstract getLayoutDirection(Landroid/view/View;)I
+.end method
+
 .method public abstract getOverScrollMode(Landroid/view/View;)I
+.end method
+
+.method public abstract getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
 .end method
 
 .method public abstract postInvalidateOnAnimation(Landroid/view/View;)V

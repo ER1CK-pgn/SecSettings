@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 149
+    .line 175
     iput-object p1, p0, Lcom/android/settings/users/AppRestrictionsFragment$1;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 155
+    .line 181
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$1;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
     #getter for: Lcom/android/settings/users/AppRestrictionsFragment;->mAppListChanged:Z
@@ -50,13 +50,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 157
+    .line 183
     iget-object v0, p0, Lcom/android/settings/users/AppRestrictionsFragment$1;->this$0:Lcom/android/settings/users/AppRestrictionsFragment;
 
-    #calls: Lcom/android/settings/users/AppRestrictionsFragment;->updateUserAppList()V
+    #calls: Lcom/android/settings/users/AppRestrictionsFragment;->applyUserAppsStates()V
     invoke-static {v0}, Lcom/android/settings/users/AppRestrictionsFragment;->access$100(Lcom/android/settings/users/AppRestrictionsFragment;)V
 
-    .line 160
+    .line 186
     :cond_0
     return-void
 .end method

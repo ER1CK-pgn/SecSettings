@@ -112,9 +112,9 @@
     .line 90
     :array_0
     .array-data 0x4
-        0x4bt 0x4t 0x2t 0x7ft
-        0x4ct 0x4t 0x2t 0x7ft
-        0x4dt 0x4t 0x2t 0x7ft
+        0xcct 0x4t 0x2t 0x7ft
+        0xcdt 0x4t 0x2t 0x7ft
+        0xcet 0x4t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -335,26 +335,26 @@
     .parameter
 
     .prologue
-    .line 700
+    .line 708
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_BROWSE_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 701
+    .line 709
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 702
+    .line 710
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 703
+    .line 711
     return-void
 .end method
 
@@ -363,26 +363,26 @@
     .parameter
 
     .prologue
-    .line 718
+    .line 726
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_CALL_ACCEPT_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 719
+    .line 727
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 720
+    .line 728
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 721
+    .line 729
     return-void
 .end method
 
@@ -391,26 +391,26 @@
     .parameter
 
     .prologue
-    .line 688
+    .line 696
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_MOTION_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 689
+    .line 697
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 690
+    .line 698
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 691
+    .line 699
     return-void
 .end method
 
@@ -419,26 +419,26 @@
     .parameter
 
     .prologue
-    .line 706
+    .line 714
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_MOVE_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 707
+    .line 715
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 708
+    .line 716
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 709
+    .line 717
     return-void
 .end method
 
@@ -447,26 +447,26 @@
     .parameter
 
     .prologue
-    .line 712
+    .line 720
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_PIN_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 713
+    .line 721
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 714
+    .line 722
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 715
+    .line 723
     return-void
 .end method
 
@@ -475,26 +475,26 @@
     .parameter
 
     .prologue
-    .line 694
+    .line 702
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.gesture.AIR_SCROLL_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 695
+    .line 703
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 696
+    .line 704
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 697
+    .line 705
     return-void
 .end method
 
@@ -504,48 +504,48 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 584
+    .line 592
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 585
+    .line 593
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 586
+    .line 594
     iput-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    .line 589
+    .line 597
     :cond_0
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_1
 
-    .line 590
+    .line 598
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 591
+    .line 599
     iput-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 594
+    .line 602
     :cond_1
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_2
 
-    .line 595
+    .line 603
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 596
+    .line 604
     iput-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 598
+    .line 606
     :cond_2
     return-void
 .end method
@@ -558,14 +558,14 @@
 
     const/4 v1, 0x0
 
-    .line 656
+    .line 664
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
-    .line 658
+    .line 666
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v3, "air_motion_scroll_all_list"
@@ -574,7 +574,7 @@
 
     move-result v2
 
-    .line 659
+    .line 667
     iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v4, "air_motion_scroll_web_page"
@@ -583,7 +583,7 @@
 
     move-result v3
 
-    .line 660
+    .line 668
     iget-object v4, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v5, "air_motion_scroll_contact_list"
@@ -592,7 +592,7 @@
 
     move-result v4
 
-    .line 661
+    .line 669
     iget-object v5, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v6, "air_motion_scroll_email_list"
@@ -601,7 +601,7 @@
 
     move-result v5
 
-    .line 662
+    .line 670
     iget-object v6, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v7, "air_motion_scroll_album_and_photo"
@@ -610,7 +610,7 @@
 
     move-result v6
 
-    .line 663
+    .line 671
     iget-object v7, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v8, "air_motion_scroll_email_body"
@@ -619,7 +619,7 @@
 
     move-result v7
 
-    .line 665
+    .line 673
     or-int/2addr v2, v3
 
     or-int/2addr v2, v4
@@ -649,14 +649,14 @@
 
     const/4 v1, 0x0
 
-    .line 669
+    .line 677
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
-    .line 671
+    .line 679
     iget-object v2, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v3, "air_motion_turn_single_photo_view"
@@ -665,7 +665,7 @@
 
     move-result v2
 
-    .line 672
+    .line 680
     iget-object v3, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v4, "air_motion_turn_internet_window"
@@ -674,7 +674,7 @@
 
     move-result v3
 
-    .line 673
+    .line 681
     iget-object v4, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v5, "air_motion_turn_now_playing_on_music"
@@ -683,7 +683,7 @@
 
     move-result v4
 
-    .line 674
+    .line 682
     iget-object v5, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v6, "air_motion_turn_bgm_on_lock_screen"
@@ -692,7 +692,7 @@
 
     move-result v5
 
-    .line 675
+    .line 683
     iget-object v6, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v7, "air_motion_turn_note_page_view"
@@ -701,7 +701,7 @@
 
     move-result v6
 
-    .line 677
+    .line 685
     or-int/2addr v2, v3
 
     or-int/2addr v2, v4
@@ -730,14 +730,14 @@
 
     const/4 v7, 0x0
 
-    .line 631
+    .line 639
     const-string v8, "air_motion_glance_view"
 
     invoke-static {p0, v8, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
-    .line 632
+    .line 640
     .local v5, quickGlance:I
     const-string v8, "air_motion_scroll"
 
@@ -745,7 +745,7 @@
 
     move-result v2
 
-    .line 633
+    .line 641
     .local v2, airScroll:I
     const-string v8, "air_motion_turn"
 
@@ -753,7 +753,7 @@
 
     move-result v3
 
-    .line 634
+    .line 642
     .local v3, airTurn:I
     const-string v8, "air_motion_item_move"
 
@@ -761,11 +761,11 @@
 
     move-result v0
 
-    .line 635
+    .line 643
     .local v0, airMove:I
     const/4 v1, 0x0
 
-    .line 636
+    .line 644
     .local v1, airPin:I
     const-string v8, "air_motion_call_accept"
 
@@ -773,7 +773,7 @@
 
     move-result v4
 
-    .line 638
+    .line 646
     .local v4, callAccept:I
     or-int v8, v5, v2
 
@@ -801,19 +801,19 @@
     .parameter
 
     .prologue
-    .line 681
+    .line 689
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.settings.GlanceViewChanged"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 682
+    .line 690
     const-string v1, "GlanceViewState"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 683
+    .line 691
     const-string v1, "AirMotionSettings"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -836,14 +836,14 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 684
+    .line 692
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 685
+    .line 693
     return-void
 .end method
 
@@ -854,13 +854,13 @@
     .parameter "key"
 
     .prologue
-    .line 558
+    .line 566
     invoke-direct {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->dismissAllDialog()V
 
-    .line 560
+    .line 568
     move-object v0, p3
 
-    .line 561
+    .line 569
     .local v0, motion_type:Ljava/lang/String;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -900,12 +900,12 @@
 
     iput-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    .line 580
+    .line 588
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 581
+    .line 589
     return-void
 .end method
 
@@ -944,7 +944,7 @@
 
     .line 481
     .local v6, inflater:Landroid/view/LayoutInflater;
-    const v16, 0x7f04006f
+    const v16, 0x7f040074
 
     const/16 v17, 0x0
 
@@ -958,7 +958,7 @@
 
     .line 482
     .local v7, layout:Landroid/view/View;
-    const v16, 0x7f0b0078
+    const v16, 0x7f0b007e
 
     move/from16 v0, v16
 
@@ -970,7 +970,7 @@
 
     .line 483
     .local v8, message:Landroid/widget/TextView;
-    const v16, 0x7f0b0140
+    const v16, 0x7f0b014f
 
     move/from16 v0, v16
 
@@ -982,7 +982,7 @@
 
     .line 484
     .local v5, image:Landroid/widget/ImageView;
-    const v16, 0x7f0b0138
+    const v16, 0x7f0b0147
 
     move/from16 v0, v16
 
@@ -1012,7 +1012,7 @@
 
     .line 489
     :cond_0
-    const v16, 0x7f02044d
+    const v16, 0x7f0204ce
 
     move/from16 v0, v16
 
@@ -1025,7 +1025,7 @@
 
     .line 492
     .local v14, res:Landroid/content/res/Resources;
-    const v16, 0x7f090dc1
+    const v16, 0x7f090efa
 
     move/from16 v0, v16
 
@@ -1035,17 +1035,48 @@
 
     .line 493
     .local v11, part1:Ljava/lang/String;
-    const-string v16, "."
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v11, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v16
 
-    if-eqz v16, :cond_6
+    add-int/lit8 v16, v16, -0x1
+
+    move/from16 v0, v16
+
+    invoke-virtual {v11, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v16
+
+    const/16 v17, 0x2e
+
+    move/from16 v0, v16
+
+    move/from16 v1, v17
+
+    if-eq v0, v1, :cond_1
+
+    invoke-virtual {v11}, Ljava/lang/String;->length()I
+
+    move-result v16
+
+    add-int/lit8 v16, v16, -0x1
+
+    move/from16 v0, v16
+
+    invoke-virtual {v11, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v16
+
+    const/16 v17, 0x3002
+
+    move/from16 v0, v16
+
+    move/from16 v1, v17
+
+    if-ne v0, v1, :cond_8
 
     .line 494
+    :cond_1
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -1066,7 +1097,7 @@
 
     move-result-object v11
 
-    .line 498
+    .line 502
     :goto_0
     const v16, 0x7f0e0009
 
@@ -1076,9 +1107,9 @@
 
     move-result v13
 
-    .line 499
+    .line 503
     .local v13, proper_distance:I
-    const v16, 0x7f090dc3
+    const v16, 0x7f090efc
 
     move/from16 v0, v16
 
@@ -1106,13 +1137,13 @@
 
     move-result-object v12
 
-    .line 500
+    .line 504
     .local v12, part3:Ljava/lang/String;
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
     move-result-object v15
 
-    .line 501
+    .line 505
     .local v15, salesCode:Ljava/lang/String;
     const-string v16, "ATT"
 
@@ -1122,7 +1153,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "SPR"
 
@@ -1132,7 +1163,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "VZW"
 
@@ -1142,7 +1173,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "TMB"
 
@@ -1152,7 +1183,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "USC"
 
@@ -1162,7 +1193,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "CRI"
 
@@ -1172,7 +1203,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "VMU"
 
@@ -1182,7 +1213,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "BST"
 
@@ -1192,7 +1223,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "XAS"
 
@@ -1202,7 +1233,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "TFN"
 
@@ -1212,7 +1243,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "XAR"
 
@@ -1222,7 +1253,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_2
 
     const-string v16, "CSP"
 
@@ -1232,10 +1263,10 @@
 
     move-result v16
 
-    if-eqz v16, :cond_2
+    if-eqz v16, :cond_3
 
-    .line 504
-    :cond_1
+    .line 508
+    :cond_2
     const v16, 0x7f0e000a
 
     move/from16 v0, v16
@@ -1244,8 +1275,8 @@
 
     move-result v13
 
-    .line 505
-    const v16, 0x7f090dc4
+    .line 509
+    const v16, 0x7f090efd
 
     move/from16 v0, v16
 
@@ -1273,19 +1304,50 @@
 
     move-result-object v12
 
-    .line 507
-    :cond_2
-    const-string v16, "."
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v12, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    .line 511
+    :cond_3
+    invoke-virtual {v12}, Ljava/lang/String;->length()I
 
     move-result v16
 
-    if-eqz v16, :cond_7
+    add-int/lit8 v16, v16, -0x1
 
-    .line 508
+    move/from16 v0, v16
+
+    invoke-virtual {v12, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v16
+
+    const/16 v17, 0x2e
+
+    move/from16 v0, v16
+
+    move/from16 v1, v17
+
+    if-eq v0, v1, :cond_4
+
+    invoke-virtual {v12}, Ljava/lang/String;->length()I
+
+    move-result v16
+
+    add-int/lit8 v16, v16, -0x1
+
+    move/from16 v0, v16
+
+    invoke-virtual {v12, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v16
+
+    const/16 v17, 0x3002
+
+    move/from16 v0, v16
+
+    move/from16 v1, v17
+
+    if-ne v0, v1, :cond_a
+
+    .line 512
+    :cond_4
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -1306,7 +1368,7 @@
 
     move-result-object v12
 
-    .line 512
+    .line 520
     :goto_1
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -1324,7 +1386,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f090dc2
+    const v17, 0x7f090efb
 
     move/from16 v0, v17
 
@@ -1340,7 +1402,7 @@
 
     move-result-object v10
 
-    .line 513
+    .line 521
     .local v10, original_str:Ljava/lang/String;
     const-string v16, "ja"
 
@@ -1366,14 +1428,14 @@
 
     move-result v16
 
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_5
 
-    .line 514
+    .line 522
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v17, 0x7f090dc1
+    const v17, 0x7f090efa
 
     move/from16 v0, v17
 
@@ -1391,7 +1453,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f090dc3
+    const v17, 0x7f090efc
 
     move/from16 v0, v17
 
@@ -1431,7 +1493,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f090dc2
+    const v17, 0x7f090efb
 
     move/from16 v0, v17
 
@@ -1447,8 +1509,8 @@
 
     move-result-object v10
 
-    .line 518
-    :cond_3
+    .line 526
+    :cond_5
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v16
@@ -1457,15 +1519,15 @@
 
     move-result v16
 
-    if-eqz v16, :cond_4
+    if-eqz v16, :cond_6
 
     invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
 
     move-result v16
 
-    if-eqz v16, :cond_4
+    if-eqz v16, :cond_6
 
-    .line 519
+    .line 527
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -1482,7 +1544,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f090dc2
+    const v17, 0x7f090efb
 
     move/from16 v0, v17
 
@@ -1494,7 +1556,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0915a8
+    const v17, 0x7f09170d
 
     move/from16 v0, v17
 
@@ -1510,9 +1572,9 @@
 
     move-result-object v10
 
-    .line 521
-    :cond_4
-    const v16, 0x7f020018
+    .line 529
+    :cond_6
+    const v16, 0x7f02001e
 
     move/from16 v0, v16
 
@@ -1526,26 +1588,26 @@
 
     move-result-object v9
 
-    .line 522
+    .line 530
     .local v9, message_str:Landroid/text/SpannableString;
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_c
 
-    .line 523
+    .line 531
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 527
+    .line 535
     :goto_2
     invoke-virtual {v3, v7}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 528
-    const v16, 0x7f090dbf
+    .line 536
+    const v16, 0x7f090ef8
 
     move/from16 v0, v16
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 529
-    const v16, 0x7f09074c
+    .line 537
+    const v16, 0x7f09079f
 
     new-instance v17, Lcom/android/settings/motion2013/AirMotionSettings$8;
 
@@ -1561,7 +1623,7 @@
 
     invoke-virtual {v3, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 539
+    .line 547
     invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v16
@@ -1572,7 +1634,7 @@
 
     iput-object v0, v1, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
 
-    .line 540
+    .line 548
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
@@ -1581,7 +1643,7 @@
 
     invoke-virtual/range {v16 .. v16}, Landroid/app/AlertDialog;->show()V
 
-    .line 543
+    .line 551
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
@@ -1594,15 +1656,15 @@
 
     move-result-object v2
 
-    .line 544
+    .line 552
     .local v2, POSITIVE_BUTTON:Landroid/widget/Button;
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7
 
-    .line 545
+    .line 553
     invoke-virtual {v2}, Landroid/widget/Button;->requestFocus()Z
 
-    .line 549
-    :cond_5
+    .line 557
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/settings/motion2013/AirMotionSettings;->mGuideDialog:Landroid/app/AlertDialog;
@@ -1619,7 +1681,7 @@
 
     invoke-virtual/range {v16 .. v17}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 555
+    .line 563
     return-void
 
     .line 496
@@ -1629,7 +1691,58 @@
     .end local v12           #part3:Ljava/lang/String;
     .end local v13           #proper_distance:I
     .end local v15           #salesCode:Ljava/lang/String;
-    :cond_6
+    :cond_8
+    const-string v16, "bn"
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_9
+
+    .line 497
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string v17, " "
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    goto/16 :goto_0
+
+    .line 500
+    :cond_9
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -1652,11 +1765,62 @@
 
     goto/16 :goto_0
 
-    .line 510
+    .line 514
     .restart local v12       #part3:Ljava/lang/String;
     .restart local v13       #proper_distance:I
     .restart local v15       #salesCode:Ljava/lang/String;
-    :cond_7
+    :cond_a
+    const-string v16, "bn"
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_b
+
+    .line 515
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string v17, "\n"
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    goto/16 :goto_1
+
+    .line 518
+    :cond_b
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -1679,11 +1843,11 @@
 
     goto/16 :goto_1
 
-    .line 525
+    .line 533
     .restart local v9       #message_str:Landroid/text/SpannableString;
     .restart local v10       #original_str:Ljava/lang/String;
-    :cond_8
-    const v16, 0x7f090dc0
+    :cond_c
+    const v16, 0x7f090ef9
 
     move/from16 v0, v16
 
@@ -1708,13 +1872,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090da8
+    const v1, 0x7f090ee1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090da7
+    const v1, 0x7f090ee0
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1774,19 +1938,19 @@
     .locals 2
 
     .prologue
-    .line 611
+    .line 619
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 612
+    .line 620
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 614
+    .line 622
     :cond_0
     return-void
 .end method
@@ -1795,12 +1959,12 @@
     .locals 4
 
     .prologue
-    .line 617
+    .line 625
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_1
 
-    .line 618
+    .line 626
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirMotionIndicatorAnimation:[I
@@ -1811,14 +1975,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 619
+    .line 627
     iget v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationIndex:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationIndex:I
 
-    .line 620
+    .line 628
     iget v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationIndex:I
 
     iget-object v1, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirMotionIndicatorAnimation:[I
@@ -1829,12 +1993,12 @@
 
     iput v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationIndex:I
 
-    .line 621
+    .line 629
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
-    .line 622
+    .line 630
     iget-object v0, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAnimationHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
@@ -1843,12 +2007,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 628
+    .line 636
     :cond_0
     :goto_0
     return-void
 
-    .line 625
+    .line 633
     :cond_1
     invoke-direct {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->stopAnimation()V
 
@@ -1865,14 +2029,14 @@
 
     const/4 v7, 0x0
 
-    .line 642
+    .line 650
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
     iput-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
-    .line 643
+    .line 651
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
     const-string v9, "air_motion_glance_view"
@@ -1881,7 +2045,7 @@
 
     move-result v5
 
-    .line 644
+    .line 652
     .local v5, quickGlance:I
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -1891,7 +2055,7 @@
 
     move-result v2
 
-    .line 645
+    .line 653
     .local v2, airScroll:I
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -1901,7 +2065,7 @@
 
     move-result v3
 
-    .line 646
+    .line 654
     .local v3, airTurn:I
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -1911,11 +2075,11 @@
 
     move-result v0
 
-    .line 647
+    .line 655
     .local v0, airMove:I
     const/4 v1, 0x0
 
-    .line 649
+    .line 657
     .local v1, airPin:I
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -1925,7 +2089,7 @@
 
     move-result v4
 
-    .line 651
+    .line 659
     .local v4, callAccept:I
     or-int v8, v5, v2
 
@@ -2120,7 +2284,7 @@
     invoke-virtual {p0, v7}, Lcom/android/settings/motion2013/AirMotionSettings;->setHasOptionsMenu(Z)V
 
     .line 128
-    const v8, 0x7f070009
+    const v8, 0x7f07000e
 
     invoke-virtual {p0, v8}, Lcom/android/settings/motion2013/AirMotionSettings;->addPreferencesFromResource(I)V
 
@@ -2154,7 +2318,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f0f0019
+    const v10, 0x7f0f0034
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2354,7 +2518,7 @@
     :cond_1
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirMove:Landroid/preference/SwitchPreferenceScreen;
 
-    const v10, 0x7f090db6
+    const v10, 0x7f090eef
 
     invoke-virtual {v8, v10}, Landroid/preference/SwitchPreferenceScreen;->setSummary(I)V
 
@@ -2370,7 +2534,31 @@
 
     invoke-virtual {v3, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
+    .line 169
+    invoke-static {}, Lcom/android/settings/Utils;->isSettingsUI2013Supported()Z
+
+    move-result v8
+
+    if-nez v8, :cond_3
+
+    invoke-static {}, Lcom/android/settings/Utils;->isChinaModel()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/settings/Utils;->isDualFolderType(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
     .line 170
+    :cond_3
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
@@ -2381,6 +2569,7 @@
     invoke-virtual {v3, v8}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     .line 174
+    :cond_4
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v8
@@ -2399,14 +2588,14 @@
 
     .line 176
     .local v0, do_not_show_again:Z
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
     .line 177
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->isAllAirMotionDisabled()Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_5
 
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
 
@@ -2416,29 +2605,36 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_5
 
     .line 178
     invoke-direct {p0, v7}, Lcom/android/settings/motion2013/AirMotionSettings;->showGuideDialog(Z)V
 
     .line 183
-    :cond_3
+    :cond_5
     invoke-static {}, Lcom/android/settings/Utils;->isSearchEnable()Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-nez v8, :cond_6
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSearchVerTwoEnable()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_7
 
     .line 184
+    :cond_6
     iget-boolean v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mOpenDetailMenu:Z
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_7
 
     sget v8, Lcom/android/settings/motion2013/AirMotionSettings;->mSettingValue:I
 
     const/4 v10, -0x1
 
-    if-eq v8, v10, :cond_4
+    if-eq v8, v10, :cond_7
 
     .line 185
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mResolver:Landroid/content/ContentResolver;
@@ -2449,7 +2645,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_7
 
     .line 186
     invoke-virtual {p0}, Lcom/android/settings/motion2013/AirMotionSettings;->getArguments()Landroid/os/Bundle;
@@ -2468,7 +2664,7 @@
     .local v6, targetKey:Ljava/lang/String;
     sget v8, Lcom/android/settings/motion2013/AirMotionSettings;->mSettingValue:I
 
-    if-ne v8, v7, :cond_5
+    if-ne v8, v7, :cond_8
 
     .line 189
     .local v7, value:Z
@@ -2479,7 +2675,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_9
 
     .line 190
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mQuickGlance:Landroid/preference/SwitchPreferenceScreen;
@@ -2499,13 +2695,13 @@
     .end local v1           #extra_bundle:Landroid/os/Bundle;
     .end local v6           #targetKey:Ljava/lang/String;
     .end local v7           #value:Z
-    :cond_4
+    :cond_7
     :goto_1
     return-void
 
     .restart local v1       #extra_bundle:Landroid/os/Bundle;
     .restart local v6       #targetKey:Ljava/lang/String;
-    :cond_5
+    :cond_8
     move v7, v9
 
     .line 188
@@ -2513,14 +2709,14 @@
 
     .line 192
     .restart local v7       #value:Z
-    :cond_6
+    :cond_9
     const-string v8, "air_scroll"
 
     invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_a
 
     .line 193
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirScroll:Landroid/preference/SwitchPreferenceScreen;
@@ -2539,14 +2735,14 @@
     goto :goto_1
 
     .line 195
-    :cond_7
+    :cond_a
     const-string v8, "air_turn"
 
     invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_b
 
     .line 196
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirTurn:Landroid/preference/SwitchPreferenceScreen;
@@ -2565,14 +2761,14 @@
     goto :goto_1
 
     .line 198
-    :cond_8
+    :cond_b
     const-string v8, "air_move"
 
     invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_c
 
     .line 199
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirMove:Landroid/preference/SwitchPreferenceScreen;
@@ -2591,14 +2787,14 @@
     goto :goto_1
 
     .line 201
-    :cond_9
+    :cond_c
     const-string v8, "air_pin"
 
     invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_d
 
     .line 202
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirPin:Landroid/preference/SwitchPreferenceScreen;
@@ -2617,14 +2813,14 @@
     goto :goto_1
 
     .line 204
-    :cond_a
+    :cond_d
     const-string v8, "air_call_accept"
 
     invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_7
 
     .line 205
     iget-object v8, p0, Lcom/android/settings/motion2013/AirMotionSettings;->mAirCallAccept:Landroid/preference/SwitchPreferenceScreen;
@@ -2668,13 +2864,13 @@
     .line 386
     const/4 v0, 0x1
 
-    const v1, 0x7f090b0f
+    const v1, 0x7f090c0b
 
     invoke-interface {p1, v2, v2, v0, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f020190
+    const v1, 0x7f0201db
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -2828,7 +3024,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090da6
+    const v1, 0x7f090edf
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2864,9 +3060,9 @@
     .parameter "objValue"
 
     .prologue
-    const v6, 0x7f090d57
+    const v6, 0x7f090e80
 
-    const v5, 0x7f090d18
+    const v5, 0x7f090e3f
 
     const/4 v3, 0x1
 

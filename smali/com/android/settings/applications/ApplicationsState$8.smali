@@ -17,13 +17,24 @@
 .end annotation
 
 
+# instance fields
+.field final mCanBeOnSdCardChecker:Lcom/android/settings/applications/CanBeOnSdCardChecker;
+
+
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 250
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 254
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 255
+    new-instance v0, Lcom/android/settings/applications/CanBeOnSdCardChecker;
+
+    invoke-direct {v0}, Lcom/android/settings/applications/CanBeOnSdCardChecker;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/applications/ApplicationsState$8;->mCanBeOnSdCardChecker:Lcom/android/settings/applications/CanBeOnSdCardChecker;
 
     return-void
 .end method
@@ -35,28 +46,25 @@
     .parameter "info"
 
     .prologue
-    .line 256
-    iget-boolean v0, p1, Landroid/content/pm/ApplicationInfo;->enabled:Z
+    .line 264
+    iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$8;->mCanBeOnSdCardChecker:Lcom/android/settings/applications/CanBeOnSdCardChecker;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0, p1}, Lcom/android/settings/applications/CanBeOnSdCardChecker;->check(Landroid/content/pm/ApplicationInfo;)Z
 
-    .line 257
-    const/4 v0, 0x1
+    move-result v0
 
-    .line 259
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public init()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 252
+    .line 259
+    iget-object v0, p0, Lcom/android/settings/applications/ApplicationsState$8;->mCanBeOnSdCardChecker:Lcom/android/settings/applications/CanBeOnSdCardChecker;
+
+    invoke-virtual {v0}, Lcom/android/settings/applications/CanBeOnSdCardChecker;->init()V
+
+    .line 260
     return-void
 .end method

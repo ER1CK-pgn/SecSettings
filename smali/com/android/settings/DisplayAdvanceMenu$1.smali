@@ -52,7 +52,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DisplayAdvanceMenu$1;->this$0:Lcom/android/settings/DisplayAdvanceMenu;
 
-    invoke-virtual {v2}, Lcom/android/settings/DisplayAdvanceMenu;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -67,7 +67,7 @@
     const/4 v0, 0x1
 
     :cond_0
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 69
     return-void

@@ -41,19 +41,19 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 49
+    .line 50
     invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
 
-    .line 71
+    .line 76
     iput-boolean v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasSamsungAccount:Z
 
-    .line 72
+    .line 77
     iput-boolean v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleAccount:Z
 
-    .line 73
+    .line 78
     iput-boolean v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleDescription:Z
 
-    .line 75
+    .line 80
     new-instance v0, Lcom/android/settings/fmm/TabletRemoteControls$1;
 
     new-instance v1, Landroid/os/Handler;
@@ -72,8 +72,8 @@
     .parameter "x0"
 
     .prologue
-    .line 49
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getContentResolver()Landroid/content/ContentResolver;
+    .line 50
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -85,7 +85,7 @@
     .parameter "x0"
 
     .prologue
-    .line 49
+    .line 50
     iget-object v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
     return-object v0
@@ -95,18 +95,18 @@
     .locals 11
 
     .prologue
-    const v10, 0x7f090968
+    const v10, 0x7f090a46
 
-    const v9, 0x7f040150
+    const v9, 0x7f040186
 
-    const v8, 0x7f0400f0
+    const v8, 0x7f040115
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    .line 204
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 240
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
@@ -114,7 +114,7 @@
 
     move-result-object v1
 
-    .line 205
+    .line 241
     .local v1, manager:Landroid/accounts/AccountManager;
     const-string v3, "com.osp.app.signin"
 
@@ -122,7 +122,7 @@
 
     move-result-object v2
 
-    .line 206
+    .line 242
     .local v2, samsungAccnts:[Landroid/accounts/Account;
     array-length v3, v2
 
@@ -133,12 +133,12 @@
     :goto_0
     iput-boolean v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasSamsungAccount:Z
 
-    .line 207
+    .line 243
     iget-boolean v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasSamsungAccount:Z
 
     if-eqz v3, :cond_2
 
-    .line 208
+    .line 244
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
     aget-object v6, v2, v5
@@ -147,7 +147,7 @@
 
     invoke-virtual {v3, v6}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 209
+    .line 245
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountContext:Landroid/content/Context;
@@ -166,12 +166,12 @@
 
     invoke-virtual {v3, v6}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 210
+    .line 246
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
     invoke-virtual {v3, v8}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
-    .line 217
+    .line 253
     :goto_1
     const-string v3, "com.google"
 
@@ -179,7 +179,7 @@
 
     move-result-object v0
 
-    .line 218
+    .line 254
     .local v0, googleAccnts:[Landroid/accounts/Account;
     array-length v3, v0
 
@@ -188,12 +188,12 @@
     :goto_2
     iput-boolean v4, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleAccount:Z
 
-    .line 219
+    .line 255
     iget-boolean v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleAccount:Z
 
     if-eqz v3, :cond_4
 
-    .line 220
+    .line 256
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     aget-object v4, v0, v5
@@ -202,7 +202,7 @@
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 221
+    .line 257
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     iget-object v4, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountContext:Landroid/content/Context;
@@ -221,27 +221,27 @@
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    .line 222
+    .line 258
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     invoke-virtual {v3, v8}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
-    .line 231
+    .line 267
     :goto_3
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     if-eqz v3, :cond_0
 
-    .line 232
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    .line 268
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
-    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
 
-    .line 234
+    .line 270
     :cond_0
     return-void
 
@@ -249,23 +249,23 @@
     :cond_1
     move v3, v5
 
-    .line 206
+    .line 242
     goto :goto_0
 
-    .line 212
+    .line 248
     :cond_2
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
     invoke-virtual {v3, v10}, Landroid/preference/Preference;->setTitle(I)V
 
-    .line 213
+    .line 249
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
-    const v6, 0x7f090b58
+    const v6, 0x7f090c56
 
     invoke-virtual {v3, v6}, Landroid/preference/Preference;->setSummary(I)V
 
-    .line 214
+    .line 250
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
     invoke-virtual {v3, v9}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
@@ -276,23 +276,23 @@
     :cond_3
     move v4, v5
 
-    .line 218
+    .line 254
     goto :goto_2
 
-    .line 224
+    .line 260
     :cond_4
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     invoke-virtual {v3, v10}, Landroid/preference/Preference;->setTitle(I)V
 
-    .line 225
+    .line 261
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
-    const v4, 0x7f090b59
+    const v4, 0x7f090c57
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setSummary(I)V
 
-    .line 226
+    .line 262
     iget-object v3, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     invoke-virtual {v3, v9}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
@@ -308,11 +308,11 @@
     .parameter "desiredState"
 
     .prologue
-    .line 196
+    .line 201
     if-eqz p2, :cond_0
 
-    .line 197
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getContentResolver()Landroid/content/ContentResolver;
+    .line 216
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -322,13 +322,13 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 201
+    .line 237
     :goto_0
     return-void
 
-    .line 199
+    .line 234
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -352,22 +352,22 @@
 
     const/4 v8, 0x0
 
-    .line 88
+    .line 93
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 89
+    .line 94
     const-string v6, "TabletRemoteControls"
 
     const-string v7, "TabletRemoteControls"
 
     invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 91
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 96
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    .line 92
+    .line 97
     .local v0, activity:Landroid/app/Activity;
     new-instance v6, Landroid/widget/Switch;
 
@@ -375,42 +375,42 @@
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    .line 94
+    .line 99
     instance-of v6, v0, Landroid/preference/PreferenceActivity;
 
     if-eqz v6, :cond_0
 
     move-object v5, v0
 
-    .line 95
+    .line 100
     check-cast v5, Landroid/preference/PreferenceActivity;
 
-    .line 96
+    .line 101
     .local v5, preferenceActivity:Landroid/preference/PreferenceActivity;
-    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f0f0019
+    const v7, 0x7f0f0034
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    .line 97
+    .line 102
     .local v4, padding:I
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, v8, v8, v4, v8}, Landroid/widget/Switch;->setPadding(IIII)V
+    invoke-virtual {v6, v8, v8, v4, v8}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 98
+    .line 103
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v6
 
     invoke-virtual {v6, v9, v9}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    .line 99
+    .line 104
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v6
@@ -425,7 +425,7 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/app/ActionBar;->setCustomView(Landroid/view/View;Landroid/app/ActionBar$LayoutParams;)V
 
-    .line 101
+    .line 106
     invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v6
@@ -436,41 +436,41 @@
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarLayout:Landroid/view/View;
 
-    .line 103
+    .line 108
     .end local v4           #padding:I
     .end local v5           #preferenceActivity:Landroid/preference/PreferenceActivity;
     :cond_0
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v6, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v6, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 105
-    const v6, 0x7f070078
+    .line 110
+    const v6, 0x7f070099
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/fmm/TabletRemoteControls;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->addPreferencesFromResource(I)V
 
-    .line 107
+    .line 112
     const-string v6, "samsung_account"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/fmm/TabletRemoteControls;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
-    .line 108
+    .line 113
     const-string v6, "google_account"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/fmm/TabletRemoteControls;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
-    .line 109
+    .line 114
     const-string v6, "location_network"
 
-    invoke-virtual {p0, v6}, Lcom/android/settings/fmm/TabletRemoteControls;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    invoke-virtual {p0, v6}, Landroid/preference/PreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
 
@@ -478,8 +478,8 @@
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mNetworkPref:Landroid/preference/CheckBoxPreference;
 
-    .line 112
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 117
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -491,7 +491,7 @@
 
     move-result-object v1
 
-    .line 113
+    .line 118
     .local v1, desc:[Landroid/accounts/AuthenticatorDescription;
     const/4 v3, 0x0
 
@@ -501,7 +501,7 @@
 
     if-ge v3, v6, :cond_1
 
-    .line 114
+    .line 119
     aget-object v6, v1, v3
 
     iget-object v6, v6, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
@@ -514,15 +514,15 @@
 
     if-eqz v6, :cond_5
 
-    .line 115
+    .line 120
     aget-object v6, v1, v3
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountDescription:Landroid/accounts/AuthenticatorDescription;
 
-    .line 120
+    .line 125
     :cond_1
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -532,7 +532,7 @@
 
     const/4 v8, 0x0
 
-    invoke-virtual {v6, v7, v8}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v6, v7, v8}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v6
 
@@ -540,7 +540,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 124
+    .line 129
     :goto_1
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
@@ -560,7 +560,7 @@
 
     invoke-virtual {v6, v7}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 127
+    .line 132
     const/4 v3, 0x0
 
     :goto_2
@@ -568,7 +568,7 @@
 
     if-ge v3, v6, :cond_2
 
-    .line 128
+    .line 133
     aget-object v6, v1, v3
 
     iget-object v6, v6, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
@@ -581,25 +581,25 @@
 
     if-eqz v6, :cond_6
 
-    .line 129
+    .line 134
     aget-object v6, v1, v3
 
     iput-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountDescription:Landroid/accounts/AuthenticatorDescription;
 
-    .line 130
+    .line 135
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleDescription:Z
 
-    .line 135
+    .line 140
     :cond_2
     iget-boolean v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleDescription:Z
 
     if-eqz v6, :cond_3
 
-    .line 137
+    .line 142
     :try_start_1
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -609,7 +609,7 @@
 
     const/4 v8, 0x0
 
-    invoke-virtual {v6, v7, v8}, Landroid/app/Activity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v6, v7, v8}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v6
 
@@ -617,7 +617,7 @@
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 141
+    .line 146
     :goto_3
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
@@ -637,9 +637,9 @@
 
     invoke-virtual {v6, v7}, Landroid/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 144
+    .line 149
     :cond_3
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -649,22 +649,22 @@
 
     if-eqz v6, :cond_4
 
-    .line 145
+    .line 150
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mNetworkPref:Landroid/preference/CheckBoxPreference;
 
-    const v7, 0x7f0906b0
+    const v7, 0x7f090703
 
-    invoke-virtual {v6, v7}, Landroid/preference/CheckBoxPreference;->setSummaryOn(I)V
+    invoke-virtual {v6, v7}, Landroid/preference/TwoStatePreference;->setSummaryOn(I)V
 
-    .line 147
+    .line 152
     :cond_4
     iget-object v6, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mNetworkPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
@@ -674,22 +674,22 @@
 
     move-result v7
 
-    invoke-virtual {v6, v7}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v6, v7}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 148
+    .line 153
     return-void
 
-    .line 113
+    .line 118
     :cond_5
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_0
 
-    .line 121
+    .line 126
     :catch_0
     move-exception v2
 
-    .line 122
+    .line 127
     .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v6, "TabletRemoteControls"
 
@@ -699,18 +699,18 @@
 
     goto/16 :goto_1
 
-    .line 127
+    .line 132
     .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_6
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 138
+    .line 143
     :catch_1
     move-exception v2
 
-    .line 139
+    .line 144
     .restart local v2       #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v6, "TabletRemoteControls"
 
@@ -725,8 +725,8 @@
     .locals 2
 
     .prologue
-    .line 181
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getContentResolver()Landroid/content/ContentResolver;
+    .line 186
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -734,32 +734,32 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 182
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    .line 187
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
-    .line 183
+    .line 188
     return-void
 .end method
 
 .method public onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
-    .locals 10
+    .locals 9
     .parameter "preferenceScreen"
     .parameter "preference"
 
     .prologue
     const/4 v2, 0x0
 
-    .line 239
+    .line 275
     iget-object v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mNetworkPref:Landroid/preference/CheckBoxPreference;
 
     if-ne p2, v0, :cond_1
 
-    .line 240
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 276
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -767,77 +767,71 @@
 
     iget-object v2, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mNetworkPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {v2}, Landroid/preference/CheckBoxPreference;->isChecked()Z
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
 
-    .line 254
+    .line 289
     :cond_0
     :goto_0
-    invoke-super {p0, p1, p2}, Lcom/android/settings/SettingsPreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
+    invoke-super {p0, p1, p2}, Landroid/preference/PreferenceFragment;->onPreferenceTreeClick(Landroid/preference/PreferenceScreen;Landroid/preference/Preference;)Z
 
     move-result v0
 
     return v0
 
-    .line 241
+    .line 277
     :cond_1
     iget-object v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mSamsungAccountPref:Landroid/preference/Preference;
 
     if-ne p2, v0, :cond_2
 
-    .line 242
+    .line 278
     iget-boolean v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasSamsungAccount:Z
 
     if-nez v0, :cond_0
 
-    .line 243
-    new-instance v9, Landroid/content/Intent;
+    .line 279
+    new-instance v8, Landroid/content/Intent;
 
-    invoke-direct {v9}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v8}, Landroid/content/Intent;-><init>()V
 
-    .line 244
-    .local v9, mIntent:Landroid/content/Intent;
+    .line 280
+    .local v8, mIntent:Landroid/content/Intent;
     const-string v0, "com.osp.app.signin"
 
     const-string v1, "com.osp.app.signin.AccountView"
 
-    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v8, v0, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 245
+    .line 281
     const-string v0, "MODE"
 
     const-string v1, "REMOTE_CONTROLS"
 
-    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v8, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 246
-    invoke-virtual {p0, v9}, Lcom/android/settings/fmm/TabletRemoteControls;->startActivity(Landroid/content/Intent;)V
+    .line 282
+    invoke-virtual {p0, v8}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 248
-    .end local v9           #mIntent:Landroid/content/Intent;
+    .line 284
+    .end local v8           #mIntent:Landroid/content/Intent;
     :cond_2
     iget-object v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mGoogleAccountPref:Landroid/preference/Preference;
 
     if-ne p2, v0, :cond_0
 
-    .line 249
+    .line 285
     iget-boolean v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mHasGoogleAccount:Z
 
     if-nez v0, :cond_0
 
-    .line 250
-    new-instance v8, Landroid/os/Bundle;
-
-    invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
-
-    .line 251
-    .local v8, addAccountOptions:Landroid/os/Bundle;
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 286
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -849,7 +843,7 @@
 
     iget-object v1, v1, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v5
 
@@ -874,21 +868,21 @@
 
     const/4 v3, 0x0
 
-    .line 152
+    .line 157
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
-    .line 153
+    .line 158
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v1, :cond_0
 
-    .line 154
+    .line 159
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarLayout:Landroid/view/View;
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 155
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 160
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -898,19 +892,19 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 158
+    .line 163
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     const-string v4, "FMMPreferences"
 
-    invoke-virtual {v1, v4, v3}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v1, v4, v3}, Landroid/content/ContextWrapper;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    .line 159
+    .line 164
     .local v0, mSharedPreferences:Landroid/content/SharedPreferences;
     const-string v1, "pref_fmm"
 
@@ -920,20 +914,20 @@
 
     if-eqz v1, :cond_2
 
-    .line 160
+    .line 165
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 165
+    .line 170
     :goto_0
     iget-object v4, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -950,8 +944,8 @@
     :goto_1
     invoke-virtual {v4, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 166
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getContentResolver()Landroid/content/ContentResolver;
+    .line 171
+    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -965,13 +959,13 @@
 
     invoke-virtual {v1, v4, v3, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 168
+    .line 173
     invoke-direct {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->updateAccountInformation()V
 
-    .line 171
+    .line 176
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1}, Landroid/widget/Switch;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
 
     move-result v1
 
@@ -981,20 +975,20 @@
 
     if-eqz v1, :cond_1
 
-    .line 172
+    .line 177
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 176
+    .line 181
     :cond_1
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mNetworkPref:Landroid/preference/CheckBoxPreference;
 
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -1004,23 +998,23 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 177
+    .line 182
     return-void
 
-    .line 162
+    .line 167
     :cond_2
     iget-object v1, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v1, v3}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
     :cond_3
     move v1, v3
 
-    .line 165
+    .line 170
     goto :goto_1
 .end method
 
@@ -1028,23 +1022,23 @@
     .locals 2
 
     .prologue
-    .line 187
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onStop()V
+    .line 192
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onStop()V
 
-    .line 188
+    .line 193
     iget-object v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarLayout:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 189
+    .line 194
     iget-object v0, p0, Lcom/android/settings/fmm/TabletRemoteControls;->mActionBarLayout:Landroid/view/View;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 190
-    invoke-virtual {p0}, Lcom/android/settings/fmm/TabletRemoteControls;->getActivity()Landroid/app/Activity;
+    .line 195
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1056,7 +1050,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowCustomEnabled(Z)V
 
-    .line 192
+    .line 197
     :cond_0
     return-void
 .end method

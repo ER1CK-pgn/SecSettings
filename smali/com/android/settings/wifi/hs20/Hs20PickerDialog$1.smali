@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 31
+    .line 61
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$1;->this$0:Lcom/android/settings/wifi/hs20/Hs20PickerDialog;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,11 +42,11 @@
     .parameter "v"
 
     .prologue
-    .line 34
+    .line 67
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20PickerDialog$1;->this$0:Lcom/android/settings/wifi/hs20/Hs20PickerDialog;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/hs20/Hs20PickerDialog;->finish()V
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 35
+    .line 69
     return-void
 .end method

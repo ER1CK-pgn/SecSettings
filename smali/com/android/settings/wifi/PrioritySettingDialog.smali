@@ -292,7 +292,7 @@
 
     .line 369
     .local v1, total_num:I
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
@@ -307,18 +307,18 @@
     if-ne v0, v3, :cond_1
 
     .line 373
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 374
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -327,18 +327,18 @@
     if-ne v1, v6, :cond_2
 
     .line 376
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 377
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -347,18 +347,18 @@
     if-nez v0, :cond_3
 
     .line 379
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 380
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -369,35 +369,35 @@
     if-ne v0, v2, :cond_4
 
     .line 382
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 383
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 
     .line 386
     :cond_4
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 387
-    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/PrioritySettingDialog;->getButton(I)Landroid/widget/Button;
+    invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -501,7 +501,7 @@
     if-eqz p1, :cond_2
 
     .line 343
-    invoke-super {p0}, Landroid/app/AlertDialog;->cancel()V
+    invoke-super {p0}, Landroid/app/Dialog;->cancel()V
 
     .line 347
     :cond_1
@@ -515,7 +515,7 @@
 
     .line 345
     :cond_2
-    invoke-super {p0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
 
     goto :goto_0
 .end method
@@ -770,130 +770,124 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 6
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v6, 0x0
-
-    .line 117
-    invoke-virtual {p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v3
-
-    const v4, 0x7f0401c4
-
     const/4 v5, 0x0
 
-    invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
-
-    .line 118
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
-
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->setView(Landroid/view/View;)V
-
-    .line 119
-    invoke-virtual {p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    .line 120
-    .local v0, context:Landroid/content/Context;
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    .line 117
+    invoke-virtual {p0}, Landroid/app/Dialog;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v2
 
+    const v3, 0x7f040200
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
+
+    .line 118
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
+
+    invoke-virtual {p0, v2}, Landroid/app/AlertDialog;->setView(Landroid/view/View;)V
+
+    .line 119
+    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
     .line 121
-    .local v2, resources:Landroid/content/res/Resources;
-    const-string v3, "wifi"
+    .local v0, context:Landroid/content/Context;
+    const-string v2, "wifi"
 
-    invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/net/wifi/WifiManager;
+    check-cast v2, Landroid/net/wifi/WifiManager;
 
-    iput-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iput-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     .line 123
-    const-string v3, "WifiPriorityDialog"
+    const-string v2, "WifiPriorityDialog"
 
-    const-string v4, "PrioritySettingDialog onCreate null"
+    const-string v3, "PrioritySettingDialog onCreate null"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 124
-    invoke-virtual {p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->getLayoutInflater()Landroid/view/LayoutInflater;
+    invoke-virtual {p0}, Landroid/app/Dialog;->getLayoutInflater()Landroid/view/LayoutInflater;
 
-    move-result-object v3
+    move-result-object v2
 
-    const v4, 0x7f0401c5
+    const v3, 0x7f040201
 
-    iget-object v5, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
+    iget-object v4, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
 
-    invoke-virtual {v3, v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v2, v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v1
 
     .line 125
     .local v1, priorityView:Landroid/view/View;
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f0b051a
+    const v3, 0x7f0b0578
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/view/ViewGroup;
+    check-cast v2, Landroid/view/ViewGroup;
 
-    iput-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
+    iput-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
 
     .line 126
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
 
-    invoke-virtual {v3, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 127
-    const v3, 0x7f091018
+    const v2, 0x7f091156
 
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->setTitle(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Dialog;->setTitle(I)V
 
     .line 129
-    new-instance v3, Lcom/android/settings/wifi/PrioritySettingDialog$1;
+    new-instance v2, Lcom/android/settings/wifi/PrioritySettingDialog$1;
 
-    invoke-direct {v3, p0}, Lcom/android/settings/wifi/PrioritySettingDialog$1;-><init>(Lcom/android/settings/wifi/PrioritySettingDialog;)V
+    invoke-direct {v2, p0}, Lcom/android/settings/wifi/PrioritySettingDialog$1;-><init>(Lcom/android/settings/wifi/PrioritySettingDialog;)V
 
-    iput-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mSaveListener:Landroid/net/wifi/WifiManager$ActionListener;
+    iput-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mSaveListener:Landroid/net/wifi/WifiManager$ActionListener;
 
     .line 139
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f0b051b
+    const v3, 0x7f0b0579
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/widget/RadioGroup;
+    check-cast v2, Landroid/widget/RadioGroup;
 
-    iput-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
+    iput-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
 
     .line 140
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     .line 141
-    const-string v3, "WifiPriorityDialog"
+    const-string v2, "WifiPriorityDialog"
 
-    const-string v4, "mRadioGroup is null"
+    const-string v3, "mRadioGroup is null"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 163
     :goto_0
@@ -901,70 +895,70 @@
 
     .line 145
     :cond_0
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityView:Landroid/view/ViewGroup;
 
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
     .line 146
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    invoke-virtual {v3, v6}, Landroid/widget/RadioGroup;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
     .line 148
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    const v4, 0x7f091015
+    const v3, 0x7f091153
 
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v3, v4, p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    .line 150
-    const/4 v3, -0x3
-
-    const v4, 0x7f091016
-
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v3, v4, p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    .line 152
-    const/4 v3, -0x2
-
-    const v4, 0x7f091017
-
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v3, v4, p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    .line 156
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-static {v3}, Lcom/android/settings/wifi/PrioritySettingDialog;->getOrderedConfigs(Landroid/net/wifi/WifiManager;)Ljava/util/List;
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->orderedConfigs:Ljava/util/List;
+    invoke-virtual {p0, v2, v3, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 150
+    const/4 v2, -0x3
+
+    const v3, 0x7f091154
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 152
+    const/4 v2, -0x2
+
+    const v3, 0x7f091155
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 156
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-static {v2}, Lcom/android/settings/wifi/PrioritySettingDialog;->getOrderedConfigs(Landroid/net/wifi/WifiManager;)Ljava/util/List;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->orderedConfigs:Ljava/util/List;
 
     .line 157
-    invoke-virtual {p0, v6}, Lcom/android/settings/wifi/PrioritySettingDialog;->updateRadioGroup(I)V
+    invoke-virtual {p0, v5}, Lcom/android/settings/wifi/PrioritySettingDialog;->updateRadioGroup(I)V
 
     .line 158
-    iput v6, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityButton:I
+    iput v5, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mPriorityButton:I
 
     .line 159
-    iget-object v3, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
+    iget-object v2, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    invoke-virtual {v3, p0}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
 
     .line 160
-    invoke-virtual {p0, p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {p0, p0}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
     .line 161
     invoke-direct {p0}, Lcom/android/settings/wifi/PrioritySettingDialog;->validatePriorityButtons()V
@@ -1064,7 +1058,7 @@
     .line 174
     iget-object v6, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;
 
-    invoke-virtual {v6}, Landroid/widget/RadioGroup;->removeAllViews()V
+    invoke-virtual {v6}, Landroid/view/ViewGroup;->removeAllViews()V
 
     .line 175
     const/4 v0, 0x0
@@ -1107,15 +1101,15 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/widget/RadioButton;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 179
     const/4 v6, -0x1
 
-    invoke-virtual {v5, v6}, Landroid/widget/RadioButton;->setTextColor(I)V
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 181
-    invoke-virtual {v5, v0}, Landroid/widget/RadioButton;->setId(I)V
+    invoke-virtual {v5, v0}, Landroid/view/View;->setId(I)V
 
     .line 182
     new-instance v3, Landroid/widget/RadioGroup$LayoutParams;
@@ -1126,7 +1120,7 @@
     .local v3, lp_rb1:Landroid/widget/RadioGroup$LayoutParams;
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Landroid/widget/RadioButton;->setVisibility(I)V
+    invoke-virtual {v5, v6}, Landroid/view/View;->setVisibility(I)V
 
     .line 186
     iget-object v6, p0, Lcom/android/settings/wifi/PrioritySettingDialog;->mRadioGroup:Landroid/widget/RadioGroup;

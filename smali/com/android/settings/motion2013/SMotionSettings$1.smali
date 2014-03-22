@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 81
+    .line 78
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionSettings$1;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -41,16 +41,16 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 83
+    .line 80
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 100
+    .line 94
     :goto_0
     return-void
 
-    .line 85
+    .line 82
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionSettings$1;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
@@ -59,11 +59,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 88
+    .line 85
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionSettings$1;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
@@ -72,11 +72,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 91
+    .line 88
     :pswitch_2
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionSettings$1;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
@@ -85,11 +85,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 94
+    .line 91
     :pswitch_3
     iget-object v0, p0, Lcom/android/settings/motion2013/SMotionSettings$1;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
@@ -98,24 +98,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 97
-    :pswitch_4
-    iget-object v0, p0, Lcom/android/settings/motion2013/SMotionSettings$1;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    #getter for: Lcom/android/settings/motion2013/SMotionSettings;->mArcMotion:Landroid/preference/SwitchPreferenceScreen;
-    invoke-static {v0}, Lcom/android/settings/motion2013/SMotionSettings;->access$400(Lcom/android/settings/motion2013/SMotionSettings;)Landroid/preference/SwitchPreferenceScreen;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    goto :goto_0
-
-    .line 83
+    .line 80
     nop
 
     :pswitch_data_0
@@ -124,6 +111,5 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
-        :pswitch_4
     .end packed-switch
 .end method

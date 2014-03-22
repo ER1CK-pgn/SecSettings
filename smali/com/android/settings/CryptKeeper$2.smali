@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 487
+    .line 488
     iput-object p1, p0, Lcom/android/settings/CryptKeeper$2;->this$0:Lcom/android/settings/CryptKeeper;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 491
+    .line 492
     iget-object v0, p0, Lcom/android/settings/CryptKeeper$2;->this$0:Lcom/android/settings/CryptKeeper;
 
     new-instance v1, Landroid/content/Intent;
@@ -51,8 +51,8 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/CryptKeeper;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 492
+    .line 493
     return-void
 .end method

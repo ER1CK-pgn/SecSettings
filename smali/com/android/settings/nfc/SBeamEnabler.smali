@@ -24,6 +24,8 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mDeviceSettingsPolicy:Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
 .field private mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
 .field private mIntentFilter:Landroid/content/IntentFilter;
@@ -48,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 79
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
@@ -67,39 +69,39 @@
     const/4 v2, 0x0
 
     .line 94
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
+    .line 60
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
-    .line 64
+    .line 62
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 66
+    .line 64
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    .line 68
+    .line 66
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
-    .line 70
+    .line 68
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    .line 72
+    .line 70
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 74
+    .line 72
     iput-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    .line 76
+    .line 74
     iput-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOnLastState:Z
 
-    .line 78
+    .line 76
     iput-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
     .line 84
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 397
+    .line 424
     new-instance v1, Lcom/android/settings/nfc/SBeamEnabler$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/nfc/SBeamEnabler$1;-><init>(Lcom/android/settings/nfc/SBeamEnabler;)V
@@ -123,7 +125,7 @@
 
     iget-boolean v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 103
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
@@ -144,7 +146,16 @@
 
     sput-object v1, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
-    .line 107
+    .line 106
+    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mDeviceSettingsPolicy:Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
+    .line 108
     return-void
 .end method
 
@@ -159,69 +170,69 @@
 
     const/4 v2, 0x0
 
-    .line 109
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 110
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
+    .line 60
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
-    .line 64
+    .line 62
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 66
+    .line 64
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    .line 68
+    .line 66
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
-    .line 70
+    .line 68
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    .line 72
+    .line 70
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 74
+    .line 72
     iput-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    .line 76
+    .line 74
     iput-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOnLastState:Z
 
-    .line 78
+    .line 76
     iput-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
     .line 84
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 397
+    .line 424
     new-instance v1, Lcom/android/settings/nfc/SBeamEnabler$1;
 
     invoke-direct {v1, p0}, Lcom/android/settings/nfc/SBeamEnabler$1;-><init>(Lcom/android/settings/nfc/SBeamEnabler;)V
 
     iput-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 110
+    .line 111
     iput-object p1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
-    .line 111
+    .line 112
     iput-object p2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    .line 113
+    .line 114
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    .line 115
+    .line 116
     iput-object p3, p0, Lcom/android/settings/nfc/SBeamEnabler;->mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
-    .line 117
+    .line 118
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->initEnabler()V
 
-    .line 118
+    .line 119
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     iget-boolean v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
     invoke-virtual {v1, v2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 120
+    .line 121
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     const-string v2, "enterprise_policy"
@@ -232,7 +243,7 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 122
+    .line 123
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
@@ -241,6 +252,15 @@
     sput-object v1, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     .line 124
+    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;->getInstance(Landroid/content/Context;)Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mDeviceSettingsPolicy:Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
+    .line 126
     return-void
 .end method
 
@@ -250,7 +270,7 @@
     .parameter "x1"
 
     .prologue
-    .line 39
+    .line 38
     invoke-direct {p0, p1}, Lcom/android/settings/nfc/SBeamEnabler;->changedSbeamState(Landroid/content/Intent;)V
 
     return-void
@@ -261,7 +281,7 @@
     .parameter "i"
 
     .prologue
-    .line 341
+    .line 349
     const-string v1, "turn_on"
 
     const/4 v2, 0x0
@@ -270,7 +290,7 @@
 
     move-result v0
 
-    .line 342
+    .line 350
     .local v0, bOn:Z
     const-string v1, "[SBeam]"
 
@@ -300,12 +320,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 343
+    .line 351
     const/4 v1, 0x1
 
     invoke-direct {p0, v1, v0}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
-    .line 344
+    .line 352
     return-void
 .end method
 
@@ -315,28 +335,28 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 347
+    .line 355
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
     if-eqz v0, :cond_0
 
-    .line 348
+    .line 356
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 351
+    .line 359
     :cond_0
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     if-eqz v0, :cond_1
 
-    .line 352
+    .line 360
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 354
+    .line 362
     :cond_1
     return-void
 .end method
@@ -345,12 +365,12 @@
     .locals 3
 
     .prologue
-    .line 194
+    .line 201
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/nfc/SBeamEnabler;->initPreferenceForSbeam(Landroid/content/Context;)V
 
-    .line 196
+    .line 203
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/nfc/SBeamEnabler;->isSBeamOn(Landroid/content/Context;)Z
@@ -359,7 +379,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    .line 197
+    .line 204
     const-string v0, "[SBeam]"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -390,7 +410,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 199
+    .line 206
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/nfc/NfcAdapter;->getDefaultAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
@@ -399,7 +419,7 @@
 
     iput-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    .line 200
+    .line 207
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "android.nfc.action.ADAPTER_STATE_CHANGED"
@@ -408,28 +428,28 @@
 
     iput-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 201
+    .line 208
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "com.android.settings.action.SBEAM_STATE_UPDATED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 202
+    .line 209
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "com.android.settings.action.SBEAM_OFF_INTERNAL"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 203
+    .line 210
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 204
+    .line 211
     return-void
 .end method
 
@@ -442,14 +462,14 @@
 
     const/4 v4, 0x0
 
-    .line 445
+    .line 470
     const-string v5, "[SBeam]"
 
     const-string v6, "SBeamEnabler.initPreferenceForSbeam"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 446
+    .line 471
     const-string v5, "pref_sbeam"
 
     const/4 v6, 0x5
@@ -458,13 +478,13 @@
 
     move-result-object v2
 
-    .line 448
+    .line 473
     .local v2, pref:Landroid/content/SharedPreferences;
     invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 449
+    .line 474
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v5, "SBeam_support"
 
@@ -474,15 +494,15 @@
 
     if-nez v5, :cond_0
 
-    .line 453
+    .line 478
     const-string v5, "SBeam_support"
 
     invoke-interface {v0, v5, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 454
+    .line 479
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 460
+    .line 485
     :cond_0
     const-string v5, "SBeam_on_off"
 
@@ -492,7 +512,7 @@
 
     if-nez v5, :cond_1
 
-    .line 461
+    .line 486
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -503,7 +523,7 @@
 
     move-result v1
 
-    .line 462
+    .line 487
     .local v1, modeOn:I
     const-string v5, "[SBeam]"
 
@@ -527,7 +547,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 463
+    .line 488
     const-string v5, "SBeam_on_off"
 
     if-ne v1, v3, :cond_3
@@ -535,7 +555,7 @@
     :goto_0
     invoke-interface {v0, v5, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 466
+    .line 491
     .end local v1           #modeOn:I
     :cond_1
     const-string v3, "sbeam_last_status"
@@ -546,23 +566,23 @@
 
     if-nez v3, :cond_2
 
-    .line 467
+    .line 492
     const-string v3, "sbeam_last_status"
 
     invoke-interface {v0, v3, v4}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 470
+    .line 495
     :cond_2
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 472
+    .line 497
     return-void
 
     .restart local v1       #modeOn:I
     :cond_3
     move v3, v4
 
-    .line 463
+    .line 488
     goto :goto_0
 .end method
 
@@ -573,7 +593,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 520
+    .line 545
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -597,14 +617,14 @@
     .parameter "context"
 
     .prologue
-    .line 543
+    .line 568
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 545
+    .line 570
     .local v0, salesCode:Ljava/lang/String;
     const-string v1, "CHM"
 
@@ -624,7 +644,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 546
+    .line 571
     :cond_0
     invoke-static {p0}, Lcom/android/settings/nfc/SBeamEnabler;->isAirplaneModeOn(Landroid/content/Context;)Z
 
@@ -632,21 +652,21 @@
 
     if-eqz v1, :cond_1
 
-    .line 547
+    .line 572
     const-string v1, "[SBeam]"
 
     const-string v2, "The S-beam should not be turned on in Operator AirPlane mode"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 548
+    .line 573
     const/4 v1, 0x0
 
-    .line 553
+    .line 578
     :goto_0
     return v1
 
-    .line 552
+    .line 577
     :cond_1
     const-string v1, "[SBeam]"
 
@@ -654,7 +674,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 553
+    .line 578
     const/4 v1, 0x1
 
     goto :goto_0
@@ -667,7 +687,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 525
+    .line 549
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v2
@@ -680,16 +700,16 @@
 
     check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    .line 527
+    .line 552
     .local v0, dpm:Landroid/app/admin/DevicePolicyManager;
     if-nez v0, :cond_1
 
-    .line 534
+    .line 559
     :cond_0
     :goto_0
     return v1
 
-    .line 530
+    .line 555
     :cond_1
     const/4 v2, 0x0
 
@@ -699,14 +719,14 @@
 
     if-nez v2, :cond_0
 
-    .line 533
+    .line 558
     const-string v1, "[SBeam]"
 
     const-string v2, "SBeamEnabler.isAllowWifiByDevicePolicy"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 534
+    .line 559
     const/4 v1, 0x0
 
     goto :goto_0
@@ -717,7 +737,7 @@
     .parameter "context"
 
     .prologue
-    .line 514
+    .line 539
     const-string v1, "pref_sbeam"
 
     const/4 v2, 0x5
@@ -726,7 +746,7 @@
 
     move-result-object v0
 
-    .line 516
+    .line 541
     .local v0, pref:Landroid/content/SharedPreferences;
     const-string v1, "SBeam_on_off"
 
@@ -747,7 +767,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 479
+    .line 504
     const-string v1, "android.nfc.action.ABEAM_STATE_CHANGED"
 
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -760,12 +780,12 @@
 
     if-nez v1, :cond_1
 
-    .line 491
+    .line 516
     :cond_0
     :goto_0
     return-void
 
-    .line 483
+    .line 508
     :cond_1
     const-string v1, "android.nfc.extra.ABEAM_STATE"
 
@@ -773,7 +793,7 @@
 
     move-result v0
 
-    .line 484
+    .line 509
     .local v0, bAbeamOn:Z
     const-string v1, "[SBeam]"
 
@@ -797,10 +817,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 486
+    .line 511
     if-nez v0, :cond_0
 
-    .line 490
+    .line 515
     invoke-static {p0, v4, v4}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
     goto :goto_0
@@ -811,7 +831,7 @@
     .parameter "bOn"
 
     .prologue
-    .line 387
+    .line 414
     const-string v0, "[SBeam]"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -840,27 +860,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 388
+    .line 415
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
     if-nez v0, :cond_0
 
-    .line 395
+    .line 422
     :goto_0
     return-void
 
-    .line 390
+    .line 417
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 391
+    .line 418
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
     invoke-interface {v0}, Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;->dismiss()V
 
     goto :goto_0
 
-    .line 393
+    .line 420
     :cond_1
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mHelpCtrl:Lcom/android/settings/nfc/SBeamEnabler$ISBeamHelpController;
 
@@ -878,7 +898,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 494
+    .line 519
     const-string v3, "[SBeam]"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -901,7 +921,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 496
+    .line 521
     sget-object v3, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     if-eqz v3, :cond_1
@@ -930,11 +950,11 @@
 
     if-nez v3, :cond_1
 
-    .line 499
+    .line 524
     :cond_0
     const/4 p1, 0x0
 
-    .line 502
+    .line 527
     :cond_1
     const-string v3, "pref_sbeam"
 
@@ -944,31 +964,31 @@
 
     move-result-object v1
 
-    .line 504
+    .line 529
     .local v1, pref:Landroid/content/SharedPreferences;
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 505
+    .line 530
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v3, "SBeam_on_off"
 
     invoke-interface {v0, v3, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 506
+    .line 531
     if-eqz p2, :cond_2
 
-    .line 507
+    .line 532
     const-string v3, "sbeam_last_status"
 
     invoke-interface {v0, v3, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 508
+    .line 533
     :cond_2
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 510
+    .line 535
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -982,7 +1002,7 @@
     :cond_3
     invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 511
+    .line 536
     return-void
 .end method
 
@@ -990,21 +1010,21 @@
     .locals 3
 
     .prologue
-    .line 435
+    .line 460
     const-string v1, "[SBeam]"
 
     const-string v2, "SBeamEnabler.sendSBeamOff"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 436
+    .line 461
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.settings.action.SBEAM_OFF_INTERNAL"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 437
+    .line 462
     .local v0, i:Landroid/content/Intent;
     const-string v1, "turn_on"
 
@@ -1012,12 +1032,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 438
+    .line 463
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 439
+    .line 464
     return-void
 .end method
 
@@ -1028,7 +1048,7 @@
     .parameter "bSummary"
 
     .prologue
-    .line 571
+    .line 597
     sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     const/4 v1, 0x0
@@ -1039,35 +1059,35 @@
 
     if-nez v0, :cond_0
 
-    .line 572
+    .line 598
     const/4 p1, 0x0
 
-    .line 573
+    .line 599
     const/4 p2, 0x0
 
-    .line 574
+    .line 600
     const/4 p3, 0x0
 
-    .line 577
+    .line 603
     :cond_0
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
     if-nez v0, :cond_1
 
-    .line 591
+    .line 617
     :goto_0
     return-void
 
-    .line 580
+    .line 606
     :cond_1
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 581
+    .line 607
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1075,25 +1095,25 @@
 
     if-eqz v0, :cond_2
 
-    .line 582
+    .line 608
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 585
+    .line 611
     :cond_2
     if-eqz p3, :cond_3
 
-    .line 586
+    .line 612
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
-    const v1, 0x7f0902a8
+    const v1, 0x7f0902df
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setSummary(I)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 
-    .line 588
+    .line 614
     :cond_3
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mAndroidBeam:Landroid/preference/SwitchPreferenceScreen;
 
@@ -1105,15 +1125,15 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0902a9
+    const v0, 0x7f0902e0
 
     :goto_1
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setSummary(I)V
+    invoke-virtual {v1, v0}, Landroid/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f0902aa
+    const v0, 0x7f0902e1
 
     goto :goto_1
 .end method
@@ -1126,7 +1146,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 358
+    .line 366
     sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     if-eqz v0, :cond_1
@@ -1149,21 +1169,57 @@
 
     sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
+    invoke-virtual {v0, v3}, Landroid/app/enterprise/RestrictionPolicy;->isWiFiEnabled(Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+
+    invoke-virtual {v0}, Landroid/app/enterprise/RestrictionPolicy;->isWifiDirectAllowed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
+
     invoke-virtual {v0}, Landroid/app/enterprise/RestrictionPolicy;->isNFCEnabled()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 361
+    .line 371
     :cond_0
     const/4 p1, 0x0
 
-    .line 362
+    .line 372
     const/4 p2, 0x0
 
-    .line 365
+    .line 375
     :cond_1
+    iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mDeviceSettingsPolicy:Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
+    invoke-virtual {v0}, Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;->isNFCStateChangeAllowed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 376
+    iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
+    invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    .line 392
+    :cond_2
+    :goto_0
     const-string v0, "[SBeam]"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1202,25 +1258,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 367
+    .line 394
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0, p2, v3}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
-    .line 369
+    .line 396
     iput-boolean p2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    .line 371
+    .line 398
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    .line 372
+    .line 399
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p1}, Landroid/preference/SwitchPreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v0, p1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 373
+    .line 400
     const-string v0, "[SBeam]"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1235,7 +1291,7 @@
 
     iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v2}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v2}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
@@ -1255,10 +1311,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 374
+    .line 401
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -1266,37 +1322,66 @@
 
     xor-int/2addr v0, v1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    .line 375
+    .line 402
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
     iget-boolean v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 379
-    :cond_2
+    .line 406
+    :cond_3
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    .line 380
+    .line 407
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, p2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 381
+    .line 408
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 382
+    .line 409
     invoke-direct {p0, p2}, Lcom/android/settings/nfc/SBeamEnabler;->procHelpCtrl(Z)V
 
-    .line 384
-    :cond_3
+    .line 411
+    :cond_4
     return-void
+
+    .line 379
+    :pswitch_0
+    const/4 p1, 0x0
+
+    .line 380
+    const/4 p2, 0x0
+
+    .line 381
+    goto/16 :goto_0
+
+    .line 384
+    :pswitch_1
+    const/4 p1, 0x0
+
+    .line 385
+    const/4 p2, 0x1
+
+    .line 386
+    goto/16 :goto_0
+
+    .line 376
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public static showAirplaneMode(Landroid/content/Context;)V
@@ -1304,15 +1389,15 @@
     .parameter "context"
 
     .prologue
-    .line 557
+    .line 582
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler. showAirplaneMode"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 558
-    const v0, 0x7f0902ea
+    .line 583
+    const v0, 0x7f090321
 
     const/4 v1, 0x0
 
@@ -1322,7 +1407,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 559
+    .line 584
     return-void
 .end method
 
@@ -1331,15 +1416,15 @@
     .parameter "context"
 
     .prologue
-    .line 538
+    .line 563
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.showNotAllowWifi"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 539
-    const v0, 0x7f0902ba
+    .line 564
+    const v0, 0x7f0902f1
 
     const/4 v1, 0x1
 
@@ -1349,7 +1434,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 540
+    .line 565
     return-void
 .end method
 
@@ -1358,13 +1443,13 @@
     .parameter "bOn"
 
     .prologue
-    const v6, 0x7f0902b9
+    const v6, 0x7f0902f0
 
     const/4 v5, 0x3
 
     const/4 v4, 0x1
 
-    .line 207
+    .line 214
     const-string v1, "[SBeam]"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1393,19 +1478,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 209
+    .line 216
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->validateNfcAdapter()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 259
+    .line 265
     :cond_0
     :goto_0
     return v4
 
-    .line 213
+    .line 220
     :cond_1
     if-eqz p1, :cond_2
 
@@ -1417,17 +1502,17 @@
 
     if-nez v1, :cond_2
 
-    .line 214
+    .line 221
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->sendSBeamOff()V
 
-    .line 215
+    .line 222
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/settings/nfc/SBeamEnabler;->showNotAllowWifi(Landroid/content/Context;)V
 
     goto :goto_0
 
-    .line 219
+    .line 226
     :cond_2
     if-eqz p1, :cond_3
 
@@ -1439,42 +1524,42 @@
 
     if-nez v1, :cond_3
 
-    .line 220
+    .line 227
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->sendSBeamOff()V
 
-    .line 221
+    .line 228
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/settings/nfc/SBeamEnabler;->showAirplaneMode(Landroid/content/Context;)V
 
     goto :goto_0
 
-    .line 225
+    .line 232
     :cond_3
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v1, p1, v4}, Lcom/android/settings/nfc/SBeamEnabler;->saveSbeamOn(Landroid/content/Context;ZZ)V
 
-    .line 226
+    .line 233
     invoke-direct {p0, p1}, Lcom/android/settings/nfc/SBeamEnabler;->procHelpCtrl(Z)V
 
-    .line 228
+    .line 235
     iput-boolean p1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOnLastState:Z
 
-    .line 229
+    .line 236
     iput-boolean p1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    .line 230
+    .line 237
     if-eqz p1, :cond_0
 
-    .line 231
+    .line 238
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->getAdapterState()I
 
     move-result v0
 
-    .line 232
+    .line 239
     .local v0, nState:I
     const-string v1, "[SBeam]"
 
@@ -1504,39 +1589,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 233
+    .line 240
     const/4 v1, 0x5
 
     if-ne v1, v0, :cond_4
 
-    .line 234
-    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, v6, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
-
-    .line 236
-    iput-boolean v4, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
-
-    .line 237
-    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->readerEnable()Z
-
-    goto :goto_0
-
-    .line 239
-    :cond_4
-    if-eq v5, v0, :cond_5
-
-    const/4 v1, 0x2
-
-    if-eq v1, v0, :cond_5
-
-    .line 240
+    .line 241
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v6, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -1551,15 +1609,42 @@
     .line 243
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
+    invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->readerEnable()Z
+
+    goto :goto_0
+
+    .line 245
+    :cond_4
+    if-eq v5, v0, :cond_5
+
+    const/4 v1, 0x2
+
+    if-eq v1, v0, :cond_5
+
+    .line 246
+    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v6, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    .line 247
+    iput-boolean v4, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
+
+    .line 248
+    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
+
     invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->enable()Z
 
     goto/16 :goto_0
 
-    .line 247
+    .line 252
     :cond_5
     if-ne v5, v0, :cond_0
 
-    .line 248
+    .line 253
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->isNdefPushEnabled()Z
@@ -1568,12 +1653,12 @@
 
     if-nez v1, :cond_0
 
-    .line 249
+    .line 254
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v1}, Landroid/nfc/NfcAdapter;->enableNdefPush()Z
 
-    .line 251
+    .line 256
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v1
@@ -1586,7 +1671,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 252
+    .line 258
     invoke-direct {p0, v4, v4, v4}, Lcom/android/settings/nfc/SBeamEnabler;->setABeamSwitchStatus(ZZZ)V
 
     goto/16 :goto_0
@@ -1600,23 +1685,23 @@
 
     const/4 v1, 0x0
 
-    .line 417
+    .line 442
     iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     if-eqz v2, :cond_1
 
-    .line 431
+    .line 456
     :cond_0
     :goto_0
     return v0
 
-    .line 420
+    .line 445
     :cond_1
     iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     if-nez v2, :cond_2
 
-    .line 421
+    .line 446
     const-string v0, "[SBeam]"
 
     const-string v2, "SBeamEnabler.validateNfcAdapter : context is null"
@@ -1625,10 +1710,10 @@
 
     move v0, v1
 
-    .line 422
+    .line 447
     goto :goto_0
 
-    .line 425
+    .line 450
     :cond_2
     iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
@@ -1638,12 +1723,12 @@
 
     iput-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
-    .line 426
+    .line 451
     iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     if-nez v2, :cond_0
 
-    .line 427
+    .line 452
     const-string v0, "[SBeam]"
 
     const-string v2, "SBeamEnabler.validateNfcAdapter : fail to get"
@@ -1652,7 +1737,7 @@
 
     move v0, v1
 
-    .line 428
+    .line 453
     goto :goto_0
 .end method
 
@@ -1668,7 +1753,7 @@
 
     const/4 v3, 0x0
 
-    .line 263
+    .line 269
     const-string v0, "[SBeam]"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1711,7 +1796,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 265
+    .line 271
     sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     if-eqz v0, :cond_2
@@ -1732,6 +1817,14 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mDeviceSettingsPolicy:Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;
+
+    invoke-virtual {v0}, Landroid/app/enterprise/devicesettings/DeviceSettingsPolicy;->isNFCStateChangeAllowed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     sget-object v0, Lcom/android/settings/nfc/SBeamEnabler;->mRestrictionPolicy:Landroid/app/enterprise/RestrictionPolicy;
 
     invoke-virtual {v0}, Landroid/app/enterprise/RestrictionPolicy;->isNFCEnabled()Z
@@ -1740,39 +1833,39 @@
 
     if-nez v0, :cond_2
 
-    .line 268
+    .line 275
     :cond_0
     invoke-direct {p0, v3, v3}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
-    .line 338
+    .line 346
     :cond_1
     :goto_0
     return-void
 
-    .line 272
+    .line 279
     :cond_2
     if-ne v4, p1, :cond_5
 
-    .line 273
+    .line 280
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.STATE_OFF"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 274
+    .line 281
     iget-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
     if-eqz v0, :cond_3
 
-    .line 275
+    .line 282
     iput-boolean v3, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
-    .line 278
+    .line 285
     :cond_3
     if-eqz p2, :cond_4
 
-    .line 279
+    .line 286
     const-string v0, "android.nfc.extra.PREF_ADAPTER_STATE"
 
     invoke-virtual {p2, v0, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -1789,7 +1882,7 @@
 
     if-nez v0, :cond_4
 
-    .line 281
+    .line 288
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.changedNfcState : POWER OFF"
@@ -1798,33 +1891,33 @@
 
     goto :goto_0
 
-    .line 285
+    .line 292
     :cond_4
     invoke-direct {p0, v4, v3}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
     goto :goto_0
 
-    .line 286
+    .line 293
     :cond_5
     const/4 v0, 0x3
 
     if-ne v0, p1, :cond_9
 
-    .line 287
+    .line 294
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.STATE_ON"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 289
+    .line 296
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->validateNfcAdapter()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 293
+    .line 300
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->isNdefPushEnabled()Z
@@ -1833,40 +1926,40 @@
 
     if-eqz v0, :cond_7
 
-    .line 294
+    .line 301
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.changedNfcState : Enabled NDEF"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 295
+    .line 302
     iget-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
     invoke-direct {p0, v4, v0}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
-    .line 309
+    .line 317
     :cond_6
     :goto_1
     iput-boolean v3, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
     goto :goto_0
 
-    .line 297
+    .line 304
     :cond_7
     iget-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
     if-eqz v0, :cond_8
 
-    .line 298
+    .line 305
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->enableNdefPush()Z
 
-    .line 299
+    .line 306
     invoke-direct {p0, v4, v4}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
-    .line 301
+    .line 308
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -1879,31 +1972,31 @@
 
     if-eqz v0, :cond_6
 
-    .line 302
+    .line 310
     invoke-direct {p0, v4, v4, v4}, Lcom/android/settings/nfc/SBeamEnabler;->setABeamSwitchStatus(ZZZ)V
 
     goto :goto_1
 
-    .line 306
+    .line 314
     :cond_8
     invoke-direct {p0, v4, v3}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
     goto :goto_1
 
-    .line 310
+    .line 318
     :cond_9
     const/4 v0, 0x4
 
     if-ne v0, p1, :cond_a
 
-    .line 311
+    .line 319
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.STATE_TURNING_OFF"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 313
+    .line 321
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -1916,25 +2009,25 @@
 
     if-nez v0, :cond_1
 
-    .line 315
+    .line 323
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->disableButton()V
 
     goto/16 :goto_0
 
-    .line 317
+    .line 325
     :cond_a
     const/4 v0, 0x2
 
     if-ne v0, p1, :cond_b
 
-    .line 318
+    .line 326
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.STATE_TURNING_ON"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 320
+    .line 328
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -1947,44 +2040,44 @@
 
     if-nez v0, :cond_1
 
-    .line 322
+    .line 330
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->disableButton()V
 
     goto/16 :goto_0
 
-    .line 324
+    .line 332
     :cond_b
     const/4 v0, 0x5
 
     if-ne v0, p1, :cond_1
 
-    .line 325
+    .line 333
     const-string v0, "[SBeam]"
 
     const-string v1, "SBeamEnabler.STATE_CARD_MODE_ON"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 326
+    .line 334
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->validateNfcAdapter()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 332
+    .line 340
     iget-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReqNfcTurnOn:Z
 
     if-eqz v0, :cond_c
 
-    .line 333
+    .line 341
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->readerEnable()Z
 
     goto/16 :goto_0
 
-    .line 335
+    .line 343
     :cond_c
     invoke-direct {p0, v4, v3}, Lcom/android/settings/nfc/SBeamEnabler;->setState(ZZ)V
 
@@ -1997,29 +2090,29 @@
     .parameter "bOn"
 
     .prologue
-    .line 173
+    .line 179
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 174
+    .line 180
     invoke-direct {p0, p2}, Lcom/android/settings/nfc/SBeamEnabler;->turnOn(Z)Z
 
-    .line 175
+    .line 181
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v0, p2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 176
+    .line 182
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 177
+    .line 183
     return-void
 .end method
 
@@ -2029,7 +2122,7 @@
     .parameter "value"
 
     .prologue
-    .line 161
+    .line 167
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
     invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -2038,15 +2131,15 @@
 
     if-nez v1, :cond_0
 
-    .line 162
+    .line 168
     const/4 v1, 0x0
 
-    .line 169
+    .line 175
     .end local p2
     :goto_0
     return v1
 
-    .line 164
+    .line 170
     .restart local p2
     :cond_0
     check-cast p2, Ljava/lang/Boolean;
@@ -2056,22 +2149,22 @@
 
     move-result v0
 
-    .line 165
+    .line 171
     .local v0, bOn:Z
     iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v1}, Landroid/preference/SwitchPreferenceScreen;->isChecked()Z
+    invoke-virtual {v1}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v1
 
     if-ne v1, v0, :cond_1
 
-    .line 166
+    .line 172
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 169
+    .line 175
     :cond_1
     invoke-direct {p0, v0}, Lcom/android/settings/nfc/SBeamEnabler;->turnOn(Z)Z
 
@@ -2086,28 +2179,28 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 149
+    .line 155
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
     if-eqz v0, :cond_0
 
-    .line 150
+    .line 156
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 153
+    .line 159
     :cond_0
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     if-eqz v0, :cond_1
 
-    .line 154
+    .line 160
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 157
+    .line 163
     :cond_1
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
@@ -2115,7 +2208,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 158
+    .line 164
     return-void
 .end method
 
@@ -2123,7 +2216,16 @@
     .locals 3
 
     .prologue
-    .line 127
+    .line 132
+    iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 133
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/nfc/SBeamEnabler;->isSBeamOn(Landroid/content/Context;)Z
@@ -2132,7 +2234,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
-    .line 129
+    .line 135
     iget-boolean v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mbOn:Z
 
     if-eqz v0, :cond_0
@@ -2145,43 +2247,43 @@
 
     if-nez v0, :cond_0
 
-    .line 130
+    .line 136
     invoke-direct {p0}, Lcom/android/settings/nfc/SBeamEnabler;->sendSBeamOff()V
 
-    .line 131
+    .line 137
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settings/nfc/SBeamEnabler;->showNotAllowWifi(Landroid/content/Context;)V
 
-    .line 134
+    .line 140
     :cond_0
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
     if-eqz v0, :cond_1
 
-    .line 135
+    .line 141
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamPref:Landroid/preference/SwitchPreferenceScreen;
 
-    invoke-virtual {v0, p0}, Landroid/preference/SwitchPreferenceScreen;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/preference/Preference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
-    .line 138
+    .line 144
     :cond_1
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     if-eqz v0, :cond_2
 
-    .line 139
+    .line 145
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 142
+    .line 148
     :cond_2
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     if-eqz v0, :cond_3
 
-    .line 143
+    .line 149
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
@@ -2192,17 +2294,8 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/nfc/SBeamEnabler;->changedNfcState(ILandroid/content/Intent;)V
 
-    .line 145
+    .line 152
     :cond_3
-    iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    iget-object v2, p0, Lcom/android/settings/nfc/SBeamEnabler;->mIntentFilter:Landroid/content/IntentFilter;
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    .line 146
     return-void
 .end method
 
@@ -2213,37 +2306,37 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 180
+    .line 186
     const-string v0, "[SBeam]"
 
     const-string v1, "setSwitch !"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 182
+    .line 188
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
     if-ne v0, p1, :cond_0
 
-    .line 191
+    .line 198
     :goto_0
     return-void
 
-    .line 183
+    .line 190
     :cond_0
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 184
+    .line 191
     iput-object p1, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    .line 186
+    .line 193
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     if-eqz v0, :cond_1
 
-    .line 187
+    .line 194
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mNfcAdapter:Landroid/nfc/NfcAdapter;
 
     invoke-virtual {v0}, Landroid/nfc/NfcAdapter;->getAdapterState()I
@@ -2252,11 +2345,11 @@
 
     invoke-virtual {p0, v0, v2}, Lcom/android/settings/nfc/SBeamEnabler;->changedNfcState(ILandroid/content/Intent;)V
 
-    .line 190
+    .line 197
     :cond_1
     iget-object v0, p0, Lcom/android/settings/nfc/SBeamEnabler;->mSbeamSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method

@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 704
+    .line 788
     iput-object p1, p0, Lcom/android/settings/NotificationPanelMenu$6$2;->this$1:Lcom/android/settings/NotificationPanelMenu$6;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,14 @@
     .parameter "which"
 
     .prologue
-    .line 707
+    .line 791
     iget-object v0, p0, Lcom/android/settings/NotificationPanelMenu$6$2;->this$1:Lcom/android/settings/NotificationPanelMenu$6;
 
     iget-object v0, v0, Lcom/android/settings/NotificationPanelMenu$6;->this$0:Lcom/android/settings/NotificationPanelMenu;
 
     #calls: Lcom/android/settings/NotificationPanelMenu;->resetPanel()V
-    invoke-static {v0}, Lcom/android/settings/NotificationPanelMenu;->access$1200(Lcom/android/settings/NotificationPanelMenu;)V
+    invoke-static {v0}, Lcom/android/settings/NotificationPanelMenu;->access$1300(Lcom/android/settings/NotificationPanelMenu;)V
 
-    .line 708
+    .line 792
     return-void
 .end method

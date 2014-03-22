@@ -1,14 +1,11 @@
 .class Lcom/android/settings/SPenSettingsMenu$2;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "SPenSettingsMenu.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/SPenSettingsMenu;->makeTalkBackMagnificationDisablePopup(Ljava/lang/String;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/settings/SPenSettingsMenu;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,107 +17,40 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/SPenSettingsMenu;
 
-.field final synthetic val$fromKey:Ljava/lang/String;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/SPenSettingsMenu;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/settings/SPenSettingsMenu;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 402
+    .line 396
     iput-object p1, p0, Lcom/android/settings/SPenSettingsMenu$2;->this$0:Lcom/android/settings/SPenSettingsMenu;
 
-    iput-object p2, p0, Lcom/android/settings/SPenSettingsMenu$2;->val$fromKey:Ljava/lang/String;
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
-    .parameter "dialog"
-    .parameter "which"
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
+    .parameter "msg"
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 404
-    const-string v0, "pen_air_view"
-
-    iget-object v1, p0, Lcom/android/settings/SPenSettingsMenu$2;->val$fromKey:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 405
+    .line 398
     iget-object v0, p0, Lcom/android/settings/SPenSettingsMenu$2;->this$0:Lcom/android/settings/SPenSettingsMenu;
 
     #getter for: Lcom/android/settings/SPenSettingsMenu;->mPenAirViewSwitchPref:Landroid/preference/SwitchPreferenceScreen;
-    invoke-static {v0}, Lcom/android/settings/SPenSettingsMenu;->access$000(Lcom/android/settings/SPenSettingsMenu;)Landroid/preference/SwitchPreferenceScreen;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    .line 411
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 406
-    :cond_1
-    const-string v0, "key_air_button"
-
-    iget-object v1, p0, Lcom/android/settings/SPenSettingsMenu$2;->val$fromKey:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 407
-    iget-object v0, p0, Lcom/android/settings/SPenSettingsMenu$2;->this$0:Lcom/android/settings/SPenSettingsMenu;
-
-    #getter for: Lcom/android/settings/SPenSettingsMenu;->mAirCommandSwitchPref:Landroid/preference/SwitchPreferenceScreen;
     invoke-static {v0}, Lcom/android/settings/SPenSettingsMenu;->access$100(Lcom/android/settings/SPenSettingsMenu;)Landroid/preference/SwitchPreferenceScreen;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    const/4 v1, 0x0
 
-    goto :goto_0
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 408
-    :cond_2
-    const-string v0, "key_writing_buddy"
-
-    iget-object v1, p0, Lcom/android/settings/SPenSettingsMenu$2;->val$fromKey:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 409
-    iget-object v0, p0, Lcom/android/settings/SPenSettingsMenu$2;->this$0:Lcom/android/settings/SPenSettingsMenu;
-
-    #getter for: Lcom/android/settings/SPenSettingsMenu;->mDirectPenInputSwitchPref:Landroid/preference/SwitchPreferenceScreen;
-    invoke-static {v0}, Lcom/android/settings/SPenSettingsMenu;->access$200(Lcom/android/settings/SPenSettingsMenu;)Landroid/preference/SwitchPreferenceScreen;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
-
-    goto :goto_0
+    .line 399
+    return-void
 .end method

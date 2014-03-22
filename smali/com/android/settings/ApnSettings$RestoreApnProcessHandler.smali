@@ -28,16 +28,16 @@
     .parameter "restoreApnUiHandler"
 
     .prologue
-    .line 942
+    .line 996
     iput-object p1, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->this$0:Lcom/android/settings/ApnSettings;
 
-    .line 943
+    .line 997
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 944
+    .line 998
     iput-object p3, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->mRestoreApnUiHandler:Landroid/os/Handler;
 
-    .line 945
+    .line 999
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .parameter "x0"
 
     .prologue
-    .line 939
+    .line 993
     iget-object v0, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->mRestoreApnUiHandler:Landroid/os/Handler;
 
     return-object v0
@@ -58,7 +58,7 @@
     .parameter "x1"
 
     .prologue
-    .line 939
+    .line 993
     iput-object p1, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->mRestoreApnUiHandler:Landroid/os/Handler;
 
     return-object p1
@@ -73,24 +73,24 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 949
+    .line 1003
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 971
+    .line 1025
     :goto_0
     return-void
 
-    .line 951
+    .line 1005
     :pswitch_0
     iget-object v2, p0, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler;->this$0:Lcom/android/settings/ApnSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/ApnSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 952
+    .line 1006
     .local v1, resolver:Landroid/content/ContentResolver;
     invoke-static {}, Lcom/android/settings/ApnSettings;->access$800()Landroid/net/Uri;
 
@@ -98,12 +98,12 @@
 
     invoke-virtual {v1, v2, v3, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 956
+    .line 1010
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 957
+    .line 1011
     .local v0, mHandler:Landroid/os/Handler;
     new-instance v2, Lcom/android/settings/ApnSettings$RestoreApnProcessHandler$1;
 
@@ -115,7 +115,7 @@
 
     goto :goto_0
 
-    .line 949
+    .line 1003
     nop
 
     :pswitch_data_0

@@ -3,7 +3,7 @@
 .source "WifiApSettings.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -27,52 +27,22 @@
     .parameter
 
     .prologue
-    .line 674
+    .line 788
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$6;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 2
-    .parameter "v"
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 0
+    .parameter "dialog"
+    .parameter "which"
 
     .prologue
-    .line 676
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$6;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
-
-    const/4 v1, 0x7
-
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApSettings;->removeDialog(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$400(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
-
-    .line 677
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$6;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
-
-    const/4 v1, 0x0
-
-    #setter for: Lcom/android/settings/wifi/mobileap/WifiApSettings;->mContinueOpen:Z
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$502(Lcom/android/settings/wifi/mobileap/WifiApSettings;Z)Z
-
-    .line 678
-    const-string v0, "WifiApSettings"
-
-    const-string v1, "selects ChangeSecurity"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 679
-    iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSettings$6;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSettings;
-
-    const/4 v1, 0x1
-
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApSettings;->showDialog(I)V
-    invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApSettings;->access$600(Lcom/android/settings/wifi/mobileap/WifiApSettings;I)V
-
-    .line 680
+    .line 790
     return-void
 .end method

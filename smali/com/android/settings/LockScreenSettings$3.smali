@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 648
+    .line 661
     iput-object p1, p0, Lcom/android/settings/LockScreenSettings$3;->this$0:Lcom/android/settings/LockScreenSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -45,7 +45,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 651
+    .line 664
     iget-object v1, p0, Lcom/android/settings/LockScreenSettings$3;->this$0:Lcom/android/settings/LockScreenSettings;
 
     #getter for: Lcom/android/settings/LockScreenSettings;->mDualclock:Landroid/preference/SwitchPreferenceScreen;
@@ -55,7 +55,7 @@
 
     iget-object v2, p0, Lcom/android/settings/LockScreenSettings$3;->this$0:Lcom/android/settings/LockScreenSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/LockScreenSettings;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/settings/SettingsPreferenceFragment;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -68,12 +68,12 @@
     if-eqz v2, :cond_0
 
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreferenceScreen;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
-    .line 652
+    .line 665
     return-void
 
-    .line 651
+    .line 664
     :cond_0
     const/4 v0, 0x0
 

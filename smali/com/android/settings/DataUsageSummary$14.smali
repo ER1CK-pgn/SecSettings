@@ -3,7 +3,7 @@
 .source "DataUsageSummary.java"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -27,89 +27,46 @@
     .parameter
 
     .prologue
-    .line 1590
+    .line 1726
     iput-object p1, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
-    .parameter
-    .parameter "view"
-    .parameter "position"
-    .parameter "id"
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/widget/AdapterView",
-            "<*>;",
-            "Landroid/view/View;",
-            "IJ)V"
-        }
-    .end annotation
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+    .parameter "v"
 
     .prologue
-    .line 1593
-    .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
-    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+    .line 1729
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/app/Fragment;->isAdded()Z
 
-    .line 1594
-    .local v1, context:Landroid/content/Context;
-    invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
+    move-result v0
 
-    move-result-object v0
+    if-nez v0, :cond_0
 
-    check-cast v0, Lcom/android/settings/DataUsageSummary$AppItem;
-
-    .line 1597
-    .local v0, app:Lcom/android/settings/DataUsageSummary$AppItem;
-    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    #getter for: Lcom/android/settings/DataUsageSummary;->mUidDetailProvider:Lcom/android/settings/net/UidDetailProvider;
-    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$1900(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/net/UidDetailProvider;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    if-nez v0, :cond_1
-
-    .line 1601
-    :cond_0
+    .line 1733
     :goto_0
     return-void
 
-    .line 1599
-    :cond_1
-    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
+    .line 1732
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    #getter for: Lcom/android/settings/DataUsageSummary;->mUidDetailProvider:Lcom/android/settings/net/UidDetailProvider;
-    invoke-static {v3}, Lcom/android/settings/DataUsageSummary;->access$1900(Lcom/android/settings/DataUsageSummary;)Lcom/android/settings/net/UidDetailProvider;
+    iget-object v1, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
 
-    move-result-object v3
+    #getter for: Lcom/android/settings/DataUsageSummary;->mAppSettingsIntent:Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/settings/DataUsageSummary;->access$1800(Lcom/android/settings/DataUsageSummary;)Landroid/content/Intent;
 
-    iget v4, v0, Lcom/android/settings/DataUsageSummary$AppItem;->key:I
+    move-result-object v1
 
-    const/4 v5, 0x1
-
-    invoke-virtual {v3, v4, v5}, Lcom/android/settings/net/UidDetailProvider;->getUidDetail(IZ)Lcom/android/settings/net/UidDetail;
-
-    move-result-object v2
-
-    .line 1600
-    .local v2, detail:Lcom/android/settings/net/UidDetail;
-    iget-object v3, p0, Lcom/android/settings/DataUsageSummary$14;->this$0:Lcom/android/settings/DataUsageSummary;
-
-    iget-object v4, v2, Lcom/android/settings/net/UidDetail;->label:Ljava/lang/CharSequence;
-
-    invoke-static {v3, v0, v4}, Lcom/android/settings/DataUsageSummary$AppDetailsFragment;->show(Lcom/android/settings/DataUsageSummary;Lcom/android/settings/DataUsageSummary$AppItem;Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method

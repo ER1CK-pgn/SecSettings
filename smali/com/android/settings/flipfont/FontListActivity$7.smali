@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 657
+    .line 705
     iput-object p1, p0, Lcom/android/settings/flipfont/FontListActivity$7;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
     iput-object p2, p0, Lcom/android/settings/flipfont/FontListActivity$7;->val$deletePackageName:Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -48,7 +48,7 @@
     .parameter "which"
 
     .prologue
-    .line 659
+    .line 707
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -73,7 +73,7 @@
 
     move-result-object v0
 
-    .line 660
+    .line 708
     .local v0, packageURI:Landroid/net/Uri;
     new-instance v2, Landroid/content/Intent;
 
@@ -87,7 +87,7 @@
 
     move-result-object v1
 
-    .line 664
+    .line 712
     .local v1, uninstallIntent:Landroid/content/Intent;
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListActivity$7;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
@@ -98,11 +98,11 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 665
+    .line 713
     iget-object v2, p0, Lcom/android/settings/flipfont/FontListActivity$7;->this$0:Lcom/android/settings/flipfont/FontListActivity;
 
-    invoke-virtual {v2}, Lcom/android/settings/flipfont/FontListActivity;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
-    .line 666
+    .line 714
     return-void
 .end method

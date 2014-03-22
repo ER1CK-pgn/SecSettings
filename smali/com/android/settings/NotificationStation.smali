@@ -859,7 +859,7 @@
 
     .line 242
     .local v9, e:Landroid/os/RemoteException;
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 244
     const/4 v15, 0x0
@@ -1012,19 +1012,19 @@
     .line 173
     iget-object v1, p0, Lcom/android/settings/NotificationStation;->mAdapter:Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;
 
-    invoke-virtual {v1}, Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;->clear()V
+    invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->clear()V
 
     .line 174
     iget-object v1, p0, Lcom/android/settings/NotificationStation;->mAdapter:Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;->addAll(Ljava/util/Collection;)V
+    invoke-virtual {v1, v0}, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V
 
     .line 175
     iget-object v1, p0, Lcom/android/settings/NotificationStation;->mAdapter:Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;
 
     iget-object v2, p0, Lcom/android/settings/NotificationStation;->mNotificationSorter:Ljava/util/Comparator;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/NotificationStation$NotificationHistoryAdapter;->sort(Ljava/util/Comparator;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ArrayAdapter;->sort(Ljava/util/Comparator;)V
 
     .line 177
     :cond_0
@@ -1062,7 +1062,7 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     .line 391
-    invoke-virtual {p0, v0}, Lcom/android/settings/NotificationStation;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
 
     .line 392
     return-void
@@ -1092,7 +1092,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 136
-    invoke-virtual {p0}, Lcom/android/settings/NotificationStation;->getListView()Landroid/widget/ListView;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -1142,7 +1142,7 @@
     invoke-static {v0, v1}, Lcom/android/settings/NotificationStation;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 104
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onAttach(Landroid/app/Activity;)V
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
     .line 105
     iput-object p1, p0, Lcom/android/settings/NotificationStation;->mContext:Landroid/content/Context;
@@ -1234,7 +1234,7 @@
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 123
-    invoke-virtual {p0}, Lcom/android/settings/NotificationStation;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
@@ -1248,7 +1248,7 @@
 
     .prologue
     .line 128
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onDestroyView()V
+    invoke-super {p0}, Landroid/preference/PreferenceFragment;->onDestroyView()V
 
     .line 129
     return-void
@@ -1268,7 +1268,7 @@
     invoke-static {v0, v1}, Lcom/android/settings/NotificationStation;->logd(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 149
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onPause()V
+    invoke-super {p0}, Landroid/app/Fragment;->onPause()V
 
     .line 150
     iget-object v0, p0, Lcom/android/settings/NotificationStation;->mContext:Landroid/content/Context;

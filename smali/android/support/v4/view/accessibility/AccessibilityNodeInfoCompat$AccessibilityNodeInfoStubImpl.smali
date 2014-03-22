@@ -22,8 +22,8 @@
     .locals 0
 
     .prologue
-    .line 100
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 104
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,17 @@
     .parameter "action"
 
     .prologue
-    .line 124
+    .line 128
+    return-void
+.end method
+
+.method public addChild(Ljava/lang/Object;Landroid/view/View;)V
+    .locals 0
+    .parameter "info"
+    .parameter "child"
+
+    .prologue
+    .line 133
     return-void
 .end method
 
@@ -45,7 +55,7 @@
     .parameter "info"
 
     .prologue
-    .line 143
+    .line 147
     const/4 v0, 0x0
 
     return v0
@@ -57,7 +67,7 @@
     .parameter "outBounds"
 
     .prologue
-    .line 149
+    .line 153
     return-void
 .end method
 
@@ -67,7 +77,7 @@
     .parameter "outBounds"
 
     .prologue
-    .line 154
+    .line 158
     return-void
 .end method
 
@@ -76,7 +86,7 @@
     .parameter "info"
 
     .prologue
-    .line 168
+    .line 172
     const/4 v0, 0x0
 
     return-object v0
@@ -87,7 +97,7 @@
     .parameter "info"
 
     .prologue
-    .line 173
+    .line 177
     const/4 v0, 0x0
 
     return-object v0
@@ -98,7 +108,7 @@
     .parameter "info"
 
     .prologue
-    .line 178
+    .line 182
     const/4 v0, 0x0
 
     return-object v0
@@ -109,7 +119,7 @@
     .parameter "info"
 
     .prologue
-    .line 188
+    .line 192
     const/4 v0, 0x0
 
     return-object v0
@@ -120,10 +130,21 @@
     .parameter "info"
 
     .prologue
-    .line 403
+    .line 407
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public isAccessibilityFocused(Ljava/lang/Object;)Z
+    .locals 1
+    .parameter "info"
+
+    .prologue
+    .line 237
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public isCheckable(Ljava/lang/Object;)Z
@@ -131,7 +152,7 @@
     .parameter "info"
 
     .prologue
-    .line 198
+    .line 202
     const/4 v0, 0x0
 
     return v0
@@ -142,7 +163,7 @@
     .parameter "info"
 
     .prologue
-    .line 203
+    .line 207
     const/4 v0, 0x0
 
     return v0
@@ -153,7 +174,7 @@
     .parameter "info"
 
     .prologue
-    .line 208
+    .line 212
     const/4 v0, 0x0
 
     return v0
@@ -164,7 +185,7 @@
     .parameter "info"
 
     .prologue
-    .line 213
+    .line 217
     const/4 v0, 0x0
 
     return v0
@@ -175,7 +196,7 @@
     .parameter "info"
 
     .prologue
-    .line 218
+    .line 222
     const/4 v0, 0x0
 
     return v0
@@ -186,7 +207,7 @@
     .parameter "info"
 
     .prologue
-    .line 223
+    .line 227
     const/4 v0, 0x0
 
     return v0
@@ -197,7 +218,7 @@
     .parameter "info"
 
     .prologue
-    .line 238
+    .line 242
     const/4 v0, 0x0
 
     return v0
@@ -208,7 +229,7 @@
     .parameter "info"
 
     .prologue
-    .line 243
+    .line 247
     const/4 v0, 0x0
 
     return v0
@@ -219,7 +240,7 @@
     .parameter "info"
 
     .prologue
-    .line 248
+    .line 252
     const/4 v0, 0x0
 
     return v0
@@ -230,10 +251,71 @@
     .parameter "info"
 
     .prologue
-    .line 253
+    .line 257
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public isVisibleToUser(Ljava/lang/Object;)Z
+    .locals 1
+    .parameter "info"
+
+    .prologue
+    .line 232
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public obtain(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+    .parameter "info"
+
+    .prologue
+    .line 122
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public recycle(Ljava/lang/Object;)V
+    .locals 0
+    .parameter "info"
+
+    .prologue
+    .line 398
+    return-void
+.end method
+
+.method public setAccessibilityFocused(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "focused"
+
+    .prologue
+    .line 338
+    return-void
+.end method
+
+.method public setBoundsInParent(Ljava/lang/Object;Landroid/graphics/Rect;)V
+    .locals 0
+    .parameter "info"
+    .parameter "bounds"
+
+    .prologue
+    .line 283
+    return-void
+.end method
+
+.method public setBoundsInScreen(Ljava/lang/Object;Landroid/graphics/Rect;)V
+    .locals 0
+    .parameter "info"
+    .parameter "bounds"
+
+    .prologue
+    .line 288
+    return-void
 .end method
 
 .method public setClassName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
@@ -242,7 +324,87 @@
     .parameter "className"
 
     .prologue
-    .line 299
+    .line 303
+    return-void
+.end method
+
+.method public setClickable(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "clickable"
+
+    .prologue
+    .line 308
+    return-void
+.end method
+
+.method public setContentDescription(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+    .locals 0
+    .parameter "info"
+    .parameter "contentDescription"
+
+    .prologue
+    .line 313
+    return-void
+.end method
+
+.method public setEnabled(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "enabled"
+
+    .prologue
+    .line 318
+    return-void
+.end method
+
+.method public setFocusable(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "focusable"
+
+    .prologue
+    .line 323
+    return-void
+.end method
+
+.method public setFocused(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "focused"
+
+    .prologue
+    .line 328
+    return-void
+.end method
+
+.method public setLongClickable(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "longClickable"
+
+    .prologue
+    .line 343
+    return-void
+.end method
+
+.method public setPackageName(Ljava/lang/Object;Ljava/lang/CharSequence;)V
+    .locals 0
+    .parameter "info"
+    .parameter "packageName"
+
+    .prologue
+    .line 348
+    return-void
+.end method
+
+.method public setParent(Ljava/lang/Object;Landroid/view/View;)V
+    .locals 0
+    .parameter "info"
+    .parameter "parent"
+
+    .prologue
+    .line 353
     return-void
 .end method
 
@@ -252,6 +414,36 @@
     .parameter "scrollable"
 
     .prologue
-    .line 359
+    .line 363
+    return-void
+.end method
+
+.method public setSelected(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "selected"
+
+    .prologue
+    .line 368
+    return-void
+.end method
+
+.method public setSource(Ljava/lang/Object;Landroid/view/View;)V
+    .locals 0
+    .parameter "info"
+    .parameter "source"
+
+    .prologue
+    .line 373
+    return-void
+.end method
+
+.method public setVisibleToUser(Ljava/lang/Object;Z)V
+    .locals 0
+    .parameter "info"
+    .parameter "visibleToUser"
+
+    .prologue
+    .line 333
     return-void
 .end method

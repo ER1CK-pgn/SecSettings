@@ -69,7 +69,7 @@
     .line 48
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/homesync/FileOperationService;->stopForeground(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
 
     .line 49
     return-void
@@ -98,7 +98,7 @@
     .local v0, notification:Landroid/app/Notification;
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/settings/homesync/FileOperationService;->startForeground(ILandroid/app/Notification;)V
+    invoke-virtual {p0, v1, v0}, Landroid/app/Service;->startForeground(ILandroid/app/Notification;)V
 
     .line 57
     invoke-super {p0, p1, p2, p3}, Landroid/app/Service;->onStartCommand(Landroid/content/Intent;II)I

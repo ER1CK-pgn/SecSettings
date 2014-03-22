@@ -33,17 +33,17 @@
 
     :array_0
     .array-data 0x4
-        0x4ct 0x2t 0x2t 0x7ft
-        0x4ft 0x2t 0x2t 0x7ft
-        0x52t 0x2t 0x2t 0x7ft
-        0x4bt 0x2t 0x2t 0x7ft
-        0x53t 0x2t 0x2t 0x7ft
-        0x51t 0x2t 0x2t 0x7ft
-        0x4dt 0x2t 0x2t 0x7ft
-        0x50t 0x2t 0x2t 0x7ft
-        0x4et 0x2t 0x2t 0x7ft
-        0x54t 0x2t 0x2t 0x7ft
-        0x4at 0x2t 0x2t 0x7ft
+        0x9dt 0x2t 0x2t 0x7ft
+        0xa0t 0x2t 0x2t 0x7ft
+        0xa3t 0x2t 0x2t 0x7ft
+        0x9ct 0x2t 0x2t 0x7ft
+        0xa4t 0x2t 0x2t 0x7ft
+        0xa2t 0x2t 0x2t 0x7ft
+        0x9et 0x2t 0x2t 0x7ft
+        0xa1t 0x2t 0x2t 0x7ft
+        0x9ft 0x2t 0x2t 0x7ft
+        0xa5t 0x2t 0x2t 0x7ft
+        0x9bt 0x2t 0x2t 0x7ft
     .end array-data
 .end method
 
@@ -115,7 +115,7 @@
 
     aget v1, v1, v5
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setIcon(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
     .line 80
     :goto_0
@@ -151,7 +151,7 @@
 
     aget v1, v1, v2
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setIcon(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
     goto :goto_0
 
@@ -161,7 +161,7 @@
 
     aget v1, v1, v5
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setIcon(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setIcon(I)V
 
     goto :goto_0
 .end method
@@ -171,7 +171,7 @@
 
     .prologue
     .line 131
-    invoke-virtual {p0}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/preference/Preference;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -181,7 +181,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0033
+    const v3, 0x7f0a003a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -221,9 +221,9 @@
     if-nez v2, :cond_1
 
     .line 140
-    const v2, 0x7f090498
+    const v2, 0x7f0904d2
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(I)V
+    invoke-virtual {p0, v2}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 146
     :goto_0
@@ -240,9 +240,9 @@
     if-ne v2, v3, :cond_2
 
     .line 142
-    const v2, 0x7f0904c6
+    const v2, 0x7f090500
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(I)V
+    invoke-virtual {p0, v2}, Landroid/preference/Preference;->setSummary(I)V
 
     goto :goto_0
 
@@ -254,7 +254,7 @@
 
     aget-object v2, v1, v2
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method
@@ -401,7 +401,7 @@
 
     iget-object v1, v1, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 90
     :goto_0
@@ -455,7 +455,7 @@
 
     iget-object v1, v1, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pPeer;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 

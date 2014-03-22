@@ -48,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 59
+    .line 117
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
     const-string v1, "UNKNOWN"
@@ -57,7 +57,7 @@
 
     sput-object v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;->UNKNOWN:Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
-    .line 60
+    .line 119
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
     const-string v1, "WPA"
@@ -66,7 +66,7 @@
 
     sput-object v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;->WPA:Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
-    .line 61
+    .line 121
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
     const-string v1, "WPA2"
@@ -75,7 +75,7 @@
 
     sput-object v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;->WPA2:Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
-    .line 62
+    .line 123
     new-instance v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
     const-string v1, "WPA_WPA2"
@@ -84,7 +84,7 @@
 
     sput-object v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;->WPA_WPA2:Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
-    .line 58
+    .line 115
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
@@ -121,7 +121,7 @@
     .end annotation
 
     .prologue
-    .line 58
+    .line 115
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -132,7 +132,7 @@
     .parameter
 
     .prologue
-    .line 58
+    .line 115
     const-class v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -148,10 +148,10 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 115
     sget-object v0, Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;->$VALUES:[Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;
 
-    invoke-virtual {v0}, [Lcom/android/settings/wifi/hs20/Hs20AccessPoint$PskType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

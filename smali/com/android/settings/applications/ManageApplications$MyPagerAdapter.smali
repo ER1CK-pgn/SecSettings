@@ -29,12 +29,12 @@
     .parameter
 
     .prologue
-    .line 525
+    .line 535
     iput-object p1, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     invoke-direct {p0}, Landroid/support/v4/view/PagerAdapter;-><init>()V
 
-    .line 527
+    .line 537
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->mCurPos:I
@@ -51,13 +51,13 @@
     .parameter "object"
 
     .prologue
-    .line 545
+    .line 555
     check-cast p3, Landroid/view/View;
 
     .end local p3
     invoke-virtual {p1, p3}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 546
+    .line 556
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .locals 1
 
     .prologue
-    .line 531
+    .line 541
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     #getter for: Lcom/android/settings/applications/ManageApplications;->mNumTabs:I
@@ -81,7 +81,7 @@
     .parameter "object"
 
     .prologue
-    .line 555
+    .line 565
     invoke-super {p0, p1}, Landroid/support/v4/view/PagerAdapter;->getItemPosition(Ljava/lang/Object;)I
 
     move-result v0
@@ -94,7 +94,7 @@
     .parameter "position"
 
     .prologue
-    .line 561
+    .line 571
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     #getter for: Lcom/android/settings/applications/ManageApplications;->mTabs:Ljava/util/ArrayList;
@@ -119,7 +119,7 @@
     .parameter "position"
 
     .prologue
-    .line 536
+    .line 546
     iget-object v2, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     #getter for: Lcom/android/settings/applications/ManageApplications;->mTabs:Ljava/util/ArrayList;
@@ -133,7 +133,7 @@
 
     check-cast v1, Lcom/android/settings/applications/ManageApplications$TabInfo;
 
-    .line 537
+    .line 547
     .local v1, tab:Lcom/android/settings/applications/ManageApplications$TabInfo;
     iget-object v2, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->this$0:Lcom/android/settings/applications/ManageApplications;
 
@@ -160,16 +160,16 @@
 
     move-result-object v0
 
-    .line 538
+    .line 548
     .local v0, root:Landroid/view/View;
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 539
-    const v2, 0x7f0b0132
+    .line 549
+    const v2, 0x7f0b0141
 
     invoke-virtual {v0, v2, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 540
+    .line 550
     return-object v0
 .end method
 
@@ -179,7 +179,7 @@
     .parameter "object"
 
     .prologue
-    .line 550
+    .line 560
     if-ne p1, p2, :cond_0
 
     const/4 v0, 0x1
@@ -198,17 +198,17 @@
     .parameter "state"
 
     .prologue
-    .line 575
+    .line 585
     if-nez p1, :cond_0
 
-    .line 576
+    .line 586
     iget-object v0, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->this$0:Lcom/android/settings/applications/ManageApplications;
 
     iget v1, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->mCurPos:I
 
     invoke-virtual {v0, v1}, Lcom/android/settings/applications/ManageApplications;->updateCurrentTab(I)V
 
-    .line 578
+    .line 588
     :cond_0
     return-void
 .end method
@@ -220,7 +220,7 @@
     .parameter "positionOffsetPixels"
 
     .prologue
-    .line 566
+    .line 576
     return-void
 .end method
 
@@ -229,9 +229,9 @@
     .parameter "position"
 
     .prologue
-    .line 570
+    .line 580
     iput p1, p0, Lcom/android/settings/applications/ManageApplications$MyPagerAdapter;->mCurPos:I
 
-    .line 571
+    .line 581
     return-void
 .end method

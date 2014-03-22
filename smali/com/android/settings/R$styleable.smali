@@ -166,8 +166,8 @@
 
     :array_6
     .array-data 0x4
-        0x12t 0x0t 0x1t 0x7ft
         0x13t 0x0t 0x1t 0x7ft
+        0x14t 0x0t 0x1t 0x7ft
     .end array-data
 .end method
 
@@ -175,7 +175,7 @@
     .locals 0
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

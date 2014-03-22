@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 662
+    .line 689
     iput-object p1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 664
+    .line 691
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v1
@@ -53,19 +53,19 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 665
+    .line 692
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     const-string v2, "power"
 
-    #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-    invoke-static {v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3800(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Ljava/lang/String;)Ljava/lang/Object;
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3900(Lcom/android/settings/wifi/p2p/WifiP2pSettings;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 666
+    .line 693
     .local v0, pm:Landroid/os/PowerManager;
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -73,11 +73,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/PowerManager;->userActivity(JZ)V
 
-    .line 667
+    .line 694
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->isP2pEnabled()Z
-    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3500(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
+    invoke-static {v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3600(Lcom/android/settings/wifi/p2p/WifiP2pSettings;)Z
 
     move-result v1
 
@@ -92,7 +92,7 @@
 
     if-nez v1, :cond_1
 
-    .line 668
+    .line 695
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     const/4 v2, 0x1
@@ -100,13 +100,13 @@
     #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->setScanTimer(ZZ)V
     invoke-static {v1, v2, v3}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$900(Lcom/android/settings/wifi/p2p/WifiP2pSettings;ZZ)V
 
-    .line 672
+    .line 699
     .end local v0           #pm:Landroid/os/PowerManager;
     :cond_0
     :goto_0
     return-void
 
-    .line 669
+    .line 696
     .restart local v0       #pm:Landroid/os/PowerManager;
     :cond_1
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
@@ -118,13 +118,13 @@
 
     if-eqz v1, :cond_0
 
-    .line 670
+    .line 697
     iget-object v1, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings$6;->this$0:Lcom/android/settings/wifi/p2p/WifiP2pSettings;
 
     const/4 v2, 0x5
 
-    #calls: Lcom/android/settings/wifi/p2p/WifiP2pSettings;->showDialog(I)V
-    invoke-static {v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$3900(Lcom/android/settings/wifi/p2p/WifiP2pSettings;I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
+    invoke-static {v1, v2}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->access$4000(Lcom/android/settings/wifi/p2p/WifiP2pSettings;I)V
 
     goto :goto_0
 .end method

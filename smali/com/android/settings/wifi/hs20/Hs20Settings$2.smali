@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 101
+    .line 201
     iput-object p1, p0, Lcom/android/settings/wifi/hs20/Hs20Settings$2;->this$0:Lcom/android/settings/wifi/hs20/Hs20Settings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,21 +42,21 @@
     .parameter "reason"
 
     .prologue
-    .line 106
+    .line 211
     const-string v0, "Hs20Settings"
 
     const-string v1, "ActionListener::onFailure"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 107
+    .line 213
     iget-object v0, p0, Lcom/android/settings/wifi/hs20/Hs20Settings$2;->this$0:Lcom/android/settings/wifi/hs20/Hs20Settings;
 
-    invoke-virtual {v0}, Lcom/android/settings/wifi/hs20/Hs20Settings;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f090394
+    const v1, 0x7f0903cb
 
     const/4 v2, 0x0
 
@@ -66,7 +66,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 110
+    .line 219
     return-void
 .end method
 
@@ -74,13 +74,13 @@
     .locals 2
 
     .prologue
-    .line 103
+    .line 205
     const-string v0, "Hs20Settings"
 
     const-string v1, "ActionListener::onSuccess"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
+    .line 207
     return-void
 .end method

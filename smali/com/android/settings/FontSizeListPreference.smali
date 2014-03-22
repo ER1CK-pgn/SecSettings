@@ -40,7 +40,7 @@
     .prologue
     const/4 v0, 0x0
 
-    const v1, 0x7f090c51
+    const v1, 0x7f090d65
 
     .line 62
     invoke-direct {p0, p1, p2}, Landroid/preference/ListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -69,20 +69,20 @@
     iput-object p1, p0, Lcom/android/settings/FontSizeListPreference;->context:Landroid/content/Context;
 
     .line 64
-    invoke-virtual {p0, v1}, Lcom/android/settings/FontSizeListPreference;->setTitle(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
     .line 65
-    const v0, 0x7f090c52
+    const v0, 0x7f090d66
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/FontSizeListPreference;->setSummary(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(I)V
 
     .line 66
-    invoke-virtual {p0, v1}, Lcom/android/settings/FontSizeListPreference;->setDialogTitle(I)V
+    invoke-virtual {p0, v1}, Landroid/preference/DialogPreference;->setDialogTitle(I)V
 
     .line 67
     const/high16 v0, 0x104
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/FontSizeListPreference;->setNegativeButtonText(I)V
+    invoke-virtual {p0, v0}, Landroid/preference/DialogPreference;->setNegativeButtonText(I)V
 
     .line 68
     return-void
@@ -140,7 +140,7 @@
 
     .prologue
     .line 120
-    invoke-super {p0}, Landroid/preference/ListPreference;->onClick()V
+    invoke-super {p0}, Landroid/preference/DialogPreference;->onClick()V
 
     .line 121
     return-void
@@ -151,7 +151,7 @@
 
     .prologue
     .line 125
-    invoke-super {p0}, Landroid/preference/ListPreference;->onClick()V
+    invoke-super {p0}, Landroid/preference/DialogPreference;->onClick()V
 
     .line 126
     const/4 v0, 0x1
@@ -208,7 +208,7 @@
     .line 145
     iget-object v0, p0, Lcom/android/settings/FontSizeListPreference;->mFontSize:Lcom/android/settings/DisplaySettings;
 
-    invoke-virtual {v0}, Lcom/android/settings/DisplaySettings;->finish()V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     .line 147
     :cond_0
@@ -219,7 +219,7 @@
     .line 148
     iget-object v0, p0, Lcom/android/settings/FontSizeListPreference;->mFontsize:Lcom/android/settings/FontMenu;
 
-    invoke-virtual {v0}, Lcom/android/settings/FontMenu;->finish()V
+    invoke-virtual {v0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     .line 151
     :cond_1
@@ -269,7 +269,7 @@
 
     check-cast v0, [Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/FontSizeListPreference;->setEntries([Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
     .line 93
     iget-object v0, p0, Lcom/android/settings/FontSizeListPreference;->context:Landroid/content/Context;

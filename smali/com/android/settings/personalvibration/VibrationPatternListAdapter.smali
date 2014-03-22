@@ -208,7 +208,7 @@
     .line 138
     iget-object v4, p0, Lcom/android/settings/personalvibration/VibrationPatternListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f040185
+    const v5, 0x7f0401c5
 
     const/4 v6, 0x0
 
@@ -234,7 +234,19 @@
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 143
-    const/high16 v4, 0x41a0
+    iget-object v4, p0, Lcom/android/settings/personalvibration/VibrationPatternListAdapter;->context:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f0e000c
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v4
+
+    int-to-float v4, v4
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setTextSize(F)V
 

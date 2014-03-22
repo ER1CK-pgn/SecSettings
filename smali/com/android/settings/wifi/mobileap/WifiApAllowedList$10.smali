@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 330
+    .line 342
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$10;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,14 +43,14 @@
     .parameter "whichButton"
 
     .prologue
-    .line 332
+    .line 344
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApAllowedList$10;->this$0:Lcom/android/settings/wifi/mobileap/WifiApAllowedList;
 
     const/4 v1, 0x1
 
-    #calls: Lcom/android/settings/wifi/mobileap/WifiApAllowedList;->showDialog(I)V
+    #calls: Lcom/android/settings/SettingsPreferenceFragment;->showDialog(I)V
     invoke-static {v0, v1}, Lcom/android/settings/wifi/mobileap/WifiApAllowedList;->access$700(Lcom/android/settings/wifi/mobileap/WifiApAllowedList;I)V
 
-    .line 333
+    .line 345
     return-void
 .end method

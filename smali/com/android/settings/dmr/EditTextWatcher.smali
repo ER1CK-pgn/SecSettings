@@ -32,7 +32,7 @@
     const/4 v0, 0x0
 
     .line 14
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 25
     iput-object v0, p0, Lcom/android/settings/dmr/EditTextWatcher;->mDialog:Landroid/app/Dialog;
@@ -145,7 +145,7 @@
     const/4 v5, 0x1
 
     :goto_1
-    invoke-virtual {v7, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v7, v5}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 68
     const-string v5, "/"
@@ -408,7 +408,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090f57
+    const v1, 0x7f091091
 
     const/4 v2, 0x1
 
@@ -439,7 +439,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090f69
+    const v1, 0x7f0910a3
 
     invoke-virtual {p2, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

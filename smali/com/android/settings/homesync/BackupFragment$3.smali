@@ -30,7 +30,7 @@
     .line 296
     iput-object p1, p0, Lcom/android/settings/homesync/BackupFragment$3;->this$0:Lcom/android/settings/homesync/BackupFragment;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -58,7 +58,7 @@
 
     .line 301
     .local v0, dialog:Landroid/app/AlertDialog;
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 302
     return-void

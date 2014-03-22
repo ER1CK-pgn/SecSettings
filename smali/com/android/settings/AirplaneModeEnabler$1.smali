@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 55
+    .line 59
     iput-object p1, p0, Lcom/android/settings/AirplaneModeEnabler$1;->this$0:Lcom/android/settings/AirplaneModeEnabler;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 58
+    .line 62
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 68
+    .line 72
     :goto_0
     return-void
 
-    .line 60
+    .line 64
     :pswitch_0
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler$1;->this$0:Lcom/android/settings/AirplaneModeEnabler;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 63
+    .line 67
     :pswitch_1
     new-instance v0, Landroid/content/Intent;
 
@@ -65,7 +65,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 64
+    .line 68
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "state"
 
@@ -73,7 +73,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 65
+    .line 69
     iget-object v1, p0, Lcom/android/settings/AirplaneModeEnabler$1;->this$0:Lcom/android/settings/AirplaneModeEnabler;
 
     #getter for: Lcom/android/settings/AirplaneModeEnabler;->mContext:Landroid/content/Context;
@@ -85,7 +85,7 @@
 
     goto :goto_0
 
-    .line 58
+    .line 62
     nop
 
     :pswitch_data_0

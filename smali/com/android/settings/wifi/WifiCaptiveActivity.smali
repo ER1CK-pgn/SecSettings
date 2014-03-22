@@ -305,7 +305,7 @@
 
     .line 386
     .local v1, factory:Landroid/view/LayoutInflater;
-    const v5, 0x7f0400f5
+    const v5, 0x7f04011a
 
     const/4 v6, 0x0
 
@@ -341,7 +341,7 @@
 
     .line 398
     :cond_1
-    const v5, 0x7f0b0286
+    const v5, 0x7f0b02c2
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -352,7 +352,7 @@
     invoke-virtual {v5, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 399
-    const v5, 0x7f0b008b
+    const v5, 0x7f0b0094
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -369,7 +369,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f090309
+    const v6, 0x7f090340
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -379,7 +379,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f09074c
+    const v6, 0x7f09079f
 
     new-instance v7, Lcom/android/settings/wifi/WifiCaptiveActivity$11;
 
@@ -430,7 +430,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f090306
+    const v4, 0x7f09033d
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -442,7 +442,7 @@
 
     .line 313
     .local v2, newDialog:Landroid/app/AlertDialog$Builder;
-    const v3, 0x7f09074c
+    const v3, 0x7f09079f
 
     new-instance v4, Lcom/android/settings/wifi/WifiCaptiveActivity$5;
 
@@ -452,7 +452,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090305
+    const v4, 0x7f09033c
 
     new-instance v5, Lcom/android/settings/wifi/WifiCaptiveActivity$4;
 
@@ -486,19 +486,19 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f090306
+    const v2, 0x7f09033d
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f090307
+    const v2, 0x7f09033e
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f090304
+    const v2, 0x7f09033b
 
     new-instance v3, Lcom/android/settings/wifi/WifiCaptiveActivity$9;
 
@@ -508,7 +508,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090308
+    const v2, 0x7f09033f
 
     new-instance v3, Lcom/android/settings/wifi/WifiCaptiveActivity$8;
 
@@ -518,7 +518,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090173
+    const v2, 0x7f090195
 
     new-instance v3, Lcom/android/settings/wifi/WifiCaptiveActivity$7;
 
@@ -672,7 +672,7 @@
 
     new-array v4, v4, [Ljava/lang/Void;
 
-    invoke-virtual {v3, v4}, Lcom/android/settings/wifi/WifiCaptiveActivity$CaptivePortalCheckTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v3, v4}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     .line 243
     .end local v1           #info:Landroid/net/NetworkInfo;
@@ -824,20 +824,20 @@
     .line 263
     const/16 v5, 0x2710
 
-    invoke-virtual {v4, v5}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+    invoke-virtual {v4, v5}, Ljava/net/URLConnection;->setConnectTimeout(I)V
 
     .line 264
     const/16 v5, 0x2710
 
-    invoke-virtual {v4, v5}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
+    invoke-virtual {v4, v5}, Ljava/net/URLConnection;->setReadTimeout(I)V
 
     .line 265
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v5}, Ljava/net/HttpURLConnection;->setUseCaches(Z)V
+    invoke-virtual {v4, v5}, Ljava/net/URLConnection;->setUseCaches(Z)V
 
     .line 266
-    invoke-virtual {v4}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
+    invoke-virtual {v4}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
     .line 267
     sget-boolean v5, Lcom/android/settings/wifi/WifiCaptiveActivity;->DBG:Z
@@ -1113,15 +1113,15 @@
     const/4 v3, 0x1
 
     .line 152
-    invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiCaptiveActivity;->requestWindowFeature(I)Z
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
     .line 153
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 155
-    const v2, 0x7f0401c0
+    const v2, 0x7f0401fc
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiCaptiveActivity;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
     .line 156
     iput-object p0, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mContext:Landroid/content/Context;
@@ -1129,7 +1129,7 @@
     .line 157
     const-string v2, "wifi"
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiCaptiveActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1138,9 +1138,9 @@
     iput-object v2, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     .line 158
-    const v2, 0x7f0b04dc
+    const v2, 0x7f0b04cb
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiCaptiveActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -1149,9 +1149,9 @@
     iput-object v2, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->webview:Landroid/webkit/WebView;
 
     .line 159
-    const v2, 0x7f0b04da
+    const v2, 0x7f0b0539
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiCaptiveActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -1176,12 +1176,12 @@
     .line 165
     iget-object v2, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mConnectionText:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
     .line 166
     iget-object v2, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->webview:Landroid/webkit/WebView;
 
-    invoke-virtual {v2, v4}, Landroid/webkit/WebView;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 173
     :goto_0
@@ -1262,9 +1262,9 @@
     iput-object v6, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mCaptiveCheckTask:Lcom/android/settings/wifi/WifiCaptiveActivity$CaptivePortalCheckTask;
 
     .line 185
-    const v2, 0x7f0b04dd
+    const v2, 0x7f0b04ce
 
-    invoke-virtual {p0, v2}, Lcom/android/settings/wifi/WifiCaptiveActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1309,12 +1309,12 @@
     .line 169
     iget-object v2, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mConnectionText:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 170
     iget-object v2, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->webview:Landroid/webkit/WebView;
 
-    invoke-virtual {v2, v5}, Landroid/webkit/WebView;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -1326,7 +1326,7 @@
     .line 214
     iget-object v0, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/wifi/WifiCaptiveActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 215
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
@@ -1364,7 +1364,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/WifiCaptiveActivity;->mFilter:Landroid/content/IntentFilter;
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/settings/wifi/WifiCaptiveActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v0, v1}, Landroid/content/ContextWrapper;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 210
     return-void

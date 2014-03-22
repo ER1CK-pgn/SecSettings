@@ -625,7 +625,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0913c4
+    const v16, 0x7f091534
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -723,7 +723,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020022
+    const v4, 0x7f020029
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1143,19 +1143,19 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0913c6
+    const v1, 0x7f091536
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0913c7
+    const v1, 0x7f091537
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090864
+    const v1, 0x7f0908fe
 
     new-instance v2, Lcom/android/settings/myplace/SelectMapActivity$8;
 
@@ -1165,7 +1165,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1590,7 +1590,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0907a1
+    const v4, 0x7f0907f4
 
     invoke-virtual {v2, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1646,7 +1646,7 @@
     iput v2, p0, Lcom/android/settings/myplace/SelectMapActivity;->mLongitude:I
 
     .line 132
-    const v2, 0x7f040161
+    const v2, 0x7f04019c
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myplace/SelectMapActivity;->setContentView(I)V
 
@@ -1667,7 +1667,7 @@
     iput-object v2, p0, Lcom/android/settings/myplace/SelectMapActivity;->mGeo:Landroid/location/Geocoder;
 
     .line 138
-    const v2, 0x7f0b03d1
+    const v2, 0x7f0b0439
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myplace/SelectMapActivity;->findViewById(I)Landroid/view/View;
 
@@ -1683,7 +1683,7 @@
     invoke-virtual {v2, v5}, Lcom/google/android/maps/MapView;->setBuiltInZoomControls(Z)V
 
     .line 142
-    const v2, 0x7f0b0382
+    const v2, 0x7f0b03cc
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myplace/SelectMapActivity;->findViewById(I)Landroid/view/View;
 
@@ -1750,7 +1750,7 @@
 
     .line 158
     :cond_0
-    const v2, 0x7f0b03cf
+    const v2, 0x7f0b0437
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myplace/SelectMapActivity;->findViewById(I)Landroid/view/View;
 
@@ -1770,7 +1770,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 171
-    const v2, 0x7f0b03d0
+    const v2, 0x7f0b0438
 
     invoke-virtual {p0, v2}, Lcom/android/settings/myplace/SelectMapActivity;->findViewById(I)Landroid/view/View;
 
@@ -1803,7 +1803,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f00fd
+    const v3, 0x7f0f013e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1816,7 +1816,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f00fc
+    const v3, 0x7f0f013d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1899,7 +1899,7 @@
 
     .line 765
     .local v0, inflater:Landroid/view/MenuInflater;
-    const v1, 0x7f120005
+    const v1, 0x7f120007
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -1930,7 +1930,7 @@
 
     .line 767
     :cond_1
-    const v1, 0x7f090173
+    const v1, 0x7f090195
 
     invoke-interface {p1, v3, v3, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1939,7 +1939,7 @@
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
     .line 769
-    const v1, 0x7f090d54
+    const v1, 0x7f090e7d
 
     invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1952,7 +1952,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200d8
+    const v2, 0x7f020118
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1961,7 +1961,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200dc
+    const v2, 0x7f02011c
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -2081,8 +2081,8 @@
         0x0 -> :sswitch_2
         0x1 -> :sswitch_1
         0x102002c -> :sswitch_0
-        0x7f0b05f6 -> :sswitch_2
-        0x7f0b05f8 -> :sswitch_1
+        0x7f0b0672 -> :sswitch_2
+        0x7f0b0674 -> :sswitch_1
     .end sparse-switch
 .end method
 

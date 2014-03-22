@@ -9,7 +9,7 @@
 
     .prologue
     .line 39
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
     return-void
@@ -31,25 +31,25 @@
 
     .line 45
     :pswitch_0
-    const v0, 0x7f0900eb
+    const v0, 0x7f09010a
 
     goto :goto_0
 
     .line 47
     :pswitch_1
-    const v0, 0x7f0900f1
+    const v0, 0x7f090111
 
     goto :goto_0
 
     .line 49
     :pswitch_2
-    const v0, 0x7f0900ef
+    const v0, 0x7f09010f
 
     goto :goto_0
 
     .line 51
     :pswitch_3
-    const v0, 0x7f0900f0
+    const v0, 0x7f090110
 
     goto :goto_0
 
@@ -108,21 +108,21 @@
     invoke-virtual {p1, p4}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
     .line 78
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {p1}, Landroid/app/Dialog;->show()V
 
     .line 79
     return-object p1
 
     .line 68
     :cond_0
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {p1}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 69
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
 
     .line 72
     :cond_1
@@ -191,7 +191,7 @@
     .line 99
     const-string v3, "title"
 
-    const v4, 0x7f09024b
+    const v4, 0x7f090270
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
     :cond_1
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
-    const v2, 0x7f10002d
+    const v2, 0x7f100034
 
     invoke-direct {v1, p0, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 356
+    .line 454
     iput-object p1, p0, Lcom/android/settings/AirplaneModeSwitchEnabler$7;->this$0:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,21 +43,21 @@
     .parameter "which"
 
     .prologue
-    .line 359
+    .line 457
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSwitchEnabler$7;->this$0:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     #getter for: Lcom/android/settings/AirplaneModeSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$300(Lcom/android/settings/AirplaneModeSwitchEnabler;)Landroid/widget/Switch;
+    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$400(Lcom/android/settings/AirplaneModeSwitchEnabler;)Landroid/widget/Switch;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 360
+    .line 458
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSwitchEnabler$7;->this$0:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     #getter for: Lcom/android/settings/AirplaneModeSwitchEnabler;->mSwitch:Landroid/widget/Switch;
-    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$300(Lcom/android/settings/AirplaneModeSwitchEnabler;)Landroid/widget/Switch;
+    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$400(Lcom/android/settings/AirplaneModeSwitchEnabler;)Landroid/widget/Switch;
 
     move-result-object v0
 
@@ -74,22 +74,22 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
-    .line 362
+    .line 460
     :cond_0
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSwitchEnabler$7;->this$0:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     #getter for: Lcom/android/settings/AirplaneModeSwitchEnabler;->mCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$400(Lcom/android/settings/AirplaneModeSwitchEnabler;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$500(Lcom/android/settings/AirplaneModeSwitchEnabler;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    .line 363
+    .line 461
     iget-object v0, p0, Lcom/android/settings/AirplaneModeSwitchEnabler$7;->this$0:Lcom/android/settings/AirplaneModeSwitchEnabler;
 
     #getter for: Lcom/android/settings/AirplaneModeSwitchEnabler;->mCheck:Lcom/sec/android/touchwiz/widget/TwCheckBox;
-    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$400(Lcom/android/settings/AirplaneModeSwitchEnabler;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
+    invoke-static {v0}, Lcom/android/settings/AirplaneModeSwitchEnabler;->access$500(Lcom/android/settings/AirplaneModeSwitchEnabler;)Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->setChecked(Z)V
 
-    .line 364
+    .line 462
     :cond_1
     return-void
 .end method

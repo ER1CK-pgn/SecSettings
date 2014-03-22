@@ -36,7 +36,7 @@
     const/4 v2, 0x0
 
     .line 60
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     iput-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -204,7 +204,7 @@
     .line 153
     iget-object v1, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
     .line 154
     iput-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
@@ -218,7 +218,7 @@
     .line 158
     iget-object v1, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
     .line 159
     iput-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
@@ -231,7 +231,7 @@
 
     iget-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e96
+    const v3, 0x7f090fcf
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -249,7 +249,7 @@
 
     iget-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090e97
+    const v3, 0x7f090fd0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -267,7 +267,7 @@
 
     iget-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f09081b
+    const v3, 0x7f090899
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -295,7 +295,7 @@
 
     iget-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f090cb8
+    const v3, 0x7f090dd2
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -340,7 +340,7 @@
     .line 196
     iget-object v1, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     .line 198
     iget-object v1, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
@@ -349,7 +349,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/FingerAirViewEnabler$4;-><init>(Lcom/android/settings/FingerAirViewEnabler;)V
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     goto/16 :goto_0
 .end method
@@ -380,7 +380,7 @@
     .line 213
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 214
     iput-object v1, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
@@ -394,7 +394,7 @@
     .line 218
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 219
     iput-object v1, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
@@ -407,13 +407,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090e69
+    const v1, 0x7f090fa2
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090e68
+    const v1, 0x7f090fa1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -444,7 +444,7 @@
     .line 244
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto :goto_0
 .end method
@@ -753,7 +753,7 @@
     .line 80
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 81
     iput-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mTalkbackDisableDialog:Landroid/app/AlertDialog;
@@ -767,7 +767,7 @@
     .line 85
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
     .line 86
     iput-object v2, p0, Lcom/android/settings/FingerAirViewEnabler;->mAllDisabledDialog:Landroid/app/AlertDialog;
@@ -787,7 +787,7 @@
     .line 90
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 91
     return-void
@@ -803,7 +803,7 @@
     .line 73
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 74
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mContext:Landroid/content/Context;
@@ -864,7 +864,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 98
     iput-object p1, p0, Lcom/android/settings/FingerAirViewEnabler;->mSwitch:Landroid/widget/Switch;
@@ -875,7 +875,7 @@
     .line 100
     iget-object v0, p0, Lcom/android/settings/FingerAirViewEnabler;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     goto :goto_0
 .end method

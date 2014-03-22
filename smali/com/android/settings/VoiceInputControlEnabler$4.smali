@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 210
+    .line 228
     iput-object p1, p0, Lcom/android/settings/VoiceInputControlEnabler$4;->this$0:Lcom/android/settings/VoiceInputControlEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -42,6 +42,6 @@
     .parameter "dialog"
 
     .prologue
-    .line 211
+    .line 229
     return-void
 .end method

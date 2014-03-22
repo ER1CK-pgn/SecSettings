@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 449
+    .line 497
     iput-object p1, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$2;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -43,12 +43,12 @@
     .parameter "arg1"
 
     .prologue
-    .line 451
+    .line 499
     iget-object v0, p0, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler$2;->this$0:Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;
 
     #calls: Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->preProvisioning()V
     invoke-static {v0}, Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;->access$300(Lcom/android/settings/wifi/mobileap/WifiApSwitchEnabler;)V
 
-    .line 452
+    .line 500
     return-void
 .end method

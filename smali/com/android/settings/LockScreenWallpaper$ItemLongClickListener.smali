@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 325
+    .line 326
     iput-object p1, p0, Lcom/android/settings/LockScreenWallpaper$ItemLongClickListener;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 328
+    .line 329
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     new-instance v1, Landroid/content/Intent;
 
@@ -87,18 +87,18 @@
 
     move-result-object v0
 
-    .line 330
+    .line 331
     .local v0, in:Landroid/content/Intent;
     const/high16 v1, 0x1080
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 331
+    .line 332
     iget-object v1, p0, Lcom/android/settings/LockScreenWallpaper$ItemLongClickListener;->this$0:Lcom/android/settings/LockScreenWallpaper;
 
-    invoke-virtual {v1, v0}, Lcom/android/settings/LockScreenWallpaper;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 332
+    .line 333
     const/4 v1, 0x1
 
     return v1

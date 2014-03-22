@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 908
+    .line 962
     iput-object p1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 908
+    .line 962
     invoke-direct {p0, p1}, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;-><init>(Lcom/android/settings/ApnSettings;)V
 
     return-void
@@ -55,16 +55,16 @@
 
     const/4 v3, 0x0
 
-    .line 911
+    .line 965
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 936
+    .line 990
     :goto_0
     return-void
 
-    .line 913
+    .line 967
     :pswitch_0
     const-string v1, "KDI"
 
@@ -80,7 +80,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 914
+    .line 968
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     const-string v2, "1"
@@ -88,26 +88,26 @@
     #calls: Lcom/android/settings/ApnSettings;->setSelectedApnKey(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/settings/ApnSettings;->access$500(Lcom/android/settings/ApnSettings;Ljava/lang/String;)V
 
-    .line 916
+    .line 970
     :cond_0
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     #calls: Lcom/android/settings/ApnSettings;->fillList()V
     invoke-static {v1}, Lcom/android/settings/ApnSettings;->access$200(Lcom/android/settings/ApnSettings;)V
 
-    .line 917
+    .line 971
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
-    invoke-virtual {v1}, Lcom/android/settings/ApnSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    invoke-virtual {v1}, Landroid/preference/PreferenceActivity;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+    invoke-virtual {v1, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 918
+    .line 972
     invoke-static {v3}, Lcom/android/settings/ApnSettings;->access$102(Z)Z
 
-    .line 920
+    .line 974
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     #getter for: Lcom/android/settings/ApnSettings;->isVzw:Z
@@ -126,35 +126,35 @@
 
     if-nez v1, :cond_1
 
-    .line 921
+    .line 975
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     iget-object v1, v1, Lcom/android/settings/ApnSettings;->pref_vzwdefault:Lcom/android/settings/ApnPreference;
 
-    invoke-virtual {v1, v3}, Lcom/android/settings/ApnPreference;->setEnabled(Z)V
+    invoke-virtual {v1, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    .line 925
+    .line 979
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     const/16 v2, 0x3e9
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/ApnSettings;->dismissDialog(I)V
+    invoke-virtual {v1, v2}, Landroid/app/Activity;->dismissDialog(I)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 929
+    .line 983
     :goto_1
     iget-object v1, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
     iget-object v2, p0, Lcom/android/settings/ApnSettings$RestoreApnUiHandler;->this$0:Lcom/android/settings/ApnSettings;
 
-    invoke-virtual {v2}, Lcom/android/settings/ApnSettings;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f09066b
+    const v3, 0x7f0906a6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -168,11 +168,11 @@
 
     goto :goto_0
 
-    .line 926
+    .line 980
     :catch_0
     move-exception v0
 
-    .line 927
+    .line 981
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const-string v1, "ApnSettings"
 
@@ -182,7 +182,7 @@
 
     goto :goto_1
 
-    .line 911
+    .line 965
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

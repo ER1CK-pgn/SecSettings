@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 148
+    .line 168
     invoke-static {}, Landroid/security/KeyStore$State;->values()[Landroid/security/KeyStore$State;
 
     move-result-object v0
@@ -39,7 +39,7 @@
 
     sget-object v1, Landroid/security/KeyStore$State;->UNINITIALIZED:Landroid/security/KeyStore$State;
 
-    invoke-virtual {v1}, Landroid/security/KeyStore$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Landroid/security/KeyStore$State;->LOCKED:Landroid/security/KeyStore$State;
 
-    invoke-virtual {v1}, Landroid/security/KeyStore$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     sget-object v1, Landroid/security/KeyStore$State;->UNLOCKED:Landroid/security/KeyStore$State;
 
-    invoke-virtual {v1}, Landroid/security/KeyStore$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

@@ -3,12 +3,12 @@
 .source "SMotionSettings.java"
 
 # interfaces
-.implements Landroid/view/View$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/motion2013/SMotionSettings;->onActivityCreated(Landroid/os/Bundle;)V
+    value = Lcom/android/settings/motion2013/SMotionSettings;->showGuideDialog(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,112 +20,74 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
+.field final synthetic val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/settings/motion2013/SMotionSettings;)V
+.method constructor <init>(Lcom/android/settings/motion2013/SMotionSettings;Lcom/sec/android/touchwiz/widget/TwCheckBox;)V
     .locals 0
+    .parameter
     .parameter
 
     .prologue
-    .line 270
+    .line 374
     iput-object p1, p0, Lcom/android/settings/motion2013/SMotionSettings$7;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/settings/motion2013/SMotionSettings$7;->val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 6
-    .parameter "v"
-    .parameter "keyCode"
-    .parameter "event"
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 4
+    .parameter "dialog"
+    .parameter "which"
 
     .prologue
-    const/4 v3, 0x1
+    .line 376
+    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$7;->val$checkbox:Lcom/sec/android/touchwiz/widget/TwCheckBox;
 
-    const/4 v2, 0x0
+    invoke-virtual {v2}, Lcom/sec/android/touchwiz/widget/TwCheckBox;->isChecked()Z
 
-    .line 273
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
+    move-result v2
 
-    move-result v4
+    if-eqz v2, :cond_0
 
-    if-ne v4, v3, :cond_0
+    .line 377
+    iget-object v2, p0, Lcom/android/settings/motion2013/SMotionSettings$7;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
 
-    .line 274
-    packed-switch p2, :pswitch_data_0
+    invoke-virtual {v2}, Lcom/android/settings/motion2013/SMotionSettings;->getActivity()Landroid/app/Activity;
 
-    .line 288
-    :cond_0
-    :goto_0
-    return v2
+    move-result-object v2
 
-    .line 277
-    :pswitch_0
-    iget-object v4, p0, Lcom/android/settings/motion2013/SMotionSettings$7;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
+    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
-    invoke-virtual {v4}, Lcom/android/settings/motion2013/SMotionSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v1
 
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/preference/PreferenceScreen;->getRootAdapter()Landroid/widget/ListAdapter;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/settings/motion2013/SMotionSettings$7;->this$0:Lcom/android/settings/motion2013/SMotionSettings;
-
-    invoke-virtual {v5}, Lcom/android/settings/motion2013/SMotionSettings;->getListView()Landroid/widget/ListView;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/widget/ListView;->getSelectedItemPosition()I
-
-    move-result v5
-
-    invoke-interface {v4, v5}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
+    .line 378
+    .local v1, sharedPreferences:Landroid/content/SharedPreferences;
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 278
-    .local v0, item:Ljava/lang/Object;
-    if-nez v0, :cond_1
+    .line 379
+    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    const-string v2, "pref_air_motion_sensor_noti"
 
-    .line 279
-    const-string v3, "SMotionSettings"
+    const/4 v3, 0x1
 
-    const-string v4, "dispatchKeyEvent item is null"
+    invoke-interface {v0, v2, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    .line 380
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    goto :goto_0
-
-    .line 282
-    :cond_1
-    instance-of v4, v0, Landroid/preference/SwitchPreferenceScreen;
-
-    if-eqz v4, :cond_0
-
-    move-object v1, v0
-
-    .line 283
-    check-cast v1, Landroid/preference/SwitchPreferenceScreen;
-
-    .line 284
-    .local v1, preference:Landroid/preference/SwitchPreferenceScreen;
-    invoke-virtual {v1}, Landroid/preference/SwitchPreferenceScreen;->performClick()V
-
-    move v2, v3
-
-    .line 285
-    goto :goto_0
-
-    .line 274
-    :pswitch_data_0
-    .packed-switch 0x15
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
+    .line 382
+    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v1           #sharedPreferences:Landroid/content/SharedPreferences;
+    :cond_0
+    return-void
 .end method

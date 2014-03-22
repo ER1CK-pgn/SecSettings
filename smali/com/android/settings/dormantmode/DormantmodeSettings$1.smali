@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 109
+    .line 111
     iput-object p1, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$1;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,18 +40,18 @@
     .parameter "selfChange"
 
     .prologue
-    .line 112
+    .line 114
     const-string v0, "DormantModeSettings"
 
     const-string v1, "onChange() DORMANTMODE_SWITCH_CHANGED"
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 113
+    .line 115
     iget-object v0, p0, Lcom/android/settings/dormantmode/DormantmodeSettings$1;->this$0:Lcom/android/settings/dormantmode/DormantmodeSettings;
 
     invoke-virtual {v0}, Lcom/android/settings/dormantmode/DormantmodeSettings;->updateDormantmodepage()V
 
-    .line 114
+    .line 116
     return-void
 .end method

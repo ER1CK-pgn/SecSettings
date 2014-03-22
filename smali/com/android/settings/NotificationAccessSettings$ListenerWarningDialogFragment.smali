@@ -47,7 +47,7 @@
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 97
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings$ListenerWarningDialogFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -73,11 +73,11 @@
 
     .line 101
     .local v1, cn:Landroid/content/ComponentName;
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings$ListenerWarningDialogFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v6, 0x7f090232
+    const v6, 0x7f090257
 
     new-array v7, v8, [Ljava/lang/Object;
 
@@ -89,11 +89,11 @@
 
     .line 103
     .local v4, title:Ljava/lang/String;
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings$ListenerWarningDialogFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v6, 0x7f090233
+    const v6, 0x7f090258
 
     new-array v7, v8, [Ljava/lang/Object;
 
@@ -107,7 +107,7 @@
     .local v3, summary:Ljava/lang/String;
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Lcom/android/settings/NotificationAccessSettings$ListenerWarningDialogFragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -185,7 +185,7 @@
     invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 90
-    invoke-virtual {p0, v0}, Lcom/android/settings/NotificationAccessSettings$ListenerWarningDialogFragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
     .line 92
     return-object p0

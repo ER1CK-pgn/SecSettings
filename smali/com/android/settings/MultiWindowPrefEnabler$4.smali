@@ -30,7 +30,7 @@
     .line 136
     iput-object p1, p0, Lcom/android/settings/MultiWindowPrefEnabler$4;->this$0:Lcom/android/settings/MultiWindowPrefEnabler;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v4}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 140
     iget-object v2, p0, Lcom/android/settings/MultiWindowPrefEnabler$4;->this$0:Lcom/android/settings/MultiWindowPrefEnabler;
@@ -87,7 +87,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 142
     new-instance v0, Landroid/os/Handler;

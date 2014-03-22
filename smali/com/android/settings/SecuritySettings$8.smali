@@ -1,101 +1,95 @@
-.class synthetic Lcom/android/settings/SecuritySettings$8;
+.class Lcom/android/settings/SecuritySettings$8;
 .super Ljava/lang/Object;
 .source "SecuritySettings.java"
 
+# interfaces
+.implements Landroid/content/DialogInterface$OnClickListener;
+
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settings/SecuritySettings;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/settings/SecuritySettings;->showReactivationLockDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$com$android$settings$SecuritySettings$PWState:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/settings/SecuritySettings;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/android/settings/SecuritySettings;)V
+    .locals 0
+    .parameter
 
     .prologue
-    .line 1639
-    invoke-static {}, Lcom/android/settings/SecuritySettings$PWState;->values()[Lcom/android/settings/SecuritySettings$PWState;
+    .line 2082
+    iput-object p1, p0, Lcom/android/settings/SecuritySettings$8;->this$0:Lcom/android/settings/SecuritySettings;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 4
+    .parameter "dialog"
+    .parameter "which"
+
+    .prologue
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    .line 2084
+    iget-object v0, p0, Lcom/android/settings/SecuritySettings$8;->this$0:Lcom/android/settings/SecuritySettings;
+
+    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    array-length v0, v0
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
-    new-array v0, v0, [I
+    move-result-object v0
 
-    sput-object v0, Lcom/android/settings/SecuritySettings$8;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
+    const-string v1, "lock_my_mobile"
 
-    :try_start_0
-    sget-object v0, Lcom/android/settings/SecuritySettings$8;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    sget-object v1, Lcom/android/settings/SecuritySettings$PWState;->NEW:Lcom/android/settings/SecuritySettings$PWState;
+    move-result v0
 
-    invoke-virtual {v1}, Lcom/android/settings/SecuritySettings$PWState;->ordinal()I
+    if-ne v0, v3, :cond_0
 
-    move-result v1
+    .line 2085
+    iget-object v0, p0, Lcom/android/settings/SecuritySettings$8;->this$0:Lcom/android/settings/SecuritySettings;
 
-    const/4 v2, 0x1
+    #getter for: Lcom/android/settings/SecuritySettings;->mLockMyMobile:Landroid/preference/CheckBoxPreference;
+    invoke-static {v0}, Lcom/android/settings/SecuritySettings;->access$000(Lcom/android/settings/SecuritySettings;)Landroid/preference/CheckBoxPreference;
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2
+    move-result-object v0
 
+    invoke-virtual {v0, v3}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
+
+    .line 2088
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/settings/SecuritySettings$8;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
-
-    sget-object v1, Lcom/android/settings/SecuritySettings$PWState;->CONFIRM:Lcom/android/settings/SecuritySettings$PWState;
-
-    invoke-virtual {v1}, Lcom/android/settings/SecuritySettings$PWState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/settings/SecuritySettings$8;->$SwitchMap$com$android$settings$SecuritySettings$PWState:[I
-
-    sget-object v1, Lcom/android/settings/SecuritySettings$PWState;->CURRENT:Lcom/android/settings/SecuritySettings$PWState;
-
-    invoke-virtual {v1}, Lcom/android/settings/SecuritySettings$PWState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0
-
-    :goto_2
     return-void
 
-    :catch_0
-    move-exception v0
+    .line 2087
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/SecuritySettings$8;->this$0:Lcom/android/settings/SecuritySettings;
 
-    goto :goto_2
+    #getter for: Lcom/android/settings/SecuritySettings;->mLockMyMobile:Landroid/preference/CheckBoxPreference;
+    invoke-static {v0}, Lcom/android/settings/SecuritySettings;->access$000(Lcom/android/settings/SecuritySettings;)Landroid/preference/CheckBoxPreference;
 
-    :catch_1
-    move-exception v0
+    move-result-object v0
 
-    goto :goto_1
-
-    :catch_2
-    move-exception v0
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 .end method

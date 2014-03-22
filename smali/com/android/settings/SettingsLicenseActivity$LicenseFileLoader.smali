@@ -36,7 +36,7 @@
     .line 69
     iput-object p1, p0, Lcom/android/settings/SettingsLicenseActivity$LicenseFileLoader;->this$0:Lcom/android/settings/SettingsLicenseActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
     iput-object p2, p0, Lcom/android/settings/SettingsLicenseActivity$LicenseFileLoader;->mFileName:Ljava/lang/String;
@@ -111,7 +111,7 @@
     .end local v3           #inputReader:Ljava/io/InputStreamReader;
     .restart local v2       #inputReader:Ljava/io/InputStreamReader;
     :goto_0
-    invoke-virtual {v2, v7}, Ljava/io/InputStreamReader;->read([C)I
+    invoke-virtual {v2, v7}, Ljava/io/Reader;->read([C)I
 
     move-result v5
 
