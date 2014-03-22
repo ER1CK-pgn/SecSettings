@@ -1272,6 +1272,12 @@
     if-nez v3, :cond_2
 
     .line 45
+    invoke-direct {p0, p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->hideDormant(Landroid/content/Context;)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
     invoke-virtual {p0, p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->notificationCreate(Landroid/content/Context;)V
 
     .line 57
