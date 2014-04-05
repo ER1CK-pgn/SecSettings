@@ -1663,4 +1663,6 @@
     <item type="id" name="vpn_create">false</item>
     <item type="id" name="vpn_lockdown">false</item>
     <item type="id" name="wifi_wps">false</item>
+    <item type="id" name="settings_device">false</item>
+    <item type="id" name="app_package_name">false</item>
 </resources>

@@ -43,6 +43,9 @@
     <header android:icon="@drawable/ic_settings_power" android:id="@id/power_settings" android:title="@string/power_title" android:fragment="com.android.settings.PowerSettings" />
     <header android:icon="@drawable/ic_settings_storage" android:id="@id/storage_settings" android:title="@string/storage_settings" android:fragment="com.android.settings.deviceinfo.Memory" />
     <header android:icon="@drawable/ic_settings_security" android:id="@id/security_settings" android:title="@string/security_settings_title" android:fragment="com.android.settings.SecuritySettings" />
+    <header android:icon="@drawable/ic_settings_device" android:id="@id/settings_device" android:title="@string/device_info_title">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.infamous.Device" />
+    </header>
     <header android:icon="@drawable/ic_settings_development" android:id="@id/development_settings" android:title="@string/development_settings_title" android:fragment="com.android.settings.DevelopmentSettings" />
     <header android:icon="@drawable/ic_settings_activate_device" android:id="@id/activate_this_device" android:title="@string/activate_this_device">
         <intent android:mimeType="vnd.sprint.dsa/vnd.sprint.dsa.main" android:action="com.sprint.dsa.DSA_ACTIVITY">
