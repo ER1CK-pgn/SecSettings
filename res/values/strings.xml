@@ -2062,7 +2062,7 @@ Your existing app data will not be lost."</string>
     <string name="app_special_disable_dlg_text">If you disable a built-in app, this may cause problems with other apps. Your data will also be deleted.</string>
     <string name="app_disable_notifications_dlg_title">Disable notifications?</string>
     <string name="app_disable_notifications_dlg_text">If you disable notifications for this app, you may miss important alerts and updates</string>
-    <string name="app_ops_settings">App ops</string>
+    <string name="app_ops_settings">App ops settings</string>
     <string name="app_ops_running">Running</string>
     <string name="app_ops_never_used">(Never used)</string>
     <string name="storageuse_settings_title">Memory usage</string>
@@ -6414,11 +6414,6 @@ Time: %4$s"</string>
     <string name="wifi_menu_wifi_calling">Wi-Fi Calling</string>
     <string name="notification_panel_wifi_calling">"WI-Fi
 Calling"</string>
-    <string name="bluetooth_advanced_settings">Advanced Settings</string>
-    <string name="bluetooth_profile_hfdevice">Handsfree</string>
-    <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
-    <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
-    <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
     <item type="string" name="APKTOOL_DUMMY_17fb">false</item>
     <item type="string" name="APKTOOL_DUMMY_17fc">false</item>
     <item type="string" name="APKTOOL_DUMMY_17fd">false</item>
@@ -6434,4 +6429,17 @@ Calling"</string>
     <item type="string" name="APKTOOL_DUMMY_1807">false</item>
     <item type="string" name="APKTOOL_DUMMY_1808">false</item>
     <item type="string" name="APKTOOL_DUMMY_1809">false</item>
+    <string name="bluetooth_advanced_settings">Advanced Settings</string>
+    <string name="bluetooth_profile_hfdevice">Handsfree</string>
+    <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
+    <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
+    <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
+    <string name="notification_panel_brightness">Brightness</string>
+    <string name="notification_panel_wificall">"Wi-Fi
+calling"</string>
+    <string name="notification_panel_flashlight">Torch</string>
+    <string name="notification_panel_tsm">Infamous Tools</string>
+    <string name="rom_control_title">About Infamous</string>
+    <string name="infamous_rom">An Infamous Production</string>
+    <string name="infamous_rom_version">INFAMOUS NOTE 3</string>
 </resources>

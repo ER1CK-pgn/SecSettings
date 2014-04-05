@@ -42,5 +42,7 @@
     <CheckBoxPreference android:persistent="false" android:title="@string/auto_adjust_touch_title" android:key="auto_adjust_touch" android:summary="@string/auto_adjust_touch_summary" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <CheckBoxPreference android:persistent="false" android:title="@string/notification_pulse_title" android:key="notification_pulse" android:widgetLayout="@touchwiz:layout/preference_widget_twcheckbox" />
     <PreferenceScreen android:title="@string/wifi_display_settings_title" android:key="wifi_display" android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+    <PreferenceScreen android:title="Torchlight" android:key="torchlight" android:fragment="com.android.settings.torchlight.TorchlightSettings" />
+    <PreferenceScreen android:title="@string/page_buddy" android:key="page_buddy" android:fragment="com.android.settings.ContextualPageSettings" />
     <PreferenceScreen android:title="@string/font" android:key="font_menu" android:fragment="com.android.settings.FontMenu" />
 </PreferenceScreen>
