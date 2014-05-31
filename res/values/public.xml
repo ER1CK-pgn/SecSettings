@@ -2112,6 +2112,8 @@
     <public type="layout" name="wifi_wps_dialog" id="0x7f040227" />
     <public type="layout" name="zone_picker_list_item" id="0x7f040228" />
     <public type="layout" name="rom_logo" id="0x7f040229" />
+    <public type="layout" name="device" id="0x7f04022a" />
+    <public type="layout" name="settings" id="0x7f04022b" />
     <public type="layout" name="accessibility_widget_hotspot_landscape" id="0x7f040004" />
     <public type="layout" name="custom_offload_preference" id="0x7f04005a" />
     <public type="layout" name="preference_offload_progress_category" id="0x7f04015d" />
@@ -8643,6 +8645,7 @@
     <public type="string" name="title_usage_statistics" id="0x7f09187e" />
     <public type="string" name="summary_usage_statistics" id="0x7f09187f" />
     <public type="string" name="device_activity_title" id="0x7f091880" />
+    <public type="string" name="infamous_activity_title" id="0x7f091881" />
     <public type="string" name="direct_access_actions_negative_mode_off" id="0x7f09185c" />
     <public type="string" name="direct_access_actions_negative_mode_on" id="0x7f09185d" />
     <public type="string" name="update_summary_abb" id="0x7f09185e" />
@@ -10589,6 +10592,9 @@
     <public type="id" name="vpn_create" id="0x7f0b068d" />
     <public type="id" name="vpn_lockdown" id="0x7f0b068e" />
     <public type="id" name="wifi_wps" id="0x7f0b068f" />
+    <public type="id" name="settings_device" id="0x7f0b0690" />
+    <public type="id" name="app_package_name" id="0x7f0b0691" />
+    <public type="id" name="settings_infamous" id="0x7f0b0692" />
     <public type="bool" name="has_dock_settings" id="0x7f0c0000" />
     <public type="bool" name="has_silent_mode" id="0x7f0c0001" />
     <public type="bool" name="has_powercontrol_widget" id="0x7f0c0002" />

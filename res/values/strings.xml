@@ -6566,4 +6566,5 @@ calling"</string>
     <string name="title_usage_statistics">Usage statistics</string>
     <string name="summary_usage_statistics">Summary of application usage</string>
     <string name="device_activity_title">DeviceInfo</string>
+    <string name="infamous_activity_title">Infamous Settings</string>
 </resources>
