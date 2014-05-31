@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/magazine_card_title"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-  xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz">
-    <ListPreference android:persistent="false" android:entries="@array/update_duration_entries" android:title="@string/magazine_update_duration" android:key="update_duration" android:summary="@string/update_duration_summary" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/update_duration_values" />
-    <MultiSelectListPreference android:persistent="false" android:entries="@array/magazine_category_entries" android:title="@string/magazine_category" android:key="magazine_card_category" android:widgetLayout="@layout/round_more_icon" android:entryValues="@array/magazine_category_values" />
-    <CheckBoxPreference android:persistent="false" android:title="@string/magazine_card_security" android:key="card_security" android:summary="@string/magazine_card_security_summary" />
-</PreferenceScreen>
