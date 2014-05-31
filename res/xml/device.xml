@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="Infamous Settings"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Infamous tweaks">
+        <PreferenceScreen android:icon="@drawable/ic_settings_rom_control" android:title="@string/rom_control_title">
+            <intent android:targetPackage="com.aokp.romcontrol" android:action="android.intent.action.MAIN" android:targetClass="com.aokp.romcontrol.MainActivity" />
+        </PreferenceScreen>
+        <PreferenceScreen android:icon="@drawable/ic_settings_app_ops" android:title="@string/app_ops_settings">
+            <intent android:targetPackage="com.ssrij.appops" android:action="android.intent.action.MAIN" android:targetClass="com.ssrij.appops.MainActivity" />
+        </PreferenceScreen>
+        <PreferenceScreen android:icon="@drawable/ic_settings_performance" android:title="Infamous Performance" android:summary="Tweak kernel, ROM, and other tools">
+            <intent android:targetPackage="com.infamous.performance" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.performance.activities.MainActivity" />
+        </PreferenceScreen>
+        <PreferenceScreen android:icon="@drawable/ic_settings_browser" android:title="Infamous Browser" android:summary="Light weight and full of features. Working Flash.">
+            <intent android:targetPackage="com.infamous.browser" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.browser.BrowserActivity" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Device Information">
+        <PreferenceScreen android:title="Device information" android:summary="Summary of various aspects of device">
+            <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.RadioInfo" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/title_battery_history" android:key="battery_history_settings" android:summary="@string/summary_battery_history">
+            <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.fuelgauge.PowerUsageSummary" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/title_battery_information" android:key="battery_information_settings" android:summary="@string/summary_battery_information">
+            <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.BatteryInfo" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="@string/title_usage_statistics" android:key="usage_statistics_settings" android:summary="@string/summary_usage_statistics">
+            <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.UsageStats" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="WiFi information" android:summary="Various bits of WiFi relevant information">
+            <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.wifi.WifiInfo" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Other Options">
+        <PreferenceScreen android:title="Developer options" android:summary="Click here for standard developer options">
+            <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.DevelopmentSettings" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -13,6 +13,9 @@
     <header android:icon="@drawable/ic_settings_cloud" android:id="@id/scloud_settings" android:title="@string/scloud_settings" android:fragment="com.android.settings.cloud.CloudSettingsMainFragment" />
     <header android:icon="@drawable/ic_settings_backup" android:id="@id/privacy_settings" android:title="@string/privacy_settings" android:fragment="com.android.settings.PrivacySettings" />
     <header android:id="@id/header_general_device_manager" android:title="@string/menu_header_device_manager" />
+    <header android:icon="@drawable/ic_settings_infamous" android:id="@id/settings_device" android:title="@string/device_info_title">
+        <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.infamous.Device" />
+    </header>
     <header android:icon="@drawable/ic_settings_date_time" android:id="@id/date_time_settings" android:title="@string/date_and_time_settings_title" android:fragment="com.android.settings.DateTimeSettings" />
     <header android:icon="@drawable/ic_setting_personal" android:id="@id/header_personal_page" android:title="@string/personal_page" android:summary="@string/personal_page_secretbox_summary" android:fragment="com.android.settings.personalpage.PersonalPageSettings" />
     <header android:icon="@drawable/ic_settings_safety_assuarance" android:id="@id/safety_assurance_settings" android:title="@string/safety_assurance_settings" android:summary="@string/safety_assurance_menu_summary">

@@ -1560,6 +1560,15 @@
     <public type="drawable" name="white_button_selector_default" id="0x7f0205c6" />
     <public type="drawable" name="white_button_selector_next" id="0x7f0205c7" />
     <public type="drawable" name="white_recbutton_selector_default" id="0x7f0205c8" />
+    <public type="drawable" name="ic_settings_app_ops" id="0x7f020601" />
+    <public type="drawable" name="ic_settings_device" id="0x7f020602" />
+    <public type="drawable" name="ic_settings_infamous" id="0x7f020603" />
+    <public type="drawable" name="ic_settings_rom_control" id="0x7f020604" />
+    <public type="drawable" name="notification_panel_brightness" id="0x7f020605" />
+    <public type="drawable" name="notification_panel_flashlight" id="0x7f020606" />
+    <public type="drawable" name="notification_panel_wificall" id="0x7f020607" />
+    <public type="drawable" name="ic_settings_browser" id="0x7f020608" />
+    <public type="drawable" name="ic_settings_performance" id="0x7f020609" />
     <public type="drawable" name="personal_mode_popup" id="0x7f0203dd" />
     <public type="mipmap" name="ic_launcher_settings" id="0x7f030000" />
     <public type="layout" name="APKTOOL_DUMMY_0000" id="0x7f040000" />
@@ -2112,8 +2121,6 @@
     <public type="layout" name="wifi_wps_dialog" id="0x7f040227" />
     <public type="layout" name="zone_picker_list_item" id="0x7f040228" />
     <public type="layout" name="rom_logo" id="0x7f040229" />
-    <public type="layout" name="device" id="0x7f04022a" />
-    <public type="layout" name="settings" id="0x7f04022b" />
     <public type="layout" name="accessibility_widget_hotspot_landscape" id="0x7f040004" />
     <public type="layout" name="custom_offload_preference" id="0x7f04005a" />
     <public type="layout" name="preference_offload_progress_category" id="0x7f04015d" />
@@ -2372,6 +2379,8 @@
     <public type="xml" name="wifi_settings" id="0x7f0700eb" />
     <public type="xml" name="wifiap_lan_settings" id="0x7f0700ec" />
     <public type="xml" name="wireless_settings" id="0x7f0700ed" />
+    <public type="xml" name="device" id="0x7f0700ee" />
+    <public type="xml" name="settings" id="0x7f0700ef" />
     <public type="raw" name="allshare_confirm" id="0x7f080000" />
     <public type="raw" name="media_volume" id="0x7f080001" />
     <public type="raw" name="media_volume_8db" id="0x7f080002" />

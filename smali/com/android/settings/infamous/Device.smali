@@ -25,7 +25,7 @@
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 16
-    const v0, 0x7f0700ed
+    const v0, 0x7f0700ee
 
     invoke-virtual {p0, v0}, Lcom/android/settings/infamous/Device;->addPreferencesFromResource(I)V
 
