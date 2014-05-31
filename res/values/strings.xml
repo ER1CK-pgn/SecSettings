@@ -6531,26 +6531,6 @@ Time: %4$s"</string>
 Calling"</string>
     <string name="tcoloring">Tcoloring</string>
     <string name="t_phone_title">T phone</string>
-    <string name="bluetooth_advanced_settings">Advanced Settings</string>
-    <string name="bluetooth_profile_hfdevice">Handsfree</string>
-    <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
-    <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
-    <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
-<string name="notification_panel_brightness">Brightness</string>
-    <string name="notification_panel_wificall">"Wi-Fi
-calling"</string>
-    <string name="notification_panel_flashlight">Torch</string>
-    <string name="rom_control_title">About Infamous</string>
-    <string name="infamous_rom">An Infamous Production</string>
-    <string name="infamous_rom_version">INFAMOUS NOTE 3</string>
-    <string name="device_info_title">Device information</string>
-    <string name="title_battery_history">Battery history</string>
-    <string name="summary_battery_history">Summary of how battery has been used</string>
-    <string name="title_battery_information">Battery information</string>
-    <string name="summary_battery_information">Current battery status information</string>
-    <string name="title_usage_statistics">Usage statistics</string>
-    <string name="summary_usage_statistics">Summary of application usage</string>
-    <string name="device_activity_title">DeviceInfo</string>
     <item type="string" name="APKTOOL_DUMMY_185f">false</item>
     <item type="string" name="APKTOOL_DUMMY_1860">false</item>
     <item type="string" name="APKTOOL_DUMMY_1861">false</item>
@@ -6566,4 +6546,24 @@ calling"</string>
     <item type="string" name="APKTOOL_DUMMY_186b">false</item>
     <item type="string" name="APKTOOL_DUMMY_186c">false</item>
     <item type="string" name="APKTOOL_DUMMY_186d">false</item>
+    <string name="bluetooth_advanced_settings">Advanced Settings</string>
+    <string name="bluetooth_profile_hfdevice">Handsfree</string>
+    <string name="bluetooth_disconnect_hfdeviceprofile">%1$s will be disconnected from phone audio.</string>
+    <string name="bluetooth_hfdevice_profile_summary_connected">Connected to phone audio</string>
+    <string name="bluetooth_hfdevice_profile_summary_use_for">Use Handsfree Device Role</string>
+    <string name="notification_panel_brightness">Brightness</string>
+    <string name="notification_panel_wificall">"Wi-Fi
+calling"</string>
+    <string name="notification_panel_flashlight">Torch</string>
+    <string name="rom_control_title">About Infamous</string>
+    <string name="infamous_rom">An Infamous Production</string>
+    <string name="infamous_rom_version">INFAMOUS NOTE 3</string>
+    <string name="device_info_title">Device information</string>
+    <string name="title_battery_history">Battery history</string>
+    <string name="summary_battery_history">Summary of how battery has been used</string>
+    <string name="title_battery_information">Battery information</string>
+    <string name="summary_battery_information">Current battery status information</string>
+    <string name="title_usage_statistics">Usage statistics</string>
+    <string name="summary_usage_statistics">Summary of application usage</string>
+    <string name="device_activity_title">DeviceInfo</string>
 </resources>
