@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:sharedUserId="android.uid.system" android:versionCode="19" android:versionName="4.4.2-N900TUVUCNB4" package="com.android.settings" coreApp="true"
+<manifest android:sharedUserId="android.uid.system" android:versionCode="19" android:versionName="4.4.2-N900TUVUDNE6" package="com.android.settings" coreApp="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <original-package android:name="com.android.settings" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -93,6 +93,8 @@
     <uses-permission android:name="android.permission.SET_PROCESS_LIMIT" />
     <uses-permission android:name="com.samsung.android.permission.GET_SECRET_PACKAGE_LIST" />
     <uses-permission android:name="com.samsung.android.app.assistantmenu.permission.ADVERTISE_ASSISTANTMENU" />
+    <uses-permission android:name="com.samsung.android.sconnect.permission.ACCESS_QUICKCONNECT_WEARABLE" />
+    <uses-permission android:name="com.sec.enterprise.knox.permission.KNOX_RESTRICTION" />
     <permission android:label="@string/wfd_settings_summary" android:name="com.android.setting.permission.ALLSHARE_CAST_SERVICE" android:protectionLevel="dangerous" android:permissionGroup="android.permission-group.PERSONAL_INFO" />
     <permission android:name="com.sec.permission.WIFI_BACKUP" android:protectionLevel="signatureOrSystem" />
     <permission android:name="com.sec.testingsettings.permission.KEYSTRING" android:protectionLevel="signatureOrSystem" />
@@ -135,12 +137,6 @@
             <meta-data android:name="assistant" android:resource="@xml/assistant" />
         </activity>
         <activity android:name=".SubSettings" android:taskAffinity="com.android.settings" android:configChanges="keyboardHidden|orientation|screenSize" android:parentActivityName="Settings" />
-        <activity android:label="@string/settings_label_launcher" android:name="com.android.settings.SettingsEmergencyActivity" android:taskAffinity="com.android.settings" android:configChanges="keyboardHidden|orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:theme="@style/Theme.CreateShortCut" android:label="@string/settings_shortcut" android:name="CreateShortcut" android:enabled="@bool/has_settings_shortcut">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -524,6 +520,7 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/wireless_settings" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
+            <meta-data android:name="com.samsung.android.multiuser.install_only_owner" android:value="true" />
         </activity>
         <activity android:label="@string/tether_settings_title_all" android:icon="@drawable/shortcut_mobileap" android:name="Settings$TetherSettingsActivity" android:taskAffinity="" android:excludeFromRecents="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
@@ -536,12 +533,14 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/wireless_settings" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
+            <meta-data android:name="com.samsung.android.multiuser.install_only_owner" android:value="true" />
         </activity>
         <activity-alias android:label="@string/tether_settings_title_all" android:name=".TetherSettings" android:exported="true" android:clearTaskOnLaunch="true" android:targetActivity="Settings$TetherSettingsActivity">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.TetherSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/wireless_settings" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
+            <meta-data android:name="com.samsung.android.multiuser.install_only_owner" android:value="true" />
         </activity-alias>
         <activity android:label="@string/wifi_p2p_settings_title" android:name="Settings$WifiP2pSettingsActivity" android:taskAffinity="com.android.settings" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustPan" android:uiOptions="splitActionBarWhenNarrow">
             <intent-filter>
@@ -797,7 +796,20 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.SoundSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/sound_settings" />
         </activity-alias>
-        <activity android:label="@string/lock_screen_options" android:icon="@drawable/APKTOOL_DUMMY_047b" android:name="Settings$LockScreenSettingsActivity" android:clearTaskOnLaunch="true">
+        <receiver android:name=".TactileAssistBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".TactileAssistBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/lock_screen_options" android:icon="@drawable/APKTOOL_DUMMY_047e" android:name="Settings$LockScreenSettingsActivity" android:clearTaskOnLaunch="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -877,6 +889,7 @@
                 <action android:name="kr.co.uplus.RESTRICT_BACKGROUND" />
                 <action android:name="android.intent.action.BCS_REQUEST" />
                 <action android:name="android.intent.action.ACTION_ASSISTIVE_OFF" />
+                <action android:name="android.intent.action.ACTION_SHUTDOWN" />
                 <action android:name="android.settings.SECURITY_WARNING_CLEAR" />
                 <action android:name="android.intent.action.LOCALE_CHANGED" />
                 <action android:name="android.settings.DRIVING_MODE_CHANGED" />
@@ -887,6 +900,7 @@
                 <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
                 <action android:name="SamsungIME.UpdateAvailableLanguageAction" />
                 <action android:name="android.net.ethernet.ETH_STATE_CHANGED" />
+                <action android:name="android.hardware.usb.action.USB_STATE" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -1473,7 +1487,7 @@
         <activity android:label="@string/nfc_default_nfc_transaction_title" android:name="Settings$NfcPaymentSettingsActivity" android:clearTaskOnLaunch="true" android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.settings.NFC_PAYMENT_SETTINGS" />
+                <action android:name="android.settings.SEC_NFC_PAYMENT_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.nfc.NfcPaymentSettings" />
@@ -1483,6 +1497,13 @@
                 <action android:name="com.sec.settings.nfc.payment.GET_MODE" />
             </intent-filter>
         </receiver>
+        <activity android:theme="@style/Transparent" android:name=".nfc.NfcAdvancedRoutingSetting" android:excludeFromRecents="true" android:configChanges="keyboardHidden|orientation|screenSize" android:noHistory="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.SEC_NFC_ADVANCED_SETTING" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:label="@string/android_beam_settings_title" android:name="Settings$AndroidBeamSettingsActivity" android:taskAffinity="com.android.settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1517,12 +1538,6 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/wireless_settings" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/wireless_networks_settings_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings$WirelessSettingsActivity" />
-        </activity>
-        <activity android:label="@string/debug_intent_sender_label" android:name="DebugIntentSender">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" />
-            </intent-filter>
         </activity>
         <receiver android:name=".DeviceInfo$StatsReportReceiver">
             <intent-filter>
@@ -1778,6 +1793,11 @@
                 <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
+        </receiver>
+        <receiver android:name=".widget.SettingsAppWidgetProvider$BluetoothDeviceAdminStateReceiver" android:enabled="@bool/has_powercontrol_widget">
+            <intent-filter>
+                <action android:name="android.device_admin.action.STATE_CHANGED" />
+            </intent-filter>
         </receiver>
         <receiver android:name=".widget.SettingsAppWidgetProvider$BluetoothDeviceAdminStateReceiver" android:enabled="@bool/has_powercontrol_widget">
             <intent-filter>
@@ -2543,6 +2563,15 @@
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_TITLE" android:resource="@string/smart_screen_title" />
             <meta-data android:name="com.android.settings.PARENT_FRAGMENT_CLASS" android:value="com.android.settings.Settings.SmartScreenSettings" />
         </activity>
+        <activity android:label="@string/smart_bonding" android:name="Settings$SmartBondingSettingsActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.SMART_BONDING_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.smartbonding.SmartBondingSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/smart_bonding_settings" />
+        </activity>
         <activity android:label="@string/smart_scroll_title" android:name="Settings$SmartScrollAdvancedSettingsActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -2699,7 +2728,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.SETTING_HEADER_ID" android:value="general_headers" />
         </activity>
-        <activity android:label="@string/device_health_title" android:name=".DeviceHealthActivity" android:exported="true" android:launchMode="singleTask" android:uiOptions="none">
+        <activity android:label="@string/device_health_title" android:name=".DeviceHealthActivity" android:exported="true" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize" android:uiOptions="none">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.DEVICE_HEALTH" />
@@ -2713,6 +2742,14 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/settings_widgets" />
         </receiver>
+        <activity android:label="@string/settings_label_launcher" android:name="Settings$SettingsEmergencyActivity" android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.SettingsEmergencySettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID" android:resource="@id/safetycare_settings" />
+        </activity>
         <activity android:label="@string/safetycare_settings" android:name="Settings$SafetyCareSettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -2765,11 +2802,6 @@
             </intent-filter>
         </activity>
         <provider android:name=".favorite.MySettingsProvider" android:exported="true" android:authorities="com.android.settings.mysettings" />
-        <receiver android:name=".SmartcardBootCompleteReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
         <activity android:label="@string/festival_effect_settings_title" android:name="Settings$FestivalEffectSettingsActivity" android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -2794,10 +2826,5 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <activity android:label="@string/device_activity_title" android:name=".infamous.Device">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
     </application>
 </manifest>

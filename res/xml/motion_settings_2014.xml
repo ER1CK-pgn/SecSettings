@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/s_motion_title" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:persistent="false" android:title="@string/air_motion_title" android:key="category_air_motion" />
+    <SwitchPreferenceScreen android:title="@string/motion2014_air_wake_up_title" android:key="air_wake_up" android:summary="@string/motion2014_air_wake_up_summary" android:fragment="com.android.settings.motion2014.SMotionGuideHub2014">
+        <extra android:name="type" android:value="air_wake_up" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/air_turn_title" android:key="air_turn_and_scroll" android:summary="@string/motion2014_air_browse_summary" android:fragment="com.android.settings.motion2014.SMotionGuideHub2014">
+        <extra android:name="type" android:value="air_turn_and_scroll" />
+        <extra android:name="hasAdvancedSettings" android:value="true" />
+    </SwitchPreferenceScreen>
+    <Preference android:title="@string/learn_about_air_motion_indicator" android:key="air_motion_indicator" android:widgetLayout="@layout/round_more_icon" />
+    <PreferenceCategory android:persistent="false" android:title="@string/motion_title" android:key="category_motion" />
+    <SwitchPreferenceScreen android:title="@string/pick_up_to_call_out_title" android:key="pick_up_to_call_out" android:summary="@string/pick_up_to_call_out_summary" android:fragment="com.android.settings.motion2014.SMotionGuideHub2014">
+        <extra android:name="type" android:value="pick_up_to_call_out" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/pick_up_title" android:key="pick_up" android:summary="@string/pick_up_summary" android:fragment="com.android.settings.motion2014.SMotionGuideHub2014">
+        <extra android:name="type" android:value="pick_up" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/motion2013_mute_pause_title" android:key="merged_mute_or_pause" android:summary="@string/motion2014_merged_mute_pause_summary" android:fragment="com.android.settings.motion2014.SMotionGuideHub2014">
+        <extra android:name="type" android:value="merged_mute_or_pause" />
+        <extra android:name="hasAdvancedSettings" android:value="true" />
+    </SwitchPreferenceScreen>
+    <SwitchPreferenceScreen android:title="@string/motion2013_capture_screen_title" android:key="palm_swipe" android:summary="@string/palm_swipe_summary" android:fragment="com.android.settings.motion2014.SMotionGuideHub2014">
+        <extra android:name="type" android:value="palm_swipe" />
+    </SwitchPreferenceScreen>
+</PreferenceScreen>
