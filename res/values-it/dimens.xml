@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="grid_settings_header_view_text_left_right_padding">11.0dip</dimen>
+    <item type="dimen" name="APKTOOL_DUMMY_038e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0394">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0395">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0396">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0397">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0399">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_039a">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_039b">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_039c">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_039d">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_039e">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_039f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_03a0">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_03a1">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_03a2">false</item>
+</resources>
