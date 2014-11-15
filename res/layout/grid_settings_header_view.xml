@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/header_layout" android:background="?android:selectableItemBackground" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/grid_settings_header_view_top_margin" android:layout_marginBottom="@dimen/grid_settings_header_view_bottom_margin" android:minWidth="@dimen/grid_settings_header_view_min_width" android:minHeight="@dimen/grid_settings_header_view_min_height"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-    <TextView android:textSize="@dimen/grid_settings_header_view_text_size" android:textColor="@color/grid_settings_header_view_text_color" android:gravity="center" android:id="@id/title" android:paddingLeft="@dimen/grid_settings_header_view_text_left_right_padding" android:paddingTop="@dimen/grid_settings_header_view_text_top_padding" android:paddingRight="@dimen/grid_settings_header_view_text_left_right_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-</LinearLayout>
