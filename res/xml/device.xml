@@ -2,17 +2,14 @@
 <PreferenceScreen android:title="Infamous Settings"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Infamous tweaks">
-        <PreferenceScreen android:icon="@drawable/ic_setting_grid_cs" android:title="@string/rom_control_title">
+        <PreferenceScreen android:title="@string/rom_control_title">
             <intent android:targetPackage="com.ficeto.customsettings" android:action="android.intent.action.MAIN" android:targetClass="com.ficeto.customsettings.RandomActivity" />
         </PreferenceScreen>
-        <PreferenceScreen android:icon="@drawable/ic_settings_app_ops" android:title="@string/app_ops_settings">
+        <PreferenceScreen android:title="@string/app_ops_settings">
             <intent android:targetPackage="com.ssrij.appops" android:action="android.intent.action.MAIN" android:targetClass="com.ssrij.appops.MainActivity" />
         </PreferenceScreen>
-        <PreferenceScreen android:icon="@drawable/ic_settings_performance" android:title="Infamous Performance" android:summary="Tweak kernel, ROM, and other tools">
-            <intent android:targetPackage="com.infamous.performance" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.performance.activities.MainActivity" />
-        </PreferenceScreen>
-        <PreferenceScreen android:icon="@drawable/ic_settings_browser" android:title="Infamous Browser" android:summary="Light weight and full of features. Working Flash.">
-            <intent android:targetPackage="com.infamous.browser" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.browser.BrowserActivity" />
+        <PreferenceScreen android:title="CPU" android:summary="Tweak your kernel">
+            <intent android:targetPackage="com.infamous.cpu" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.cpu.MainActivity" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="Device Information">
@@ -35,6 +32,9 @@
     <PreferenceCategory android:title="Other Options">
         <PreferenceScreen android:title="Developer options" android:summary="Click here for standard developer options">
             <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.DevelopmentSettings" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="Hardware Key Mapping">
+            <CheckBoxPreference android:title="Wake With Home Key" android:key="home_wake" android:summaryOn="Home Wake Disabled" android:summaryOff="Home Wake Enabled" />
         </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>
