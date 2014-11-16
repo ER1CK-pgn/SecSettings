@@ -36,5 +36,8 @@
         <PreferenceScreen android:title="Developer options" android:summary="Click here for standard developer options">
             <intent android:targetPackage="com.android.settings" android:action="android.intent.action.MAIN" android:targetClass="com.android.settings.DevelopmentSettings" />
         </PreferenceScreen>
+        <PreferenceScreen android:title="Hardware Key Mapping">
+            <CheckBoxPreference android:title="Wake With Home Key" android:key="home_wake" android:summaryOn="Home Wake Disabled" android:summaryOff="Home Wake Enabled" />
+        </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>
