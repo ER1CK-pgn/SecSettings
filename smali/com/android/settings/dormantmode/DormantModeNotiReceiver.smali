@@ -58,6 +58,27 @@
     return-void
 .end method
 
+.method private hideDormant(Landroid/content/Context;)I
+    .locals 3
+    #.parameter "context"
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 89
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "statusbar_hide_blocking"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    return v1
+.end method
+
 .method private isSetTime(Landroid/content/Context;)Z
     .locals 9
 
@@ -1161,6 +1182,12 @@
     move-result v3
 
     if-nez v3, :cond_2
+
+    invoke-direct {p0, p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->hideDormant(Landroid/content/Context;)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
 
     invoke-virtual {p0, p1}, Lcom/android/settings/dormantmode/DormantModeNotiReceiver;->notificationCreate(Landroid/content/Context;)V
 
