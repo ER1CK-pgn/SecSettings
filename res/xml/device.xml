@@ -5,11 +5,11 @@
         <PreferenceScreen android:title="@string/rom_control_title">
             <intent android:targetPackage="com.ficeto.customsettings" android:action="android.intent.action.MAIN" android:targetClass="com.ficeto.customsettings.RandomActivity" />
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/app_ops_settings">
-            <intent android:targetPackage="com.ssrij.appops" android:action="android.intent.action.MAIN" android:targetClass="com.ssrij.appops.MainActivity" />
-        </PreferenceScreen>
-        <PreferenceScreen android:title="CPU" android:summary="Tweak your kernel">
+<PreferenceScreen android:title="CPU" android:summary="Tweak your kernel">
             <intent android:targetPackage="com.infamous.cpu" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.cpu.MainActivity" />
+        </PreferenceScreen>
+        <PreferenceScreen android:title="Logcat" android:summary="Trouble shoot">
+            <intent android:targetPackage="com.infamous.logcat" android:action="android.intent.action.MAIN" android:targetClass="com.infamous.logcat.LogcatActivity" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="Device Information">
