@@ -6,7 +6,7 @@
     <com.android.settings.BrightnessPreference android:persistent="false" android:title="@string/brightness" android:key="brightness" android:widgetLayout="@layout/round_more_icon" />
     <PreferenceScreen android:title="@string/wallpaper" android:key="header_display_wallpaper" android:fragment="com.android.settings.WallpaperSettings" />
     <PreferenceScreen android:title="@string/theme_settings" android:key="theme_settings">
-        <intent android:action="com.sec.android.intent.action.THEME_CHOOSER" />
+        <intent android:targetPackage="com.sec.android.app.themechooser" android:action="android.intent.action.MAIN" android:targetClass="com.sec.android.app.themechooser.ThemeListActivity" />
     </PreferenceScreen>
     <PreferenceScreen android:title="@string/font" android:key="font_menu" android:fragment="com.android.settings.FontMenu" />
     <PreferenceScreen android:title="@string/onehand_settings_title" android:key="onehand_settings" android:fragment="com.android.settings.OneHandSettings" />

@@ -60,12 +60,9 @@
 
 .method private hideDormant(Landroid/content/Context;)I
     .locals 3
-    #.parameter "context"
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 89
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0

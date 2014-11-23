@@ -2413,7 +2413,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_9b
+    if-eqz v3, :cond_9a
 
     invoke-virtual {v3}, Landroid/app/enterprise/knoxcustom/KnoxCustomManager;->getSettingsHiddenState()I
 
@@ -2428,7 +2428,7 @@
 
     move-result v1
 
-    if-ge v4, v1, :cond_98
+    if-ge v4, v1, :cond_97
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -2551,13 +2551,13 @@
 
     move-result v2
 
-    if-ge v4, v2, :cond_99
+    if-ge v4, v2, :cond_98
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_99
+    if-ne v2, v1, :cond_98
 
     iget-object v2, p0, Lcom/android/settings/GridSettings;->mFirstHeader:Landroid/preference/PreferenceActivity$Header;
 
@@ -4549,7 +4549,7 @@
 
     const/4 v9, 0x1
 
-    if-ne v5, v9, :cond_9a
+    if-ne v5, v9, :cond_99
 
     const-string v2, "com.vlingo.midas.settings.SettingsScreen"
 
@@ -5418,15 +5418,6 @@
     goto/16 :goto_4
 
     :cond_95
-    const v2, 0x7f0b0783
-
-    if-ne v8, v2, :cond_96
-
-    invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_4
-
-    :cond_96
     const v2, 0x7f0b0765
 
     if-ne v8, v2, :cond_2
@@ -5443,31 +5434,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_97
+    if-eqz v2, :cond_96
 
     iget-boolean v2, p0, Lcom/android/settings/GridSettings;->mDualFoldertype:Z
 
     if-nez v2, :cond_2
 
-    :cond_97
+    :cond_96
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_4
 
-    :cond_98
+    :cond_97
     return-void
 
-    :cond_99
+    :cond_98
     move v1, v4
 
     goto/16 :goto_5
 
-    :cond_9a
+    :cond_99
     move-object v5, v2
 
     goto/16 :goto_9
 
-    :cond_9b
+    :cond_9a
     move v3, v1
 
     move v4, v2

@@ -6282,7 +6282,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_ef
+    if-eqz v3, :cond_ed
 
     invoke-virtual {v3}, Landroid/app/enterprise/knoxcustom/KnoxCustomManager;->getSettingsHiddenState()I
 
@@ -6297,7 +6297,7 @@
 
     move-result v1
 
-    if-ge v4, v1, :cond_eb
+    if-ge v4, v1, :cond_e9
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -6350,7 +6350,7 @@
 
     check-cast v2, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    if-eqz v2, :cond_ee
+    if-eqz v2, :cond_ec
 
     invoke-virtual {v2}, Landroid/app/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/app/enterprise/RestrictionPolicy;
 
@@ -6362,7 +6362,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_ee
+    if-nez v2, :cond_ec
 
     const/4 v2, 0x0
 
@@ -6438,13 +6438,13 @@
 
     move-result v2
 
-    if-ge v4, v2, :cond_e8
+    if-ge v4, v2, :cond_e6
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_e8
+    if-ne v2, v1, :cond_e6
 
     iget-wide v9, v1, Landroid/preference/PreferenceActivity$Header;->id:J
 
@@ -6452,13 +6452,13 @@
 
     cmp-long v2, v9, v11
 
-    if-eqz v2, :cond_e8
+    if-eqz v2, :cond_e6
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v2
 
-    if-eqz v2, :cond_e8
+    if-eqz v2, :cond_e6
 
     iget-object v2, p0, Lcom/android/settings/Settings;->SETTINGS_FOR_RESTRICTED:[I
 
@@ -6466,9 +6466,9 @@
 
     move-result v2
 
-    if-nez v2, :cond_e8
+    if-nez v2, :cond_e6
 
-    if-nez v6, :cond_e8
+    if-nez v6, :cond_e6
 
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
@@ -6527,13 +6527,13 @@
 
     move-result v2
 
-    if-ge v4, v2, :cond_ec
+    if-ge v4, v2, :cond_ea
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_ec
+    if-ne v2, v1, :cond_ea
 
     iget-object v2, p0, Lcom/android/settings/Settings;->mFirstHeader:Landroid/preference/PreferenceActivity$Header;
 
@@ -9810,8 +9810,6 @@
     :cond_c7
     const v2, 0x7f0b0789
 
-    if-ne v8, v2, :cond_c9
-
     invoke-static {}, Lcom/samsung/android/feature/FloatingFeature;->getInstance()Lcom/samsung/android/feature/FloatingFeature;
 
     move-result-object v2
@@ -9853,10 +9851,9 @@
 
     goto/16 :goto_3
 
-    :cond_c9
     const v2, 0x7f0b078a
 
-    if-ne v8, v2, :cond_ca
+    if-ne v8, v2, :cond_c9
 
     const-string v2, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_FESTIVAL_EFFECT"
 
@@ -9870,10 +9867,10 @@
 
     goto/16 :goto_3
 
-    :cond_ca
+    :cond_c9
     const v2, 0x7f0b0796
 
-    if-ne v8, v2, :cond_cb
+    if-ne v8, v2, :cond_ca
 
     sget-object v2, Lcom/android/settings/Settings;->mContext:Landroid/content/Context;
 
@@ -9887,19 +9884,10 @@
 
     goto/16 :goto_3
 
-    :cond_cb
-    const v2, 0x7f0b0783
-
-    if-ne v8, v2, :cond_cc
-
-    invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_3
-
-    :cond_cc
+    :cond_ca
     const v2, 0x7f0b07d0
 
-    if-ne v8, v2, :cond_cd
+    if-ne v8, v2, :cond_cb
 
     sget-object v2, Lcom/android/settings/Settings;->mContext:Landroid/content/Context;
 
@@ -9913,10 +9901,10 @@
 
     goto/16 :goto_3
 
-    :cond_cd
+    :cond_cb
     const v2, 0x7f0b073a
 
-    if-ne v8, v2, :cond_d0
+    if-ne v8, v2, :cond_ce
 
     const/4 v2, 0x0
 
@@ -9924,7 +9912,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_ce
+    if-eqz v2, :cond_cc
 
     iget-object v2, v1, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
@@ -9942,7 +9930,7 @@
 
     invoke-virtual {v2, v5, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    :cond_ce
+    :cond_cc
     const-string v2, "DCM"
 
     const-string v5, "ro.csc.sales_code"
@@ -9955,7 +9943,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_cf
+    if-nez v2, :cond_cd
 
     const-string v2, "VZW"
 
@@ -9967,15 +9955,15 @@
 
     if-eqz v2, :cond_3
 
-    :cond_cf
+    :cond_cd
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_3
 
-    :cond_d0
+    :cond_ce
     const v2, 0x7f0b073b
 
-    if-ne v8, v2, :cond_d1
+    if-ne v8, v2, :cond_cf
 
     const-string v2, "DCM"
 
@@ -9995,8 +9983,46 @@
 
     goto/16 :goto_3
 
-    :cond_d1
+    :cond_cf
     const v2, 0x7f0b073c
+
+    if-ne v8, v2, :cond_d0
+
+    const-string v2, "VZW"
+
+    sget-object v5, Lcom/android/settings/Settings;->sSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_3
+
+    :cond_d0
+    const v2, 0x7f0b073d
+
+    if-ne v8, v2, :cond_d1
+
+    const-string v2, "VZW"
+
+    sget-object v5, Lcom/android/settings/Settings;->sSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    goto/16 :goto_3
+
+    :cond_d1
+    const v2, 0x7f0b073e
 
     if-ne v8, v2, :cond_d2
 
@@ -10015,47 +10041,9 @@
     goto/16 :goto_3
 
     :cond_d2
-    const v2, 0x7f0b073d
-
-    if-ne v8, v2, :cond_d3
-
-    const-string v2, "VZW"
-
-    sget-object v5, Lcom/android/settings/Settings;->sSalesCode:Ljava/lang/String;
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_3
-
-    :cond_d3
-    const v2, 0x7f0b073e
-
-    if-ne v8, v2, :cond_d4
-
-    const-string v2, "VZW"
-
-    sget-object v5, Lcom/android/settings/Settings;->sSalesCode:Ljava/lang/String;
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    goto/16 :goto_3
-
-    :cond_d4
     const v2, 0x7f0b073f
 
-    if-ne v8, v2, :cond_d6
+    if-ne v8, v2, :cond_d4
 
     const-string v2, "KDI"
 
@@ -10069,7 +10057,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_d5
+    if-nez v2, :cond_d3
 
     const-string v2, "VZW"
 
@@ -10079,7 +10067,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_d5
+    if-nez v2, :cond_d3
 
     sget-object v2, Lcom/android/settings/Settings;->mContext:Landroid/content/Context;
 
@@ -10091,21 +10079,21 @@
 
     if-nez v2, :cond_3
 
-    :cond_d5
+    :cond_d3
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_3
 
-    :cond_d6
+    :cond_d4
     const v2, 0x7f0b0740
 
-    if-ne v8, v2, :cond_da
+    if-ne v8, v2, :cond_d8
 
     invoke-static {}, Lcom/android/settings/Utils;->isAllNAVendor()Z
 
     move-result v2
 
-    if-nez v2, :cond_d7
+    if-nez v2, :cond_d5
 
     const-string v2, "XAR"
 
@@ -10115,7 +10103,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_d7
+    if-nez v2, :cond_d5
 
     const-string v2, "XAC"
 
@@ -10125,9 +10113,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d8
+    if-eqz v2, :cond_d6
 
-    :cond_d7
+    :cond_d5
     invoke-virtual {p0}, Lcom/android/settings/Settings;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -10140,7 +10128,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_d9
+    if-nez v2, :cond_d7
 
     invoke-virtual {p0}, Lcom/android/settings/Settings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -10154,14 +10142,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_d9
+    if-nez v2, :cond_d7
 
-    :cond_d8
+    :cond_d6
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_3
 
-    :cond_d9
+    :cond_d7
     const-string v2, "VZW"
 
     sget-object v5, Lcom/android/settings/Settings;->sSalesCode:Ljava/lang/String;
@@ -10176,16 +10164,16 @@
 
     goto/16 :goto_3
 
-    :cond_da
+    :cond_d8
     const v2, 0x7f0b0741
 
-    if-ne v8, v2, :cond_dc
+    if-ne v8, v2, :cond_da
 
     invoke-static {}, Lcom/android/settings/Utils;->isAllNAVendor()Z
 
     move-result v2
 
-    if-nez v2, :cond_db
+    if-nez v2, :cond_d9
 
     const-string v2, "XAR"
 
@@ -10195,7 +10183,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_db
+    if-nez v2, :cond_d9
 
     const-string v2, "XAC"
 
@@ -10205,7 +10193,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_db
+    if-nez v2, :cond_d9
 
     invoke-virtual {p0}, Lcom/android/settings/Settings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -10235,15 +10223,15 @@
 
     if-nez v2, :cond_3
 
-    :cond_db
+    :cond_d9
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_3
 
-    :cond_dc
+    :cond_da
     const v2, 0x7f0b0738
 
-    if-ne v8, v2, :cond_dd
+    if-ne v8, v2, :cond_db
 
     :try_start_c
     invoke-virtual {p0}, Lcom/android/settings/Settings;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -10267,10 +10255,10 @@
 
     goto/16 :goto_3
 
-    :cond_dd
+    :cond_db
     const v2, 0x7f0b0742
 
-    if-ne v8, v2, :cond_e2
+    if-ne v8, v2, :cond_e0
 
     const-string v2, "com.vlingo.midas.gui.ConversationActivity"
 
@@ -10282,13 +10270,13 @@
 
     const/4 v9, 0x1
 
-    if-ne v5, v9, :cond_ed
+    if-ne v5, v9, :cond_eb
 
     invoke-static {}, Lcom/android/settings/Utils;->hasKLook()Z
 
     move-result v2
 
-    if-eqz v2, :cond_e1
+    if-eqz v2, :cond_df
 
     const-string v2, "com.vlingo.midas.settings.twopane.SettingsScreenTwoPane"
 
@@ -10297,7 +10285,7 @@
     :goto_e
     sget-boolean v2, Lcom/android/settings/Settings;->DBG:Z
 
-    if-eqz v2, :cond_de
+    if-eqz v2, :cond_dc
 
     const-string v2, "Settings"
 
@@ -10321,7 +10309,7 @@
 
     invoke-static {v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_de
+    :cond_dc
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -10330,7 +10318,7 @@
 
     iget-object v2, v2, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    if-eqz v2, :cond_df
+    if-eqz v2, :cond_dd
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -10344,7 +10332,7 @@
 
     invoke-virtual {v2, v9, v5}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_df
+    :cond_dd
     invoke-static {}, Lcom/samsung/android/feature/FloatingFeature;->getInstance()Lcom/samsung/android/feature/FloatingFeature;
 
     move-result-object v2
@@ -10355,7 +10343,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_e0
+    if-nez v2, :cond_de
 
     const-string v2, "VZW"
 
@@ -10367,22 +10355,22 @@
 
     if-eqz v2, :cond_3
 
-    :cond_e0
+    :cond_de
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_3
 
-    :cond_e1
+    :cond_df
     const-string v2, "com.vlingo.midas.settings.SettingsScreen"
 
     move-object v5, v2
 
     goto :goto_e
 
-    :cond_e2
+    :cond_e0
     const v2, 0x7f0b07ae
 
-    if-ne v8, v2, :cond_e3
+    if-ne v8, v2, :cond_e1
 
     const-string v2, "com.android.settings.powersavingmode.PowerSavingModeSettings"
 
@@ -10390,10 +10378,10 @@
 
     goto/16 :goto_3
 
-    :cond_e3
+    :cond_e1
     const v2, 0x7f0b0743
 
-    if-ne v8, v2, :cond_e4
+    if-ne v8, v2, :cond_e2
 
     const-string v2, "VZW"
 
@@ -10409,10 +10397,10 @@
 
     goto/16 :goto_3
 
-    :cond_e4
+    :cond_e2
     const v2, 0x7f0b0735
 
-    if-ne v8, v2, :cond_e5
+    if-ne v8, v2, :cond_e3
 
     const-string v2, "VZW"
 
@@ -10426,10 +10414,10 @@
 
     goto/16 :goto_3
 
-    :cond_e5
+    :cond_e3
     const v2, 0x7f0b0737
 
-    if-ne v8, v2, :cond_e6
+    if-ne v8, v2, :cond_e4
 
     const-string v2, "VZW"
 
@@ -10443,10 +10431,10 @@
 
     goto/16 :goto_3
 
-    :cond_e6
+    :cond_e4
     const v2, 0x7f0b079c
 
-    if-ne v8, v2, :cond_e7
+    if-ne v8, v2, :cond_e5
 
     sget-object v2, Lcom/android/settings/Settings;->mContext:Landroid/content/Context;
 
@@ -10460,7 +10448,7 @@
 
     goto/16 :goto_3
 
-    :cond_e7
+    :cond_e5
     const v2, 0x7f0b0016
 
     if-ne v8, v2, :cond_3
@@ -10481,24 +10469,24 @@
 
     goto/16 :goto_3
 
-    :cond_e8
+    :cond_e6
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v4, v2, :cond_e9
+    if-ge v4, v2, :cond_e7
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_e9
+    if-ne v2, v1, :cond_e7
 
-    if-eqz v6, :cond_e9
+    if-eqz v6, :cond_e7
 
     iget-boolean v2, p0, Lcom/android/settings/Settings;->isKioskContainer:Z
 
-    if-nez v2, :cond_e9
+    if-nez v2, :cond_e7
 
     iget-object v2, p0, Lcom/android/settings/Settings;->SETTINGS_FOR_KNOX:[I
 
@@ -10506,28 +10494,28 @@
 
     move-result v2
 
-    if-nez v2, :cond_e9
+    if-nez v2, :cond_e7
 
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_4
 
-    :cond_e9
+    :cond_e7
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v4, v2, :cond_ea
+    if-ge v4, v2, :cond_e8
 
     invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-ne v2, v1, :cond_ea
+    if-ne v2, v1, :cond_e8
 
     iget-boolean v2, p0, Lcom/android/settings/Settings;->isKioskContainer:Z
 
-    if-eqz v2, :cond_ea
+    if-eqz v2, :cond_e8
 
     iget-object v2, p0, Lcom/android/settings/Settings;->SETTINGS_FOR_KNOX:[I
 
@@ -10535,7 +10523,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_ea
+    if-nez v2, :cond_e8
 
     iget-object v2, p0, Lcom/android/settings/Settings;->EXTRA_SETTINGS_FOR_KIOSKCONTAINER:[I
 
@@ -10543,13 +10531,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_ea
+    if-nez v2, :cond_e8
 
     invoke-interface {p1, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto/16 :goto_4
 
-    :cond_ea
+    :cond_e8
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v2
@@ -10578,25 +10566,25 @@
 
     goto/16 :goto_4
 
-    :cond_eb
+    :cond_e9
     return-void
 
-    :cond_ec
+    :cond_ea
     move v1, v4
 
     goto/16 :goto_5
 
-    :cond_ed
+    :cond_eb
     move-object v5, v2
 
     goto/16 :goto_e
 
-    :cond_ee
+    :cond_ec
     move v2, v5
 
     goto/16 :goto_2
 
-    :cond_ef
+    :cond_ed
     move v3, v1
 
     move v4, v2

@@ -3660,8 +3660,6 @@
 
     move-result-object v6
 
-    invoke-virtual {v0, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
     iget-object v0, p0, Lcom/android/settings/DisplaySettings;->mSimpleLedIndicator:Landroid/preference/CheckBoxPreference;
 
     if-eqz v0, :cond_3
@@ -5424,8 +5422,6 @@
     :cond_2f
     const-string v0, "theme_settings"
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/DisplaySettings;->removePreference(Ljava/lang/String;)V
-
     goto/16 :goto_0
 
     :cond_30
@@ -5531,8 +5527,6 @@
     invoke-virtual {p0, v6}, Lcom/android/settings/DisplaySettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
     move-result-object v6
-
-    invoke-virtual {v0, v6}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_3
 
